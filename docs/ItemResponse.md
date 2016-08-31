@@ -1,0 +1,13 @@
+
+# ItemResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**error** | [**Error**](Error.md) |  |  [optional]
+**item** | [**Item**](Item.md) |  |  [optional]
+**metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  |  [optional]
+**success** | **Boolean** |  |  [optional]
+
+
+
