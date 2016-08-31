@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemRelatedItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T11:45:41.488-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T13:26:11.909-04:00")
 public class ItemRelatedItem   {
   @SerializedName("related_merchant_item_id")
   private String relatedMerchantItemId = null;

@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemDigitalDelivery
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T11:45:41.488-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T13:26:11.909-04:00")
 public class ItemDigitalDelivery   {
   @SerializedName("activation_code_description")
   private String activationCodeDescription = null;
