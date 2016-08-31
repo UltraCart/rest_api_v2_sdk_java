@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemInstantPaymentNotification
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T10:46:57.712-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T11:18:39.810-04:00")
 public class ItemInstantPaymentNotification   {
   @SerializedName("post_operation")
   private Boolean postOperation = null;

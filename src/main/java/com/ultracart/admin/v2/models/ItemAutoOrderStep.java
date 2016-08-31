@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * ItemAutoOrderStep
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T10:46:57.712-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T11:18:39.810-04:00")
 public class ItemAutoOrderStep   {
   @SerializedName("arbitrary_schedule_days")
   private Integer arbitraryScheduleDays = null;

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemEnrollment123
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T10:46:57.712-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T11:18:39.810-04:00")
 public class ItemEnrollment123   {
   @SerializedName("enrollment123_product_code")
   private String enrollment123ProductCode = null;
