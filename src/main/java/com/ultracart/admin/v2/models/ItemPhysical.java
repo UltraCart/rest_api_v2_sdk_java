@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemPhysical
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-08-31T13:26:11.909-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T08:57:44.038-04:00")
 public class ItemPhysical   {
   @SerializedName("height")
   private Distance height = null;

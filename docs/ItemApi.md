@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="itemItemsGet"></a>
 # **itemItemsGet**
-> ItemsResponse itemItemsGet(parentCategoryId)
+> ItemsResponse itemItemsGet(parentCategoryId, limit, offset, since, sort, expand, placeholders)
 
 Retrieve items
 
@@ -43,8 +43,14 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 
 ItemApi apiInstance = new ItemApi();
 Integer parentCategoryId = 56; // Integer | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root
+Integer limit = 56; // Integer | The maximum number of records to return on this one API call.
+Integer offset = 56; // Integer | Pagination of the record set.  Offset is a zero based index.
+String since = "since_example"; // String | Fetch items that have been created/modified since this date/time.
+String sort = "sort_example"; // String | The sort order of the items.  See documentation for examples
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemsResponse result = apiInstance.itemItemsGet(parentCategoryId);
+    ItemsResponse result = apiInstance.itemItemsGet(parentCategoryId, limit, offset, since, sort, expand, placeholders);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ItemApi#itemItemsGet");
@@ -57,6 +63,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parentCategoryId** | **Integer**| The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional]
+ **limit** | **Integer**| The maximum number of records to return on this one API call. | [optional]
+ **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional]
+ **since** | **String**| Fetch items that have been created/modified since this date/time. | [optional]
+ **sort** | **String**| The sort order of the items.  See documentation for examples | [optional]
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 
@@ -131,7 +143,7 @@ null (empty response body)
 
 <a name="itemItemsMerchantItemOidGet"></a>
 # **itemItemsMerchantItemOidGet**
-> ItemResponse itemItemsMerchantItemOidGet(merchantItemOid)
+> ItemResponse itemItemsMerchantItemOidGet(merchantItemOid, expand, placeholders)
 
 Retrieve an item
 
@@ -160,8 +172,10 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 
 ItemApi apiInstance = new ItemApi();
 Integer merchantItemOid = 56; // Integer | The item oid to retrieve.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemResponse result = apiInstance.itemItemsMerchantItemOidGet(merchantItemOid);
+    ItemResponse result = apiInstance.itemItemsMerchantItemOidGet(merchantItemOid, expand, placeholders);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ItemApi#itemItemsMerchantItemOidGet");
@@ -174,6 +188,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchantItemOid** | **Integer**| The item oid to retrieve. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 

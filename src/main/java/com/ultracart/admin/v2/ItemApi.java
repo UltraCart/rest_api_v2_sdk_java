@@ -71,7 +71,7 @@ public class ItemApi {
     }
 
     /* Build call for itemItemsGet */
-    private com.squareup.okhttp.Call itemItemsGetCall(Integer parentCategoryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call itemItemsGetCall(Integer parentCategoryId, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
 
@@ -81,6 +81,18 @@ public class ItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (parentCategoryId != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "parent_category_id", parentCategoryId));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_offset", offset));
+        if (since != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_since", since));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_sort", sort));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -118,11 +130,17 @@ public class ItemApi {
      * Retrieve items
      * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
      * @param parentCategoryId The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param limit The maximum number of records to return on this one API call. (optional)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See documentation for examples (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ItemsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse itemItemsGet(Integer parentCategoryId) throws ApiException {
-        ApiResponse<ItemsResponse> resp = itemItemsGetWithHttpInfo(parentCategoryId);
+    public ItemsResponse itemItemsGet(Integer parentCategoryId, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemsResponse> resp = itemItemsGetWithHttpInfo(parentCategoryId, limit, offset, since, sort, expand, placeholders);
         return resp.getData();
     }
 
@@ -130,11 +148,17 @@ public class ItemApi {
      * Retrieve items
      * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
      * @param parentCategoryId The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param limit The maximum number of records to return on this one API call. (optional)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See documentation for examples (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;ItemsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> itemItemsGetWithHttpInfo(Integer parentCategoryId) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, null, null);
+    public ApiResponse<ItemsResponse> itemItemsGetWithHttpInfo(Integer parentCategoryId, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, limit, offset, since, sort, expand, placeholders, null, null);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -143,11 +167,17 @@ public class ItemApi {
      * Retrieve items (asynchronously)
      * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
      * @param parentCategoryId The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param limit The maximum number of records to return on this one API call. (optional)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See documentation for examples (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemItemsGetAsync(Integer parentCategoryId, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call itemItemsGetAsync(Integer parentCategoryId, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -168,7 +198,7 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -277,7 +307,7 @@ public class ItemApi {
         return call;
     }
     /* Build call for itemItemsMerchantItemOidGet */
-    private com.squareup.okhttp.Call itemItemsMerchantItemOidGetCall(Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call itemItemsMerchantItemOidGetCall(Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'merchantItemOid' is set
@@ -291,6 +321,10 @@ public class ItemApi {
         .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -328,11 +362,13 @@ public class ItemApi {
      * Retrieve an item
      * Retrieves a single item using the specified item oid. 
      * @param merchantItemOid The item oid to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemResponse itemItemsMerchantItemOidGet(Integer merchantItemOid) throws ApiException {
-        ApiResponse<ItemResponse> resp = itemItemsMerchantItemOidGetWithHttpInfo(merchantItemOid);
+    public ItemResponse itemItemsMerchantItemOidGet(Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemResponse> resp = itemItemsMerchantItemOidGetWithHttpInfo(merchantItemOid, expand, placeholders);
         return resp.getData();
     }
 
@@ -340,11 +376,13 @@ public class ItemApi {
      * Retrieve an item
      * Retrieves a single item using the specified item oid. 
      * @param merchantItemOid The item oid to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;ItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemResponse> itemItemsMerchantItemOidGetWithHttpInfo(Integer merchantItemOid) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidGetCall(merchantItemOid, null, null);
+    public ApiResponse<ItemResponse> itemItemsMerchantItemOidGetWithHttpInfo(Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = itemItemsMerchantItemOidGetCall(merchantItemOid, expand, placeholders, null, null);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -353,11 +391,13 @@ public class ItemApi {
      * Retrieve an item (asynchronously)
      * Retrieves a single item using the specified item oid. 
      * @param merchantItemOid The item oid to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemItemsMerchantItemOidGetAsync(Integer merchantItemOid, final ApiCallback<ItemResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call itemItemsMerchantItemOidGetAsync(Integer merchantItemOid, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -378,7 +418,7 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidGetCall(merchantItemOid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = itemItemsMerchantItemOidGetCall(merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
