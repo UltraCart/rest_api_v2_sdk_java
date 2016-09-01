@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemRelated
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T08:57:44.038-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
 public class ItemRelated   {
   @SerializedName("no_system_calculated_related_items")
   private Boolean noSystemCalculatedRelatedItems = null;
