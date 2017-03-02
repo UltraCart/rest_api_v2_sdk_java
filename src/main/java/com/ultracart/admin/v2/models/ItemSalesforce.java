@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemSalesforce
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemSalesforce   {
   @SerializedName("sfdc_pricebook_id")
   private String sfdcPricebookId = null;
@@ -48,10 +48,10 @@ public class ItemSalesforce   {
   }
 
    /**
-   * Get sfdcPricebookId
+   * Salesforce.com pricebook id
    * @return sfdcPricebookId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Salesforce.com pricebook id")
   public String getSfdcPricebookId() {
     return sfdcPricebookId;
   }
@@ -66,10 +66,10 @@ public class ItemSalesforce   {
   }
 
    /**
-   * Get sfdcProductId
+   * Salesforce.com product id
    * @return sfdcProductId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Salesforce.com product id")
   public String getSfdcProductId() {
     return sfdcProductId;
   }

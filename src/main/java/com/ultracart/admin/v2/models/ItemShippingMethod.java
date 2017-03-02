@@ -29,42 +29,43 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemShippingMethod
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemShippingMethod   {
   @SerializedName("cost")
-  private Double cost = null;
+  private BigDecimal cost = null;
 
   @SerializedName("each_additional_item_markup")
-  private Double eachAdditionalItemMarkup = null;
+  private BigDecimal eachAdditionalItemMarkup = null;
 
   @SerializedName("filter_to_if_available")
   private Boolean filterToIfAvailable = null;
 
   @SerializedName("first_item_markup")
-  private Double firstItemMarkup = null;
+  private BigDecimal firstItemMarkup = null;
 
   @SerializedName("fixed_shipping_cost")
-  private Double fixedShippingCost = null;
+  private BigDecimal fixedShippingCost = null;
 
   @SerializedName("flat_fee_markup")
-  private Double flatFeeMarkup = null;
+  private BigDecimal flatFeeMarkup = null;
 
   @SerializedName("free_shipping")
   private Boolean freeShipping = null;
 
   @SerializedName("per_item_fee_markup")
-  private Double perItemFeeMarkup = null;
+  private BigDecimal perItemFeeMarkup = null;
 
   @SerializedName("percentage_markup")
-  private Double percentageMarkup = null;
+  private BigDecimal percentageMarkup = null;
 
   @SerializedName("percentage_of_item_markup")
-  private Double percentageOfItemMarkup = null;
+  private BigDecimal percentageOfItemMarkup = null;
 
   @SerializedName("relax_restrictions_on_upsell")
   private Boolean relaxRestrictionsOnUpsell = null;
@@ -75,45 +76,70 @@ public class ItemShippingMethod   {
   @SerializedName("shipping_method_oid")
   private Integer shippingMethodOid = null;
 
+  /**
+   * Shipping method validity
+   */
+  public enum ShippingMethodValidityEnum {
+    @SerializedName("invalid for")
+    INVALID_FOR("invalid for"),
+    
+    @SerializedName("valid for")
+    VALID_FOR("valid for"),
+    
+    @SerializedName("valid only for")
+    VALID_ONLY_FOR("valid only for");
+
+    private String value;
+
+    ShippingMethodValidityEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("shipping_method_validity")
-  private String shippingMethodValidity = null;
+  private ShippingMethodValidityEnum shippingMethodValidity = null;
 
   @SerializedName("signature_required")
   private Boolean signatureRequired = null;
 
-  public ItemShippingMethod cost(Double cost) {
+  public ItemShippingMethod cost(BigDecimal cost) {
     this.cost = cost;
     return this;
   }
 
    /**
-   * Get cost
+   * Cost
    * @return cost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCost() {
+  @ApiModelProperty(example = "null", value = "Cost")
+  public BigDecimal getCost() {
     return cost;
   }
 
-  public void setCost(Double cost) {
+  public void setCost(BigDecimal cost) {
     this.cost = cost;
   }
 
-  public ItemShippingMethod eachAdditionalItemMarkup(Double eachAdditionalItemMarkup) {
+  public ItemShippingMethod eachAdditionalItemMarkup(BigDecimal eachAdditionalItemMarkup) {
     this.eachAdditionalItemMarkup = eachAdditionalItemMarkup;
     return this;
   }
 
    /**
-   * Get eachAdditionalItemMarkup
+   * Each additional item markup
    * @return eachAdditionalItemMarkup
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getEachAdditionalItemMarkup() {
+  @ApiModelProperty(example = "null", value = "Each additional item markup")
+  public BigDecimal getEachAdditionalItemMarkup() {
     return eachAdditionalItemMarkup;
   }
 
-  public void setEachAdditionalItemMarkup(Double eachAdditionalItemMarkup) {
+  public void setEachAdditionalItemMarkup(BigDecimal eachAdditionalItemMarkup) {
     this.eachAdditionalItemMarkup = eachAdditionalItemMarkup;
   }
 
@@ -123,10 +149,10 @@ public class ItemShippingMethod   {
   }
 
    /**
-   * Get filterToIfAvailable
+   * Filter to this method if available
    * @return filterToIfAvailable
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Filter to this method if available")
   public Boolean getFilterToIfAvailable() {
     return filterToIfAvailable;
   }
@@ -135,57 +161,57 @@ public class ItemShippingMethod   {
     this.filterToIfAvailable = filterToIfAvailable;
   }
 
-  public ItemShippingMethod firstItemMarkup(Double firstItemMarkup) {
+  public ItemShippingMethod firstItemMarkup(BigDecimal firstItemMarkup) {
     this.firstItemMarkup = firstItemMarkup;
     return this;
   }
 
    /**
-   * Get firstItemMarkup
+   * First item markup
    * @return firstItemMarkup
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getFirstItemMarkup() {
+  @ApiModelProperty(example = "null", value = "First item markup")
+  public BigDecimal getFirstItemMarkup() {
     return firstItemMarkup;
   }
 
-  public void setFirstItemMarkup(Double firstItemMarkup) {
+  public void setFirstItemMarkup(BigDecimal firstItemMarkup) {
     this.firstItemMarkup = firstItemMarkup;
   }
 
-  public ItemShippingMethod fixedShippingCost(Double fixedShippingCost) {
+  public ItemShippingMethod fixedShippingCost(BigDecimal fixedShippingCost) {
     this.fixedShippingCost = fixedShippingCost;
     return this;
   }
 
    /**
-   * Get fixedShippingCost
+   * Fixed shipping cost
    * @return fixedShippingCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getFixedShippingCost() {
+  @ApiModelProperty(example = "null", value = "Fixed shipping cost")
+  public BigDecimal getFixedShippingCost() {
     return fixedShippingCost;
   }
 
-  public void setFixedShippingCost(Double fixedShippingCost) {
+  public void setFixedShippingCost(BigDecimal fixedShippingCost) {
     this.fixedShippingCost = fixedShippingCost;
   }
 
-  public ItemShippingMethod flatFeeMarkup(Double flatFeeMarkup) {
+  public ItemShippingMethod flatFeeMarkup(BigDecimal flatFeeMarkup) {
     this.flatFeeMarkup = flatFeeMarkup;
     return this;
   }
 
    /**
-   * Get flatFeeMarkup
+   * Flat fee markup
    * @return flatFeeMarkup
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getFlatFeeMarkup() {
+  @ApiModelProperty(example = "null", value = "Flat fee markup")
+  public BigDecimal getFlatFeeMarkup() {
     return flatFeeMarkup;
   }
 
-  public void setFlatFeeMarkup(Double flatFeeMarkup) {
+  public void setFlatFeeMarkup(BigDecimal flatFeeMarkup) {
     this.flatFeeMarkup = flatFeeMarkup;
   }
 
@@ -195,10 +221,10 @@ public class ItemShippingMethod   {
   }
 
    /**
-   * Get freeShipping
+   * Free shipping
    * @return freeShipping
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Free shipping")
   public Boolean getFreeShipping() {
     return freeShipping;
   }
@@ -207,57 +233,57 @@ public class ItemShippingMethod   {
     this.freeShipping = freeShipping;
   }
 
-  public ItemShippingMethod perItemFeeMarkup(Double perItemFeeMarkup) {
+  public ItemShippingMethod perItemFeeMarkup(BigDecimal perItemFeeMarkup) {
     this.perItemFeeMarkup = perItemFeeMarkup;
     return this;
   }
 
    /**
-   * Get perItemFeeMarkup
+   * Per item fee markup
    * @return perItemFeeMarkup
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getPerItemFeeMarkup() {
+  @ApiModelProperty(example = "null", value = "Per item fee markup")
+  public BigDecimal getPerItemFeeMarkup() {
     return perItemFeeMarkup;
   }
 
-  public void setPerItemFeeMarkup(Double perItemFeeMarkup) {
+  public void setPerItemFeeMarkup(BigDecimal perItemFeeMarkup) {
     this.perItemFeeMarkup = perItemFeeMarkup;
   }
 
-  public ItemShippingMethod percentageMarkup(Double percentageMarkup) {
+  public ItemShippingMethod percentageMarkup(BigDecimal percentageMarkup) {
     this.percentageMarkup = percentageMarkup;
     return this;
   }
 
    /**
-   * Get percentageMarkup
+   * Percentage markup
    * @return percentageMarkup
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getPercentageMarkup() {
+  @ApiModelProperty(example = "null", value = "Percentage markup")
+  public BigDecimal getPercentageMarkup() {
     return percentageMarkup;
   }
 
-  public void setPercentageMarkup(Double percentageMarkup) {
+  public void setPercentageMarkup(BigDecimal percentageMarkup) {
     this.percentageMarkup = percentageMarkup;
   }
 
-  public ItemShippingMethod percentageOfItemMarkup(Double percentageOfItemMarkup) {
+  public ItemShippingMethod percentageOfItemMarkup(BigDecimal percentageOfItemMarkup) {
     this.percentageOfItemMarkup = percentageOfItemMarkup;
     return this;
   }
 
    /**
-   * Get percentageOfItemMarkup
+   * Percentage of item markup
    * @return percentageOfItemMarkup
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getPercentageOfItemMarkup() {
+  @ApiModelProperty(example = "null", value = "Percentage of item markup")
+  public BigDecimal getPercentageOfItemMarkup() {
     return percentageOfItemMarkup;
   }
 
-  public void setPercentageOfItemMarkup(Double percentageOfItemMarkup) {
+  public void setPercentageOfItemMarkup(BigDecimal percentageOfItemMarkup) {
     this.percentageOfItemMarkup = percentageOfItemMarkup;
   }
 
@@ -267,10 +293,10 @@ public class ItemShippingMethod   {
   }
 
    /**
-   * Get relaxRestrictionsOnUpsell
+   * Relax restrictions on upsell
    * @return relaxRestrictionsOnUpsell
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Relax restrictions on upsell")
   public Boolean getRelaxRestrictionsOnUpsell() {
     return relaxRestrictionsOnUpsell;
   }
@@ -285,10 +311,10 @@ public class ItemShippingMethod   {
   }
 
    /**
-   * Get shippingMethod
+   * Shipping method name
    * @return shippingMethod
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Shipping method name")
   public String getShippingMethod() {
     return shippingMethod;
   }
@@ -303,10 +329,10 @@ public class ItemShippingMethod   {
   }
 
    /**
-   * Get shippingMethodOid
+   * Shipping method object identifier
    * @return shippingMethodOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Shipping method object identifier")
   public Integer getShippingMethodOid() {
     return shippingMethodOid;
   }
@@ -315,21 +341,21 @@ public class ItemShippingMethod   {
     this.shippingMethodOid = shippingMethodOid;
   }
 
-  public ItemShippingMethod shippingMethodValidity(String shippingMethodValidity) {
+  public ItemShippingMethod shippingMethodValidity(ShippingMethodValidityEnum shippingMethodValidity) {
     this.shippingMethodValidity = shippingMethodValidity;
     return this;
   }
 
    /**
-   * Get shippingMethodValidity
+   * Shipping method validity
    * @return shippingMethodValidity
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getShippingMethodValidity() {
+  @ApiModelProperty(example = "null", value = "Shipping method validity")
+  public ShippingMethodValidityEnum getShippingMethodValidity() {
     return shippingMethodValidity;
   }
 
-  public void setShippingMethodValidity(String shippingMethodValidity) {
+  public void setShippingMethodValidity(ShippingMethodValidityEnum shippingMethodValidity) {
     this.shippingMethodValidity = shippingMethodValidity;
   }
 
@@ -339,10 +365,10 @@ public class ItemShippingMethod   {
   }
 
    /**
-   * Get signatureRequired
+   * Signature required
    * @return signatureRequired
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Signature required")
   public Boolean getSignatureRequired() {
     return signatureRequired;
   }

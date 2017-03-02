@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**postOperation** | **Boolean** |  |  [optional]
-**successfulResponseText** | **String** |  |  [optional]
-**url** | **String** |  |  [optional]
+**postOperation** | **Boolean** | True for HTTP POST instead of GET |  [optional]
+**successfulResponseText** | **String** | Successful response text |  [optional]
+**url** | **String** | URL |  [optional]
 
 
 

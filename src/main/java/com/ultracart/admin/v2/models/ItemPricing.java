@@ -30,6 +30,7 @@ import com.google.gson.annotations.SerializedName;
 import com.ultracart.admin.v2.models.ItemPricingTier;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ import java.util.List;
 /**
  * ItemPricing
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemPricing   {
   @SerializedName("allow_arbitrary_cost")
   private Boolean allowArbitraryCost = null;
@@ -52,25 +53,25 @@ public class ItemPricing   {
   private Integer automaticPricingTierOid = null;
 
   @SerializedName("cogs")
-  private Double cogs = null;
+  private BigDecimal cogs = null;
 
   @SerializedName("cost")
-  private Double cost = null;
+  private BigDecimal cost = null;
 
   @SerializedName("currency_code")
   private String currencyCode = null;
 
   @SerializedName("manufacturer_suggested_retail_price")
-  private Double manufacturerSuggestedRetailPrice = null;
+  private BigDecimal manufacturerSuggestedRetailPrice = null;
 
   @SerializedName("maximum_arbitrary_cost")
-  private Double maximumArbitraryCost = null;
+  private BigDecimal maximumArbitraryCost = null;
 
   @SerializedName("minimum_advertised_price")
-  private Double minimumAdvertisedPrice = null;
+  private BigDecimal minimumAdvertisedPrice = null;
 
   @SerializedName("minimum_arbitrary_cost")
-  private Double minimumArbitraryCost = null;
+  private BigDecimal minimumArbitraryCost = null;
 
   @SerializedName("mix_and_match_group")
   private String mixAndMatchGroup = null;
@@ -79,7 +80,7 @@ public class ItemPricing   {
   private Integer mixAndMatchGroupOid = null;
 
   @SerializedName("sale_cost")
-  private Double saleCost = null;
+  private BigDecimal saleCost = null;
 
   @SerializedName("sale_end")
   private String saleEnd = null;
@@ -96,10 +97,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get allowArbitraryCost
+   * Allow arbitrary cost
    * @return allowArbitraryCost
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Allow arbitrary cost")
   public Boolean getAllowArbitraryCost() {
     return allowArbitraryCost;
   }
@@ -114,10 +115,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get arbitraryCostVelocityCode
+   * Arbitrary cost velocity code
    * @return arbitraryCostVelocityCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Arbitrary cost velocity code")
   public String getArbitraryCostVelocityCode() {
     return arbitraryCostVelocityCode;
   }
@@ -132,10 +133,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get automaticPricingTierName
+   * Automatic pricing tier name
    * @return automaticPricingTierName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Automatic pricing tier name")
   public String getAutomaticPricingTierName() {
     return automaticPricingTierName;
   }
@@ -150,10 +151,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get automaticPricingTierOid
+   * Automatic pricing tier object identifier
    * @return automaticPricingTierOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Automatic pricing tier object identifier")
   public Integer getAutomaticPricingTierOid() {
     return automaticPricingTierOid;
   }
@@ -162,39 +163,39 @@ public class ItemPricing   {
     this.automaticPricingTierOid = automaticPricingTierOid;
   }
 
-  public ItemPricing cogs(Double cogs) {
+  public ItemPricing cogs(BigDecimal cogs) {
     this.cogs = cogs;
     return this;
   }
 
    /**
-   * Get cogs
+   * Cost of goods sold
    * @return cogs
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCogs() {
+  @ApiModelProperty(example = "null", value = "Cost of goods sold")
+  public BigDecimal getCogs() {
     return cogs;
   }
 
-  public void setCogs(Double cogs) {
+  public void setCogs(BigDecimal cogs) {
     this.cogs = cogs;
   }
 
-  public ItemPricing cost(Double cost) {
+  public ItemPricing cost(BigDecimal cost) {
     this.cost = cost;
     return this;
   }
 
    /**
-   * Get cost
+   * Cost
    * @return cost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCost() {
+  @ApiModelProperty(example = "null", value = "Cost")
+  public BigDecimal getCost() {
     return cost;
   }
 
-  public void setCost(Double cost) {
+  public void setCost(BigDecimal cost) {
     this.cost = cost;
   }
 
@@ -204,10 +205,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get currencyCode
+   * Currency code
    * @return currencyCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Currency code")
   public String getCurrencyCode() {
     return currencyCode;
   }
@@ -216,75 +217,75 @@ public class ItemPricing   {
     this.currencyCode = currencyCode;
   }
 
-  public ItemPricing manufacturerSuggestedRetailPrice(Double manufacturerSuggestedRetailPrice) {
+  public ItemPricing manufacturerSuggestedRetailPrice(BigDecimal manufacturerSuggestedRetailPrice) {
     this.manufacturerSuggestedRetailPrice = manufacturerSuggestedRetailPrice;
     return this;
   }
 
    /**
-   * Get manufacturerSuggestedRetailPrice
+   * Manufacturer suggested retail price
    * @return manufacturerSuggestedRetailPrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getManufacturerSuggestedRetailPrice() {
+  @ApiModelProperty(example = "null", value = "Manufacturer suggested retail price")
+  public BigDecimal getManufacturerSuggestedRetailPrice() {
     return manufacturerSuggestedRetailPrice;
   }
 
-  public void setManufacturerSuggestedRetailPrice(Double manufacturerSuggestedRetailPrice) {
+  public void setManufacturerSuggestedRetailPrice(BigDecimal manufacturerSuggestedRetailPrice) {
     this.manufacturerSuggestedRetailPrice = manufacturerSuggestedRetailPrice;
   }
 
-  public ItemPricing maximumArbitraryCost(Double maximumArbitraryCost) {
+  public ItemPricing maximumArbitraryCost(BigDecimal maximumArbitraryCost) {
     this.maximumArbitraryCost = maximumArbitraryCost;
     return this;
   }
 
    /**
-   * Get maximumArbitraryCost
+   * Maximum arbitrary cost
    * @return maximumArbitraryCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMaximumArbitraryCost() {
+  @ApiModelProperty(example = "null", value = "Maximum arbitrary cost")
+  public BigDecimal getMaximumArbitraryCost() {
     return maximumArbitraryCost;
   }
 
-  public void setMaximumArbitraryCost(Double maximumArbitraryCost) {
+  public void setMaximumArbitraryCost(BigDecimal maximumArbitraryCost) {
     this.maximumArbitraryCost = maximumArbitraryCost;
   }
 
-  public ItemPricing minimumAdvertisedPrice(Double minimumAdvertisedPrice) {
+  public ItemPricing minimumAdvertisedPrice(BigDecimal minimumAdvertisedPrice) {
     this.minimumAdvertisedPrice = minimumAdvertisedPrice;
     return this;
   }
 
    /**
-   * Get minimumAdvertisedPrice
+   * Minimum advertised price
    * @return minimumAdvertisedPrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMinimumAdvertisedPrice() {
+  @ApiModelProperty(example = "null", value = "Minimum advertised price")
+  public BigDecimal getMinimumAdvertisedPrice() {
     return minimumAdvertisedPrice;
   }
 
-  public void setMinimumAdvertisedPrice(Double minimumAdvertisedPrice) {
+  public void setMinimumAdvertisedPrice(BigDecimal minimumAdvertisedPrice) {
     this.minimumAdvertisedPrice = minimumAdvertisedPrice;
   }
 
-  public ItemPricing minimumArbitraryCost(Double minimumArbitraryCost) {
+  public ItemPricing minimumArbitraryCost(BigDecimal minimumArbitraryCost) {
     this.minimumArbitraryCost = minimumArbitraryCost;
     return this;
   }
 
    /**
-   * Get minimumArbitraryCost
+   * Minimum arbitrary cost
    * @return minimumArbitraryCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMinimumArbitraryCost() {
+  @ApiModelProperty(example = "null", value = "Minimum arbitrary cost")
+  public BigDecimal getMinimumArbitraryCost() {
     return minimumArbitraryCost;
   }
 
-  public void setMinimumArbitraryCost(Double minimumArbitraryCost) {
+  public void setMinimumArbitraryCost(BigDecimal minimumArbitraryCost) {
     this.minimumArbitraryCost = minimumArbitraryCost;
   }
 
@@ -294,10 +295,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get mixAndMatchGroup
+   * Mix and match group
    * @return mixAndMatchGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Mix and match group")
   public String getMixAndMatchGroup() {
     return mixAndMatchGroup;
   }
@@ -312,10 +313,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get mixAndMatchGroupOid
+   * Mix and match group object identifier
    * @return mixAndMatchGroupOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Mix and match group object identifier")
   public Integer getMixAndMatchGroupOid() {
     return mixAndMatchGroupOid;
   }
@@ -324,21 +325,21 @@ public class ItemPricing   {
     this.mixAndMatchGroupOid = mixAndMatchGroupOid;
   }
 
-  public ItemPricing saleCost(Double saleCost) {
+  public ItemPricing saleCost(BigDecimal saleCost) {
     this.saleCost = saleCost;
     return this;
   }
 
    /**
-   * Get saleCost
+   * Sale cost
    * @return saleCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getSaleCost() {
+  @ApiModelProperty(example = "null", value = "Sale cost")
+  public BigDecimal getSaleCost() {
     return saleCost;
   }
 
-  public void setSaleCost(Double saleCost) {
+  public void setSaleCost(BigDecimal saleCost) {
     this.saleCost = saleCost;
   }
 
@@ -348,10 +349,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get saleEnd
+   * Sale end
    * @return saleEnd
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Sale end")
   public String getSaleEnd() {
     return saleEnd;
   }
@@ -366,10 +367,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get saleStart
+   * Sale start
    * @return saleStart
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Sale start")
   public String getSaleStart() {
     return saleStart;
   }
@@ -389,10 +390,10 @@ public class ItemPricing   {
   }
 
    /**
-   * Get tiers
+   * Tiers
    * @return tiers
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Tiers")
   public List<ItemPricingTier> getTiers() {
     return tiers;
   }

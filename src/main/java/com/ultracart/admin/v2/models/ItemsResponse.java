@@ -39,7 +39,7 @@ import java.util.List;
 /**
  * ItemsResponse
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemsResponse   {
   @SerializedName("error")
   private Error error = null;
@@ -82,10 +82,10 @@ public class ItemsResponse   {
   }
 
    /**
-   * Get items
+   * items
    * @return items
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "items")
   public List<Item> getItems() {
     return items;
   }
@@ -118,10 +118,10 @@ public class ItemsResponse   {
   }
 
    /**
-   * Get success
+   * Indicates if API call was successful
    * @return success
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Indicates if API call was successful")
   public Boolean getSuccess() {
     return success;
   }

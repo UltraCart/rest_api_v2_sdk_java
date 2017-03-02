@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemChargebackAddendum
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemChargebackAddendum   {
   @SerializedName("chargeback_addendum_oid")
   private Integer chargebackAddendumOid = null;
@@ -54,10 +54,10 @@ public class ItemChargebackAddendum   {
   }
 
    /**
-   * Get chargebackAddendumOid
+   * Chargeback addendum object identifier
    * @return chargebackAddendumOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Chargeback addendum object identifier")
   public Integer getChargebackAddendumOid() {
     return chargebackAddendumOid;
   }
@@ -72,10 +72,10 @@ public class ItemChargebackAddendum   {
   }
 
    /**
-   * Get description
+   * Description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description")
   public String getDescription() {
     return description;
   }
@@ -90,10 +90,10 @@ public class ItemChargebackAddendum   {
   }
 
    /**
-   * Get fileSize
+   * Size of the file
    * @return fileSize
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Size of the file")
   public Integer getFileSize() {
     return fileSize;
   }
@@ -108,10 +108,10 @@ public class ItemChargebackAddendum   {
   }
 
    /**
-   * Get pages
+   * Number of pages
    * @return pages
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Number of pages")
   public Integer getPages() {
     return pages;
   }

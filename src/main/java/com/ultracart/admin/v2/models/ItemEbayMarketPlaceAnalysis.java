@@ -30,6 +30,7 @@ import com.google.gson.annotations.SerializedName;
 import com.ultracart.admin.v2.models.ItemEbayMarketListing;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,25 +38,25 @@ import java.util.List;
 /**
  * ItemEbayMarketPlaceAnalysis
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemEbayMarketPlaceAnalysis   {
   @SerializedName("adjusted_price")
-  private Double adjustedPrice = null;
+  private BigDecimal adjustedPrice = null;
 
   @SerializedName("adjusted_shipping")
-  private Double adjustedShipping = null;
+  private BigDecimal adjustedShipping = null;
 
   @SerializedName("adjusted_total")
-  private Double adjustedTotal = null;
+  private BigDecimal adjustedTotal = null;
 
   @SerializedName("cogs")
-  private Double cogs = null;
+  private BigDecimal cogs = null;
 
   @SerializedName("final_value_fee")
-  private Double finalValueFee = null;
+  private BigDecimal finalValueFee = null;
 
   @SerializedName("minimum_advertised_price")
-  private Double minimumAdvertisedPrice = null;
+  private BigDecimal minimumAdvertisedPrice = null;
 
   @SerializedName("other_listings")
   private List<ItemEbayMarketListing> otherListings = new ArrayList<ItemEbayMarketListing>();
@@ -64,116 +65,116 @@ public class ItemEbayMarketPlaceAnalysis   {
   private ItemEbayMarketListing ourListing = null;
 
   @SerializedName("overhead")
-  private Double overhead = null;
+  private BigDecimal overhead = null;
 
   @SerializedName("profit_potential")
-  private Double profitPotential = null;
+  private BigDecimal profitPotential = null;
 
-  public ItemEbayMarketPlaceAnalysis adjustedPrice(Double adjustedPrice) {
+  public ItemEbayMarketPlaceAnalysis adjustedPrice(BigDecimal adjustedPrice) {
     this.adjustedPrice = adjustedPrice;
     return this;
   }
 
    /**
-   * Get adjustedPrice
+   * Adjusted price
    * @return adjustedPrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getAdjustedPrice() {
+  @ApiModelProperty(example = "null", value = "Adjusted price")
+  public BigDecimal getAdjustedPrice() {
     return adjustedPrice;
   }
 
-  public void setAdjustedPrice(Double adjustedPrice) {
+  public void setAdjustedPrice(BigDecimal adjustedPrice) {
     this.adjustedPrice = adjustedPrice;
   }
 
-  public ItemEbayMarketPlaceAnalysis adjustedShipping(Double adjustedShipping) {
+  public ItemEbayMarketPlaceAnalysis adjustedShipping(BigDecimal adjustedShipping) {
     this.adjustedShipping = adjustedShipping;
     return this;
   }
 
    /**
-   * Get adjustedShipping
+   * Adjusted shipping
    * @return adjustedShipping
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getAdjustedShipping() {
+  @ApiModelProperty(example = "null", value = "Adjusted shipping")
+  public BigDecimal getAdjustedShipping() {
     return adjustedShipping;
   }
 
-  public void setAdjustedShipping(Double adjustedShipping) {
+  public void setAdjustedShipping(BigDecimal adjustedShipping) {
     this.adjustedShipping = adjustedShipping;
   }
 
-  public ItemEbayMarketPlaceAnalysis adjustedTotal(Double adjustedTotal) {
+  public ItemEbayMarketPlaceAnalysis adjustedTotal(BigDecimal adjustedTotal) {
     this.adjustedTotal = adjustedTotal;
     return this;
   }
 
    /**
-   * Get adjustedTotal
+   * Adjusted total
    * @return adjustedTotal
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getAdjustedTotal() {
+  @ApiModelProperty(example = "null", value = "Adjusted total")
+  public BigDecimal getAdjustedTotal() {
     return adjustedTotal;
   }
 
-  public void setAdjustedTotal(Double adjustedTotal) {
+  public void setAdjustedTotal(BigDecimal adjustedTotal) {
     this.adjustedTotal = adjustedTotal;
   }
 
-  public ItemEbayMarketPlaceAnalysis cogs(Double cogs) {
+  public ItemEbayMarketPlaceAnalysis cogs(BigDecimal cogs) {
     this.cogs = cogs;
     return this;
   }
 
    /**
-   * Get cogs
+   * Cost of goods sold
    * @return cogs
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCogs() {
+  @ApiModelProperty(example = "null", value = "Cost of goods sold")
+  public BigDecimal getCogs() {
     return cogs;
   }
 
-  public void setCogs(Double cogs) {
+  public void setCogs(BigDecimal cogs) {
     this.cogs = cogs;
   }
 
-  public ItemEbayMarketPlaceAnalysis finalValueFee(Double finalValueFee) {
+  public ItemEbayMarketPlaceAnalysis finalValueFee(BigDecimal finalValueFee) {
     this.finalValueFee = finalValueFee;
     return this;
   }
 
    /**
-   * Get finalValueFee
+   * Final value fee
    * @return finalValueFee
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getFinalValueFee() {
+  @ApiModelProperty(example = "null", value = "Final value fee")
+  public BigDecimal getFinalValueFee() {
     return finalValueFee;
   }
 
-  public void setFinalValueFee(Double finalValueFee) {
+  public void setFinalValueFee(BigDecimal finalValueFee) {
     this.finalValueFee = finalValueFee;
   }
 
-  public ItemEbayMarketPlaceAnalysis minimumAdvertisedPrice(Double minimumAdvertisedPrice) {
+  public ItemEbayMarketPlaceAnalysis minimumAdvertisedPrice(BigDecimal minimumAdvertisedPrice) {
     this.minimumAdvertisedPrice = minimumAdvertisedPrice;
     return this;
   }
 
    /**
-   * Get minimumAdvertisedPrice
+   * Minimum advertised price
    * @return minimumAdvertisedPrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMinimumAdvertisedPrice() {
+  @ApiModelProperty(example = "null", value = "Minimum advertised price")
+  public BigDecimal getMinimumAdvertisedPrice() {
     return minimumAdvertisedPrice;
   }
 
-  public void setMinimumAdvertisedPrice(Double minimumAdvertisedPrice) {
+  public void setMinimumAdvertisedPrice(BigDecimal minimumAdvertisedPrice) {
     this.minimumAdvertisedPrice = minimumAdvertisedPrice;
   }
 
@@ -188,10 +189,10 @@ public class ItemEbayMarketPlaceAnalysis   {
   }
 
    /**
-   * Get otherListings
+   * Other listings
    * @return otherListings
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Other listings")
   public List<ItemEbayMarketListing> getOtherListings() {
     return otherListings;
   }
@@ -218,39 +219,39 @@ public class ItemEbayMarketPlaceAnalysis   {
     this.ourListing = ourListing;
   }
 
-  public ItemEbayMarketPlaceAnalysis overhead(Double overhead) {
+  public ItemEbayMarketPlaceAnalysis overhead(BigDecimal overhead) {
     this.overhead = overhead;
     return this;
   }
 
    /**
-   * Get overhead
+   * Overhead
    * @return overhead
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getOverhead() {
+  @ApiModelProperty(example = "null", value = "Overhead")
+  public BigDecimal getOverhead() {
     return overhead;
   }
 
-  public void setOverhead(Double overhead) {
+  public void setOverhead(BigDecimal overhead) {
     this.overhead = overhead;
   }
 
-  public ItemEbayMarketPlaceAnalysis profitPotential(Double profitPotential) {
+  public ItemEbayMarketPlaceAnalysis profitPotential(BigDecimal profitPotential) {
     this.profitPotential = profitPotential;
     return this;
   }
 
    /**
-   * Get profitPotential
+   * Profit potential
    * @return profitPotential
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getProfitPotential() {
+  @ApiModelProperty(example = "null", value = "Profit potential")
+  public BigDecimal getProfitPotential() {
     return profitPotential;
   }
 
-  public void setProfitPotential(Double profitPotential) {
+  public void setProfitPotential(BigDecimal profitPotential) {
     this.profitPotential = profitPotential;
   }
 

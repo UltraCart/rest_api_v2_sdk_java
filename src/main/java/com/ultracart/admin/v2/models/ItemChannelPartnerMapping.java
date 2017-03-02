@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemChannelPartnerMapping
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemChannelPartnerMapping   {
   @SerializedName("barcode_ua")
   private String barcodeUa = null;
@@ -93,10 +93,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get barcodeUa
+   * Barcode UA (EDI only)
    * @return barcodeUa
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Barcode UA (EDI only)")
   public String getBarcodeUa() {
     return barcodeUa;
   }
@@ -111,10 +111,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get barcodeUc
+   * Barcode UC (EDI only)
    * @return barcodeUc
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Barcode UC (EDI only)")
   public String getBarcodeUc() {
     return barcodeUc;
   }
@@ -129,10 +129,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get barcodeUi
+   * Barcode UI (EDI only)
    * @return barcodeUi
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Barcode UI (EDI only)")
   public String getBarcodeUi() {
     return barcodeUi;
   }
@@ -147,10 +147,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get barcodeUk
+   * Barcode UK (EDI only)
    * @return barcodeUk
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Barcode UK (EDI only)")
   public String getBarcodeUk() {
     return barcodeUk;
   }
@@ -165,10 +165,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get buyerDpci
+   * Buyer DPCI (EDI only)
    * @return buyerDpci
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Buyer DPCI (EDI only)")
   public String getBuyerDpci() {
     return buyerDpci;
   }
@@ -183,10 +183,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get buyerItemNumber
+   * Buyer item number (EDI only)
    * @return buyerItemNumber
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Buyer item number (EDI only)")
   public String getBuyerItemNumber() {
     return buyerItemNumber;
   }
@@ -201,10 +201,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get channelPartnerCode
+   * Channel partner code
    * @return channelPartnerCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Channel partner code")
   public String getChannelPartnerCode() {
     return channelPartnerCode;
   }
@@ -219,10 +219,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get channelPartnerOid
+   * Channel partner object identifier
    * @return channelPartnerOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Channel partner object identifier")
   public Integer getChannelPartnerOid() {
     return channelPartnerOid;
   }
@@ -237,10 +237,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get fromItemId
+   * From Item ID
    * @return fromItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "From Item ID")
   public String getFromItemId() {
     return fromItemId;
   }
@@ -255,10 +255,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get fromSku
+   * From SKU
    * @return fromSku
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "From SKU")
   public String getFromSku() {
     return fromSku;
   }
@@ -273,10 +273,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get mutuallyDefinedNumber
+   * Mutually defined number (EDI only)
    * @return mutuallyDefinedNumber
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Mutually defined number (EDI only)")
   public String getMutuallyDefinedNumber() {
     return mutuallyDefinedNumber;
   }
@@ -291,10 +291,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get quantityRatioCp
+   * Ratio (Channel Partner)
    * @return quantityRatioCp
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Ratio (Channel Partner)")
   public Integer getQuantityRatioCp() {
     return quantityRatioCp;
   }
@@ -309,10 +309,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get quantityRatioUc
+   * Ratio (UltraCart)
    * @return quantityRatioUc
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Ratio (UltraCart)")
   public Integer getQuantityRatioUc() {
     return quantityRatioUc;
   }
@@ -327,10 +327,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get sku
+   * SKU
    * @return sku
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "SKU")
   public String getSku() {
     return sku;
   }
@@ -345,10 +345,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get unitOfMeasure
+   * Unit of measure
    * @return unitOfMeasure
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Unit of measure")
   public String getUnitOfMeasure() {
     return unitOfMeasure;
   }
@@ -363,10 +363,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get vendorNumber
+   * Vendor number (EDI only)
    * @return vendorNumber
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Vendor number (EDI only)")
   public String getVendorNumber() {
     return vendorNumber;
   }
@@ -381,10 +381,10 @@ public class ItemChannelPartnerMapping   {
   }
 
    /**
-   * Get vendorStyleNumber
+   * Vendor style number (EDI only)
    * @return vendorStyleNumber
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Vendor style number (EDI only)")
   public String getVendorStyleNumber() {
     return vendorStyleNumber;
   }

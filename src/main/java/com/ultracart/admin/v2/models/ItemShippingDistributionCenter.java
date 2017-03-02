@@ -29,24 +29,25 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemShippingDistributionCenter
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemShippingDistributionCenter   {
   @SerializedName("allocated_to_placed_orders")
-  private Double allocatedToPlacedOrders = null;
+  private BigDecimal allocatedToPlacedOrders = null;
 
   @SerializedName("allocated_to_shopping_carts")
-  private Double allocatedToShoppingCarts = null;
+  private BigDecimal allocatedToShoppingCarts = null;
 
   @SerializedName("available_to_allocate")
-  private Double availableToAllocate = null;
+  private BigDecimal availableToAllocate = null;
 
   @SerializedName("desired_inventory_level")
-  private Double desiredInventoryLevel = null;
+  private BigDecimal desiredInventoryLevel = null;
 
   @SerializedName("distribution_center_code")
   private String distributionCenterCode = null;
@@ -61,13 +62,13 @@ public class ItemShippingDistributionCenter   {
   private Boolean handles = null;
 
   @SerializedName("inventory_level")
-  private Double inventoryLevel = null;
+  private BigDecimal inventoryLevel = null;
 
   @SerializedName("maximum_backorder")
   private Integer maximumBackorder = null;
 
   @SerializedName("reorder_inventory_level")
-  private Double reorderInventoryLevel = null;
+  private BigDecimal reorderInventoryLevel = null;
 
   @SerializedName("sku")
   private String sku = null;
@@ -75,75 +76,75 @@ public class ItemShippingDistributionCenter   {
   @SerializedName("stock_picking_location")
   private String stockPickingLocation = null;
 
-  public ItemShippingDistributionCenter allocatedToPlacedOrders(Double allocatedToPlacedOrders) {
+  public ItemShippingDistributionCenter allocatedToPlacedOrders(BigDecimal allocatedToPlacedOrders) {
     this.allocatedToPlacedOrders = allocatedToPlacedOrders;
     return this;
   }
 
    /**
-   * Get allocatedToPlacedOrders
+   * Allocated to placed orders
    * @return allocatedToPlacedOrders
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getAllocatedToPlacedOrders() {
+  @ApiModelProperty(example = "null", value = "Allocated to placed orders")
+  public BigDecimal getAllocatedToPlacedOrders() {
     return allocatedToPlacedOrders;
   }
 
-  public void setAllocatedToPlacedOrders(Double allocatedToPlacedOrders) {
+  public void setAllocatedToPlacedOrders(BigDecimal allocatedToPlacedOrders) {
     this.allocatedToPlacedOrders = allocatedToPlacedOrders;
   }
 
-  public ItemShippingDistributionCenter allocatedToShoppingCarts(Double allocatedToShoppingCarts) {
+  public ItemShippingDistributionCenter allocatedToShoppingCarts(BigDecimal allocatedToShoppingCarts) {
     this.allocatedToShoppingCarts = allocatedToShoppingCarts;
     return this;
   }
 
    /**
-   * Get allocatedToShoppingCarts
+   * Allocated to shopping carts
    * @return allocatedToShoppingCarts
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getAllocatedToShoppingCarts() {
+  @ApiModelProperty(example = "null", value = "Allocated to shopping carts")
+  public BigDecimal getAllocatedToShoppingCarts() {
     return allocatedToShoppingCarts;
   }
 
-  public void setAllocatedToShoppingCarts(Double allocatedToShoppingCarts) {
+  public void setAllocatedToShoppingCarts(BigDecimal allocatedToShoppingCarts) {
     this.allocatedToShoppingCarts = allocatedToShoppingCarts;
   }
 
-  public ItemShippingDistributionCenter availableToAllocate(Double availableToAllocate) {
+  public ItemShippingDistributionCenter availableToAllocate(BigDecimal availableToAllocate) {
     this.availableToAllocate = availableToAllocate;
     return this;
   }
 
    /**
-   * Get availableToAllocate
+   * Available to allocate
    * @return availableToAllocate
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getAvailableToAllocate() {
+  @ApiModelProperty(example = "null", value = "Available to allocate")
+  public BigDecimal getAvailableToAllocate() {
     return availableToAllocate;
   }
 
-  public void setAvailableToAllocate(Double availableToAllocate) {
+  public void setAvailableToAllocate(BigDecimal availableToAllocate) {
     this.availableToAllocate = availableToAllocate;
   }
 
-  public ItemShippingDistributionCenter desiredInventoryLevel(Double desiredInventoryLevel) {
+  public ItemShippingDistributionCenter desiredInventoryLevel(BigDecimal desiredInventoryLevel) {
     this.desiredInventoryLevel = desiredInventoryLevel;
     return this;
   }
 
    /**
-   * Get desiredInventoryLevel
+   * Desired inventory level
    * @return desiredInventoryLevel
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDesiredInventoryLevel() {
+  @ApiModelProperty(example = "null", value = "Desired inventory level")
+  public BigDecimal getDesiredInventoryLevel() {
     return desiredInventoryLevel;
   }
 
-  public void setDesiredInventoryLevel(Double desiredInventoryLevel) {
+  public void setDesiredInventoryLevel(BigDecimal desiredInventoryLevel) {
     this.desiredInventoryLevel = desiredInventoryLevel;
   }
 
@@ -153,10 +154,10 @@ public class ItemShippingDistributionCenter   {
   }
 
    /**
-   * Get distributionCenterCode
+   * Distribution center code
    * @return distributionCenterCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Distribution center code")
   public String getDistributionCenterCode() {
     return distributionCenterCode;
   }
@@ -171,10 +172,10 @@ public class ItemShippingDistributionCenter   {
   }
 
    /**
-   * Get distributionCenterOid
+   * Distribution center object identifier
    * @return distributionCenterOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Distribution center object identifier")
   public Integer getDistributionCenterOid() {
     return distributionCenterOid;
   }
@@ -189,10 +190,10 @@ public class ItemShippingDistributionCenter   {
   }
 
    /**
-   * Get eta
+   * Estimated time of arrival
    * @return eta
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Estimated time of arrival")
   public String getEta() {
     return eta;
   }
@@ -207,10 +208,10 @@ public class ItemShippingDistributionCenter   {
   }
 
    /**
-   * Get handles
+   * True if this distribution center handles this item
    * @return handles
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this distribution center handles this item")
   public Boolean getHandles() {
     return handles;
   }
@@ -219,21 +220,21 @@ public class ItemShippingDistributionCenter   {
     this.handles = handles;
   }
 
-  public ItemShippingDistributionCenter inventoryLevel(Double inventoryLevel) {
+  public ItemShippingDistributionCenter inventoryLevel(BigDecimal inventoryLevel) {
     this.inventoryLevel = inventoryLevel;
     return this;
   }
 
    /**
-   * Get inventoryLevel
+   * Inventory level
    * @return inventoryLevel
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInventoryLevel() {
+  @ApiModelProperty(example = "null", value = "Inventory level")
+  public BigDecimal getInventoryLevel() {
     return inventoryLevel;
   }
 
-  public void setInventoryLevel(Double inventoryLevel) {
+  public void setInventoryLevel(BigDecimal inventoryLevel) {
     this.inventoryLevel = inventoryLevel;
   }
 
@@ -243,10 +244,10 @@ public class ItemShippingDistributionCenter   {
   }
 
    /**
-   * Get maximumBackorder
+   * Maximum back-order
    * @return maximumBackorder
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Maximum back-order")
   public Integer getMaximumBackorder() {
     return maximumBackorder;
   }
@@ -255,21 +256,21 @@ public class ItemShippingDistributionCenter   {
     this.maximumBackorder = maximumBackorder;
   }
 
-  public ItemShippingDistributionCenter reorderInventoryLevel(Double reorderInventoryLevel) {
+  public ItemShippingDistributionCenter reorderInventoryLevel(BigDecimal reorderInventoryLevel) {
     this.reorderInventoryLevel = reorderInventoryLevel;
     return this;
   }
 
    /**
-   * Get reorderInventoryLevel
+   * Reorder inventory level (triggers notification)
    * @return reorderInventoryLevel
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getReorderInventoryLevel() {
+  @ApiModelProperty(example = "null", value = "Reorder inventory level (triggers notification)")
+  public BigDecimal getReorderInventoryLevel() {
     return reorderInventoryLevel;
   }
 
-  public void setReorderInventoryLevel(Double reorderInventoryLevel) {
+  public void setReorderInventoryLevel(BigDecimal reorderInventoryLevel) {
     this.reorderInventoryLevel = reorderInventoryLevel;
   }
 
@@ -279,10 +280,10 @@ public class ItemShippingDistributionCenter   {
   }
 
    /**
-   * Get sku
+   * SKU
    * @return sku
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "SKU")
   public String getSku() {
     return sku;
   }
@@ -297,10 +298,10 @@ public class ItemShippingDistributionCenter   {
   }
 
    /**
-   * Get stockPickingLocation
+   * Stock picking location
    * @return stockPickingLocation
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Stock picking location")
   public String getStockPickingLocation() {
     return stockPickingLocation;
   }

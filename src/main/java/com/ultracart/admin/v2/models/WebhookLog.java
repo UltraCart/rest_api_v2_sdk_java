@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * WebhookLog
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class WebhookLog   {
   @SerializedName("delivery_dts")
   private String deliveryDts = null;
@@ -75,10 +75,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get deliveryDts
+   * Date/time of delivery
    * @return deliveryDts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date/time of delivery")
   public String getDeliveryDts() {
     return deliveryDts;
   }
@@ -93,10 +93,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get duration
+   * Number of milliseconds to process the notification
    * @return duration
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Number of milliseconds to process the notification")
   public Integer getDuration() {
     return duration;
   }
@@ -111,10 +111,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get request
+   * Request payload (first 100,000 characters)
    * @return request
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Request payload (first 100,000 characters)")
   public String getRequest() {
     return request;
   }
@@ -134,10 +134,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get requestHeaders
+   * Request headers sent to the server
    * @return requestHeaders
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Request headers sent to the server")
   public List<HTTPHeader> getRequestHeaders() {
     return requestHeaders;
   }
@@ -152,10 +152,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get requestId
+   * Request id is a unique string that you can look up in the logs
    * @return requestId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Request id is a unique string that you can look up in the logs")
   public String getRequestId() {
     return requestId;
   }
@@ -170,10 +170,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get response
+   * Response payload (first 100,000 characters)
    * @return response
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Response payload (first 100,000 characters)")
   public String getResponse() {
     return response;
   }
@@ -193,10 +193,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get responseHeaders
+   * Response headers received from the server
    * @return responseHeaders
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Response headers received from the server")
   public List<HTTPHeader> getResponseHeaders() {
     return responseHeaders;
   }
@@ -211,10 +211,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get statusCode
+   * HTTP status code received from the server
    * @return statusCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "HTTP status code received from the server")
   public Integer getStatusCode() {
     return statusCode;
   }
@@ -229,10 +229,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get success
+   * True if the delivery was successful
    * @return success
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the delivery was successful")
   public Boolean getSuccess() {
     return success;
   }
@@ -247,10 +247,10 @@ public class WebhookLog   {
   }
 
    /**
-   * Get uri
+   * URI of the webhook delivered to
    * @return uri
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "URI of the webhook delivered to")
   public String getUri() {
     return uri;
   }

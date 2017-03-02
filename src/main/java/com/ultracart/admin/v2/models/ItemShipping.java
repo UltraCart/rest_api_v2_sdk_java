@@ -37,6 +37,7 @@ import com.ultracart.admin.v2.models.ItemShippingPackageRequirement;
 import com.ultracart.admin.v2.models.Weight;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,7 @@ import java.util.List;
 /**
  * ItemShipping
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemShipping   {
   @SerializedName("allow_back_order")
   private Boolean allowBackOrder = null;
@@ -61,14 +62,14 @@ public class ItemShipping   {
   @SerializedName("cases")
   private List<ItemShippingCase> cases = new ArrayList<ItemShippingCase>();
 
-  @SerializedName("country_of_origin")
-  private String countryOfOrigin = null;
+  @SerializedName("country_code_of_origin")
+  private String countryCodeOfOrigin = null;
 
   @SerializedName("customs_description")
   private String customsDescription = null;
 
   @SerializedName("customs_value")
-  private Double customsValue = null;
+  private BigDecimal customsValue = null;
 
   @SerializedName("delivery_on_friday")
   private Boolean deliveryOnFriday = null;
@@ -130,6 +131,9 @@ public class ItemShipping   {
   @SerializedName("package_requirements")
   private List<ItemShippingPackageRequirement> packageRequirements = new ArrayList<ItemShippingPackageRequirement>();
 
+  @SerializedName("perishable_class_name")
+  private String perishableClassName = null;
+
   @SerializedName("perishable_class_oid")
   private Integer perishableClassOid = null;
 
@@ -190,10 +194,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get allowBackOrder
+   * Allow back order
    * @return allowBackOrder
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Allow back order")
   public Boolean getAllowBackOrder() {
     return allowBackOrder;
   }
@@ -208,10 +212,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get amazonFba
+   * Fulfillment by Amazon.com
    * @return amazonFba
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Fulfillment by Amazon.com")
   public Boolean getAmazonFba() {
     return amazonFba;
   }
@@ -226,10 +230,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get caseInnerPacks
+   * Case inner packs
    * @return caseInnerPacks
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Case inner packs")
   public Integer getCaseInnerPacks() {
     return caseInnerPacks;
   }
@@ -244,10 +248,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get caseUnits
+   * Case units
    * @return caseUnits
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Case units")
   public Integer getCaseUnits() {
     return caseUnits;
   }
@@ -267,10 +271,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get cases
+   * Cases
    * @return cases
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Cases")
   public List<ItemShippingCase> getCases() {
     return cases;
   }
@@ -279,22 +283,22 @@ public class ItemShipping   {
     this.cases = cases;
   }
 
-  public ItemShipping countryOfOrigin(String countryOfOrigin) {
-    this.countryOfOrigin = countryOfOrigin;
+  public ItemShipping countryCodeOfOrigin(String countryCodeOfOrigin) {
+    this.countryCodeOfOrigin = countryCodeOfOrigin;
     return this;
   }
 
    /**
-   * Get countryOfOrigin
-   * @return countryOfOrigin
+   * Country code of origin for customs forms.  (ISO-3166 two letter code)
+   * @return countryCodeOfOrigin
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getCountryOfOrigin() {
-    return countryOfOrigin;
+  @ApiModelProperty(example = "null", value = "Country code of origin for customs forms.  (ISO-3166 two letter code)")
+  public String getCountryCodeOfOrigin() {
+    return countryCodeOfOrigin;
   }
 
-  public void setCountryOfOrigin(String countryOfOrigin) {
-    this.countryOfOrigin = countryOfOrigin;
+  public void setCountryCodeOfOrigin(String countryCodeOfOrigin) {
+    this.countryCodeOfOrigin = countryCodeOfOrigin;
   }
 
   public ItemShipping customsDescription(String customsDescription) {
@@ -303,10 +307,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get customsDescription
+   * Customs description
    * @return customsDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Customs description")
   public String getCustomsDescription() {
     return customsDescription;
   }
@@ -315,21 +319,21 @@ public class ItemShipping   {
     this.customsDescription = customsDescription;
   }
 
-  public ItemShipping customsValue(Double customsValue) {
+  public ItemShipping customsValue(BigDecimal customsValue) {
     this.customsValue = customsValue;
     return this;
   }
 
    /**
-   * Get customsValue
+   * Customs value
    * @return customsValue
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCustomsValue() {
+  @ApiModelProperty(example = "null", value = "Customs value")
+  public BigDecimal getCustomsValue() {
     return customsValue;
   }
 
-  public void setCustomsValue(Double customsValue) {
+  public void setCustomsValue(BigDecimal customsValue) {
     this.customsValue = customsValue;
   }
 
@@ -339,10 +343,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get deliveryOnFriday
+   * Delivery on Friday
    * @return deliveryOnFriday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Delivery on Friday")
   public Boolean getDeliveryOnFriday() {
     return deliveryOnFriday;
   }
@@ -357,10 +361,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get deliveryOnMonday
+   * Delivery on Monday
    * @return deliveryOnMonday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Delivery on Monday")
   public Boolean getDeliveryOnMonday() {
     return deliveryOnMonday;
   }
@@ -375,10 +379,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get deliveryOnSaturday
+   * Delivery on Saturday
    * @return deliveryOnSaturday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Delivery on Saturday")
   public Boolean getDeliveryOnSaturday() {
     return deliveryOnSaturday;
   }
@@ -393,10 +397,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get deliveryOnSunday
+   * Delivery on Sunday
    * @return deliveryOnSunday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Delivery on Sunday")
   public Boolean getDeliveryOnSunday() {
     return deliveryOnSunday;
   }
@@ -411,10 +415,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get deliveryOnThursday
+   * Delivery on Thursday
    * @return deliveryOnThursday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Delivery on Thursday")
   public Boolean getDeliveryOnThursday() {
     return deliveryOnThursday;
   }
@@ -429,10 +433,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get deliveryOnTuesday
+   * Delivery on Tuesday
    * @return deliveryOnTuesday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Delivery on Tuesday")
   public Boolean getDeliveryOnTuesday() {
     return deliveryOnTuesday;
   }
@@ -447,10 +451,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get deliveryOnWednesday
+   * Delivery on Wednesday
    * @return deliveryOnWednesday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Delivery on Wednesday")
   public Boolean getDeliveryOnWednesday() {
     return deliveryOnWednesday;
   }
@@ -470,10 +474,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get destinationMarkups
+   * Destination markups
    * @return destinationMarkups
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Destination markups")
   public List<ItemShippingDestinationMarkup> getDestinationMarkups() {
     return destinationMarkups;
   }
@@ -493,10 +497,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get destinationRestrictions
+   * Destination restrictions
    * @return destinationRestrictions
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Destination restrictions")
   public List<ItemShippingDestinationRestriction> getDestinationRestrictions() {
     return destinationRestrictions;
   }
@@ -516,10 +520,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get distributionCenters
+   * Distribution centers
    * @return distributionCenters
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Distribution centers")
   public List<ItemShippingDistributionCenter> getDistributionCenters() {
     return distributionCenters;
   }
@@ -534,10 +538,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get eta
+   * Estimated time of arrival
    * @return eta
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Estimated time of arrival")
   public String getEta() {
     return eta;
   }
@@ -552,10 +556,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get freeShipping
+   * Qualifies for free shipping
    * @return freeShipping
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Qualifies for free shipping")
   public Boolean getFreeShipping() {
     return freeShipping;
   }
@@ -570,10 +574,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get freightClass
+   * Freight class
    * @return freightClass
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Freight class")
   public String getFreightClass() {
     return freightClass;
   }
@@ -588,10 +592,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get hazmat
+   * Hazardous material
    * @return hazmat
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Hazardous material")
   public Boolean getHazmat() {
     return hazmat;
   }
@@ -606,10 +610,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get madeToOrder
+   * True if this item is made to order
    * @return madeToOrder
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this item is made to order")
   public Boolean getMadeToOrder() {
     return madeToOrder;
   }
@@ -624,10 +628,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get madeToOrderLeadTime
+   * Number of days lead time it takes to make the item before ite can ship
    * @return madeToOrderLeadTime
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Number of days lead time it takes to make the item before ite can ship")
   public Integer getMadeToOrderLeadTime() {
     return madeToOrderLeadTime;
   }
@@ -642,10 +646,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get maxDaysTimeInTransit
+   * Maximum days allowed in transit
    * @return maxDaysTimeInTransit
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Maximum days allowed in transit")
   public Integer getMaxDaysTimeInTransit() {
     return maxDaysTimeInTransit;
   }
@@ -665,10 +669,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get methods
+   * Methods
    * @return methods
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Methods")
   public List<ItemShippingMethod> getMethods() {
     return methods;
   }
@@ -683,10 +687,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get noShippingDiscount
+   * No shipping discounts
    * @return noShippingDiscount
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "No shipping discounts")
   public Boolean getNoShippingDiscount() {
     return noShippingDiscount;
   }
@@ -706,10 +710,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get packageRequirements
+   * Package requirements
    * @return packageRequirements
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Package requirements")
   public List<ItemShippingPackageRequirement> getPackageRequirements() {
     return packageRequirements;
   }
@@ -718,16 +722,34 @@ public class ItemShipping   {
     this.packageRequirements = packageRequirements;
   }
 
+  public ItemShipping perishableClassName(String perishableClassName) {
+    this.perishableClassName = perishableClassName;
+    return this;
+  }
+
+   /**
+   * Perishable class name
+   * @return perishableClassName
+  **/
+  @ApiModelProperty(example = "null", value = "Perishable class name")
+  public String getPerishableClassName() {
+    return perishableClassName;
+  }
+
+  public void setPerishableClassName(String perishableClassName) {
+    this.perishableClassName = perishableClassName;
+  }
+
   public ItemShipping perishableClassOid(Integer perishableClassOid) {
     this.perishableClassOid = perishableClassOid;
     return this;
   }
 
    /**
-   * Get perishableClassOid
+   * Perishable class object identifier
    * @return perishableClassOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Perishable class object identifier")
   public Integer getPerishableClassOid() {
     return perishableClassOid;
   }
@@ -742,10 +764,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get preorder
+   * This item is on pre-order
    * @return preorder
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "This item is on pre-order")
   public Boolean getPreorder() {
     return preorder;
   }
@@ -760,10 +782,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get requireDeliveryDate
+   * True to require customer to select a delivery date
    * @return requireDeliveryDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True to require customer to select a delivery date")
   public Boolean getRequireDeliveryDate() {
     return requireDeliveryDate;
   }
@@ -778,10 +800,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get restrictShipmentOnFriday
+   * Restrict shipment on Friday
    * @return restrictShipmentOnFriday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict shipment on Friday")
   public Boolean getRestrictShipmentOnFriday() {
     return restrictShipmentOnFriday;
   }
@@ -796,10 +818,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get restrictShipmentOnMonday
+   * Restrict shipment on Monday
    * @return restrictShipmentOnMonday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict shipment on Monday")
   public Boolean getRestrictShipmentOnMonday() {
     return restrictShipmentOnMonday;
   }
@@ -814,10 +836,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get restrictShipmentOnSaturday
+   * Restrict shipment on Saturday
    * @return restrictShipmentOnSaturday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict shipment on Saturday")
   public Boolean getRestrictShipmentOnSaturday() {
     return restrictShipmentOnSaturday;
   }
@@ -832,10 +854,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get restrictShipmentOnSunday
+   * Restrict shipment on Sunday
    * @return restrictShipmentOnSunday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict shipment on Sunday")
   public Boolean getRestrictShipmentOnSunday() {
     return restrictShipmentOnSunday;
   }
@@ -850,10 +872,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get restrictShipmentOnThursday
+   * Restrict shipment on Thursday
    * @return restrictShipmentOnThursday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict shipment on Thursday")
   public Boolean getRestrictShipmentOnThursday() {
     return restrictShipmentOnThursday;
   }
@@ -868,10 +890,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get restrictShipmentOnTuesday
+   * Restrict shipment on Tuesday
    * @return restrictShipmentOnTuesday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict shipment on Tuesday")
   public Boolean getRestrictShipmentOnTuesday() {
     return restrictShipmentOnTuesday;
   }
@@ -886,10 +908,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get restrictShipmentOnWednesday
+   * Restrict shipment on Wednesday
    * @return restrictShipmentOnWednesday
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict shipment on Wednesday")
   public Boolean getRestrictShipmentOnWednesday() {
     return restrictShipmentOnWednesday;
   }
@@ -904,10 +926,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get shipSeparately
+   * Ship this item in a separate box
    * @return shipSeparately
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Ship this item in a separate box")
   public Boolean getShipSeparately() {
     return shipSeparately;
   }
@@ -976,10 +998,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get shipSeparatelyPackageSpecialType
+   * Ship separately package special type
    * @return shipSeparatelyPackageSpecialType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Ship separately package special type")
   public String getShipSeparatelyPackageSpecialType() {
     return shipSeparatelyPackageSpecialType;
   }
@@ -1012,10 +1034,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get specialProductType
+   * Special product type (USPS Media Mail)
    * @return specialProductType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Special product type (USPS Media Mail)")
   public String getSpecialProductType() {
     return specialProductType;
   }
@@ -1030,10 +1052,10 @@ public class ItemShipping   {
   }
 
    /**
-   * Get trackInventory
+   * Track inventory
    * @return trackInventory
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Track inventory")
   public Boolean getTrackInventory() {
     return trackInventory;
   }
@@ -1057,7 +1079,7 @@ public class ItemShipping   {
         Objects.equals(this.caseInnerPacks, itemShipping.caseInnerPacks) &&
         Objects.equals(this.caseUnits, itemShipping.caseUnits) &&
         Objects.equals(this.cases, itemShipping.cases) &&
-        Objects.equals(this.countryOfOrigin, itemShipping.countryOfOrigin) &&
+        Objects.equals(this.countryCodeOfOrigin, itemShipping.countryCodeOfOrigin) &&
         Objects.equals(this.customsDescription, itemShipping.customsDescription) &&
         Objects.equals(this.customsValue, itemShipping.customsValue) &&
         Objects.equals(this.deliveryOnFriday, itemShipping.deliveryOnFriday) &&
@@ -1080,6 +1102,7 @@ public class ItemShipping   {
         Objects.equals(this.methods, itemShipping.methods) &&
         Objects.equals(this.noShippingDiscount, itemShipping.noShippingDiscount) &&
         Objects.equals(this.packageRequirements, itemShipping.packageRequirements) &&
+        Objects.equals(this.perishableClassName, itemShipping.perishableClassName) &&
         Objects.equals(this.perishableClassOid, itemShipping.perishableClassOid) &&
         Objects.equals(this.preorder, itemShipping.preorder) &&
         Objects.equals(this.requireDeliveryDate, itemShipping.requireDeliveryDate) &&
@@ -1102,7 +1125,7 @@ public class ItemShipping   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, countryOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
+    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
   }
 
   @Override
@@ -1115,7 +1138,7 @@ public class ItemShipping   {
     sb.append("    caseInnerPacks: ").append(toIndentedString(caseInnerPacks)).append("\n");
     sb.append("    caseUnits: ").append(toIndentedString(caseUnits)).append("\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    countryOfOrigin: ").append(toIndentedString(countryOfOrigin)).append("\n");
+    sb.append("    countryCodeOfOrigin: ").append(toIndentedString(countryCodeOfOrigin)).append("\n");
     sb.append("    customsDescription: ").append(toIndentedString(customsDescription)).append("\n");
     sb.append("    customsValue: ").append(toIndentedString(customsValue)).append("\n");
     sb.append("    deliveryOnFriday: ").append(toIndentedString(deliveryOnFriday)).append("\n");
@@ -1138,6 +1161,7 @@ public class ItemShipping   {
     sb.append("    methods: ").append(toIndentedString(methods)).append("\n");
     sb.append("    noShippingDiscount: ").append(toIndentedString(noShippingDiscount)).append("\n");
     sb.append("    packageRequirements: ").append(toIndentedString(packageRequirements)).append("\n");
+    sb.append("    perishableClassName: ").append(toIndentedString(perishableClassName)).append("\n");
     sb.append("    perishableClassOid: ").append(toIndentedString(perishableClassOid)).append("\n");
     sb.append("    preorder: ").append(toIndentedString(preorder)).append("\n");
     sb.append("    requireDeliveryDate: ").append(toIndentedString(requireDeliveryDate)).append("\n");

@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemDigitalDelivery
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemDigitalDelivery   {
   @SerializedName("activation_code_description")
   private String activationCodeDescription = null;
@@ -63,10 +63,10 @@ public class ItemDigitalDelivery   {
   }
 
    /**
-   * Get activationCodeDescription
+   * Description of the activation code
    * @return activationCodeDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description of the activation code")
   public String getActivationCodeDescription() {
     return activationCodeDescription;
   }
@@ -81,10 +81,10 @@ public class ItemDigitalDelivery   {
   }
 
    /**
-   * Get activationCodeLowWarning
+   * The number of activation codes whcih should generate a warning email
    * @return activationCodeLowWarning
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The number of activation codes whcih should generate a warning email")
   public Integer getActivationCodeLowWarning() {
     return activationCodeLowWarning;
   }
@@ -99,10 +99,10 @@ public class ItemDigitalDelivery   {
   }
 
    /**
-   * Get activationCodeRealtimeUrl
+   * The URL to retrieve activation codes from in real-time
    * @return activationCodeRealtimeUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The URL to retrieve activation codes from in real-time")
   public String getActivationCodeRealtimeUrl() {
     return activationCodeRealtimeUrl;
   }
@@ -117,10 +117,10 @@ public class ItemDigitalDelivery   {
   }
 
    /**
-   * Get activationCodeSharedSecret
+   * Shared secret used when communicating with the real-time URL
    * @return activationCodeSharedSecret
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Shared secret used when communicating with the real-time URL")
   public String getActivationCodeSharedSecret() {
     return activationCodeSharedSecret;
   }
@@ -135,10 +135,10 @@ public class ItemDigitalDelivery   {
   }
 
    /**
-   * Get activationCodeType
+   * Type of activation code
    * @return activationCodeType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Type of activation code")
   public String getActivationCodeType() {
     return activationCodeType;
   }
@@ -158,10 +158,10 @@ public class ItemDigitalDelivery   {
   }
 
    /**
-   * Get digitalItems
+   * Digital items that customer can download when this item is purchased
    * @return digitalItems
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Digital items that customer can download when this item is purchased")
   public List<ItemDigitalItem> getDigitalItems() {
     return digitalItems;
   }

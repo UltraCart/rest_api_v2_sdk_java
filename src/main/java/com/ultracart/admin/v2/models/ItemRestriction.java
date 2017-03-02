@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemRestriction
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemRestriction   {
   @SerializedName("exclude_coupon")
   private Boolean excludeCoupon = null;
@@ -69,10 +69,10 @@ public class ItemRestriction   {
   }
 
    /**
-   * Get excludeCoupon
+   * Exclude coupons
    * @return excludeCoupon
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Exclude coupons")
   public Boolean getExcludeCoupon() {
     return excludeCoupon;
   }
@@ -87,10 +87,10 @@ public class ItemRestriction   {
   }
 
    /**
-   * Get excludeFromFreePromotion
+   * Exclude from free promotion
    * @return excludeFromFreePromotion
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Exclude from free promotion")
   public Boolean getExcludeFromFreePromotion() {
     return excludeFromFreePromotion;
   }
@@ -110,10 +110,10 @@ public class ItemRestriction   {
   }
 
    /**
-   * Get items
+   * Items
    * @return items
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Items")
   public List<ItemRestrictionItem> getItems() {
     return items;
   }
@@ -128,10 +128,10 @@ public class ItemRestriction   {
   }
 
    /**
-   * Get maximumQuantity
+   * Maximum quantity
    * @return maximumQuantity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Maximum quantity")
   public Integer getMaximumQuantity() {
     return maximumQuantity;
   }
@@ -146,10 +146,10 @@ public class ItemRestriction   {
   }
 
    /**
-   * Get minimumQuantity
+   * Minimum quantity (defaults to 1)
    * @return minimumQuantity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Minimum quantity (defaults to 1)")
   public Integer getMinimumQuantity() {
     return minimumQuantity;
   }
@@ -164,10 +164,10 @@ public class ItemRestriction   {
   }
 
    /**
-   * Get multipleQuantity
+   * Multiple of quantity
    * @return multipleQuantity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Multiple of quantity")
   public Integer getMultipleQuantity() {
     return multipleQuantity;
   }
@@ -182,10 +182,10 @@ public class ItemRestriction   {
   }
 
    /**
-   * Get onePerCustomer
+   * One per customer
    * @return onePerCustomer
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "One per customer")
   public Boolean getOnePerCustomer() {
     return onePerCustomer;
   }
@@ -200,10 +200,10 @@ public class ItemRestriction   {
   }
 
    /**
-   * Get purchaseSeparately
+   * Purchase separately
    * @return purchaseSeparately
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Purchase separately")
   public Boolean getPurchaseSeparately() {
     return purchaseSeparately;
   }

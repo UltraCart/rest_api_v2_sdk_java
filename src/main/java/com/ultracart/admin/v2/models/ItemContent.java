@@ -39,7 +39,7 @@ import java.util.List;
 /**
  * ItemContent
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemContent   {
   @SerializedName("assignments")
   private List<ItemContentAssignment> assignments = new ArrayList<ItemContentAssignment>();
@@ -85,10 +85,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get assignments
+   * StoreFront assignments
    * @return assignments
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "StoreFront assignments")
   public List<ItemContentAssignment> getAssignments() {
     return assignments;
   }
@@ -108,10 +108,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get attributes
+   * StoreFront attributes
    * @return attributes
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "StoreFront attributes")
   public List<ItemContentAttribute> getAttributes() {
     return attributes;
   }
@@ -126,10 +126,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get excludeFromSearch
+   * Exclude from search
    * @return excludeFromSearch
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Exclude from search")
   public Boolean getExcludeFromSearch() {
     return excludeFromSearch;
   }
@@ -144,10 +144,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get excludeFromTopSellers
+   * Exclude from the top sellers list in the StoreFront
    * @return excludeFromTopSellers
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Exclude from the top sellers list in the StoreFront")
   public Boolean getExcludeFromTopSellers() {
     return excludeFromTopSellers;
   }
@@ -162,10 +162,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get extendedDescription
+   * Extended description (max 2000 characters)
    * @return extendedDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Extended description (max 2000 characters)")
   public String getExtendedDescription() {
     return extendedDescription;
   }
@@ -180,10 +180,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get extendedDescriptionTranslatedTextInstanceOid
+   * Extneded description text translation instance identifier
    * @return extendedDescriptionTranslatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Extneded description text translation instance identifier")
   public Integer getExtendedDescriptionTranslatedTextInstanceOid() {
     return extendedDescriptionTranslatedTextInstanceOid;
   }
@@ -203,10 +203,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get multimedia
+   * Multimedia
    * @return multimedia
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Multimedia")
   public List<ItemContentMultimedia> getMultimedia() {
     return multimedia;
   }
@@ -221,10 +221,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get newItem
+   * True if the item is new
    * @return newItem
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the item is new")
   public Boolean getNewItem() {
     return newItem;
   }
@@ -239,10 +239,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get newItemEnd
+   * The date the item should no longer be considered new
    * @return newItemEnd
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The date the item should no longer be considered new")
   public String getNewItemEnd() {
     return newItemEnd;
   }
@@ -257,10 +257,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get newItemStart
+   * The date the item should start being considered new
    * @return newItemStart
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The date the item should start being considered new")
   public String getNewItemStart() {
     return newItemStart;
   }
@@ -275,10 +275,10 @@ public class ItemContent   {
   }
 
    /**
-   * Get viewUrl
+   * Legacy view URL (not used by StoreFronts)
    * @return viewUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Legacy view URL (not used by StoreFronts)")
   public String getViewUrl() {
     return viewUrl;
   }

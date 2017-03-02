@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemRevguard
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemRevguard   {
   @SerializedName("revguard_canceled_csr_prompt_group")
   private Long revguardCanceledCsrPromptGroup = null;
@@ -63,10 +63,10 @@ public class ItemRevguard   {
   }
 
    /**
-   * Get revguardCanceledCsrPromptGroup
+   * Canceled CSR prompt group
    * @return revguardCanceledCsrPromptGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Canceled CSR prompt group")
   public Long getRevguardCanceledCsrPromptGroup() {
     return revguardCanceledCsrPromptGroup;
   }
@@ -81,10 +81,10 @@ public class ItemRevguard   {
   }
 
    /**
-   * Get revguardCanceledIvrPromptGroup
+   * IVR prompt group
    * @return revguardCanceledIvrPromptGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "IVR prompt group")
   public Long getRevguardCanceledIvrPromptGroup() {
     return revguardCanceledIvrPromptGroup;
   }
@@ -99,10 +99,10 @@ public class ItemRevguard   {
   }
 
    /**
-   * Get revguardCanceledWebPromptGroup
+   * Canceled web prompt group
    * @return revguardCanceledWebPromptGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Canceled web prompt group")
   public Long getRevguardCanceledWebPromptGroup() {
     return revguardCanceledWebPromptGroup;
   }
@@ -117,10 +117,10 @@ public class ItemRevguard   {
   }
 
    /**
-   * Get revguardClientBrand
+   * Client brand
    * @return revguardClientBrand
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Client brand")
   public Long getRevguardClientBrand() {
     return revguardClientBrand;
   }
@@ -135,10 +135,10 @@ public class ItemRevguard   {
   }
 
    /**
-   * Get revguardCsrPromptGroup
+   * CSR prompt group
    * @return revguardCsrPromptGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "CSR prompt group")
   public Long getRevguardCsrPromptGroup() {
     return revguardCsrPromptGroup;
   }
@@ -153,10 +153,10 @@ public class ItemRevguard   {
   }
 
    /**
-   * Get revguardIvrPromptGroup
+   * IVR prompt group
    * @return revguardIvrPromptGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "IVR prompt group")
   public Long getRevguardIvrPromptGroup() {
     return revguardIvrPromptGroup;
   }
@@ -171,10 +171,10 @@ public class ItemRevguard   {
   }
 
    /**
-   * Get revguardWebPromptGroup
+   * Web prompt group
    * @return revguardWebPromptGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Web prompt group")
   public Long getRevguardWebPromptGroup() {
     return revguardWebPromptGroup;
   }

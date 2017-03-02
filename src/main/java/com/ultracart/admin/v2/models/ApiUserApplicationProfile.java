@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ApiUserApplicationProfile
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ApiUserApplicationProfile   {
   @SerializedName("api_application_logo_url")
   private String apiApplicationLogoUrl = null;
@@ -57,10 +57,10 @@ public class ApiUserApplicationProfile   {
   }
 
    /**
-   * Get apiApplicationLogoUrl
+   * Application logo URL
    * @return apiApplicationLogoUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Application logo URL")
   public String getApiApplicationLogoUrl() {
     return apiApplicationLogoUrl;
   }
@@ -75,10 +75,10 @@ public class ApiUserApplicationProfile   {
   }
 
    /**
-   * Get applicationDescription
+   * Application description
    * @return applicationDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Application description")
   public String getApplicationDescription() {
     return applicationDescription;
   }
@@ -93,10 +93,10 @@ public class ApiUserApplicationProfile   {
   }
 
    /**
-   * Get applicationName
+   * Application name
    * @return applicationName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Application name")
   public String getApplicationName() {
     return applicationName;
   }
@@ -111,10 +111,10 @@ public class ApiUserApplicationProfile   {
   }
 
    /**
-   * Get developerName
+   * Developer name
    * @return developerName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Developer name")
   public String getDeveloperName() {
     return developerName;
   }
@@ -129,10 +129,10 @@ public class ApiUserApplicationProfile   {
   }
 
    /**
-   * Get developerWebsite
+   * Developer website
    * @return developerWebsite
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Developer website")
   public String getDeveloperWebsite() {
     return developerWebsite;
   }

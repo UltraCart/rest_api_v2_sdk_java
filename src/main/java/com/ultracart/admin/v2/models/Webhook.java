@@ -38,16 +38,60 @@ import java.util.List;
 /**
  * Webhook
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class Webhook   {
   @SerializedName("api_user_oid")
   private Integer apiUserOid = null;
 
+  /**
+   * Version of the API objects that are sent in notifications
+   */
+  public enum ApiVersionEnum {
+    @SerializedName("2016-10-01")
+    _01("2016-10-01");
+
+    private String value;
+
+    ApiVersionEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
+  @SerializedName("api_version")
+  private ApiVersionEnum apiVersion = null;
+
   @SerializedName("application_profile")
   private ApiUserApplicationProfile applicationProfile = null;
 
+  /**
+   * The type of authentication this webhook will use when communicating with your server
+   */
+  public enum AuthenticationTypeEnum {
+    @SerializedName("none")
+    NONE("none"),
+    
+    @SerializedName("basic")
+    BASIC("basic");
+
+    private String value;
+
+    AuthenticationTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("authentication_type")
-  private String authenticationType = null;
+  private AuthenticationTypeEnum authenticationType = null;
 
   @SerializedName("basic_password")
   private String basicPassword = null;
@@ -91,16 +135,34 @@ public class Webhook   {
   }
 
    /**
-   * Get apiUserOid
+   * Populated if webhook associated with an API user
    * @return apiUserOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Populated if webhook associated with an API user")
   public Integer getApiUserOid() {
     return apiUserOid;
   }
 
   public void setApiUserOid(Integer apiUserOid) {
     this.apiUserOid = apiUserOid;
+  }
+
+  public Webhook apiVersion(ApiVersionEnum apiVersion) {
+    this.apiVersion = apiVersion;
+    return this;
+  }
+
+   /**
+   * Version of the API objects that are sent in notifications
+   * @return apiVersion
+  **/
+  @ApiModelProperty(example = "null", value = "Version of the API objects that are sent in notifications")
+  public ApiVersionEnum getApiVersion() {
+    return apiVersion;
+  }
+
+  public void setApiVersion(ApiVersionEnum apiVersion) {
+    this.apiVersion = apiVersion;
   }
 
   public Webhook applicationProfile(ApiUserApplicationProfile applicationProfile) {
@@ -121,21 +183,21 @@ public class Webhook   {
     this.applicationProfile = applicationProfile;
   }
 
-  public Webhook authenticationType(String authenticationType) {
+  public Webhook authenticationType(AuthenticationTypeEnum authenticationType) {
     this.authenticationType = authenticationType;
     return this;
   }
 
    /**
-   * Get authenticationType
+   * The type of authentication this webhook will use when communicating with your server
    * @return authenticationType
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAuthenticationType() {
+  @ApiModelProperty(example = "null", value = "The type of authentication this webhook will use when communicating with your server")
+  public AuthenticationTypeEnum getAuthenticationType() {
     return authenticationType;
   }
 
-  public void setAuthenticationType(String authenticationType) {
+  public void setAuthenticationType(AuthenticationTypeEnum authenticationType) {
     this.authenticationType = authenticationType;
   }
 
@@ -145,10 +207,10 @@ public class Webhook   {
   }
 
    /**
-   * Get basicPassword
+   * Basic authentication password
    * @return basicPassword
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Basic authentication password")
   public String getBasicPassword() {
     return basicPassword;
   }
@@ -163,10 +225,10 @@ public class Webhook   {
   }
 
    /**
-   * Get basicUsername
+   * Basic authentication user name
    * @return basicUsername
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Basic authentication user name")
   public String getBasicUsername() {
     return basicUsername;
   }
@@ -181,10 +243,10 @@ public class Webhook   {
   }
 
    /**
-   * Get consecutiveFailures
+   * The number of consecutive failures that have occurred trying to deliver notifications to the target server
    * @return consecutiveFailures
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The number of consecutive failures that have occurred trying to deliver notifications to the target server")
   public Integer getConsecutiveFailures() {
     return consecutiveFailures;
   }
@@ -199,10 +261,10 @@ public class Webhook   {
   }
 
    /**
-   * Get disabled
+   * True if the webhook has been disabled
    * @return disabled
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the webhook has been disabled")
   public Boolean getDisabled() {
     return disabled;
   }
@@ -222,10 +284,10 @@ public class Webhook   {
   }
 
    /**
-   * Get eventCategories
+   * The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.
    * @return eventCategories
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.")
   public List<WebhookEventCategory> getEventCategories() {
     return eventCategories;
   }
@@ -240,10 +302,10 @@ public class Webhook   {
   }
 
    /**
-   * Get maximumEvents
+   * The maximum number of events in the payload that UltraCart will deliver
    * @return maximumEvents
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The maximum number of events in the payload that UltraCart will deliver")
   public Integer getMaximumEvents() {
     return maximumEvents;
   }
@@ -258,10 +320,10 @@ public class Webhook   {
   }
 
    /**
-   * Get maximumSize
+   * The maximum size of the payload that UltraCart will deliver
    * @return maximumSize
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The maximum size of the payload that UltraCart will deliver")
   public Integer getMaximumSize() {
     return maximumSize;
   }
@@ -276,10 +338,10 @@ public class Webhook   {
   }
 
    /**
-   * Get merchantId
+   * The UltraCart merchant ID that owns this webhook
    * @return merchantId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The UltraCart merchant ID that owns this webhook")
   public String getMerchantId() {
     return merchantId;
   }
@@ -294,10 +356,10 @@ public class Webhook   {
   }
 
    /**
-   * Get nextRetryAfter
+   * The next time UltraCart will attempt delivery if failures have been occurring
    * @return nextRetryAfter
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The next time UltraCart will attempt delivery if failures have been occurring")
   public String getNextRetryAfter() {
     return nextRetryAfter;
   }
@@ -312,10 +374,10 @@ public class Webhook   {
   }
 
    /**
-   * Get pending
+   * The number of pending events for this webhook
    * @return pending
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The number of pending events for this webhook")
   public Integer getPending() {
     return pending;
   }
@@ -330,10 +392,10 @@ public class Webhook   {
   }
 
    /**
-   * Get webhookOid
+   * The object identifier for this webhook
    * @return webhookOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The object identifier for this webhook")
   public Integer getWebhookOid() {
     return webhookOid;
   }
@@ -348,10 +410,10 @@ public class Webhook   {
   }
 
    /**
-   * Get webhookUrl
+   * The URL to deliver events to.  Must be HTTPS for customer related information.
    * @return webhookUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The URL to deliver events to.  Must be HTTPS for customer related information.")
   public String getWebhookUrl() {
     return webhookUrl;
   }
@@ -371,6 +433,7 @@ public class Webhook   {
     }
     Webhook webhook = (Webhook) o;
     return Objects.equals(this.apiUserOid, webhook.apiUserOid) &&
+        Objects.equals(this.apiVersion, webhook.apiVersion) &&
         Objects.equals(this.applicationProfile, webhook.applicationProfile) &&
         Objects.equals(this.authenticationType, webhook.authenticationType) &&
         Objects.equals(this.basicPassword, webhook.basicPassword) &&
@@ -389,7 +452,7 @@ public class Webhook   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiUserOid, applicationProfile, authenticationType, basicPassword, basicUsername, consecutiveFailures, disabled, eventCategories, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
+    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, consecutiveFailures, disabled, eventCategories, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
   }
 
   @Override
@@ -398,6 +461,7 @@ public class Webhook   {
     sb.append("class Webhook {\n");
     
     sb.append("    apiUserOid: ").append(toIndentedString(apiUserOid)).append("\n");
+    sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    applicationProfile: ").append(toIndentedString(applicationProfile)).append("\n");
     sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
     sb.append("    basicPassword: ").append(toIndentedString(basicPassword)).append("\n");

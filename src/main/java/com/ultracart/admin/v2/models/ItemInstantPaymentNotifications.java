@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemInstantPaymentNotifications
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemInstantPaymentNotifications   {
   @SerializedName("notifications")
   private List<ItemInstantPaymentNotification> notifications = new ArrayList<ItemInstantPaymentNotification>();
@@ -53,10 +53,10 @@ public class ItemInstantPaymentNotifications   {
   }
 
    /**
-   * Get notifications
+   * Notifications
    * @return notifications
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Notifications")
   public List<ItemInstantPaymentNotification> getNotifications() {
     return notifications;
   }

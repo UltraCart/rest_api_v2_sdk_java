@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemDigitalItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemDigitalItem   {
   @SerializedName("creation_dts")
   private String creationDts = null;
@@ -57,10 +57,10 @@ public class ItemDigitalItem   {
   }
 
    /**
-   * Get creationDts
+   * File creation date
    * @return creationDts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "File creation date")
   public String getCreationDts() {
     return creationDts;
   }
@@ -75,10 +75,10 @@ public class ItemDigitalItem   {
   }
 
    /**
-   * Get description
+   * Description of the digital item
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description of the digital item")
   public String getDescription() {
     return description;
   }
@@ -93,10 +93,10 @@ public class ItemDigitalItem   {
   }
 
    /**
-   * Get fileSize
+   * File size
    * @return fileSize
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "File size")
   public Long getFileSize() {
     return fileSize;
   }
@@ -111,10 +111,10 @@ public class ItemDigitalItem   {
   }
 
    /**
-   * Get mimeType
+   * Mime type associated with the file
    * @return mimeType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Mime type associated with the file")
   public String getMimeType() {
     return mimeType;
   }
@@ -129,10 +129,10 @@ public class ItemDigitalItem   {
   }
 
    /**
-   * Get originalFilename
+   * Original filename
    * @return originalFilename
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Original filename")
   public String getOriginalFilename() {
     return originalFilename;
   }

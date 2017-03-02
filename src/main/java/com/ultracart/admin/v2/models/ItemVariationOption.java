@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemVariationOption
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemVariationOption   {
   @SerializedName("default_option")
   private Boolean defaultOption = null;
@@ -54,10 +54,10 @@ public class ItemVariationOption   {
   }
 
    /**
-   * Get defaultOption
+   * True if default option
    * @return defaultOption
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if default option")
   public Boolean getDefaultOption() {
     return defaultOption;
   }
@@ -72,10 +72,10 @@ public class ItemVariationOption   {
   }
 
    /**
-   * Get merchantItemMultimediaOid
+   * Multimedia object identifier
    * @return merchantItemMultimediaOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Multimedia object identifier")
   public Integer getMerchantItemMultimediaOid() {
     return merchantItemMultimediaOid;
   }
@@ -90,10 +90,10 @@ public class ItemVariationOption   {
   }
 
    /**
-   * Get translatedTextInstanceOid
+   * Translated text instance id
    * @return translatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Translated text instance id")
   public Integer getTranslatedTextInstanceOid() {
     return translatedTextInstanceOid;
   }
@@ -108,10 +108,10 @@ public class ItemVariationOption   {
   }
 
    /**
-   * Get value
+   * Value
    * @return value
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Value")
   public String getValue() {
     return value;
   }

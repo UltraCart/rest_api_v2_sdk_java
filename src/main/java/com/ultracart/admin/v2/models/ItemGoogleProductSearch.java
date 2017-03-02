@@ -29,12 +29,13 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemGoogleProductSearch
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemGoogleProductSearch   {
   @SerializedName("adwords_grouping")
   private String adwordsGrouping = null;
@@ -151,7 +152,7 @@ public class ItemGoogleProductSearch   {
   private String searchDts = null;
 
   @SerializedName("search_lowest_price")
-  private Double searchLowestPrice = null;
+  private BigDecimal searchLowestPrice = null;
 
   @SerializedName("search_lowest_url")
   private String searchLowestUrl = null;
@@ -183,10 +184,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get adwordsGrouping
+   * Adwords grouping
    * @return adwordsGrouping
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Adwords grouping")
   public String getAdwordsGrouping() {
     return adwordsGrouping;
   }
@@ -201,10 +202,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get adwordsLabel1
+   * Adwords label 1
    * @return adwordsLabel1
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Adwords label 1")
   public String getAdwordsLabel1() {
     return adwordsLabel1;
   }
@@ -219,10 +220,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get adwordsLabel2
+   * Adwords label 2
    * @return adwordsLabel2
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Adwords label 2")
   public String getAdwordsLabel2() {
     return adwordsLabel2;
   }
@@ -237,10 +238,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get adwordsLabel3
+   * Adwords label 3
    * @return adwordsLabel3
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Adwords label 3")
   public String getAdwordsLabel3() {
     return adwordsLabel3;
   }
@@ -255,10 +256,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get adwordsLabel4
+   * Adwords label 4
    * @return adwordsLabel4
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Adwords label 4")
   public String getAdwordsLabel4() {
     return adwordsLabel4;
   }
@@ -273,10 +274,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get adwordsLabel5
+   * Adwords label 5
    * @return adwordsLabel5
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Adwords label 5")
   public String getAdwordsLabel5() {
     return adwordsLabel5;
   }
@@ -291,10 +292,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get ageGroup
+   * Age group
    * @return ageGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Age group")
   public String getAgeGroup() {
     return ageGroup;
   }
@@ -309,10 +310,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get availableAtPhysicalStore
+   * Available at physical store
    * @return availableAtPhysicalStore
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Available at physical store")
   public Boolean getAvailableAtPhysicalStore() {
     return availableAtPhysicalStore;
   }
@@ -327,10 +328,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get bookAuthor
+   * Book - author
    * @return bookAuthor
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Book - author")
   public String getBookAuthor() {
     return bookAuthor;
   }
@@ -345,10 +346,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get bookFormat
+   * Book - format
    * @return bookFormat
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Book - format")
   public String getBookFormat() {
     return bookFormat;
   }
@@ -363,10 +364,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get bookIsbn
+   * Bood - ISBN
    * @return bookIsbn
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Bood - ISBN")
   public String getBookIsbn() {
     return bookIsbn;
   }
@@ -381,10 +382,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get bookPublisher
+   * Book - publisher
    * @return bookPublisher
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Book - publisher")
   public String getBookPublisher() {
     return bookPublisher;
   }
@@ -399,10 +400,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get categoryDescription
+   * Category description
    * @return categoryDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Category description")
   public String getCategoryDescription() {
     return categoryDescription;
   }
@@ -417,10 +418,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get color
+   * Color
    * @return color
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Color")
   public String getColor() {
     return color;
   }
@@ -435,10 +436,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get condition
+   * Condition
    * @return condition
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Condition")
   public String getCondition() {
     return condition;
   }
@@ -453,10 +454,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get customLabel0
+   * Custom label 0
    * @return customLabel0
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Custom label 0")
   public String getCustomLabel0() {
     return customLabel0;
   }
@@ -471,10 +472,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get customLabel1
+   * Custom label 1
    * @return customLabel1
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Custom label 1")
   public String getCustomLabel1() {
     return customLabel1;
   }
@@ -489,10 +490,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get customLabel2
+   * Custom label 2
    * @return customLabel2
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Custom label 2")
   public String getCustomLabel2() {
     return customLabel2;
   }
@@ -507,10 +508,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get customLabel3
+   * Custom label 3
    * @return customLabel3
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Custom label 3")
   public String getCustomLabel3() {
     return customLabel3;
   }
@@ -525,10 +526,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get customLabel4
+   * Custom label 4
    * @return customLabel4
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Custom label 4")
   public String getCustomLabel4() {
     return customLabel4;
   }
@@ -543,10 +544,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get gender
+   * Gender
    * @return gender
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Gender")
   public String getGender() {
     return gender;
   }
@@ -561,10 +562,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get googleProductCategory
+   * Google product category
    * @return googleProductCategory
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Google product category")
   public String getGoogleProductCategory() {
     return googleProductCategory;
   }
@@ -579,10 +580,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get musicArtist
+   * Music - artist
    * @return musicArtist
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Music - artist")
   public String getMusicArtist() {
     return musicArtist;
   }
@@ -597,10 +598,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get musicFormat
+   * Music - format
    * @return musicFormat
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Music - format")
   public String getMusicFormat() {
     return musicFormat;
   }
@@ -615,10 +616,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get musicReleaseDate
+   * Music - release date
    * @return musicReleaseDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Music - release date")
   public String getMusicReleaseDate() {
     return musicReleaseDate;
   }
@@ -633,10 +634,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get omitFromFeed
+   * Omit from feed
    * @return omitFromFeed
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Omit from feed")
   public Boolean getOmitFromFeed() {
     return omitFromFeed;
   }
@@ -651,10 +652,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get productType
+   * Product type
    * @return productType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Product type")
   public String getProductType() {
     return productType;
   }
@@ -669,10 +670,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId1
+   * Promotion ID 1
    * @return promotionId1
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 1")
   public String getPromotionId1() {
     return promotionId1;
   }
@@ -687,10 +688,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId10
+   * Promotion ID 10
    * @return promotionId10
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 10")
   public String getPromotionId10() {
     return promotionId10;
   }
@@ -705,10 +706,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId2
+   * Promotion ID 2
    * @return promotionId2
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 2")
   public String getPromotionId2() {
     return promotionId2;
   }
@@ -723,10 +724,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId3
+   * Promotion ID 3
    * @return promotionId3
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 3")
   public String getPromotionId3() {
     return promotionId3;
   }
@@ -741,10 +742,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId4
+   * Promotion ID 4
    * @return promotionId4
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 4")
   public String getPromotionId4() {
     return promotionId4;
   }
@@ -759,10 +760,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId5
+   * Promotion ID 5
    * @return promotionId5
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 5")
   public String getPromotionId5() {
     return promotionId5;
   }
@@ -777,10 +778,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId6
+   * Promotion ID 6
    * @return promotionId6
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 6")
   public String getPromotionId6() {
     return promotionId6;
   }
@@ -795,10 +796,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId7
+   * Promotion ID 7
    * @return promotionId7
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 7")
   public String getPromotionId7() {
     return promotionId7;
   }
@@ -813,10 +814,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId8
+   * Promotion ID 8
    * @return promotionId8
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 8")
   public String getPromotionId8() {
     return promotionId8;
   }
@@ -831,10 +832,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get promotionId9
+   * Promotion ID 9
    * @return promotionId9
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Promotion ID 9")
   public String getPromotionId9() {
     return promotionId9;
   }
@@ -849,10 +850,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get searchDts
+   * Search date/time
    * @return searchDts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Search date/time")
   public String getSearchDts() {
     return searchDts;
   }
@@ -861,21 +862,21 @@ public class ItemGoogleProductSearch   {
     this.searchDts = searchDts;
   }
 
-  public ItemGoogleProductSearch searchLowestPrice(Double searchLowestPrice) {
+  public ItemGoogleProductSearch searchLowestPrice(BigDecimal searchLowestPrice) {
     this.searchLowestPrice = searchLowestPrice;
     return this;
   }
 
    /**
-   * Get searchLowestPrice
+   * Search lowest price
    * @return searchLowestPrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getSearchLowestPrice() {
+  @ApiModelProperty(example = "null", value = "Search lowest price")
+  public BigDecimal getSearchLowestPrice() {
     return searchLowestPrice;
   }
 
-  public void setSearchLowestPrice(Double searchLowestPrice) {
+  public void setSearchLowestPrice(BigDecimal searchLowestPrice) {
     this.searchLowestPrice = searchLowestPrice;
   }
 
@@ -885,10 +886,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get searchLowestUrl
+   * Search lowest URL
    * @return searchLowestUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Search lowest URL")
   public String getSearchLowestUrl() {
     return searchLowestUrl;
   }
@@ -903,10 +904,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get searchPosition
+   * Search position
    * @return searchPosition
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Search position")
   public Integer getSearchPosition() {
     return searchPosition;
   }
@@ -921,10 +922,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get size
+   * Size
    * @return size
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Size")
   public String getSize() {
     return size;
   }
@@ -939,10 +940,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get videoDirector
+   * Video - director
    * @return videoDirector
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Video - director")
   public String getVideoDirector() {
     return videoDirector;
   }
@@ -957,10 +958,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get videoFormat
+   * Video - format
    * @return videoFormat
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Video - format")
   public String getVideoFormat() {
     return videoFormat;
   }
@@ -975,10 +976,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get videoRating
+   * Video - rating
    * @return videoRating
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Video - rating")
   public String getVideoRating() {
     return videoRating;
   }
@@ -993,10 +994,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get videoReleaseDate
+   * Video - release date
    * @return videoReleaseDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Video - release date")
   public String getVideoReleaseDate() {
     return videoReleaseDate;
   }
@@ -1011,10 +1012,10 @@ public class ItemGoogleProductSearch   {
   }
 
    /**
-   * Get videoStarring
+   * Video - starring
    * @return videoStarring
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Video - starring")
   public String getVideoStarring() {
     return videoStarring;
   }

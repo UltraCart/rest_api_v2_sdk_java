@@ -4,8 +4,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uom** | **String** |  |  [optional]
-**value** | **Double** |  |  [optional]
+**uom** | [**UomEnum**](#UomEnum) | Unit of measure |  [optional]
+**value** | [**BigDecimal**](BigDecimal.md) | Weight |  [optional]
+
+
+<a name="UomEnum"></a>
+## Enum: UomEnum
+Name | Value
+---- | -----
+KG | &quot;KG&quot;
+LB | &quot;LB&quot;
+OZ | &quot;OZ&quot;
 
 
 

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payloadName** | **String** |  |  [optional]
+**payloadName** | **String** | Payload name |  [optional]
 **resultSet** | [**ResultSet**](ResultSet.md) |  |  [optional]
 
 

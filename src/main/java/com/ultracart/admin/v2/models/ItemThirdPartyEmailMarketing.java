@@ -36,13 +36,65 @@ import java.util.List;
 /**
  * ItemThirdPartyEmailMarketing
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemThirdPartyEmailMarketing   {
   @SerializedName("add_tags")
   private List<String> addTags = new ArrayList<String>();
 
+  /**
+   * Provider name
+   */
+  public enum ProviderNameEnum {
+    @SerializedName("ActiveCampaign")
+    ACTIVECAMPAIGN("ActiveCampaign"),
+    
+    @SerializedName("AWeber")
+    AWEBER("AWeber"),
+    
+    @SerializedName("Campaign Monitor")
+    CAMPAIGN_MONITOR("Campaign Monitor"),
+    
+    @SerializedName("ConstantContact")
+    CONSTANTCONTACT("ConstantContact"),
+    
+    @SerializedName("Emma")
+    EMMA("Emma"),
+    
+    @SerializedName("GetResponse")
+    GETRESPONSE("GetResponse"),
+    
+    @SerializedName("iContact")
+    ICONTACT("iContact"),
+    
+    @SerializedName("Klaviyo")
+    KLAVIYO("Klaviyo"),
+    
+    @SerializedName("Lyris")
+    LYRIS("Lyris"),
+    
+    @SerializedName("LyrisHQ")
+    LYRISHQ("LyrisHQ"),
+    
+    @SerializedName("MailChimp")
+    MAILCHIMP("MailChimp"),
+    
+    @SerializedName("SilverPop")
+    SILVERPOP("SilverPop");
+
+    private String value;
+
+    ProviderNameEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("provider_name")
-  private String providerName = null;
+  private ProviderNameEnum providerName = null;
 
   @SerializedName("remove_tags")
   private List<String> removeTags = new ArrayList<String>();
@@ -64,10 +116,10 @@ public class ItemThirdPartyEmailMarketing   {
   }
 
    /**
-   * Get addTags
+   * Add tags
    * @return addTags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Add tags")
   public List<String> getAddTags() {
     return addTags;
   }
@@ -76,21 +128,21 @@ public class ItemThirdPartyEmailMarketing   {
     this.addTags = addTags;
   }
 
-  public ItemThirdPartyEmailMarketing providerName(String providerName) {
+  public ItemThirdPartyEmailMarketing providerName(ProviderNameEnum providerName) {
     this.providerName = providerName;
     return this;
   }
 
    /**
-   * Get providerName
+   * Provider name
    * @return providerName
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getProviderName() {
+  @ApiModelProperty(example = "null", value = "Provider name")
+  public ProviderNameEnum getProviderName() {
     return providerName;
   }
 
-  public void setProviderName(String providerName) {
+  public void setProviderName(ProviderNameEnum providerName) {
     this.providerName = providerName;
   }
 
@@ -105,10 +157,10 @@ public class ItemThirdPartyEmailMarketing   {
   }
 
    /**
-   * Get removeTags
+   * Remove tags
    * @return removeTags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Remove tags")
   public List<String> getRemoveTags() {
     return removeTags;
   }
@@ -128,10 +180,10 @@ public class ItemThirdPartyEmailMarketing   {
   }
 
    /**
-   * Get subscribeLists
+   * Subscribe to lists
    * @return subscribeLists
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Subscribe to lists")
   public List<String> getSubscribeLists() {
     return subscribeLists;
   }
@@ -151,10 +203,10 @@ public class ItemThirdPartyEmailMarketing   {
   }
 
    /**
-   * Get unsubscribeLists
+   * Unsubscribe from lists
    * @return unsubscribeLists
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Unsubscribe from lists")
   public List<String> getUnsubscribeLists() {
     return unsubscribeLists;
   }

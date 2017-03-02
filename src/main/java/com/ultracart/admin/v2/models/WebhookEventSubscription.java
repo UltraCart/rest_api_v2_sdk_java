@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * WebhookEventSubscription
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class WebhookEventSubscription   {
   @SerializedName("comments")
   private String comments = null;
@@ -66,10 +66,10 @@ public class WebhookEventSubscription   {
   }
 
    /**
-   * Get comments
+   * Comment about the event to provide further clarification to the end user
    * @return comments
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Comment about the event to provide further clarification to the end user")
   public String getComments() {
     return comments;
   }
@@ -84,10 +84,10 @@ public class WebhookEventSubscription   {
   }
 
    /**
-   * Get deprecatedFlag
+   * True if the event is deprecated.  See the API change log for details on when it will be discontinued.
    * @return deprecatedFlag
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the event is deprecated.  See the API change log for details on when it will be discontinued.")
   public Boolean getDeprecatedFlag() {
     return deprecatedFlag;
   }
@@ -102,10 +102,10 @@ public class WebhookEventSubscription   {
   }
 
    /**
-   * Get discontinuedFlag
+   * True if the event is discontinued.  See the API change log for details on migration details.
    * @return discontinuedFlag
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the event is discontinued.  See the API change log for details on migration details.")
   public Boolean getDiscontinuedFlag() {
     return discontinuedFlag;
   }
@@ -120,10 +120,10 @@ public class WebhookEventSubscription   {
   }
 
    /**
-   * Get eventDescription
+   * Description of the event
    * @return eventDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description of the event")
   public String getEventDescription() {
     return eventDescription;
   }
@@ -138,10 +138,10 @@ public class WebhookEventSubscription   {
   }
 
    /**
-   * Get eventName
+   * Event name
    * @return eventName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Event name")
   public String getEventName() {
     return eventName;
   }
@@ -156,10 +156,10 @@ public class WebhookEventSubscription   {
   }
 
    /**
-   * Get expansion
+   * The expand string for the notification object.  See the individual resource _expand documentation for valid values.
    * @return expansion
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The expand string for the notification object.  See the individual resource _expand documentation for valid values.")
   public String getExpansion() {
     return expansion;
   }
@@ -174,10 +174,10 @@ public class WebhookEventSubscription   {
   }
 
    /**
-   * Get subscribed
+   * True if this is event is subscribed to
    * @return subscribed
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this is event is subscribed to")
   public Boolean getSubscribed() {
     return subscribed;
   }
@@ -192,10 +192,10 @@ public class WebhookEventSubscription   {
   }
 
    /**
-   * Get webhookEventOid
+   * The webhook event object identifier
    * @return webhookEventOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The webhook event object identifier")
   public Integer getWebhookEventOid() {
     return webhookEventOid;
   }

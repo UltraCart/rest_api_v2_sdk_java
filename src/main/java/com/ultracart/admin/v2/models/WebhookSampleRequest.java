@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * WebhookSampleRequest
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class WebhookSampleRequest   {
   @SerializedName("request")
   private String request = null;
@@ -57,10 +57,10 @@ public class WebhookSampleRequest   {
   }
 
    /**
-   * Get request
+   * Request
    * @return request
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Request")
   public String getRequest() {
     return request;
   }
@@ -80,10 +80,10 @@ public class WebhookSampleRequest   {
   }
 
    /**
-   * Get requestHeaders
+   * Request headers
    * @return requestHeaders
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Request headers")
   public List<HTTPHeader> getRequestHeaders() {
     return requestHeaders;
   }
@@ -98,10 +98,10 @@ public class WebhookSampleRequest   {
   }
 
    /**
-   * Get requestId
+   * Request id
    * @return requestId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Request id")
   public String getRequestId() {
     return requestId;
   }
@@ -116,10 +116,10 @@ public class WebhookSampleRequest   {
   }
 
    /**
-   * Get uri
+   * URI to send request to
    * @return uri
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "URI to send request to")
   public String getUri() {
     return uri;
   }

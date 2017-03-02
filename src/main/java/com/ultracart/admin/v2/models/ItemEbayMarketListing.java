@@ -29,27 +29,28 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemEbayMarketListing
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemEbayMarketListing   {
   @SerializedName("auction_id")
   private String auctionId = null;
 
   @SerializedName("price")
-  private Double price = null;
+  private BigDecimal price = null;
 
   @SerializedName("seller")
   private String seller = null;
 
   @SerializedName("shipping")
-  private Double shipping = null;
+  private BigDecimal shipping = null;
 
   @SerializedName("total")
-  private Double total = null;
+  private BigDecimal total = null;
 
   public ItemEbayMarketListing auctionId(String auctionId) {
     this.auctionId = auctionId;
@@ -57,10 +58,10 @@ public class ItemEbayMarketListing   {
   }
 
    /**
-   * Get auctionId
+   * Auction ID
    * @return auctionId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Auction ID")
   public String getAuctionId() {
     return auctionId;
   }
@@ -69,21 +70,21 @@ public class ItemEbayMarketListing   {
     this.auctionId = auctionId;
   }
 
-  public ItemEbayMarketListing price(Double price) {
+  public ItemEbayMarketListing price(BigDecimal price) {
     this.price = price;
     return this;
   }
 
    /**
-   * Get price
+   * Price
    * @return price
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getPrice() {
+  @ApiModelProperty(example = "null", value = "Price")
+  public BigDecimal getPrice() {
     return price;
   }
 
-  public void setPrice(Double price) {
+  public void setPrice(BigDecimal price) {
     this.price = price;
   }
 
@@ -93,10 +94,10 @@ public class ItemEbayMarketListing   {
   }
 
    /**
-   * Get seller
+   * Seller
    * @return seller
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Seller")
   public String getSeller() {
     return seller;
   }
@@ -105,39 +106,39 @@ public class ItemEbayMarketListing   {
     this.seller = seller;
   }
 
-  public ItemEbayMarketListing shipping(Double shipping) {
+  public ItemEbayMarketListing shipping(BigDecimal shipping) {
     this.shipping = shipping;
     return this;
   }
 
    /**
-   * Get shipping
+   * Shipping
    * @return shipping
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getShipping() {
+  @ApiModelProperty(example = "null", value = "Shipping")
+  public BigDecimal getShipping() {
     return shipping;
   }
 
-  public void setShipping(Double shipping) {
+  public void setShipping(BigDecimal shipping) {
     this.shipping = shipping;
   }
 
-  public ItemEbayMarketListing total(Double total) {
+  public ItemEbayMarketListing total(BigDecimal total) {
     this.total = total;
     return this;
   }
 
    /**
-   * Get total
+   * Total
    * @return total
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getTotal() {
+  @ApiModelProperty(example = "null", value = "Total")
+  public BigDecimal getTotal() {
     return total;
   }
 
-  public void setTotal(Double total) {
+  public void setTotal(BigDecimal total) {
     this.total = total;
   }
 

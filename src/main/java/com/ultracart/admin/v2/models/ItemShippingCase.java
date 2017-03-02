@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemShippingCase
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemShippingCase   {
   @SerializedName("case_label")
   private String caseLabel = null;
@@ -54,10 +54,10 @@ public class ItemShippingCase   {
   }
 
    /**
-   * Get caseLabel
+   * Case label
    * @return caseLabel
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Case label")
   public String getCaseLabel() {
     return caseLabel;
   }
@@ -72,10 +72,10 @@ public class ItemShippingCase   {
   }
 
    /**
-   * Get caseMerchantItemId
+   * Case item id
    * @return caseMerchantItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Case item id")
   public String getCaseMerchantItemId() {
     return caseMerchantItemId;
   }
@@ -90,10 +90,10 @@ public class ItemShippingCase   {
   }
 
    /**
-   * Get caseMerchantItemOid
+   * Case item object identifier
    * @return caseMerchantItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Case item object identifier")
   public Integer getCaseMerchantItemOid() {
     return caseMerchantItemOid;
   }
@@ -108,10 +108,10 @@ public class ItemShippingCase   {
   }
 
    /**
-   * Get quantity
+   * Case quantity
    * @return quantity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Case quantity")
   public Integer getQuantity() {
     return quantity;
   }

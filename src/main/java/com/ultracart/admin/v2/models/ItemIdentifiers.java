@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemIdentifiers
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemIdentifiers   {
   @SerializedName("barcode")
   private String barcode = null;
@@ -54,10 +54,10 @@ public class ItemIdentifiers   {
   }
 
    /**
-   * Get barcode
+   * Barcode
    * @return barcode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Barcode")
   public String getBarcode() {
     return barcode;
   }
@@ -72,10 +72,10 @@ public class ItemIdentifiers   {
   }
 
    /**
-   * Get manufacturerName
+   * Manufacturer Name
    * @return manufacturerName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Manufacturer Name")
   public String getManufacturerName() {
     return manufacturerName;
   }
@@ -90,10 +90,10 @@ public class ItemIdentifiers   {
   }
 
    /**
-   * Get manufacturerSku
+   * Manufacturer SKU
    * @return manufacturerSku
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Manufacturer SKU")
   public String getManufacturerSku() {
     return manufacturerSku;
   }
@@ -108,10 +108,10 @@ public class ItemIdentifiers   {
   }
 
    /**
-   * Get unspsc
+   * UNSPSC
    * @return unspsc
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "UNSPSC")
   public String getUnspsc() {
     return unspsc;
   }

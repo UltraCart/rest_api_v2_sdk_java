@@ -30,6 +30,7 @@ import com.google.gson.annotations.SerializedName;
 import com.ultracart.admin.v2.models.ItemTaxExemption;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ import java.util.List;
 /**
  * ItemTax
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemTax   {
   @SerializedName("exemptions")
   private List<ItemTaxExemption> exemptions = new ArrayList<ItemTaxExemption>();
@@ -46,7 +47,7 @@ public class ItemTax   {
   private Boolean taxFree = null;
 
   @SerializedName("taxable_cost")
-  private Double taxableCost = null;
+  private BigDecimal taxableCost = null;
 
   public ItemTax exemptions(List<ItemTaxExemption> exemptions) {
     this.exemptions = exemptions;
@@ -59,10 +60,10 @@ public class ItemTax   {
   }
 
    /**
-   * Get exemptions
+   * Exemptions
    * @return exemptions
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Exemptions")
   public List<ItemTaxExemption> getExemptions() {
     return exemptions;
   }
@@ -77,10 +78,10 @@ public class ItemTax   {
   }
 
    /**
-   * Get taxFree
+   * True if tax free
    * @return taxFree
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if tax free")
   public Boolean getTaxFree() {
     return taxFree;
   }
@@ -89,21 +90,21 @@ public class ItemTax   {
     this.taxFree = taxFree;
   }
 
-  public ItemTax taxableCost(Double taxableCost) {
+  public ItemTax taxableCost(BigDecimal taxableCost) {
     this.taxableCost = taxableCost;
     return this;
   }
 
    /**
-   * Get taxableCost
+   * Taxable cost if different than regular cost
    * @return taxableCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getTaxableCost() {
+  @ApiModelProperty(example = "null", value = "Taxable cost if different than regular cost")
+  public BigDecimal getTaxableCost() {
     return taxableCost;
   }
 
-  public void setTaxableCost(Double taxableCost) {
+  public void setTaxableCost(BigDecimal taxableCost) {
     this.taxableCost = taxableCost;
   }
 

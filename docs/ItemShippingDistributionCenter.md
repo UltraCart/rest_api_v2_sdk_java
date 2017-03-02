@@ -4,19 +4,19 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allocatedToPlacedOrders** | **Double** |  |  [optional]
-**allocatedToShoppingCarts** | **Double** |  |  [optional]
-**availableToAllocate** | **Double** |  |  [optional]
-**desiredInventoryLevel** | **Double** |  |  [optional]
-**distributionCenterCode** | **String** |  |  [optional]
-**distributionCenterOid** | **Integer** |  |  [optional]
-**eta** | **String** |  |  [optional]
-**handles** | **Boolean** |  |  [optional]
-**inventoryLevel** | **Double** |  |  [optional]
-**maximumBackorder** | **Integer** |  |  [optional]
-**reorderInventoryLevel** | **Double** |  |  [optional]
-**sku** | **String** |  |  [optional]
-**stockPickingLocation** | **String** |  |  [optional]
+**allocatedToPlacedOrders** | [**BigDecimal**](BigDecimal.md) | Allocated to placed orders |  [optional]
+**allocatedToShoppingCarts** | [**BigDecimal**](BigDecimal.md) | Allocated to shopping carts |  [optional]
+**availableToAllocate** | [**BigDecimal**](BigDecimal.md) | Available to allocate |  [optional]
+**desiredInventoryLevel** | [**BigDecimal**](BigDecimal.md) | Desired inventory level |  [optional]
+**distributionCenterCode** | **String** | Distribution center code |  [optional]
+**distributionCenterOid** | **Integer** | Distribution center object identifier |  [optional]
+**eta** | **String** | Estimated time of arrival |  [optional]
+**handles** | **Boolean** | True if this distribution center handles this item |  [optional]
+**inventoryLevel** | [**BigDecimal**](BigDecimal.md) | Inventory level |  [optional]
+**maximumBackorder** | **Integer** | Maximum back-order |  [optional]
+**reorderInventoryLevel** | [**BigDecimal**](BigDecimal.md) | Reorder inventory level (triggers notification) |  [optional]
+**sku** | **String** | SKU |  [optional]
+**stockPickingLocation** | **String** | Stock picking location |  [optional]
 
 
 

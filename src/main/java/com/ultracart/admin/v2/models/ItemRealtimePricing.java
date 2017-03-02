@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemRealtimePricing
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemRealtimePricing   {
   @SerializedName("realtime_pricing_parameter")
   private String realtimePricingParameter = null;
@@ -51,10 +51,10 @@ public class ItemRealtimePricing   {
   }
 
    /**
-   * Get realtimePricingParameter
+   * Real-time pricing provider parameters
    * @return realtimePricingParameter
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Real-time pricing provider parameters")
   public String getRealtimePricingParameter() {
     return realtimePricingParameter;
   }
@@ -69,10 +69,10 @@ public class ItemRealtimePricing   {
   }
 
    /**
-   * Get realtimePricingProvider
+   * Real-time pricing provider name
    * @return realtimePricingProvider
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Real-time pricing provider name")
   public String getRealtimePricingProvider() {
     return realtimePricingProvider;
   }
@@ -87,10 +87,10 @@ public class ItemRealtimePricing   {
   }
 
    /**
-   * Get realtimePricingProviderOid
+   * Real-time pricing provide object identifier
    * @return realtimePricingProviderOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Real-time pricing provide object identifier")
   public Integer getRealtimePricingProviderOid() {
     return realtimePricingProviderOid;
   }

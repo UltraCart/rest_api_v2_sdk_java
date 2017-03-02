@@ -30,6 +30,7 @@ import com.google.gson.annotations.SerializedName;
 import com.ultracart.admin.v2.models.ItemOptionValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,16 +38,16 @@ import java.util.List;
 /**
  * ItemOption
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemOption   {
   @SerializedName("cost_if_specified")
-  private Double costIfSpecified = null;
+  private BigDecimal costIfSpecified = null;
 
   @SerializedName("cost_per_letter")
-  private Double costPerLetter = null;
+  private BigDecimal costPerLetter = null;
 
   @SerializedName("cost_per_line")
-  private Double costPerLine = null;
+  private BigDecimal costPerLine = null;
 
   @SerializedName("ignore_if_default")
   private Boolean ignoreIfDefault = null;
@@ -75,63 +76,100 @@ public class ItemOption   {
   @SerializedName("system_option")
   private Boolean systemOption = null;
 
+  /**
+   * Type of option
+   */
+  public enum TypeEnum {
+    @SerializedName("dropdown")
+    DROPDOWN("dropdown"),
+    
+    @SerializedName("file attachment")
+    FILE_ATTACHMENT("file attachment"),
+    
+    @SerializedName("fixed")
+    FIXED("fixed"),
+    
+    @SerializedName("hidden")
+    HIDDEN("hidden"),
+    
+    @SerializedName("multiline")
+    MULTILINE("multiline"),
+    
+    @SerializedName("radio")
+    RADIO("radio"),
+    
+    @SerializedName("single")
+    SINGLE("single");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("type")
-  private String type = null;
+  private TypeEnum type = null;
 
   @SerializedName("values")
   private List<ItemOptionValue> values = new ArrayList<ItemOptionValue>();
 
-  public ItemOption costIfSpecified(Double costIfSpecified) {
+  public ItemOption costIfSpecified(BigDecimal costIfSpecified) {
     this.costIfSpecified = costIfSpecified;
     return this;
   }
 
    /**
-   * Get costIfSpecified
+   * Cost if specified
    * @return costIfSpecified
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCostIfSpecified() {
+  @ApiModelProperty(example = "null", value = "Cost if specified")
+  public BigDecimal getCostIfSpecified() {
     return costIfSpecified;
   }
 
-  public void setCostIfSpecified(Double costIfSpecified) {
+  public void setCostIfSpecified(BigDecimal costIfSpecified) {
     this.costIfSpecified = costIfSpecified;
   }
 
-  public ItemOption costPerLetter(Double costPerLetter) {
+  public ItemOption costPerLetter(BigDecimal costPerLetter) {
     this.costPerLetter = costPerLetter;
     return this;
   }
 
    /**
-   * Get costPerLetter
+   * Cost per letter
    * @return costPerLetter
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCostPerLetter() {
+  @ApiModelProperty(example = "null", value = "Cost per letter")
+  public BigDecimal getCostPerLetter() {
     return costPerLetter;
   }
 
-  public void setCostPerLetter(Double costPerLetter) {
+  public void setCostPerLetter(BigDecimal costPerLetter) {
     this.costPerLetter = costPerLetter;
   }
 
-  public ItemOption costPerLine(Double costPerLine) {
+  public ItemOption costPerLine(BigDecimal costPerLine) {
     this.costPerLine = costPerLine;
     return this;
   }
 
    /**
-   * Get costPerLine
+   * Cost per line
    * @return costPerLine
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCostPerLine() {
+  @ApiModelProperty(example = "null", value = "Cost per line")
+  public BigDecimal getCostPerLine() {
     return costPerLine;
   }
 
-  public void setCostPerLine(Double costPerLine) {
+  public void setCostPerLine(BigDecimal costPerLine) {
     this.costPerLine = costPerLine;
   }
 
@@ -141,10 +179,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get ignoreIfDefault
+   * Ignore this option on the order if the default value is selected
    * @return ignoreIfDefault
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Ignore this option on the order if the default value is selected")
   public Boolean getIgnoreIfDefault() {
     return ignoreIfDefault;
   }
@@ -159,10 +197,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get label
+   * Label
    * @return label
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Label")
   public String getLabel() {
     return label;
   }
@@ -177,10 +215,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get labelTranslatedTextInstanceOid
+   * Label translated text instance ID
    * @return labelTranslatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Label translated text instance ID")
   public Integer getLabelTranslatedTextInstanceOid() {
     return labelTranslatedTextInstanceOid;
   }
@@ -195,10 +233,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get name
+   * Name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Name")
   public String getName() {
     return name;
   }
@@ -213,10 +251,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get nameTranslatedTextInstanceOid
+   * Name translated text instance ID
    * @return nameTranslatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Name translated text instance ID")
   public Integer getNameTranslatedTextInstanceOid() {
     return nameTranslatedTextInstanceOid;
   }
@@ -231,10 +269,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get oneTimeFee
+   * One time fee
    * @return oneTimeFee
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "One time fee")
   public Boolean getOneTimeFee() {
     return oneTimeFee;
   }
@@ -249,10 +287,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get optionOid
+   * Option object identifier
    * @return optionOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Option object identifier")
   public Integer getOptionOid() {
     return optionOid;
   }
@@ -267,10 +305,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get required
+   * True if the customer is required to specify an answer
    * @return required
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the customer is required to specify an answer")
   public Boolean getRequired() {
     return required;
   }
@@ -285,10 +323,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get systemOption
+   * True if this is a system option
    * @return systemOption
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this is a system option")
   public Boolean getSystemOption() {
     return systemOption;
   }
@@ -297,21 +335,21 @@ public class ItemOption   {
     this.systemOption = systemOption;
   }
 
-  public ItemOption type(String type) {
+  public ItemOption type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * Get type
+   * Type of option
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getType() {
+  @ApiModelProperty(example = "null", value = "Type of option")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
@@ -326,10 +364,10 @@ public class ItemOption   {
   }
 
    /**
-   * Get values
+   * Values
    * @return values
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Values")
   public List<ItemOptionValue> getValues() {
     return values;
   }

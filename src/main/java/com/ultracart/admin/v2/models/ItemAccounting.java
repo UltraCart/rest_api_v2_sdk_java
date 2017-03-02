@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemAccounting
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemAccounting   {
   @SerializedName("accounting_code")
   private String accountingCode = null;
@@ -48,10 +48,10 @@ public class ItemAccounting   {
   }
 
    /**
-   * Get accountingCode
+   * QuickBooks item name if different than the item id
    * @return accountingCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "QuickBooks item name if different than the item id")
   public String getAccountingCode() {
     return accountingCode;
   }
@@ -66,10 +66,10 @@ public class ItemAccounting   {
   }
 
    /**
-   * Get qbClass
+   * QuickBooks class if you are classifying items on your invoices/receipts
    * @return qbClass
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "QuickBooks class if you are classifying items on your invoices/receipts")
   public String getQbClass() {
     return qbClass;
   }

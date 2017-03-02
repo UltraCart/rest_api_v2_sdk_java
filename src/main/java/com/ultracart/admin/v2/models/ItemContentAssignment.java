@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemContentAssignment
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemContentAssignment   {
   @SerializedName("group_oid")
   private Integer groupOid = null;
@@ -57,10 +57,10 @@ public class ItemContentAssignment   {
   }
 
    /**
-   * Get groupOid
+   * Page (group) object identifier
    * @return groupOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Page (group) object identifier")
   public Integer getGroupOid() {
     return groupOid;
   }
@@ -75,10 +75,10 @@ public class ItemContentAssignment   {
   }
 
    /**
-   * Get groupPath
+   * Page (group) path
    * @return groupPath
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Page (group) path")
   public String getGroupPath() {
     return groupPath;
   }
@@ -93,10 +93,10 @@ public class ItemContentAssignment   {
   }
 
    /**
-   * Get host
+   * StoreFront host name
    * @return host
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "StoreFront host name")
   public String getHost() {
     return host;
   }
@@ -111,10 +111,10 @@ public class ItemContentAssignment   {
   }
 
    /**
-   * Get sortOrder
+   * Sort order (optional)
    * @return sortOrder
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Sort order (optional)")
   public Integer getSortOrder() {
     return sortOrder;
   }
@@ -129,10 +129,10 @@ public class ItemContentAssignment   {
   }
 
    /**
-   * Get urlPart
+   * URL part if the item id is not used
    * @return urlPart
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "URL part if the item id is not used")
   public String getUrlPart() {
     return urlPart;
   }

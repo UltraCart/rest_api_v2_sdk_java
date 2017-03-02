@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemRelated
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemRelated   {
   @SerializedName("no_system_calculated_related_items")
   private Boolean noSystemCalculatedRelatedItems = null;
@@ -54,10 +54,10 @@ public class ItemRelated   {
   }
 
    /**
-   * Get noSystemCalculatedRelatedItems
+   * True to suppress system calculated relationships
    * @return noSystemCalculatedRelatedItems
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True to suppress system calculated relationships")
   public Boolean getNoSystemCalculatedRelatedItems() {
     return noSystemCalculatedRelatedItems;
   }
@@ -72,10 +72,10 @@ public class ItemRelated   {
   }
 
    /**
-   * Get notRelatable
+   * Not relatable
    * @return notRelatable
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Not relatable")
   public Boolean getNotRelatable() {
     return notRelatable;
   }
@@ -95,10 +95,10 @@ public class ItemRelated   {
   }
 
    /**
-   * Get relatedItems
+   * Related items
    * @return relatedItems
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Related items")
   public List<ItemRelatedItem> getRelatedItems() {
     return relatedItems;
   }

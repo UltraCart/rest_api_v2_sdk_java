@@ -33,6 +33,7 @@ import com.ultracart.admin.v2.models.ItemOptionValueDigitalItem;
 import com.ultracart.admin.v2.models.Weight;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,16 +41,41 @@ import java.util.List;
 /**
  * ItemOptionValue
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemOptionValue   {
+  /**
+   * Additional dimensions application
+   */
+  public enum AdditionalDimensionApplicationEnum {
+    @SerializedName("none")
+    NONE("none"),
+    
+    @SerializedName("set item to")
+    SET_ITEM_TO("set item to"),
+    
+    @SerializedName("add item")
+    ADD_ITEM("add item");
+
+    private String value;
+
+    AdditionalDimensionApplicationEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("additional_dimension_application")
-  private String additionalDimensionApplication = null;
+  private AdditionalDimensionApplicationEnum additionalDimensionApplication = null;
 
   @SerializedName("additional_items")
   private List<ItemOptionValueAdditionalItem> additionalItems = new ArrayList<ItemOptionValueAdditionalItem>();
 
   @SerializedName("cost_change")
-  private Double costChange = null;
+  private BigDecimal costChange = null;
 
   @SerializedName("default_value")
   private Boolean defaultValue = null;
@@ -70,7 +96,7 @@ public class ItemOptionValue   {
   private Integer optionValueOid = null;
 
   @SerializedName("percent_cost_change")
-  private Double percentCostChange = null;
+  private BigDecimal percentCostChange = null;
 
   @SerializedName("translated_text_instance_oid")
   private Integer translatedTextInstanceOid = null;
@@ -82,26 +108,26 @@ public class ItemOptionValue   {
   private Weight weightChange = null;
 
   @SerializedName("weight_change_percent")
-  private Double weightChangePercent = null;
+  private BigDecimal weightChangePercent = null;
 
   @SerializedName("width")
   private Distance width = null;
 
-  public ItemOptionValue additionalDimensionApplication(String additionalDimensionApplication) {
+  public ItemOptionValue additionalDimensionApplication(AdditionalDimensionApplicationEnum additionalDimensionApplication) {
     this.additionalDimensionApplication = additionalDimensionApplication;
     return this;
   }
 
    /**
-   * Get additionalDimensionApplication
+   * Additional dimensions application
    * @return additionalDimensionApplication
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAdditionalDimensionApplication() {
+  @ApiModelProperty(example = "null", value = "Additional dimensions application")
+  public AdditionalDimensionApplicationEnum getAdditionalDimensionApplication() {
     return additionalDimensionApplication;
   }
 
-  public void setAdditionalDimensionApplication(String additionalDimensionApplication) {
+  public void setAdditionalDimensionApplication(AdditionalDimensionApplicationEnum additionalDimensionApplication) {
     this.additionalDimensionApplication = additionalDimensionApplication;
   }
 
@@ -116,10 +142,10 @@ public class ItemOptionValue   {
   }
 
    /**
-   * Get additionalItems
+   * Additional items to add to the order if this value is selected
    * @return additionalItems
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Additional items to add to the order if this value is selected")
   public List<ItemOptionValueAdditionalItem> getAdditionalItems() {
     return additionalItems;
   }
@@ -128,21 +154,21 @@ public class ItemOptionValue   {
     this.additionalItems = additionalItems;
   }
 
-  public ItemOptionValue costChange(Double costChange) {
+  public ItemOptionValue costChange(BigDecimal costChange) {
     this.costChange = costChange;
     return this;
   }
 
    /**
-   * Get costChange
+   * Cost change
    * @return costChange
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCostChange() {
+  @ApiModelProperty(example = "null", value = "Cost change")
+  public BigDecimal getCostChange() {
     return costChange;
   }
 
-  public void setCostChange(Double costChange) {
+  public void setCostChange(BigDecimal costChange) {
     this.costChange = costChange;
   }
 
@@ -152,10 +178,10 @@ public class ItemOptionValue   {
   }
 
    /**
-   * Get defaultValue
+   * True if default value
    * @return defaultValue
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if default value")
   public Boolean getDefaultValue() {
     return defaultValue;
   }
@@ -175,10 +201,10 @@ public class ItemOptionValue   {
   }
 
    /**
-   * Get digitalItems
+   * Digital items to allow the customer to download if this option value is selected
    * @return digitalItems
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Digital items to allow the customer to download if this option value is selected")
   public List<ItemOptionValueDigitalItem> getDigitalItems() {
     return digitalItems;
   }
@@ -229,10 +255,10 @@ public class ItemOptionValue   {
   }
 
    /**
-   * Get merchantItemMultimediaOid
+   * Multimedia object identifier associated with this option value
    * @return merchantItemMultimediaOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Multimedia object identifier associated with this option value")
   public Integer getMerchantItemMultimediaOid() {
     return merchantItemMultimediaOid;
   }
@@ -247,10 +273,10 @@ public class ItemOptionValue   {
   }
 
    /**
-   * Get optionValueOid
+   * Option value object identifier
    * @return optionValueOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Option value object identifier")
   public Integer getOptionValueOid() {
     return optionValueOid;
   }
@@ -259,21 +285,21 @@ public class ItemOptionValue   {
     this.optionValueOid = optionValueOid;
   }
 
-  public ItemOptionValue percentCostChange(Double percentCostChange) {
+  public ItemOptionValue percentCostChange(BigDecimal percentCostChange) {
     this.percentCostChange = percentCostChange;
     return this;
   }
 
    /**
-   * Get percentCostChange
+   * Percentage cost change
    * @return percentCostChange
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getPercentCostChange() {
+  @ApiModelProperty(example = "null", value = "Percentage cost change")
+  public BigDecimal getPercentCostChange() {
     return percentCostChange;
   }
 
-  public void setPercentCostChange(Double percentCostChange) {
+  public void setPercentCostChange(BigDecimal percentCostChange) {
     this.percentCostChange = percentCostChange;
   }
 
@@ -283,10 +309,10 @@ public class ItemOptionValue   {
   }
 
    /**
-   * Get translatedTextInstanceOid
+   * Translated text instance id
    * @return translatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Translated text instance id")
   public Integer getTranslatedTextInstanceOid() {
     return translatedTextInstanceOid;
   }
@@ -301,10 +327,10 @@ public class ItemOptionValue   {
   }
 
    /**
-   * Get value
+   * Value
    * @return value
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Value")
   public String getValue() {
     return value;
   }
@@ -331,21 +357,21 @@ public class ItemOptionValue   {
     this.weightChange = weightChange;
   }
 
-  public ItemOptionValue weightChangePercent(Double weightChangePercent) {
+  public ItemOptionValue weightChangePercent(BigDecimal weightChangePercent) {
     this.weightChangePercent = weightChangePercent;
     return this;
   }
 
    /**
-   * Get weightChangePercent
+   * Percentage weight change
    * @return weightChangePercent
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getWeightChangePercent() {
+  @ApiModelProperty(example = "null", value = "Percentage weight change")
+  public BigDecimal getWeightChangePercent() {
     return weightChangePercent;
   }
 
-  public void setWeightChangePercent(Double weightChangePercent) {
+  public void setWeightChangePercent(BigDecimal weightChangePercent) {
     this.weightChangePercent = weightChangePercent;
   }
 

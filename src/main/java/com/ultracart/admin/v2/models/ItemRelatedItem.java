@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemRelatedItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemRelatedItem   {
   @SerializedName("related_merchant_item_id")
   private String relatedMerchantItemId = null;
@@ -42,8 +42,30 @@ public class ItemRelatedItem   {
   @SerializedName("related_merchant_item_oid")
   private Integer relatedMerchantItemOid = null;
 
+  /**
+   * Relationship type
+   */
+  public enum TypeEnum {
+    @SerializedName("System")
+    SYSTEM("System"),
+    
+    @SerializedName("UserDefined")
+    USERDEFINED("UserDefined");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("type")
-  private String type = null;
+  private TypeEnum type = null;
 
   public ItemRelatedItem relatedMerchantItemId(String relatedMerchantItemId) {
     this.relatedMerchantItemId = relatedMerchantItemId;
@@ -51,10 +73,10 @@ public class ItemRelatedItem   {
   }
 
    /**
-   * Get relatedMerchantItemId
+   * Related item id
    * @return relatedMerchantItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Related item id")
   public String getRelatedMerchantItemId() {
     return relatedMerchantItemId;
   }
@@ -69,10 +91,10 @@ public class ItemRelatedItem   {
   }
 
    /**
-   * Get relatedMerchantItemOid
+   * Related item object identifier
    * @return relatedMerchantItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Related item object identifier")
   public Integer getRelatedMerchantItemOid() {
     return relatedMerchantItemOid;
   }
@@ -81,21 +103,21 @@ public class ItemRelatedItem   {
     this.relatedMerchantItemOid = relatedMerchantItemOid;
   }
 
-  public ItemRelatedItem type(String type) {
+  public ItemRelatedItem type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * Get type
+   * Relationship type
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getType() {
+  @ApiModelProperty(example = "null", value = "Relationship type")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

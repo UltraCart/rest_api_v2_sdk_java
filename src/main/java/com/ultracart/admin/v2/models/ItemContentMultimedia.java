@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemContentMultimedia
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemContentMultimedia   {
   @SerializedName("cloud_url")
   private String cloudUrl = null;
@@ -75,8 +75,39 @@ public class ItemContentMultimedia   {
   @SerializedName("thumbnails")
   private List<ItemContentMultimediaThumbnail> thumbnails = new ArrayList<ItemContentMultimediaThumbnail>();
 
+  /**
+   * Type of file
+   */
+  public enum TypeEnum {
+    @SerializedName("Image")
+    IMAGE("Image"),
+    
+    @SerializedName("PDF")
+    PDF("PDF"),
+    
+    @SerializedName("Text")
+    TEXT("Text"),
+    
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    
+    @SerializedName("Video")
+    VIDEO("Video");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("type")
-  private String type = null;
+  private TypeEnum type = null;
 
   @SerializedName("url")
   private String url = null;
@@ -90,10 +121,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get cloudUrl
+   * URL where the image can be downloaded from the cloud
    * @return cloudUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "URL where the image can be downloaded from the cloud")
   public String getCloudUrl() {
     return cloudUrl;
   }
@@ -108,10 +139,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get cloudUrlExpiration
+   * Expiration date of the cloud URL
    * @return cloudUrlExpiration
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Expiration date of the cloud URL")
   public String getCloudUrlExpiration() {
     return cloudUrlExpiration;
   }
@@ -126,10 +157,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get code
+   * Code assigned to the file
    * @return code
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Code assigned to the file")
   public String getCode() {
     return code;
   }
@@ -144,10 +175,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get description
+   * Description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description")
   public String getDescription() {
     return description;
   }
@@ -162,10 +193,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get excludeFromGallery
+   * True to exclude from multimedia gallery
    * @return excludeFromGallery
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True to exclude from multimedia gallery")
   public Boolean getExcludeFromGallery() {
     return excludeFromGallery;
   }
@@ -180,10 +211,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get fileName
+   * File name
    * @return fileName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "File name")
   public String getFileName() {
     return fileName;
   }
@@ -198,10 +229,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get height
+   * Height of the image
    * @return height
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Height of the image")
   public Integer getHeight() {
     return height;
   }
@@ -216,10 +247,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get merchantItemMultimediaOid
+   * Item multimedia object identifier
    * @return merchantItemMultimediaOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Item multimedia object identifier")
   public Integer getMerchantItemMultimediaOid() {
     return merchantItemMultimediaOid;
   }
@@ -234,10 +265,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get orphan
+   * True if the multimedia is an orphan of the active StoreFront themes
    * @return orphan
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the multimedia is an orphan of the active StoreFront themes")
   public Boolean getOrphan() {
     return orphan;
   }
@@ -252,10 +283,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get placeholder
+   * True if the object is a place holder that can be populated
    * @return placeholder
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the object is a place holder that can be populated")
   public Boolean getPlaceholder() {
     return placeholder;
   }
@@ -270,10 +301,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get tempMultimediaOid
+   * Temporary multimedia object identifier assigned if uploading new multimedia
    * @return tempMultimediaOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Temporary multimedia object identifier assigned if uploading new multimedia")
   public Integer getTempMultimediaOid() {
     return tempMultimediaOid;
   }
@@ -293,10 +324,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get thumbnails
+   * Thumbnails of this image
    * @return thumbnails
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Thumbnails of this image")
   public List<ItemContentMultimediaThumbnail> getThumbnails() {
     return thumbnails;
   }
@@ -305,21 +336,21 @@ public class ItemContentMultimedia   {
     this.thumbnails = thumbnails;
   }
 
-  public ItemContentMultimedia type(String type) {
+  public ItemContentMultimedia type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * Get type
+   * Type of file
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getType() {
+  @ApiModelProperty(example = "null", value = "Type of file")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
@@ -329,10 +360,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get url
+   * URL to download file
    * @return url
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "URL to download file")
   public String getUrl() {
     return url;
   }
@@ -347,10 +378,10 @@ public class ItemContentMultimedia   {
   }
 
    /**
-   * Get width
+   * Width of the image
    * @return width
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Width of the image")
   public Integer getWidth() {
     return width;
   }

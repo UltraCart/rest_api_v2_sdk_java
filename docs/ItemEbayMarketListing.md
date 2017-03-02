@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**auctionId** | **String** |  |  [optional]
-**price** | **Double** |  |  [optional]
-**seller** | **String** |  |  [optional]
-**shipping** | **Double** |  |  [optional]
-**total** | **Double** |  |  [optional]
+**auctionId** | **String** | Auction ID |  [optional]
+**price** | [**BigDecimal**](BigDecimal.md) | Price |  [optional]
+**seller** | **String** | Seller |  [optional]
+**shipping** | [**BigDecimal**](BigDecimal.md) | Shipping |  [optional]
+**total** | [**BigDecimal**](BigDecimal.md) | Total |  [optional]
 
 
 

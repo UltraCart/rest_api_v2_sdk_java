@@ -30,6 +30,7 @@ import com.google.gson.annotations.SerializedName;
 import com.ultracart.admin.v2.models.ItemAutoOrderStep;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,49 +38,40 @@ import java.util.List;
 /**
  * ItemAutoOrder
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemAutoOrder   {
   @SerializedName("auth_future_amount")
-  private Double authFutureAmount = null;
+  private BigDecimal authFutureAmount = null;
 
   @SerializedName("auth_test_amount")
-  private Double authTestAmount = null;
+  private BigDecimal authTestAmount = null;
+
+  @SerializedName("auto_order_cancel_item_id")
+  private String autoOrderCancelItemId = null;
 
   @SerializedName("auto_order_cancel_item_oid")
   private Integer autoOrderCancelItemOid = null;
 
   @SerializedName("auto_order_downgrade_items")
-  private String autoOrderDowngradeItems = null;
+  private List<String> autoOrderDowngradeItems = new ArrayList<String>();
 
   @SerializedName("auto_order_paused")
   private Boolean autoOrderPaused = null;
 
   @SerializedName("auto_order_schedules")
-  private Integer autoOrderSchedules = null;
+  private List<String> autoOrderSchedules = new ArrayList<String>();
 
   @SerializedName("auto_order_upgrade_items")
-  private String autoOrderUpgradeItems = null;
+  private List<String> autoOrderUpgradeItems = new ArrayList<String>();
 
   @SerializedName("auto_order_upsell")
   private Boolean autoOrderUpsell = null;
-
-  @SerializedName("auto_order_upsell_delay")
-  private Integer autoOrderUpsellDelay = null;
-
-  @SerializedName("auto_order_upsell_merchant_item_oid")
-  private Integer autoOrderUpsellMerchantItemOid = null;
 
   @SerializedName("auto_order_upsell_no_easy_cancel")
   private Boolean autoOrderUpsellNoEasyCancel = null;
 
   @SerializedName("auto_order_upsell_one_per_customer")
   private Boolean autoOrderUpsellOnePerCustomer = null;
-
-  @SerializedName("auto_order_upsell_repeat_count")
-  private Integer autoOrderUpsellRepeatCount = null;
-
-  @SerializedName("auto_order_upsell_schedule")
-  private String autoOrderUpsellSchedule = null;
 
   @SerializedName("auto_orderable")
   private Boolean autoOrderable = null;
@@ -93,40 +85,58 @@ public class ItemAutoOrder   {
   @SerializedName("steps")
   private List<ItemAutoOrderStep> steps = new ArrayList<ItemAutoOrderStep>();
 
-  public ItemAutoOrder authFutureAmount(Double authFutureAmount) {
+  public ItemAutoOrder authFutureAmount(BigDecimal authFutureAmount) {
     this.authFutureAmount = authFutureAmount;
     return this;
   }
 
    /**
-   * Get authFutureAmount
+   * Amount to try and authorize for the future rebill
    * @return authFutureAmount
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getAuthFutureAmount() {
+  @ApiModelProperty(example = "null", value = "Amount to try and authorize for the future rebill")
+  public BigDecimal getAuthFutureAmount() {
     return authFutureAmount;
   }
 
-  public void setAuthFutureAmount(Double authFutureAmount) {
+  public void setAuthFutureAmount(BigDecimal authFutureAmount) {
     this.authFutureAmount = authFutureAmount;
   }
 
-  public ItemAutoOrder authTestAmount(Double authTestAmount) {
+  public ItemAutoOrder authTestAmount(BigDecimal authTestAmount) {
     this.authTestAmount = authTestAmount;
     return this;
   }
 
    /**
-   * Get authTestAmount
+   * Amount to try and test authorize
    * @return authTestAmount
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getAuthTestAmount() {
+  @ApiModelProperty(example = "null", value = "Amount to try and test authorize")
+  public BigDecimal getAuthTestAmount() {
     return authTestAmount;
   }
 
-  public void setAuthTestAmount(Double authTestAmount) {
+  public void setAuthTestAmount(BigDecimal authTestAmount) {
     this.authTestAmount = authTestAmount;
+  }
+
+  public ItemAutoOrder autoOrderCancelItemId(String autoOrderCancelItemId) {
+    this.autoOrderCancelItemId = autoOrderCancelItemId;
+    return this;
+  }
+
+   /**
+   * Item id to attempt charging the customer for if they cancel
+   * @return autoOrderCancelItemId
+  **/
+  @ApiModelProperty(example = "null", value = "Item id to attempt charging the customer for if they cancel")
+  public String getAutoOrderCancelItemId() {
+    return autoOrderCancelItemId;
+  }
+
+  public void setAutoOrderCancelItemId(String autoOrderCancelItemId) {
+    this.autoOrderCancelItemId = autoOrderCancelItemId;
   }
 
   public ItemAutoOrder autoOrderCancelItemOid(Integer autoOrderCancelItemOid) {
@@ -135,10 +145,10 @@ public class ItemAutoOrder   {
   }
 
    /**
-   * Get autoOrderCancelItemOid
+   * Item object identifier to attempt charging the customer for if they cancel
    * @return autoOrderCancelItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Item object identifier to attempt charging the customer for if they cancel")
   public Integer getAutoOrderCancelItemOid() {
     return autoOrderCancelItemOid;
   }
@@ -147,21 +157,26 @@ public class ItemAutoOrder   {
     this.autoOrderCancelItemOid = autoOrderCancelItemOid;
   }
 
-  public ItemAutoOrder autoOrderDowngradeItems(String autoOrderDowngradeItems) {
+  public ItemAutoOrder autoOrderDowngradeItems(List<String> autoOrderDowngradeItems) {
     this.autoOrderDowngradeItems = autoOrderDowngradeItems;
     return this;
   }
 
+  public ItemAutoOrder addAutoOrderDowngradeItemsItem(String autoOrderDowngradeItemsItem) {
+    this.autoOrderDowngradeItems.add(autoOrderDowngradeItemsItem);
+    return this;
+  }
+
    /**
-   * Get autoOrderDowngradeItems
+   * List of downgrade items presented to customer service representatives
    * @return autoOrderDowngradeItems
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAutoOrderDowngradeItems() {
+  @ApiModelProperty(example = "null", value = "List of downgrade items presented to customer service representatives")
+  public List<String> getAutoOrderDowngradeItems() {
     return autoOrderDowngradeItems;
   }
 
-  public void setAutoOrderDowngradeItems(String autoOrderDowngradeItems) {
+  public void setAutoOrderDowngradeItems(List<String> autoOrderDowngradeItems) {
     this.autoOrderDowngradeItems = autoOrderDowngradeItems;
   }
 
@@ -171,10 +186,10 @@ public class ItemAutoOrder   {
   }
 
    /**
-   * Get autoOrderPaused
+   * True if the rebill processing of this item is paused
    * @return autoOrderPaused
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the rebill processing of this item is paused")
   public Boolean getAutoOrderPaused() {
     return autoOrderPaused;
   }
@@ -183,39 +198,49 @@ public class ItemAutoOrder   {
     this.autoOrderPaused = autoOrderPaused;
   }
 
-  public ItemAutoOrder autoOrderSchedules(Integer autoOrderSchedules) {
+  public ItemAutoOrder autoOrderSchedules(List<String> autoOrderSchedules) {
     this.autoOrderSchedules = autoOrderSchedules;
     return this;
   }
 
+  public ItemAutoOrder addAutoOrderSchedulesItem(String autoOrderSchedulesItem) {
+    this.autoOrderSchedules.add(autoOrderSchedulesItem);
+    return this;
+  }
+
    /**
-   * Get autoOrderSchedules
+   * The user selectable schedules that are available
    * @return autoOrderSchedules
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getAutoOrderSchedules() {
+  @ApiModelProperty(example = "null", value = "The user selectable schedules that are available")
+  public List<String> getAutoOrderSchedules() {
     return autoOrderSchedules;
   }
 
-  public void setAutoOrderSchedules(Integer autoOrderSchedules) {
+  public void setAutoOrderSchedules(List<String> autoOrderSchedules) {
     this.autoOrderSchedules = autoOrderSchedules;
   }
 
-  public ItemAutoOrder autoOrderUpgradeItems(String autoOrderUpgradeItems) {
+  public ItemAutoOrder autoOrderUpgradeItems(List<String> autoOrderUpgradeItems) {
     this.autoOrderUpgradeItems = autoOrderUpgradeItems;
     return this;
   }
 
+  public ItemAutoOrder addAutoOrderUpgradeItemsItem(String autoOrderUpgradeItemsItem) {
+    this.autoOrderUpgradeItems.add(autoOrderUpgradeItemsItem);
+    return this;
+  }
+
    /**
-   * Get autoOrderUpgradeItems
+   * List of upgrade items presented to customer service representatives
    * @return autoOrderUpgradeItems
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAutoOrderUpgradeItems() {
+  @ApiModelProperty(example = "null", value = "List of upgrade items presented to customer service representatives")
+  public List<String> getAutoOrderUpgradeItems() {
     return autoOrderUpgradeItems;
   }
 
-  public void setAutoOrderUpgradeItems(String autoOrderUpgradeItems) {
+  public void setAutoOrderUpgradeItems(List<String> autoOrderUpgradeItems) {
     this.autoOrderUpgradeItems = autoOrderUpgradeItems;
   }
 
@@ -225,10 +250,10 @@ public class ItemAutoOrder   {
   }
 
    /**
-   * Get autoOrderUpsell
+   * True if this item uses a fixed upsell step schedule
    * @return autoOrderUpsell
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this item uses a fixed upsell step schedule")
   public Boolean getAutoOrderUpsell() {
     return autoOrderUpsell;
   }
@@ -237,52 +262,16 @@ public class ItemAutoOrder   {
     this.autoOrderUpsell = autoOrderUpsell;
   }
 
-  public ItemAutoOrder autoOrderUpsellDelay(Integer autoOrderUpsellDelay) {
-    this.autoOrderUpsellDelay = autoOrderUpsellDelay;
-    return this;
-  }
-
-   /**
-   * Get autoOrderUpsellDelay
-   * @return autoOrderUpsellDelay
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getAutoOrderUpsellDelay() {
-    return autoOrderUpsellDelay;
-  }
-
-  public void setAutoOrderUpsellDelay(Integer autoOrderUpsellDelay) {
-    this.autoOrderUpsellDelay = autoOrderUpsellDelay;
-  }
-
-  public ItemAutoOrder autoOrderUpsellMerchantItemOid(Integer autoOrderUpsellMerchantItemOid) {
-    this.autoOrderUpsellMerchantItemOid = autoOrderUpsellMerchantItemOid;
-    return this;
-  }
-
-   /**
-   * Get autoOrderUpsellMerchantItemOid
-   * @return autoOrderUpsellMerchantItemOid
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getAutoOrderUpsellMerchantItemOid() {
-    return autoOrderUpsellMerchantItemOid;
-  }
-
-  public void setAutoOrderUpsellMerchantItemOid(Integer autoOrderUpsellMerchantItemOid) {
-    this.autoOrderUpsellMerchantItemOid = autoOrderUpsellMerchantItemOid;
-  }
-
   public ItemAutoOrder autoOrderUpsellNoEasyCancel(Boolean autoOrderUpsellNoEasyCancel) {
     this.autoOrderUpsellNoEasyCancel = autoOrderUpsellNoEasyCancel;
     return this;
   }
 
    /**
-   * Get autoOrderUpsellNoEasyCancel
+   * Do not send the easy cancel email to the customer
    * @return autoOrderUpsellNoEasyCancel
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Do not send the easy cancel email to the customer")
   public Boolean getAutoOrderUpsellNoEasyCancel() {
     return autoOrderUpsellNoEasyCancel;
   }
@@ -297,10 +286,10 @@ public class ItemAutoOrder   {
   }
 
    /**
-   * Get autoOrderUpsellOnePerCustomer
+   * Limit the purchase of this item to one per customer
    * @return autoOrderUpsellOnePerCustomer
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Limit the purchase of this item to one per customer")
   public Boolean getAutoOrderUpsellOnePerCustomer() {
     return autoOrderUpsellOnePerCustomer;
   }
@@ -309,52 +298,16 @@ public class ItemAutoOrder   {
     this.autoOrderUpsellOnePerCustomer = autoOrderUpsellOnePerCustomer;
   }
 
-  public ItemAutoOrder autoOrderUpsellRepeatCount(Integer autoOrderUpsellRepeatCount) {
-    this.autoOrderUpsellRepeatCount = autoOrderUpsellRepeatCount;
-    return this;
-  }
-
-   /**
-   * Get autoOrderUpsellRepeatCount
-   * @return autoOrderUpsellRepeatCount
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getAutoOrderUpsellRepeatCount() {
-    return autoOrderUpsellRepeatCount;
-  }
-
-  public void setAutoOrderUpsellRepeatCount(Integer autoOrderUpsellRepeatCount) {
-    this.autoOrderUpsellRepeatCount = autoOrderUpsellRepeatCount;
-  }
-
-  public ItemAutoOrder autoOrderUpsellSchedule(String autoOrderUpsellSchedule) {
-    this.autoOrderUpsellSchedule = autoOrderUpsellSchedule;
-    return this;
-  }
-
-   /**
-   * Get autoOrderUpsellSchedule
-   * @return autoOrderUpsellSchedule
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAutoOrderUpsellSchedule() {
-    return autoOrderUpsellSchedule;
-  }
-
-  public void setAutoOrderUpsellSchedule(String autoOrderUpsellSchedule) {
-    this.autoOrderUpsellSchedule = autoOrderUpsellSchedule;
-  }
-
   public ItemAutoOrder autoOrderable(Boolean autoOrderable) {
     this.autoOrderable = autoOrderable;
     return this;
   }
 
    /**
-   * Get autoOrderable
+   * True if this item can be automatically ordered by the customer
    * @return autoOrderable
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this item can be automatically ordered by the customer")
   public Boolean getAutoOrderable() {
     return autoOrderable;
   }
@@ -369,10 +322,10 @@ public class ItemAutoOrder   {
   }
 
    /**
-   * Get cancelOtherAutoOrders
+   * True if other auto orders for this customer should be canceled when this item is ordered
    * @return cancelOtherAutoOrders
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if other auto orders for this customer should be canceled when this item is ordered")
   public Boolean getCancelOtherAutoOrders() {
     return cancelOtherAutoOrders;
   }
@@ -387,10 +340,10 @@ public class ItemAutoOrder   {
   }
 
    /**
-   * Get freeShippingAutoOrder
+   * True if the customer should be given free shipping
    * @return freeShippingAutoOrder
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the customer should be given free shipping")
   public Boolean getFreeShippingAutoOrder() {
     return freeShippingAutoOrder;
   }
@@ -410,10 +363,10 @@ public class ItemAutoOrder   {
   }
 
    /**
-   * Get steps
+   * The rebill steps if this auto order is an upsell
    * @return steps
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The rebill steps if this auto order is an upsell")
   public List<ItemAutoOrderStep> getSteps() {
     return steps;
   }
@@ -434,18 +387,15 @@ public class ItemAutoOrder   {
     ItemAutoOrder itemAutoOrder = (ItemAutoOrder) o;
     return Objects.equals(this.authFutureAmount, itemAutoOrder.authFutureAmount) &&
         Objects.equals(this.authTestAmount, itemAutoOrder.authTestAmount) &&
+        Objects.equals(this.autoOrderCancelItemId, itemAutoOrder.autoOrderCancelItemId) &&
         Objects.equals(this.autoOrderCancelItemOid, itemAutoOrder.autoOrderCancelItemOid) &&
         Objects.equals(this.autoOrderDowngradeItems, itemAutoOrder.autoOrderDowngradeItems) &&
         Objects.equals(this.autoOrderPaused, itemAutoOrder.autoOrderPaused) &&
         Objects.equals(this.autoOrderSchedules, itemAutoOrder.autoOrderSchedules) &&
         Objects.equals(this.autoOrderUpgradeItems, itemAutoOrder.autoOrderUpgradeItems) &&
         Objects.equals(this.autoOrderUpsell, itemAutoOrder.autoOrderUpsell) &&
-        Objects.equals(this.autoOrderUpsellDelay, itemAutoOrder.autoOrderUpsellDelay) &&
-        Objects.equals(this.autoOrderUpsellMerchantItemOid, itemAutoOrder.autoOrderUpsellMerchantItemOid) &&
         Objects.equals(this.autoOrderUpsellNoEasyCancel, itemAutoOrder.autoOrderUpsellNoEasyCancel) &&
         Objects.equals(this.autoOrderUpsellOnePerCustomer, itemAutoOrder.autoOrderUpsellOnePerCustomer) &&
-        Objects.equals(this.autoOrderUpsellRepeatCount, itemAutoOrder.autoOrderUpsellRepeatCount) &&
-        Objects.equals(this.autoOrderUpsellSchedule, itemAutoOrder.autoOrderUpsellSchedule) &&
         Objects.equals(this.autoOrderable, itemAutoOrder.autoOrderable) &&
         Objects.equals(this.cancelOtherAutoOrders, itemAutoOrder.cancelOtherAutoOrders) &&
         Objects.equals(this.freeShippingAutoOrder, itemAutoOrder.freeShippingAutoOrder) &&
@@ -454,7 +404,7 @@ public class ItemAutoOrder   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelItemOid, autoOrderDowngradeItems, autoOrderPaused, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellDelay, autoOrderUpsellMerchantItemOid, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderUpsellRepeatCount, autoOrderUpsellSchedule, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, steps);
+    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderDowngradeItems, autoOrderPaused, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, steps);
   }
 
   @Override
@@ -464,18 +414,15 @@ public class ItemAutoOrder   {
     
     sb.append("    authFutureAmount: ").append(toIndentedString(authFutureAmount)).append("\n");
     sb.append("    authTestAmount: ").append(toIndentedString(authTestAmount)).append("\n");
+    sb.append("    autoOrderCancelItemId: ").append(toIndentedString(autoOrderCancelItemId)).append("\n");
     sb.append("    autoOrderCancelItemOid: ").append(toIndentedString(autoOrderCancelItemOid)).append("\n");
     sb.append("    autoOrderDowngradeItems: ").append(toIndentedString(autoOrderDowngradeItems)).append("\n");
     sb.append("    autoOrderPaused: ").append(toIndentedString(autoOrderPaused)).append("\n");
     sb.append("    autoOrderSchedules: ").append(toIndentedString(autoOrderSchedules)).append("\n");
     sb.append("    autoOrderUpgradeItems: ").append(toIndentedString(autoOrderUpgradeItems)).append("\n");
     sb.append("    autoOrderUpsell: ").append(toIndentedString(autoOrderUpsell)).append("\n");
-    sb.append("    autoOrderUpsellDelay: ").append(toIndentedString(autoOrderUpsellDelay)).append("\n");
-    sb.append("    autoOrderUpsellMerchantItemOid: ").append(toIndentedString(autoOrderUpsellMerchantItemOid)).append("\n");
     sb.append("    autoOrderUpsellNoEasyCancel: ").append(toIndentedString(autoOrderUpsellNoEasyCancel)).append("\n");
     sb.append("    autoOrderUpsellOnePerCustomer: ").append(toIndentedString(autoOrderUpsellOnePerCustomer)).append("\n");
-    sb.append("    autoOrderUpsellRepeatCount: ").append(toIndentedString(autoOrderUpsellRepeatCount)).append("\n");
-    sb.append("    autoOrderUpsellSchedule: ").append(toIndentedString(autoOrderUpsellSchedule)).append("\n");
     sb.append("    autoOrderable: ").append(toIndentedString(autoOrderable)).append("\n");
     sb.append("    cancelOtherAutoOrders: ").append(toIndentedString(cancelOtherAutoOrders)).append("\n");
     sb.append("    freeShippingAutoOrder: ").append(toIndentedString(freeShippingAutoOrder)).append("\n");

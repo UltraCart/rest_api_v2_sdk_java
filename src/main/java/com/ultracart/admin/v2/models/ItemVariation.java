@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemVariation
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemVariation   {
   @SerializedName("default_text")
   private String defaultText = null;
@@ -60,10 +60,10 @@ public class ItemVariation   {
   }
 
    /**
-   * Get defaultText
+   * Default text
    * @return defaultText
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Default text")
   public String getDefaultText() {
     return defaultText;
   }
@@ -78,10 +78,10 @@ public class ItemVariation   {
   }
 
    /**
-   * Get defaultTextTranslatedTextInstanceOid
+   * Default text translated text instance id
    * @return defaultTextTranslatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Default text translated text instance id")
   public Integer getDefaultTextTranslatedTextInstanceOid() {
     return defaultTextTranslatedTextInstanceOid;
   }
@@ -96,10 +96,10 @@ public class ItemVariation   {
   }
 
    /**
-   * Get name
+   * Name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Name")
   public String getName() {
     return name;
   }
@@ -114,10 +114,10 @@ public class ItemVariation   {
   }
 
    /**
-   * Get nameTranslatedTextInstanceOid
+   * Name translated text instance id
    * @return nameTranslatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Name translated text instance id")
   public Integer getNameTranslatedTextInstanceOid() {
     return nameTranslatedTextInstanceOid;
   }
@@ -137,10 +137,10 @@ public class ItemVariation   {
   }
 
    /**
-   * Get options
+   * Options
    * @return options
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Options")
   public List<ItemVariationOption> getOptions() {
     return options;
   }

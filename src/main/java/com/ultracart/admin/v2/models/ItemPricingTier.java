@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * ItemPricingTier
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemPricingTier   {
   @SerializedName("default_tier")
   private Boolean defaultTier = null;
@@ -61,10 +61,10 @@ public class ItemPricingTier   {
   }
 
    /**
-   * Get defaultTier
+   * True if this is the default tier
    * @return defaultTier
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this is the default tier")
   public Boolean getDefaultTier() {
     return defaultTier;
   }
@@ -84,10 +84,10 @@ public class ItemPricingTier   {
   }
 
    /**
-   * Get discounts
+   * Discounts
    * @return discounts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Discounts")
   public List<ItemPricingTierDiscount> getDiscounts() {
     return discounts;
   }
@@ -120,10 +120,10 @@ public class ItemPricingTier   {
   }
 
    /**
-   * Get name
+   * Pricing tier name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Pricing tier name")
   public String getName() {
     return name;
   }
@@ -138,10 +138,10 @@ public class ItemPricingTier   {
   }
 
    /**
-   * Get pricingTierOid
+   * Pricing tier object identifier
    * @return pricingTierOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Pricing tier object identifier")
   public Integer getPricingTierOid() {
     return pricingTierOid;
   }

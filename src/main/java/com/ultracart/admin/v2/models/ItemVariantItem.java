@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * ItemVariantItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemVariantItem   {
   @SerializedName("description")
   private String description = null;
@@ -62,10 +62,10 @@ public class ItemVariantItem   {
   }
 
    /**
-   * Get description
+   * Description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description")
   public String getDescription() {
     return description;
   }
@@ -80,10 +80,10 @@ public class ItemVariantItem   {
   }
 
    /**
-   * Get merchantItemMultimediaOid
+   * Multimedia object identifier
    * @return merchantItemMultimediaOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Multimedia object identifier")
   public Integer getMerchantItemMultimediaOid() {
     return merchantItemMultimediaOid;
   }
@@ -98,10 +98,10 @@ public class ItemVariantItem   {
   }
 
    /**
-   * Get variantMerchantItemId
+   * Variant item id
    * @return variantMerchantItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Variant item id")
   public String getVariantMerchantItemId() {
     return variantMerchantItemId;
   }
@@ -116,10 +116,10 @@ public class ItemVariantItem   {
   }
 
    /**
-   * Get variantMerchantItemOid
+   * Variant item object identifier
    * @return variantMerchantItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Variant item object identifier")
   public Integer getVariantMerchantItemOid() {
     return variantMerchantItemOid;
   }
@@ -139,10 +139,10 @@ public class ItemVariantItem   {
   }
 
    /**
-   * Get variationOptions
+   * Variation options
    * @return variationOptions
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Variation options")
   public List<String> getVariationOptions() {
     return variationOptions;
   }
@@ -162,10 +162,10 @@ public class ItemVariantItem   {
   }
 
    /**
-   * Get variations
+   * Variations
    * @return variations
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Variations")
   public List<String> getVariations() {
     return variations;
   }

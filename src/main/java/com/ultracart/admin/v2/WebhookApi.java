@@ -40,11 +40,11 @@ import java.io.IOException;
 
 import com.ultracart.admin.v2.models.WebhooksResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.WebhookResponse;
 import com.ultracart.admin.v2.models.Webhook;
 import com.ultracart.admin.v2.models.WebhookLogSummariesResponse;
 import com.ultracart.admin.v2.models.WebhookLogResponse;
 import com.ultracart.admin.v2.models.WebhookSampleRequestResponse;
-import com.ultracart.admin.v2.models.WebhookSampleRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -72,7 +72,7 @@ public class WebhookApi {
     }
 
     /* Build call for webhookWebhooksGet */
-    private com.squareup.okhttp.Call webhookWebhooksGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhookWebhooksGetCall(Integer limit, Integer offset, String sort, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
 
@@ -80,6 +80,14 @@ public class WebhookApi {
         String localVarPath = "/webhook/webhooks".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_sort", sort));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -116,22 +124,30 @@ public class WebhookApi {
     /**
      * Retrieve webhooks
      * Retrieves the webhooks associated with this application. 
+     * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the webhooks.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return WebhooksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WebhooksResponse webhookWebhooksGet() throws ApiException {
-        ApiResponse<WebhooksResponse> resp = webhookWebhooksGetWithHttpInfo();
+    public WebhooksResponse webhookWebhooksGet(Integer limit, Integer offset, String sort, Boolean placeholders) throws ApiException {
+        ApiResponse<WebhooksResponse> resp = webhookWebhooksGetWithHttpInfo(limit, offset, sort, placeholders);
         return resp.getData();
     }
 
     /**
      * Retrieve webhooks
      * Retrieves the webhooks associated with this application. 
+     * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the webhooks.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;WebhooksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WebhooksResponse> webhookWebhooksGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = webhookWebhooksGetCall(null, null);
+    public ApiResponse<WebhooksResponse> webhookWebhooksGetWithHttpInfo(Integer limit, Integer offset, String sort, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = webhookWebhooksGetCall(limit, offset, sort, placeholders, null, null);
         Type localVarReturnType = new TypeToken<WebhooksResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -139,11 +155,15 @@ public class WebhookApi {
     /**
      * Retrieve webhooks (asynchronously)
      * Retrieves the webhooks associated with this application. 
+     * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the webhooks.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhookWebhooksGetAsync(final ApiCallback<WebhooksResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhookWebhooksGetAsync(Integer limit, Integer offset, String sort, Boolean placeholders, final ApiCallback<WebhooksResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -164,13 +184,13 @@ public class WebhookApi {
             };
         }
 
-        com.squareup.okhttp.Call call = webhookWebhooksGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = webhookWebhooksGetCall(limit, offset, sort, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WebhooksResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for webhookWebhooksPost */
-    private com.squareup.okhttp.Call webhookWebhooksPostCall(Webhook webhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhookWebhooksPostCall(Webhook webhook, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = webhook;
         
         // verify the required parameter 'webhook' is set
@@ -183,6 +203,8 @@ public class WebhookApi {
         String localVarPath = "/webhook/webhooks".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -195,7 +217,7 @@ public class WebhookApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json; charset=UTF-8"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -218,38 +240,41 @@ public class WebhookApi {
 
     /**
      * Add a webhook
-     * Adds a new webhook on the account 
+     * Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
      * @param webhook Webhook to create (required)
-     * @return WebhooksResponse
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return WebhookResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WebhooksResponse webhookWebhooksPost(Webhook webhook) throws ApiException {
-        ApiResponse<WebhooksResponse> resp = webhookWebhooksPostWithHttpInfo(webhook);
+    public WebhookResponse webhookWebhooksPost(Webhook webhook, Boolean placeholders) throws ApiException {
+        ApiResponse<WebhookResponse> resp = webhookWebhooksPostWithHttpInfo(webhook, placeholders);
         return resp.getData();
     }
 
     /**
      * Add a webhook
-     * Adds a new webhook on the account 
+     * Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
      * @param webhook Webhook to create (required)
-     * @return ApiResponse&lt;WebhooksResponse&gt;
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ApiResponse&lt;WebhookResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WebhooksResponse> webhookWebhooksPostWithHttpInfo(Webhook webhook) throws ApiException {
-        com.squareup.okhttp.Call call = webhookWebhooksPostCall(webhook, null, null);
-        Type localVarReturnType = new TypeToken<WebhooksResponse>(){}.getType();
+    public ApiResponse<WebhookResponse> webhookWebhooksPostWithHttpInfo(Webhook webhook, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = webhookWebhooksPostCall(webhook, placeholders, null, null);
+        Type localVarReturnType = new TypeToken<WebhookResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Add a webhook (asynchronously)
-     * Adds a new webhook on the account 
+     * Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
      * @param webhook Webhook to create (required)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhookWebhooksPostAsync(Webhook webhook, final ApiCallback<WebhooksResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhookWebhooksPostAsync(Webhook webhook, Boolean placeholders, final ApiCallback<WebhookResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -270,8 +295,8 @@ public class WebhookApi {
             };
         }
 
-        com.squareup.okhttp.Call call = webhookWebhooksPostCall(webhook, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WebhooksResponse>(){}.getType();
+        com.squareup.okhttp.Call call = webhookWebhooksPostCall(webhook, placeholders, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<WebhookResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -379,7 +404,7 @@ public class WebhookApi {
         return call;
     }
     /* Build call for webhookWebhooksWebhookOidLogsGet */
-    private com.squareup.okhttp.Call webhookWebhooksWebhookOidLogsGetCall(Integer webhookOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhookWebhooksWebhookOidLogsGetCall(Integer webhookOid, Integer limit, Integer offset, String since, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'webhookOid' is set
@@ -393,6 +418,12 @@ public class WebhookApi {
         .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_offset", offset));
+        if (since != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_since", since));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -430,11 +461,14 @@ public class WebhookApi {
      * Retrieve the log summaries
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
+     * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch log summaries that have been delivered since this date/time. (optional)
      * @return WebhookLogSummariesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WebhookLogSummariesResponse webhookWebhooksWebhookOidLogsGet(Integer webhookOid) throws ApiException {
-        ApiResponse<WebhookLogSummariesResponse> resp = webhookWebhooksWebhookOidLogsGetWithHttpInfo(webhookOid);
+    public WebhookLogSummariesResponse webhookWebhooksWebhookOidLogsGet(Integer webhookOid, Integer limit, Integer offset, String since) throws ApiException {
+        ApiResponse<WebhookLogSummariesResponse> resp = webhookWebhooksWebhookOidLogsGetWithHttpInfo(webhookOid, limit, offset, since);
         return resp.getData();
     }
 
@@ -442,11 +476,14 @@ public class WebhookApi {
      * Retrieve the log summaries
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
+     * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch log summaries that have been delivered since this date/time. (optional)
      * @return ApiResponse&lt;WebhookLogSummariesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WebhookLogSummariesResponse> webhookWebhooksWebhookOidLogsGetWithHttpInfo(Integer webhookOid) throws ApiException {
-        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidLogsGetCall(webhookOid, null, null);
+    public ApiResponse<WebhookLogSummariesResponse> webhookWebhooksWebhookOidLogsGetWithHttpInfo(Integer webhookOid, Integer limit, Integer offset, String since) throws ApiException {
+        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidLogsGetCall(webhookOid, limit, offset, since, null, null);
         Type localVarReturnType = new TypeToken<WebhookLogSummariesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -455,11 +492,14 @@ public class WebhookApi {
      * Retrieve the log summaries (asynchronously)
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
+     * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch log summaries that have been delivered since this date/time. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhookWebhooksWebhookOidLogsGetAsync(Integer webhookOid, final ApiCallback<WebhookLogSummariesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhookWebhooksWebhookOidLogsGetAsync(Integer webhookOid, Integer limit, Integer offset, String since, final ApiCallback<WebhookLogSummariesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -480,7 +520,7 @@ public class WebhookApi {
             };
         }
 
-        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidLogsGetCall(webhookOid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidLogsGetCall(webhookOid, limit, offset, since, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WebhookLogSummariesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -602,7 +642,7 @@ public class WebhookApi {
         return call;
     }
     /* Build call for webhookWebhooksWebhookOidPut */
-    private com.squareup.okhttp.Call webhookWebhooksWebhookOidPutCall(Webhook webhook, Integer webhookOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhookWebhooksWebhookOidPutCall(Webhook webhook, Integer webhookOid, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = webhook;
         
         // verify the required parameter 'webhook' is set
@@ -621,6 +661,8 @@ public class WebhookApi {
         .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -633,7 +675,7 @@ public class WebhookApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json; charset=UTF-8"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -659,11 +701,12 @@ public class WebhookApi {
      * Update a webhook on the account 
      * @param webhook Webhook to update (required)
      * @param webhookOid The webhook oid to update. (required)
-     * @return WebhooksResponse
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return WebhookResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WebhooksResponse webhookWebhooksWebhookOidPut(Webhook webhook, Integer webhookOid) throws ApiException {
-        ApiResponse<WebhooksResponse> resp = webhookWebhooksWebhookOidPutWithHttpInfo(webhook, webhookOid);
+    public WebhookResponse webhookWebhooksWebhookOidPut(Webhook webhook, Integer webhookOid, Boolean placeholders) throws ApiException {
+        ApiResponse<WebhookResponse> resp = webhookWebhooksWebhookOidPutWithHttpInfo(webhook, webhookOid, placeholders);
         return resp.getData();
     }
 
@@ -672,12 +715,13 @@ public class WebhookApi {
      * Update a webhook on the account 
      * @param webhook Webhook to update (required)
      * @param webhookOid The webhook oid to update. (required)
-     * @return ApiResponse&lt;WebhooksResponse&gt;
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ApiResponse&lt;WebhookResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WebhooksResponse> webhookWebhooksWebhookOidPutWithHttpInfo(Webhook webhook, Integer webhookOid) throws ApiException {
-        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidPutCall(webhook, webhookOid, null, null);
-        Type localVarReturnType = new TypeToken<WebhooksResponse>(){}.getType();
+    public ApiResponse<WebhookResponse> webhookWebhooksWebhookOidPutWithHttpInfo(Webhook webhook, Integer webhookOid, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidPutCall(webhook, webhookOid, placeholders, null, null);
+        Type localVarReturnType = new TypeToken<WebhookResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -686,11 +730,12 @@ public class WebhookApi {
      * Update a webhook on the account 
      * @param webhook Webhook to update (required)
      * @param webhookOid The webhook oid to update. (required)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhookWebhooksWebhookOidPutAsync(Webhook webhook, Integer webhookOid, final ApiCallback<WebhooksResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhookWebhooksWebhookOidPutAsync(Webhook webhook, Integer webhookOid, Boolean placeholders, final ApiCallback<WebhookResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -711,8 +756,8 @@ public class WebhookApi {
             };
         }
 
-        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidPutCall(webhook, webhookOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WebhooksResponse>(){}.getType();
+        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidPutCall(webhook, webhookOid, placeholders, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<WebhookResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -749,7 +794,7 @@ public class WebhookApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json; charset=UTF-8"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -829,228 +874,6 @@ public class WebhookApi {
 
         com.squareup.okhttp.Call call = webhookWebhooksWebhookOidReflowEventNamePostCall(webhookOid, eventName, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WebhookSampleRequestResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for webhookWebhooksWebhookOidSamplesGet */
-    private com.squareup.okhttp.Call webhookWebhooksWebhookOidSamplesGetCall(Integer webhookOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'webhookOid' is set
-        if (webhookOid == null) {
-            throw new ApiException("Missing the required parameter 'webhookOid' when calling webhookWebhooksWebhookOidSamplesGet(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/webhook/webhooks/{webhookOid}/samples".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Retrieve a sample notification.
-     * Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like. 
-     * @param webhookOid The webhook oid to retrieve samples for. (required)
-     * @return WebhookSampleRequestResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WebhookSampleRequestResponse webhookWebhooksWebhookOidSamplesGet(Integer webhookOid) throws ApiException {
-        ApiResponse<WebhookSampleRequestResponse> resp = webhookWebhooksWebhookOidSamplesGetWithHttpInfo(webhookOid);
-        return resp.getData();
-    }
-
-    /**
-     * Retrieve a sample notification.
-     * Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like. 
-     * @param webhookOid The webhook oid to retrieve samples for. (required)
-     * @return ApiResponse&lt;WebhookSampleRequestResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WebhookSampleRequestResponse> webhookWebhooksWebhookOidSamplesGetWithHttpInfo(Integer webhookOid) throws ApiException {
-        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidSamplesGetCall(webhookOid, null, null);
-        Type localVarReturnType = new TypeToken<WebhookSampleRequestResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Retrieve a sample notification. (asynchronously)
-     * Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like. 
-     * @param webhookOid The webhook oid to retrieve samples for. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call webhookWebhooksWebhookOidSamplesGetAsync(Integer webhookOid, final ApiCallback<WebhookSampleRequestResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidSamplesGetCall(webhookOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WebhookSampleRequestResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for webhookWebhooksWebhookOidValidatePost */
-    private com.squareup.okhttp.Call webhookWebhooksWebhookOidValidatePostCall(WebhookSampleRequest samples, Integer webhookOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = samples;
-        
-        // verify the required parameter 'samples' is set
-        if (samples == null) {
-            throw new ApiException("Missing the required parameter 'samples' when calling webhookWebhooksWebhookOidValidatePost(Async)");
-        }
-        
-        // verify the required parameter 'webhookOid' is set
-        if (webhookOid == null) {
-            throw new ApiException("Missing the required parameter 'webhookOid' when calling webhookWebhooksWebhookOidValidatePost(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/webhook/webhooks/{webhookOid}/validate".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Send test message to an endpoint.
-     * Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response. 
-     * @param samples Samples to send in the test (required)
-     * @param webhookOid The webhook oid that is being tested. (required)
-     * @return WebhookLogResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WebhookLogResponse webhookWebhooksWebhookOidValidatePost(WebhookSampleRequest samples, Integer webhookOid) throws ApiException {
-        ApiResponse<WebhookLogResponse> resp = webhookWebhooksWebhookOidValidatePostWithHttpInfo(samples, webhookOid);
-        return resp.getData();
-    }
-
-    /**
-     * Send test message to an endpoint.
-     * Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response. 
-     * @param samples Samples to send in the test (required)
-     * @param webhookOid The webhook oid that is being tested. (required)
-     * @return ApiResponse&lt;WebhookLogResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WebhookLogResponse> webhookWebhooksWebhookOidValidatePostWithHttpInfo(WebhookSampleRequest samples, Integer webhookOid) throws ApiException {
-        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidValidatePostCall(samples, webhookOid, null, null);
-        Type localVarReturnType = new TypeToken<WebhookLogResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Send test message to an endpoint. (asynchronously)
-     * Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response. 
-     * @param samples Samples to send in the test (required)
-     * @param webhookOid The webhook oid that is being tested. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call webhookWebhooksWebhookOidValidatePostAsync(WebhookSampleRequest samples, Integer webhookOid, final ApiCallback<WebhookLogResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = webhookWebhooksWebhookOidValidatePostCall(samples, webhookOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WebhookLogResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

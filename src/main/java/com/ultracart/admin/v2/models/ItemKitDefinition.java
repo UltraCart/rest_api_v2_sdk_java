@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemKitDefinition
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemKitDefinition   {
   @SerializedName("components")
   private List<ItemKitComponent> components = new ArrayList<ItemKitComponent>();
@@ -53,10 +53,10 @@ public class ItemKitDefinition   {
   }
 
    /**
-   * Get components
+   * Components
    * @return components
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Components")
   public List<ItemKitComponent> getComponents() {
     return components;
   }

@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**arbitraryUnitCost** | **Double** |  |  [optional]
-**retryDays** | **Integer** |  |  [optional]
+**arbitraryUnitCost** | [**BigDecimal**](BigDecimal.md) | Arbitrary unit cost |  [optional]
+**retryDays** | **Integer** | Retry days |  [optional]
 
 
 

@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * WebhookEventCategory
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class WebhookEventCategory   {
   @SerializedName("event_category")
   private String eventCategory = null;
@@ -54,10 +54,10 @@ public class WebhookEventCategory   {
   }
 
    /**
-   * Get eventCategory
+   * Name of the event category
    * @return eventCategory
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Name of the event category")
   public String getEventCategory() {
     return eventCategory;
   }
@@ -77,10 +77,10 @@ public class WebhookEventCategory   {
   }
 
    /**
-   * Get events
+   * The events within the category.  Individual subscription flags contained within the child object.
    * @return events
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The events within the category.  Individual subscription flags contained within the child object.")
   public List<WebhookEventSubscription> getEvents() {
     return events;
   }
@@ -95,10 +95,10 @@ public class WebhookEventCategory   {
   }
 
    /**
-   * Get subscribed
+   * True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
    * @return subscribed
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.")
   public Boolean getSubscribed() {
     return subscribed;
   }

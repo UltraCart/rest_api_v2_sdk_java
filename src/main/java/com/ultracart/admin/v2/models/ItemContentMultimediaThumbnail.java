@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemContentMultimediaThumbnail
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemContentMultimediaThumbnail   {
   @SerializedName("height")
   private Integer height = null;
@@ -60,10 +60,10 @@ public class ItemContentMultimediaThumbnail   {
   }
 
    /**
-   * Get height
+   * Height of the thumbnail
    * @return height
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Height of the thumbnail")
   public Integer getHeight() {
     return height;
   }
@@ -78,10 +78,10 @@ public class ItemContentMultimediaThumbnail   {
   }
 
    /**
-   * Get httpUrl
+   * HTTP URL to view the thumbnail
    * @return httpUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "HTTP URL to view the thumbnail")
   public String getHttpUrl() {
     return httpUrl;
   }
@@ -96,10 +96,10 @@ public class ItemContentMultimediaThumbnail   {
   }
 
    /**
-   * Get httpsUrl
+   * HTTPS URL to view the thumbnail
    * @return httpsUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "HTTPS URL to view the thumbnail")
   public String getHttpsUrl() {
     return httpsUrl;
   }
@@ -114,10 +114,10 @@ public class ItemContentMultimediaThumbnail   {
   }
 
    /**
-   * Get pngFormat
+   * True if PNG, false if JPEG
    * @return pngFormat
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if PNG, false if JPEG")
   public Boolean getPngFormat() {
     return pngFormat;
   }
@@ -132,10 +132,10 @@ public class ItemContentMultimediaThumbnail   {
   }
 
    /**
-   * Get square
+   * True if the thumbnail is square
    * @return square
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the thumbnail is square")
   public Boolean getSquare() {
     return square;
   }
@@ -150,10 +150,10 @@ public class ItemContentMultimediaThumbnail   {
   }
 
    /**
-   * Get width
+   * Width of the thumbnail
    * @return width
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Width of the thumbnail")
   public Integer getWidth() {
     return width;
   }

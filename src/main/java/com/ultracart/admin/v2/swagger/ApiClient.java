@@ -124,7 +124,7 @@ public class ApiClient {
      */
     public static final String LENIENT_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
-    private String basePath = "https://secure.ultracart.com/rest/admin/v2";
+    private String basePath = "https://secure.ultracart.com/rest/v2";
     private boolean lenientOnJson = false;
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
@@ -173,6 +173,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
+        authentications.put("ultraCartBrowserApiKey", new ApiKeyAuth("header", "x-ultracart-browser-key"));
         authentications.put("ultraCartOauth", new OAuth());
         authentications.put("ultraCartSimpleApiKey", new ApiKeyAuth("header", "x-ultracart-simple-key"));
         // Prevent the authentications from being modified.
@@ -191,7 +192,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://secure.ultracart.com/rest/admin/v2
+     * @param basePath Base path of the URL (e.g https://secure.ultracart.com/rest/v2
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

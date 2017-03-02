@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemWishlistMember
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemWishlistMember   {
   @SerializedName("wishlist_member_instance_description")
   private String wishlistMemberInstanceDescription = null;
@@ -51,10 +51,10 @@ public class ItemWishlistMember   {
   }
 
    /**
-   * Get wishlistMemberInstanceDescription
+   * WishList Member instance description
    * @return wishlistMemberInstanceDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "WishList Member instance description")
   public String getWishlistMemberInstanceDescription() {
     return wishlistMemberInstanceDescription;
   }
@@ -69,10 +69,10 @@ public class ItemWishlistMember   {
   }
 
    /**
-   * Get wishlistMemberInstanceOid
+   * WishList Member instance object identifier
    * @return wishlistMemberInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "WishList Member instance object identifier")
   public Integer getWishlistMemberInstanceOid() {
     return wishlistMemberInstanceOid;
   }
@@ -87,10 +87,10 @@ public class ItemWishlistMember   {
   }
 
    /**
-   * Get wishlistMemberSku
+   * WishList Member SKU
    * @return wishlistMemberSku
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "WishList Member SKU")
   public String getWishlistMemberSku() {
     return wishlistMemberSku;
   }

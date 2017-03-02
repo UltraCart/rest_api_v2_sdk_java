@@ -29,18 +29,20 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * ItemReporting
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemReporting   {
   @SerializedName("report_as_upsell")
   private Boolean reportAsUpsell = null;
 
   @SerializedName("report_pickable_quantities")
-  private String reportPickableQuantities = null;
+  private List<Integer> reportPickableQuantities = new ArrayList<Integer>();
 
   public ItemReporting reportAsUpsell(Boolean reportAsUpsell) {
     this.reportAsUpsell = reportAsUpsell;
@@ -48,10 +50,10 @@ public class ItemReporting   {
   }
 
    /**
-   * Get reportAsUpsell
+   * Report as an upsell
    * @return reportAsUpsell
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Report as an upsell")
   public Boolean getReportAsUpsell() {
     return reportAsUpsell;
   }
@@ -60,21 +62,26 @@ public class ItemReporting   {
     this.reportAsUpsell = reportAsUpsell;
   }
 
-  public ItemReporting reportPickableQuantities(String reportPickableQuantities) {
+  public ItemReporting reportPickableQuantities(List<Integer> reportPickableQuantities) {
     this.reportPickableQuantities = reportPickableQuantities;
     return this;
   }
 
+  public ItemReporting addReportPickableQuantitiesItem(Integer reportPickableQuantitiesItem) {
+    this.reportPickableQuantities.add(reportPickableQuantitiesItem);
+    return this;
+  }
+
    /**
-   * Get reportPickableQuantities
+   * Report pickable quantities
    * @return reportPickableQuantities
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getReportPickableQuantities() {
+  @ApiModelProperty(example = "null", value = "Report pickable quantities")
+  public List<Integer> getReportPickableQuantities() {
     return reportPickableQuantities;
   }
 
-  public void setReportPickableQuantities(String reportPickableQuantities) {
+  public void setReportPickableQuantities(List<Integer> reportPickableQuantities) {
     this.reportPickableQuantities = reportPickableQuantities;
   }
 

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Error
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class Error   {
   @SerializedName("developer_message")
   private String developerMessage = null;
@@ -54,10 +54,10 @@ public class Error   {
   }
 
    /**
-   * Get developerMessage
+   * A technical message meant to be read by a developer
    * @return developerMessage
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "A technical message meant to be read by a developer")
   public String getDeveloperMessage() {
     return developerMessage;
   }
@@ -72,10 +72,10 @@ public class Error   {
   }
 
    /**
-   * Get errorCode
+   * HTTP status code
    * @return errorCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "HTTP status code")
   public String getErrorCode() {
     return errorCode;
   }
@@ -90,10 +90,10 @@ public class Error   {
   }
 
    /**
-   * Get moreInfo
+   * Additional information often a link to additional documentation
    * @return moreInfo
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Additional information often a link to additional documentation")
   public String getMoreInfo() {
     return moreInfo;
   }
@@ -108,10 +108,10 @@ public class Error   {
   }
 
    /**
-   * Get userMessage
+   * An end-user friendly message suitable for display to the customer
    * @return userMessage
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "An end-user friendly message suitable for display to the customer")
   public String getUserMessage() {
     return userMessage;
   }

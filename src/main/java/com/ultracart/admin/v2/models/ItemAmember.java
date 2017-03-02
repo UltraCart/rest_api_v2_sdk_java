@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemAmember
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemAmember   {
   @SerializedName("amember_payment_duration_days")
   private Integer amemberPaymentDurationDays = null;
@@ -48,10 +48,10 @@ public class ItemAmember   {
   }
 
    /**
-   * Get amemberPaymentDurationDays
+   * The number of days that the customer should be given access to the item
    * @return amemberPaymentDurationDays
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The number of days that the customer should be given access to the item")
   public Integer getAmemberPaymentDurationDays() {
     return amemberPaymentDurationDays;
   }
@@ -66,10 +66,10 @@ public class ItemAmember   {
   }
 
    /**
-   * Get amemberProductId
+   * A-member product id give customer access to when they purchase this item
    * @return amemberProductId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "A-member product id give customer access to when they purchase this item")
   public String getAmemberProductId() {
     return amemberProductId;
   }

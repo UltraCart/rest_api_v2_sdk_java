@@ -34,17 +34,8 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemContentAttribute
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemContentAttribute   {
-  @SerializedName("ITEM_META_DESCRIPTION")
-  private String ITEM_META_DESCRIPTION = null;
-
-  @SerializedName("ITEM_META_KEYWORDS")
-  private String ITEM_META_KEYWORDS = null;
-
-  @SerializedName("ITEM_META_TITLE")
-  private String ITEM_META_TITLE = null;
-
   @SerializedName("name")
   private String name = null;
 
@@ -57,70 +48,16 @@ public class ItemContentAttribute   {
   @SerializedName("value")
   private String value = null;
 
-  public ItemContentAttribute ITEM_META_DESCRIPTION(String ITEM_META_DESCRIPTION) {
-    this.ITEM_META_DESCRIPTION = ITEM_META_DESCRIPTION;
-    return this;
-  }
-
-   /**
-   * Get ITEM_META_DESCRIPTION
-   * @return ITEM_META_DESCRIPTION
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getITEMMETADESCRIPTION() {
-    return ITEM_META_DESCRIPTION;
-  }
-
-  public void setITEMMETADESCRIPTION(String ITEM_META_DESCRIPTION) {
-    this.ITEM_META_DESCRIPTION = ITEM_META_DESCRIPTION;
-  }
-
-  public ItemContentAttribute ITEM_META_KEYWORDS(String ITEM_META_KEYWORDS) {
-    this.ITEM_META_KEYWORDS = ITEM_META_KEYWORDS;
-    return this;
-  }
-
-   /**
-   * Get ITEM_META_KEYWORDS
-   * @return ITEM_META_KEYWORDS
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getITEMMETAKEYWORDS() {
-    return ITEM_META_KEYWORDS;
-  }
-
-  public void setITEMMETAKEYWORDS(String ITEM_META_KEYWORDS) {
-    this.ITEM_META_KEYWORDS = ITEM_META_KEYWORDS;
-  }
-
-  public ItemContentAttribute ITEM_META_TITLE(String ITEM_META_TITLE) {
-    this.ITEM_META_TITLE = ITEM_META_TITLE;
-    return this;
-  }
-
-   /**
-   * Get ITEM_META_TITLE
-   * @return ITEM_META_TITLE
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getITEMMETATITLE() {
-    return ITEM_META_TITLE;
-  }
-
-  public void setITEMMETATITLE(String ITEM_META_TITLE) {
-    this.ITEM_META_TITLE = ITEM_META_TITLE;
-  }
-
   public ItemContentAttribute name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * Get name
+   * Attribute name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Attribute name")
   public String getName() {
     return name;
   }
@@ -135,10 +72,10 @@ public class ItemContentAttribute   {
   }
 
    /**
-   * Get translatedTextInstanceOid
+   * Attribute translated text instance identifier
    * @return translatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Attribute translated text instance identifier")
   public Integer getTranslatedTextInstanceOid() {
     return translatedTextInstanceOid;
   }
@@ -153,10 +90,10 @@ public class ItemContentAttribute   {
   }
 
    /**
-   * Get type
+   * Attribute type
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Attribute type")
   public String getType() {
     return type;
   }
@@ -171,10 +108,10 @@ public class ItemContentAttribute   {
   }
 
    /**
-   * Get value
+   * Attribute value
    * @return value
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Attribute value")
   public String getValue() {
     return value;
   }
@@ -193,10 +130,7 @@ public class ItemContentAttribute   {
       return false;
     }
     ItemContentAttribute itemContentAttribute = (ItemContentAttribute) o;
-    return Objects.equals(this.ITEM_META_DESCRIPTION, itemContentAttribute.ITEM_META_DESCRIPTION) &&
-        Objects.equals(this.ITEM_META_KEYWORDS, itemContentAttribute.ITEM_META_KEYWORDS) &&
-        Objects.equals(this.ITEM_META_TITLE, itemContentAttribute.ITEM_META_TITLE) &&
-        Objects.equals(this.name, itemContentAttribute.name) &&
+    return Objects.equals(this.name, itemContentAttribute.name) &&
         Objects.equals(this.translatedTextInstanceOid, itemContentAttribute.translatedTextInstanceOid) &&
         Objects.equals(this.type, itemContentAttribute.type) &&
         Objects.equals(this.value, itemContentAttribute.value);
@@ -204,7 +138,7 @@ public class ItemContentAttribute   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ITEM_META_DESCRIPTION, ITEM_META_KEYWORDS, ITEM_META_TITLE, name, translatedTextInstanceOid, type, value);
+    return Objects.hash(name, translatedTextInstanceOid, type, value);
   }
 
   @Override
@@ -212,9 +146,6 @@ public class ItemContentAttribute   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemContentAttribute {\n");
     
-    sb.append("    ITEM_META_DESCRIPTION: ").append(toIndentedString(ITEM_META_DESCRIPTION)).append("\n");
-    sb.append("    ITEM_META_KEYWORDS: ").append(toIndentedString(ITEM_META_KEYWORDS)).append("\n");
-    sb.append("    ITEM_META_TITLE: ").append(toIndentedString(ITEM_META_TITLE)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    translatedTextInstanceOid: ").append(toIndentedString(translatedTextInstanceOid)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

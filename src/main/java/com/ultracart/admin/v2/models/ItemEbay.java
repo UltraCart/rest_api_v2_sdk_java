@@ -31,6 +31,7 @@ import com.ultracart.admin.v2.models.ItemEbayCategorySpecific;
 import com.ultracart.admin.v2.models.ItemEbayMarketPlaceAnalysis;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ import java.util.List;
 /**
  * ItemEbay
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemEbay   {
   @SerializedName("active")
   private Boolean active = null;
@@ -68,28 +69,28 @@ public class ItemEbay   {
   private Integer dispatchTimeMax = null;
 
   @SerializedName("domestic_1_additional_cost")
-  private Double domestic1AdditionalCost = null;
+  private BigDecimal domestic1AdditionalCost = null;
 
   @SerializedName("domestic_1_first_cost")
-  private Double domestic1FirstCost = null;
+  private BigDecimal domestic1FirstCost = null;
 
   @SerializedName("domestic_2_additional_cost")
-  private Double domestic2AdditionalCost = null;
+  private BigDecimal domestic2AdditionalCost = null;
 
   @SerializedName("domestic_2_first_cost")
-  private Double domestic2FirstCost = null;
+  private BigDecimal domestic2FirstCost = null;
 
   @SerializedName("domestic_3_additional_cost")
-  private Double domestic3AdditionalCost = null;
+  private BigDecimal domestic3AdditionalCost = null;
 
   @SerializedName("domestic_3_first_cost")
-  private Double domestic3FirstCost = null;
+  private BigDecimal domestic3FirstCost = null;
 
   @SerializedName("domestic_4_additional_cost")
-  private Double domestic4AdditionalCost = null;
+  private BigDecimal domestic4AdditionalCost = null;
 
   @SerializedName("domestic_4_first_cost")
-  private Double domestic4FirstCost = null;
+  private BigDecimal domestic4FirstCost = null;
 
   @SerializedName("ebay_auction_id")
   private String ebayAuctionId = null;
@@ -113,28 +114,28 @@ public class ItemEbay   {
   private String freeShippingMethod = null;
 
   @SerializedName("international_1_additional_cost")
-  private Double international1AdditionalCost = null;
+  private BigDecimal international1AdditionalCost = null;
 
   @SerializedName("international_1_first_cost")
-  private Double international1FirstCost = null;
+  private BigDecimal international1FirstCost = null;
 
   @SerializedName("international_2_additional_cost")
-  private Double international2AdditionalCost = null;
+  private BigDecimal international2AdditionalCost = null;
 
   @SerializedName("international_2_first_cost")
-  private Double international2FirstCost = null;
+  private BigDecimal international2FirstCost = null;
 
   @SerializedName("international_3_additional_cost")
-  private Double international3AdditionalCost = null;
+  private BigDecimal international3AdditionalCost = null;
 
   @SerializedName("international_3_first_cost")
-  private Double international3FirstCost = null;
+  private BigDecimal international3FirstCost = null;
 
   @SerializedName("international_4_additional_cost")
-  private Double international4AdditionalCost = null;
+  private BigDecimal international4AdditionalCost = null;
 
   @SerializedName("international_4_first_cost")
-  private Double international4FirstCost = null;
+  private BigDecimal international4FirstCost = null;
 
   @SerializedName("last_status_dts")
   private String lastStatusDts = null;
@@ -152,13 +153,41 @@ public class ItemEbay   {
   private String listingDuration = null;
 
   @SerializedName("listing_price")
-  private Double listingPrice = null;
+  private BigDecimal listingPrice = null;
 
   @SerializedName("listing_price_override")
-  private Double listingPriceOverride = null;
+  private BigDecimal listingPriceOverride = null;
+
+  /**
+   * The type of e-Bay listing
+   */
+  public enum ListingTypeEnum {
+    @SerializedName("")
+    (""),
+    
+    @SerializedName("Auction")
+    AUCTION("Auction"),
+    
+    @SerializedName("Fixed")
+    FIXED("Fixed"),
+    
+    @SerializedName("Store")
+    STORE("Store");
+
+    private String value;
+
+    ListingTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
 
   @SerializedName("listing_type")
-  private String listingType = null;
+  private ListingTypeEnum listingType = null;
 
   @SerializedName("marketplace_analysis")
   private ItemEbayMarketPlaceAnalysis marketplaceAnalysis = null;
@@ -167,7 +196,7 @@ public class ItemEbay   {
   private Boolean marketplaceAnalysisPerform = null;
 
   @SerializedName("marketplace_final_value_fee_percentage")
-  private Double marketplaceFinalValueFeePercentage = null;
+  private BigDecimal marketplaceFinalValueFeePercentage = null;
 
   @SerializedName("marketplace_last_check_dts")
   private String marketplaceLastCheckDts = null;
@@ -179,43 +208,43 @@ public class ItemEbay   {
   private Boolean marketplaceMapViolation = null;
 
   @SerializedName("marketplace_multiplier")
-  private Double marketplaceMultiplier = null;
+  private BigDecimal marketplaceMultiplier = null;
 
   @SerializedName("marketplace_other_price")
-  private Double marketplaceOtherPrice = null;
+  private BigDecimal marketplaceOtherPrice = null;
 
   @SerializedName("marketplace_other_seller")
   private String marketplaceOtherSeller = null;
 
   @SerializedName("marketplace_other_shipping")
-  private Double marketplaceOtherShipping = null;
+  private BigDecimal marketplaceOtherShipping = null;
 
   @SerializedName("marketplace_other_total")
-  private Double marketplaceOtherTotal = null;
+  private BigDecimal marketplaceOtherTotal = null;
 
   @SerializedName("marketplace_our_additional_profit_potential")
-  private Double marketplaceOurAdditionalProfitPotential = null;
+  private BigDecimal marketplaceOurAdditionalProfitPotential = null;
 
   @SerializedName("marketplace_our_price")
-  private Double marketplaceOurPrice = null;
+  private BigDecimal marketplaceOurPrice = null;
 
   @SerializedName("marketplace_our_profit")
-  private Double marketplaceOurProfit = null;
+  private BigDecimal marketplaceOurProfit = null;
 
   @SerializedName("marketplace_our_shipping")
-  private Double marketplaceOurShipping = null;
+  private BigDecimal marketplaceOurShipping = null;
 
   @SerializedName("marketplace_our_total")
-  private Double marketplaceOurTotal = null;
+  private BigDecimal marketplaceOurTotal = null;
 
   @SerializedName("marketplace_overhead")
-  private Double marketplaceOverhead = null;
+  private BigDecimal marketplaceOverhead = null;
 
   @SerializedName("marketplace_profitable")
   private Boolean marketplaceProfitable = null;
 
-  @SerializedName("next_attemp_dts")
-  private String nextAttempDts = null;
+  @SerializedName("next_attempt_dts")
+  private String nextAttemptDts = null;
 
   @SerializedName("next_listing_duration")
   private String nextListingDuration = null;
@@ -224,7 +253,7 @@ public class ItemEbay   {
   private Boolean noPromotionalShipping = null;
 
   @SerializedName("packaging_handling_costs")
-  private Double packagingHandlingCosts = null;
+  private BigDecimal packagingHandlingCosts = null;
 
   @SerializedName("previous_ebay_auction_id")
   private String previousEbayAuctionId = null;
@@ -233,7 +262,7 @@ public class ItemEbay   {
   private Integer quantity = null;
 
   @SerializedName("reserve_price")
-  private Double reservePrice = null;
+  private BigDecimal reservePrice = null;
 
   @SerializedName("send_dimensions_and_weight")
   private String sendDimensionsAndWeight = null;
@@ -253,10 +282,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get active
+   * True if the item is active for listing
    * @return active
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the item is active for listing")
   public Boolean getActive() {
     return active;
   }
@@ -271,10 +300,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get categoryId
+   * e-Bay category ID
    * @return categoryId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "e-Bay category ID")
   public Integer getCategoryId() {
     return categoryId;
   }
@@ -294,10 +323,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get categorySpecifics
+   * Answers to category specific questions
    * @return categorySpecifics
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Answers to category specific questions")
   public List<ItemEbayCategorySpecific> getCategorySpecifics() {
     return categorySpecifics;
   }
@@ -312,10 +341,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get conditionDescription
+   * Description of the condition (e-Bay constant)
    * @return conditionDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description of the condition (e-Bay constant)")
   public String getConditionDescription() {
     return conditionDescription;
   }
@@ -330,10 +359,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get conditionId
+   * Numerical ID of the condition (e-Bay constant)
    * @return conditionId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Numerical ID of the condition (e-Bay constant)")
   public Integer getConditionId() {
     return conditionId;
   }
@@ -348,10 +377,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get consecutiveFailures
+   * Number of consecutive failures trying to list this item
    * @return consecutiveFailures
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Number of consecutive failures trying to list this item")
   public Integer getConsecutiveFailures() {
     return consecutiveFailures;
   }
@@ -366,10 +395,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get customCategory1
+   * e-Bay Store category 1
    * @return customCategory1
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "e-Bay Store category 1")
   public Long getCustomCategory1() {
     return customCategory1;
   }
@@ -384,10 +413,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get customCategory2
+   * e-Bay Store category 2
    * @return customCategory2
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "e-Bay Store category 2")
   public Long getCustomCategory2() {
     return customCategory2;
   }
@@ -402,10 +431,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get dispatchTimeMax
+   * Maximum number of days it will take to ship the item
    * @return dispatchTimeMax
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Maximum number of days it will take to ship the item")
   public Integer getDispatchTimeMax() {
     return dispatchTimeMax;
   }
@@ -414,147 +443,147 @@ public class ItemEbay   {
     this.dispatchTimeMax = dispatchTimeMax;
   }
 
-  public ItemEbay domestic1AdditionalCost(Double domestic1AdditionalCost) {
+  public ItemEbay domestic1AdditionalCost(BigDecimal domestic1AdditionalCost) {
     this.domestic1AdditionalCost = domestic1AdditionalCost;
     return this;
   }
 
    /**
-   * Get domestic1AdditionalCost
+   * Domestic 1 method additional item cost
    * @return domestic1AdditionalCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDomestic1AdditionalCost() {
+  @ApiModelProperty(example = "null", value = "Domestic 1 method additional item cost")
+  public BigDecimal getDomestic1AdditionalCost() {
     return domestic1AdditionalCost;
   }
 
-  public void setDomestic1AdditionalCost(Double domestic1AdditionalCost) {
+  public void setDomestic1AdditionalCost(BigDecimal domestic1AdditionalCost) {
     this.domestic1AdditionalCost = domestic1AdditionalCost;
   }
 
-  public ItemEbay domestic1FirstCost(Double domestic1FirstCost) {
+  public ItemEbay domestic1FirstCost(BigDecimal domestic1FirstCost) {
     this.domestic1FirstCost = domestic1FirstCost;
     return this;
   }
 
    /**
-   * Get domestic1FirstCost
+   * Domestic 1 method first item cost
    * @return domestic1FirstCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDomestic1FirstCost() {
+  @ApiModelProperty(example = "null", value = "Domestic 1 method first item cost")
+  public BigDecimal getDomestic1FirstCost() {
     return domestic1FirstCost;
   }
 
-  public void setDomestic1FirstCost(Double domestic1FirstCost) {
+  public void setDomestic1FirstCost(BigDecimal domestic1FirstCost) {
     this.domestic1FirstCost = domestic1FirstCost;
   }
 
-  public ItemEbay domestic2AdditionalCost(Double domestic2AdditionalCost) {
+  public ItemEbay domestic2AdditionalCost(BigDecimal domestic2AdditionalCost) {
     this.domestic2AdditionalCost = domestic2AdditionalCost;
     return this;
   }
 
    /**
-   * Get domestic2AdditionalCost
+   * Domestic 2 method additional item cost
    * @return domestic2AdditionalCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDomestic2AdditionalCost() {
+  @ApiModelProperty(example = "null", value = "Domestic 2 method additional item cost")
+  public BigDecimal getDomestic2AdditionalCost() {
     return domestic2AdditionalCost;
   }
 
-  public void setDomestic2AdditionalCost(Double domestic2AdditionalCost) {
+  public void setDomestic2AdditionalCost(BigDecimal domestic2AdditionalCost) {
     this.domestic2AdditionalCost = domestic2AdditionalCost;
   }
 
-  public ItemEbay domestic2FirstCost(Double domestic2FirstCost) {
+  public ItemEbay domestic2FirstCost(BigDecimal domestic2FirstCost) {
     this.domestic2FirstCost = domestic2FirstCost;
     return this;
   }
 
    /**
-   * Get domestic2FirstCost
+   * Domestic 2 method first item cost
    * @return domestic2FirstCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDomestic2FirstCost() {
+  @ApiModelProperty(example = "null", value = "Domestic 2 method first item cost")
+  public BigDecimal getDomestic2FirstCost() {
     return domestic2FirstCost;
   }
 
-  public void setDomestic2FirstCost(Double domestic2FirstCost) {
+  public void setDomestic2FirstCost(BigDecimal domestic2FirstCost) {
     this.domestic2FirstCost = domestic2FirstCost;
   }
 
-  public ItemEbay domestic3AdditionalCost(Double domestic3AdditionalCost) {
+  public ItemEbay domestic3AdditionalCost(BigDecimal domestic3AdditionalCost) {
     this.domestic3AdditionalCost = domestic3AdditionalCost;
     return this;
   }
 
    /**
-   * Get domestic3AdditionalCost
+   * Domestic 3 method additional item cost
    * @return domestic3AdditionalCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDomestic3AdditionalCost() {
+  @ApiModelProperty(example = "null", value = "Domestic 3 method additional item cost")
+  public BigDecimal getDomestic3AdditionalCost() {
     return domestic3AdditionalCost;
   }
 
-  public void setDomestic3AdditionalCost(Double domestic3AdditionalCost) {
+  public void setDomestic3AdditionalCost(BigDecimal domestic3AdditionalCost) {
     this.domestic3AdditionalCost = domestic3AdditionalCost;
   }
 
-  public ItemEbay domestic3FirstCost(Double domestic3FirstCost) {
+  public ItemEbay domestic3FirstCost(BigDecimal domestic3FirstCost) {
     this.domestic3FirstCost = domestic3FirstCost;
     return this;
   }
 
    /**
-   * Get domestic3FirstCost
+   * Domestic 3 method first item cost
    * @return domestic3FirstCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDomestic3FirstCost() {
+  @ApiModelProperty(example = "null", value = "Domestic 3 method first item cost")
+  public BigDecimal getDomestic3FirstCost() {
     return domestic3FirstCost;
   }
 
-  public void setDomestic3FirstCost(Double domestic3FirstCost) {
+  public void setDomestic3FirstCost(BigDecimal domestic3FirstCost) {
     this.domestic3FirstCost = domestic3FirstCost;
   }
 
-  public ItemEbay domestic4AdditionalCost(Double domestic4AdditionalCost) {
+  public ItemEbay domestic4AdditionalCost(BigDecimal domestic4AdditionalCost) {
     this.domestic4AdditionalCost = domestic4AdditionalCost;
     return this;
   }
 
    /**
-   * Get domestic4AdditionalCost
+   * Domestic 4 method additional item cost
    * @return domestic4AdditionalCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDomestic4AdditionalCost() {
+  @ApiModelProperty(example = "null", value = "Domestic 4 method additional item cost")
+  public BigDecimal getDomestic4AdditionalCost() {
     return domestic4AdditionalCost;
   }
 
-  public void setDomestic4AdditionalCost(Double domestic4AdditionalCost) {
+  public void setDomestic4AdditionalCost(BigDecimal domestic4AdditionalCost) {
     this.domestic4AdditionalCost = domestic4AdditionalCost;
   }
 
-  public ItemEbay domestic4FirstCost(Double domestic4FirstCost) {
+  public ItemEbay domestic4FirstCost(BigDecimal domestic4FirstCost) {
     this.domestic4FirstCost = domestic4FirstCost;
     return this;
   }
 
    /**
-   * Get domestic4FirstCost
+   * Domestic 4 method first item cost
    * @return domestic4FirstCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getDomestic4FirstCost() {
+  @ApiModelProperty(example = "null", value = "Domestic 4 method first item cost")
+  public BigDecimal getDomestic4FirstCost() {
     return domestic4FirstCost;
   }
 
-  public void setDomestic4FirstCost(Double domestic4FirstCost) {
+  public void setDomestic4FirstCost(BigDecimal domestic4FirstCost) {
     this.domestic4FirstCost = domestic4FirstCost;
   }
 
@@ -564,10 +593,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get ebayAuctionId
+   * If listed, this is the e-Bay auction id
    * @return ebayAuctionId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "If listed, this is the e-Bay auction id")
   public String getEbayAuctionId() {
     return ebayAuctionId;
   }
@@ -582,10 +611,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get ebaySpecificInventory
+   * e-Bay specific inventory
    * @return ebaySpecificInventory
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "e-Bay specific inventory")
   public Integer getEbaySpecificInventory() {
     return ebaySpecificInventory;
   }
@@ -600,10 +629,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get ebayTemplateName
+   * The template name to use hwen rendering the e-Bay listing
    * @return ebayTemplateName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The template name to use hwen rendering the e-Bay listing")
   public String getEbayTemplateName() {
     return ebayTemplateName;
   }
@@ -618,10 +647,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get ebayTemplateOid
+   * The template object identifier to use when rendering the e-Bay listing
    * @return ebayTemplateOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The template object identifier to use when rendering the e-Bay listing")
   public Integer getEbayTemplateOid() {
     return ebayTemplateOid;
   }
@@ -636,10 +665,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get endTime
+   * Date/time of the auction end
    * @return endTime
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date/time of the auction end")
   public String getEndTime() {
     return endTime;
   }
@@ -654,10 +683,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get freeShipping
+   * True if item receives free shipping
    * @return freeShipping
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if item receives free shipping")
   public Boolean getFreeShipping() {
     return freeShipping;
   }
@@ -672,10 +701,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get freeShippingMethod
+   * The method that is free for free shipping
    * @return freeShippingMethod
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The method that is free for free shipping")
   public String getFreeShippingMethod() {
     return freeShippingMethod;
   }
@@ -684,147 +713,147 @@ public class ItemEbay   {
     this.freeShippingMethod = freeShippingMethod;
   }
 
-  public ItemEbay international1AdditionalCost(Double international1AdditionalCost) {
+  public ItemEbay international1AdditionalCost(BigDecimal international1AdditionalCost) {
     this.international1AdditionalCost = international1AdditionalCost;
     return this;
   }
 
    /**
-   * Get international1AdditionalCost
+   * International 1 method additional item cost
    * @return international1AdditionalCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInternational1AdditionalCost() {
+  @ApiModelProperty(example = "null", value = "International 1 method additional item cost")
+  public BigDecimal getInternational1AdditionalCost() {
     return international1AdditionalCost;
   }
 
-  public void setInternational1AdditionalCost(Double international1AdditionalCost) {
+  public void setInternational1AdditionalCost(BigDecimal international1AdditionalCost) {
     this.international1AdditionalCost = international1AdditionalCost;
   }
 
-  public ItemEbay international1FirstCost(Double international1FirstCost) {
+  public ItemEbay international1FirstCost(BigDecimal international1FirstCost) {
     this.international1FirstCost = international1FirstCost;
     return this;
   }
 
    /**
-   * Get international1FirstCost
+   * International 1 method first item cost
    * @return international1FirstCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInternational1FirstCost() {
+  @ApiModelProperty(example = "null", value = "International 1 method first item cost")
+  public BigDecimal getInternational1FirstCost() {
     return international1FirstCost;
   }
 
-  public void setInternational1FirstCost(Double international1FirstCost) {
+  public void setInternational1FirstCost(BigDecimal international1FirstCost) {
     this.international1FirstCost = international1FirstCost;
   }
 
-  public ItemEbay international2AdditionalCost(Double international2AdditionalCost) {
+  public ItemEbay international2AdditionalCost(BigDecimal international2AdditionalCost) {
     this.international2AdditionalCost = international2AdditionalCost;
     return this;
   }
 
    /**
-   * Get international2AdditionalCost
+   * International 2 method additional item cost
    * @return international2AdditionalCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInternational2AdditionalCost() {
+  @ApiModelProperty(example = "null", value = "International 2 method additional item cost")
+  public BigDecimal getInternational2AdditionalCost() {
     return international2AdditionalCost;
   }
 
-  public void setInternational2AdditionalCost(Double international2AdditionalCost) {
+  public void setInternational2AdditionalCost(BigDecimal international2AdditionalCost) {
     this.international2AdditionalCost = international2AdditionalCost;
   }
 
-  public ItemEbay international2FirstCost(Double international2FirstCost) {
+  public ItemEbay international2FirstCost(BigDecimal international2FirstCost) {
     this.international2FirstCost = international2FirstCost;
     return this;
   }
 
    /**
-   * Get international2FirstCost
+   * International 2 method first item cost
    * @return international2FirstCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInternational2FirstCost() {
+  @ApiModelProperty(example = "null", value = "International 2 method first item cost")
+  public BigDecimal getInternational2FirstCost() {
     return international2FirstCost;
   }
 
-  public void setInternational2FirstCost(Double international2FirstCost) {
+  public void setInternational2FirstCost(BigDecimal international2FirstCost) {
     this.international2FirstCost = international2FirstCost;
   }
 
-  public ItemEbay international3AdditionalCost(Double international3AdditionalCost) {
+  public ItemEbay international3AdditionalCost(BigDecimal international3AdditionalCost) {
     this.international3AdditionalCost = international3AdditionalCost;
     return this;
   }
 
    /**
-   * Get international3AdditionalCost
+   * International 3 method additional item cost
    * @return international3AdditionalCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInternational3AdditionalCost() {
+  @ApiModelProperty(example = "null", value = "International 3 method additional item cost")
+  public BigDecimal getInternational3AdditionalCost() {
     return international3AdditionalCost;
   }
 
-  public void setInternational3AdditionalCost(Double international3AdditionalCost) {
+  public void setInternational3AdditionalCost(BigDecimal international3AdditionalCost) {
     this.international3AdditionalCost = international3AdditionalCost;
   }
 
-  public ItemEbay international3FirstCost(Double international3FirstCost) {
+  public ItemEbay international3FirstCost(BigDecimal international3FirstCost) {
     this.international3FirstCost = international3FirstCost;
     return this;
   }
 
    /**
-   * Get international3FirstCost
+   * International 3 method first item cost
    * @return international3FirstCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInternational3FirstCost() {
+  @ApiModelProperty(example = "null", value = "International 3 method first item cost")
+  public BigDecimal getInternational3FirstCost() {
     return international3FirstCost;
   }
 
-  public void setInternational3FirstCost(Double international3FirstCost) {
+  public void setInternational3FirstCost(BigDecimal international3FirstCost) {
     this.international3FirstCost = international3FirstCost;
   }
 
-  public ItemEbay international4AdditionalCost(Double international4AdditionalCost) {
+  public ItemEbay international4AdditionalCost(BigDecimal international4AdditionalCost) {
     this.international4AdditionalCost = international4AdditionalCost;
     return this;
   }
 
    /**
-   * Get international4AdditionalCost
+   * International 4 method additional item cost
    * @return international4AdditionalCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInternational4AdditionalCost() {
+  @ApiModelProperty(example = "null", value = "International 4 method additional item cost")
+  public BigDecimal getInternational4AdditionalCost() {
     return international4AdditionalCost;
   }
 
-  public void setInternational4AdditionalCost(Double international4AdditionalCost) {
+  public void setInternational4AdditionalCost(BigDecimal international4AdditionalCost) {
     this.international4AdditionalCost = international4AdditionalCost;
   }
 
-  public ItemEbay international4FirstCost(Double international4FirstCost) {
+  public ItemEbay international4FirstCost(BigDecimal international4FirstCost) {
     this.international4FirstCost = international4FirstCost;
     return this;
   }
 
    /**
-   * Get international4FirstCost
+   * International 4 method first item cost
    * @return international4FirstCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getInternational4FirstCost() {
+  @ApiModelProperty(example = "null", value = "International 4 method first item cost")
+  public BigDecimal getInternational4FirstCost() {
     return international4FirstCost;
   }
 
-  public void setInternational4FirstCost(Double international4FirstCost) {
+  public void setInternational4FirstCost(BigDecimal international4FirstCost) {
     this.international4FirstCost = international4FirstCost;
   }
 
@@ -834,10 +863,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get lastStatusDts
+   * Date/time of the last status check
    * @return lastStatusDts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date/time of the last status check")
   public String getLastStatusDts() {
     return lastStatusDts;
   }
@@ -852,10 +881,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get listedDispatchTimeMax
+   * Current listing dispatch time maximum
    * @return listedDispatchTimeMax
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Current listing dispatch time maximum")
   public Integer getListedDispatchTimeMax() {
     return listedDispatchTimeMax;
   }
@@ -870,10 +899,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get listedEbayTemplateOid
+   * The template object identifier used for the listing
    * @return listedEbayTemplateOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The template object identifier used for the listing")
   public Integer getListedEbayTemplateOid() {
     return listedEbayTemplateOid;
   }
@@ -888,10 +917,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get listingDts
+   * Date/time of the listing
    * @return listingDts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date/time of the listing")
   public String getListingDts() {
     return listingDts;
   }
@@ -906,10 +935,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get listingDuration
+   * The duration of the listing
    * @return listingDuration
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The duration of the listing")
   public String getListingDuration() {
     return listingDuration;
   }
@@ -918,57 +947,57 @@ public class ItemEbay   {
     this.listingDuration = listingDuration;
   }
 
-  public ItemEbay listingPrice(Double listingPrice) {
+  public ItemEbay listingPrice(BigDecimal listingPrice) {
     this.listingPrice = listingPrice;
     return this;
   }
 
    /**
-   * Get listingPrice
+   * Price to list the item at
    * @return listingPrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getListingPrice() {
+  @ApiModelProperty(example = "null", value = "Price to list the item at")
+  public BigDecimal getListingPrice() {
     return listingPrice;
   }
 
-  public void setListingPrice(Double listingPrice) {
+  public void setListingPrice(BigDecimal listingPrice) {
     this.listingPrice = listingPrice;
   }
 
-  public ItemEbay listingPriceOverride(Double listingPriceOverride) {
+  public ItemEbay listingPriceOverride(BigDecimal listingPriceOverride) {
     this.listingPriceOverride = listingPriceOverride;
     return this;
   }
 
    /**
-   * Get listingPriceOverride
+   * The price to list the item at if different than the regular UltraCart item price
    * @return listingPriceOverride
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getListingPriceOverride() {
+  @ApiModelProperty(example = "null", value = "The price to list the item at if different than the regular UltraCart item price")
+  public BigDecimal getListingPriceOverride() {
     return listingPriceOverride;
   }
 
-  public void setListingPriceOverride(Double listingPriceOverride) {
+  public void setListingPriceOverride(BigDecimal listingPriceOverride) {
     this.listingPriceOverride = listingPriceOverride;
   }
 
-  public ItemEbay listingType(String listingType) {
+  public ItemEbay listingType(ListingTypeEnum listingType) {
     this.listingType = listingType;
     return this;
   }
 
    /**
-   * Get listingType
+   * The type of e-Bay listing
    * @return listingType
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getListingType() {
+  @ApiModelProperty(example = "null", value = "The type of e-Bay listing")
+  public ListingTypeEnum getListingType() {
     return listingType;
   }
 
-  public void setListingType(String listingType) {
+  public void setListingType(ListingTypeEnum listingType) {
     this.listingType = listingType;
   }
 
@@ -996,10 +1025,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get marketplaceAnalysisPerform
+   * True if marketplace analysis should be performed
    * @return marketplaceAnalysisPerform
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if marketplace analysis should be performed")
   public Boolean getMarketplaceAnalysisPerform() {
     return marketplaceAnalysisPerform;
   }
@@ -1008,21 +1037,21 @@ public class ItemEbay   {
     this.marketplaceAnalysisPerform = marketplaceAnalysisPerform;
   }
 
-  public ItemEbay marketplaceFinalValueFeePercentage(Double marketplaceFinalValueFeePercentage) {
+  public ItemEbay marketplaceFinalValueFeePercentage(BigDecimal marketplaceFinalValueFeePercentage) {
     this.marketplaceFinalValueFeePercentage = marketplaceFinalValueFeePercentage;
     return this;
   }
 
    /**
-   * Get marketplaceFinalValueFeePercentage
+   * Marketplace FVF percentage
    * @return marketplaceFinalValueFeePercentage
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceFinalValueFeePercentage() {
+  @ApiModelProperty(example = "null", value = "Marketplace FVF percentage")
+  public BigDecimal getMarketplaceFinalValueFeePercentage() {
     return marketplaceFinalValueFeePercentage;
   }
 
-  public void setMarketplaceFinalValueFeePercentage(Double marketplaceFinalValueFeePercentage) {
+  public void setMarketplaceFinalValueFeePercentage(BigDecimal marketplaceFinalValueFeePercentage) {
     this.marketplaceFinalValueFeePercentage = marketplaceFinalValueFeePercentage;
   }
 
@@ -1032,10 +1061,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get marketplaceLastCheckDts
+   * Date/time of the marketplace analysis last check
    * @return marketplaceLastCheckDts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date/time of the marketplace analysis last check")
   public String getMarketplaceLastCheckDts() {
     return marketplaceLastCheckDts;
   }
@@ -1050,10 +1079,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get marketplaceLowest
+   * True if we are the lowest offer in the marketplace
    * @return marketplaceLowest
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if we are the lowest offer in the marketplace")
   public Boolean getMarketplaceLowest() {
     return marketplaceLowest;
   }
@@ -1068,10 +1097,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get marketplaceMapViolation
+   * True if another seller is violating MAP
    * @return marketplaceMapViolation
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if another seller is violating MAP")
   public Boolean getMarketplaceMapViolation() {
     return marketplaceMapViolation;
   }
@@ -1080,39 +1109,39 @@ public class ItemEbay   {
     this.marketplaceMapViolation = marketplaceMapViolation;
   }
 
-  public ItemEbay marketplaceMultiplier(Double marketplaceMultiplier) {
+  public ItemEbay marketplaceMultiplier(BigDecimal marketplaceMultiplier) {
     this.marketplaceMultiplier = marketplaceMultiplier;
     return this;
   }
 
    /**
-   * Get marketplaceMultiplier
+   * Marketplace multiplier
    * @return marketplaceMultiplier
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceMultiplier() {
+  @ApiModelProperty(example = "null", value = "Marketplace multiplier")
+  public BigDecimal getMarketplaceMultiplier() {
     return marketplaceMultiplier;
   }
 
-  public void setMarketplaceMultiplier(Double marketplaceMultiplier) {
+  public void setMarketplaceMultiplier(BigDecimal marketplaceMultiplier) {
     this.marketplaceMultiplier = marketplaceMultiplier;
   }
 
-  public ItemEbay marketplaceOtherPrice(Double marketplaceOtherPrice) {
+  public ItemEbay marketplaceOtherPrice(BigDecimal marketplaceOtherPrice) {
     this.marketplaceOtherPrice = marketplaceOtherPrice;
     return this;
   }
 
    /**
-   * Get marketplaceOtherPrice
+   * Marketplace other price
    * @return marketplaceOtherPrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOtherPrice() {
+  @ApiModelProperty(example = "null", value = "Marketplace other price")
+  public BigDecimal getMarketplaceOtherPrice() {
     return marketplaceOtherPrice;
   }
 
-  public void setMarketplaceOtherPrice(Double marketplaceOtherPrice) {
+  public void setMarketplaceOtherPrice(BigDecimal marketplaceOtherPrice) {
     this.marketplaceOtherPrice = marketplaceOtherPrice;
   }
 
@@ -1122,10 +1151,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get marketplaceOtherSeller
+   * Marketplace other seller
    * @return marketplaceOtherSeller
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Marketplace other seller")
   public String getMarketplaceOtherSeller() {
     return marketplaceOtherSeller;
   }
@@ -1134,147 +1163,147 @@ public class ItemEbay   {
     this.marketplaceOtherSeller = marketplaceOtherSeller;
   }
 
-  public ItemEbay marketplaceOtherShipping(Double marketplaceOtherShipping) {
+  public ItemEbay marketplaceOtherShipping(BigDecimal marketplaceOtherShipping) {
     this.marketplaceOtherShipping = marketplaceOtherShipping;
     return this;
   }
 
    /**
-   * Get marketplaceOtherShipping
+   * Marketplace other shipping
    * @return marketplaceOtherShipping
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOtherShipping() {
+  @ApiModelProperty(example = "null", value = "Marketplace other shipping")
+  public BigDecimal getMarketplaceOtherShipping() {
     return marketplaceOtherShipping;
   }
 
-  public void setMarketplaceOtherShipping(Double marketplaceOtherShipping) {
+  public void setMarketplaceOtherShipping(BigDecimal marketplaceOtherShipping) {
     this.marketplaceOtherShipping = marketplaceOtherShipping;
   }
 
-  public ItemEbay marketplaceOtherTotal(Double marketplaceOtherTotal) {
+  public ItemEbay marketplaceOtherTotal(BigDecimal marketplaceOtherTotal) {
     this.marketplaceOtherTotal = marketplaceOtherTotal;
     return this;
   }
 
    /**
-   * Get marketplaceOtherTotal
+   * Marketplace other total
    * @return marketplaceOtherTotal
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOtherTotal() {
+  @ApiModelProperty(example = "null", value = "Marketplace other total")
+  public BigDecimal getMarketplaceOtherTotal() {
     return marketplaceOtherTotal;
   }
 
-  public void setMarketplaceOtherTotal(Double marketplaceOtherTotal) {
+  public void setMarketplaceOtherTotal(BigDecimal marketplaceOtherTotal) {
     this.marketplaceOtherTotal = marketplaceOtherTotal;
   }
 
-  public ItemEbay marketplaceOurAdditionalProfitPotential(Double marketplaceOurAdditionalProfitPotential) {
+  public ItemEbay marketplaceOurAdditionalProfitPotential(BigDecimal marketplaceOurAdditionalProfitPotential) {
     this.marketplaceOurAdditionalProfitPotential = marketplaceOurAdditionalProfitPotential;
     return this;
   }
 
    /**
-   * Get marketplaceOurAdditionalProfitPotential
+   * Marketplace our additional profit potential
    * @return marketplaceOurAdditionalProfitPotential
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOurAdditionalProfitPotential() {
+  @ApiModelProperty(example = "null", value = "Marketplace our additional profit potential")
+  public BigDecimal getMarketplaceOurAdditionalProfitPotential() {
     return marketplaceOurAdditionalProfitPotential;
   }
 
-  public void setMarketplaceOurAdditionalProfitPotential(Double marketplaceOurAdditionalProfitPotential) {
+  public void setMarketplaceOurAdditionalProfitPotential(BigDecimal marketplaceOurAdditionalProfitPotential) {
     this.marketplaceOurAdditionalProfitPotential = marketplaceOurAdditionalProfitPotential;
   }
 
-  public ItemEbay marketplaceOurPrice(Double marketplaceOurPrice) {
+  public ItemEbay marketplaceOurPrice(BigDecimal marketplaceOurPrice) {
     this.marketplaceOurPrice = marketplaceOurPrice;
     return this;
   }
 
    /**
-   * Get marketplaceOurPrice
+   * Marketplace our price
    * @return marketplaceOurPrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOurPrice() {
+  @ApiModelProperty(example = "null", value = "Marketplace our price")
+  public BigDecimal getMarketplaceOurPrice() {
     return marketplaceOurPrice;
   }
 
-  public void setMarketplaceOurPrice(Double marketplaceOurPrice) {
+  public void setMarketplaceOurPrice(BigDecimal marketplaceOurPrice) {
     this.marketplaceOurPrice = marketplaceOurPrice;
   }
 
-  public ItemEbay marketplaceOurProfit(Double marketplaceOurProfit) {
+  public ItemEbay marketplaceOurProfit(BigDecimal marketplaceOurProfit) {
     this.marketplaceOurProfit = marketplaceOurProfit;
     return this;
   }
 
    /**
-   * Get marketplaceOurProfit
+   * Marketplace our profit
    * @return marketplaceOurProfit
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOurProfit() {
+  @ApiModelProperty(example = "null", value = "Marketplace our profit")
+  public BigDecimal getMarketplaceOurProfit() {
     return marketplaceOurProfit;
   }
 
-  public void setMarketplaceOurProfit(Double marketplaceOurProfit) {
+  public void setMarketplaceOurProfit(BigDecimal marketplaceOurProfit) {
     this.marketplaceOurProfit = marketplaceOurProfit;
   }
 
-  public ItemEbay marketplaceOurShipping(Double marketplaceOurShipping) {
+  public ItemEbay marketplaceOurShipping(BigDecimal marketplaceOurShipping) {
     this.marketplaceOurShipping = marketplaceOurShipping;
     return this;
   }
 
    /**
-   * Get marketplaceOurShipping
+   * Marketplace our shipping
    * @return marketplaceOurShipping
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOurShipping() {
+  @ApiModelProperty(example = "null", value = "Marketplace our shipping")
+  public BigDecimal getMarketplaceOurShipping() {
     return marketplaceOurShipping;
   }
 
-  public void setMarketplaceOurShipping(Double marketplaceOurShipping) {
+  public void setMarketplaceOurShipping(BigDecimal marketplaceOurShipping) {
     this.marketplaceOurShipping = marketplaceOurShipping;
   }
 
-  public ItemEbay marketplaceOurTotal(Double marketplaceOurTotal) {
+  public ItemEbay marketplaceOurTotal(BigDecimal marketplaceOurTotal) {
     this.marketplaceOurTotal = marketplaceOurTotal;
     return this;
   }
 
    /**
-   * Get marketplaceOurTotal
+   * Marketplace our total
    * @return marketplaceOurTotal
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOurTotal() {
+  @ApiModelProperty(example = "null", value = "Marketplace our total")
+  public BigDecimal getMarketplaceOurTotal() {
     return marketplaceOurTotal;
   }
 
-  public void setMarketplaceOurTotal(Double marketplaceOurTotal) {
+  public void setMarketplaceOurTotal(BigDecimal marketplaceOurTotal) {
     this.marketplaceOurTotal = marketplaceOurTotal;
   }
 
-  public ItemEbay marketplaceOverhead(Double marketplaceOverhead) {
+  public ItemEbay marketplaceOverhead(BigDecimal marketplaceOverhead) {
     this.marketplaceOverhead = marketplaceOverhead;
     return this;
   }
 
    /**
-   * Get marketplaceOverhead
+   * Marketplace overhead
    * @return marketplaceOverhead
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getMarketplaceOverhead() {
+  @ApiModelProperty(example = "null", value = "Marketplace overhead")
+  public BigDecimal getMarketplaceOverhead() {
     return marketplaceOverhead;
   }
 
-  public void setMarketplaceOverhead(Double marketplaceOverhead) {
+  public void setMarketplaceOverhead(BigDecimal marketplaceOverhead) {
     this.marketplaceOverhead = marketplaceOverhead;
   }
 
@@ -1284,10 +1313,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get marketplaceProfitable
+   * True if our listing is profitable to sell
    * @return marketplaceProfitable
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if our listing is profitable to sell")
   public Boolean getMarketplaceProfitable() {
     return marketplaceProfitable;
   }
@@ -1296,22 +1325,22 @@ public class ItemEbay   {
     this.marketplaceProfitable = marketplaceProfitable;
   }
 
-  public ItemEbay nextAttempDts(String nextAttempDts) {
-    this.nextAttempDts = nextAttempDts;
+  public ItemEbay nextAttemptDts(String nextAttemptDts) {
+    this.nextAttemptDts = nextAttemptDts;
     return this;
   }
 
    /**
-   * Get nextAttempDts
-   * @return nextAttempDts
+   * Date/time for the next attempt to list
+   * @return nextAttemptDts
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getNextAttempDts() {
-    return nextAttempDts;
+  @ApiModelProperty(example = "null", value = "Date/time for the next attempt to list")
+  public String getNextAttemptDts() {
+    return nextAttemptDts;
   }
 
-  public void setNextAttempDts(String nextAttempDts) {
-    this.nextAttempDts = nextAttempDts;
+  public void setNextAttemptDts(String nextAttemptDts) {
+    this.nextAttemptDts = nextAttemptDts;
   }
 
   public ItemEbay nextListingDuration(String nextListingDuration) {
@@ -1320,10 +1349,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get nextListingDuration
+   * The next listing duration to use when the current listing ends.
    * @return nextListingDuration
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The next listing duration to use when the current listing ends.")
   public String getNextListingDuration() {
     return nextListingDuration;
   }
@@ -1338,10 +1367,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get noPromotionalShipping
+   * True if the item should not qualify for promotional shipping
    * @return noPromotionalShipping
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the item should not qualify for promotional shipping")
   public Boolean getNoPromotionalShipping() {
     return noPromotionalShipping;
   }
@@ -1350,21 +1379,21 @@ public class ItemEbay   {
     this.noPromotionalShipping = noPromotionalShipping;
   }
 
-  public ItemEbay packagingHandlingCosts(Double packagingHandlingCosts) {
+  public ItemEbay packagingHandlingCosts(BigDecimal packagingHandlingCosts) {
     this.packagingHandlingCosts = packagingHandlingCosts;
     return this;
   }
 
    /**
-   * Get packagingHandlingCosts
+   * Packaging and handling costs
    * @return packagingHandlingCosts
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getPackagingHandlingCosts() {
+  @ApiModelProperty(example = "null", value = "Packaging and handling costs")
+  public BigDecimal getPackagingHandlingCosts() {
     return packagingHandlingCosts;
   }
 
-  public void setPackagingHandlingCosts(Double packagingHandlingCosts) {
+  public void setPackagingHandlingCosts(BigDecimal packagingHandlingCosts) {
     this.packagingHandlingCosts = packagingHandlingCosts;
   }
 
@@ -1374,10 +1403,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get previousEbayAuctionId
+   * Previous e-Bay auction id
    * @return previousEbayAuctionId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Previous e-Bay auction id")
   public String getPreviousEbayAuctionId() {
     return previousEbayAuctionId;
   }
@@ -1392,10 +1421,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get quantity
+   * Quantity available of the item
    * @return quantity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Quantity available of the item")
   public Integer getQuantity() {
     return quantity;
   }
@@ -1404,21 +1433,21 @@ public class ItemEbay   {
     this.quantity = quantity;
   }
 
-  public ItemEbay reservePrice(Double reservePrice) {
+  public ItemEbay reservePrice(BigDecimal reservePrice) {
     this.reservePrice = reservePrice;
     return this;
   }
 
    /**
-   * Get reservePrice
+   * Reserve price
    * @return reservePrice
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getReservePrice() {
+  @ApiModelProperty(example = "null", value = "Reserve price")
+  public BigDecimal getReservePrice() {
     return reservePrice;
   }
 
-  public void setReservePrice(Double reservePrice) {
+  public void setReservePrice(BigDecimal reservePrice) {
     this.reservePrice = reservePrice;
   }
 
@@ -1428,10 +1457,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get sendDimensionsAndWeight
+   * How to send the item dimensions and weights to e-Bay
    * @return sendDimensionsAndWeight
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "How to send the item dimensions and weights to e-Bay")
   public String getSendDimensionsAndWeight() {
     return sendDimensionsAndWeight;
   }
@@ -1446,10 +1475,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get startTime
+   * Date/time of the auction start
    * @return startTime
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date/time of the auction start")
   public String getStartTime() {
     return startTime;
   }
@@ -1464,10 +1493,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get status
+   * Status of the item's listing
    * @return status
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Status of the item's listing")
   public String getStatus() {
     return status;
   }
@@ -1482,10 +1511,10 @@ public class ItemEbay   {
   }
 
    /**
-   * Get targetDispatchTimeMax
+   * Typical number of days it will take to ship the item
    * @return targetDispatchTimeMax
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Typical number of days it will take to ship the item")
   public Integer getTargetDispatchTimeMax() {
     return targetDispatchTimeMax;
   }
@@ -1562,7 +1591,7 @@ public class ItemEbay   {
         Objects.equals(this.marketplaceOurTotal, itemEbay.marketplaceOurTotal) &&
         Objects.equals(this.marketplaceOverhead, itemEbay.marketplaceOverhead) &&
         Objects.equals(this.marketplaceProfitable, itemEbay.marketplaceProfitable) &&
-        Objects.equals(this.nextAttempDts, itemEbay.nextAttempDts) &&
+        Objects.equals(this.nextAttemptDts, itemEbay.nextAttemptDts) &&
         Objects.equals(this.nextListingDuration, itemEbay.nextListingDuration) &&
         Objects.equals(this.noPromotionalShipping, itemEbay.noPromotionalShipping) &&
         Objects.equals(this.packagingHandlingCosts, itemEbay.packagingHandlingCosts) &&
@@ -1577,7 +1606,7 @@ public class ItemEbay   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, categoryId, categorySpecifics, conditionDescription, conditionId, consecutiveFailures, customCategory1, customCategory2, dispatchTimeMax, domestic1AdditionalCost, domestic1FirstCost, domestic2AdditionalCost, domestic2FirstCost, domestic3AdditionalCost, domestic3FirstCost, domestic4AdditionalCost, domestic4FirstCost, ebayAuctionId, ebaySpecificInventory, ebayTemplateName, ebayTemplateOid, endTime, freeShipping, freeShippingMethod, international1AdditionalCost, international1FirstCost, international2AdditionalCost, international2FirstCost, international3AdditionalCost, international3FirstCost, international4AdditionalCost, international4FirstCost, lastStatusDts, listedDispatchTimeMax, listedEbayTemplateOid, listingDts, listingDuration, listingPrice, listingPriceOverride, listingType, marketplaceAnalysis, marketplaceAnalysisPerform, marketplaceFinalValueFeePercentage, marketplaceLastCheckDts, marketplaceLowest, marketplaceMapViolation, marketplaceMultiplier, marketplaceOtherPrice, marketplaceOtherSeller, marketplaceOtherShipping, marketplaceOtherTotal, marketplaceOurAdditionalProfitPotential, marketplaceOurPrice, marketplaceOurProfit, marketplaceOurShipping, marketplaceOurTotal, marketplaceOverhead, marketplaceProfitable, nextAttempDts, nextListingDuration, noPromotionalShipping, packagingHandlingCosts, previousEbayAuctionId, quantity, reservePrice, sendDimensionsAndWeight, startTime, status, targetDispatchTimeMax);
+    return Objects.hash(active, categoryId, categorySpecifics, conditionDescription, conditionId, consecutiveFailures, customCategory1, customCategory2, dispatchTimeMax, domestic1AdditionalCost, domestic1FirstCost, domestic2AdditionalCost, domestic2FirstCost, domestic3AdditionalCost, domestic3FirstCost, domestic4AdditionalCost, domestic4FirstCost, ebayAuctionId, ebaySpecificInventory, ebayTemplateName, ebayTemplateOid, endTime, freeShipping, freeShippingMethod, international1AdditionalCost, international1FirstCost, international2AdditionalCost, international2FirstCost, international3AdditionalCost, international3FirstCost, international4AdditionalCost, international4FirstCost, lastStatusDts, listedDispatchTimeMax, listedEbayTemplateOid, listingDts, listingDuration, listingPrice, listingPriceOverride, listingType, marketplaceAnalysis, marketplaceAnalysisPerform, marketplaceFinalValueFeePercentage, marketplaceLastCheckDts, marketplaceLowest, marketplaceMapViolation, marketplaceMultiplier, marketplaceOtherPrice, marketplaceOtherSeller, marketplaceOtherShipping, marketplaceOtherTotal, marketplaceOurAdditionalProfitPotential, marketplaceOurPrice, marketplaceOurProfit, marketplaceOurShipping, marketplaceOurTotal, marketplaceOverhead, marketplaceProfitable, nextAttemptDts, nextListingDuration, noPromotionalShipping, packagingHandlingCosts, previousEbayAuctionId, quantity, reservePrice, sendDimensionsAndWeight, startTime, status, targetDispatchTimeMax);
   }
 
   @Override
@@ -1643,7 +1672,7 @@ public class ItemEbay   {
     sb.append("    marketplaceOurTotal: ").append(toIndentedString(marketplaceOurTotal)).append("\n");
     sb.append("    marketplaceOverhead: ").append(toIndentedString(marketplaceOverhead)).append("\n");
     sb.append("    marketplaceProfitable: ").append(toIndentedString(marketplaceProfitable)).append("\n");
-    sb.append("    nextAttempDts: ").append(toIndentedString(nextAttempDts)).append("\n");
+    sb.append("    nextAttemptDts: ").append(toIndentedString(nextAttemptDts)).append("\n");
     sb.append("    nextListingDuration: ").append(toIndentedString(nextListingDuration)).append("\n");
     sb.append("    noPromotionalShipping: ").append(toIndentedString(noPromotionalShipping)).append("\n");
     sb.append("    packagingHandlingCosts: ").append(toIndentedString(packagingHandlingCosts)).append("\n");

@@ -29,12 +29,13 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemReviews
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemReviews   {
   @SerializedName("has_approved_review")
   private Boolean hasApprovedReview = null;
@@ -46,7 +47,7 @@ public class ItemReviews   {
   private Integer reviewCount = null;
 
   @SerializedName("review_overall")
-  private Double reviewOverall = null;
+  private BigDecimal reviewOverall = null;
 
   @SerializedName("review_template_name")
   private String reviewTemplateName = null;
@@ -63,10 +64,10 @@ public class ItemReviews   {
   }
 
    /**
-   * Get hasApprovedReview
+   * True if the item has an approved review
    * @return hasApprovedReview
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the item has an approved review")
   public Boolean getHasApprovedReview() {
     return hasApprovedReview;
   }
@@ -81,10 +82,10 @@ public class ItemReviews   {
   }
 
    /**
-   * Get hasReview
+   * True if the item has a review
    * @return hasReview
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the item has a review")
   public Boolean getHasReview() {
     return hasReview;
   }
@@ -99,10 +100,10 @@ public class ItemReviews   {
   }
 
    /**
-   * Get reviewCount
+   * Number of approved reviews
    * @return reviewCount
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Number of approved reviews")
   public Integer getReviewCount() {
     return reviewCount;
   }
@@ -111,21 +112,21 @@ public class ItemReviews   {
     this.reviewCount = reviewCount;
   }
 
-  public ItemReviews reviewOverall(Double reviewOverall) {
+  public ItemReviews reviewOverall(BigDecimal reviewOverall) {
     this.reviewOverall = reviewOverall;
     return this;
   }
 
    /**
-   * Get reviewOverall
+   * Overall score of reviews
    * @return reviewOverall
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getReviewOverall() {
+  @ApiModelProperty(example = "null", value = "Overall score of reviews")
+  public BigDecimal getReviewOverall() {
     return reviewOverall;
   }
 
-  public void setReviewOverall(Double reviewOverall) {
+  public void setReviewOverall(BigDecimal reviewOverall) {
     this.reviewOverall = reviewOverall;
   }
 
@@ -135,10 +136,10 @@ public class ItemReviews   {
   }
 
    /**
-   * Get reviewTemplateName
+   * Review template name
    * @return reviewTemplateName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Review template name")
   public String getReviewTemplateName() {
     return reviewTemplateName;
   }
@@ -153,10 +154,10 @@ public class ItemReviews   {
   }
 
    /**
-   * Get reviewTemplateOid
+   * Review template object identifier
    * @return reviewTemplateOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Review template object identifier")
   public Integer getReviewTemplateOid() {
     return reviewTemplateOid;
   }
@@ -171,10 +172,10 @@ public class ItemReviews   {
   }
 
    /**
-   * Get reviewable
+   * True if the item is reviewable
    * @return reviewable
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the item is reviewable")
   public Boolean getReviewable() {
     return reviewable;
   }

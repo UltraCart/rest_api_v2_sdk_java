@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**caseLabel** | **String** |  |  [optional]
-**caseMerchantItemId** | **String** |  |  [optional]
-**caseMerchantItemOid** | **Integer** |  |  [optional]
-**quantity** | **Integer** |  |  [optional]
+**caseLabel** | **String** | Case label |  [optional]
+**caseMerchantItemId** | **String** | Case item id |  [optional]
+**caseMerchantItemOid** | **Integer** | Case item object identifier |  [optional]
+**quantity** | **Integer** | Case quantity |  [optional]
 
 
 

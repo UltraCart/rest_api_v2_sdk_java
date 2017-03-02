@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TempMultimediaResponse
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class TempMultimediaResponse   {
   @SerializedName("error")
   private Error error = null;
@@ -93,10 +93,10 @@ public class TempMultimediaResponse   {
   }
 
    /**
-   * Get success
+   * Indicates if API call was successful
    * @return success
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Indicates if API call was successful")
   public Boolean getSuccess() {
     return success;
   }

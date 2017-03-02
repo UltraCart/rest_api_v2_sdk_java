@@ -31,6 +31,7 @@ import com.ultracart.admin.v2.models.ItemAutoOrderStepArbitraryUnitCostSchedule;
 import com.ultracart.admin.v2.models.ItemAutoOrderStepGrandfatherPricing;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,13 +39,13 @@ import java.util.List;
 /**
  * ItemAutoOrderStep
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemAutoOrderStep   {
   @SerializedName("arbitrary_schedule_days")
   private Integer arbitraryScheduleDays = null;
 
   @SerializedName("arbitrary_unit_cost")
-  private Double arbitraryUnitCost = null;
+  private BigDecimal arbitraryUnitCost = null;
 
   @SerializedName("arbitrary_unit_cost_schedules")
   private List<ItemAutoOrderStepArbitraryUnitCostSchedule> arbitraryUnitCostSchedules = new ArrayList<ItemAutoOrderStepArbitraryUnitCostSchedule>();
@@ -58,8 +59,8 @@ public class ItemAutoOrderStep   {
   @SerializedName("pause_days")
   private Integer pauseDays = null;
 
-  @SerializedName("pause_unit_date")
-  private String pauseUnitDate = null;
+  @SerializedName("pause_until_date")
+  private String pauseUntilDate = null;
 
   @SerializedName("preshipment_notice_days")
   private Integer preshipmentNoticeDays = null;
@@ -82,8 +83,30 @@ public class ItemAutoOrderStep   {
   @SerializedName("subscribe_email_list_oid")
   private Integer subscribeEmailListOid = null;
 
+  /**
+   * Type of step (item or pause)
+   */
+  public enum TypeEnum {
+    @SerializedName("item")
+    ITEM("item"),
+    
+    @SerializedName("pause")
+    PAUSE("pause");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("type")
-  private String type = null;
+  private TypeEnum type = null;
 
   public ItemAutoOrderStep arbitraryScheduleDays(Integer arbitraryScheduleDays) {
     this.arbitraryScheduleDays = arbitraryScheduleDays;
@@ -91,10 +114,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get arbitraryScheduleDays
+   * If the schedule is arbitrary, then this is the number of days
    * @return arbitraryScheduleDays
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "If the schedule is arbitrary, then this is the number of days")
   public Integer getArbitraryScheduleDays() {
     return arbitraryScheduleDays;
   }
@@ -103,21 +126,21 @@ public class ItemAutoOrderStep   {
     this.arbitraryScheduleDays = arbitraryScheduleDays;
   }
 
-  public ItemAutoOrderStep arbitraryUnitCost(Double arbitraryUnitCost) {
+  public ItemAutoOrderStep arbitraryUnitCost(BigDecimal arbitraryUnitCost) {
     this.arbitraryUnitCost = arbitraryUnitCost;
     return this;
   }
 
    /**
-   * Get arbitraryUnitCost
+   * Arbitrary unit cost used to override the regular item cost
    * @return arbitraryUnitCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getArbitraryUnitCost() {
+  @ApiModelProperty(example = "null", value = "Arbitrary unit cost used to override the regular item cost")
+  public BigDecimal getArbitraryUnitCost() {
     return arbitraryUnitCost;
   }
 
-  public void setArbitraryUnitCost(Double arbitraryUnitCost) {
+  public void setArbitraryUnitCost(BigDecimal arbitraryUnitCost) {
     this.arbitraryUnitCost = arbitraryUnitCost;
   }
 
@@ -132,10 +155,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get arbitraryUnitCostSchedules
+   * Arbitrary unit costs schedules for more advanced discounting by rebill attempt
    * @return arbitraryUnitCostSchedules
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Arbitrary unit costs schedules for more advanced discounting by rebill attempt")
   public List<ItemAutoOrderStepArbitraryUnitCostSchedule> getArbitraryUnitCostSchedules() {
     return arbitraryUnitCostSchedules;
   }
@@ -155,10 +178,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get grandfatherPricing
+   * Grand-father pricing configuration if the rebill schedule has changed over time
    * @return grandfatherPricing
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Grand-father pricing configuration if the rebill schedule has changed over time")
   public List<ItemAutoOrderStepGrandfatherPricing> getGrandfatherPricing() {
     return grandfatherPricing;
   }
@@ -173,10 +196,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get managedBy
+   * Managed by (defaults to UltraCart)
    * @return managedBy
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Managed by (defaults to UltraCart)")
   public String getManagedBy() {
     return managedBy;
   }
@@ -191,10 +214,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get pauseDays
+   * Number of days to pause
    * @return pauseDays
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Number of days to pause")
   public Integer getPauseDays() {
     return pauseDays;
   }
@@ -203,22 +226,22 @@ public class ItemAutoOrderStep   {
     this.pauseDays = pauseDays;
   }
 
-  public ItemAutoOrderStep pauseUnitDate(String pauseUnitDate) {
-    this.pauseUnitDate = pauseUnitDate;
+  public ItemAutoOrderStep pauseUntilDate(String pauseUntilDate) {
+    this.pauseUntilDate = pauseUntilDate;
     return this;
   }
 
    /**
-   * Get pauseUnitDate
-   * @return pauseUnitDate
+   * Wait for this step to happen until the specified date
+   * @return pauseUntilDate
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getPauseUnitDate() {
-    return pauseUnitDate;
+  @ApiModelProperty(example = "null", value = "Wait for this step to happen until the specified date")
+  public String getPauseUntilDate() {
+    return pauseUntilDate;
   }
 
-  public void setPauseUnitDate(String pauseUnitDate) {
-    this.pauseUnitDate = pauseUnitDate;
+  public void setPauseUntilDate(String pauseUntilDate) {
+    this.pauseUntilDate = pauseUntilDate;
   }
 
   public ItemAutoOrderStep preshipmentNoticeDays(Integer preshipmentNoticeDays) {
@@ -227,10 +250,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get preshipmentNoticeDays
+   * If set, a pre-shipment notice is sent to the customer this many days in advance
    * @return preshipmentNoticeDays
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "If set, a pre-shipment notice is sent to the customer this many days in advance")
   public Integer getPreshipmentNoticeDays() {
     return preshipmentNoticeDays;
   }
@@ -245,10 +268,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get recurringMerchantItemId
+   * Item id to rebill
    * @return recurringMerchantItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Item id to rebill")
   public String getRecurringMerchantItemId() {
     return recurringMerchantItemId;
   }
@@ -263,10 +286,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get recurringMerchantItemOid
+   * Item object identifier to rebill
    * @return recurringMerchantItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Item object identifier to rebill")
   public Integer getRecurringMerchantItemOid() {
     return recurringMerchantItemOid;
   }
@@ -281,10 +304,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get repeatCount
+   * Number of times to rebill.  Last step can be null for infinite
    * @return repeatCount
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Number of times to rebill.  Last step can be null for infinite")
   public Integer getRepeatCount() {
     return repeatCount;
   }
@@ -299,10 +322,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get schedule
+   * Frequency of the rebill
    * @return schedule
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Frequency of the rebill")
   public String getSchedule() {
     return schedule;
   }
@@ -317,10 +340,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get subscribeEmailListName
+   * Email list name to subscribe the customer to when the rebill occurs
    * @return subscribeEmailListName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Email list name to subscribe the customer to when the rebill occurs")
   public String getSubscribeEmailListName() {
     return subscribeEmailListName;
   }
@@ -335,10 +358,10 @@ public class ItemAutoOrderStep   {
   }
 
    /**
-   * Get subscribeEmailListOid
+   * Email list identifier to subscribe the customer to when this rebill occurs
    * @return subscribeEmailListOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Email list identifier to subscribe the customer to when this rebill occurs")
   public Integer getSubscribeEmailListOid() {
     return subscribeEmailListOid;
   }
@@ -347,21 +370,21 @@ public class ItemAutoOrderStep   {
     this.subscribeEmailListOid = subscribeEmailListOid;
   }
 
-  public ItemAutoOrderStep type(String type) {
+  public ItemAutoOrderStep type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * Get type
+   * Type of step (item or pause)
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getType() {
+  @ApiModelProperty(example = "null", value = "Type of step (item or pause)")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
@@ -381,7 +404,7 @@ public class ItemAutoOrderStep   {
         Objects.equals(this.grandfatherPricing, itemAutoOrderStep.grandfatherPricing) &&
         Objects.equals(this.managedBy, itemAutoOrderStep.managedBy) &&
         Objects.equals(this.pauseDays, itemAutoOrderStep.pauseDays) &&
-        Objects.equals(this.pauseUnitDate, itemAutoOrderStep.pauseUnitDate) &&
+        Objects.equals(this.pauseUntilDate, itemAutoOrderStep.pauseUntilDate) &&
         Objects.equals(this.preshipmentNoticeDays, itemAutoOrderStep.preshipmentNoticeDays) &&
         Objects.equals(this.recurringMerchantItemId, itemAutoOrderStep.recurringMerchantItemId) &&
         Objects.equals(this.recurringMerchantItemOid, itemAutoOrderStep.recurringMerchantItemOid) &&
@@ -394,7 +417,7 @@ public class ItemAutoOrderStep   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostSchedules, grandfatherPricing, managedBy, pauseDays, pauseUnitDate, preshipmentNoticeDays, recurringMerchantItemId, recurringMerchantItemOid, repeatCount, schedule, subscribeEmailListName, subscribeEmailListOid, type);
+    return Objects.hash(arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostSchedules, grandfatherPricing, managedBy, pauseDays, pauseUntilDate, preshipmentNoticeDays, recurringMerchantItemId, recurringMerchantItemOid, repeatCount, schedule, subscribeEmailListName, subscribeEmailListOid, type);
   }
 
   @Override
@@ -408,7 +431,7 @@ public class ItemAutoOrderStep   {
     sb.append("    grandfatherPricing: ").append(toIndentedString(grandfatherPricing)).append("\n");
     sb.append("    managedBy: ").append(toIndentedString(managedBy)).append("\n");
     sb.append("    pauseDays: ").append(toIndentedString(pauseDays)).append("\n");
-    sb.append("    pauseUnitDate: ").append(toIndentedString(pauseUnitDate)).append("\n");
+    sb.append("    pauseUntilDate: ").append(toIndentedString(pauseUntilDate)).append("\n");
     sb.append("    preshipmentNoticeDays: ").append(toIndentedString(preshipmentNoticeDays)).append("\n");
     sb.append("    recurringMerchantItemId: ").append(toIndentedString(recurringMerchantItemId)).append("\n");
     sb.append("    recurringMerchantItemOid: ").append(toIndentedString(recurringMerchantItemOid)).append("\n");

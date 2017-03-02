@@ -29,34 +29,35 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemPricingTierDiscount
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemPricingTierDiscount   {
   @SerializedName("cost")
-  private Double cost = null;
+  private BigDecimal cost = null;
 
   @SerializedName("quantity")
   private Integer quantity = null;
 
-  public ItemPricingTierDiscount cost(Double cost) {
+  public ItemPricingTierDiscount cost(BigDecimal cost) {
     this.cost = cost;
     return this;
   }
 
    /**
-   * Get cost
+   * Cost
    * @return cost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCost() {
+  @ApiModelProperty(example = "null", value = "Cost")
+  public BigDecimal getCost() {
     return cost;
   }
 
-  public void setCost(Double cost) {
+  public void setCost(BigDecimal cost) {
     this.cost = cost;
   }
 
@@ -66,10 +67,10 @@ public class ItemPricingTierDiscount   {
   }
 
    /**
-   * Get quantity
+   * Quantity
    * @return quantity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Quantity")
   public Integer getQuantity() {
     return quantity;
   }

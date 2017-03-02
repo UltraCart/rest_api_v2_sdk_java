@@ -1,6 +1,6 @@
 # ItemApi
 
-All URIs are relative to *https://secure.ultracart.com/rest/admin/v2*
+All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,11 +14,11 @@ Method | HTTP request | Description
 
 <a name="itemItemsGet"></a>
 # **itemItemsGet**
-> ItemsResponse itemItemsGet(parentCategoryId, limit, offset, since, sort, expand, placeholders)
+> ItemsResponse itemItemsGet(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders)
 
 Retrieve items
 
-Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
 ```java
@@ -42,15 +42,16 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
 
 ItemApi apiInstance = new ItemApi();
-Integer parentCategoryId = 56; // Integer | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root
-Integer limit = 56; // Integer | The maximum number of records to return on this one API call.
-Integer offset = 56; // Integer | Pagination of the record set.  Offset is a zero based index.
+Integer parentCategoryId = 56; // Integer | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root
+String parentCategoryPath = "parentCategoryPath_example"; // String | The parent category path to retrieve items for.  Unspecified means all items on the account.  / = root
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 2000)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
 String since = "since_example"; // String | Fetch items that have been created/modified since this date/time.
-String sort = "sort_example"; // String | The sort order of the items.  See documentation for examples
+String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemsResponse result = apiInstance.itemItemsGet(parentCategoryId, limit, offset, since, sort, expand, placeholders);
+    ItemsResponse result = apiInstance.itemItemsGet(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ItemApi#itemItemsGet");
@@ -62,11 +63,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parentCategoryId** | **Integer**| The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional]
- **limit** | **Integer**| The maximum number of records to return on this one API call. | [optional]
- **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional]
+ **parentCategoryId** | **Integer**| The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional]
+ **parentCategoryPath** | **String**| The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root | [optional]
+ **limit** | **Integer**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
+ **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **String**| Fetch items that have been created/modified since this date/time. | [optional]
- **sort** | **String**| The sort order of the items.  See documentation for examples | [optional]
+ **sort** | **String**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
@@ -234,7 +236,7 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
 
 ItemApi apiInstance = new ItemApi();
-Item item = new Item(); // Item | Item to create
+Item item = new Item(); // Item | Item to update
 Integer merchantItemOid = 56; // Integer | The item oid to update.
 try {
     ItemResponse result = apiInstance.itemItemsMerchantItemOidPut(item, merchantItemOid);
@@ -249,7 +251,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item** | [**Item**](Item.md)| Item to create |
+ **item** | [**Item**](Item.md)| Item to update |
  **merchantItemOid** | **Integer**| The item oid to update. |
 
 ### Return type
@@ -262,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="itemItemsPost"></a>
@@ -321,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="itemTempMultimediaPost"></a>

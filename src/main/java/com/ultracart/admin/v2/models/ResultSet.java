@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ResultSet
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ResultSet   {
   @SerializedName("count")
   private Integer count = null;
@@ -45,8 +45,14 @@ public class ResultSet   {
   @SerializedName("more")
   private Boolean more = null;
 
+  @SerializedName("next_offset")
+  private Integer nextOffset = null;
+
   @SerializedName("offset")
   private Integer offset = null;
+
+  @SerializedName("total_records")
+  private Integer totalRecords = null;
 
   public ResultSet count(Integer count) {
     this.count = count;
@@ -54,10 +60,10 @@ public class ResultSet   {
   }
 
    /**
-   * Get count
+   * Number of results in this set
    * @return count
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Number of results in this set")
   public Integer getCount() {
     return count;
   }
@@ -72,10 +78,10 @@ public class ResultSet   {
   }
 
    /**
-   * Get limit
+   * Maximum number of results that can be returned in a set
    * @return limit
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Maximum number of results that can be returned in a set")
   public Integer getLimit() {
     return limit;
   }
@@ -90,10 +96,10 @@ public class ResultSet   {
   }
 
    /**
-   * Get more
+   * True if there are more results to query
    * @return more
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if there are more results to query")
   public Boolean getMore() {
     return more;
   }
@@ -102,22 +108,58 @@ public class ResultSet   {
     this.more = more;
   }
 
+  public ResultSet nextOffset(Integer nextOffset) {
+    this.nextOffset = nextOffset;
+    return this;
+  }
+
+   /**
+   * The next offset that you should query to retrieve more results
+   * @return nextOffset
+  **/
+  @ApiModelProperty(example = "null", value = "The next offset that you should query to retrieve more results")
+  public Integer getNextOffset() {
+    return nextOffset;
+  }
+
+  public void setNextOffset(Integer nextOffset) {
+    this.nextOffset = nextOffset;
+  }
+
   public ResultSet offset(Integer offset) {
     this.offset = offset;
     return this;
   }
 
    /**
-   * Get offset
+   * Offset of this result set (zero based)
    * @return offset
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Offset of this result set (zero based)")
   public Integer getOffset() {
     return offset;
   }
 
   public void setOffset(Integer offset) {
     this.offset = offset;
+  }
+
+  public ResultSet totalRecords(Integer totalRecords) {
+    this.totalRecords = totalRecords;
+    return this;
+  }
+
+   /**
+   * The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true.
+   * @return totalRecords
+  **/
+  @ApiModelProperty(example = "null", value = "The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true.")
+  public Integer getTotalRecords() {
+    return totalRecords;
+  }
+
+  public void setTotalRecords(Integer totalRecords) {
+    this.totalRecords = totalRecords;
   }
 
 
@@ -133,12 +175,14 @@ public class ResultSet   {
     return Objects.equals(this.count, resultSet.count) &&
         Objects.equals(this.limit, resultSet.limit) &&
         Objects.equals(this.more, resultSet.more) &&
-        Objects.equals(this.offset, resultSet.offset);
+        Objects.equals(this.nextOffset, resultSet.nextOffset) &&
+        Objects.equals(this.offset, resultSet.offset) &&
+        Objects.equals(this.totalRecords, resultSet.totalRecords);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, limit, more, offset);
+    return Objects.hash(count, limit, more, nextOffset, offset, totalRecords);
   }
 
   @Override
@@ -149,7 +193,9 @@ public class ResultSet   {
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    more: ").append(toIndentedString(more)).append("\n");
+    sb.append("    nextOffset: ").append(toIndentedString(nextOffset)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    totalRecords: ").append(toIndentedString(totalRecords)).append("\n");
     sb.append("}");
     return sb.toString();
   }

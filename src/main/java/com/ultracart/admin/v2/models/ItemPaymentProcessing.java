@@ -29,12 +29,14 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * ItemPaymentProcessing
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemPaymentProcessing   {
   @SerializedName("block_prepaid")
   private Boolean blockPrepaid = null;
@@ -46,10 +48,10 @@ public class ItemPaymentProcessing   {
   private Boolean noRealtimeCharge = null;
 
   @SerializedName("payment_method_validity")
-  private String paymentMethodValidity = null;
+  private List<String> paymentMethodValidity = new ArrayList<String>();
 
   @SerializedName("rotating_transaction_gateway_codes")
-  private String rotatingTransactionGatewayCodes = null;
+  private List<String> rotatingTransactionGatewayCodes = new ArrayList<String>();
 
   public ItemPaymentProcessing blockPrepaid(Boolean blockPrepaid) {
     this.blockPrepaid = blockPrepaid;
@@ -57,10 +59,10 @@ public class ItemPaymentProcessing   {
   }
 
    /**
-   * Get blockPrepaid
+   * True if prepaid cards should be blocked from buying this item
    * @return blockPrepaid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if prepaid cards should be blocked from buying this item")
   public Boolean getBlockPrepaid() {
     return blockPrepaid;
   }
@@ -75,10 +77,10 @@ public class ItemPaymentProcessing   {
   }
 
    /**
-   * Get creditCardTransactionType
+   * Credit card transaction type
    * @return creditCardTransactionType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Credit card transaction type")
   public String getCreditCardTransactionType() {
     return creditCardTransactionType;
   }
@@ -93,10 +95,10 @@ public class ItemPaymentProcessing   {
   }
 
    /**
-   * Get noRealtimeCharge
+   * True if no real-time charge should be performed on this item.
    * @return noRealtimeCharge
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if no real-time charge should be performed on this item.")
   public Boolean getNoRealtimeCharge() {
     return noRealtimeCharge;
   }
@@ -105,39 +107,49 @@ public class ItemPaymentProcessing   {
     this.noRealtimeCharge = noRealtimeCharge;
   }
 
-  public ItemPaymentProcessing paymentMethodValidity(String paymentMethodValidity) {
+  public ItemPaymentProcessing paymentMethodValidity(List<String> paymentMethodValidity) {
     this.paymentMethodValidity = paymentMethodValidity;
     return this;
   }
 
+  public ItemPaymentProcessing addPaymentMethodValidityItem(String paymentMethodValidityItem) {
+    this.paymentMethodValidity.add(paymentMethodValidityItem);
+    return this;
+  }
+
    /**
-   * Get paymentMethodValidity
+   * Payment method validity
    * @return paymentMethodValidity
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getPaymentMethodValidity() {
+  @ApiModelProperty(example = "null", value = "Payment method validity")
+  public List<String> getPaymentMethodValidity() {
     return paymentMethodValidity;
   }
 
-  public void setPaymentMethodValidity(String paymentMethodValidity) {
+  public void setPaymentMethodValidity(List<String> paymentMethodValidity) {
     this.paymentMethodValidity = paymentMethodValidity;
   }
 
-  public ItemPaymentProcessing rotatingTransactionGatewayCodes(String rotatingTransactionGatewayCodes) {
+  public ItemPaymentProcessing rotatingTransactionGatewayCodes(List<String> rotatingTransactionGatewayCodes) {
     this.rotatingTransactionGatewayCodes = rotatingTransactionGatewayCodes;
     return this;
   }
 
+  public ItemPaymentProcessing addRotatingTransactionGatewayCodesItem(String rotatingTransactionGatewayCodesItem) {
+    this.rotatingTransactionGatewayCodes.add(rotatingTransactionGatewayCodesItem);
+    return this;
+  }
+
    /**
-   * Get rotatingTransactionGatewayCodes
+   * Rotating transaction gateway codes
    * @return rotatingTransactionGatewayCodes
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getRotatingTransactionGatewayCodes() {
+  @ApiModelProperty(example = "null", value = "Rotating transaction gateway codes")
+  public List<String> getRotatingTransactionGatewayCodes() {
     return rotatingTransactionGatewayCodes;
   }
 
-  public void setRotatingTransactionGatewayCodes(String rotatingTransactionGatewayCodes) {
+  public void setRotatingTransactionGatewayCodes(List<String> rotatingTransactionGatewayCodes) {
     this.rotatingTransactionGatewayCodes = rotatingTransactionGatewayCodes;
   }
 

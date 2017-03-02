@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TempMultimedia
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class TempMultimedia   {
   @SerializedName("filename")
   private String filename = null;
@@ -42,8 +42,36 @@ public class TempMultimedia   {
   @SerializedName("height")
   private Integer height = null;
 
+  /**
+   * Multimedia type
+   */
+  public enum MultimediaTypeEnum {
+    @SerializedName("Image")
+    IMAGE("Image"),
+    
+    @SerializedName("PDF")
+    PDF("PDF"),
+    
+    @SerializedName("Text")
+    TEXT("Text"),
+    
+    @SerializedName("Video")
+    VIDEO("Video");
+
+    private String value;
+
+    MultimediaTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("multimedia_type")
-  private String multimediaType = null;
+  private MultimediaTypeEnum multimediaType = null;
 
   @SerializedName("size")
   private Long size = null;
@@ -63,10 +91,10 @@ public class TempMultimedia   {
   }
 
    /**
-   * Get filename
+   * Filename
    * @return filename
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Filename")
   public String getFilename() {
     return filename;
   }
@@ -81,10 +109,10 @@ public class TempMultimedia   {
   }
 
    /**
-   * Get height
+   * Height
    * @return height
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Height")
   public Integer getHeight() {
     return height;
   }
@@ -93,21 +121,21 @@ public class TempMultimedia   {
     this.height = height;
   }
 
-  public TempMultimedia multimediaType(String multimediaType) {
+  public TempMultimedia multimediaType(MultimediaTypeEnum multimediaType) {
     this.multimediaType = multimediaType;
     return this;
   }
 
    /**
-   * Get multimediaType
+   * Multimedia type
    * @return multimediaType
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getMultimediaType() {
+  @ApiModelProperty(example = "null", value = "Multimedia type")
+  public MultimediaTypeEnum getMultimediaType() {
     return multimediaType;
   }
 
-  public void setMultimediaType(String multimediaType) {
+  public void setMultimediaType(MultimediaTypeEnum multimediaType) {
     this.multimediaType = multimediaType;
   }
 
@@ -117,10 +145,10 @@ public class TempMultimedia   {
   }
 
    /**
-   * Get size
+   * Size
    * @return size
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Size")
   public Long getSize() {
     return size;
   }
@@ -135,10 +163,10 @@ public class TempMultimedia   {
   }
 
    /**
-   * Get tempMultimediaOid
+   * Temporary multimedia object identifier
    * @return tempMultimediaOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Temporary multimedia object identifier")
   public Integer getTempMultimediaOid() {
     return tempMultimediaOid;
   }
@@ -153,10 +181,10 @@ public class TempMultimedia   {
   }
 
    /**
-   * Get url
+   * URL
    * @return url
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "URL")
   public String getUrl() {
     return url;
   }
@@ -171,10 +199,10 @@ public class TempMultimedia   {
   }
 
    /**
-   * Get width
+   * Width
    * @return width
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Width")
   public Integer getWidth() {
     return width;
   }

@@ -29,18 +29,19 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemAutoOrderStepGrandfatherPricing
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemAutoOrderStepGrandfatherPricing   {
   @SerializedName("on_or_before_date")
   private String onOrBeforeDate = null;
 
   @SerializedName("unit_cost")
-  private Double unitCost = null;
+  private BigDecimal unitCost = null;
 
   public ItemAutoOrderStepGrandfatherPricing onOrBeforeDate(String onOrBeforeDate) {
     this.onOrBeforeDate = onOrBeforeDate;
@@ -48,10 +49,10 @@ public class ItemAutoOrderStepGrandfatherPricing   {
   }
 
    /**
-   * Get onOrBeforeDate
+   * On or before date
    * @return onOrBeforeDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "On or before date")
   public String getOnOrBeforeDate() {
     return onOrBeforeDate;
   }
@@ -60,21 +61,21 @@ public class ItemAutoOrderStepGrandfatherPricing   {
     this.onOrBeforeDate = onOrBeforeDate;
   }
 
-  public ItemAutoOrderStepGrandfatherPricing unitCost(Double unitCost) {
+  public ItemAutoOrderStepGrandfatherPricing unitCost(BigDecimal unitCost) {
     this.unitCost = unitCost;
     return this;
   }
 
    /**
-   * Get unitCost
+   * Unit cost
    * @return unitCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getUnitCost() {
+  @ApiModelProperty(example = "null", value = "Unit cost")
+  public BigDecimal getUnitCost() {
     return unitCost;
   }
 
-  public void setUnitCost(Double unitCost) {
+  public void setUnitCost(BigDecimal unitCost) {
     this.unitCost = unitCost;
   }
 

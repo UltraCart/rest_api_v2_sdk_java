@@ -71,7 +71,7 @@ public class ItemApi {
     }
 
     /* Build call for itemItemsGet */
-    private com.squareup.okhttp.Call itemItemsGetCall(Integer parentCategoryId, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call itemItemsGetCall(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
 
@@ -81,6 +81,8 @@ public class ItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (parentCategoryId != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "parent_category_id", parentCategoryId));
+        if (parentCategoryPath != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "parent_category_path", parentCategoryPath));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "_limit", limit));
         if (offset != null)
@@ -128,56 +130,59 @@ public class ItemApi {
 
     /**
      * Retrieve items
-     * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
-     * @param parentCategoryId The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
-     * @param limit The maximum number of records to return on this one API call. (optional)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional)
+     * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param parentCategoryId The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param parentCategoryPath The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See documentation for examples (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ItemsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse itemItemsGet(Integer parentCategoryId, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
-        ApiResponse<ItemsResponse> resp = itemItemsGetWithHttpInfo(parentCategoryId, limit, offset, since, sort, expand, placeholders);
+    public ItemsResponse itemItemsGet(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemsResponse> resp = itemItemsGetWithHttpInfo(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
         return resp.getData();
     }
 
     /**
      * Retrieve items
-     * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
-     * @param parentCategoryId The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
-     * @param limit The maximum number of records to return on this one API call. (optional)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional)
+     * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param parentCategoryId The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param parentCategoryPath The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See documentation for examples (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;ItemsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> itemItemsGetWithHttpInfo(Integer parentCategoryId, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, limit, offset, since, sort, expand, placeholders, null, null);
+    public ApiResponse<ItemsResponse> itemItemsGetWithHttpInfo(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders, null, null);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieve items (asynchronously)
-     * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
-     * @param parentCategoryId The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
-     * @param limit The maximum number of records to return on this one API call. (optional)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional)
+     * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param parentCategoryId The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param parentCategoryPath The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See documentation for examples (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemItemsGetAsync(Integer parentCategoryId, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call itemItemsGetAsync(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -198,7 +203,7 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -455,7 +460,7 @@ public class ItemApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json; charset=UTF-8"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -479,7 +484,7 @@ public class ItemApi {
     /**
      * Update an item
      * Update a new item on the UltraCart account. 
-     * @param item Item to create (required)
+     * @param item Item to update (required)
      * @param merchantItemOid The item oid to update. (required)
      * @return ItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -492,7 +497,7 @@ public class ItemApi {
     /**
      * Update an item
      * Update a new item on the UltraCart account. 
-     * @param item Item to create (required)
+     * @param item Item to update (required)
      * @param merchantItemOid The item oid to update. (required)
      * @return ApiResponse&lt;ItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -506,7 +511,7 @@ public class ItemApi {
     /**
      * Update an item (asynchronously)
      * Update a new item on the UltraCart account. 
-     * @param item Item to create (required)
+     * @param item Item to update (required)
      * @param merchantItemOid The item oid to update. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -564,7 +569,7 @@ public class ItemApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json; charset=UTF-8"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

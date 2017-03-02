@@ -29,15 +29,16 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemKitComponent
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemKitComponent   {
-  @SerializedName("component_Cost")
-  private Double componentCost = null;
+  @SerializedName("component_cost")
+  private BigDecimal componentCost = null;
 
   @SerializedName("component_description")
   private String componentDescription = null;
@@ -51,21 +52,21 @@ public class ItemKitComponent   {
   @SerializedName("quantity")
   private Integer quantity = null;
 
-  public ItemKitComponent componentCost(Double componentCost) {
+  public ItemKitComponent componentCost(BigDecimal componentCost) {
     this.componentCost = componentCost;
     return this;
   }
 
    /**
-   * Get componentCost
+   * Component item cost
    * @return componentCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getComponentCost() {
+  @ApiModelProperty(example = "null", value = "Component item cost")
+  public BigDecimal getComponentCost() {
     return componentCost;
   }
 
-  public void setComponentCost(Double componentCost) {
+  public void setComponentCost(BigDecimal componentCost) {
     this.componentCost = componentCost;
   }
 
@@ -75,10 +76,10 @@ public class ItemKitComponent   {
   }
 
    /**
-   * Get componentDescription
+   * Component item description
    * @return componentDescription
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Component item description")
   public String getComponentDescription() {
     return componentDescription;
   }
@@ -93,10 +94,10 @@ public class ItemKitComponent   {
   }
 
    /**
-   * Get componentMerchantItemId
+   * Component item ID
    * @return componentMerchantItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Component item ID")
   public String getComponentMerchantItemId() {
     return componentMerchantItemId;
   }
@@ -111,10 +112,10 @@ public class ItemKitComponent   {
   }
 
    /**
-   * Get componentMerchantItemOid
+   * Component item object identifier
    * @return componentMerchantItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Component item object identifier")
   public Integer getComponentMerchantItemOid() {
     return componentMerchantItemOid;
   }
@@ -129,10 +130,10 @@ public class ItemKitComponent   {
   }
 
    /**
-   * Get quantity
+   * Quantity
    * @return quantity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Quantity")
   public Integer getQuantity() {
     return quantity;
   }

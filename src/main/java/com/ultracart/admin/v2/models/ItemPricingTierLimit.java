@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemPricingTierLimit
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemPricingTierLimit   {
   @SerializedName("cumulative_order_limit")
   private Integer cumulativeOrderLimit = null;
@@ -51,10 +51,10 @@ public class ItemPricingTierLimit   {
   }
 
    /**
-   * Get cumulativeOrderLimit
+   * Cumulative order limit
    * @return cumulativeOrderLimit
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Cumulative order limit")
   public Integer getCumulativeOrderLimit() {
     return cumulativeOrderLimit;
   }
@@ -69,10 +69,10 @@ public class ItemPricingTierLimit   {
   }
 
    /**
-   * Get individualOrderLimit
+   * Individual order limit
    * @return individualOrderLimit
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Individual order limit")
   public Integer getIndividualOrderLimit() {
     return individualOrderLimit;
   }
@@ -87,10 +87,10 @@ public class ItemPricingTierLimit   {
   }
 
    /**
-   * Get multipleQuantity
+   * Multiple quantity
    * @return multipleQuantity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Multiple quantity")
   public Integer getMultipleQuantity() {
     return multipleQuantity;
   }

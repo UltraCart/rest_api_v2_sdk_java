@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**componentCost** | **Double** |  |  [optional]
-**componentDescription** | **String** |  |  [optional]
-**componentMerchantItemId** | **String** |  |  [optional]
-**componentMerchantItemOid** | **Integer** |  |  [optional]
-**quantity** | **Integer** |  |  [optional]
+**componentCost** | [**BigDecimal**](BigDecimal.md) | Component item cost |  [optional]
+**componentDescription** | **String** | Component item description |  [optional]
+**componentMerchantItemId** | **String** | Component item ID |  [optional]
+**componentMerchantItemOid** | **Integer** | Component item object identifier |  [optional]
+**quantity** | **Integer** | Quantity |  [optional]
 
 
 

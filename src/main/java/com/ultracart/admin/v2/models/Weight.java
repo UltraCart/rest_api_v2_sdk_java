@@ -29,52 +29,78 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * Weight
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class Weight   {
+  /**
+   * Unit of measure
+   */
+  public enum UomEnum {
+    @SerializedName("KG")
+    KG("KG"),
+    
+    @SerializedName("LB")
+    LB("LB"),
+    
+    @SerializedName("OZ")
+    OZ("OZ");
+
+    private String value;
+
+    UomEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("uom")
-  private String uom = null;
+  private UomEnum uom = null;
 
   @SerializedName("value")
-  private Double value = null;
+  private BigDecimal value = null;
 
-  public Weight uom(String uom) {
+  public Weight uom(UomEnum uom) {
     this.uom = uom;
     return this;
   }
 
    /**
-   * Get uom
+   * Unit of measure
    * @return uom
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getUom() {
+  @ApiModelProperty(example = "null", value = "Unit of measure")
+  public UomEnum getUom() {
     return uom;
   }
 
-  public void setUom(String uom) {
+  public void setUom(UomEnum uom) {
     this.uom = uom;
   }
 
-  public Weight value(Double value) {
+  public Weight value(BigDecimal value) {
     this.value = value;
     return this;
   }
 
    /**
-   * Get value
+   * Weight
    * @return value
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getValue() {
+  @ApiModelProperty(example = "null", value = "Weight")
+  public BigDecimal getValue() {
     return value;
   }
 
-  public void setValue(Double value) {
+  public void setValue(BigDecimal value) {
     this.value = value;
   }
 

@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cost** | **Double** |  |  [optional]
-**quantity** | **Integer** |  |  [optional]
+**cost** | [**BigDecimal**](BigDecimal.md) | Cost |  [optional]
+**quantity** | **Integer** | Quantity |  [optional]
 
 
 

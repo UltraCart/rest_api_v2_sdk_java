@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sfdcPricebookId** | **String** |  |  [optional]
-**sfdcProductId** | **String** |  |  [optional]
+**sfdcPricebookId** | **String** | Salesforce.com pricebook id |  [optional]
+**sfdcProductId** | **String** | Salesforce.com product id |  [optional]
 
 
 

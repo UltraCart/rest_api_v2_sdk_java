@@ -29,34 +29,35 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemAutoOrderStepArbitraryUnitCostSchedule
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemAutoOrderStepArbitraryUnitCostSchedule   {
-  @SerializedName("arbitrary_unit_Cost")
-  private Double arbitraryUnitCost = null;
+  @SerializedName("arbitrary_unit_cost")
+  private BigDecimal arbitraryUnitCost = null;
 
   @SerializedName("retry_days")
   private Integer retryDays = null;
 
-  public ItemAutoOrderStepArbitraryUnitCostSchedule arbitraryUnitCost(Double arbitraryUnitCost) {
+  public ItemAutoOrderStepArbitraryUnitCostSchedule arbitraryUnitCost(BigDecimal arbitraryUnitCost) {
     this.arbitraryUnitCost = arbitraryUnitCost;
     return this;
   }
 
    /**
-   * Get arbitraryUnitCost
+   * Arbitrary unit cost
    * @return arbitraryUnitCost
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getArbitraryUnitCost() {
+  @ApiModelProperty(example = "null", value = "Arbitrary unit cost")
+  public BigDecimal getArbitraryUnitCost() {
     return arbitraryUnitCost;
   }
 
-  public void setArbitraryUnitCost(Double arbitraryUnitCost) {
+  public void setArbitraryUnitCost(BigDecimal arbitraryUnitCost) {
     this.arbitraryUnitCost = arbitraryUnitCost;
   }
 
@@ -66,10 +67,10 @@ public class ItemAutoOrderStepArbitraryUnitCostSchedule   {
   }
 
    /**
-   * Get retryDays
+   * Retry days
    * @return retryDays
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Retry days")
   public Integer getRetryDays() {
     return retryDays;
   }

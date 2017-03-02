@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemCCBill
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemCCBill   {
   @SerializedName("ccbill_allowed_currencies")
   private String ccbillAllowedCurrencies = null;
@@ -60,10 +60,10 @@ public class ItemCCBill   {
   }
 
    /**
-   * Get ccbillAllowedCurrencies
+   * Allowed currencies
    * @return ccbillAllowedCurrencies
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Allowed currencies")
   public String getCcbillAllowedCurrencies() {
     return ccbillAllowedCurrencies;
   }
@@ -78,10 +78,10 @@ public class ItemCCBill   {
   }
 
    /**
-   * Get ccbillAllowedTypes
+   * Allowed types
    * @return ccbillAllowedTypes
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Allowed types")
   public String getCcbillAllowedTypes() {
     return ccbillAllowedTypes;
   }
@@ -96,10 +96,10 @@ public class ItemCCBill   {
   }
 
    /**
-   * Get ccbillCurrencyCode
+   * Currency code
    * @return ccbillCurrencyCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Currency code")
   public String getCcbillCurrencyCode() {
     return ccbillCurrencyCode;
   }
@@ -114,10 +114,10 @@ public class ItemCCBill   {
   }
 
    /**
-   * Get ccbillFormName
+   * Form name
    * @return ccbillFormName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Form name")
   public String getCcbillFormName() {
     return ccbillFormName;
   }
@@ -132,10 +132,10 @@ public class ItemCCBill   {
   }
 
    /**
-   * Get ccbillSubaccountId
+   * Sub-account id
    * @return ccbillSubaccountId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Sub-account id")
   public String getCcbillSubaccountId() {
     return ccbillSubaccountId;
   }
@@ -150,10 +150,10 @@ public class ItemCCBill   {
   }
 
    /**
-   * Get ccbillSubscriptionTypeId
+   * Subscription type id
    * @return ccbillSubscriptionTypeId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Subscription type id")
   public String getCcbillSubscriptionTypeId() {
     return ccbillSubscriptionTypeId;
   }

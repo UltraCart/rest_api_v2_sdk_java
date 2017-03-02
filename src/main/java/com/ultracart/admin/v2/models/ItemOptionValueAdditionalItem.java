@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemOptionValueAdditionalItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemOptionValueAdditionalItem   {
   @SerializedName("additional_merchant_item_id")
   private String additionalMerchantItemId = null;
@@ -48,10 +48,10 @@ public class ItemOptionValueAdditionalItem   {
   }
 
    /**
-   * Get additionalMerchantItemId
+   * Additional item id
    * @return additionalMerchantItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Additional item id")
   public String getAdditionalMerchantItemId() {
     return additionalMerchantItemId;
   }
@@ -66,10 +66,10 @@ public class ItemOptionValueAdditionalItem   {
   }
 
    /**
-   * Get additionalMerchantItemOid
+   * Additional item object identifier
    * @return additionalMerchantItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Additional item object identifier")
   public Integer getAdditionalMerchantItemOid() {
     return additionalMerchantItemOid;
   }

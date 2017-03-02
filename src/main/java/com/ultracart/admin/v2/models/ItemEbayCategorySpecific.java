@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemEbayCategorySpecific
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemEbayCategorySpecific   {
   @SerializedName("name")
   private String name = null;
@@ -48,10 +48,10 @@ public class ItemEbayCategorySpecific   {
   }
 
    /**
-   * Get name
+   * Name of the category specification field
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Name of the category specification field")
   public String getName() {
     return name;
   }
@@ -66,10 +66,10 @@ public class ItemEbayCategorySpecific   {
   }
 
    /**
-   * Get value
+   * Value
    * @return value
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Value")
   public String getValue() {
     return value;
   }

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemCheckout
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemCheckout   {
   @SerializedName("suppress_buysafe")
   private Boolean suppressBuysafe = null;
@@ -51,10 +51,10 @@ public class ItemCheckout   {
   }
 
    /**
-   * Get suppressBuysafe
+   * True to suppress buySAFE
    * @return suppressBuysafe
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True to suppress buySAFE")
   public Boolean getSuppressBuysafe() {
     return suppressBuysafe;
   }
@@ -69,10 +69,10 @@ public class ItemCheckout   {
   }
 
    /**
-   * Get terms
+   * Terms for purchasing this item
    * @return terms
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Terms for purchasing this item")
   public String getTerms() {
     return terms;
   }
@@ -87,10 +87,10 @@ public class ItemCheckout   {
   }
 
    /**
-   * Get termsTranslatedTextInstanceOid
+   * Terms translated text instance identifier
    * @return termsTranslatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Terms translated text instance identifier")
   public Integer getTermsTranslatedTextInstanceOid() {
     return termsTranslatedTextInstanceOid;
   }

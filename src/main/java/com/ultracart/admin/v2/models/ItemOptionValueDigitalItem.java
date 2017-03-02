@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemOptionValueDigitalItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemOptionValueDigitalItem   {
   @SerializedName("digital_item_oid")
   private Integer digitalItemOid = null;
@@ -48,10 +48,10 @@ public class ItemOptionValueDigitalItem   {
   }
 
    /**
-   * Get digitalItemOid
+   * Digital item object identifier
    * @return digitalItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Digital item object identifier")
   public Integer getDigitalItemOid() {
     return digitalItemOid;
   }
@@ -66,10 +66,10 @@ public class ItemOptionValueDigitalItem   {
   }
 
    /**
-   * Get originalFilename
+   * Original filename
    * @return originalFilename
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Original filename")
   public String getOriginalFilename() {
     return originalFilename;
   }

@@ -71,7 +71,7 @@ import java.util.List;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class Item   {
   @SerializedName("accounting")
   private ItemAccounting accounting = null;
@@ -291,10 +291,10 @@ public class Item   {
   }
 
    /**
-   * Get channelPartnerMappings
+   * Channel Partner Item Mapping
    * @return channelPartnerMappings
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Channel Partner Item Mapping")
   public List<ItemChannelPartnerMapping> getChannelPartnerMappings() {
     return channelPartnerMappings;
   }
@@ -363,10 +363,10 @@ public class Item   {
   }
 
    /**
-   * Get creationDts
+   * Date/time of creation
    * @return creationDts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date/time of creation")
   public String getCreationDts() {
     return creationDts;
   }
@@ -381,10 +381,10 @@ public class Item   {
   }
 
    /**
-   * Get description
+   * Description of the item up to 500 characters.
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description of the item up to 500 characters.")
   public String getDescription() {
     return description;
   }
@@ -399,10 +399,10 @@ public class Item   {
   }
 
    /**
-   * Get descriptionTranslatedTextInstanceOid
+   * Description translated text instance id
    * @return descriptionTranslatedTextInstanceOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description translated text instance id")
   public Integer getDescriptionTranslatedTextInstanceOid() {
     return descriptionTranslatedTextInstanceOid;
   }
@@ -543,10 +543,10 @@ public class Item   {
   }
 
    /**
-   * Get inactive
+   * True if this item is inactive and can not be purchased
    * @return inactive
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this item is inactive and can not be purchased")
   public Boolean getInactive() {
     return inactive;
   }
@@ -597,10 +597,10 @@ public class Item   {
   }
 
    /**
-   * Get kit
+   * True if this item is a kit
    * @return kit
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if this item is a kit")
   public Boolean getKit() {
     return kit;
   }
@@ -633,10 +633,10 @@ public class Item   {
   }
 
    /**
-   * Get lastModifiedDts
+   * Date/time of last modification
    * @return lastModifiedDts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date/time of last modification")
   public String getLastModifiedDts() {
     return lastModifiedDts;
   }
@@ -651,10 +651,10 @@ public class Item   {
   }
 
    /**
-   * Get merchantId
+   * UltraCart merchant ID owning item
    * @return merchantId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "UltraCart merchant ID owning item")
   public String getMerchantId() {
     return merchantId;
   }
@@ -669,10 +669,10 @@ public class Item   {
   }
 
    /**
-   * Get merchantItemId
+   * Unique item id assigned to this item
    * @return merchantItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Unique item id assigned to this item")
   public String getMerchantItemId() {
     return merchantItemId;
   }
@@ -687,10 +687,10 @@ public class Item   {
   }
 
    /**
-   * Get merchantItemOid
+   * Unique object identifier for this item
    * @return merchantItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Unique object identifier for this item")
   public Integer getMerchantItemOid() {
     return merchantItemOid;
   }
@@ -710,10 +710,10 @@ public class Item   {
   }
 
    /**
-   * Get options
+   * Options
    * @return options
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Options")
   public List<ItemOption> getOptions() {
     return options;
   }
@@ -728,10 +728,10 @@ public class Item   {
   }
 
    /**
-   * Get parentCategoryId
+   * Parent category of the item.  Zero indicates the root folder.
    * @return parentCategoryId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Parent category of the item.  Zero indicates the root folder.")
   public Integer getParentCategoryId() {
     return parentCategoryId;
   }
@@ -967,10 +967,10 @@ public class Item   {
   }
 
    /**
-   * Get thirdPartyEmailMarketing
+   * 3rd Party Email Marketing
    * @return thirdPartyEmailMarketing
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "3rd Party Email Marketing")
   public List<ItemThirdPartyEmailMarketing> getThirdPartyEmailMarketing() {
     return thirdPartyEmailMarketing;
   }
@@ -990,10 +990,10 @@ public class Item   {
   }
 
    /**
-   * Get variantItems
+   * Variant Items
    * @return variantItems
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Variant Items")
   public List<ItemVariantItem> getVariantItems() {
     return variantItems;
   }
@@ -1013,10 +1013,10 @@ public class Item   {
   }
 
    /**
-   * Get variations
+   * Variations
    * @return variations
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Variations")
   public List<ItemVariation> getVariations() {
     return variations;
   }

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemInstantPaymentNotification
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemInstantPaymentNotification   {
   @SerializedName("post_operation")
   private Boolean postOperation = null;
@@ -51,10 +51,10 @@ public class ItemInstantPaymentNotification   {
   }
 
    /**
-   * Get postOperation
+   * True for HTTP POST instead of GET
    * @return postOperation
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True for HTTP POST instead of GET")
   public Boolean getPostOperation() {
     return postOperation;
   }
@@ -69,10 +69,10 @@ public class ItemInstantPaymentNotification   {
   }
 
    /**
-   * Get successfulResponseText
+   * Successful response text
    * @return successfulResponseText
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Successful response text")
   public String getSuccessfulResponseText() {
     return successfulResponseText;
   }
@@ -87,10 +87,10 @@ public class ItemInstantPaymentNotification   {
   }
 
    /**
-   * Get url
+   * URL
    * @return url
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "URL")
   public String getUrl() {
     return url;
   }

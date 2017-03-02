@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemChargebackAdjustmentRequest
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemChargebackAdjustmentRequest   {
   @SerializedName("chargeback_adjustment_request_oid")
   private Integer chargebackAdjustmentRequestOid = null;
@@ -51,10 +51,10 @@ public class ItemChargebackAdjustmentRequest   {
   }
 
    /**
-   * Get chargebackAdjustmentRequestOid
+   * Chargeback adjustment request object identifier
    * @return chargebackAdjustmentRequestOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Chargeback adjustment request object identifier")
   public Integer getChargebackAdjustmentRequestOid() {
     return chargebackAdjustmentRequestOid;
   }
@@ -69,10 +69,10 @@ public class ItemChargebackAdjustmentRequest   {
   }
 
    /**
-   * Get description
+   * Description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Description")
   public String getDescription() {
     return description;
   }
@@ -87,10 +87,10 @@ public class ItemChargebackAdjustmentRequest   {
   }
 
    /**
-   * Get reasonCode
+   * Reason code
    * @return reasonCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Reason code")
   public String getReasonCode() {
     return reasonCode;
   }

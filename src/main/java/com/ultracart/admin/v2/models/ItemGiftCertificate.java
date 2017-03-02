@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemGiftCertificate
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemGiftCertificate   {
   @SerializedName("gift_certificate")
   private Boolean giftCertificate = null;
@@ -48,10 +48,10 @@ public class ItemGiftCertificate   {
   }
 
    /**
-   * Get giftCertificate
+   * True if the purchase of this item generates a gift certificate
    * @return giftCertificate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "True if the purchase of this item generates a gift certificate")
   public Boolean getGiftCertificate() {
     return giftCertificate;
   }
@@ -66,10 +66,10 @@ public class ItemGiftCertificate   {
   }
 
    /**
-   * Get giftCertificateExpirationDays
+   * The number of days that the gift certificate is good for (optional)
    * @return giftCertificateExpirationDays
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The number of days that the gift certificate is good for (optional)")
   public Integer getGiftCertificateExpirationDays() {
     return giftCertificateExpirationDays;
   }

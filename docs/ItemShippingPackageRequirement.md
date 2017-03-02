@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**packageName** | **String** |  |  [optional]
-**packageOid** | **Integer** |  |  [optional]
+**packageName** | **String** | Package name |  [optional]
+**packageOid** | **Integer** | Package object identifier |  [optional]
 
 
 

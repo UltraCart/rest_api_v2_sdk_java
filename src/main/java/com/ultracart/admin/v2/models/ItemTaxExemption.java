@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemTaxExemption
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemTaxExemption   {
   @SerializedName("city")
   private String city = null;
@@ -57,10 +57,10 @@ public class ItemTaxExemption   {
   }
 
    /**
-   * Get city
+   * City
    * @return city
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "City")
   public String getCity() {
     return city;
   }
@@ -75,10 +75,10 @@ public class ItemTaxExemption   {
   }
 
    /**
-   * Get countryCode
+   * Country code (ISO-3166 two letter)
    * @return countryCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Country code (ISO-3166 two letter)")
   public String getCountryCode() {
     return countryCode;
   }
@@ -93,10 +93,10 @@ public class ItemTaxExemption   {
   }
 
    /**
-   * Get county
+   * County
    * @return county
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "County")
   public String getCounty() {
     return county;
   }
@@ -111,10 +111,10 @@ public class ItemTaxExemption   {
   }
 
    /**
-   * Get postalCode
+   * Postal code
    * @return postalCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Postal code")
   public String getPostalCode() {
     return postalCode;
   }
@@ -129,10 +129,10 @@ public class ItemTaxExemption   {
   }
 
    /**
-   * Get stateCode
+   * State code
    * @return stateCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "State code")
   public String getStateCode() {
     return stateCode;
   }

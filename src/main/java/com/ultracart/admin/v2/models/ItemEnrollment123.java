@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemEnrollment123
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemEnrollment123   {
   @SerializedName("enrollment123_product_code")
   private String enrollment123ProductCode = null;
@@ -45,10 +45,10 @@ public class ItemEnrollment123   {
   }
 
    /**
-   * Get enrollment123ProductCode
+   * Enrolment 123 product code
    * @return enrollment123ProductCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Enrolment 123 product code")
   public String getEnrollment123ProductCode() {
     return enrollment123ProductCode;
   }

@@ -34,33 +34,55 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemShippingDestinationRestriction
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemShippingDestinationRestriction   {
-  @SerializedName("country")
-  private String country = null;
+  @SerializedName("country_code")
+  private String countryCode = null;
 
   @SerializedName("state")
   private String state = null;
 
-  @SerializedName("validity")
-  private String validity = null;
+  /**
+   * Validity
+   */
+  public enum ValidityEnum {
+    @SerializedName("valid only for")
+    VALID_ONLY_FOR("valid only for"),
+    
+    @SerializedName("invalid for")
+    INVALID_FOR("invalid for");
 
-  public ItemShippingDestinationRestriction country(String country) {
-    this.country = country;
+    private String value;
+
+    ValidityEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
+  @SerializedName("validity")
+  private ValidityEnum validity = null;
+
+  public ItemShippingDestinationRestriction countryCode(String countryCode) {
+    this.countryCode = countryCode;
     return this;
   }
 
    /**
-   * Get country
-   * @return country
+   * Country code (ISO-3166 two letter)
+   * @return countryCode
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getCountry() {
-    return country;
+  @ApiModelProperty(example = "null", value = "Country code (ISO-3166 two letter)")
+  public String getCountryCode() {
+    return countryCode;
   }
 
-  public void setCountry(String country) {
-    this.country = country;
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
   }
 
   public ItemShippingDestinationRestriction state(String state) {
@@ -69,10 +91,10 @@ public class ItemShippingDestinationRestriction   {
   }
 
    /**
-   * Get state
+   * State
    * @return state
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "State")
   public String getState() {
     return state;
   }
@@ -81,21 +103,21 @@ public class ItemShippingDestinationRestriction   {
     this.state = state;
   }
 
-  public ItemShippingDestinationRestriction validity(String validity) {
+  public ItemShippingDestinationRestriction validity(ValidityEnum validity) {
     this.validity = validity;
     return this;
   }
 
    /**
-   * Get validity
+   * Validity
    * @return validity
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getValidity() {
+  @ApiModelProperty(example = "null", value = "Validity")
+  public ValidityEnum getValidity() {
     return validity;
   }
 
-  public void setValidity(String validity) {
+  public void setValidity(ValidityEnum validity) {
     this.validity = validity;
   }
 
@@ -109,14 +131,14 @@ public class ItemShippingDestinationRestriction   {
       return false;
     }
     ItemShippingDestinationRestriction itemShippingDestinationRestriction = (ItemShippingDestinationRestriction) o;
-    return Objects.equals(this.country, itemShippingDestinationRestriction.country) &&
+    return Objects.equals(this.countryCode, itemShippingDestinationRestriction.countryCode) &&
         Objects.equals(this.state, itemShippingDestinationRestriction.state) &&
         Objects.equals(this.validity, itemShippingDestinationRestriction.validity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(country, state, validity);
+    return Objects.hash(countryCode, state, validity);
   }
 
   @Override
@@ -124,7 +146,7 @@ public class ItemShippingDestinationRestriction   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemShippingDestinationRestriction {\n");
     
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    validity: ").append(toIndentedString(validity)).append("\n");
     sb.append("}");

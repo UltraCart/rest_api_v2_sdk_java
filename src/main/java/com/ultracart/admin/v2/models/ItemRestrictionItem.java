@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemRestrictionItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemRestrictionItem   {
   @SerializedName("restrict_merchant_item_id")
   private String restrictMerchantItemId = null;
@@ -42,8 +42,33 @@ public class ItemRestrictionItem   {
   @SerializedName("restrict_merchant_item_oid")
   private Integer restrictMerchantItemOid = null;
 
+  /**
+   * Restriction type
+   */
+  public enum TypeEnum {
+    @SerializedName("can not be purchased with")
+    CAN_NOT_BE_PURCHASED_WITH("can not be purchased with"),
+    
+    @SerializedName("can only be purchased with")
+    CAN_ONLY_BE_PURCHASED_WITH("can only be purchased with"),
+    
+    @SerializedName("must be purchased with")
+    MUST_BE_PURCHASED_WITH("must be purchased with");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+  }
+
   @SerializedName("type")
-  private String type = null;
+  private TypeEnum type = null;
 
   public ItemRestrictionItem restrictMerchantItemId(String restrictMerchantItemId) {
     this.restrictMerchantItemId = restrictMerchantItemId;
@@ -51,10 +76,10 @@ public class ItemRestrictionItem   {
   }
 
    /**
-   * Get restrictMerchantItemId
+   * Restrict item id
    * @return restrictMerchantItemId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict item id")
   public String getRestrictMerchantItemId() {
     return restrictMerchantItemId;
   }
@@ -69,10 +94,10 @@ public class ItemRestrictionItem   {
   }
 
    /**
-   * Get restrictMerchantItemOid
+   * Restrict item object identifier
    * @return restrictMerchantItemOid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Restrict item object identifier")
   public Integer getRestrictMerchantItemOid() {
     return restrictMerchantItemOid;
   }
@@ -81,21 +106,21 @@ public class ItemRestrictionItem   {
     this.restrictMerchantItemOid = restrictMerchantItemOid;
   }
 
-  public ItemRestrictionItem type(String type) {
+  public ItemRestrictionItem type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * Get type
+   * Restriction type
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getType() {
+  @ApiModelProperty(example = "null", value = "Restriction type")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

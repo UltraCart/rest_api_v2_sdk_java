@@ -29,21 +29,22 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 /**
  * ItemShippingDestinationMarkup
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-01T10:25:38.669-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
 public class ItemShippingDestinationMarkup   {
-  @SerializedName("country")
-  private String country = null;
+  @SerializedName("country_code")
+  private String countryCode = null;
 
   @SerializedName("flat_fee")
-  private Double flatFee = null;
+  private BigDecimal flatFee = null;
 
   @SerializedName("per_item")
-  private Double perItem = null;
+  private BigDecimal perItem = null;
 
   @SerializedName("postal_code")
   private String postalCode = null;
@@ -54,57 +55,57 @@ public class ItemShippingDestinationMarkup   {
   @SerializedName("state")
   private String state = null;
 
-  public ItemShippingDestinationMarkup country(String country) {
-    this.country = country;
+  public ItemShippingDestinationMarkup countryCode(String countryCode) {
+    this.countryCode = countryCode;
     return this;
   }
 
    /**
-   * Get country
-   * @return country
+   * Country code (ISO-3166 two letter)
+   * @return countryCode
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getCountry() {
-    return country;
+  @ApiModelProperty(example = "null", value = "Country code (ISO-3166 two letter)")
+  public String getCountryCode() {
+    return countryCode;
   }
 
-  public void setCountry(String country) {
-    this.country = country;
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
   }
 
-  public ItemShippingDestinationMarkup flatFee(Double flatFee) {
+  public ItemShippingDestinationMarkup flatFee(BigDecimal flatFee) {
     this.flatFee = flatFee;
     return this;
   }
 
    /**
-   * Get flatFee
+   * Flat fee
    * @return flatFee
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getFlatFee() {
+  @ApiModelProperty(example = "null", value = "Flat fee")
+  public BigDecimal getFlatFee() {
     return flatFee;
   }
 
-  public void setFlatFee(Double flatFee) {
+  public void setFlatFee(BigDecimal flatFee) {
     this.flatFee = flatFee;
   }
 
-  public ItemShippingDestinationMarkup perItem(Double perItem) {
+  public ItemShippingDestinationMarkup perItem(BigDecimal perItem) {
     this.perItem = perItem;
     return this;
   }
 
    /**
-   * Get perItem
+   * Per item
    * @return perItem
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getPerItem() {
+  @ApiModelProperty(example = "null", value = "Per item")
+  public BigDecimal getPerItem() {
     return perItem;
   }
 
-  public void setPerItem(Double perItem) {
+  public void setPerItem(BigDecimal perItem) {
     this.perItem = perItem;
   }
 
@@ -114,10 +115,10 @@ public class ItemShippingDestinationMarkup   {
   }
 
    /**
-   * Get postalCode
+   * Postal code
    * @return postalCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Postal code")
   public String getPostalCode() {
     return postalCode;
   }
@@ -132,10 +133,10 @@ public class ItemShippingDestinationMarkup   {
   }
 
    /**
-   * Get shippingMethod
+   * Shipping method
    * @return shippingMethod
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Shipping method")
   public String getShippingMethod() {
     return shippingMethod;
   }
@@ -150,10 +151,10 @@ public class ItemShippingDestinationMarkup   {
   }
 
    /**
-   * Get state
+   * State
    * @return state
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "State")
   public String getState() {
     return state;
   }
@@ -172,7 +173,7 @@ public class ItemShippingDestinationMarkup   {
       return false;
     }
     ItemShippingDestinationMarkup itemShippingDestinationMarkup = (ItemShippingDestinationMarkup) o;
-    return Objects.equals(this.country, itemShippingDestinationMarkup.country) &&
+    return Objects.equals(this.countryCode, itemShippingDestinationMarkup.countryCode) &&
         Objects.equals(this.flatFee, itemShippingDestinationMarkup.flatFee) &&
         Objects.equals(this.perItem, itemShippingDestinationMarkup.perItem) &&
         Objects.equals(this.postalCode, itemShippingDestinationMarkup.postalCode) &&
@@ -182,7 +183,7 @@ public class ItemShippingDestinationMarkup   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(country, flatFee, perItem, postalCode, shippingMethod, state);
+    return Objects.hash(countryCode, flatFee, perItem, postalCode, shippingMethod, state);
   }
 
   @Override
@@ -190,7 +191,7 @@ public class ItemShippingDestinationMarkup   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemShippingDestinationMarkup {\n");
     
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    flatFee: ").append(toIndentedString(flatFee)).append("\n");
     sb.append("    perItem: ").append(toIndentedString(perItem)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
