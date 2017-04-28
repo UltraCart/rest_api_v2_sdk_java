@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * ItemPaymentProcessing
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-02T15:48:18.680-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-28T13:29:30.124-04:00")
 public class ItemPaymentProcessing   {
   @SerializedName("block_prepaid")
   private Boolean blockPrepaid = null;
