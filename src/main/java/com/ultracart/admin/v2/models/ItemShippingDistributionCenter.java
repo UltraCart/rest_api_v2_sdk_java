@@ -35,7 +35,7 @@ import java.math.BigDecimal;
 /**
  * ItemShippingDistributionCenter
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-28T13:29:30.124-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:04:56.332-04:00")
 public class ItemShippingDistributionCenter   {
   @SerializedName("allocated_to_placed_orders")
   private BigDecimal allocatedToPlacedOrders = null;

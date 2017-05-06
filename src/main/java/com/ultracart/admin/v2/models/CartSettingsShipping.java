@@ -39,7 +39,7 @@ import java.util.List;
 /**
  * CartSettingsShipping
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-28T13:29:30.124-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:04:56.332-04:00")
 public class CartSettingsShipping   {
   @SerializedName("deliver_on_date")
   private CartSettingsShippingCalendar deliverOnDate = null;
