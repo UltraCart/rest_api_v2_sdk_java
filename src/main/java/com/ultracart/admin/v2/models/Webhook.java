@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * Webhook
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:04:56.332-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:12:48.663-04:00")
 public class Webhook   {
   @SerializedName("api_user_oid")
   private Integer apiUserOid = null;
@@ -47,8 +47,8 @@ public class Webhook   {
    * Version of the API objects that are sent in notifications
    */
   public enum ApiVersionEnum {
-    @SerializedName("2016-10-01")
-    _01("2016-10-01");
+    @SerializedName("2017-03-01")
+    _01("2017-03-01");
 
     private String value;
 

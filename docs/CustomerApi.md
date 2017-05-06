@@ -4,10 +4,71 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**customerCustomersCustomerProfileOidDelete**](CustomerApi.md#customerCustomersCustomerProfileOidDelete) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**customerCustomersCustomerProfileOidGet**](CustomerApi.md#customerCustomersCustomerProfileOidGet) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**customerCustomersCustomerProfileOidPut**](CustomerApi.md#customerCustomersCustomerProfileOidPut) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**customerCustomersGet**](CustomerApi.md#customerCustomersGet) | **GET** /customer/customers | Retrieve customers
+[**customerCustomersPost**](CustomerApi.md#customerCustomersPost) | **POST** /customer/customers | Insert a customer
 
+
+<a name="customerCustomersCustomerProfileOidDelete"></a>
+# **customerCustomersCustomerProfileOidDelete**
+> CustomerResponse customerCustomersCustomerProfileOidDelete(customerProfileOid)
+
+Delete a customer
+
+Delete a customer on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CustomerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+CustomerApi apiInstance = new CustomerApi();
+Integer customerProfileOid = 56; // Integer | The customer_profile_oid to delete.
+try {
+    CustomerResponse result = apiInstance.customerCustomersCustomerProfileOidDelete(customerProfileOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#customerCustomersCustomerProfileOidDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileOid** | **Integer**| The customer_profile_oid to delete. |
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
 
 <a name="customerCustomersCustomerProfileOidGet"></a>
 # **customerCustomersCustomerProfileOidGet**
@@ -250,5 +311,64 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="customerCustomersPost"></a>
+# **customerCustomersPost**
+> CustomerResponse customerCustomersPost(customer)
+
+Insert a customer
+
+Insert a customer on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CustomerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+CustomerApi apiInstance = new CustomerApi();
+Customer customer = new Customer(); // Customer | Customer to insert
+try {
+    CustomerResponse result = apiInstance.customerCustomersPost(customer);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#customerCustomersPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer** | [**Customer**](Customer.md)| Customer to insert |
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 

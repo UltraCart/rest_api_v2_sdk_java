@@ -35,7 +35,7 @@ import java.math.BigDecimal;
 /**
  * OrderPaymentCreditCard
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:04:56.332-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:12:48.663-04:00")
 public class OrderPaymentCreditCard   {
   @SerializedName("card_auth_ticket")
   private String cardAuthTicket = null;
@@ -84,7 +84,10 @@ public class OrderPaymentCreditCard   {
     MASTERCARD("MasterCard"),
     
     @SerializedName("VISA")
-    VISA("VISA");
+    VISA("VISA"),
+    
+    @SerializedName("Visa")
+    VISA("Visa");
 
     private String value;
 

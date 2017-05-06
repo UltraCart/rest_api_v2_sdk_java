@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ## Enum: ApiVersionEnum
 Name | Value
 ---- | -----
-_01 | &quot;2016-10-01&quot;
+_01 | &quot;2017-03-01&quot;
 
 
 <a name="AuthenticationTypeEnum"></a>

@@ -646,7 +646,7 @@ public class OrderApi {
         return call;
     }
     /* Build call for orderOrdersOrderIdPut */
-    private com.squareup.okhttp.Call orderOrdersOrderIdPutCall(Order order, String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orderOrdersOrderIdPutCall(Order order, String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = order;
         
         // verify the required parameter 'order' is set
@@ -665,6 +665,8 @@ public class OrderApi {
         .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -703,11 +705,12 @@ public class OrderApi {
      * Update a new order on the UltraCart account. 
      * @param order Order to update (required)
      * @param orderId The order id to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return OrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrderResponse orderOrdersOrderIdPut(Order order, String orderId) throws ApiException {
-        ApiResponse<OrderResponse> resp = orderOrdersOrderIdPutWithHttpInfo(order, orderId);
+    public OrderResponse orderOrdersOrderIdPut(Order order, String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = orderOrdersOrderIdPutWithHttpInfo(order, orderId, expand);
         return resp.getData();
     }
 
@@ -716,11 +719,12 @@ public class OrderApi {
      * Update a new order on the UltraCart account. 
      * @param order Order to update (required)
      * @param orderId The order id to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;OrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrderResponse> orderOrdersOrderIdPutWithHttpInfo(Order order, String orderId) throws ApiException {
-        com.squareup.okhttp.Call call = orderOrdersOrderIdPutCall(order, orderId, null, null);
+    public ApiResponse<OrderResponse> orderOrdersOrderIdPutWithHttpInfo(Order order, String orderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = orderOrdersOrderIdPutCall(order, orderId, expand, null, null);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -730,11 +734,12 @@ public class OrderApi {
      * Update a new order on the UltraCart account. 
      * @param order Order to update (required)
      * @param orderId The order id to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderOrdersOrderIdPutAsync(Order order, String orderId, final ApiCallback<OrderResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderOrdersOrderIdPutAsync(Order order, String orderId, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -755,7 +760,7 @@ public class OrderApi {
             };
         }
 
-        com.squareup.okhttp.Call call = orderOrdersOrderIdPutCall(order, orderId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = orderOrdersOrderIdPutCall(order, orderId, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OrderInternal
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:04:56.332-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:12:48.663-04:00")
 public class OrderInternal   {
   @SerializedName("exported_to_accounting")
   private Boolean exportedToAccounting = null;

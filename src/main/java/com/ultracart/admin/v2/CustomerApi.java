@@ -68,6 +68,113 @@ public class CustomerApi {
         this.apiClient = apiClient;
     }
 
+    /* Build call for customerCustomersCustomerProfileOidDelete */
+    private com.squareup.okhttp.Call customerCustomersCustomerProfileOidDeleteCall(Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling customerCustomersCustomerProfileOidDelete(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Delete a customer
+     * Delete a customer on the UltraCart account. 
+     * @param customerProfileOid The customer_profile_oid to delete. (required)
+     * @return CustomerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerResponse customerCustomersCustomerProfileOidDelete(Integer customerProfileOid) throws ApiException {
+        ApiResponse<CustomerResponse> resp = customerCustomersCustomerProfileOidDeleteWithHttpInfo(customerProfileOid);
+        return resp.getData();
+    }
+
+    /**
+     * Delete a customer
+     * Delete a customer on the UltraCart account. 
+     * @param customerProfileOid The customer_profile_oid to delete. (required)
+     * @return ApiResponse&lt;CustomerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerResponse> customerCustomersCustomerProfileOidDeleteWithHttpInfo(Integer customerProfileOid) throws ApiException {
+        com.squareup.okhttp.Call call = customerCustomersCustomerProfileOidDeleteCall(customerProfileOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete a customer (asynchronously)
+     * Delete a customer on the UltraCart account. 
+     * @param customerProfileOid The customer_profile_oid to delete. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call customerCustomersCustomerProfileOidDeleteAsync(Integer customerProfileOid, final ApiCallback<CustomerResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = customerCustomersCustomerProfileOidDeleteCall(customerProfileOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for customerCustomersCustomerProfileOidGet */
     private com.squareup.okhttp.Call customerCustomersCustomerProfileOidGetCall(Integer customerProfileOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
@@ -550,6 +657,112 @@ public class CustomerApi {
 
         com.squareup.okhttp.Call call = customerCustomersGetCall(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for customerCustomersPost */
+    private com.squareup.okhttp.Call customerCustomersPostCall(Customer customer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = customer;
+        
+        // verify the required parameter 'customer' is set
+        if (customer == null) {
+            throw new ApiException("Missing the required parameter 'customer' when calling customerCustomersPost(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/customer/customers".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Insert a customer
+     * Insert a customer on the UltraCart account. 
+     * @param customer Customer to insert (required)
+     * @return CustomerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerResponse customerCustomersPost(Customer customer) throws ApiException {
+        ApiResponse<CustomerResponse> resp = customerCustomersPostWithHttpInfo(customer);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a customer
+     * Insert a customer on the UltraCart account. 
+     * @param customer Customer to insert (required)
+     * @return ApiResponse&lt;CustomerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerResponse> customerCustomersPostWithHttpInfo(Customer customer) throws ApiException {
+        com.squareup.okhttp.Call call = customerCustomersPostCall(customer, null, null);
+        Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a customer (asynchronously)
+     * Insert a customer on the UltraCart account. 
+     * @param customer Customer to insert (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call customerCustomersPostAsync(Customer customer, final ApiCallback<CustomerResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = customerCustomersPostCall(customer, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

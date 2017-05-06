@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 <a name="orderOrdersOrderIdPut"></a>
 # **orderOrdersOrderIdPut**
-> OrderResponse orderOrdersOrderIdPut(order, orderId)
+> OrderResponse orderOrdersOrderIdPut(order, orderId, expand)
 
 Update an order
 
@@ -342,8 +342,9 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 OrderApi apiInstance = new OrderApi();
 Order order = new Order(); // Order | Order to update
 String orderId = "orderId_example"; // String | The order id to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    OrderResponse result = apiInstance.orderOrdersOrderIdPut(order, orderId);
+    OrderResponse result = apiInstance.orderOrdersOrderIdPut(order, orderId, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#orderOrdersOrderIdPut");
@@ -357,6 +358,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**Order**](Order.md)| Order to update |
  **orderId** | **String**| The order id to update. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
