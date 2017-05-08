@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * CartItemMultimedia
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:12:48.663-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-08T08:16:02.496-04:00")
 public class CartItemMultimedia   {
   @SerializedName("code")
   private String code = null;

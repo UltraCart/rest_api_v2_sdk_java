@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * ItemVariation
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:12:48.663-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-08T08:16:02.496-04:00")
 public class ItemVariation   {
   @SerializedName("default_text")
   private String defaultText = null;

@@ -35,7 +35,7 @@ import java.math.BigDecimal;
 /**
  * Currency
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-06T12:12:48.663-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-08T08:16:02.496-04:00")
 public class Currency   {
   @SerializedName("localized")
   private BigDecimal localized = null;

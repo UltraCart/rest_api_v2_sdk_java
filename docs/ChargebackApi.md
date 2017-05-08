@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 <a name="chargebackChargebacksChargebackDisputeOidPut"></a>
 # **chargebackChargebacksChargebackDisputeOidPut**
-> ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid)
+> ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid, expand)
 
 Update a chargeback
 
@@ -163,8 +163,9 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 ChargebackApi apiInstance = new ChargebackApi();
 ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
 Integer chargebackDisputeOid = 56; // Integer | The chargeback_dispute_oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    ChargebackDisputeResponse result = apiInstance.chargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid);
+    ChargebackDisputeResponse result = apiInstance.chargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ChargebackApi#chargebackChargebacksChargebackDisputeOidPut");
@@ -178,6 +179,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update |
  **chargebackDisputeOid** | **Integer**| The chargeback_dispute_oid to update. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
@@ -275,7 +277,7 @@ Name | Type | Description  | Notes
 
 <a name="chargebackChargebacksPost"></a>
 # **chargebackChargebacksPost**
-> ChargebackDisputeResponse chargebackChargebacksPost(chargeback)
+> ChargebackDisputeResponse chargebackChargebacksPost(chargeback, expand)
 
 Insert a chargeback
 
@@ -304,8 +306,9 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 
 ChargebackApi apiInstance = new ChargebackApi();
 ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to insert
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    ChargebackDisputeResponse result = apiInstance.chargebackChargebacksPost(chargeback);
+    ChargebackDisputeResponse result = apiInstance.chargebackChargebacksPost(chargeback, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ChargebackApi#chargebackChargebacksPost");
@@ -318,6 +321,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to insert |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 

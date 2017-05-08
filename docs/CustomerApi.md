@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 <a name="customerCustomersCustomerProfileOidPut"></a>
 # **customerCustomersCustomerProfileOidPut**
-> CustomerResponse customerCustomersCustomerProfileOidPut(customer, customerProfileOid)
+> CustomerResponse customerCustomersCustomerProfileOidPut(customer, customerProfileOid, expand)
 
 Update a customer
 
@@ -163,8 +163,9 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 CustomerApi apiInstance = new CustomerApi();
 Customer customer = new Customer(); // Customer | Customer to update
 Integer customerProfileOid = 56; // Integer | The customer_profile_oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    CustomerResponse result = apiInstance.customerCustomersCustomerProfileOidPut(customer, customerProfileOid);
+    CustomerResponse result = apiInstance.customerCustomersCustomerProfileOidPut(customer, customerProfileOid, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerCustomersCustomerProfileOidPut");
@@ -178,6 +179,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**Customer**](Customer.md)| Customer to update |
  **customerProfileOid** | **Integer**| The customer_profile_oid to update. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
@@ -315,7 +317,7 @@ Name | Type | Description  | Notes
 
 <a name="customerCustomersPost"></a>
 # **customerCustomersPost**
-> CustomerResponse customerCustomersPost(customer)
+> CustomerResponse customerCustomersPost(customer, expand)
 
 Insert a customer
 
@@ -344,8 +346,9 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 
 CustomerApi apiInstance = new CustomerApi();
 Customer customer = new Customer(); // Customer | Customer to insert
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    CustomerResponse result = apiInstance.customerCustomersPost(customer);
+    CustomerResponse result = apiInstance.customerCustomersPost(customer, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerCustomersPost");
@@ -358,6 +361,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**Customer**](Customer.md)| Customer to insert |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 

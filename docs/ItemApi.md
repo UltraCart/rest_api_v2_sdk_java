@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 <a name="itemItemsMerchantItemOidPut"></a>
 # **itemItemsMerchantItemOidPut**
-> ItemResponse itemItemsMerchantItemOidPut(item, merchantItemOid)
+> ItemResponse itemItemsMerchantItemOidPut(item, merchantItemOid, expand, placeholders)
 
 Update an item
 
@@ -238,8 +238,10 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 ItemApi apiInstance = new ItemApi();
 Item item = new Item(); // Item | Item to update
 Integer merchantItemOid = 56; // Integer | The item oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemResponse result = apiInstance.itemItemsMerchantItemOidPut(item, merchantItemOid);
+    ItemResponse result = apiInstance.itemItemsMerchantItemOidPut(item, merchantItemOid, expand, placeholders);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ItemApi#itemItemsMerchantItemOidPut");
@@ -253,6 +255,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item** | [**Item**](Item.md)| Item to update |
  **merchantItemOid** | **Integer**| The item oid to update. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 
@@ -269,7 +273,7 @@ Name | Type | Description  | Notes
 
 <a name="itemItemsPost"></a>
 # **itemItemsPost**
-> ItemResponse itemItemsPost(item)
+> ItemResponse itemItemsPost(item, expand, placeholders)
 
 Create an item
 
@@ -298,8 +302,10 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 
 ItemApi apiInstance = new ItemApi();
 Item item = new Item(); // Item | Item to create
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemResponse result = apiInstance.itemItemsPost(item);
+    ItemResponse result = apiInstance.itemItemsPost(item, expand, placeholders);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ItemApi#itemItemsPost");
@@ -312,6 +318,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item** | [**Item**](Item.md)| Item to create |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 

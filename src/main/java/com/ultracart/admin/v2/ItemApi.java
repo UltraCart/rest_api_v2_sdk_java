@@ -429,7 +429,7 @@ public class ItemApi {
         return call;
     }
     /* Build call for itemItemsMerchantItemOidPut */
-    private com.squareup.okhttp.Call itemItemsMerchantItemOidPutCall(Item item, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call itemItemsMerchantItemOidPutCall(Item item, Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = item;
         
         // verify the required parameter 'item' is set
@@ -448,6 +448,10 @@ public class ItemApi {
         .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -486,11 +490,13 @@ public class ItemApi {
      * Update a new item on the UltraCart account. 
      * @param item Item to update (required)
      * @param merchantItemOid The item oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemResponse itemItemsMerchantItemOidPut(Item item, Integer merchantItemOid) throws ApiException {
-        ApiResponse<ItemResponse> resp = itemItemsMerchantItemOidPutWithHttpInfo(item, merchantItemOid);
+    public ItemResponse itemItemsMerchantItemOidPut(Item item, Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemResponse> resp = itemItemsMerchantItemOidPutWithHttpInfo(item, merchantItemOid, expand, placeholders);
         return resp.getData();
     }
 
@@ -499,11 +505,13 @@ public class ItemApi {
      * Update a new item on the UltraCart account. 
      * @param item Item to update (required)
      * @param merchantItemOid The item oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;ItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemResponse> itemItemsMerchantItemOidPutWithHttpInfo(Item item, Integer merchantItemOid) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidPutCall(item, merchantItemOid, null, null);
+    public ApiResponse<ItemResponse> itemItemsMerchantItemOidPutWithHttpInfo(Item item, Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = itemItemsMerchantItemOidPutCall(item, merchantItemOid, expand, placeholders, null, null);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -513,11 +521,13 @@ public class ItemApi {
      * Update a new item on the UltraCart account. 
      * @param item Item to update (required)
      * @param merchantItemOid The item oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemItemsMerchantItemOidPutAsync(Item item, Integer merchantItemOid, final ApiCallback<ItemResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call itemItemsMerchantItemOidPutAsync(Item item, Integer merchantItemOid, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -538,13 +548,13 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidPutCall(item, merchantItemOid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = itemItemsMerchantItemOidPutCall(item, merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for itemItemsPost */
-    private com.squareup.okhttp.Call itemItemsPostCall(Item item, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call itemItemsPostCall(Item item, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = item;
         
         // verify the required parameter 'item' is set
@@ -557,6 +567,10 @@ public class ItemApi {
         String localVarPath = "/item/items".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -594,11 +608,13 @@ public class ItemApi {
      * Create an item
      * Create a new item on the UltraCart account. 
      * @param item Item to create (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemResponse itemItemsPost(Item item) throws ApiException {
-        ApiResponse<ItemResponse> resp = itemItemsPostWithHttpInfo(item);
+    public ItemResponse itemItemsPost(Item item, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemResponse> resp = itemItemsPostWithHttpInfo(item, expand, placeholders);
         return resp.getData();
     }
 
@@ -606,11 +622,13 @@ public class ItemApi {
      * Create an item
      * Create a new item on the UltraCart account. 
      * @param item Item to create (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;ItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemResponse> itemItemsPostWithHttpInfo(Item item) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsPostCall(item, null, null);
+    public ApiResponse<ItemResponse> itemItemsPostWithHttpInfo(Item item, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = itemItemsPostCall(item, expand, placeholders, null, null);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -619,11 +637,13 @@ public class ItemApi {
      * Create an item (asynchronously)
      * Create a new item on the UltraCart account. 
      * @param item Item to create (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemItemsPostAsync(Item item, final ApiCallback<ItemResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call itemItemsPostAsync(Item item, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -644,7 +664,7 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemItemsPostCall(item, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = itemItemsPostCall(item, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

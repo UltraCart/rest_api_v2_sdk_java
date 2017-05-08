@@ -288,7 +288,7 @@ public class CustomerApi {
         return call;
     }
     /* Build call for customerCustomersCustomerProfileOidPut */
-    private com.squareup.okhttp.Call customerCustomersCustomerProfileOidPutCall(Customer customer, Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call customerCustomersCustomerProfileOidPutCall(Customer customer, Integer customerProfileOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = customer;
         
         // verify the required parameter 'customer' is set
@@ -307,6 +307,8 @@ public class CustomerApi {
         .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -345,11 +347,12 @@ public class CustomerApi {
      * Update a customer on the UltraCart account. 
      * @param customer Customer to update (required)
      * @param customerProfileOid The customer_profile_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return CustomerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomerResponse customerCustomersCustomerProfileOidPut(Customer customer, Integer customerProfileOid) throws ApiException {
-        ApiResponse<CustomerResponse> resp = customerCustomersCustomerProfileOidPutWithHttpInfo(customer, customerProfileOid);
+    public CustomerResponse customerCustomersCustomerProfileOidPut(Customer customer, Integer customerProfileOid, String expand) throws ApiException {
+        ApiResponse<CustomerResponse> resp = customerCustomersCustomerProfileOidPutWithHttpInfo(customer, customerProfileOid, expand);
         return resp.getData();
     }
 
@@ -358,11 +361,12 @@ public class CustomerApi {
      * Update a customer on the UltraCart account. 
      * @param customer Customer to update (required)
      * @param customerProfileOid The customer_profile_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;CustomerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomerResponse> customerCustomersCustomerProfileOidPutWithHttpInfo(Customer customer, Integer customerProfileOid) throws ApiException {
-        com.squareup.okhttp.Call call = customerCustomersCustomerProfileOidPutCall(customer, customerProfileOid, null, null);
+    public ApiResponse<CustomerResponse> customerCustomersCustomerProfileOidPutWithHttpInfo(Customer customer, Integer customerProfileOid, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = customerCustomersCustomerProfileOidPutCall(customer, customerProfileOid, expand, null, null);
         Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -372,11 +376,12 @@ public class CustomerApi {
      * Update a customer on the UltraCart account. 
      * @param customer Customer to update (required)
      * @param customerProfileOid The customer_profile_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call customerCustomersCustomerProfileOidPutAsync(Customer customer, Integer customerProfileOid, final ApiCallback<CustomerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call customerCustomersCustomerProfileOidPutAsync(Customer customer, Integer customerProfileOid, String expand, final ApiCallback<CustomerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -397,7 +402,7 @@ public class CustomerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = customerCustomersCustomerProfileOidPutCall(customer, customerProfileOid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = customerCustomersCustomerProfileOidPutCall(customer, customerProfileOid, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -661,7 +666,7 @@ public class CustomerApi {
         return call;
     }
     /* Build call for customerCustomersPost */
-    private com.squareup.okhttp.Call customerCustomersPostCall(Customer customer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call customerCustomersPostCall(Customer customer, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = customer;
         
         // verify the required parameter 'customer' is set
@@ -674,6 +679,8 @@ public class CustomerApi {
         String localVarPath = "/customer/customers".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -711,11 +718,12 @@ public class CustomerApi {
      * Insert a customer
      * Insert a customer on the UltraCart account. 
      * @param customer Customer to insert (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return CustomerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomerResponse customerCustomersPost(Customer customer) throws ApiException {
-        ApiResponse<CustomerResponse> resp = customerCustomersPostWithHttpInfo(customer);
+    public CustomerResponse customerCustomersPost(Customer customer, String expand) throws ApiException {
+        ApiResponse<CustomerResponse> resp = customerCustomersPostWithHttpInfo(customer, expand);
         return resp.getData();
     }
 
@@ -723,11 +731,12 @@ public class CustomerApi {
      * Insert a customer
      * Insert a customer on the UltraCart account. 
      * @param customer Customer to insert (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;CustomerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomerResponse> customerCustomersPostWithHttpInfo(Customer customer) throws ApiException {
-        com.squareup.okhttp.Call call = customerCustomersPostCall(customer, null, null);
+    public ApiResponse<CustomerResponse> customerCustomersPostWithHttpInfo(Customer customer, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = customerCustomersPostCall(customer, expand, null, null);
         Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -736,11 +745,12 @@ public class CustomerApi {
      * Insert a customer (asynchronously)
      * Insert a customer on the UltraCart account. 
      * @param customer Customer to insert (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call customerCustomersPostAsync(Customer customer, final ApiCallback<CustomerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call customerCustomersPostAsync(Customer customer, String expand, final ApiCallback<CustomerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -761,7 +771,7 @@ public class CustomerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = customerCustomersPostCall(customer, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = customerCustomersPostCall(customer, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

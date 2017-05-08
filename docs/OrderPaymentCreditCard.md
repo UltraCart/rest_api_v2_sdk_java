@@ -26,7 +26,6 @@ DISCOVER | &quot;Discover&quot;
 JCB | &quot;JCB&quot;
 MASTERCARD | &quot;MasterCard&quot;
 VISA | &quot;VISA&quot;
-VISA | &quot;Visa&quot;
 
 
 
