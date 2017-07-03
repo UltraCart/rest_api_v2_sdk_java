@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * AutoOrderItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-16T07:20:11.116-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
 public class AutoOrderItem   {
   @SerializedName("arbitrary_item_id")
   private String arbitraryItemId = null;
@@ -57,6 +57,9 @@ public class AutoOrderItem   {
 
   @SerializedName("arbitrary_unit_cost_remaining_orders")
   private Integer arbitraryUnitCostRemainingOrders = null;
+
+  @SerializedName("auto_order_item_oid")
+  private Integer autoOrderItemOid = null;
 
   /**
    * Frequency of the rebill if not a fixed schedule
@@ -142,6 +145,12 @@ public class AutoOrderItem   {
 
   @SerializedName("original_quantity")
   private BigDecimal originalQuantity = null;
+
+  @SerializedName("paypal_payer_id")
+  private String paypalPayerId = null;
+
+  @SerializedName("paypal_recurring_payment_profile_id")
+  private String paypalRecurringPaymentProfileId = null;
 
   @SerializedName("preshipment_notice_sent")
   private Boolean preshipmentNoticeSent = null;
@@ -258,6 +267,24 @@ public class AutoOrderItem   {
 
   public void setArbitraryUnitCostRemainingOrders(Integer arbitraryUnitCostRemainingOrders) {
     this.arbitraryUnitCostRemainingOrders = arbitraryUnitCostRemainingOrders;
+  }
+
+  public AutoOrderItem autoOrderItemOid(Integer autoOrderItemOid) {
+    this.autoOrderItemOid = autoOrderItemOid;
+    return this;
+  }
+
+   /**
+   * Primary key of AutoOrderItem
+   * @return autoOrderItemOid
+  **/
+  @ApiModelProperty(example = "null", value = "Primary key of AutoOrderItem")
+  public Integer getAutoOrderItemOid() {
+    return autoOrderItemOid;
+  }
+
+  public void setAutoOrderItemOid(Integer autoOrderItemOid) {
+    this.autoOrderItemOid = autoOrderItemOid;
   }
 
   public AutoOrderItem frequency(FrequencyEnum frequency) {
@@ -445,6 +472,42 @@ public class AutoOrderItem   {
     this.originalQuantity = originalQuantity;
   }
 
+  public AutoOrderItem paypalPayerId(String paypalPayerId) {
+    this.paypalPayerId = paypalPayerId;
+    return this;
+  }
+
+   /**
+   * The PayPal Payer ID tied to this item
+   * @return paypalPayerId
+  **/
+  @ApiModelProperty(example = "null", value = "The PayPal Payer ID tied to this item")
+  public String getPaypalPayerId() {
+    return paypalPayerId;
+  }
+
+  public void setPaypalPayerId(String paypalPayerId) {
+    this.paypalPayerId = paypalPayerId;
+  }
+
+  public AutoOrderItem paypalRecurringPaymentProfileId(String paypalRecurringPaymentProfileId) {
+    this.paypalRecurringPaymentProfileId = paypalRecurringPaymentProfileId;
+    return this;
+  }
+
+   /**
+   * The PayPal Profile ID tied to this item
+   * @return paypalRecurringPaymentProfileId
+  **/
+  @ApiModelProperty(example = "null", value = "The PayPal Profile ID tied to this item")
+  public String getPaypalRecurringPaymentProfileId() {
+    return paypalRecurringPaymentProfileId;
+  }
+
+  public void setPaypalRecurringPaymentProfileId(String paypalRecurringPaymentProfileId) {
+    this.paypalRecurringPaymentProfileId = paypalRecurringPaymentProfileId;
+  }
+
   public AutoOrderItem preshipmentNoticeSent(Boolean preshipmentNoticeSent) {
     this.preshipmentNoticeSent = preshipmentNoticeSent;
     return this;
@@ -515,6 +578,7 @@ public class AutoOrderItem   {
         Objects.equals(this.arbitraryScheduleDays, autoOrderItem.arbitraryScheduleDays) &&
         Objects.equals(this.arbitraryUnitCost, autoOrderItem.arbitraryUnitCost) &&
         Objects.equals(this.arbitraryUnitCostRemainingOrders, autoOrderItem.arbitraryUnitCostRemainingOrders) &&
+        Objects.equals(this.autoOrderItemOid, autoOrderItem.autoOrderItemOid) &&
         Objects.equals(this.frequency, autoOrderItem.frequency) &&
         Objects.equals(this.lastOrderDts, autoOrderItem.lastOrderDts) &&
         Objects.equals(this.lifeTimeValue, autoOrderItem.lifeTimeValue) &&
@@ -525,6 +589,8 @@ public class AutoOrderItem   {
         Objects.equals(this.options, autoOrderItem.options) &&
         Objects.equals(this.originalItemId, autoOrderItem.originalItemId) &&
         Objects.equals(this.originalQuantity, autoOrderItem.originalQuantity) &&
+        Objects.equals(this.paypalPayerId, autoOrderItem.paypalPayerId) &&
+        Objects.equals(this.paypalRecurringPaymentProfileId, autoOrderItem.paypalRecurringPaymentProfileId) &&
         Objects.equals(this.preshipmentNoticeSent, autoOrderItem.preshipmentNoticeSent) &&
         Objects.equals(this.rebillValue, autoOrderItem.rebillValue) &&
         Objects.equals(this.remainingRepeatCount, autoOrderItem.remainingRepeatCount);
@@ -532,7 +598,7 @@ public class AutoOrderItem   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, frequency, lastOrderDts, lifeTimeValue, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, preshipmentNoticeSent, rebillValue, remainingRepeatCount);
+    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, frequency, lastOrderDts, lifeTimeValue, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount);
   }
 
   @Override
@@ -546,6 +612,7 @@ public class AutoOrderItem   {
     sb.append("    arbitraryScheduleDays: ").append(toIndentedString(arbitraryScheduleDays)).append("\n");
     sb.append("    arbitraryUnitCost: ").append(toIndentedString(arbitraryUnitCost)).append("\n");
     sb.append("    arbitraryUnitCostRemainingOrders: ").append(toIndentedString(arbitraryUnitCostRemainingOrders)).append("\n");
+    sb.append("    autoOrderItemOid: ").append(toIndentedString(autoOrderItemOid)).append("\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    lastOrderDts: ").append(toIndentedString(lastOrderDts)).append("\n");
     sb.append("    lifeTimeValue: ").append(toIndentedString(lifeTimeValue)).append("\n");
@@ -556,6 +623,8 @@ public class AutoOrderItem   {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    originalItemId: ").append(toIndentedString(originalItemId)).append("\n");
     sb.append("    originalQuantity: ").append(toIndentedString(originalQuantity)).append("\n");
+    sb.append("    paypalPayerId: ").append(toIndentedString(paypalPayerId)).append("\n");
+    sb.append("    paypalRecurringPaymentProfileId: ").append(toIndentedString(paypalRecurringPaymentProfileId)).append("\n");
     sb.append("    preshipmentNoticeSent: ").append(toIndentedString(preshipmentNoticeSent)).append("\n");
     sb.append("    rebillValue: ").append(toIndentedString(rebillValue)).append("\n");
     sb.append("    remainingRepeatCount: ").append(toIndentedString(remainingRepeatCount)).append("\n");

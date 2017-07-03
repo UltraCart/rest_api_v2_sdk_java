@@ -4,16 +4,16 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut**](FulfillmentApi.md#fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
-[**fulfillmentDistributionCentersDistributionCenterCodeInventoryPost**](FulfillmentApi.md#fulfillmentDistributionCentersDistributionCenterCodeInventoryPost) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
-[**fulfillmentDistributionCentersDistributionCenterCodeOrdersGet**](FulfillmentApi.md#fulfillmentDistributionCentersDistributionCenterCodeOrdersGet) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
-[**fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost**](FulfillmentApi.md#fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
-[**fulfillmentDistributionCentersGet**](FulfillmentApi.md#fulfillmentDistributionCentersGet) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
+[**acknowledgeOrders**](FulfillmentApi.md#acknowledgeOrders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
+[**getDistributionCenterOrders**](FulfillmentApi.md#getDistributionCenterOrders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
+[**getDistributionCenters**](FulfillmentApi.md#getDistributionCenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
+[**shipOrders**](FulfillmentApi.md#shipOrders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
+[**updateInventory**](FulfillmentApi.md#updateInventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
 
 
-<a name="fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut"></a>
-# **fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut**
-> fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut(distributionCenterCode, orderIds)
+<a name="acknowledgeOrders"></a>
+# **acknowledgeOrders**
+> acknowledgeOrders(distributionCenterCode, orderIds)
 
 Acknowledge receipt of orders.
 
@@ -44,9 +44,9 @@ FulfillmentApi apiInstance = new FulfillmentApi();
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 List<String> orderIds = Arrays.asList(new List<String>()); // List<String> | Orders to acknowledge receipt of (limit 100)
 try {
-    apiInstance.fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut(distributionCenterCode, orderIds);
+    apiInstance.acknowledgeOrders(distributionCenterCode, orderIds);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FulfillmentApi#fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut");
+    System.err.println("Exception when calling FulfillmentApi#acknowledgeOrders");
     e.printStackTrace();
 }
 ```
@@ -71,69 +71,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="fulfillmentDistributionCentersDistributionCenterCodeInventoryPost"></a>
-# **fulfillmentDistributionCentersDistributionCenterCodeInventoryPost**
-> fulfillmentDistributionCentersDistributionCenterCodeInventoryPost(distributionCenterCode, inventories)
-
-Update inventory
-
-Update the inventory for items associated with this distribution center 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.FulfillmentApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-FulfillmentApi apiInstance = new FulfillmentApi();
-String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
-List<FulfillmentInventory> inventories = Arrays.asList(new FulfillmentInventory()); // List<FulfillmentInventory> | Inventory updates (limit 500)
-try {
-    apiInstance.fulfillmentDistributionCentersDistributionCenterCodeInventoryPost(distributionCenterCode, inventories);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FulfillmentApi#fulfillmentDistributionCentersDistributionCenterCodeInventoryPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **distributionCenterCode** | **String**| Distribution center code |
- **inventories** | [**List&lt;FulfillmentInventory&gt;**](FulfillmentInventory.md)| Inventory updates (limit 500) |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="fulfillmentDistributionCentersDistributionCenterCodeOrdersGet"></a>
-# **fulfillmentDistributionCentersDistributionCenterCodeOrdersGet**
-> OrdersResponse fulfillmentDistributionCentersDistributionCenterCodeOrdersGet(distributionCenterCode)
+<a name="getDistributionCenterOrders"></a>
+# **getDistributionCenterOrders**
+> OrdersResponse getDistributionCenterOrders(distributionCenterCode)
 
 Retrieve orders queued up for this distribution center.
 
@@ -163,10 +103,10 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 FulfillmentApi apiInstance = new FulfillmentApi();
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 try {
-    OrdersResponse result = apiInstance.fulfillmentDistributionCentersDistributionCenterCodeOrdersGet(distributionCenterCode);
+    OrdersResponse result = apiInstance.getDistributionCenterOrders(distributionCenterCode);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FulfillmentApi#fulfillmentDistributionCentersDistributionCenterCodeOrdersGet");
+    System.err.println("Exception when calling FulfillmentApi#getDistributionCenterOrders");
     e.printStackTrace();
 }
 ```
@@ -190,9 +130,64 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost"></a>
-# **fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost**
-> fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost(distributionCenterCode, shipments)
+<a name="getDistributionCenters"></a>
+# **getDistributionCenters**
+> DistributionCentersResponse getDistributionCenters()
+
+Retrieve distribution centers
+
+Retrieves the distribution centers that this user has access to. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.FulfillmentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+FulfillmentApi apiInstance = new FulfillmentApi();
+try {
+    DistributionCentersResponse result = apiInstance.getDistributionCenters();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FulfillmentApi#getDistributionCenters");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DistributionCentersResponse**](DistributionCentersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="shipOrders"></a>
+# **shipOrders**
+> shipOrders(distributionCenterCode, shipments)
 
 Mark orders as shipped
 
@@ -223,9 +218,9 @@ FulfillmentApi apiInstance = new FulfillmentApi();
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 List<FulfillmentShipment> shipments = Arrays.asList(new FulfillmentShipment()); // List<FulfillmentShipment> | Orders to mark shipped
 try {
-    apiInstance.fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost(distributionCenterCode, shipments);
+    apiInstance.shipOrders(distributionCenterCode, shipments);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FulfillmentApi#fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost");
+    System.err.println("Exception when calling FulfillmentApi#shipOrders");
     e.printStackTrace();
 }
 ```
@@ -250,13 +245,13 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="fulfillmentDistributionCentersGet"></a>
-# **fulfillmentDistributionCentersGet**
-> DistributionCentersResponse fulfillmentDistributionCentersGet()
+<a name="updateInventory"></a>
+# **updateInventory**
+> updateInventory(distributionCenterCode, inventories)
 
-Retrieve distribution centers
+Update inventory
 
-Retrieves the distribution centers that this user has access to. 
+Update the inventory for items associated with this distribution center 
 
 ### Example
 ```java
@@ -280,21 +275,26 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
 
 FulfillmentApi apiInstance = new FulfillmentApi();
+String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+List<FulfillmentInventory> inventories = Arrays.asList(new FulfillmentInventory()); // List<FulfillmentInventory> | Inventory updates (limit 500)
 try {
-    DistributionCentersResponse result = apiInstance.fulfillmentDistributionCentersGet();
-    System.out.println(result);
+    apiInstance.updateInventory(distributionCenterCode, inventories);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FulfillmentApi#fulfillmentDistributionCentersGet");
+    System.err.println("Exception when calling FulfillmentApi#updateInventory");
     e.printStackTrace();
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **distributionCenterCode** | **String**| Distribution center code |
+ **inventories** | [**List&lt;FulfillmentInventory&gt;**](FulfillmentInventory.md)| Inventory updates (limit 500) |
 
 ### Return type
 
-[**DistributionCentersResponse**](DistributionCentersResponse.md)
+null (empty response body)
 
 ### Authorization
 

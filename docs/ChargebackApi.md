@@ -4,16 +4,16 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**chargebackChargebacksChargebackDisputeOidDelete**](ChargebackApi.md#chargebackChargebacksChargebackDisputeOidDelete) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
-[**chargebackChargebacksChargebackDisputeOidGet**](ChargebackApi.md#chargebackChargebacksChargebackDisputeOidGet) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
-[**chargebackChargebacksChargebackDisputeOidPut**](ChargebackApi.md#chargebackChargebacksChargebackDisputeOidPut) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback
-[**chargebackChargebacksGet**](ChargebackApi.md#chargebackChargebacksGet) | **GET** /chargeback/chargebacks | Retrieve chargebacks
-[**chargebackChargebacksPost**](ChargebackApi.md#chargebackChargebacksPost) | **POST** /chargeback/chargebacks | Insert a chargeback
+[**deleteChargeback**](ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
+[**getChargebackDispute**](ChargebackApi.md#getChargebackDispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
+[**getChargebackDisputes**](ChargebackApi.md#getChargebackDisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
+[**insertChargeback**](ChargebackApi.md#insertChargeback) | **POST** /chargeback/chargebacks | Insert a chargeback
+[**updateChargeback**](ChargebackApi.md#updateChargeback) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback
 
 
-<a name="chargebackChargebacksChargebackDisputeOidDelete"></a>
-# **chargebackChargebacksChargebackDisputeOidDelete**
-> ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidDelete(chargebackDisputeOid)
+<a name="deleteChargeback"></a>
+# **deleteChargeback**
+> ChargebackDisputeResponse deleteChargeback(chargebackDisputeOid)
 
 Delete a chargeback
 
@@ -43,10 +43,10 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 ChargebackApi apiInstance = new ChargebackApi();
 Integer chargebackDisputeOid = 56; // Integer | The chargeback_dispute_oid to delete.
 try {
-    ChargebackDisputeResponse result = apiInstance.chargebackChargebacksChargebackDisputeOidDelete(chargebackDisputeOid);
+    ChargebackDisputeResponse result = apiInstance.deleteChargeback(chargebackDisputeOid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#chargebackChargebacksChargebackDisputeOidDelete");
+    System.err.println("Exception when calling ChargebackApi#deleteChargeback");
     e.printStackTrace();
 }
 ```
@@ -70,9 +70,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
-<a name="chargebackChargebacksChargebackDisputeOidGet"></a>
-# **chargebackChargebacksChargebackDisputeOidGet**
-> ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidGet(chargebackDisputeOid, expand)
+<a name="getChargebackDispute"></a>
+# **getChargebackDispute**
+> ChargebackDisputeResponse getChargebackDispute(chargebackDisputeOid, expand)
 
 Retrieve a chargeback
 
@@ -103,10 +103,10 @@ ChargebackApi apiInstance = new ChargebackApi();
 Integer chargebackDisputeOid = 56; // Integer | The chargeback dispute oid to retrieve.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    ChargebackDisputeResponse result = apiInstance.chargebackChargebacksChargebackDisputeOidGet(chargebackDisputeOid, expand);
+    ChargebackDisputeResponse result = apiInstance.getChargebackDispute(chargebackDisputeOid, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#chargebackChargebacksChargebackDisputeOidGet");
+    System.err.println("Exception when calling ChargebackApi#getChargebackDispute");
     e.printStackTrace();
 }
 ```
@@ -131,72 +131,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="chargebackChargebacksChargebackDisputeOidPut"></a>
-# **chargebackChargebacksChargebackDisputeOidPut**
-> ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid, expand)
-
-Update a chargeback
-
-Update a chargeback on the UltraCart account. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.ChargebackApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-ChargebackApi apiInstance = new ChargebackApi();
-ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
-Integer chargebackDisputeOid = 56; // Integer | The chargeback_dispute_oid to update.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    ChargebackDisputeResponse result = apiInstance.chargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#chargebackChargebacksChargebackDisputeOidPut");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update |
- **chargebackDisputeOid** | **Integer**| The chargeback_dispute_oid to update. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
-
-### Return type
-
-[**ChargebackDisputeResponse**](ChargebackDisputeResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-<a name="chargebackChargebacksGet"></a>
-# **chargebackChargebacksGet**
-> ChargebackDisputesResponse chargebackChargebacksGet(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand)
+<a name="getChargebackDisputes"></a>
+# **getChargebackDisputes**
+> ChargebackDisputesResponse getChargebackDisputes(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand)
 
 Retrieve chargebacks
 
@@ -237,10 +174,10 @@ String since = "since_example"; // String | Fetch chargebacks that have been cre
 String sort = "sort_example"; // String | The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    ChargebackDisputesResponse result = apiInstance.chargebackChargebacksGet(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
+    ChargebackDisputesResponse result = apiInstance.getChargebackDisputes(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#chargebackChargebacksGet");
+    System.err.println("Exception when calling ChargebackApi#getChargebackDisputes");
     e.printStackTrace();
 }
 ```
@@ -275,9 +212,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="chargebackChargebacksPost"></a>
-# **chargebackChargebacksPost**
-> ChargebackDisputeResponse chargebackChargebacksPost(chargeback, expand)
+<a name="insertChargeback"></a>
+# **insertChargeback**
+> ChargebackDisputeResponse insertChargeback(chargeback, expand)
 
 Insert a chargeback
 
@@ -308,10 +245,10 @@ ChargebackApi apiInstance = new ChargebackApi();
 ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to insert
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    ChargebackDisputeResponse result = apiInstance.chargebackChargebacksPost(chargeback, expand);
+    ChargebackDisputeResponse result = apiInstance.insertChargeback(chargeback, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#chargebackChargebacksPost");
+    System.err.println("Exception when calling ChargebackApi#insertChargeback");
     e.printStackTrace();
 }
 ```
@@ -321,6 +258,69 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to insert |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**ChargebackDisputeResponse**](ChargebackDisputeResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateChargeback"></a>
+# **updateChargeback**
+> ChargebackDisputeResponse updateChargeback(chargeback, chargebackDisputeOid, expand)
+
+Update a chargeback
+
+Update a chargeback on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ChargebackApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+ChargebackApi apiInstance = new ChargebackApi();
+ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
+Integer chargebackDisputeOid = 56; // Integer | The chargeback_dispute_oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    ChargebackDisputeResponse result = apiInstance.updateChargeback(chargeback, chargebackDisputeOid, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ChargebackApi#updateChargeback");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update |
+ **chargebackDisputeOid** | **Integer**| The chargeback_dispute_oid to update. |
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

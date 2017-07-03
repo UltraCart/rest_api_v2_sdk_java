@@ -28,8 +28,8 @@ package com.ultracart.admin.v2;
 import com.ultracart.admin.v2.swagger.ApiException;
 import com.ultracart.admin.v2.models.AutoOrderResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.AutoOrder;
 import com.ultracart.admin.v2.models.AutoOrdersResponse;
+import com.ultracart.admin.v2.models.AutoOrder;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -54,27 +54,10 @@ public class AutoorderApiTest {
      *          if the Api call fails
      */
     @Test
-    public void autoOrderAutoOrdersAutoOrderOidGetTest() throws ApiException {
+    public void getAutoOrderTest() throws ApiException {
         Integer autoOrderOid = null;
         String expand = null;
-        // AutoOrderResponse response = api.autoOrderAutoOrdersAutoOrderOidGet(autoOrderOid, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update an auto order
-     *
-     * Update an auto order on the UltraCart account. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void autoOrderAutoOrdersAutoOrderOidPutTest() throws ApiException {
-        AutoOrder autoOrder = null;
-        Integer autoOrderOid = null;
-        // AutoOrderResponse response = api.autoOrderAutoOrdersAutoOrderOidPut(autoOrder, autoOrderOid);
+        // AutoOrderResponse response = api.getAutoOrder(autoOrderOid, expand);
 
         // TODO: test validations
     }
@@ -88,7 +71,7 @@ public class AutoorderApiTest {
      *          if the Api call fails
      */
     @Test
-    public void autoOrderAutoOrdersGetTest() throws ApiException {
+    public void getAutoOrdersTest() throws ApiException {
         String autoOrderCode = null;
         String originalOrderId = null;
         String firstName = null;
@@ -112,7 +95,25 @@ public class AutoorderApiTest {
         String since = null;
         String sort = null;
         String expand = null;
-        // AutoOrdersResponse response = api.autoOrderAutoOrdersGet(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
+        // AutoOrdersResponse response = api.getAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update an auto order
+     *
+     * Update an auto order on the UltraCart account. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateAutoOrderTest() throws ApiException {
+        AutoOrder autoOrder = null;
+        Integer autoOrderOid = null;
+        String expand = null;
+        // AutoOrderResponse response = api.updateAutoOrder(autoOrder, autoOrderOid, expand);
 
         // TODO: test validations
     }

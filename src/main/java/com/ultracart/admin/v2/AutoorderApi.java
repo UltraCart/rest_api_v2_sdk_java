@@ -40,8 +40,8 @@ import java.io.IOException;
 
 import com.ultracart.admin.v2.models.AutoOrderResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.AutoOrder;
 import com.ultracart.admin.v2.models.AutoOrdersResponse;
+import com.ultracart.admin.v2.models.AutoOrder;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -68,13 +68,13 @@ public class AutoorderApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for autoOrderAutoOrdersAutoOrderOidGet */
-    private com.squareup.okhttp.Call autoOrderAutoOrdersAutoOrderOidGetCall(Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getAutoOrder */
+    private com.squareup.okhttp.Call getAutoOrderCall(Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'autoOrderOid' is set
         if (autoOrderOid == null) {
-            throw new ApiException("Missing the required parameter 'autoOrderOid' when calling autoOrderAutoOrdersAutoOrderOidGet(Async)");
+            throw new ApiException("Missing the required parameter 'autoOrderOid' when calling getAutoOrder(Async)");
         }
         
 
@@ -126,8 +126,8 @@ public class AutoorderApi {
      * @return AutoOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AutoOrderResponse autoOrderAutoOrdersAutoOrderOidGet(Integer autoOrderOid, String expand) throws ApiException {
-        ApiResponse<AutoOrderResponse> resp = autoOrderAutoOrdersAutoOrderOidGetWithHttpInfo(autoOrderOid, expand);
+    public AutoOrderResponse getAutoOrder(Integer autoOrderOid, String expand) throws ApiException {
+        ApiResponse<AutoOrderResponse> resp = getAutoOrderWithHttpInfo(autoOrderOid, expand);
         return resp.getData();
     }
 
@@ -139,8 +139,8 @@ public class AutoorderApi {
      * @return ApiResponse&lt;AutoOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AutoOrderResponse> autoOrderAutoOrdersAutoOrderOidGetWithHttpInfo(Integer autoOrderOid, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = autoOrderAutoOrdersAutoOrderOidGetCall(autoOrderOid, expand, null, null);
+    public ApiResponse<AutoOrderResponse> getAutoOrderWithHttpInfo(Integer autoOrderOid, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoOrderCall(autoOrderOid, expand, null, null);
         Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -154,7 +154,7 @@ public class AutoorderApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call autoOrderAutoOrdersAutoOrderOidGetAsync(Integer autoOrderOid, String expand, final ApiCallback<AutoOrderResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAutoOrderAsync(Integer autoOrderOid, String expand, final ApiCallback<AutoOrderResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -175,128 +175,13 @@ public class AutoorderApi {
             };
         }
 
-        com.squareup.okhttp.Call call = autoOrderAutoOrdersAutoOrderOidGetCall(autoOrderOid, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoOrderCall(autoOrderOid, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for autoOrderAutoOrdersAutoOrderOidPut */
-    private com.squareup.okhttp.Call autoOrderAutoOrdersAutoOrderOidPutCall(AutoOrder autoOrder, Integer autoOrderOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = autoOrder;
-        
-        // verify the required parameter 'autoOrder' is set
-        if (autoOrder == null) {
-            throw new ApiException("Missing the required parameter 'autoOrder' when calling autoOrderAutoOrdersAutoOrderOidPut(Async)");
-        }
-        
-        // verify the required parameter 'autoOrderOid' is set
-        if (autoOrderOid == null) {
-            throw new ApiException("Missing the required parameter 'autoOrderOid' when calling autoOrderAutoOrdersAutoOrderOidPut(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/auto_order/auto_orders/{auto_order_oid}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "auto_order_oid" + "\\}", apiClient.escapeString(autoOrderOid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json; charset=UTF-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Update an auto order
-     * Update an auto order on the UltraCart account. 
-     * @param autoOrder Auto order to update (required)
-     * @param autoOrderOid The auto order oid to update. (required)
-     * @return AutoOrderResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AutoOrderResponse autoOrderAutoOrdersAutoOrderOidPut(AutoOrder autoOrder, Integer autoOrderOid) throws ApiException {
-        ApiResponse<AutoOrderResponse> resp = autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo(autoOrder, autoOrderOid);
-        return resp.getData();
-    }
-
-    /**
-     * Update an auto order
-     * Update an auto order on the UltraCart account. 
-     * @param autoOrder Auto order to update (required)
-     * @param autoOrderOid The auto order oid to update. (required)
-     * @return ApiResponse&lt;AutoOrderResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AutoOrderResponse> autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo(AutoOrder autoOrder, Integer autoOrderOid) throws ApiException {
-        com.squareup.okhttp.Call call = autoOrderAutoOrdersAutoOrderOidPutCall(autoOrder, autoOrderOid, null, null);
-        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Update an auto order (asynchronously)
-     * Update an auto order on the UltraCart account. 
-     * @param autoOrder Auto order to update (required)
-     * @param autoOrderOid The auto order oid to update. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call autoOrderAutoOrdersAutoOrderOidPutAsync(AutoOrder autoOrder, Integer autoOrderOid, final ApiCallback<AutoOrderResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = autoOrderAutoOrdersAutoOrderOidPutCall(autoOrder, autoOrderOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for autoOrderAutoOrdersGet */
-    private com.squareup.okhttp.Call autoOrderAutoOrdersGetCall(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getAutoOrders */
+    private com.squareup.okhttp.Call getAutoOrdersCall(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
 
@@ -412,8 +297,8 @@ public class AutoorderApi {
      * @return AutoOrdersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AutoOrdersResponse autoOrderAutoOrdersGet(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
-        ApiResponse<AutoOrdersResponse> resp = autoOrderAutoOrdersGetWithHttpInfo(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
+    public AutoOrdersResponse getAutoOrders(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
+        ApiResponse<AutoOrdersResponse> resp = getAutoOrdersWithHttpInfo(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
         return resp.getData();
     }
 
@@ -446,8 +331,8 @@ public class AutoorderApi {
      * @return ApiResponse&lt;AutoOrdersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AutoOrdersResponse> autoOrderAutoOrdersGetWithHttpInfo(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = autoOrderAutoOrdersGetCall(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand, null, null);
+    public ApiResponse<AutoOrdersResponse> getAutoOrdersWithHttpInfo(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoOrdersCall(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand, null, null);
         Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -482,7 +367,7 @@ public class AutoorderApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call autoOrderAutoOrdersGetAsync(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand, final ApiCallback<AutoOrdersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAutoOrdersAsync(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand, final ApiCallback<AutoOrdersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -503,8 +388,128 @@ public class AutoorderApi {
             };
         }
 
-        com.squareup.okhttp.Call call = autoOrderAutoOrdersGetCall(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAutoOrdersCall(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for updateAutoOrder */
+    private com.squareup.okhttp.Call updateAutoOrderCall(AutoOrder autoOrder, Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = autoOrder;
+        
+        // verify the required parameter 'autoOrder' is set
+        if (autoOrder == null) {
+            throw new ApiException("Missing the required parameter 'autoOrder' when calling updateAutoOrder(Async)");
+        }
+        
+        // verify the required parameter 'autoOrderOid' is set
+        if (autoOrderOid == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderOid' when calling updateAutoOrder(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/{auto_order_oid}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "auto_order_oid" + "\\}", apiClient.escapeString(autoOrderOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Update an auto order
+     * Update an auto order on the UltraCart account. 
+     * @param autoOrder Auto order to update (required)
+     * @param autoOrderOid The auto order oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return AutoOrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AutoOrderResponse updateAutoOrder(AutoOrder autoOrder, Integer autoOrderOid, String expand) throws ApiException {
+        ApiResponse<AutoOrderResponse> resp = updateAutoOrderWithHttpInfo(autoOrder, autoOrderOid, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Update an auto order
+     * Update an auto order on the UltraCart account. 
+     * @param autoOrder Auto order to update (required)
+     * @param autoOrderOid The auto order oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;AutoOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AutoOrderResponse> updateAutoOrderWithHttpInfo(AutoOrder autoOrder, Integer autoOrderOid, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = updateAutoOrderCall(autoOrder, autoOrderOid, expand, null, null);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update an auto order (asynchronously)
+     * Update an auto order on the UltraCart account. 
+     * @param autoOrder Auto order to update (required)
+     * @param autoOrderOid The auto order oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateAutoOrderAsync(AutoOrder autoOrder, Integer autoOrderOid, String expand, final ApiCallback<AutoOrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateAutoOrderCall(autoOrder, autoOrderOid, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

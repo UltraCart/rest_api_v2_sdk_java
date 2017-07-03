@@ -28,8 +28,8 @@ package com.ultracart.admin.v2;
 import com.ultracart.admin.v2.swagger.ApiException;
 import com.ultracart.admin.v2.models.CustomerResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.Customer;
 import com.ultracart.admin.v2.models.CustomersResponse;
+import com.ultracart.admin.v2.models.Customer;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -46,6 +46,22 @@ public class CustomerApiTest {
 
     
     /**
+     * Delete a customer
+     *
+     * Delete a customer on the UltraCart account. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteCustomerTest() throws ApiException {
+        Integer customerProfileOid = null;
+        // CustomerResponse response = api.deleteCustomer(customerProfileOid);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Retrieve a customer
      *
      * Retrieves a single customer using the specified customer profile oid. 
@@ -54,27 +70,10 @@ public class CustomerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void customerCustomersCustomerProfileOidGetTest() throws ApiException {
+    public void getCustomerTest() throws ApiException {
         Integer customerProfileOid = null;
         String expand = null;
-        // CustomerResponse response = api.customerCustomersCustomerProfileOidGet(customerProfileOid, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update a customer
-     *
-     * Update a customer on the UltraCart account. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void customerCustomersCustomerProfileOidPutTest() throws ApiException {
-        Customer customer = null;
-        Integer customerProfileOid = null;
-        // CustomerResponse response = api.customerCustomersCustomerProfileOidPut(customer, customerProfileOid);
+        // CustomerResponse response = api.getCustomer(customerProfileOid, expand);
 
         // TODO: test validations
     }
@@ -88,7 +87,7 @@ public class CustomerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void customerCustomersGetTest() throws ApiException {
+    public void getCustomersTest() throws ApiException {
         String email = null;
         String qbClass = null;
         String quickbooksCode = null;
@@ -121,7 +120,42 @@ public class CustomerApiTest {
         String since = null;
         String sort = null;
         String expand = null;
-        // CustomersResponse response = api.customerCustomersGet(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand);
+        // CustomersResponse response = api.getCustomers(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Insert a customer
+     *
+     * Insert a customer on the UltraCart account. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void insertCustomerTest() throws ApiException {
+        Customer customer = null;
+        String expand = null;
+        // CustomerResponse response = api.insertCustomer(customer, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a customer
+     *
+     * Update a customer on the UltraCart account. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateCustomerTest() throws ApiException {
+        Customer customer = null;
+        Integer customerProfileOid = null;
+        String expand = null;
+        // CustomerResponse response = api.updateCustomer(customer, customerProfileOid, expand);
 
         // TODO: test validations
     }

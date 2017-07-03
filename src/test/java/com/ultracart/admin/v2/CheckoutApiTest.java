@@ -26,22 +26,22 @@
 package com.ultracart.admin.v2;
 
 import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyResponse;
-import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyRequest;
+import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.CartResponse;
+import com.ultracart.admin.v2.models.Cart;
 import com.ultracart.admin.v2.models.CartFinalizeOrderRequest;
 import com.ultracart.admin.v2.models.CartFinalizeOrderResponse;
+import com.ultracart.admin.v2.models.CartResponse;
 import com.ultracart.admin.v2.models.CheckoutHandoffRequest;
 import com.ultracart.admin.v2.models.CheckoutHandoffResponse;
 import com.ultracart.admin.v2.models.CartProfileLoginResponse;
 import com.ultracart.admin.v2.models.CartProfileLoginRequest;
-import com.ultracart.admin.v2.models.Cart;
 import com.ultracart.admin.v2.models.CartProfileRegisterResponse;
 import com.ultracart.admin.v2.models.CartProfileRegisterRequest;
+import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyResponse;
+import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyRequest;
 import com.ultracart.admin.v2.models.CartValidationRequest;
 import com.ultracart.admin.v2.models.CartValidationResponse;
-import com.ultracart.admin.v2.models.ItemsResponse;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -58,34 +58,17 @@ public class CheckoutApiTest {
 
     
     /**
-     * Setup Browser Application
+     * City/State for Zip
      *
-     * Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutBrowserKeyPutTest() throws ApiException {
-        CheckoutSetupBrowserKeyRequest browserKeyRequest = null;
-        // CheckoutSetupBrowserKeyResponse response = api.checkoutBrowserKeyPut(browserKeyRequest);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get cart (by cart id)
-     *
-     * Get a cart specified by the cart_id parameter. 
+     * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void checkoutCartCartIdGetTest() throws ApiException {
-        String cartId = null;
-        String expand = null;
-        // CartResponse response = api.checkoutCartCartIdGet(cartId, expand);
+    public void cityStateTest() throws ApiException {
+        Cart cart = null;
+        // ItemsResponse response = api.cityState(cart);
 
         // TODO: test validations
     }
@@ -99,9 +82,9 @@ public class CheckoutApiTest {
      *          if the Api call fails
      */
     @Test
-    public void checkoutCartFinalizeOrderPostTest() throws ApiException {
+    public void finalizeOrderTest() throws ApiException {
         CartFinalizeOrderRequest finalizeRequest = null;
-        // CartFinalizeOrderResponse response = api.checkoutCartFinalizeOrderPost(finalizeRequest);
+        // CartFinalizeOrderResponse response = api.finalizeOrder(finalizeRequest);
 
         // TODO: test validations
     }
@@ -115,162 +98,26 @@ public class CheckoutApiTest {
      *          if the Api call fails
      */
     @Test
-    public void checkoutCartGetTest() throws ApiException {
+    public void getCartTest() throws ApiException {
         String expand = null;
-        // CartResponse response = api.checkoutCartGet(expand);
+        // CartResponse response = api.getCart(expand);
 
         // TODO: test validations
     }
     
     /**
-     * Handoff cart
+     * Get cart (by cart id)
      *
-     * Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+     * Get a cart specified by the cart_id parameter. 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void checkoutCartHandoffPostTest() throws ApiException {
-        CheckoutHandoffRequest handoffRequest = null;
+    public void getCartByCartIdTest() throws ApiException {
+        String cartId = null;
         String expand = null;
-        // CheckoutHandoffResponse response = api.checkoutCartHandoffPost(handoffRequest, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Profile login
-     *
-     * Login in to the customer profile specified by cart.billing.email and password 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutCartProfileLoginPostTest() throws ApiException {
-        CartProfileLoginRequest loginRequest = null;
-        String expand = null;
-        // CartProfileLoginResponse response = api.checkoutCartProfileLoginPost(loginRequest, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Profile logout
-     *
-     * Log the cart out of the current profile.  No error will occur if they are not logged in. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutCartProfileLogoutPostTest() throws ApiException {
-        Cart cart = null;
-        String expand = null;
-        // CartResponse response = api.checkoutCartProfileLogoutPost(cart, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Profile registration
-     *
-     * Register a new customer profile.  Requires the cart.billing object to be populated along with the password. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutCartProfileRegisterPostTest() throws ApiException {
-        CartProfileRegisterRequest registerRequest = null;
-        String expand = null;
-        // CartProfileRegisterResponse response = api.checkoutCartProfileRegisterPost(registerRequest, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update cart
-     *
-     * Update the cart. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutCartPutTest() throws ApiException {
-        Cart cart = null;
-        String expand = null;
-        // CartResponse response = api.checkoutCartPut(cart, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Validate
-     *
-     * Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutCartValidatePostTest() throws ApiException {
-        CartValidationRequest validationRequest = null;
-        String expand = null;
-        // CartValidationResponse response = api.checkoutCartValidatePost(validationRequest, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * City/State for Zip
-     *
-     * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutCityStatePostTest() throws ApiException {
-        Cart cart = null;
-        // ItemsResponse response = api.checkoutCityStatePost(cart);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Related items (specific item)
-     *
-     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutRelatedItemsItemIdPostTest() throws ApiException {
-        String itemId = null;
-        Cart cart = null;
-        String expand = null;
-        // ItemsResponse response = api.checkoutRelatedItemsItemIdPost(itemId, cart, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Related items
-     *
-     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkoutRelatedItemsPostTest() throws ApiException {
-        Cart cart = null;
-        String expand = null;
-        // ItemsResponse response = api.checkoutRelatedItemsPost(cart, expand);
+        // CartResponse response = api.getCartByCartId(cartId, expand);
 
         // TODO: test validations
     }
@@ -284,10 +131,163 @@ public class CheckoutApiTest {
      *          if the Api call fails
      */
     @Test
-    public void checkoutReturnReturnCodeGetTest() throws ApiException {
+    public void getCartByReturnCodeTest() throws ApiException {
         String returnCode = null;
         String expand = null;
-        // CartResponse response = api.checkoutReturnReturnCodeGet(returnCode, expand);
+        // CartResponse response = api.getCartByReturnCode(returnCode, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Handoff cart
+     *
+     * Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void handoffCartTest() throws ApiException {
+        CheckoutHandoffRequest handoffRequest = null;
+        String expand = null;
+        // CheckoutHandoffResponse response = api.handoffCart(handoffRequest, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Profile login
+     *
+     * Login in to the customer profile specified by cart.billing.email and password 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void loginTest() throws ApiException {
+        CartProfileLoginRequest loginRequest = null;
+        String expand = null;
+        // CartProfileLoginResponse response = api.login(loginRequest, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Profile logout
+     *
+     * Log the cart out of the current profile.  No error will occur if they are not logged in. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void logoutTest() throws ApiException {
+        Cart cart = null;
+        String expand = null;
+        // CartResponse response = api.logout(cart, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Profile registration
+     *
+     * Register a new customer profile.  Requires the cart.billing object to be populated along with the password. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void registerTest() throws ApiException {
+        CartProfileRegisterRequest registerRequest = null;
+        String expand = null;
+        // CartProfileRegisterResponse response = api.register(registerRequest, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Related items
+     *
+     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void relatedItemsForCartTest() throws ApiException {
+        Cart cart = null;
+        String expand = null;
+        // ItemsResponse response = api.relatedItemsForCart(cart, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Related items (specific item)
+     *
+     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void relatedItemsForItemTest() throws ApiException {
+        String itemId = null;
+        Cart cart = null;
+        String expand = null;
+        // ItemsResponse response = api.relatedItemsForItem(itemId, cart, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Setup Browser Application
+     *
+     * Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void setupBrowserKeyTest() throws ApiException {
+        CheckoutSetupBrowserKeyRequest browserKeyRequest = null;
+        // CheckoutSetupBrowserKeyResponse response = api.setupBrowserKey(browserKeyRequest);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update cart
+     *
+     * Update the cart. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateCartTest() throws ApiException {
+        Cart cart = null;
+        String expand = null;
+        // CartResponse response = api.updateCart(cart, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate
+     *
+     * Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateCartTest() throws ApiException {
+        CartValidationRequest validationRequest = null;
+        String expand = null;
+        // CartValidationResponse response = api.validateCart(validationRequest, expand);
 
         // TODO: test validations
     }

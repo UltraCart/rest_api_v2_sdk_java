@@ -4,16 +4,16 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**customerCustomersCustomerProfileOidDelete**](CustomerApi.md#customerCustomersCustomerProfileOidDelete) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
-[**customerCustomersCustomerProfileOidGet**](CustomerApi.md#customerCustomersCustomerProfileOidGet) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
-[**customerCustomersCustomerProfileOidPut**](CustomerApi.md#customerCustomersCustomerProfileOidPut) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
-[**customerCustomersGet**](CustomerApi.md#customerCustomersGet) | **GET** /customer/customers | Retrieve customers
-[**customerCustomersPost**](CustomerApi.md#customerCustomersPost) | **POST** /customer/customers | Insert a customer
+[**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
+[**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
+[**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
+[**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
+[**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 
 
-<a name="customerCustomersCustomerProfileOidDelete"></a>
-# **customerCustomersCustomerProfileOidDelete**
-> CustomerResponse customerCustomersCustomerProfileOidDelete(customerProfileOid)
+<a name="deleteCustomer"></a>
+# **deleteCustomer**
+> CustomerResponse deleteCustomer(customerProfileOid)
 
 Delete a customer
 
@@ -43,10 +43,10 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 CustomerApi apiInstance = new CustomerApi();
 Integer customerProfileOid = 56; // Integer | The customer_profile_oid to delete.
 try {
-    CustomerResponse result = apiInstance.customerCustomersCustomerProfileOidDelete(customerProfileOid);
+    CustomerResponse result = apiInstance.deleteCustomer(customerProfileOid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#customerCustomersCustomerProfileOidDelete");
+    System.err.println("Exception when calling CustomerApi#deleteCustomer");
     e.printStackTrace();
 }
 ```
@@ -70,9 +70,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
-<a name="customerCustomersCustomerProfileOidGet"></a>
-# **customerCustomersCustomerProfileOidGet**
-> CustomerResponse customerCustomersCustomerProfileOidGet(customerProfileOid, expand)
+<a name="getCustomer"></a>
+# **getCustomer**
+> CustomerResponse getCustomer(customerProfileOid, expand)
 
 Retrieve a customer
 
@@ -103,10 +103,10 @@ CustomerApi apiInstance = new CustomerApi();
 Integer customerProfileOid = 56; // Integer | The customer oid to retrieve.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    CustomerResponse result = apiInstance.customerCustomersCustomerProfileOidGet(customerProfileOid, expand);
+    CustomerResponse result = apiInstance.getCustomer(customerProfileOid, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#customerCustomersCustomerProfileOidGet");
+    System.err.println("Exception when calling CustomerApi#getCustomer");
     e.printStackTrace();
 }
 ```
@@ -131,72 +131,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="customerCustomersCustomerProfileOidPut"></a>
-# **customerCustomersCustomerProfileOidPut**
-> CustomerResponse customerCustomersCustomerProfileOidPut(customer, customerProfileOid, expand)
-
-Update a customer
-
-Update a customer on the UltraCart account. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.CustomerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CustomerApi apiInstance = new CustomerApi();
-Customer customer = new Customer(); // Customer | Customer to update
-Integer customerProfileOid = 56; // Integer | The customer_profile_oid to update.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    CustomerResponse result = apiInstance.customerCustomersCustomerProfileOidPut(customer, customerProfileOid, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#customerCustomersCustomerProfileOidPut");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customer** | [**Customer**](Customer.md)| Customer to update |
- **customerProfileOid** | **Integer**| The customer_profile_oid to update. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
-
-### Return type
-
-[**CustomerResponse**](CustomerResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-<a name="customerCustomersGet"></a>
-# **customerCustomersGet**
-> CustomersResponse customerCustomersGet(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand)
+<a name="getCustomers"></a>
+# **getCustomers**
+> CustomersResponse getCustomers(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand)
 
 Retrieve customers
 
@@ -257,10 +194,10 @@ String since = "since_example"; // String | Fetch customers that have been creat
 String sort = "sort_example"; // String | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    CustomersResponse result = apiInstance.customerCustomersGet(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand);
+    CustomersResponse result = apiInstance.getCustomers(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#customerCustomersGet");
+    System.err.println("Exception when calling CustomerApi#getCustomers");
     e.printStackTrace();
 }
 ```
@@ -315,9 +252,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="customerCustomersPost"></a>
-# **customerCustomersPost**
-> CustomerResponse customerCustomersPost(customer, expand)
+<a name="insertCustomer"></a>
+# **insertCustomer**
+> CustomerResponse insertCustomer(customer, expand)
 
 Insert a customer
 
@@ -348,10 +285,10 @@ CustomerApi apiInstance = new CustomerApi();
 Customer customer = new Customer(); // Customer | Customer to insert
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    CustomerResponse result = apiInstance.customerCustomersPost(customer, expand);
+    CustomerResponse result = apiInstance.insertCustomer(customer, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#customerCustomersPost");
+    System.err.println("Exception when calling CustomerApi#insertCustomer");
     e.printStackTrace();
 }
 ```
@@ -361,6 +298,69 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**Customer**](Customer.md)| Customer to insert |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateCustomer"></a>
+# **updateCustomer**
+> CustomerResponse updateCustomer(customer, customerProfileOid, expand)
+
+Update a customer
+
+Update a customer on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CustomerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+CustomerApi apiInstance = new CustomerApi();
+Customer customer = new Customer(); // Customer | Customer to update
+Integer customerProfileOid = 56; // Integer | The customer_profile_oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CustomerResponse result = apiInstance.updateCustomer(customer, customerProfileOid, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#updateCustomer");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer** | [**Customer**](Customer.md)| Customer to update |
+ **customerProfileOid** | **Integer**| The customer_profile_oid to update. |
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

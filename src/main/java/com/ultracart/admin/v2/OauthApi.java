@@ -38,9 +38,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import com.ultracart.admin.v2.models.OauthRevokeSuccessResponse;
-import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.OauthTokenResponse;
+import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.OauthRevokeSuccessResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -67,136 +67,18 @@ public class OauthApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for oauthRevokePost */
-    private com.squareup.okhttp.Call oauthRevokePostCall(String clientId, String token, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for oauthAccessToken */
+    private com.squareup.okhttp.Call oauthAccessTokenCall(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'clientId' is set
         if (clientId == null) {
-            throw new ApiException("Missing the required parameter 'clientId' when calling oauthRevokePost(Async)");
-        }
-        
-        // verify the required parameter 'token' is set
-        if (token == null) {
-            throw new ApiException("Missing the required parameter 'token' when calling oauthRevokePost(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/oauth/revoke".replaceAll("\\{format\\}","json");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (clientId != null)
-        localVarFormParams.put("client_id", clientId);
-        if (token != null)
-        localVarFormParams.put("token", token);
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Revoke this OAuth application.
-     * Revokes the OAuth application associated with the specified client_id and token. 
-     * @param clientId The OAuth application client_id. (required)
-     * @param token The OAuth access token that is to be revoked.. (required)
-     * @return OauthRevokeSuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public OauthRevokeSuccessResponse oauthRevokePost(String clientId, String token) throws ApiException {
-        ApiResponse<OauthRevokeSuccessResponse> resp = oauthRevokePostWithHttpInfo(clientId, token);
-        return resp.getData();
-    }
-
-    /**
-     * Revoke this OAuth application.
-     * Revokes the OAuth application associated with the specified client_id and token. 
-     * @param clientId The OAuth application client_id. (required)
-     * @param token The OAuth access token that is to be revoked.. (required)
-     * @return ApiResponse&lt;OauthRevokeSuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<OauthRevokeSuccessResponse> oauthRevokePostWithHttpInfo(String clientId, String token) throws ApiException {
-        com.squareup.okhttp.Call call = oauthRevokePostCall(clientId, token, null, null);
-        Type localVarReturnType = new TypeToken<OauthRevokeSuccessResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Revoke this OAuth application. (asynchronously)
-     * Revokes the OAuth application associated with the specified client_id and token. 
-     * @param clientId The OAuth application client_id. (required)
-     * @param token The OAuth access token that is to be revoked.. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call oauthRevokePostAsync(String clientId, String token, final ApiCallback<OauthRevokeSuccessResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = oauthRevokePostCall(clientId, token, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OauthRevokeSuccessResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for oauthTokenPost */
-    private com.squareup.okhttp.Call oauthTokenPostCall(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'clientId' is set
-        if (clientId == null) {
-            throw new ApiException("Missing the required parameter 'clientId' when calling oauthTokenPost(Async)");
+            throw new ApiException("Missing the required parameter 'clientId' when calling oauthAccessToken(Async)");
         }
         
         // verify the required parameter 'grantType' is set
         if (grantType == null) {
-            throw new ApiException("Missing the required parameter 'grantType' when calling oauthTokenPost(Async)");
+            throw new ApiException("Missing the required parameter 'grantType' when calling oauthAccessToken(Async)");
         }
         
 
@@ -258,8 +140,8 @@ public class OauthApi {
      * @return OauthTokenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OauthTokenResponse oauthTokenPost(String clientId, String grantType, String code, String redirectUri, String refreshToken) throws ApiException {
-        ApiResponse<OauthTokenResponse> resp = oauthTokenPostWithHttpInfo(clientId, grantType, code, redirectUri, refreshToken);
+    public OauthTokenResponse oauthAccessToken(String clientId, String grantType, String code, String redirectUri, String refreshToken) throws ApiException {
+        ApiResponse<OauthTokenResponse> resp = oauthAccessTokenWithHttpInfo(clientId, grantType, code, redirectUri, refreshToken);
         return resp.getData();
     }
 
@@ -274,8 +156,8 @@ public class OauthApi {
      * @return ApiResponse&lt;OauthTokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OauthTokenResponse> oauthTokenPostWithHttpInfo(String clientId, String grantType, String code, String redirectUri, String refreshToken) throws ApiException {
-        com.squareup.okhttp.Call call = oauthTokenPostCall(clientId, grantType, code, redirectUri, refreshToken, null, null);
+    public ApiResponse<OauthTokenResponse> oauthAccessTokenWithHttpInfo(String clientId, String grantType, String code, String redirectUri, String refreshToken) throws ApiException {
+        com.squareup.okhttp.Call call = oauthAccessTokenCall(clientId, grantType, code, redirectUri, refreshToken, null, null);
         Type localVarReturnType = new TypeToken<OauthTokenResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -292,7 +174,7 @@ public class OauthApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call oauthTokenPostAsync(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ApiCallback<OauthTokenResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call oauthAccessTokenAsync(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ApiCallback<OauthTokenResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -313,8 +195,126 @@ public class OauthApi {
             };
         }
 
-        com.squareup.okhttp.Call call = oauthTokenPostCall(clientId, grantType, code, redirectUri, refreshToken, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = oauthAccessTokenCall(clientId, grantType, code, redirectUri, refreshToken, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OauthTokenResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for oauthRevoke */
+    private com.squareup.okhttp.Call oauthRevokeCall(String clientId, String token, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'clientId' is set
+        if (clientId == null) {
+            throw new ApiException("Missing the required parameter 'clientId' when calling oauthRevoke(Async)");
+        }
+        
+        // verify the required parameter 'token' is set
+        if (token == null) {
+            throw new ApiException("Missing the required parameter 'token' when calling oauthRevoke(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/oauth/revoke".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (clientId != null)
+        localVarFormParams.put("client_id", clientId);
+        if (token != null)
+        localVarFormParams.put("token", token);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Revoke this OAuth application.
+     * Revokes the OAuth application associated with the specified client_id and token. 
+     * @param clientId The OAuth application client_id. (required)
+     * @param token The OAuth access token that is to be revoked.. (required)
+     * @return OauthRevokeSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OauthRevokeSuccessResponse oauthRevoke(String clientId, String token) throws ApiException {
+        ApiResponse<OauthRevokeSuccessResponse> resp = oauthRevokeWithHttpInfo(clientId, token);
+        return resp.getData();
+    }
+
+    /**
+     * Revoke this OAuth application.
+     * Revokes the OAuth application associated with the specified client_id and token. 
+     * @param clientId The OAuth application client_id. (required)
+     * @param token The OAuth access token that is to be revoked.. (required)
+     * @return ApiResponse&lt;OauthRevokeSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OauthRevokeSuccessResponse> oauthRevokeWithHttpInfo(String clientId, String token) throws ApiException {
+        com.squareup.okhttp.Call call = oauthRevokeCall(clientId, token, null, null);
+        Type localVarReturnType = new TypeToken<OauthRevokeSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Revoke this OAuth application. (asynchronously)
+     * Revokes the OAuth application associated with the specified client_id and token. 
+     * @param clientId The OAuth application client_id. (required)
+     * @param token The OAuth access token that is to be revoked.. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call oauthRevokeAsync(String clientId, String token, final ApiCallback<OauthRevokeSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = oauthRevokeCall(clientId, token, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OauthRevokeSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

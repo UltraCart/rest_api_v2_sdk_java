@@ -39,7 +39,7 @@ import java.util.List;
 /**
  * ChargebackDisputesResponse
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-16T07:20:11.116-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
 public class ChargebackDisputesResponse   {
   @SerializedName("chargebacks")
   private List<ChargebackDispute> chargebacks = new ArrayList<ChargebackDispute>();

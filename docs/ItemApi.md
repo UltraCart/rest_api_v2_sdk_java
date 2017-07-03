@@ -4,17 +4,138 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**itemItemsGet**](ItemApi.md#itemItemsGet) | **GET** /item/items | Retrieve items
-[**itemItemsMerchantItemOidDelete**](ItemApi.md#itemItemsMerchantItemOidDelete) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
-[**itemItemsMerchantItemOidGet**](ItemApi.md#itemItemsMerchantItemOidGet) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
-[**itemItemsMerchantItemOidPut**](ItemApi.md#itemItemsMerchantItemOidPut) | **PUT** /item/items/{merchant_item_oid} | Update an item
-[**itemItemsPost**](ItemApi.md#itemItemsPost) | **POST** /item/items | Create an item
-[**itemTempMultimediaPost**](ItemApi.md#itemTempMultimediaPost) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
+[**deleteItem**](ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**getItem**](ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
+[**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
+[**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
+[**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**uploadTemporaryMultimedia**](ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
-<a name="itemItemsGet"></a>
-# **itemItemsGet**
-> ItemsResponse itemItemsGet(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders)
+<a name="deleteItem"></a>
+# **deleteItem**
+> deleteItem(merchantItemOid)
+
+Delete an item
+
+Delete an item on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+ItemApi apiInstance = new ItemApi();
+Integer merchantItemOid = 56; // Integer | The item oid to delete.
+try {
+    apiInstance.deleteItem(merchantItemOid);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#deleteItem");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantItemOid** | **Integer**| The item oid to delete. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getItem"></a>
+# **getItem**
+> ItemResponse getItem(merchantItemOid, expand, placeholders)
+
+Retrieve an item
+
+Retrieves a single item using the specified item oid. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+ItemApi apiInstance = new ItemApi();
+Integer merchantItemOid = 56; // Integer | The item oid to retrieve.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+try {
+    ItemResponse result = apiInstance.getItem(merchantItemOid, expand, placeholders);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#getItem");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantItemOid** | **Integer**| The item oid to retrieve. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getItems"></a>
+# **getItems**
+> ItemsResponse getItems(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders)
 
 Retrieve items
 
@@ -51,10 +172,10 @@ String sort = "sort_example"; // String | The sort order of the items.  See Sort
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemsResponse result = apiInstance.itemItemsGet(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
+    ItemsResponse result = apiInstance.getItems(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ItemApi#itemItemsGet");
+    System.err.println("Exception when calling ItemApi#getItems");
     e.printStackTrace();
 }
 ```
@@ -85,71 +206,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="itemItemsMerchantItemOidDelete"></a>
-# **itemItemsMerchantItemOidDelete**
-> itemItemsMerchantItemOidDelete(merchantItemOid)
+<a name="insertItem"></a>
+# **insertItem**
+> ItemResponse insertItem(item, expand, placeholders)
 
-Delete an item
+Create an item
 
-Delete an item on the UltraCart account. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.ItemApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-ItemApi apiInstance = new ItemApi();
-Integer merchantItemOid = 56; // Integer | The item oid to delete.
-try {
-    apiInstance.itemItemsMerchantItemOidDelete(merchantItemOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ItemApi#itemItemsMerchantItemOidDelete");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **merchantItemOid** | **Integer**| The item oid to delete. |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="itemItemsMerchantItemOidGet"></a>
-# **itemItemsMerchantItemOidGet**
-> ItemResponse itemItemsMerchantItemOidGet(merchantItemOid, expand, placeholders)
-
-Retrieve an item
-
-Retrieves a single item using the specified item oid. 
+Create a new item on the UltraCart account. 
 
 ### Example
 ```java
@@ -173,14 +236,14 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
 
 ItemApi apiInstance = new ItemApi();
-Integer merchantItemOid = 56; // Integer | The item oid to retrieve.
+Item item = new Item(); // Item | Item to create
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemResponse result = apiInstance.itemItemsMerchantItemOidGet(merchantItemOid, expand, placeholders);
+    ItemResponse result = apiInstance.insertItem(item, expand, placeholders);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ItemApi#itemItemsMerchantItemOidGet");
+    System.err.println("Exception when calling ItemApi#insertItem");
     e.printStackTrace();
 }
 ```
@@ -189,7 +252,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **merchantItemOid** | **Integer**| The item oid to retrieve. |
+ **item** | [**Item**](Item.md)| Item to create |
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
@@ -203,12 +266,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
-<a name="itemItemsMerchantItemOidPut"></a>
-# **itemItemsMerchantItemOidPut**
-> ItemResponse itemItemsMerchantItemOidPut(item, merchantItemOid, expand, placeholders)
+<a name="updateItem"></a>
+# **updateItem**
+> ItemResponse updateItem(item, merchantItemOid, expand, placeholders)
 
 Update an item
 
@@ -241,10 +304,10 @@ Integer merchantItemOid = 56; // Integer | The item oid to update.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemResponse result = apiInstance.itemItemsMerchantItemOidPut(item, merchantItemOid, expand, placeholders);
+    ItemResponse result = apiInstance.updateItem(item, merchantItemOid, expand, placeholders);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ItemApi#itemItemsMerchantItemOidPut");
+    System.err.println("Exception when calling ItemApi#updateItem");
     e.printStackTrace();
 }
 ```
@@ -271,72 +334,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
-<a name="itemItemsPost"></a>
-# **itemItemsPost**
-> ItemResponse itemItemsPost(item, expand, placeholders)
-
-Create an item
-
-Create a new item on the UltraCart account. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.ItemApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-ItemApi apiInstance = new ItemApi();
-Item item = new Item(); // Item | Item to create
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-try {
-    ItemResponse result = apiInstance.itemItemsPost(item, expand, placeholders);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ItemApi#itemItemsPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item** | [**Item**](Item.md)| Item to create |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
- **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
-
-### Return type
-
-[**ItemResponse**](ItemResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-<a name="itemTempMultimediaPost"></a>
-# **itemTempMultimediaPost**
-> TempMultimediaResponse itemTempMultimediaPost(file)
+<a name="uploadTemporaryMultimedia"></a>
+# **uploadTemporaryMultimedia**
+> TempMultimediaResponse uploadTemporaryMultimedia(file)
 
 Upload an image to the temporary multimedia.
 
@@ -366,10 +366,10 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 ItemApi apiInstance = new ItemApi();
 File file = new File("/path/to/file.txt"); // File | File to upload
 try {
-    TempMultimediaResponse result = apiInstance.itemTempMultimediaPost(file);
+    TempMultimediaResponse result = apiInstance.uploadTemporaryMultimedia(file);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ItemApi#itemTempMultimediaPost");
+    System.err.println("Exception when calling ItemApi#uploadTemporaryMultimedia");
     e.printStackTrace();
 }
 ```

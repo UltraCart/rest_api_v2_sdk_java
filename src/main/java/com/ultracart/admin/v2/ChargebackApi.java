@@ -40,8 +40,8 @@ import java.io.IOException;
 
 import com.ultracart.admin.v2.models.ChargebackDisputeResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.ChargebackDispute;
 import com.ultracart.admin.v2.models.ChargebackDisputesResponse;
+import com.ultracart.admin.v2.models.ChargebackDispute;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -68,13 +68,13 @@ public class ChargebackApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for chargebackChargebacksChargebackDisputeOidDelete */
-    private com.squareup.okhttp.Call chargebackChargebacksChargebackDisputeOidDeleteCall(Integer chargebackDisputeOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for deleteChargeback */
+    private com.squareup.okhttp.Call deleteChargebackCall(Integer chargebackDisputeOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'chargebackDisputeOid' is set
         if (chargebackDisputeOid == null) {
-            throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling chargebackChargebacksChargebackDisputeOidDelete(Async)");
+            throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling deleteChargeback(Async)");
         }
         
 
@@ -123,8 +123,8 @@ public class ChargebackApi {
      * @return ChargebackDisputeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidDelete(Integer chargebackDisputeOid) throws ApiException {
-        ApiResponse<ChargebackDisputeResponse> resp = chargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo(chargebackDisputeOid);
+    public ChargebackDisputeResponse deleteChargeback(Integer chargebackDisputeOid) throws ApiException {
+        ApiResponse<ChargebackDisputeResponse> resp = deleteChargebackWithHttpInfo(chargebackDisputeOid);
         return resp.getData();
     }
 
@@ -135,8 +135,8 @@ public class ChargebackApi {
      * @return ApiResponse&lt;ChargebackDisputeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ChargebackDisputeResponse> chargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo(Integer chargebackDisputeOid) throws ApiException {
-        com.squareup.okhttp.Call call = chargebackChargebacksChargebackDisputeOidDeleteCall(chargebackDisputeOid, null, null);
+    public ApiResponse<ChargebackDisputeResponse> deleteChargebackWithHttpInfo(Integer chargebackDisputeOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteChargebackCall(chargebackDisputeOid, null, null);
         Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -149,7 +149,7 @@ public class ChargebackApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call chargebackChargebacksChargebackDisputeOidDeleteAsync(Integer chargebackDisputeOid, final ApiCallback<ChargebackDisputeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteChargebackAsync(Integer chargebackDisputeOid, final ApiCallback<ChargebackDisputeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,18 +170,18 @@ public class ChargebackApi {
             };
         }
 
-        com.squareup.okhttp.Call call = chargebackChargebacksChargebackDisputeOidDeleteCall(chargebackDisputeOid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteChargebackCall(chargebackDisputeOid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for chargebackChargebacksChargebackDisputeOidGet */
-    private com.squareup.okhttp.Call chargebackChargebacksChargebackDisputeOidGetCall(Integer chargebackDisputeOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getChargebackDispute */
+    private com.squareup.okhttp.Call getChargebackDisputeCall(Integer chargebackDisputeOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'chargebackDisputeOid' is set
         if (chargebackDisputeOid == null) {
-            throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling chargebackChargebacksChargebackDisputeOidGet(Async)");
+            throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling getChargebackDispute(Async)");
         }
         
 
@@ -233,8 +233,8 @@ public class ChargebackApi {
      * @return ChargebackDisputeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidGet(Integer chargebackDisputeOid, String expand) throws ApiException {
-        ApiResponse<ChargebackDisputeResponse> resp = chargebackChargebacksChargebackDisputeOidGetWithHttpInfo(chargebackDisputeOid, expand);
+    public ChargebackDisputeResponse getChargebackDispute(Integer chargebackDisputeOid, String expand) throws ApiException {
+        ApiResponse<ChargebackDisputeResponse> resp = getChargebackDisputeWithHttpInfo(chargebackDisputeOid, expand);
         return resp.getData();
     }
 
@@ -246,8 +246,8 @@ public class ChargebackApi {
      * @return ApiResponse&lt;ChargebackDisputeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ChargebackDisputeResponse> chargebackChargebacksChargebackDisputeOidGetWithHttpInfo(Integer chargebackDisputeOid, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = chargebackChargebacksChargebackDisputeOidGetCall(chargebackDisputeOid, expand, null, null);
+    public ApiResponse<ChargebackDisputeResponse> getChargebackDisputeWithHttpInfo(Integer chargebackDisputeOid, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getChargebackDisputeCall(chargebackDisputeOid, expand, null, null);
         Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -261,7 +261,7 @@ public class ChargebackApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call chargebackChargebacksChargebackDisputeOidGetAsync(Integer chargebackDisputeOid, String expand, final ApiCallback<ChargebackDisputeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getChargebackDisputeAsync(Integer chargebackDisputeOid, String expand, final ApiCallback<ChargebackDisputeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -282,133 +282,13 @@ public class ChargebackApi {
             };
         }
 
-        com.squareup.okhttp.Call call = chargebackChargebacksChargebackDisputeOidGetCall(chargebackDisputeOid, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getChargebackDisputeCall(chargebackDisputeOid, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for chargebackChargebacksChargebackDisputeOidPut */
-    private com.squareup.okhttp.Call chargebackChargebacksChargebackDisputeOidPutCall(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = chargeback;
-        
-        // verify the required parameter 'chargeback' is set
-        if (chargeback == null) {
-            throw new ApiException("Missing the required parameter 'chargeback' when calling chargebackChargebacksChargebackDisputeOidPut(Async)");
-        }
-        
-        // verify the required parameter 'chargebackDisputeOid' is set
-        if (chargebackDisputeOid == null) {
-            throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling chargebackChargebacksChargebackDisputeOidPut(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "chargeback_dispute_oid" + "\\}", apiClient.escapeString(chargebackDisputeOid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (expand != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json; charset=UTF-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Update a chargeback
-     * Update a chargeback on the UltraCart account. 
-     * @param chargeback Chargeback to update (required)
-     * @param chargebackDisputeOid The chargeback_dispute_oid to update. (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return ChargebackDisputeResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidPut(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand) throws ApiException {
-        ApiResponse<ChargebackDisputeResponse> resp = chargebackChargebacksChargebackDisputeOidPutWithHttpInfo(chargeback, chargebackDisputeOid, expand);
-        return resp.getData();
-    }
-
-    /**
-     * Update a chargeback
-     * Update a chargeback on the UltraCart account. 
-     * @param chargeback Chargeback to update (required)
-     * @param chargebackDisputeOid The chargeback_dispute_oid to update. (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return ApiResponse&lt;ChargebackDisputeResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ChargebackDisputeResponse> chargebackChargebacksChargebackDisputeOidPutWithHttpInfo(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = chargebackChargebacksChargebackDisputeOidPutCall(chargeback, chargebackDisputeOid, expand, null, null);
-        Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Update a chargeback (asynchronously)
-     * Update a chargeback on the UltraCart account. 
-     * @param chargeback Chargeback to update (required)
-     * @param chargebackDisputeOid The chargeback_dispute_oid to update. (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call chargebackChargebacksChargebackDisputeOidPutAsync(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand, final ApiCallback<ChargebackDisputeResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = chargebackChargebacksChargebackDisputeOidPutCall(chargeback, chargebackDisputeOid, expand, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for chargebackChargebacksGet */
-    private com.squareup.okhttp.Call chargebackChargebacksGetCall(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getChargebackDisputes */
+    private com.squareup.okhttp.Call getChargebackDisputesCall(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
 
@@ -491,8 +371,8 @@ public class ChargebackApi {
      * @return ChargebackDisputesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ChargebackDisputesResponse chargebackChargebacksGet(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
-        ApiResponse<ChargebackDisputesResponse> resp = chargebackChargebacksGetWithHttpInfo(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
+    public ChargebackDisputesResponse getChargebackDisputes(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
+        ApiResponse<ChargebackDisputesResponse> resp = getChargebackDisputesWithHttpInfo(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
         return resp.getData();
     }
 
@@ -514,8 +394,8 @@ public class ChargebackApi {
      * @return ApiResponse&lt;ChargebackDisputesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ChargebackDisputesResponse> chargebackChargebacksGetWithHttpInfo(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = chargebackChargebacksGetCall(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand, null, null);
+    public ApiResponse<ChargebackDisputesResponse> getChargebackDisputesWithHttpInfo(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getChargebackDisputesCall(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand, null, null);
         Type localVarReturnType = new TypeToken<ChargebackDisputesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -539,7 +419,7 @@ public class ChargebackApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call chargebackChargebacksGetAsync(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ApiCallback<ChargebackDisputesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getChargebackDisputesAsync(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ApiCallback<ChargebackDisputesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -560,18 +440,18 @@ public class ChargebackApi {
             };
         }
 
-        com.squareup.okhttp.Call call = chargebackChargebacksGetCall(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getChargebackDisputesCall(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ChargebackDisputesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for chargebackChargebacksPost */
-    private com.squareup.okhttp.Call chargebackChargebacksPostCall(ChargebackDispute chargeback, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for insertChargeback */
+    private com.squareup.okhttp.Call insertChargebackCall(ChargebackDispute chargeback, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = chargeback;
         
         // verify the required parameter 'chargeback' is set
         if (chargeback == null) {
-            throw new ApiException("Missing the required parameter 'chargeback' when calling chargebackChargebacksPost(Async)");
+            throw new ApiException("Missing the required parameter 'chargeback' when calling insertChargeback(Async)");
         }
         
 
@@ -622,8 +502,8 @@ public class ChargebackApi {
      * @return ChargebackDisputeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ChargebackDisputeResponse chargebackChargebacksPost(ChargebackDispute chargeback, String expand) throws ApiException {
-        ApiResponse<ChargebackDisputeResponse> resp = chargebackChargebacksPostWithHttpInfo(chargeback, expand);
+    public ChargebackDisputeResponse insertChargeback(ChargebackDispute chargeback, String expand) throws ApiException {
+        ApiResponse<ChargebackDisputeResponse> resp = insertChargebackWithHttpInfo(chargeback, expand);
         return resp.getData();
     }
 
@@ -635,8 +515,8 @@ public class ChargebackApi {
      * @return ApiResponse&lt;ChargebackDisputeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ChargebackDisputeResponse> chargebackChargebacksPostWithHttpInfo(ChargebackDispute chargeback, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = chargebackChargebacksPostCall(chargeback, expand, null, null);
+    public ApiResponse<ChargebackDisputeResponse> insertChargebackWithHttpInfo(ChargebackDispute chargeback, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = insertChargebackCall(chargeback, expand, null, null);
         Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -650,7 +530,7 @@ public class ChargebackApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call chargebackChargebacksPostAsync(ChargebackDispute chargeback, String expand, final ApiCallback<ChargebackDisputeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertChargebackAsync(ChargebackDispute chargeback, String expand, final ApiCallback<ChargebackDisputeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -671,7 +551,127 @@ public class ChargebackApi {
             };
         }
 
-        com.squareup.okhttp.Call call = chargebackChargebacksPostCall(chargeback, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = insertChargebackCall(chargeback, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for updateChargeback */
+    private com.squareup.okhttp.Call updateChargebackCall(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = chargeback;
+        
+        // verify the required parameter 'chargeback' is set
+        if (chargeback == null) {
+            throw new ApiException("Missing the required parameter 'chargeback' when calling updateChargeback(Async)");
+        }
+        
+        // verify the required parameter 'chargebackDisputeOid' is set
+        if (chargebackDisputeOid == null) {
+            throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling updateChargeback(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "chargeback_dispute_oid" + "\\}", apiClient.escapeString(chargebackDisputeOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Update a chargeback
+     * Update a chargeback on the UltraCart account. 
+     * @param chargeback Chargeback to update (required)
+     * @param chargebackDisputeOid The chargeback_dispute_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ChargebackDisputeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ChargebackDisputeResponse updateChargeback(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand) throws ApiException {
+        ApiResponse<ChargebackDisputeResponse> resp = updateChargebackWithHttpInfo(chargeback, chargebackDisputeOid, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Update a chargeback
+     * Update a chargeback on the UltraCart account. 
+     * @param chargeback Chargeback to update (required)
+     * @param chargebackDisputeOid The chargeback_dispute_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;ChargebackDisputeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ChargebackDisputeResponse> updateChargebackWithHttpInfo(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = updateChargebackCall(chargeback, chargebackDisputeOid, expand, null, null);
+        Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a chargeback (asynchronously)
+     * Update a chargeback on the UltraCart account. 
+     * @param chargeback Chargeback to update (required)
+     * @param chargebackDisputeOid The chargeback_dispute_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateChargebackAsync(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand, final ApiCallback<ChargebackDisputeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateChargebackCall(chargeback, chargebackDisputeOid, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ChargebackDisputeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

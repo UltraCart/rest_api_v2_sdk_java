@@ -27,10 +27,10 @@ package com.ultracart.admin.v2;
 
 import com.ultracart.admin.v2.swagger.ApiException;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.FulfillmentInventory;
 import com.ultracart.admin.v2.models.OrdersResponse;
-import com.ultracart.admin.v2.models.FulfillmentShipment;
 import com.ultracart.admin.v2.models.DistributionCentersResponse;
+import com.ultracart.admin.v2.models.FulfillmentShipment;
+import com.ultracart.admin.v2.models.FulfillmentInventory;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -55,27 +55,10 @@ public class FulfillmentApiTest {
      *          if the Api call fails
      */
     @Test
-    public void fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutTest() throws ApiException {
+    public void acknowledgeOrdersTest() throws ApiException {
         String distributionCenterCode = null;
         List<String> orderIds = null;
-        // api.fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut(distributionCenterCode, orderIds);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update inventory
-     *
-     * Update the inventory for items associated with this distribution center 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void fulfillmentDistributionCentersDistributionCenterCodeInventoryPostTest() throws ApiException {
-        String distributionCenterCode = null;
-        List<FulfillmentInventory> inventories = null;
-        // api.fulfillmentDistributionCentersDistributionCenterCodeInventoryPost(distributionCenterCode, inventories);
+        // api.acknowledgeOrders(distributionCenterCode, orderIds);
 
         // TODO: test validations
     }
@@ -89,26 +72,9 @@ public class FulfillmentApiTest {
      *          if the Api call fails
      */
     @Test
-    public void fulfillmentDistributionCentersDistributionCenterCodeOrdersGetTest() throws ApiException {
+    public void getDistributionCenterOrdersTest() throws ApiException {
         String distributionCenterCode = null;
-        // OrdersResponse response = api.fulfillmentDistributionCentersDistributionCenterCodeOrdersGet(distributionCenterCode);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Mark orders as shipped
-     *
-     * Store the tracking information and mark the order shipped for this distribution center. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostTest() throws ApiException {
-        String distributionCenterCode = null;
-        List<FulfillmentShipment> shipments = null;
-        // api.fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost(distributionCenterCode, shipments);
+        // OrdersResponse response = api.getDistributionCenterOrders(distributionCenterCode);
 
         // TODO: test validations
     }
@@ -122,8 +88,42 @@ public class FulfillmentApiTest {
      *          if the Api call fails
      */
     @Test
-    public void fulfillmentDistributionCentersGetTest() throws ApiException {
-        // DistributionCentersResponse response = api.fulfillmentDistributionCentersGet();
+    public void getDistributionCentersTest() throws ApiException {
+        // DistributionCentersResponse response = api.getDistributionCenters();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Mark orders as shipped
+     *
+     * Store the tracking information and mark the order shipped for this distribution center. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void shipOrdersTest() throws ApiException {
+        String distributionCenterCode = null;
+        List<FulfillmentShipment> shipments = null;
+        // api.shipOrders(distributionCenterCode, shipments);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update inventory
+     *
+     * Update the inventory for items associated with this distribution center 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateInventoryTest() throws ApiException {
+        String distributionCenterCode = null;
+        List<FulfillmentInventory> inventories = null;
+        // api.updateInventory(distributionCenterCode, inventories);
 
         // TODO: test validations
     }

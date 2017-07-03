@@ -28,8 +28,8 @@ package com.ultracart.admin.v2;
 import com.ultracart.admin.v2.swagger.ApiException;
 import com.ultracart.admin.v2.models.ChargebackDisputeResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.ChargebackDispute;
 import com.ultracart.admin.v2.models.ChargebackDisputesResponse;
+import com.ultracart.admin.v2.models.ChargebackDispute;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -54,9 +54,9 @@ public class ChargebackApiTest {
      *          if the Api call fails
      */
     @Test
-    public void chargebackChargebacksChargebackDisputeOidDeleteTest() throws ApiException {
+    public void deleteChargebackTest() throws ApiException {
         Integer chargebackDisputeOid = null;
-        // ChargebackDisputeResponse response = api.chargebackChargebacksChargebackDisputeOidDelete(chargebackDisputeOid);
+        // ChargebackDisputeResponse response = api.deleteChargeback(chargebackDisputeOid);
 
         // TODO: test validations
     }
@@ -70,27 +70,10 @@ public class ChargebackApiTest {
      *          if the Api call fails
      */
     @Test
-    public void chargebackChargebacksChargebackDisputeOidGetTest() throws ApiException {
+    public void getChargebackDisputeTest() throws ApiException {
         Integer chargebackDisputeOid = null;
         String expand = null;
-        // ChargebackDisputeResponse response = api.chargebackChargebacksChargebackDisputeOidGet(chargebackDisputeOid, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update a chargeback
-     *
-     * Update a chargeback on the UltraCart account. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void chargebackChargebacksChargebackDisputeOidPutTest() throws ApiException {
-        ChargebackDispute chargeback = null;
-        Integer chargebackDisputeOid = null;
-        // ChargebackDisputeResponse response = api.chargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid);
+        // ChargebackDisputeResponse response = api.getChargebackDispute(chargebackDisputeOid, expand);
 
         // TODO: test validations
     }
@@ -104,7 +87,7 @@ public class ChargebackApiTest {
      *          if the Api call fails
      */
     @Test
-    public void chargebackChargebacksGetTest() throws ApiException {
+    public void getChargebackDisputesTest() throws ApiException {
         String orderId = null;
         String caseNumber = null;
         String status = null;
@@ -117,7 +100,7 @@ public class ChargebackApiTest {
         String since = null;
         String sort = null;
         String expand = null;
-        // ChargebackDisputesResponse response = api.chargebackChargebacksGet(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
+        // ChargebackDisputesResponse response = api.getChargebackDisputes(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
 
         // TODO: test validations
     }
@@ -131,9 +114,28 @@ public class ChargebackApiTest {
      *          if the Api call fails
      */
     @Test
-    public void chargebackChargebacksPostTest() throws ApiException {
+    public void insertChargebackTest() throws ApiException {
         ChargebackDispute chargeback = null;
-        // ChargebackDisputeResponse response = api.chargebackChargebacksPost(chargeback);
+        String expand = null;
+        // ChargebackDisputeResponse response = api.insertChargeback(chargeback, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a chargeback
+     *
+     * Update a chargeback on the UltraCart account. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateChargebackTest() throws ApiException {
+        ChargebackDispute chargeback = null;
+        Integer chargebackDisputeOid = null;
+        String expand = null;
+        // ChargebackDisputeResponse response = api.updateChargeback(chargeback, chargebackDisputeOid, expand);
 
         // TODO: test validations
     }

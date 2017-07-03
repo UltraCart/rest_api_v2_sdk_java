@@ -4,14 +4,14 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**autoOrderAutoOrdersAutoOrderOidGet**](AutoorderApi.md#autoOrderAutoOrdersAutoOrderOidGet) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**autoOrderAutoOrdersAutoOrderOidPut**](AutoorderApi.md#autoOrderAutoOrdersAutoOrderOidPut) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
-[**autoOrderAutoOrdersGet**](AutoorderApi.md#autoOrderAutoOrdersGet) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**getAutoOrder**](AutoorderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+[**getAutoOrders**](AutoorderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**updateAutoOrder**](AutoorderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
 
-<a name="autoOrderAutoOrdersAutoOrderOidGet"></a>
-# **autoOrderAutoOrdersAutoOrderOidGet**
-> AutoOrderResponse autoOrderAutoOrdersAutoOrderOidGet(autoOrderOid, expand)
+<a name="getAutoOrder"></a>
+# **getAutoOrder**
+> AutoOrderResponse getAutoOrder(autoOrderOid, expand)
 
 Retrieve an auto order
 
@@ -42,10 +42,10 @@ AutoorderApi apiInstance = new AutoorderApi();
 Integer autoOrderOid = 56; // Integer | The auto order oid to retrieve.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    AutoOrderResponse result = apiInstance.autoOrderAutoOrdersAutoOrderOidGet(autoOrderOid, expand);
+    AutoOrderResponse result = apiInstance.getAutoOrder(autoOrderOid, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AutoorderApi#autoOrderAutoOrdersAutoOrderOidGet");
+    System.err.println("Exception when calling AutoorderApi#getAutoOrder");
     e.printStackTrace();
 }
 ```
@@ -70,70 +70,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="autoOrderAutoOrdersAutoOrderOidPut"></a>
-# **autoOrderAutoOrdersAutoOrderOidPut**
-> AutoOrderResponse autoOrderAutoOrdersAutoOrderOidPut(autoOrder, autoOrderOid)
-
-Update an auto order
-
-Update an auto order on the UltraCart account. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoorderApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-AutoorderApi apiInstance = new AutoorderApi();
-AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
-Integer autoOrderOid = 56; // Integer | The auto order oid to update.
-try {
-    AutoOrderResponse result = apiInstance.autoOrderAutoOrdersAutoOrderOidPut(autoOrder, autoOrderOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoorderApi#autoOrderAutoOrdersAutoOrderOidPut");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update |
- **autoOrderOid** | **Integer**| The auto order oid to update. |
-
-### Return type
-
-[**AutoOrderResponse**](AutoOrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-<a name="autoOrderAutoOrdersGet"></a>
-# **autoOrderAutoOrdersGet**
-> AutoOrdersResponse autoOrderAutoOrdersGet(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand)
+<a name="getAutoOrders"></a>
+# **getAutoOrders**
+> AutoOrdersResponse getAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand)
 
 Retrieve auto orders
 
@@ -185,10 +124,10 @@ String since = "since_example"; // String | Fetch auto orders that have been cre
 String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    AutoOrdersResponse result = apiInstance.autoOrderAutoOrdersGet(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
+    AutoOrdersResponse result = apiInstance.getAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AutoorderApi#autoOrderAutoOrdersGet");
+    System.err.println("Exception when calling AutoorderApi#getAutoOrders");
     e.printStackTrace();
 }
 ```
@@ -232,5 +171,68 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="updateAutoOrder"></a>
+# **updateAutoOrder**
+> AutoOrderResponse updateAutoOrder(autoOrder, autoOrderOid, expand)
+
+Update an auto order
+
+Update an auto order on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.AutoorderApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+AutoorderApi apiInstance = new AutoorderApi();
+AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
+Integer autoOrderOid = 56; // Integer | The auto order oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    AutoOrderResponse result = apiInstance.updateAutoOrder(autoOrder, autoOrderOid, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoorderApi#updateAutoOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update |
+ **autoOrderOid** | **Integer**| The auto order oid to update. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 

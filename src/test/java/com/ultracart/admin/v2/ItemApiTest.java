@@ -26,9 +26,9 @@
 package com.ultracart.admin.v2;
 
 import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.ItemResponse;
+import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.Item;
 import com.ultracart.admin.v2.models.TempMultimediaResponse;
 import java.io.File;
@@ -48,22 +48,6 @@ public class ItemApiTest {
 
     
     /**
-     * Retrieve items
-     *
-     * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void itemItemsGetTest() throws ApiException {
-        Integer parentCategoryId = null;
-        // ItemsResponse response = api.itemItemsGet(parentCategoryId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Delete an item
      *
      * Delete an item on the UltraCart account. 
@@ -72,9 +56,9 @@ public class ItemApiTest {
      *          if the Api call fails
      */
     @Test
-    public void itemItemsMerchantItemOidDeleteTest() throws ApiException {
+    public void deleteItemTest() throws ApiException {
         Integer merchantItemOid = null;
-        // api.itemItemsMerchantItemOidDelete(merchantItemOid);
+        // api.deleteItem(merchantItemOid);
 
         // TODO: test validations
     }
@@ -88,26 +72,34 @@ public class ItemApiTest {
      *          if the Api call fails
      */
     @Test
-    public void itemItemsMerchantItemOidGetTest() throws ApiException {
+    public void getItemTest() throws ApiException {
         Integer merchantItemOid = null;
-        // ItemResponse response = api.itemItemsMerchantItemOidGet(merchantItemOid);
+        String expand = null;
+        Boolean placeholders = null;
+        // ItemResponse response = api.getItem(merchantItemOid, expand, placeholders);
 
         // TODO: test validations
     }
     
     /**
-     * Update an item
+     * Retrieve items
      *
-     * Update a new item on the UltraCart account. 
+     * Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void itemItemsMerchantItemOidPutTest() throws ApiException {
-        Item item = null;
-        Integer merchantItemOid = null;
-        // ItemResponse response = api.itemItemsMerchantItemOidPut(item, merchantItemOid);
+    public void getItemsTest() throws ApiException {
+        Integer parentCategoryId = null;
+        String parentCategoryPath = null;
+        Integer limit = null;
+        Integer offset = null;
+        String since = null;
+        String sort = null;
+        String expand = null;
+        Boolean placeholders = null;
+        // ItemsResponse response = api.getItems(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
 
         // TODO: test validations
     }
@@ -121,9 +113,30 @@ public class ItemApiTest {
      *          if the Api call fails
      */
     @Test
-    public void itemItemsPostTest() throws ApiException {
+    public void insertItemTest() throws ApiException {
         Item item = null;
-        // ItemResponse response = api.itemItemsPost(item);
+        String expand = null;
+        Boolean placeholders = null;
+        // ItemResponse response = api.insertItem(item, expand, placeholders);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update an item
+     *
+     * Update a new item on the UltraCart account. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateItemTest() throws ApiException {
+        Item item = null;
+        Integer merchantItemOid = null;
+        String expand = null;
+        Boolean placeholders = null;
+        // ItemResponse response = api.updateItem(item, merchantItemOid, expand, placeholders);
 
         // TODO: test validations
     }
@@ -137,9 +150,9 @@ public class ItemApiTest {
      *          if the Api call fails
      */
     @Test
-    public void itemTempMultimediaPostTest() throws ApiException {
+    public void uploadTemporaryMultimediaTest() throws ApiException {
         File file = null;
-        // TempMultimediaResponse response = api.itemTempMultimediaPost(file);
+        // TempMultimediaResponse response = api.uploadTemporaryMultimedia(file);
 
         // TODO: test validations
     }

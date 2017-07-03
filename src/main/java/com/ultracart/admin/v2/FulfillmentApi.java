@@ -39,10 +39,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.FulfillmentInventory;
 import com.ultracart.admin.v2.models.OrdersResponse;
-import com.ultracart.admin.v2.models.FulfillmentShipment;
 import com.ultracart.admin.v2.models.DistributionCentersResponse;
+import com.ultracart.admin.v2.models.FulfillmentShipment;
+import com.ultracart.admin.v2.models.FulfillmentInventory;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -69,18 +69,18 @@ public class FulfillmentApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut */
-    private com.squareup.okhttp.Call fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutCall(String distributionCenterCode, List<String> orderIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for acknowledgeOrders */
+    private com.squareup.okhttp.Call acknowledgeOrdersCall(String distributionCenterCode, List<String> orderIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = orderIds;
         
         // verify the required parameter 'distributionCenterCode' is set
         if (distributionCenterCode == null) {
-            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut(Async)");
+            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling acknowledgeOrders(Async)");
         }
         
         // verify the required parameter 'orderIds' is set
         if (orderIds == null) {
-            throw new ApiException("Missing the required parameter 'orderIds' when calling fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut(Async)");
+            throw new ApiException("Missing the required parameter 'orderIds' when calling acknowledgeOrders(Async)");
         }
         
 
@@ -129,8 +129,8 @@ public class FulfillmentApi {
      * @param orderIds Orders to acknowledge receipt of (limit 100) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut(String distributionCenterCode, List<String> orderIds) throws ApiException {
-        fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo(distributionCenterCode, orderIds);
+    public void acknowledgeOrders(String distributionCenterCode, List<String> orderIds) throws ApiException {
+        acknowledgeOrdersWithHttpInfo(distributionCenterCode, orderIds);
     }
 
     /**
@@ -141,8 +141,8 @@ public class FulfillmentApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo(String distributionCenterCode, List<String> orderIds) throws ApiException {
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutCall(distributionCenterCode, orderIds, null, null);
+    public ApiResponse<Void> acknowledgeOrdersWithHttpInfo(String distributionCenterCode, List<String> orderIds) throws ApiException {
+        com.squareup.okhttp.Call call = acknowledgeOrdersCall(distributionCenterCode, orderIds, null, null);
         return apiClient.execute(call);
     }
 
@@ -155,7 +155,7 @@ public class FulfillmentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutAsync(String distributionCenterCode, List<String> orderIds, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call acknowledgeOrdersAsync(String distributionCenterCode, List<String> orderIds, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -176,128 +176,17 @@ public class FulfillmentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutCall(distributionCenterCode, orderIds, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = acknowledgeOrdersCall(distributionCenterCode, orderIds, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for fulfillmentDistributionCentersDistributionCenterCodeInventoryPost */
-    private com.squareup.okhttp.Call fulfillmentDistributionCentersDistributionCenterCodeInventoryPostCall(String distributionCenterCode, List<FulfillmentInventory> inventories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = inventories;
-        
-        // verify the required parameter 'distributionCenterCode' is set
-        if (distributionCenterCode == null) {
-            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling fulfillmentDistributionCentersDistributionCenterCodeInventoryPost(Async)");
-        }
-        
-        // verify the required parameter 'inventories' is set
-        if (inventories == null) {
-            throw new ApiException("Missing the required parameter 'inventories' when calling fulfillmentDistributionCentersDistributionCenterCodeInventoryPost(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "distribution_center_code" + "\\}", apiClient.escapeString(distributionCenterCode.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Update inventory
-     * Update the inventory for items associated with this distribution center 
-     * @param distributionCenterCode Distribution center code (required)
-     * @param inventories Inventory updates (limit 500) (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void fulfillmentDistributionCentersDistributionCenterCodeInventoryPost(String distributionCenterCode, List<FulfillmentInventory> inventories) throws ApiException {
-        fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo(distributionCenterCode, inventories);
-    }
-
-    /**
-     * Update inventory
-     * Update the inventory for items associated with this distribution center 
-     * @param distributionCenterCode Distribution center code (required)
-     * @param inventories Inventory updates (limit 500) (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo(String distributionCenterCode, List<FulfillmentInventory> inventories) throws ApiException {
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersDistributionCenterCodeInventoryPostCall(distributionCenterCode, inventories, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Update inventory (asynchronously)
-     * Update the inventory for items associated with this distribution center 
-     * @param distributionCenterCode Distribution center code (required)
-     * @param inventories Inventory updates (limit 500) (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call fulfillmentDistributionCentersDistributionCenterCodeInventoryPostAsync(String distributionCenterCode, List<FulfillmentInventory> inventories, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersDistributionCenterCodeInventoryPostCall(distributionCenterCode, inventories, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /* Build call for fulfillmentDistributionCentersDistributionCenterCodeOrdersGet */
-    private com.squareup.okhttp.Call fulfillmentDistributionCentersDistributionCenterCodeOrdersGetCall(String distributionCenterCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getDistributionCenterOrders */
+    private com.squareup.okhttp.Call getDistributionCenterOrdersCall(String distributionCenterCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'distributionCenterCode' is set
         if (distributionCenterCode == null) {
-            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling fulfillmentDistributionCentersDistributionCenterCodeOrdersGet(Async)");
+            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling getDistributionCenterOrders(Async)");
         }
         
 
@@ -346,8 +235,8 @@ public class FulfillmentApi {
      * @return OrdersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrdersResponse fulfillmentDistributionCentersDistributionCenterCodeOrdersGet(String distributionCenterCode) throws ApiException {
-        ApiResponse<OrdersResponse> resp = fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo(distributionCenterCode);
+    public OrdersResponse getDistributionCenterOrders(String distributionCenterCode) throws ApiException {
+        ApiResponse<OrdersResponse> resp = getDistributionCenterOrdersWithHttpInfo(distributionCenterCode);
         return resp.getData();
     }
 
@@ -358,8 +247,8 @@ public class FulfillmentApi {
      * @return ApiResponse&lt;OrdersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrdersResponse> fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo(String distributionCenterCode) throws ApiException {
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersDistributionCenterCodeOrdersGetCall(distributionCenterCode, null, null);
+    public ApiResponse<OrdersResponse> getDistributionCenterOrdersWithHttpInfo(String distributionCenterCode) throws ApiException {
+        com.squareup.okhttp.Call call = getDistributionCenterOrdersCall(distributionCenterCode, null, null);
         Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -372,7 +261,7 @@ public class FulfillmentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fulfillmentDistributionCentersDistributionCenterCodeOrdersGetAsync(String distributionCenterCode, final ApiCallback<OrdersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDistributionCenterOrdersAsync(String distributionCenterCode, final ApiCallback<OrdersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -393,23 +282,121 @@ public class FulfillmentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersDistributionCenterCodeOrdersGetCall(distributionCenterCode, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getDistributionCenterOrdersCall(distributionCenterCode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost */
-    private com.squareup.okhttp.Call fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostCall(String distributionCenterCode, List<FulfillmentShipment> shipments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getDistributionCenters */
+    private com.squareup.okhttp.Call getDistributionCentersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+
+        // create path and map variables
+        String localVarPath = "/fulfillment/distribution_centers".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Retrieve distribution centers
+     * Retrieves the distribution centers that this user has access to. 
+     * @return DistributionCentersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DistributionCentersResponse getDistributionCenters() throws ApiException {
+        ApiResponse<DistributionCentersResponse> resp = getDistributionCentersWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve distribution centers
+     * Retrieves the distribution centers that this user has access to. 
+     * @return ApiResponse&lt;DistributionCentersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DistributionCentersResponse> getDistributionCentersWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getDistributionCentersCall(null, null);
+        Type localVarReturnType = new TypeToken<DistributionCentersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve distribution centers (asynchronously)
+     * Retrieves the distribution centers that this user has access to. 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getDistributionCentersAsync(final ApiCallback<DistributionCentersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDistributionCentersCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DistributionCentersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for shipOrders */
+    private com.squareup.okhttp.Call shipOrdersCall(String distributionCenterCode, List<FulfillmentShipment> shipments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = shipments;
         
         // verify the required parameter 'distributionCenterCode' is set
         if (distributionCenterCode == null) {
-            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost(Async)");
+            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling shipOrders(Async)");
         }
         
         // verify the required parameter 'shipments' is set
         if (shipments == null) {
-            throw new ApiException("Missing the required parameter 'shipments' when calling fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost(Async)");
+            throw new ApiException("Missing the required parameter 'shipments' when calling shipOrders(Async)");
         }
         
 
@@ -458,8 +445,8 @@ public class FulfillmentApi {
      * @param shipments Orders to mark shipped (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost(String distributionCenterCode, List<FulfillmentShipment> shipments) throws ApiException {
-        fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo(distributionCenterCode, shipments);
+    public void shipOrders(String distributionCenterCode, List<FulfillmentShipment> shipments) throws ApiException {
+        shipOrdersWithHttpInfo(distributionCenterCode, shipments);
     }
 
     /**
@@ -470,8 +457,8 @@ public class FulfillmentApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo(String distributionCenterCode, List<FulfillmentShipment> shipments) throws ApiException {
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostCall(distributionCenterCode, shipments, null, null);
+    public ApiResponse<Void> shipOrdersWithHttpInfo(String distributionCenterCode, List<FulfillmentShipment> shipments) throws ApiException {
+        com.squareup.okhttp.Call call = shipOrdersCall(distributionCenterCode, shipments, null, null);
         return apiClient.execute(call);
     }
 
@@ -484,7 +471,7 @@ public class FulfillmentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostAsync(String distributionCenterCode, List<FulfillmentShipment> shipments, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call shipOrdersAsync(String distributionCenterCode, List<FulfillmentShipment> shipments, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -505,17 +492,28 @@ public class FulfillmentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostCall(distributionCenterCode, shipments, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = shipOrdersCall(distributionCenterCode, shipments, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for fulfillmentDistributionCentersGet */
-    private com.squareup.okhttp.Call fulfillmentDistributionCentersGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    /* Build call for updateInventory */
+    private com.squareup.okhttp.Call updateInventoryCall(String distributionCenterCode, List<FulfillmentInventory> inventories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = inventories;
+        
+        // verify the required parameter 'distributionCenterCode' is set
+        if (distributionCenterCode == null) {
+            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling updateInventory(Async)");
+        }
+        
+        // verify the required parameter 'inventories' is set
+        if (inventories == null) {
+            throw new ApiException("Missing the required parameter 'inventories' when calling updateInventory(Async)");
+        }
         
 
         // create path and map variables
-        String localVarPath = "/fulfillment/distribution_centers".replaceAll("\\{format\\}","json");
+        String localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "distribution_center_code" + "\\}", apiClient.escapeString(distributionCenterCode.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -548,40 +546,43 @@ public class FulfillmentApi {
         }
 
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     /**
-     * Retrieve distribution centers
-     * Retrieves the distribution centers that this user has access to. 
-     * @return DistributionCentersResponse
+     * Update inventory
+     * Update the inventory for items associated with this distribution center 
+     * @param distributionCenterCode Distribution center code (required)
+     * @param inventories Inventory updates (limit 500) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DistributionCentersResponse fulfillmentDistributionCentersGet() throws ApiException {
-        ApiResponse<DistributionCentersResponse> resp = fulfillmentDistributionCentersGetWithHttpInfo();
-        return resp.getData();
+    public void updateInventory(String distributionCenterCode, List<FulfillmentInventory> inventories) throws ApiException {
+        updateInventoryWithHttpInfo(distributionCenterCode, inventories);
     }
 
     /**
-     * Retrieve distribution centers
-     * Retrieves the distribution centers that this user has access to. 
-     * @return ApiResponse&lt;DistributionCentersResponse&gt;
+     * Update inventory
+     * Update the inventory for items associated with this distribution center 
+     * @param distributionCenterCode Distribution center code (required)
+     * @param inventories Inventory updates (limit 500) (required)
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DistributionCentersResponse> fulfillmentDistributionCentersGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersGetCall(null, null);
-        Type localVarReturnType = new TypeToken<DistributionCentersResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+    public ApiResponse<Void> updateInventoryWithHttpInfo(String distributionCenterCode, List<FulfillmentInventory> inventories) throws ApiException {
+        com.squareup.okhttp.Call call = updateInventoryCall(distributionCenterCode, inventories, null, null);
+        return apiClient.execute(call);
     }
 
     /**
-     * Retrieve distribution centers (asynchronously)
-     * Retrieves the distribution centers that this user has access to. 
+     * Update inventory (asynchronously)
+     * Update the inventory for items associated with this distribution center 
+     * @param distributionCenterCode Distribution center code (required)
+     * @param inventories Inventory updates (limit 500) (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fulfillmentDistributionCentersGetAsync(final ApiCallback<DistributionCentersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateInventoryAsync(String distributionCenterCode, List<FulfillmentInventory> inventories, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -602,9 +603,8 @@ public class FulfillmentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fulfillmentDistributionCentersGetCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DistributionCentersResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        com.squareup.okhttp.Call call = updateInventoryCall(distributionCenterCode, inventories, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
 }

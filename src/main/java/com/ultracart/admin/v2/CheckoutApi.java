@@ -38,22 +38,22 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyResponse;
-import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyRequest;
+import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.CartResponse;
+import com.ultracart.admin.v2.models.Cart;
 import com.ultracart.admin.v2.models.CartFinalizeOrderRequest;
 import com.ultracart.admin.v2.models.CartFinalizeOrderResponse;
+import com.ultracart.admin.v2.models.CartResponse;
 import com.ultracart.admin.v2.models.CheckoutHandoffRequest;
 import com.ultracart.admin.v2.models.CheckoutHandoffResponse;
 import com.ultracart.admin.v2.models.CartProfileLoginResponse;
 import com.ultracart.admin.v2.models.CartProfileLoginRequest;
-import com.ultracart.admin.v2.models.Cart;
 import com.ultracart.admin.v2.models.CartProfileRegisterResponse;
 import com.ultracart.admin.v2.models.CartProfileRegisterRequest;
+import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyResponse;
+import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyRequest;
 import com.ultracart.admin.v2.models.CartValidationRequest;
 import com.ultracart.admin.v2.models.CartValidationResponse;
-import com.ultracart.admin.v2.models.ItemsResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -80,18 +80,124 @@ public class CheckoutApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for checkoutBrowserKeyPut */
-    private com.squareup.okhttp.Call checkoutBrowserKeyPutCall(CheckoutSetupBrowserKeyRequest browserKeyRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = browserKeyRequest;
+    /* Build call for cityState */
+    private com.squareup.okhttp.Call cityStateCall(Cart cart, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = cart;
         
-        // verify the required parameter 'browserKeyRequest' is set
-        if (browserKeyRequest == null) {
-            throw new ApiException("Missing the required parameter 'browserKeyRequest' when calling checkoutBrowserKeyPut(Async)");
+        // verify the required parameter 'cart' is set
+        if (cart == null) {
+            throw new ApiException("Missing the required parameter 'cart' when calling cityState(Async)");
         }
         
 
         // create path and map variables
-        String localVarPath = "/checkout/browser_key".replaceAll("\\{format\\}","json");
+        String localVarPath = "/checkout/city_state".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * City/State for Zip
+     * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
+     * @param cart Cart (required)
+     * @return ItemsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemsResponse cityState(Cart cart) throws ApiException {
+        ApiResponse<ItemsResponse> resp = cityStateWithHttpInfo(cart);
+        return resp.getData();
+    }
+
+    /**
+     * City/State for Zip
+     * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
+     * @param cart Cart (required)
+     * @return ApiResponse&lt;ItemsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemsResponse> cityStateWithHttpInfo(Cart cart) throws ApiException {
+        com.squareup.okhttp.Call call = cityStateCall(cart, null, null);
+        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * City/State for Zip (asynchronously)
+     * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
+     * @param cart Cart (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cityStateAsync(Cart cart, final ApiCallback<ItemsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cityStateCall(cart, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for finalizeOrder */
+    private com.squareup.okhttp.Call finalizeOrderCall(CartFinalizeOrderRequest finalizeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = finalizeRequest;
+        
+        // verify the required parameter 'finalizeRequest' is set
+        if (finalizeRequest == null) {
+            throw new ApiException("Missing the required parameter 'finalizeRequest' when calling finalizeOrder(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/checkout/cart/finalizeOrder".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -124,43 +230,43 @@ public class CheckoutApi {
         }
 
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     /**
-     * Setup Browser Application
-     * Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
-     * @param browserKeyRequest Setup browser key request (required)
-     * @return CheckoutSetupBrowserKeyResponse
+     * Finalize Order
+     * Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
+     * @param finalizeRequest Finalize request (required)
+     * @return CartFinalizeOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CheckoutSetupBrowserKeyResponse checkoutBrowserKeyPut(CheckoutSetupBrowserKeyRequest browserKeyRequest) throws ApiException {
-        ApiResponse<CheckoutSetupBrowserKeyResponse> resp = checkoutBrowserKeyPutWithHttpInfo(browserKeyRequest);
+    public CartFinalizeOrderResponse finalizeOrder(CartFinalizeOrderRequest finalizeRequest) throws ApiException {
+        ApiResponse<CartFinalizeOrderResponse> resp = finalizeOrderWithHttpInfo(finalizeRequest);
         return resp.getData();
     }
 
     /**
-     * Setup Browser Application
-     * Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
-     * @param browserKeyRequest Setup browser key request (required)
-     * @return ApiResponse&lt;CheckoutSetupBrowserKeyResponse&gt;
+     * Finalize Order
+     * Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
+     * @param finalizeRequest Finalize request (required)
+     * @return ApiResponse&lt;CartFinalizeOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CheckoutSetupBrowserKeyResponse> checkoutBrowserKeyPutWithHttpInfo(CheckoutSetupBrowserKeyRequest browserKeyRequest) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutBrowserKeyPutCall(browserKeyRequest, null, null);
-        Type localVarReturnType = new TypeToken<CheckoutSetupBrowserKeyResponse>(){}.getType();
+    public ApiResponse<CartFinalizeOrderResponse> finalizeOrderWithHttpInfo(CartFinalizeOrderRequest finalizeRequest) throws ApiException {
+        com.squareup.okhttp.Call call = finalizeOrderCall(finalizeRequest, null, null);
+        Type localVarReturnType = new TypeToken<CartFinalizeOrderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Setup Browser Application (asynchronously)
-     * Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
-     * @param browserKeyRequest Setup browser key request (required)
+     * Finalize Order (asynchronously)
+     * Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
+     * @param finalizeRequest Finalize request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutBrowserKeyPutAsync(CheckoutSetupBrowserKeyRequest browserKeyRequest, final ApiCallback<CheckoutSetupBrowserKeyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call finalizeOrderAsync(CartFinalizeOrderRequest finalizeRequest, final ApiCallback<CartFinalizeOrderResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -181,18 +287,121 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutBrowserKeyPutCall(browserKeyRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CheckoutSetupBrowserKeyResponse>(){}.getType();
+        com.squareup.okhttp.Call call = finalizeOrderCall(finalizeRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CartFinalizeOrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutCartCartIdGet */
-    private com.squareup.okhttp.Call checkoutCartCartIdGetCall(String cartId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getCart */
+    private com.squareup.okhttp.Call getCartCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+
+        // create path and map variables
+        String localVarPath = "/checkout/cart".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Get cart
+     * If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return CartResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CartResponse getCart(String expand) throws ApiException {
+        ApiResponse<CartResponse> resp = getCartWithHttpInfo(expand);
+        return resp.getData();
+    }
+
+    /**
+     * Get cart
+     * If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;CartResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CartResponse> getCartWithHttpInfo(String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getCartCall(expand, null, null);
+        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get cart (asynchronously)
+     * If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getCartAsync(String expand, final ApiCallback<CartResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCartCall(expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getCartByCartId */
+    private com.squareup.okhttp.Call getCartByCartIdCall(String cartId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'cartId' is set
         if (cartId == null) {
-            throw new ApiException("Missing the required parameter 'cartId' when calling checkoutCartCartIdGet(Async)");
+            throw new ApiException("Missing the required parameter 'cartId' when calling getCartByCartId(Async)");
         }
         
 
@@ -244,8 +453,8 @@ public class CheckoutApi {
      * @return CartResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CartResponse checkoutCartCartIdGet(String cartId, String expand) throws ApiException {
-        ApiResponse<CartResponse> resp = checkoutCartCartIdGetWithHttpInfo(cartId, expand);
+    public CartResponse getCartByCartId(String cartId, String expand) throws ApiException {
+        ApiResponse<CartResponse> resp = getCartByCartIdWithHttpInfo(cartId, expand);
         return resp.getData();
     }
 
@@ -257,8 +466,8 @@ public class CheckoutApi {
      * @return ApiResponse&lt;CartResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CartResponse> checkoutCartCartIdGetWithHttpInfo(String cartId, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartCartIdGetCall(cartId, expand, null, null);
+    public ApiResponse<CartResponse> getCartByCartIdWithHttpInfo(String cartId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getCartByCartIdCall(cartId, expand, null, null);
         Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -272,7 +481,7 @@ public class CheckoutApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutCartCartIdGetAsync(String cartId, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCartByCartIdAsync(String cartId, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -293,124 +502,24 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutCartCartIdGetCall(cartId, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCartByCartIdCall(cartId, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutCartFinalizeOrderPost */
-    private com.squareup.okhttp.Call checkoutCartFinalizeOrderPostCall(CartFinalizeOrderRequest finalizeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = finalizeRequest;
-        
-        // verify the required parameter 'finalizeRequest' is set
-        if (finalizeRequest == null) {
-            throw new ApiException("Missing the required parameter 'finalizeRequest' when calling checkoutCartFinalizeOrderPost(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/checkout/cart/finalizeOrder".replaceAll("\\{format\\}","json");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Finalize Order
-     * Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
-     * @param finalizeRequest Finalize request (required)
-     * @return CartFinalizeOrderResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public CartFinalizeOrderResponse checkoutCartFinalizeOrderPost(CartFinalizeOrderRequest finalizeRequest) throws ApiException {
-        ApiResponse<CartFinalizeOrderResponse> resp = checkoutCartFinalizeOrderPostWithHttpInfo(finalizeRequest);
-        return resp.getData();
-    }
-
-    /**
-     * Finalize Order
-     * Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
-     * @param finalizeRequest Finalize request (required)
-     * @return ApiResponse&lt;CartFinalizeOrderResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<CartFinalizeOrderResponse> checkoutCartFinalizeOrderPostWithHttpInfo(CartFinalizeOrderRequest finalizeRequest) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartFinalizeOrderPostCall(finalizeRequest, null, null);
-        Type localVarReturnType = new TypeToken<CartFinalizeOrderResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Finalize Order (asynchronously)
-     * Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
-     * @param finalizeRequest Finalize request (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call checkoutCartFinalizeOrderPostAsync(CartFinalizeOrderRequest finalizeRequest, final ApiCallback<CartFinalizeOrderResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = checkoutCartFinalizeOrderPostCall(finalizeRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CartFinalizeOrderResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for checkoutCartGet */
-    private com.squareup.okhttp.Call checkoutCartGetCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getCartByReturnCode */
+    private com.squareup.okhttp.Call getCartByReturnCodeCall(String returnCode, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
+        // verify the required parameter 'returnCode' is set
+        if (returnCode == null) {
+            throw new ApiException("Missing the required parameter 'returnCode' when calling getCartByReturnCode(Async)");
+        }
+        
 
         // create path and map variables
-        String localVarPath = "/checkout/cart".replaceAll("\\{format\\}","json");
+        String localVarPath = "/checkout/return/{return_code}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "return_code" + "\\}", apiClient.escapeString(returnCode.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (expand != null)
@@ -449,39 +558,42 @@ public class CheckoutApi {
     }
 
     /**
-     * Get cart
-     * If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+     * Get cart (by return code)
+     * Get a cart specified by the return code parameter. 
+     * @param returnCode Return code to lookup cart ID by (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return CartResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CartResponse checkoutCartGet(String expand) throws ApiException {
-        ApiResponse<CartResponse> resp = checkoutCartGetWithHttpInfo(expand);
+    public CartResponse getCartByReturnCode(String returnCode, String expand) throws ApiException {
+        ApiResponse<CartResponse> resp = getCartByReturnCodeWithHttpInfo(returnCode, expand);
         return resp.getData();
     }
 
     /**
-     * Get cart
-     * If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+     * Get cart (by return code)
+     * Get a cart specified by the return code parameter. 
+     * @param returnCode Return code to lookup cart ID by (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;CartResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CartResponse> checkoutCartGetWithHttpInfo(String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartGetCall(expand, null, null);
+    public ApiResponse<CartResponse> getCartByReturnCodeWithHttpInfo(String returnCode, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getCartByReturnCodeCall(returnCode, expand, null, null);
         Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get cart (asynchronously)
-     * If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+     * Get cart (by return code) (asynchronously)
+     * Get a cart specified by the return code parameter. 
+     * @param returnCode Return code to lookup cart ID by (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutCartGetAsync(String expand, final ApiCallback<CartResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCartByReturnCodeAsync(String returnCode, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -502,18 +614,18 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutCartGetCall(expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCartByReturnCodeCall(returnCode, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutCartHandoffPost */
-    private com.squareup.okhttp.Call checkoutCartHandoffPostCall(CheckoutHandoffRequest handoffRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for handoffCart */
+    private com.squareup.okhttp.Call handoffCartCall(CheckoutHandoffRequest handoffRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = handoffRequest;
         
         // verify the required parameter 'handoffRequest' is set
         if (handoffRequest == null) {
-            throw new ApiException("Missing the required parameter 'handoffRequest' when calling checkoutCartHandoffPost(Async)");
+            throw new ApiException("Missing the required parameter 'handoffRequest' when calling handoffCart(Async)");
         }
         
 
@@ -564,8 +676,8 @@ public class CheckoutApi {
      * @return CheckoutHandoffResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CheckoutHandoffResponse checkoutCartHandoffPost(CheckoutHandoffRequest handoffRequest, String expand) throws ApiException {
-        ApiResponse<CheckoutHandoffResponse> resp = checkoutCartHandoffPostWithHttpInfo(handoffRequest, expand);
+    public CheckoutHandoffResponse handoffCart(CheckoutHandoffRequest handoffRequest, String expand) throws ApiException {
+        ApiResponse<CheckoutHandoffResponse> resp = handoffCartWithHttpInfo(handoffRequest, expand);
         return resp.getData();
     }
 
@@ -577,8 +689,8 @@ public class CheckoutApi {
      * @return ApiResponse&lt;CheckoutHandoffResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CheckoutHandoffResponse> checkoutCartHandoffPostWithHttpInfo(CheckoutHandoffRequest handoffRequest, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartHandoffPostCall(handoffRequest, expand, null, null);
+    public ApiResponse<CheckoutHandoffResponse> handoffCartWithHttpInfo(CheckoutHandoffRequest handoffRequest, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = handoffCartCall(handoffRequest, expand, null, null);
         Type localVarReturnType = new TypeToken<CheckoutHandoffResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -592,7 +704,7 @@ public class CheckoutApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutCartHandoffPostAsync(CheckoutHandoffRequest handoffRequest, String expand, final ApiCallback<CheckoutHandoffResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call handoffCartAsync(CheckoutHandoffRequest handoffRequest, String expand, final ApiCallback<CheckoutHandoffResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -613,18 +725,18 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutCartHandoffPostCall(handoffRequest, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = handoffCartCall(handoffRequest, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CheckoutHandoffResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutCartProfileLoginPost */
-    private com.squareup.okhttp.Call checkoutCartProfileLoginPostCall(CartProfileLoginRequest loginRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for login */
+    private com.squareup.okhttp.Call loginCall(CartProfileLoginRequest loginRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = loginRequest;
         
         // verify the required parameter 'loginRequest' is set
         if (loginRequest == null) {
-            throw new ApiException("Missing the required parameter 'loginRequest' when calling checkoutCartProfileLoginPost(Async)");
+            throw new ApiException("Missing the required parameter 'loginRequest' when calling login(Async)");
         }
         
 
@@ -675,8 +787,8 @@ public class CheckoutApi {
      * @return CartProfileLoginResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CartProfileLoginResponse checkoutCartProfileLoginPost(CartProfileLoginRequest loginRequest, String expand) throws ApiException {
-        ApiResponse<CartProfileLoginResponse> resp = checkoutCartProfileLoginPostWithHttpInfo(loginRequest, expand);
+    public CartProfileLoginResponse login(CartProfileLoginRequest loginRequest, String expand) throws ApiException {
+        ApiResponse<CartProfileLoginResponse> resp = loginWithHttpInfo(loginRequest, expand);
         return resp.getData();
     }
 
@@ -688,8 +800,8 @@ public class CheckoutApi {
      * @return ApiResponse&lt;CartProfileLoginResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CartProfileLoginResponse> checkoutCartProfileLoginPostWithHttpInfo(CartProfileLoginRequest loginRequest, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartProfileLoginPostCall(loginRequest, expand, null, null);
+    public ApiResponse<CartProfileLoginResponse> loginWithHttpInfo(CartProfileLoginRequest loginRequest, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = loginCall(loginRequest, expand, null, null);
         Type localVarReturnType = new TypeToken<CartProfileLoginResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -703,7 +815,7 @@ public class CheckoutApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutCartProfileLoginPostAsync(CartProfileLoginRequest loginRequest, String expand, final ApiCallback<CartProfileLoginResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loginAsync(CartProfileLoginRequest loginRequest, String expand, final ApiCallback<CartProfileLoginResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -724,18 +836,18 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutCartProfileLoginPostCall(loginRequest, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loginCall(loginRequest, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CartProfileLoginResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutCartProfileLogoutPost */
-    private com.squareup.okhttp.Call checkoutCartProfileLogoutPostCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for logout */
+    private com.squareup.okhttp.Call logoutCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = cart;
         
         // verify the required parameter 'cart' is set
         if (cart == null) {
-            throw new ApiException("Missing the required parameter 'cart' when calling checkoutCartProfileLogoutPost(Async)");
+            throw new ApiException("Missing the required parameter 'cart' when calling logout(Async)");
         }
         
 
@@ -786,8 +898,8 @@ public class CheckoutApi {
      * @return CartResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CartResponse checkoutCartProfileLogoutPost(Cart cart, String expand) throws ApiException {
-        ApiResponse<CartResponse> resp = checkoutCartProfileLogoutPostWithHttpInfo(cart, expand);
+    public CartResponse logout(Cart cart, String expand) throws ApiException {
+        ApiResponse<CartResponse> resp = logoutWithHttpInfo(cart, expand);
         return resp.getData();
     }
 
@@ -799,8 +911,8 @@ public class CheckoutApi {
      * @return ApiResponse&lt;CartResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CartResponse> checkoutCartProfileLogoutPostWithHttpInfo(Cart cart, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartProfileLogoutPostCall(cart, expand, null, null);
+    public ApiResponse<CartResponse> logoutWithHttpInfo(Cart cart, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = logoutCall(cart, expand, null, null);
         Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -814,7 +926,7 @@ public class CheckoutApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutCartProfileLogoutPostAsync(Cart cart, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call logoutAsync(Cart cart, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -835,18 +947,18 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutCartProfileLogoutPostCall(cart, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = logoutCall(cart, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutCartProfileRegisterPost */
-    private com.squareup.okhttp.Call checkoutCartProfileRegisterPostCall(CartProfileRegisterRequest registerRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for register */
+    private com.squareup.okhttp.Call registerCall(CartProfileRegisterRequest registerRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = registerRequest;
         
         // verify the required parameter 'registerRequest' is set
         if (registerRequest == null) {
-            throw new ApiException("Missing the required parameter 'registerRequest' when calling checkoutCartProfileRegisterPost(Async)");
+            throw new ApiException("Missing the required parameter 'registerRequest' when calling register(Async)");
         }
         
 
@@ -897,8 +1009,8 @@ public class CheckoutApi {
      * @return CartProfileRegisterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CartProfileRegisterResponse checkoutCartProfileRegisterPost(CartProfileRegisterRequest registerRequest, String expand) throws ApiException {
-        ApiResponse<CartProfileRegisterResponse> resp = checkoutCartProfileRegisterPostWithHttpInfo(registerRequest, expand);
+    public CartProfileRegisterResponse register(CartProfileRegisterRequest registerRequest, String expand) throws ApiException {
+        ApiResponse<CartProfileRegisterResponse> resp = registerWithHttpInfo(registerRequest, expand);
         return resp.getData();
     }
 
@@ -910,8 +1022,8 @@ public class CheckoutApi {
      * @return ApiResponse&lt;CartProfileRegisterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CartProfileRegisterResponse> checkoutCartProfileRegisterPostWithHttpInfo(CartProfileRegisterRequest registerRequest, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartProfileRegisterPostCall(registerRequest, expand, null, null);
+    public ApiResponse<CartProfileRegisterResponse> registerWithHttpInfo(CartProfileRegisterRequest registerRequest, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = registerCall(registerRequest, expand, null, null);
         Type localVarReturnType = new TypeToken<CartProfileRegisterResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -925,7 +1037,7 @@ public class CheckoutApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutCartProfileRegisterPostAsync(CartProfileRegisterRequest registerRequest, String expand, final ApiCallback<CartProfileRegisterResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call registerAsync(CartProfileRegisterRequest registerRequest, String expand, final ApiCallback<CartProfileRegisterResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -946,134 +1058,23 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutCartProfileRegisterPostCall(registerRequest, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = registerCall(registerRequest, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CartProfileRegisterResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutCartPut */
-    private com.squareup.okhttp.Call checkoutCartPutCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for relatedItemsForCart */
+    private com.squareup.okhttp.Call relatedItemsForCartCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = cart;
         
         // verify the required parameter 'cart' is set
         if (cart == null) {
-            throw new ApiException("Missing the required parameter 'cart' when calling checkoutCartPut(Async)");
+            throw new ApiException("Missing the required parameter 'cart' when calling relatedItemsForCart(Async)");
         }
         
 
         // create path and map variables
-        String localVarPath = "/checkout/cart".replaceAll("\\{format\\}","json");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (expand != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Update cart
-     * Update the cart. 
-     * @param cart Cart (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return CartResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public CartResponse checkoutCartPut(Cart cart, String expand) throws ApiException {
-        ApiResponse<CartResponse> resp = checkoutCartPutWithHttpInfo(cart, expand);
-        return resp.getData();
-    }
-
-    /**
-     * Update cart
-     * Update the cart. 
-     * @param cart Cart (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return ApiResponse&lt;CartResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<CartResponse> checkoutCartPutWithHttpInfo(Cart cart, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartPutCall(cart, expand, null, null);
-        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Update cart (asynchronously)
-     * Update the cart. 
-     * @param cart Cart (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call checkoutCartPutAsync(Cart cart, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = checkoutCartPutCall(cart, expand, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for checkoutCartValidatePost */
-    private com.squareup.okhttp.Call checkoutCartValidatePostCall(CartValidationRequest validationRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = validationRequest;
-        
-        // verify the required parameter 'validationRequest' is set
-        if (validationRequest == null) {
-            throw new ApiException("Missing the required parameter 'validationRequest' when calling checkoutCartValidatePost(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/checkout/cart/validate".replaceAll("\\{format\\}","json");
+        String localVarPath = "/checkout/related_items".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (expand != null)
@@ -1112,148 +1113,42 @@ public class CheckoutApi {
     }
 
     /**
-     * Validate
-     * Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-     * @param validationRequest Validation request (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return CartValidationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public CartValidationResponse checkoutCartValidatePost(CartValidationRequest validationRequest, String expand) throws ApiException {
-        ApiResponse<CartValidationResponse> resp = checkoutCartValidatePostWithHttpInfo(validationRequest, expand);
-        return resp.getData();
-    }
-
-    /**
-     * Validate
-     * Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-     * @param validationRequest Validation request (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return ApiResponse&lt;CartValidationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<CartValidationResponse> checkoutCartValidatePostWithHttpInfo(CartValidationRequest validationRequest, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCartValidatePostCall(validationRequest, expand, null, null);
-        Type localVarReturnType = new TypeToken<CartValidationResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Validate (asynchronously)
-     * Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-     * @param validationRequest Validation request (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call checkoutCartValidatePostAsync(CartValidationRequest validationRequest, String expand, final ApiCallback<CartValidationResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = checkoutCartValidatePostCall(validationRequest, expand, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CartValidationResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for checkoutCityStatePost */
-    private com.squareup.okhttp.Call checkoutCityStatePostCall(Cart cart, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = cart;
-        
-        // verify the required parameter 'cart' is set
-        if (cart == null) {
-            throw new ApiException("Missing the required parameter 'cart' when calling checkoutCityStatePost(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/checkout/city_state".replaceAll("\\{format\\}","json");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * City/State for Zip
-     * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
+     * Related items
+     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
      * @param cart Cart (required)
+     * @param expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
      * @return ItemsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse checkoutCityStatePost(Cart cart) throws ApiException {
-        ApiResponse<ItemsResponse> resp = checkoutCityStatePostWithHttpInfo(cart);
+    public ItemsResponse relatedItemsForCart(Cart cart, String expand) throws ApiException {
+        ApiResponse<ItemsResponse> resp = relatedItemsForCartWithHttpInfo(cart, expand);
         return resp.getData();
     }
 
     /**
-     * City/State for Zip
-     * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
+     * Related items
+     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
      * @param cart Cart (required)
+     * @param expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
      * @return ApiResponse&lt;ItemsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> checkoutCityStatePostWithHttpInfo(Cart cart) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutCityStatePostCall(cart, null, null);
+    public ApiResponse<ItemsResponse> relatedItemsForCartWithHttpInfo(Cart cart, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = relatedItemsForCartCall(cart, expand, null, null);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * City/State for Zip (asynchronously)
-     * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
+     * Related items (asynchronously)
+     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
      * @param cart Cart (required)
+     * @param expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutCityStatePostAsync(Cart cart, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call relatedItemsForCartAsync(Cart cart, String expand, final ApiCallback<ItemsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1274,23 +1169,23 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutCityStatePostCall(cart, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = relatedItemsForCartCall(cart, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutRelatedItemsItemIdPost */
-    private com.squareup.okhttp.Call checkoutRelatedItemsItemIdPostCall(String itemId, Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for relatedItemsForItem */
+    private com.squareup.okhttp.Call relatedItemsForItemCall(String itemId, Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = cart;
         
         // verify the required parameter 'itemId' is set
         if (itemId == null) {
-            throw new ApiException("Missing the required parameter 'itemId' when calling checkoutRelatedItemsItemIdPost(Async)");
+            throw new ApiException("Missing the required parameter 'itemId' when calling relatedItemsForItem(Async)");
         }
         
         // verify the required parameter 'cart' is set
         if (cart == null) {
-            throw new ApiException("Missing the required parameter 'cart' when calling checkoutRelatedItemsItemIdPost(Async)");
+            throw new ApiException("Missing the required parameter 'cart' when calling relatedItemsForItem(Async)");
         }
         
 
@@ -1343,8 +1238,8 @@ public class CheckoutApi {
      * @return ItemsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse checkoutRelatedItemsItemIdPost(String itemId, Cart cart, String expand) throws ApiException {
-        ApiResponse<ItemsResponse> resp = checkoutRelatedItemsItemIdPostWithHttpInfo(itemId, cart, expand);
+    public ItemsResponse relatedItemsForItem(String itemId, Cart cart, String expand) throws ApiException {
+        ApiResponse<ItemsResponse> resp = relatedItemsForItemWithHttpInfo(itemId, cart, expand);
         return resp.getData();
     }
 
@@ -1357,8 +1252,8 @@ public class CheckoutApi {
      * @return ApiResponse&lt;ItemsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> checkoutRelatedItemsItemIdPostWithHttpInfo(String itemId, Cart cart, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutRelatedItemsItemIdPostCall(itemId, cart, expand, null, null);
+    public ApiResponse<ItemsResponse> relatedItemsForItemWithHttpInfo(String itemId, Cart cart, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = relatedItemsForItemCall(itemId, cart, expand, null, null);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1373,7 +1268,7 @@ public class CheckoutApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutRelatedItemsItemIdPostAsync(String itemId, Cart cart, String expand, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call relatedItemsForItemAsync(String itemId, Cart cart, String expand, final ApiCallback<ItemsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1394,23 +1289,240 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutRelatedItemsItemIdPostCall(itemId, cart, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = relatedItemsForItemCall(itemId, cart, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for checkoutRelatedItemsPost */
-    private com.squareup.okhttp.Call checkoutRelatedItemsPostCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = cart;
+    /* Build call for setupBrowserKey */
+    private com.squareup.okhttp.Call setupBrowserKeyCall(CheckoutSetupBrowserKeyRequest browserKeyRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = browserKeyRequest;
         
-        // verify the required parameter 'cart' is set
-        if (cart == null) {
-            throw new ApiException("Missing the required parameter 'cart' when calling checkoutRelatedItemsPost(Async)");
+        // verify the required parameter 'browserKeyRequest' is set
+        if (browserKeyRequest == null) {
+            throw new ApiException("Missing the required parameter 'browserKeyRequest' when calling setupBrowserKey(Async)");
         }
         
 
         // create path and map variables
-        String localVarPath = "/checkout/related_items".replaceAll("\\{format\\}","json");
+        String localVarPath = "/checkout/browser_key".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Setup Browser Application
+     * Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+     * @param browserKeyRequest Setup browser key request (required)
+     * @return CheckoutSetupBrowserKeyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CheckoutSetupBrowserKeyResponse setupBrowserKey(CheckoutSetupBrowserKeyRequest browserKeyRequest) throws ApiException {
+        ApiResponse<CheckoutSetupBrowserKeyResponse> resp = setupBrowserKeyWithHttpInfo(browserKeyRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Setup Browser Application
+     * Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+     * @param browserKeyRequest Setup browser key request (required)
+     * @return ApiResponse&lt;CheckoutSetupBrowserKeyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CheckoutSetupBrowserKeyResponse> setupBrowserKeyWithHttpInfo(CheckoutSetupBrowserKeyRequest browserKeyRequest) throws ApiException {
+        com.squareup.okhttp.Call call = setupBrowserKeyCall(browserKeyRequest, null, null);
+        Type localVarReturnType = new TypeToken<CheckoutSetupBrowserKeyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Setup Browser Application (asynchronously)
+     * Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+     * @param browserKeyRequest Setup browser key request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call setupBrowserKeyAsync(CheckoutSetupBrowserKeyRequest browserKeyRequest, final ApiCallback<CheckoutSetupBrowserKeyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = setupBrowserKeyCall(browserKeyRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CheckoutSetupBrowserKeyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for updateCart */
+    private com.squareup.okhttp.Call updateCartCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = cart;
+        
+        // verify the required parameter 'cart' is set
+        if (cart == null) {
+            throw new ApiException("Missing the required parameter 'cart' when calling updateCart(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/checkout/cart".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Update cart
+     * Update the cart. 
+     * @param cart Cart (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return CartResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CartResponse updateCart(Cart cart, String expand) throws ApiException {
+        ApiResponse<CartResponse> resp = updateCartWithHttpInfo(cart, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Update cart
+     * Update the cart. 
+     * @param cart Cart (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;CartResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CartResponse> updateCartWithHttpInfo(Cart cart, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = updateCartCall(cart, expand, null, null);
+        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update cart (asynchronously)
+     * Update the cart. 
+     * @param cart Cart (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateCartAsync(Cart cart, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateCartCall(cart, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for validateCart */
+    private com.squareup.okhttp.Call validateCartCall(CartValidationRequest validationRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = validationRequest;
+        
+        // verify the required parameter 'validationRequest' is set
+        if (validationRequest == null) {
+            throw new ApiException("Missing the required parameter 'validationRequest' when calling validateCart(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/checkout/cart/validate".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (expand != null)
@@ -1449,42 +1561,42 @@ public class CheckoutApi {
     }
 
     /**
-     * Related items
-     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-     * @param cart Cart (required)
-     * @param expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
-     * @return ItemsResponse
+     * Validate
+     * Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
+     * @param validationRequest Validation request (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return CartValidationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse checkoutRelatedItemsPost(Cart cart, String expand) throws ApiException {
-        ApiResponse<ItemsResponse> resp = checkoutRelatedItemsPostWithHttpInfo(cart, expand);
+    public CartValidationResponse validateCart(CartValidationRequest validationRequest, String expand) throws ApiException {
+        ApiResponse<CartValidationResponse> resp = validateCartWithHttpInfo(validationRequest, expand);
         return resp.getData();
     }
 
     /**
-     * Related items
-     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-     * @param cart Cart (required)
-     * @param expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
-     * @return ApiResponse&lt;ItemsResponse&gt;
+     * Validate
+     * Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
+     * @param validationRequest Validation request (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;CartValidationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> checkoutRelatedItemsPostWithHttpInfo(Cart cart, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutRelatedItemsPostCall(cart, expand, null, null);
-        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+    public ApiResponse<CartValidationResponse> validateCartWithHttpInfo(CartValidationRequest validationRequest, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = validateCartCall(validationRequest, expand, null, null);
+        Type localVarReturnType = new TypeToken<CartValidationResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Related items (asynchronously)
-     * Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-     * @param cart Cart (required)
-     * @param expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
+     * Validate (asynchronously)
+     * Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
+     * @param validationRequest Validation request (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkoutRelatedItemsPostAsync(Cart cart, String expand, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call validateCartAsync(CartValidationRequest validationRequest, String expand, final ApiCallback<CartValidationResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1505,120 +1617,8 @@ public class CheckoutApi {
             };
         }
 
-        com.squareup.okhttp.Call call = checkoutRelatedItemsPostCall(cart, expand, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for checkoutReturnReturnCodeGet */
-    private com.squareup.okhttp.Call checkoutReturnReturnCodeGetCall(String returnCode, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'returnCode' is set
-        if (returnCode == null) {
-            throw new ApiException("Missing the required parameter 'returnCode' when calling checkoutReturnReturnCodeGet(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/checkout/return/{return_code}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "return_code" + "\\}", apiClient.escapeString(returnCode.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (expand != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Get cart (by return code)
-     * Get a cart specified by the return code parameter. 
-     * @param returnCode Return code to lookup cart ID by (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return CartResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public CartResponse checkoutReturnReturnCodeGet(String returnCode, String expand) throws ApiException {
-        ApiResponse<CartResponse> resp = checkoutReturnReturnCodeGetWithHttpInfo(returnCode, expand);
-        return resp.getData();
-    }
-
-    /**
-     * Get cart (by return code)
-     * Get a cart specified by the return code parameter. 
-     * @param returnCode Return code to lookup cart ID by (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return ApiResponse&lt;CartResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<CartResponse> checkoutReturnReturnCodeGetWithHttpInfo(String returnCode, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = checkoutReturnReturnCodeGetCall(returnCode, expand, null, null);
-        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get cart (by return code) (asynchronously)
-     * Get a cart specified by the return code parameter. 
-     * @param returnCode Return code to lookup cart ID by (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call checkoutReturnReturnCodeGetAsync(String returnCode, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = checkoutReturnReturnCodeGetCall(returnCode, expand, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
+        com.squareup.okhttp.Call call = validateCartCall(validationRequest, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CartValidationResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

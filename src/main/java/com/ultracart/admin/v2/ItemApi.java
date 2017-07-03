@@ -38,9 +38,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.ItemResponse;
+import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.Item;
 import com.ultracart.admin.v2.models.TempMultimediaResponse;
 import java.io.File;
@@ -70,8 +70,228 @@ public class ItemApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for itemItemsGet */
-    private com.squareup.okhttp.Call itemItemsGetCall(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for deleteItem */
+    private com.squareup.okhttp.Call deleteItemCall(Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling deleteItem(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Delete an item
+     * Delete an item on the UltraCart account. 
+     * @param merchantItemOid The item oid to delete. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteItem(Integer merchantItemOid) throws ApiException {
+        deleteItemWithHttpInfo(merchantItemOid);
+    }
+
+    /**
+     * Delete an item
+     * Delete an item on the UltraCart account. 
+     * @param merchantItemOid The item oid to delete. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteItemWithHttpInfo(Integer merchantItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteItemCall(merchantItemOid, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete an item (asynchronously)
+     * Delete an item on the UltraCart account. 
+     * @param merchantItemOid The item oid to delete. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteItemAsync(Integer merchantItemOid, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteItemCall(merchantItemOid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /* Build call for getItem */
+    private com.squareup.okhttp.Call getItemCall(Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling getItem(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Retrieve an item
+     * Retrieves a single item using the specified item oid. 
+     * @param merchantItemOid The item oid to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemResponse getItem(Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemResponse> resp = getItemWithHttpInfo(merchantItemOid, expand, placeholders);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve an item
+     * Retrieves a single item using the specified item oid. 
+     * @param merchantItemOid The item oid to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ApiResponse&lt;ItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemResponse> getItemWithHttpInfo(Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = getItemCall(merchantItemOid, expand, placeholders, null, null);
+        Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve an item (asynchronously)
+     * Retrieves a single item using the specified item oid. 
+     * @param merchantItemOid The item oid to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getItemAsync(Integer merchantItemOid, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getItemCall(merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getItems */
+    private com.squareup.okhttp.Call getItemsCall(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
 
@@ -142,8 +362,8 @@ public class ItemApi {
      * @return ItemsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse itemItemsGet(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
-        ApiResponse<ItemsResponse> resp = itemItemsGetWithHttpInfo(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
+    public ItemsResponse getItems(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemsResponse> resp = getItemsWithHttpInfo(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
         return resp.getData();
     }
 
@@ -161,8 +381,8 @@ public class ItemApi {
      * @return ApiResponse&lt;ItemsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> itemItemsGetWithHttpInfo(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders, null, null);
+    public ApiResponse<ItemsResponse> getItemsWithHttpInfo(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = getItemsCall(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders, null, null);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -182,7 +402,7 @@ public class ItemApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemItemsGetAsync(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getItemsAsync(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -203,127 +423,23 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemItemsGetCall(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getItemsCall(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for itemItemsMerchantItemOidDelete */
-    private com.squareup.okhttp.Call itemItemsMerchantItemOidDeleteCall(Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    /* Build call for insertItem */
+    private com.squareup.okhttp.Call insertItemCall(Item item, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = item;
         
-        // verify the required parameter 'merchantItemOid' is set
-        if (merchantItemOid == null) {
-            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling itemItemsMerchantItemOidDelete(Async)");
+        // verify the required parameter 'item' is set
+        if (item == null) {
+            throw new ApiException("Missing the required parameter 'item' when calling insertItem(Async)");
         }
         
 
         // create path and map variables
-        String localVarPath = "/item/items/{merchant_item_oid}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Delete an item
-     * Delete an item on the UltraCart account. 
-     * @param merchantItemOid The item oid to delete. (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void itemItemsMerchantItemOidDelete(Integer merchantItemOid) throws ApiException {
-        itemItemsMerchantItemOidDeleteWithHttpInfo(merchantItemOid);
-    }
-
-    /**
-     * Delete an item
-     * Delete an item on the UltraCart account. 
-     * @param merchantItemOid The item oid to delete. (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> itemItemsMerchantItemOidDeleteWithHttpInfo(Integer merchantItemOid) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidDeleteCall(merchantItemOid, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Delete an item (asynchronously)
-     * Delete an item on the UltraCart account. 
-     * @param merchantItemOid The item oid to delete. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call itemItemsMerchantItemOidDeleteAsync(Integer merchantItemOid, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidDeleteCall(merchantItemOid, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /* Build call for itemItemsMerchantItemOidGet */
-    private com.squareup.okhttp.Call itemItemsMerchantItemOidGetCall(Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'merchantItemOid' is set
-        if (merchantItemOid == null) {
-            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling itemItemsMerchantItemOidGet(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/item/items/{merchant_item_oid}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
+        String localVarPath = "/item/items".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (expand != null)
@@ -342,7 +458,7 @@ public class ItemApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json; charset=UTF-8"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -360,49 +476,49 @@ public class ItemApi {
         }
 
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     /**
-     * Retrieve an item
-     * Retrieves a single item using the specified item oid. 
-     * @param merchantItemOid The item oid to retrieve. (required)
+     * Create an item
+     * Create a new item on the UltraCart account. 
+     * @param item Item to create (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemResponse itemItemsMerchantItemOidGet(Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
-        ApiResponse<ItemResponse> resp = itemItemsMerchantItemOidGetWithHttpInfo(merchantItemOid, expand, placeholders);
+    public ItemResponse insertItem(Item item, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemResponse> resp = insertItemWithHttpInfo(item, expand, placeholders);
         return resp.getData();
     }
 
     /**
-     * Retrieve an item
-     * Retrieves a single item using the specified item oid. 
-     * @param merchantItemOid The item oid to retrieve. (required)
+     * Create an item
+     * Create a new item on the UltraCart account. 
+     * @param item Item to create (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;ItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemResponse> itemItemsMerchantItemOidGetWithHttpInfo(Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidGetCall(merchantItemOid, expand, placeholders, null, null);
+    public ApiResponse<ItemResponse> insertItemWithHttpInfo(Item item, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = insertItemCall(item, expand, placeholders, null, null);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Retrieve an item (asynchronously)
-     * Retrieves a single item using the specified item oid. 
-     * @param merchantItemOid The item oid to retrieve. (required)
+     * Create an item (asynchronously)
+     * Create a new item on the UltraCart account. 
+     * @param item Item to create (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemItemsMerchantItemOidGetAsync(Integer merchantItemOid, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertItemAsync(Item item, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -423,23 +539,23 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidGetCall(merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = insertItemCall(item, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for itemItemsMerchantItemOidPut */
-    private com.squareup.okhttp.Call itemItemsMerchantItemOidPutCall(Item item, Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for updateItem */
+    private com.squareup.okhttp.Call updateItemCall(Item item, Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = item;
         
         // verify the required parameter 'item' is set
         if (item == null) {
-            throw new ApiException("Missing the required parameter 'item' when calling itemItemsMerchantItemOidPut(Async)");
+            throw new ApiException("Missing the required parameter 'item' when calling updateItem(Async)");
         }
         
         // verify the required parameter 'merchantItemOid' is set
         if (merchantItemOid == null) {
-            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling itemItemsMerchantItemOidPut(Async)");
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling updateItem(Async)");
         }
         
 
@@ -495,8 +611,8 @@ public class ItemApi {
      * @return ItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemResponse itemItemsMerchantItemOidPut(Item item, Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
-        ApiResponse<ItemResponse> resp = itemItemsMerchantItemOidPutWithHttpInfo(item, merchantItemOid, expand, placeholders);
+    public ItemResponse updateItem(Item item, Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemResponse> resp = updateItemWithHttpInfo(item, merchantItemOid, expand, placeholders);
         return resp.getData();
     }
 
@@ -510,8 +626,8 @@ public class ItemApi {
      * @return ApiResponse&lt;ItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemResponse> itemItemsMerchantItemOidPutWithHttpInfo(Item item, Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidPutCall(item, merchantItemOid, expand, placeholders, null, null);
+    public ApiResponse<ItemResponse> updateItemWithHttpInfo(Item item, Integer merchantItemOid, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = updateItemCall(item, merchantItemOid, expand, placeholders, null, null);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -527,7 +643,7 @@ public class ItemApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemItemsMerchantItemOidPutAsync(Item item, Integer merchantItemOid, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateItemAsync(Item item, Integer merchantItemOid, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -548,134 +664,18 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemItemsMerchantItemOidPutCall(item, merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateItemCall(item, merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for itemItemsPost */
-    private com.squareup.okhttp.Call itemItemsPostCall(Item item, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = item;
-        
-        // verify the required parameter 'item' is set
-        if (item == null) {
-            throw new ApiException("Missing the required parameter 'item' when calling itemItemsPost(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/item/items".replaceAll("\\{format\\}","json");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (expand != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
-        if (placeholders != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_placeholders", placeholders));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json; charset=UTF-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Create an item
-     * Create a new item on the UltraCart account. 
-     * @param item Item to create (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return ItemResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ItemResponse itemItemsPost(Item item, String expand, Boolean placeholders) throws ApiException {
-        ApiResponse<ItemResponse> resp = itemItemsPostWithHttpInfo(item, expand, placeholders);
-        return resp.getData();
-    }
-
-    /**
-     * Create an item
-     * Create a new item on the UltraCart account. 
-     * @param item Item to create (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return ApiResponse&lt;ItemResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ItemResponse> itemItemsPostWithHttpInfo(Item item, String expand, Boolean placeholders) throws ApiException {
-        com.squareup.okhttp.Call call = itemItemsPostCall(item, expand, placeholders, null, null);
-        Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create an item (asynchronously)
-     * Create a new item on the UltraCart account. 
-     * @param item Item to create (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call itemItemsPostAsync(Item item, String expand, Boolean placeholders, final ApiCallback<ItemResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = itemItemsPostCall(item, expand, placeholders, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for itemTempMultimediaPost */
-    private com.squareup.okhttp.Call itemTempMultimediaPostCall(File file, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for uploadTemporaryMultimedia */
+    private com.squareup.okhttp.Call uploadTemporaryMultimediaCall(File file, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'file' is set
         if (file == null) {
-            throw new ApiException("Missing the required parameter 'file' when calling itemTempMultimediaPost(Async)");
+            throw new ApiException("Missing the required parameter 'file' when calling uploadTemporaryMultimedia(Async)");
         }
         
 
@@ -725,8 +725,8 @@ public class ItemApi {
      * @return TempMultimediaResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TempMultimediaResponse itemTempMultimediaPost(File file) throws ApiException {
-        ApiResponse<TempMultimediaResponse> resp = itemTempMultimediaPostWithHttpInfo(file);
+    public TempMultimediaResponse uploadTemporaryMultimedia(File file) throws ApiException {
+        ApiResponse<TempMultimediaResponse> resp = uploadTemporaryMultimediaWithHttpInfo(file);
         return resp.getData();
     }
 
@@ -737,8 +737,8 @@ public class ItemApi {
      * @return ApiResponse&lt;TempMultimediaResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TempMultimediaResponse> itemTempMultimediaPostWithHttpInfo(File file) throws ApiException {
-        com.squareup.okhttp.Call call = itemTempMultimediaPostCall(file, null, null);
+    public ApiResponse<TempMultimediaResponse> uploadTemporaryMultimediaWithHttpInfo(File file) throws ApiException {
+        com.squareup.okhttp.Call call = uploadTemporaryMultimediaCall(file, null, null);
         Type localVarReturnType = new TypeToken<TempMultimediaResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -751,7 +751,7 @@ public class ItemApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call itemTempMultimediaPostAsync(File file, final ApiCallback<TempMultimediaResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call uploadTemporaryMultimediaAsync(File file, final ApiCallback<TempMultimediaResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -772,7 +772,7 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = itemTempMultimediaPostCall(file, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = uploadTemporaryMultimediaCall(file, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TempMultimediaResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

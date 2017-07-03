@@ -26,11 +26,11 @@
 package com.ultracart.admin.v2;
 
 import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.models.BaseResponse;
+import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.OrderResponse;
 import com.ultracart.admin.v2.models.OrdersResponse;
 import java.math.BigDecimal;
-import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.BaseResponse;
-import com.ultracart.admin.v2.models.OrderResponse;
 import com.ultracart.admin.v2.models.Order;
 import org.junit.Test;
 
@@ -48,6 +48,55 @@ public class OrderApiTest {
 
     
     /**
+     * Cancel an order
+     *
+     * Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cancelOrderTest() throws ApiException {
+        String orderId = null;
+        // BaseResponse response = api.cancelOrder(orderId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete an order
+     *
+     * Delete an order on the UltraCart account. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteOrderTest() throws ApiException {
+        String orderId = null;
+        // api.deleteOrder(orderId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve an order
+     *
+     * Retrieves a single order using the specified order id. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getOrderTest() throws ApiException {
+        String orderId = null;
+        String expand = null;
+        // OrderResponse response = api.getOrder(orderId, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Retrieve orders
      *
      * Retrieves a group of orders from the account.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -56,7 +105,7 @@ public class OrderApiTest {
      *          if the Api call fails
      */
     @Test
-    public void orderOrdersGetTest() throws ApiException {
+    public void getOrdersTest() throws ApiException {
         String orderId = null;
         String paymentMethod = null;
         String company = null;
@@ -88,73 +137,7 @@ public class OrderApiTest {
         Integer offset = null;
         String sort = null;
         String expand = null;
-        // OrdersResponse response = api.orderOrdersGet(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Cancel an order
-     *
-     * Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void orderOrdersOrderIdCancelPostTest() throws ApiException {
-        String orderId = null;
-        // BaseResponse response = api.orderOrdersOrderIdCancelPost(orderId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Delete an order
-     *
-     * Delete an order on the UltraCart account. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void orderOrdersOrderIdDeleteTest() throws ApiException {
-        String orderId = null;
-        // api.orderOrdersOrderIdDelete(orderId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Retrieve an order
-     *
-     * Retrieves a single order using the specified order id. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void orderOrdersOrderIdGetTest() throws ApiException {
-        String orderId = null;
-        String expand = null;
-        // OrderResponse response = api.orderOrdersOrderIdGet(orderId, expand);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update an order
-     *
-     * Update a new order on the UltraCart account. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void orderOrdersOrderIdPutTest() throws ApiException {
-        Order order = null;
-        String orderId = null;
-        // OrderResponse response = api.orderOrdersOrderIdPut(order, orderId);
+        // OrdersResponse response = api.getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
 
         // TODO: test validations
     }
@@ -168,9 +151,9 @@ public class OrderApiTest {
      *          if the Api call fails
      */
     @Test
-    public void orderOrdersOrderIdResendReceiptPostTest() throws ApiException {
+    public void resendReceiptTest() throws ApiException {
         String orderId = null;
-        // BaseResponse response = api.orderOrdersOrderIdResendReceiptPost(orderId);
+        // BaseResponse response = api.resendReceipt(orderId);
 
         // TODO: test validations
     }
@@ -184,9 +167,27 @@ public class OrderApiTest {
      *          if the Api call fails
      */
     @Test
-    public void orderOrdersOrderIdResendShipmentConfirmationPostTest() throws ApiException {
+    public void resendShipmentConfirmationTest() throws ApiException {
         String orderId = null;
-        // BaseResponse response = api.orderOrdersOrderIdResendShipmentConfirmationPost(orderId);
+        // BaseResponse response = api.resendShipmentConfirmation(orderId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update an order
+     *
+     * Update a new order on the UltraCart account. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateOrderTest() throws ApiException {
+        Order order = null;
+        String orderId = null;
+        String expand = null;
+        // OrderResponse response = api.updateOrder(order, orderId, expand);
 
         // TODO: test validations
     }

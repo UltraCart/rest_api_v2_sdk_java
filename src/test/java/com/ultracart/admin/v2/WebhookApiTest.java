@@ -26,13 +26,13 @@
 package com.ultracart.admin.v2;
 
 import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.models.WebhooksResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.Webhook;
-import com.ultracart.admin.v2.models.WebhookLogSummariesResponse;
 import com.ultracart.admin.v2.models.WebhookLogResponse;
+import com.ultracart.admin.v2.models.WebhookLogSummariesResponse;
+import com.ultracart.admin.v2.models.WebhooksResponse;
+import com.ultracart.admin.v2.models.WebhookResponse;
+import com.ultracart.admin.v2.models.Webhook;
 import com.ultracart.admin.v2.models.WebhookSampleRequestResponse;
-import com.ultracart.admin.v2.models.WebhookSampleRequest;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -49,37 +49,6 @@ public class WebhookApiTest {
 
     
     /**
-     * Retrieve webhooks
-     *
-     * Retrieves the webhooks associated with this application. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void webhookWebhooksGetTest() throws ApiException {
-        // WebhooksResponse response = api.webhookWebhooksGet();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Add a webhook
-     *
-     * Adds a new webhook on the account 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void webhookWebhooksPostTest() throws ApiException {
-        Webhook webhook = null;
-        // WebhooksResponse response = api.webhookWebhooksPost(webhook);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Delete a webhook
      *
      * Delete a webhook on the UltraCart account. 
@@ -88,25 +57,9 @@ public class WebhookApiTest {
      *          if the Api call fails
      */
     @Test
-    public void webhookWebhooksWebhookOidDeleteTest() throws ApiException {
+    public void deleteWebhookTest() throws ApiException {
         Integer webhookOid = null;
-        // api.webhookWebhooksWebhookOidDelete(webhookOid);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Retrieve the log summaries
-     *
-     * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void webhookWebhooksWebhookOidLogsGetTest() throws ApiException {
-        Integer webhookOid = null;
-        // WebhookLogSummariesResponse response = api.webhookWebhooksWebhookOidLogsGet(webhookOid);
+        // api.deleteWebhook(webhookOid);
 
         // TODO: test validations
     }
@@ -120,27 +73,65 @@ public class WebhookApiTest {
      *          if the Api call fails
      */
     @Test
-    public void webhookWebhooksWebhookOidLogsRequestIdGetTest() throws ApiException {
+    public void getWebhookLogTest() throws ApiException {
         Integer webhookOid = null;
         String requestId = null;
-        // WebhookLogResponse response = api.webhookWebhooksWebhookOidLogsRequestIdGet(webhookOid, requestId);
+        // WebhookLogResponse response = api.getWebhookLog(webhookOid, requestId);
 
         // TODO: test validations
     }
     
     /**
-     * Update a webhook
+     * Retrieve the log summaries
      *
-     * Update a webhook on the account 
+     * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void webhookWebhooksWebhookOidPutTest() throws ApiException {
-        Webhook webhook = null;
+    public void getWebhookLogSummariesTest() throws ApiException {
         Integer webhookOid = null;
-        // WebhooksResponse response = api.webhookWebhooksWebhookOidPut(webhook, webhookOid);
+        Integer limit = null;
+        Integer offset = null;
+        String since = null;
+        // WebhookLogSummariesResponse response = api.getWebhookLogSummaries(webhookOid, limit, offset, since);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve webhooks
+     *
+     * Retrieves the webhooks associated with this application. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getWebhooksTest() throws ApiException {
+        Integer limit = null;
+        Integer offset = null;
+        String sort = null;
+        Boolean placeholders = null;
+        // WebhooksResponse response = api.getWebhooks(limit, offset, sort, placeholders);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Add a webhook
+     *
+     * Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void insertWebhookTest() throws ApiException {
+        Webhook webhook = null;
+        Boolean placeholders = null;
+        // WebhookResponse response = api.insertWebhook(webhook, placeholders);
 
         // TODO: test validations
     }
@@ -154,43 +145,28 @@ public class WebhookApiTest {
      *          if the Api call fails
      */
     @Test
-    public void webhookWebhooksWebhookOidReflowEventNamePostTest() throws ApiException {
+    public void resendEventTest() throws ApiException {
         Integer webhookOid = null;
         String eventName = null;
-        // WebhookSampleRequestResponse response = api.webhookWebhooksWebhookOidReflowEventNamePost(webhookOid, eventName);
+        // WebhookSampleRequestResponse response = api.resendEvent(webhookOid, eventName);
 
         // TODO: test validations
     }
     
     /**
-     * Retrieve a sample notification.
+     * Update a webhook
      *
-     * Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void webhookWebhooksWebhookOidSamplesGetTest() throws ApiException {
-        Integer webhookOid = null;
-        // WebhookSampleRequestResponse response = api.webhookWebhooksWebhookOidSamplesGet(webhookOid);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Send test message to an endpoint.
-     *
-     * Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response. 
+     * Update a webhook on the account 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void webhookWebhooksWebhookOidValidatePostTest() throws ApiException {
-        WebhookSampleRequest samples = null;
+    public void updateWebhookTest() throws ApiException {
+        Webhook webhook = null;
         Integer webhookOid = null;
-        // WebhookLogResponse response = api.webhookWebhooksWebhookOidValidatePost(samples, webhookOid);
+        Boolean placeholders = null;
+        // WebhookResponse response = api.updateWebhook(webhook, webhookOid, placeholders);
 
         // TODO: test validations
     }

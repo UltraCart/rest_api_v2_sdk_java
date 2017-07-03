@@ -4,18 +4,196 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**orderOrdersGet**](OrderApi.md#orderOrdersGet) | **GET** /order/orders | Retrieve orders
-[**orderOrdersOrderIdCancelPost**](OrderApi.md#orderOrdersOrderIdCancelPost) | **POST** /order/orders/{order_id}/cancel | Cancel an order
-[**orderOrdersOrderIdDelete**](OrderApi.md#orderOrdersOrderIdDelete) | **DELETE** /order/orders/{order_id} | Delete an order
-[**orderOrdersOrderIdGet**](OrderApi.md#orderOrdersOrderIdGet) | **GET** /order/orders/{order_id} | Retrieve an order
-[**orderOrdersOrderIdPut**](OrderApi.md#orderOrdersOrderIdPut) | **PUT** /order/orders/{order_id} | Update an order
-[**orderOrdersOrderIdResendReceiptPost**](OrderApi.md#orderOrdersOrderIdResendReceiptPost) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
-[**orderOrdersOrderIdResendShipmentConfirmationPost**](OrderApi.md#orderOrdersOrderIdResendShipmentConfirmationPost) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
+[**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
+[**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
+[**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
+[**resendReceipt**](OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
+[**resendShipmentConfirmation**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**updateOrder**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
 
 
-<a name="orderOrdersGet"></a>
-# **orderOrdersGet**
-> OrdersResponse orderOrdersGet(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand)
+<a name="cancelOrder"></a>
+# **cancelOrder**
+> BaseResponse cancelOrder(orderId)
+
+Cancel an order
+
+Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+OrderApi apiInstance = new OrderApi();
+String orderId = "orderId_example"; // String | The order id to cancel.
+try {
+    BaseResponse result = apiInstance.cancelOrder(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#cancelOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| The order id to cancel. |
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteOrder"></a>
+# **deleteOrder**
+> deleteOrder(orderId)
+
+Delete an order
+
+Delete an order on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+OrderApi apiInstance = new OrderApi();
+String orderId = "orderId_example"; // String | The order id to delete.
+try {
+    apiInstance.deleteOrder(orderId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#deleteOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| The order id to delete. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getOrder"></a>
+# **getOrder**
+> OrderResponse getOrder(orderId, expand)
+
+Retrieve an order
+
+Retrieves a single order using the specified order id. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+OrderApi apiInstance = new OrderApi();
+String orderId = "orderId_example"; // String | The order id to retrieve.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.getOrder(orderId, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| The order id to retrieve. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getOrders"></a>
+# **getOrders**
+> OrdersResponse getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand)
 
 Retrieve orders
 
@@ -75,10 +253,10 @@ Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero
 String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 String expand = "expand_example"; // String | The object expansion to perform on the result.
 try {
-    OrdersResponse result = apiInstance.orderOrdersGet(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+    OrdersResponse result = apiInstance.getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#orderOrdersGet");
+    System.err.println("Exception when calling OrderApi#getOrders");
     e.printStackTrace();
 }
 ```
@@ -132,13 +310,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orderOrdersOrderIdCancelPost"></a>
-# **orderOrdersOrderIdCancelPost**
-> BaseResponse orderOrdersOrderIdCancelPost(orderId)
+<a name="resendReceipt"></a>
+# **resendReceipt**
+> BaseResponse resendReceipt(orderId)
 
-Cancel an order
+Resend receipt
 
-Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+Resend the receipt for an order on the UltraCart account. 
 
 ### Example
 ```java
@@ -162,12 +340,12 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
 
 OrderApi apiInstance = new OrderApi();
-String orderId = "orderId_example"; // String | The order id to cancel.
+String orderId = "orderId_example"; // String | The order id to resend the receipt for.
 try {
-    BaseResponse result = apiInstance.orderOrdersOrderIdCancelPost(orderId);
+    BaseResponse result = apiInstance.resendReceipt(orderId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#orderOrdersOrderIdCancelPost");
+    System.err.println("Exception when calling OrderApi#resendReceipt");
     e.printStackTrace();
 }
 ```
@@ -176,7 +354,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to cancel. |
+ **orderId** | **String**| The order id to resend the receipt for. |
 
 ### Return type
 
@@ -191,71 +369,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orderOrdersOrderIdDelete"></a>
-# **orderOrdersOrderIdDelete**
-> orderOrdersOrderIdDelete(orderId)
+<a name="resendShipmentConfirmation"></a>
+# **resendShipmentConfirmation**
+> BaseResponse resendShipmentConfirmation(orderId)
 
-Delete an order
+Resend shipment confirmation
 
-Delete an order on the UltraCart account. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
-String orderId = "orderId_example"; // String | The order id to delete.
-try {
-    apiInstance.orderOrdersOrderIdDelete(orderId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#orderOrdersOrderIdDelete");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to delete. |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="orderOrdersOrderIdGet"></a>
-# **orderOrdersOrderIdGet**
-> OrderResponse orderOrdersOrderIdGet(orderId, expand)
-
-Retrieve an order
-
-Retrieves a single order using the specified order id. 
+Resend shipment confirmation for an order on the UltraCart account. 
 
 ### Example
 ```java
@@ -279,13 +399,12 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
 
 OrderApi apiInstance = new OrderApi();
-String orderId = "orderId_example"; // String | The order id to retrieve.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+String orderId = "orderId_example"; // String | The order id to resend the shipment notification for.
 try {
-    OrderResponse result = apiInstance.orderOrdersOrderIdGet(orderId, expand);
+    BaseResponse result = apiInstance.resendShipmentConfirmation(orderId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#orderOrdersOrderIdGet");
+    System.err.println("Exception when calling OrderApi#resendShipmentConfirmation");
     e.printStackTrace();
 }
 ```
@@ -294,12 +413,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to retrieve. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **orderId** | **String**| The order id to resend the shipment notification for. |
 
 ### Return type
 
-[**OrderResponse**](OrderResponse.md)
+[**BaseResponse**](BaseResponse.md)
 
 ### Authorization
 
@@ -310,9 +428,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orderOrdersOrderIdPut"></a>
-# **orderOrdersOrderIdPut**
-> OrderResponse orderOrdersOrderIdPut(order, orderId, expand)
+<a name="updateOrder"></a>
+# **updateOrder**
+> OrderResponse updateOrder(order, orderId, expand)
 
 Update an order
 
@@ -344,10 +462,10 @@ Order order = new Order(); // Order | Order to update
 String orderId = "orderId_example"; // String | The order id to update.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    OrderResponse result = apiInstance.orderOrdersOrderIdPut(order, orderId, expand);
+    OrderResponse result = apiInstance.updateOrder(order, orderId, expand);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#orderOrdersOrderIdPut");
+    System.err.println("Exception when calling OrderApi#updateOrder");
     e.printStackTrace();
 }
 ```
@@ -371,123 +489,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-<a name="orderOrdersOrderIdResendReceiptPost"></a>
-# **orderOrdersOrderIdResendReceiptPost**
-> BaseResponse orderOrdersOrderIdResendReceiptPost(orderId)
-
-Resend receipt
-
-Resend the receipt for an order on the UltraCart account. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
-String orderId = "orderId_example"; // String | The order id to resend the receipt for.
-try {
-    BaseResponse result = apiInstance.orderOrdersOrderIdResendReceiptPost(orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#orderOrdersOrderIdResendReceiptPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to resend the receipt for. |
-
-### Return type
-
-[**BaseResponse**](BaseResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="orderOrdersOrderIdResendShipmentConfirmationPost"></a>
-# **orderOrdersOrderIdResendShipmentConfirmationPost**
-> BaseResponse orderOrdersOrderIdResendShipmentConfirmationPost(orderId)
-
-Resend shipment confirmation
-
-Resend shipment confirmation for an order on the UltraCart account. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
-String orderId = "orderId_example"; // String | The order id to resend the shipment notification for.
-try {
-    BaseResponse result = apiInstance.orderOrdersOrderIdResendShipmentConfirmationPost(orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#orderOrdersOrderIdResendShipmentConfirmationPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to resend the shipment notification for. |
-
-### Return type
-
-[**BaseResponse**](BaseResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 

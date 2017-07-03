@@ -26,9 +26,9 @@
 package com.ultracart.admin.v2;
 
 import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.models.OauthRevokeSuccessResponse;
-import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.OauthTokenResponse;
+import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.OauthRevokeSuccessResponse;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -45,23 +45,6 @@ public class OauthApiTest {
 
     
     /**
-     * Revoke this OAuth application.
-     *
-     * Revokes the OAuth application associated with the specified client_id and token. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void oauthRevokePostTest() throws ApiException {
-        String clientId = null;
-        String token = null;
-        // OauthRevokeSuccessResponse response = api.oauthRevokePost(clientId, token);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Exchange authorization code for access token.
      *
      * The final leg in the OAuth process which exchanges the specified access token for the access code needed to make API calls. 
@@ -70,13 +53,30 @@ public class OauthApiTest {
      *          if the Api call fails
      */
     @Test
-    public void oauthTokenPostTest() throws ApiException {
+    public void oauthAccessTokenTest() throws ApiException {
         String clientId = null;
         String grantType = null;
         String code = null;
         String redirectUri = null;
         String refreshToken = null;
-        // OauthTokenResponse response = api.oauthTokenPost(clientId, grantType, code, redirectUri, refreshToken);
+        // OauthTokenResponse response = api.oauthAccessToken(clientId, grantType, code, redirectUri, refreshToken);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Revoke this OAuth application.
+     *
+     * Revokes the OAuth application associated with the specified client_id and token. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void oauthRevokeTest() throws ApiException {
+        String clientId = null;
+        String token = null;
+        // OauthRevokeSuccessResponse response = api.oauthRevoke(clientId, token);
 
         // TODO: test validations
     }
