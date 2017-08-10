@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **carderEmail** | **Boolean** | True if the email address belongs to a known credit card fraudster |  [optional]
 **countryCode** | **String** | Country code |  [optional]
 **countryMatch** | **Boolean** | Country code matches BIN country |  [optional]
-**customerPhoneInBillingLocation** | [**CustomerPhoneInBillingLocationEnum**](#CustomerPhoneInBillingLocationEnum) | Whether the customer&#39;s phone number is located in the area of the billing address |  [optional]
+**customerPhoneInBillingLocation** | **String** | Whether the customer&#39;s phone number is located in the area of the billing address |  [optional]
 **distanceKm** | **Integer** | Distance in kilometers between the IP address and the BIN |  [optional]
 **freeEmail** | **Boolean** | True if the email address is for a free service like gmail.com |  [optional]
 **highRiskCountry** | **Boolean** | True if the customer is in a high risk country known for internet fraud |  [optional]
@@ -31,16 +31,6 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 NA | &quot;NA&quot;
-NO | &quot;No&quot;
-NOTFOUND | &quot;NotFound&quot;
-YES | &quot;Yes&quot;
-
-
-<a name="CustomerPhoneInBillingLocationEnum"></a>
-## Enum: CustomerPhoneInBillingLocationEnum
-Name | Value
----- | -----
- | &quot;&quot;
 NO | &quot;No&quot;
 NOTFOUND | &quot;NotFound&quot;
 YES | &quot;Yes&quot;

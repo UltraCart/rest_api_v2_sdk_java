@@ -35,7 +35,7 @@ import java.math.BigDecimal;
 /**
  * OrderFraudScore
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-10T12:06:02.551-04:00")
 public class OrderFraudScore   {
   @SerializedName("anonymous_proxy")
   private Boolean anonymousProxy = null;
@@ -80,36 +80,8 @@ public class OrderFraudScore   {
   @SerializedName("country_match")
   private Boolean countryMatch = null;
 
-  /**
-   * Whether the customer's phone number is located in the area of the billing address
-   */
-  public enum CustomerPhoneInBillingLocationEnum {
-    @SerializedName("")
-    (""),
-    
-    @SerializedName("No")
-    NO("No"),
-    
-    @SerializedName("NotFound")
-    NOTFOUND("NotFound"),
-    
-    @SerializedName("Yes")
-    YES("Yes");
-
-    private String value;
-
-    CustomerPhoneInBillingLocationEnum(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-  }
-
   @SerializedName("customer_phone_in_billing_location")
-  private CustomerPhoneInBillingLocationEnum customerPhoneInBillingLocation = null;
+  private String customerPhoneInBillingLocation = null;
 
   @SerializedName("distance_km")
   private Integer distanceKm = null;
@@ -243,7 +215,7 @@ public class OrderFraudScore   {
     this.countryMatch = countryMatch;
   }
 
-  public OrderFraudScore customerPhoneInBillingLocation(CustomerPhoneInBillingLocationEnum customerPhoneInBillingLocation) {
+  public OrderFraudScore customerPhoneInBillingLocation(String customerPhoneInBillingLocation) {
     this.customerPhoneInBillingLocation = customerPhoneInBillingLocation;
     return this;
   }
@@ -253,11 +225,11 @@ public class OrderFraudScore   {
    * @return customerPhoneInBillingLocation
   **/
   @ApiModelProperty(example = "null", value = "Whether the customer's phone number is located in the area of the billing address")
-  public CustomerPhoneInBillingLocationEnum getCustomerPhoneInBillingLocation() {
+  public String getCustomerPhoneInBillingLocation() {
     return customerPhoneInBillingLocation;
   }
 
-  public void setCustomerPhoneInBillingLocation(CustomerPhoneInBillingLocationEnum customerPhoneInBillingLocation) {
+  public void setCustomerPhoneInBillingLocation(String customerPhoneInBillingLocation) {
     this.customerPhoneInBillingLocation = customerPhoneInBillingLocation;
   }
 

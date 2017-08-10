@@ -39,7 +39,7 @@ import java.util.List;
 /**
  * ItemEbay
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-10T12:06:02.551-04:00")
 public class ItemEbay   {
   @SerializedName("active")
   private Boolean active = null;
@@ -158,36 +158,8 @@ public class ItemEbay   {
   @SerializedName("listing_price_override")
   private BigDecimal listingPriceOverride = null;
 
-  /**
-   * The type of e-Bay listing
-   */
-  public enum ListingTypeEnum {
-    @SerializedName("")
-    (""),
-    
-    @SerializedName("Auction")
-    AUCTION("Auction"),
-    
-    @SerializedName("Fixed")
-    FIXED("Fixed"),
-    
-    @SerializedName("Store")
-    STORE("Store");
-
-    private String value;
-
-    ListingTypeEnum(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-  }
-
   @SerializedName("listing_type")
-  private ListingTypeEnum listingType = null;
+  private String listingType = null;
 
   @SerializedName("marketplace_analysis")
   private ItemEbayMarketPlaceAnalysis marketplaceAnalysis = null;
@@ -983,7 +955,7 @@ public class ItemEbay   {
     this.listingPriceOverride = listingPriceOverride;
   }
 
-  public ItemEbay listingType(ListingTypeEnum listingType) {
+  public ItemEbay listingType(String listingType) {
     this.listingType = listingType;
     return this;
   }
@@ -993,11 +965,11 @@ public class ItemEbay   {
    * @return listingType
   **/
   @ApiModelProperty(example = "null", value = "The type of e-Bay listing")
-  public ListingTypeEnum getListingType() {
+  public String getListingType() {
     return listingType;
   }
 
-  public void setListingType(ListingTypeEnum listingType) {
+  public void setListingType(String listingType) {
     this.listingType = listingType;
   }
 

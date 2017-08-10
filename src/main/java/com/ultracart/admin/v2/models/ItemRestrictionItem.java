@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemRestrictionItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-10T12:06:02.551-04:00")
 public class ItemRestrictionItem   {
   @SerializedName("restrict_merchant_item_id")
   private String restrictMerchantItemId = null;

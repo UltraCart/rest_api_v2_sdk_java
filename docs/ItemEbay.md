@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 **listingDuration** | **String** | The duration of the listing |  [optional]
 **listingPrice** | [**BigDecimal**](BigDecimal.md) | Price to list the item at |  [optional]
 **listingPriceOverride** | [**BigDecimal**](BigDecimal.md) | The price to list the item at if different than the regular UltraCart item price |  [optional]
-**listingType** | [**ListingTypeEnum**](#ListingTypeEnum) | The type of e-Bay listing |  [optional]
+**listingType** | **String** | The type of e-Bay listing |  [optional]
 **marketplaceAnalysis** | [**ItemEbayMarketPlaceAnalysis**](ItemEbayMarketPlaceAnalysis.md) |  |  [optional]
 **marketplaceAnalysisPerform** | **Boolean** | True if marketplace analysis should be performed |  [optional]
 **marketplaceFinalValueFeePercentage** | [**BigDecimal**](BigDecimal.md) | Marketplace FVF percentage |  [optional]
@@ -73,16 +73,6 @@ Name | Type | Description | Notes
 **startTime** | **String** | Date/time of the auction start |  [optional]
 **status** | **String** | Status of the item&#39;s listing |  [optional]
 **targetDispatchTimeMax** | **Integer** | Typical number of days it will take to ship the item |  [optional]
-
-
-<a name="ListingTypeEnum"></a>
-## Enum: ListingTypeEnum
-Name | Value
----- | -----
- | &quot;&quot;
-AUCTION | &quot;Auction&quot;
-FIXED | &quot;Fixed&quot;
-STORE | &quot;Store&quot;
 
 
 

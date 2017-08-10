@@ -34,35 +34,13 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OrderPaymentTransactionDetail
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-10T12:06:02.551-04:00")
 public class OrderPaymentTransactionDetail   {
   @SerializedName("name")
   private String name = null;
 
-  /**
-   * Type
-   */
-  public enum TypeEnum {
-    @SerializedName("")
-    (""),
-    
-    @SerializedName("AuthTicket")
-    AUTHTICKET("AuthTicket");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-  }
-
   @SerializedName("type")
-  private TypeEnum type = null;
+  private String type = null;
 
   @SerializedName("value")
   private String value = null;
@@ -85,7 +63,7 @@ public class OrderPaymentTransactionDetail   {
     this.name = name;
   }
 
-  public OrderPaymentTransactionDetail type(TypeEnum type) {
+  public OrderPaymentTransactionDetail type(String type) {
     this.type = type;
     return this;
   }
@@ -95,11 +73,11 @@ public class OrderPaymentTransactionDetail   {
    * @return type
   **/
   @ApiModelProperty(example = "null", value = "Type")
-  public TypeEnum getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(TypeEnum type) {
+  public void setType(String type) {
     this.type = type;
   }
 

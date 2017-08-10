@@ -38,7 +38,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CartPayment
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-10T12:06:02.551-04:00")
 public class CartPayment   {
   @SerializedName("amazon")
   private CartPaymentAmazon amazon = null;
@@ -54,6 +54,9 @@ public class CartPayment   {
 
   @SerializedName("purchase_order")
   private CartPaymentPurchaseOrder purchaseOrder = null;
+
+  @SerializedName("rtg_code")
+  private String rtgCode = null;
 
   public CartPayment amazon(CartPaymentAmazon amazon) {
     this.amazon = amazon;
@@ -145,6 +148,24 @@ public class CartPayment   {
     this.purchaseOrder = purchaseOrder;
   }
 
+  public CartPayment rtgCode(String rtgCode) {
+    this.rtgCode = rtgCode;
+    return this;
+  }
+
+   /**
+   * Rotating transaction gateway code
+   * @return rtgCode
+  **/
+  @ApiModelProperty(example = "null", value = "Rotating transaction gateway code")
+  public String getRtgCode() {
+    return rtgCode;
+  }
+
+  public void setRtgCode(String rtgCode) {
+    this.rtgCode = rtgCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,12 +180,13 @@ public class CartPayment   {
         Objects.equals(this.check, cartPayment.check) &&
         Objects.equals(this.creditCard, cartPayment.creditCard) &&
         Objects.equals(this.paymentMethod, cartPayment.paymentMethod) &&
-        Objects.equals(this.purchaseOrder, cartPayment.purchaseOrder);
+        Objects.equals(this.purchaseOrder, cartPayment.purchaseOrder) &&
+        Objects.equals(this.rtgCode, cartPayment.rtgCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amazon, check, creditCard, paymentMethod, purchaseOrder);
+    return Objects.hash(amazon, check, creditCard, paymentMethod, purchaseOrder, rtgCode);
   }
 
   @Override
@@ -177,6 +199,7 @@ public class CartPayment   {
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    purchaseOrder: ").append(toIndentedString(purchaseOrder)).append("\n");
+    sb.append("    rtgCode: ").append(toIndentedString(rtgCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

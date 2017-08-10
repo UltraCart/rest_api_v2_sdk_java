@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OrderGiftCertificate
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-10T12:06:02.551-04:00")
 public class OrderGiftCertificate   {
   @SerializedName("gift_certificate_amount")
   private Currency giftCertificateAmount = null;

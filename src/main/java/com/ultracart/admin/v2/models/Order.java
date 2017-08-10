@@ -60,7 +60,7 @@ import java.util.List;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-03T17:26:54.699-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-10T12:06:02.551-04:00")
 public class Order   {
   @SerializedName("affiliates")
   private List<OrderAffiliate> affiliates = new ArrayList<OrderAffiliate>();
@@ -118,7 +118,10 @@ public class Order   {
     QUOTE_SENT("Quote Sent"),
     
     @SerializedName("Least Cost Routing")
-    LEAST_COST_ROUTING("Least Cost Routing");
+    LEAST_COST_ROUTING("Least Cost Routing"),
+    
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown");
 
     private String value;
 
