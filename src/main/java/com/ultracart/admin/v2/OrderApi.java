@@ -43,6 +43,7 @@ import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.OrderResponse;
 import com.ultracart.admin.v2.models.OrdersResponse;
 import java.math.BigDecimal;
+import com.ultracart.admin.v2.models.OrderQuery;
 import com.ultracart.admin.v2.models.Order;
 
 import java.lang.reflect.Type;
@@ -641,6 +642,132 @@ public class OrderApi {
         }
 
         com.squareup.okhttp.Call call = getOrdersCall(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getOrdersByQuery */
+    private com.squareup.okhttp.Call getOrdersByQueryCall(OrderQuery orderQuery, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = orderQuery;
+        
+        // verify the required parameter 'orderQuery' is set
+        if (orderQuery == null) {
+            throw new ApiException("Missing the required parameter 'orderQuery' when calling getOrdersByQuery(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/order/orders/query".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_sort", sort));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Retrieve orders
+     * Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param orderQuery Order query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @return OrdersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrdersResponse getOrdersByQuery(OrderQuery orderQuery, Integer limit, Integer offset, String sort, String expand) throws ApiException {
+        ApiResponse<OrdersResponse> resp = getOrdersByQueryWithHttpInfo(orderQuery, limit, offset, sort, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve orders
+     * Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param orderQuery Order query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @return ApiResponse&lt;OrdersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrdersResponse> getOrdersByQueryWithHttpInfo(OrderQuery orderQuery, Integer limit, Integer offset, String sort, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getOrdersByQueryCall(orderQuery, limit, offset, sort, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve orders (asynchronously)
+     * Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param orderQuery Order query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getOrdersByQueryAsync(OrderQuery orderQuery, Integer limit, Integer offset, String sort, String expand, final ApiCallback<OrdersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getOrdersByQueryCall(orderQuery, limit, offset, sort, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

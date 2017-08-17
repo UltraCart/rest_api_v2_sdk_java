@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="cityState"></a>
 # **cityState**
-> ItemsResponse cityState(cart)
+> CityStateZip cityState(cart)
 
 City/State for Zip
 
@@ -58,7 +58,7 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 CheckoutApi apiInstance = new CheckoutApi();
 Cart cart = new Cart(); // Cart | Cart
 try {
-    ItemsResponse result = apiInstance.cityState(cart);
+    CityStateZip result = apiInstance.cityState(cart);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CheckoutApi#cityState");
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**CityStateZip**](CityStateZip.md)
 
 ### Authorization
 

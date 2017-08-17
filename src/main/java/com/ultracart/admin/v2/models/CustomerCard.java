@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CustomerCard
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-10T12:06:02.551-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-17T18:12:05.064-04:00")
 public class CustomerCard   {
   @SerializedName("card_expiration_month")
   private Integer cardExpirationMonth = null;
@@ -56,6 +56,9 @@ public class CustomerCard   {
 
   @SerializedName("customer_profile_oid")
   private Integer customerProfileOid = null;
+
+  @SerializedName("last_used_dts")
+  private String lastUsedDts = null;
 
   public CustomerCard cardExpirationMonth(Integer cardExpirationMonth) {
     this.cardExpirationMonth = cardExpirationMonth;
@@ -183,6 +186,24 @@ public class CustomerCard   {
     this.customerProfileOid = customerProfileOid;
   }
 
+  public CustomerCard lastUsedDts(String lastUsedDts) {
+    this.lastUsedDts = lastUsedDts;
+    return this;
+  }
+
+   /**
+   * Last used date
+   * @return lastUsedDts
+  **/
+  @ApiModelProperty(example = "null", value = "Last used date")
+  public String getLastUsedDts() {
+    return lastUsedDts;
+  }
+
+  public void setLastUsedDts(String lastUsedDts) {
+    this.lastUsedDts = lastUsedDts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -199,12 +220,13 @@ public class CustomerCard   {
         Objects.equals(this.cardNumberToken, customerCard.cardNumberToken) &&
         Objects.equals(this.cardType, customerCard.cardType) &&
         Objects.equals(this.customerProfileCreditCardId, customerCard.customerProfileCreditCardId) &&
-        Objects.equals(this.customerProfileOid, customerCard.customerProfileOid);
+        Objects.equals(this.customerProfileOid, customerCard.customerProfileOid) &&
+        Objects.equals(this.lastUsedDts, customerCard.lastUsedDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardExpirationMonth, cardExpirationYear, cardNumber, cardNumberToken, cardType, customerProfileCreditCardId, customerProfileOid);
+    return Objects.hash(cardExpirationMonth, cardExpirationYear, cardNumber, cardNumberToken, cardType, customerProfileCreditCardId, customerProfileOid, lastUsedDts);
   }
 
   @Override
@@ -219,6 +241,7 @@ public class CustomerCard   {
     sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    customerProfileCreditCardId: ").append(toIndentedString(customerProfileCreditCardId)).append("\n");
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
+    sb.append("    lastUsedDts: ").append(toIndentedString(lastUsedDts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

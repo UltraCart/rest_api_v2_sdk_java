@@ -38,7 +38,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import com.ultracart.admin.v2.models.ItemsResponse;
+import com.ultracart.admin.v2.models.CityStateZip;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Cart;
 import com.ultracart.admin.v2.models.CartFinalizeOrderRequest;
@@ -50,6 +50,7 @@ import com.ultracart.admin.v2.models.CartProfileLoginResponse;
 import com.ultracart.admin.v2.models.CartProfileLoginRequest;
 import com.ultracart.admin.v2.models.CartProfileRegisterResponse;
 import com.ultracart.admin.v2.models.CartProfileRegisterRequest;
+import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyResponse;
 import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyRequest;
 import com.ultracart.admin.v2.models.CartValidationRequest;
@@ -131,11 +132,11 @@ public class CheckoutApi {
      * City/State for Zip
      * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
      * @param cart Cart (required)
-     * @return ItemsResponse
+     * @return CityStateZip
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse cityState(Cart cart) throws ApiException {
-        ApiResponse<ItemsResponse> resp = cityStateWithHttpInfo(cart);
+    public CityStateZip cityState(Cart cart) throws ApiException {
+        ApiResponse<CityStateZip> resp = cityStateWithHttpInfo(cart);
         return resp.getData();
     }
 
@@ -143,12 +144,12 @@ public class CheckoutApi {
      * City/State for Zip
      * Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
      * @param cart Cart (required)
-     * @return ApiResponse&lt;ItemsResponse&gt;
+     * @return ApiResponse&lt;CityStateZip&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> cityStateWithHttpInfo(Cart cart) throws ApiException {
+    public ApiResponse<CityStateZip> cityStateWithHttpInfo(Cart cart) throws ApiException {
         com.squareup.okhttp.Call call = cityStateCall(cart, null, null);
-        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CityStateZip>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -160,7 +161,7 @@ public class CheckoutApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call cityStateAsync(Cart cart, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call cityStateAsync(Cart cart, final ApiCallback<CityStateZip> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -182,7 +183,7 @@ public class CheckoutApi {
         }
 
         com.squareup.okhttp.Call call = cityStateCall(cart, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CityStateZip>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

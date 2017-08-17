@@ -27,31 +27,49 @@ package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import com.ultracart.admin.v2.models.Error;
-import com.ultracart.admin.v2.models.Item;
-import com.ultracart.admin.v2.models.ResponseMetadata;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 
 /**
- * ItemResponse
+ * CityStateZip
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-17T18:12:05.064-04:00")
-public class ItemResponse   {
+public class CityStateZip   {
+  @SerializedName("city")
+  private String city = null;
+
   @SerializedName("error")
-  private Error error = null;
+  private String error = null;
 
-  @SerializedName("item")
-  private Item item = null;
+  @SerializedName("state")
+  private String state = null;
 
-  @SerializedName("metadata")
-  private ResponseMetadata metadata = null;
+  @SerializedName("validZip")
+  private Boolean validZip = null;
 
-  @SerializedName("success")
-  private Boolean success = null;
+  @SerializedName("zip")
+  private String zip = null;
 
-  public ItemResponse error(Error error) {
+  public CityStateZip city(String city) {
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * Get city
+   * @return city
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public CityStateZip error(String error) {
     this.error = error;
     return this;
   }
@@ -61,66 +79,66 @@ public class ItemResponse   {
    * @return error
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Error getError() {
+  public String getError() {
     return error;
   }
 
-  public void setError(Error error) {
+  public void setError(String error) {
     this.error = error;
   }
 
-  public ItemResponse item(Item item) {
-    this.item = item;
+  public CityStateZip state(String state) {
+    this.state = state;
     return this;
   }
 
    /**
-   * Get item
-   * @return item
+   * Get state
+   * @return state
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Item getItem() {
-    return item;
+  public String getState() {
+    return state;
   }
 
-  public void setItem(Item item) {
-    this.item = item;
+  public void setState(String state) {
+    this.state = state;
   }
 
-  public ItemResponse metadata(ResponseMetadata metadata) {
-    this.metadata = metadata;
+  public CityStateZip validZip(Boolean validZip) {
+    this.validZip = validZip;
     return this;
   }
 
    /**
-   * Get metadata
-   * @return metadata
+   * Get validZip
+   * @return validZip
   **/
   @ApiModelProperty(example = "null", value = "")
-  public ResponseMetadata getMetadata() {
-    return metadata;
+  public Boolean getValidZip() {
+    return validZip;
   }
 
-  public void setMetadata(ResponseMetadata metadata) {
-    this.metadata = metadata;
+  public void setValidZip(Boolean validZip) {
+    this.validZip = validZip;
   }
 
-  public ItemResponse success(Boolean success) {
-    this.success = success;
+  public CityStateZip zip(String zip) {
+    this.zip = zip;
     return this;
   }
 
    /**
-   * Indicates if API call was successful
-   * @return success
+   * Get zip
+   * @return zip
   **/
-  @ApiModelProperty(example = "null", value = "Indicates if API call was successful")
-  public Boolean getSuccess() {
-    return success;
+  @ApiModelProperty(example = "null", value = "")
+  public String getZip() {
+    return zip;
   }
 
-  public void setSuccess(Boolean success) {
-    this.success = success;
+  public void setZip(String zip) {
+    this.zip = zip;
   }
 
 
@@ -132,27 +150,29 @@ public class ItemResponse   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ItemResponse itemResponse = (ItemResponse) o;
-    return Objects.equals(this.error, itemResponse.error) &&
-        Objects.equals(this.item, itemResponse.item) &&
-        Objects.equals(this.metadata, itemResponse.metadata) &&
-        Objects.equals(this.success, itemResponse.success);
+    CityStateZip cityStateZip = (CityStateZip) o;
+    return Objects.equals(this.city, cityStateZip.city) &&
+        Objects.equals(this.error, cityStateZip.error) &&
+        Objects.equals(this.state, cityStateZip.state) &&
+        Objects.equals(this.validZip, cityStateZip.validZip) &&
+        Objects.equals(this.zip, cityStateZip.zip);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, item, metadata, success);
+    return Objects.hash(city, error, state, validZip, zip);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ItemResponse {\n");
+    sb.append("class CityStateZip {\n");
     
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    item: ").append(toIndentedString(item)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    validZip: ").append(toIndentedString(validZip)).append("\n");
+    sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
     sb.append("}");
     return sb.toString();
   }
