@@ -21,6 +21,7 @@ CHECKOUT | &quot;checkout&quot;
 PAYPAL | &quot;payPal&quot;
 PAYPALCREDIT | &quot;payPalCredit&quot;
 VIEW | &quot;view&quot;
+AFFIRM | &quot;affirm&quot;
 
 
 

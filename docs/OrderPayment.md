@@ -35,6 +35,7 @@ CHECK | &quot;Check&quot;
 COD | &quot;COD&quot;
 COINBASE | &quot;Coinbase&quot;
 CREDIT_CARD | &quot;Credit Card&quot;
+EBAY | &quot;eBay&quot;
 ECHECK | &quot;eCheck&quot;
 MONEY_ORDER | &quot;Money Order&quot;
 PAYPAL | &quot;PayPal&quot;

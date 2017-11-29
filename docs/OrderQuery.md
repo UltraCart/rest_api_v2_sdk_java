@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **creationDateBegin** | **String** | Date/time that the order was created |  [optional]
 **creationDateEnd** | **String** | Date/time that the order was created |  [optional]
 **currentStage** | [**CurrentStageEnum**](#CurrentStageEnum) | Current stage that the order is in. |  [optional]
+**customerProfileOid** | **Integer** | The customer profile to find associated orders for |  [optional]
 **email** | **String** | Email |  [optional]
 **firstName** | **String** | First name |  [optional]
 **itemId** | **String** | Item ID |  [optional]
