@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ItemAutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-29T16:09:45.730-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-01T13:32:58.942-05:00")
 public class ItemAutoOrder {
   @SerializedName("auth_future_amount")
   private BigDecimal authFutureAmount = null;

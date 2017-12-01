@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ItemChannelPartnerMapping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-29T16:09:45.730-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-01T13:32:58.942-05:00")
 public class ItemChannelPartnerMapping {
   @SerializedName("barcode_ua")
   private String barcodeUa = null;
