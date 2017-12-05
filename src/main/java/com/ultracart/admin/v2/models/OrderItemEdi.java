@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * OrderItemEdi
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-01T13:32:58.942-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-04T23:05:49.832-05:00")
 public class OrderItemEdi {
   @SerializedName("identifications")
   private List<OrderItemEdiIdentification> identifications = null;

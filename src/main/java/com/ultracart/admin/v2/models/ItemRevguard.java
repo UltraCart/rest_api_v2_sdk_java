@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ItemRevguard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-01T13:32:58.942-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-04T23:05:49.832-05:00")
 public class ItemRevguard {
   @SerializedName("revguard_canceled_csr_prompt_group")
   private Long revguardCanceledCsrPromptGroup = null;

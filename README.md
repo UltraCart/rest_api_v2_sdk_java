@@ -1,4 +1,4 @@
-# swagger-java-client
+# rest-sdk
 
 ## Requirements
 
@@ -26,9 +26,9 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-    <groupId>io.swagger</groupId>
-    <artifactId>swagger-java-client</artifactId>
-    <version>1.0.0</version>
+    <groupId>com.ultracart</groupId>
+    <artifactId>rest-sdk</artifactId>
+    <version>1.0.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.swagger:swagger-java-client:1.0.0"
+compile "com.ultracart:rest-sdk:1.0.4"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/swagger-java-client-1.0.0.jar
+* target/rest-sdk-1.0.4.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -57,45 +57,52 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
+import com.ultracart.admin.v2.FulfillmentApi;
+import com.ultracart.admin.v2.models.Order;
+import com.ultracart.admin.v2.models.OrdersResponse;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.ApiKeyAuth;
 
-import com.ultracart.admin.v2.swagger.*;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.models.*;
-import com.ultracart.admin.v2.AffiliateApi;
+import java.util.List;
 
-import java.io.File;
-import java.util.*;
+public class FulfillmentSample {
 
-public class AffiliateApiExample {
+  private static final String API_KEY = "4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100";
 
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure OAuth2 access token for authorization: ultraCartOauth
-        OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-        ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+  private static void initClient(){
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure API key authorization: ultraCartSimpleApiKey
-        ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-        ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey(API_KEY);
 
-        AffiliateApi apiInstance = new AffiliateApi();
-        AffiliateClickQuery clickQuery = new AffiliateClickQuery(); // AffiliateClickQuery | Click query
-        Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
-        Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-        String expand = "expand_example"; // String | The object expansion to perform on the result.  Only option is link.
-        try {
-            AffiliateClicksResponse result = apiInstance.getClicksByQuery(clickQuery, limit, offset, expand);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AffiliateApi#getClicksByQuery");
-            e.printStackTrace();
-        }
+    defaultClient.addDefaultHeader("X-UltraCart-Api-Version", "2017-03-01");
+
+    defaultClient.setDebugging(true);
+    defaultClient.setVerifyingSsl(false);
+  }
+
+  public static void main(String ... args) {
+    initClient();
+
+    FulfillmentApi api = new FulfillmentApi();
+    String distributionCenterCode = "DFLT";
+
+    try {
+      OrdersResponse ordersResponse = api.getDistributionCenterOrders(distributionCenterCode);
+      List<Order> orders = ordersResponse.getOrders();
+      System.out.println("There are " + orders.size() + " in distribution center [" + distributionCenterCode + "]");
+      for (Order order : orders) {
+        System.out.println(order);
+      }
+
+    } catch (ApiException e) {
+        System.err.println("Exception when calling FulfillmentApi#getDistributionCenterOrders");
+        e.printStackTrace();
     }
+  }
 }
-
 ```
 
 ## Documentation for API Endpoints
