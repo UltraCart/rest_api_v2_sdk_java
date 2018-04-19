@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CouponTieredPercentOffItems
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-04T23:05:49.832-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T12:44:48.524-04:00")
 public class CouponTieredPercentOffItems {
   @SerializedName("items")
   private List<String> items = null;

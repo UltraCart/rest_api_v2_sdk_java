@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -27,10 +27,13 @@ import java.io.IOException;
 /**
  * CartProfileLoginRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-04T23:05:49.832-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T12:44:48.524-04:00")
 public class CartProfileLoginRequest {
   @SerializedName("cart")
   private Cart cart = null;
+
+  @SerializedName("customer_profile_oid")
+  private Integer customerProfileOid = null;
 
   @SerializedName("password")
   private String password = null;
@@ -51,6 +54,24 @@ public class CartProfileLoginRequest {
 
   public void setCart(Cart cart) {
     this.cart = cart;
+  }
+
+  public CartProfileLoginRequest customerProfileOid(Integer customerProfileOid) {
+    this.customerProfileOid = customerProfileOid;
+    return this;
+  }
+
+   /**
+   * Unique identifier for customer profile.  Can not be used with browser key authentication type.
+   * @return customerProfileOid
+  **/
+  @ApiModelProperty(value = "Unique identifier for customer profile.  Can not be used with browser key authentication type.")
+  public Integer getCustomerProfileOid() {
+    return customerProfileOid;
+  }
+
+  public void setCustomerProfileOid(Integer customerProfileOid) {
+    this.customerProfileOid = customerProfileOid;
   }
 
   public CartProfileLoginRequest password(String password) {
@@ -82,12 +103,13 @@ public class CartProfileLoginRequest {
     }
     CartProfileLoginRequest cartProfileLoginRequest = (CartProfileLoginRequest) o;
     return Objects.equals(this.cart, cartProfileLoginRequest.cart) &&
+        Objects.equals(this.customerProfileOid, cartProfileLoginRequest.customerProfileOid) &&
         Objects.equals(this.password, cartProfileLoginRequest.password);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cart, password);
+    return Objects.hash(cart, customerProfileOid, password);
   }
 
 
@@ -97,6 +119,7 @@ public class CartProfileLoginRequest {
     sb.append("class CartProfileLoginRequest {\n");
     
     sb.append("    cart: ").append(toIndentedString(cart)).append("\n");
+    sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");
     return sb.toString();

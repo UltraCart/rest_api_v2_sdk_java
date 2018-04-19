@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
 [**getCustomersByQuery**](CustomerApi.md#getCustomersByQuery) | **GET** /customer/customers/query | Retrieve customers by query
+[**getCustomersForDataTables**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**getEditorValues**](CustomerApi.md#getEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
@@ -313,6 +314,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomersResponse**](CustomersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getCustomersForDataTables"></a>
+# **getCustomersForDataTables**
+> DataTablesServerSideResponse getCustomersForDataTables(expand)
+
+Retrieve customers for DataTables plugin
+
+Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CustomerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+CustomerApi apiInstance = new CustomerApi();
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    DataTablesServerSideResponse result = apiInstance.getCustomersForDataTables(expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#getCustomersForDataTables");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**DataTablesServerSideResponse**](DataTablesServerSideResponse.md)
 
 ### Authorization
 

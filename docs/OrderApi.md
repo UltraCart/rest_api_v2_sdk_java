@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
+[**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 [**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders
@@ -122,6 +123,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="format"></a>
+# **format**
+> OrderFormatResponse format(orderId, formatOptions)
+
+Format order
+
+Format the order for display at text or html 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+OrderApi apiInstance = new OrderApi();
+String orderId = "orderId_example"; // String | The order id to format
+OrderFormat formatOptions = new OrderFormat(); // OrderFormat | Format options
+try {
+    OrderFormatResponse result = apiInstance.format(orderId, formatOptions);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#format");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| The order id to format |
+ **formatOptions** | [**OrderFormat**](OrderFormat.md)| Format options |
+
+### Return type
+
+[**OrderFormatResponse**](OrderFormatResponse.md)
 
 ### Authorization
 

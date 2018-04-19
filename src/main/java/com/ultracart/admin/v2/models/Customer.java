@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -21,8 +21,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.CustomerBilling;
 import com.ultracart.admin.v2.models.CustomerCard;
+import com.ultracart.admin.v2.models.CustomerEmail;
+import com.ultracart.admin.v2.models.CustomerOrdersSummary;
 import com.ultracart.admin.v2.models.CustomerPricingTier;
+import com.ultracart.admin.v2.models.CustomerQuotesSummary;
 import com.ultracart.admin.v2.models.CustomerShipping;
+import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -33,7 +37,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-04T23:05:49.832-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T12:44:48.524-04:00")
 public class Customer {
   @SerializedName("affiliate_oid")
   private Integer affiliateOid = null;
@@ -70,6 +74,9 @@ public class Customer {
 
   @SerializedName("cards")
   private List<CustomerCard> cards = null;
+
+  @SerializedName("cc_emails")
+  private List<CustomerEmail> ccEmails = null;
 
   @SerializedName("customer_profile_oid")
   private Integer customerProfileOid = null;
@@ -116,6 +123,12 @@ public class Customer {
   @SerializedName("no_realtime_charge")
   private Boolean noRealtimeCharge = null;
 
+  @SerializedName("orders")
+  private List<Order> orders = null;
+
+  @SerializedName("orders_summary")
+  private CustomerOrdersSummary ordersSummary = null;
+
   @SerializedName("password")
   private String password = null;
 
@@ -127,6 +140,12 @@ public class Customer {
 
   @SerializedName("qb_code")
   private String qbCode = null;
+
+  @SerializedName("quotes")
+  private List<Order> quotes = null;
+
+  @SerializedName("quotes_summary")
+  private CustomerQuotesSummary quotesSummary = null;
 
   @SerializedName("referral_source")
   private String referralSource = null;
@@ -399,6 +418,32 @@ public class Customer {
     this.cards = cards;
   }
 
+  public Customer ccEmails(List<CustomerEmail> ccEmails) {
+    this.ccEmails = ccEmails;
+    return this;
+  }
+
+  public Customer addCcEmailsItem(CustomerEmail ccEmailsItem) {
+    if (this.ccEmails == null) {
+      this.ccEmails = new ArrayList<CustomerEmail>();
+    }
+    this.ccEmails.add(ccEmailsItem);
+    return this;
+  }
+
+   /**
+   * Additional emails to CC notification
+   * @return ccEmails
+  **/
+  @ApiModelProperty(value = "Additional emails to CC notification")
+  public List<CustomerEmail> getCcEmails() {
+    return ccEmails;
+  }
+
+  public void setCcEmails(List<CustomerEmail> ccEmails) {
+    this.ccEmails = ccEmails;
+  }
+
   public Customer customerProfileOid(Integer customerProfileOid) {
     this.customerProfileOid = customerProfileOid;
     return this;
@@ -669,6 +714,50 @@ public class Customer {
     this.noRealtimeCharge = noRealtimeCharge;
   }
 
+  public Customer orders(List<Order> orders) {
+    this.orders = orders;
+    return this;
+  }
+
+  public Customer addOrdersItem(Order ordersItem) {
+    if (this.orders == null) {
+      this.orders = new ArrayList<Order>();
+    }
+    this.orders.add(ordersItem);
+    return this;
+  }
+
+   /**
+   * Orders associated with this customer profile
+   * @return orders
+  **/
+  @ApiModelProperty(value = "Orders associated with this customer profile")
+  public List<Order> getOrders() {
+    return orders;
+  }
+
+  public void setOrders(List<Order> orders) {
+    this.orders = orders;
+  }
+
+  public Customer ordersSummary(CustomerOrdersSummary ordersSummary) {
+    this.ordersSummary = ordersSummary;
+    return this;
+  }
+
+   /**
+   * Get ordersSummary
+   * @return ordersSummary
+  **/
+  @ApiModelProperty(value = "")
+  public CustomerOrdersSummary getOrdersSummary() {
+    return ordersSummary;
+  }
+
+  public void setOrdersSummary(CustomerOrdersSummary ordersSummary) {
+    this.ordersSummary = ordersSummary;
+  }
+
   public Customer password(String password) {
     this.password = password;
     return this;
@@ -747,6 +836,50 @@ public class Customer {
 
   public void setQbCode(String qbCode) {
     this.qbCode = qbCode;
+  }
+
+  public Customer quotes(List<Order> quotes) {
+    this.quotes = quotes;
+    return this;
+  }
+
+  public Customer addQuotesItem(Order quotesItem) {
+    if (this.quotes == null) {
+      this.quotes = new ArrayList<Order>();
+    }
+    this.quotes.add(quotesItem);
+    return this;
+  }
+
+   /**
+   * Quotes associated with this customer profile
+   * @return quotes
+  **/
+  @ApiModelProperty(value = "Quotes associated with this customer profile")
+  public List<Order> getQuotes() {
+    return quotes;
+  }
+
+  public void setQuotes(List<Order> quotes) {
+    this.quotes = quotes;
+  }
+
+  public Customer quotesSummary(CustomerQuotesSummary quotesSummary) {
+    this.quotesSummary = quotesSummary;
+    return this;
+  }
+
+   /**
+   * Get quotesSummary
+   * @return quotesSummary
+  **/
+  @ApiModelProperty(value = "")
+  public CustomerQuotesSummary getQuotesSummary() {
+    return quotesSummary;
+  }
+
+  public void setQuotesSummary(CustomerQuotesSummary quotesSummary) {
+    this.quotesSummary = quotesSummary;
   }
 
   public Customer referralSource(String referralSource) {
@@ -1013,6 +1146,7 @@ public class Customer {
         Objects.equals(this.billing, customer.billing) &&
         Objects.equals(this.businessNotes, customer.businessNotes) &&
         Objects.equals(this.cards, customer.cards) &&
+        Objects.equals(this.ccEmails, customer.ccEmails) &&
         Objects.equals(this.customerProfileOid, customer.customerProfileOid) &&
         Objects.equals(this.dhlAccountNumber, customer.dhlAccountNumber) &&
         Objects.equals(this.email, customer.email) &&
@@ -1028,10 +1162,14 @@ public class Customer {
         Objects.equals(this.noCoupons, customer.noCoupons) &&
         Objects.equals(this.noFreeShipping, customer.noFreeShipping) &&
         Objects.equals(this.noRealtimeCharge, customer.noRealtimeCharge) &&
+        Objects.equals(this.orders, customer.orders) &&
+        Objects.equals(this.ordersSummary, customer.ordersSummary) &&
         Objects.equals(this.password, customer.password) &&
         Objects.equals(this.pricingTiers, customer.pricingTiers) &&
         Objects.equals(this.qbClass, customer.qbClass) &&
         Objects.equals(this.qbCode, customer.qbCode) &&
+        Objects.equals(this.quotes, customer.quotes) &&
+        Objects.equals(this.quotesSummary, customer.quotesSummary) &&
         Objects.equals(this.referralSource, customer.referralSource) &&
         Objects.equals(this.salesRepCode, customer.salesRepCode) &&
         Objects.equals(this.sendSignupNotification, customer.sendSignupNotification) &&
@@ -1049,7 +1187,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, customerProfileOid, dhlAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, password, pricingTiers, qbClass, qbCode, referralSource, salesRepCode, sendSignupNotification, shipping, signupDts, suppressBuysafe, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, qbClass, qbCode, quotes, quotesSummary, referralSource, salesRepCode, sendSignupNotification, shipping, signupDts, suppressBuysafe, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1070,6 +1208,7 @@ public class Customer {
     sb.append("    billing: ").append(toIndentedString(billing)).append("\n");
     sb.append("    businessNotes: ").append(toIndentedString(businessNotes)).append("\n");
     sb.append("    cards: ").append(toIndentedString(cards)).append("\n");
+    sb.append("    ccEmails: ").append(toIndentedString(ccEmails)).append("\n");
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    dhlAccountNumber: ").append(toIndentedString(dhlAccountNumber)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -1085,10 +1224,14 @@ public class Customer {
     sb.append("    noCoupons: ").append(toIndentedString(noCoupons)).append("\n");
     sb.append("    noFreeShipping: ").append(toIndentedString(noFreeShipping)).append("\n");
     sb.append("    noRealtimeCharge: ").append(toIndentedString(noRealtimeCharge)).append("\n");
+    sb.append("    orders: ").append(toIndentedString(orders)).append("\n");
+    sb.append("    ordersSummary: ").append(toIndentedString(ordersSummary)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    pricingTiers: ").append(toIndentedString(pricingTiers)).append("\n");
     sb.append("    qbClass: ").append(toIndentedString(qbClass)).append("\n");
     sb.append("    qbCode: ").append(toIndentedString(qbCode)).append("\n");
+    sb.append("    quotes: ").append(toIndentedString(quotes)).append("\n");
+    sb.append("    quotesSummary: ").append(toIndentedString(quotesSummary)).append("\n");
     sb.append("    referralSource: ").append(toIndentedString(referralSource)).append("\n");
     sb.append("    salesRepCode: ").append(toIndentedString(salesRepCode)).append("\n");
     sb.append("    sendSignupNotification: ").append(toIndentedString(sendSignupNotification)).append("\n");

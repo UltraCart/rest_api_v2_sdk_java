@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getItem**](ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**getItemByMerchantItemId**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
+[**getPricingTiers**](ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -261,6 +262,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemsResponse**](ItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getPricingTiers"></a>
+# **getPricingTiers**
+> PricingTiersResponse getPricingTiers(expand)
+
+Retrieve pricing tiers
+
+Retrieves the pricing tiers 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+ItemApi apiInstance = new ItemApi();
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    PricingTiersResponse result = apiInstance.getPricingTiers(expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#getPricingTiers");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**PricingTiersResponse**](PricingTiersResponse.md)
 
 ### Authorization
 

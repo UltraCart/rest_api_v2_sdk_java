@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -19,6 +19,7 @@ import com.ultracart.admin.v2.models.CustomerEditorValues;
 import com.ultracart.admin.v2.models.CustomerQuery;
 import com.ultracart.admin.v2.models.CustomerResponse;
 import com.ultracart.admin.v2.models.CustomersResponse;
+import com.ultracart.admin.v2.models.DataTablesServerSideResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -134,6 +135,22 @@ public class CustomerApiTest {
         String sort = null;
         String expand = null;
         CustomersResponse response = api.getCustomersByQuery(customerQuery, limit, offset, since, sort, expand);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve customers for DataTables plugin
+     *
+     * Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getCustomersForDataTablesTest() throws ApiException {
+        String expand = null;
+        DataTablesServerSideResponse response = api.getCustomersForDataTables(expand);
 
         // TODO: test validations
     }

@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Country;
 import com.ultracart.admin.v2.models.CustomerAffiliate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * CustomerEditorValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-04T23:05:49.832-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T12:44:48.524-04:00")
 public class CustomerEditorValues {
   @SerializedName("affiliates")
   private List<CustomerAffiliate> affiliates = null;
@@ -44,7 +45,7 @@ public class CustomerEditorValues {
   private List<String> cardTypes = null;
 
   @SerializedName("countries")
-  private List<String> countries = null;
+  private List<Country> countries = null;
 
   @SerializedName("qb_classes")
   private List<String> qbClasses = null;
@@ -159,14 +160,14 @@ public class CustomerEditorValues {
     this.cardTypes = cardTypes;
   }
 
-  public CustomerEditorValues countries(List<String> countries) {
+  public CustomerEditorValues countries(List<Country> countries) {
     this.countries = countries;
     return this;
   }
 
-  public CustomerEditorValues addCountriesItem(String countriesItem) {
+  public CustomerEditorValues addCountriesItem(Country countriesItem) {
     if (this.countries == null) {
-      this.countries = new ArrayList<String>();
+      this.countries = new ArrayList<Country>();
     }
     this.countries.add(countriesItem);
     return this;
@@ -177,11 +178,11 @@ public class CustomerEditorValues {
    * @return countries
   **/
   @ApiModelProperty(value = "countries")
-  public List<String> getCountries() {
+  public List<Country> getCountries() {
     return countries;
   }
 
-  public void setCountries(List<String> countries) {
+  public void setCountries(List<Country> countries) {
     this.countries = countries;
   }
 

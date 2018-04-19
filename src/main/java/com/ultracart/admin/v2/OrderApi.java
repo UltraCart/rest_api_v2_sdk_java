@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -31,6 +31,8 @@ import com.ultracart.admin.v2.models.BaseResponse;
 import java.math.BigDecimal;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Order;
+import com.ultracart.admin.v2.models.OrderFormat;
+import com.ultracart.admin.v2.models.OrderFormatResponse;
 import com.ultracart.admin.v2.models.OrderQuery;
 import com.ultracart.admin.v2.models.OrderResponse;
 import com.ultracart.admin.v2.models.OrdersResponse;
@@ -308,6 +310,142 @@ public class OrderApi {
 
         com.squareup.okhttp.Call call = deleteOrderValidateBeforeCall(orderId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for format
+     * @param orderId The order id to format (required)
+     * @param formatOptions Format options (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call formatCall(String orderId, OrderFormat formatOptions, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = formatOptions;
+        
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/format"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call formatValidateBeforeCall(String orderId, OrderFormat formatOptions, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling format(Async)");
+        }
+        
+        // verify the required parameter 'formatOptions' is set
+        if (formatOptions == null) {
+            throw new ApiException("Missing the required parameter 'formatOptions' when calling format(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = formatCall(orderId, formatOptions, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Format order
+     * Format the order for display at text or html 
+     * @param orderId The order id to format (required)
+     * @param formatOptions Format options (required)
+     * @return OrderFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderFormatResponse format(String orderId, OrderFormat formatOptions) throws ApiException {
+        ApiResponse<OrderFormatResponse> resp = formatWithHttpInfo(orderId, formatOptions);
+        return resp.getData();
+    }
+
+    /**
+     * Format order
+     * Format the order for display at text or html 
+     * @param orderId The order id to format (required)
+     * @param formatOptions Format options (required)
+     * @return ApiResponse&lt;OrderFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderFormatResponse> formatWithHttpInfo(String orderId, OrderFormat formatOptions) throws ApiException {
+        com.squareup.okhttp.Call call = formatValidateBeforeCall(orderId, formatOptions, null, null);
+        Type localVarReturnType = new TypeToken<OrderFormatResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Format order (asynchronously)
+     * Format the order for display at text or html 
+     * @param orderId The order id to format (required)
+     * @param formatOptions Format options (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call formatAsync(String orderId, OrderFormat formatOptions, final ApiCallback<OrderFormatResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = formatValidateBeforeCall(orderId, formatOptions, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderFormatResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**

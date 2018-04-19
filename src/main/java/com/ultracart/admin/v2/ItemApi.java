@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -33,6 +33,7 @@ import com.ultracart.admin.v2.models.Item;
 import com.ultracart.admin.v2.models.ItemResponse;
 import com.ultracart.admin.v2.models.ItemsRequest;
 import com.ultracart.admin.v2.models.ItemsResponse;
+import com.ultracart.admin.v2.models.PricingTiersResponse;
 import com.ultracart.admin.v2.models.TempMultimediaResponse;
 
 import java.lang.reflect.Type;
@@ -623,6 +624,129 @@ public class ItemApi {
 
         com.squareup.okhttp.Call call = getItemsValidateBeforeCall(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getPricingTiers
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPricingTiersCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/item/pricing_tiers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPricingTiersValidateBeforeCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = getPricingTiersCall(expand, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Retrieve pricing tiers
+     * Retrieves the pricing tiers 
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return PricingTiersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PricingTiersResponse getPricingTiers(String expand) throws ApiException {
+        ApiResponse<PricingTiersResponse> resp = getPricingTiersWithHttpInfo(expand);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve pricing tiers
+     * Retrieves the pricing tiers 
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;PricingTiersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PricingTiersResponse> getPricingTiersWithHttpInfo(String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getPricingTiersValidateBeforeCall(expand, null, null);
+        Type localVarReturnType = new TypeToken<PricingTiersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve pricing tiers (asynchronously)
+     * Retrieves the pricing tiers 
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPricingTiersAsync(String expand, final ApiCallback<PricingTiersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPricingTiersValidateBeforeCall(expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PricingTiersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -22,19 +22,47 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * FulfillmentShipment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-04T23:05:49.832-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T12:44:48.524-04:00")
 public class FulfillmentShipment {
+  @SerializedName("fulfillment_fee")
+  private BigDecimal fulfillmentFee = null;
+
   @SerializedName("order_id")
   private String orderId = null;
 
+  @SerializedName("package_cost")
+  private BigDecimal packageCost = null;
+
+  @SerializedName("shipping_cost")
+  private BigDecimal shippingCost = null;
+
   @SerializedName("tracking_numbers")
   private List<String> trackingNumbers = null;
+
+  public FulfillmentShipment fulfillmentFee(BigDecimal fulfillmentFee) {
+    this.fulfillmentFee = fulfillmentFee;
+    return this;
+  }
+
+   /**
+   * Fees charged by the fulfillment company other than the shipping cost to process the order.
+   * @return fulfillmentFee
+  **/
+  @ApiModelProperty(value = "Fees charged by the fulfillment company other than the shipping cost to process the order.")
+  public BigDecimal getFulfillmentFee() {
+    return fulfillmentFee;
+  }
+
+  public void setFulfillmentFee(BigDecimal fulfillmentFee) {
+    this.fulfillmentFee = fulfillmentFee;
+  }
 
   public FulfillmentShipment orderId(String orderId) {
     this.orderId = orderId;
@@ -52,6 +80,42 @@ public class FulfillmentShipment {
 
   public void setOrderId(String orderId) {
     this.orderId = orderId;
+  }
+
+  public FulfillmentShipment packageCost(BigDecimal packageCost) {
+    this.packageCost = packageCost;
+    return this;
+  }
+
+   /**
+   * The cost of the packaging used to sent this shipment
+   * @return packageCost
+  **/
+  @ApiModelProperty(value = "The cost of the packaging used to sent this shipment")
+  public BigDecimal getPackageCost() {
+    return packageCost;
+  }
+
+  public void setPackageCost(BigDecimal packageCost) {
+    this.packageCost = packageCost;
+  }
+
+  public FulfillmentShipment shippingCost(BigDecimal shippingCost) {
+    this.shippingCost = shippingCost;
+    return this;
+  }
+
+   /**
+   * The actual total cost of shipping this order
+   * @return shippingCost
+  **/
+  @ApiModelProperty(value = "The actual total cost of shipping this order")
+  public BigDecimal getShippingCost() {
+    return shippingCost;
+  }
+
+  public void setShippingCost(BigDecimal shippingCost) {
+    this.shippingCost = shippingCost;
   }
 
   public FulfillmentShipment trackingNumbers(List<String> trackingNumbers) {
@@ -90,13 +154,16 @@ public class FulfillmentShipment {
       return false;
     }
     FulfillmentShipment fulfillmentShipment = (FulfillmentShipment) o;
-    return Objects.equals(this.orderId, fulfillmentShipment.orderId) &&
+    return Objects.equals(this.fulfillmentFee, fulfillmentShipment.fulfillmentFee) &&
+        Objects.equals(this.orderId, fulfillmentShipment.orderId) &&
+        Objects.equals(this.packageCost, fulfillmentShipment.packageCost) &&
+        Objects.equals(this.shippingCost, fulfillmentShipment.shippingCost) &&
         Objects.equals(this.trackingNumbers, fulfillmentShipment.trackingNumbers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderId, trackingNumbers);
+    return Objects.hash(fulfillmentFee, orderId, packageCost, shippingCost, trackingNumbers);
   }
 
 
@@ -105,7 +172,10 @@ public class FulfillmentShipment {
     StringBuilder sb = new StringBuilder();
     sb.append("class FulfillmentShipment {\n");
     
+    sb.append("    fulfillmentFee: ").append(toIndentedString(fulfillmentFee)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    packageCost: ").append(toIndentedString(packageCost)).append("\n");
+    sb.append("    shippingCost: ").append(toIndentedString(shippingCost)).append("\n");
     sb.append("    trackingNumbers: ").append(toIndentedString(trackingNumbers)).append("\n");
     sb.append("}");
     return sb.toString();

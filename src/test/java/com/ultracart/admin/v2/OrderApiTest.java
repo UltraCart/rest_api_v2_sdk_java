@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -18,6 +18,8 @@ import com.ultracart.admin.v2.models.BaseResponse;
 import java.math.BigDecimal;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Order;
+import com.ultracart.admin.v2.models.OrderFormat;
+import com.ultracart.admin.v2.models.OrderFormatResponse;
 import com.ultracart.admin.v2.models.OrderQuery;
 import com.ultracart.admin.v2.models.OrderResponse;
 import com.ultracart.admin.v2.models.OrdersResponse;
@@ -66,6 +68,23 @@ public class OrderApiTest {
     public void deleteOrderTest() throws ApiException {
         String orderId = null;
         api.deleteOrder(orderId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Format order
+     *
+     * Format the order for display at text or html 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void formatTest() throws ApiException {
+        String orderId = null;
+        OrderFormat formatOptions = null;
+        OrderFormatResponse response = api.format(orderId, formatOptions);
 
         // TODO: test validations
     }

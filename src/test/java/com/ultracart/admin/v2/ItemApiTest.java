@@ -1,6 +1,6 @@
 /*
  * UltraCart Rest API V2
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -20,6 +20,7 @@ import com.ultracart.admin.v2.models.Item;
 import com.ultracart.admin.v2.models.ItemResponse;
 import com.ultracart.admin.v2.models.ItemsRequest;
 import com.ultracart.admin.v2.models.ItemsResponse;
+import com.ultracart.admin.v2.models.PricingTiersResponse;
 import com.ultracart.admin.v2.models.TempMultimediaResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -109,6 +110,22 @@ public class ItemApiTest {
         String expand = null;
         Boolean placeholders = null;
         ItemsResponse response = api.getItems(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve pricing tiers
+     *
+     * Retrieves the pricing tiers 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getPricingTiersTest() throws ApiException {
+        String expand = null;
+        PricingTiersResponse response = api.getPricingTiers(expand);
 
         // TODO: test validations
     }
