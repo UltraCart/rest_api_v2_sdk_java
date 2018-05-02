@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * CartItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T12:44:48.524-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T21:50:39.825-04:00")
 public class CartItem {
   @SerializedName("arbitrary_unit_cost")
   private Currency arbitraryUnitCost = null;

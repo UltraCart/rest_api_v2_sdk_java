@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CartPaymentPurchaseOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T12:44:48.524-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T21:50:39.825-04:00")
 public class CartPaymentPurchaseOrder {
   @SerializedName("purchase_order_number")
   private String purchaseOrderNumber = null;

@@ -28,10 +28,10 @@ import java.util.List;
 /**
  * CartSettingsShippingCalendar
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T12:44:48.524-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T21:50:39.825-04:00")
 public class CartSettingsShippingCalendar {
   @SerializedName("blackouts")
-  private String blackouts = null;
+  private List<String> blackouts = null;
 
   @SerializedName("days_of_week")
   private List<Boolean> daysOfWeek = null;
@@ -45,21 +45,29 @@ public class CartSettingsShippingCalendar {
   @SerializedName("show")
   private Boolean show = null;
 
-  public CartSettingsShippingCalendar blackouts(String blackouts) {
+  public CartSettingsShippingCalendar blackouts(List<String> blackouts) {
     this.blackouts = blackouts;
     return this;
   }
 
+  public CartSettingsShippingCalendar addBlackoutsItem(String blackoutsItem) {
+    if (this.blackouts == null) {
+      this.blackouts = new ArrayList<String>();
+    }
+    this.blackouts.add(blackoutsItem);
+    return this;
+  }
+
    /**
-   * Specified dates that are blacked out on the calendar
+   * Specified dates that are blacked out on the calendar in ISO8601 format
    * @return blackouts
   **/
-  @ApiModelProperty(value = "Specified dates that are blacked out on the calendar")
-  public String getBlackouts() {
+  @ApiModelProperty(value = "Specified dates that are blacked out on the calendar in ISO8601 format")
+  public List<String> getBlackouts() {
     return blackouts;
   }
 
-  public void setBlackouts(String blackouts) {
+  public void setBlackouts(List<String> blackouts) {
     this.blackouts = blackouts;
   }
 
