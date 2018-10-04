@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class OrderQuery {
   @SerializedName("cc_email")
   private String ccEmail = null;
@@ -159,8 +159,6 @@ public class OrderQuery {
     CHECK("Check"),
     
     COD("COD"),
-    
-    COINBASE("Coinbase"),
     
     CREDIT_CARD("Credit Card"),
     

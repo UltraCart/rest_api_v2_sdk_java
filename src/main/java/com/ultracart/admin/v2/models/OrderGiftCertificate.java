@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderGiftCertificate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class OrderGiftCertificate {
   @SerializedName("gift_certificate_amount")
   private Currency giftCertificateAmount = null;

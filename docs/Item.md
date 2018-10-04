@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **merchantItemOid** | **Integer** | Unique object identifier for this item |  [optional]
 **options** | [**List&lt;ItemOption&gt;**](ItemOption.md) | Options |  [optional]
 **parentCategoryId** | **Integer** | Parent category of the item.  Zero indicates the root folder. |  [optional]
+**parentCategoryPath** | **String** | Parent category path.  / indicates the root folder. |  [optional]
 **paymentProcessing** | [**ItemPaymentProcessing**](ItemPaymentProcessing.md) |  |  [optional]
 **physical** | [**ItemPhysical**](ItemPhysical.md) |  |  [optional]
 **pricing** | [**ItemPricing**](ItemPricing.md) |  |  [optional]

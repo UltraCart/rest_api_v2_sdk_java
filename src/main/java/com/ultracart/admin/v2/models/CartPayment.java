@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CartPaymentAffirm;
 import com.ultracart.admin.v2.models.CartPaymentAmazon;
 import com.ultracart.admin.v2.models.CartPaymentCheck;
 import com.ultracart.admin.v2.models.CartPaymentCreditCard;
@@ -30,8 +31,11 @@ import java.io.IOException;
 /**
  * CartPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class CartPayment {
+  @SerializedName("affirm")
+  private CartPaymentAffirm affirm = null;
+
   @SerializedName("amazon")
   private CartPaymentAmazon amazon = null;
 
@@ -49,6 +53,24 @@ public class CartPayment {
 
   @SerializedName("rtg_code")
   private String rtgCode = null;
+
+  public CartPayment affirm(CartPaymentAffirm affirm) {
+    this.affirm = affirm;
+    return this;
+  }
+
+   /**
+   * Get affirm
+   * @return affirm
+  **/
+  @ApiModelProperty(value = "")
+  public CartPaymentAffirm getAffirm() {
+    return affirm;
+  }
+
+  public void setAffirm(CartPaymentAffirm affirm) {
+    this.affirm = affirm;
+  }
 
   public CartPayment amazon(CartPaymentAmazon amazon) {
     this.amazon = amazon;
@@ -168,7 +190,8 @@ public class CartPayment {
       return false;
     }
     CartPayment cartPayment = (CartPayment) o;
-    return Objects.equals(this.amazon, cartPayment.amazon) &&
+    return Objects.equals(this.affirm, cartPayment.affirm) &&
+        Objects.equals(this.amazon, cartPayment.amazon) &&
         Objects.equals(this.check, cartPayment.check) &&
         Objects.equals(this.creditCard, cartPayment.creditCard) &&
         Objects.equals(this.paymentMethod, cartPayment.paymentMethod) &&
@@ -178,7 +201,7 @@ public class CartPayment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amazon, check, creditCard, paymentMethod, purchaseOrder, rtgCode);
+    return Objects.hash(affirm, amazon, check, creditCard, paymentMethod, purchaseOrder, rtgCode);
   }
 
 
@@ -187,6 +210,7 @@ public class CartPayment {
     StringBuilder sb = new StringBuilder();
     sb.append("class CartPayment {\n");
     
+    sb.append("    affirm: ").append(toIndentedString(affirm)).append("\n");
     sb.append("    amazon: ").append(toIndentedString(amazon)).append("\n");
     sb.append("    check: ").append(toIndentedString(check)).append("\n");
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");

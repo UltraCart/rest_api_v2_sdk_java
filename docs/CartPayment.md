@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**affirm** | [**CartPaymentAffirm**](CartPaymentAffirm.md) |  |  [optional]
 **amazon** | [**CartPaymentAmazon**](CartPaymentAmazon.md) |  |  [optional]
 **check** | [**CartPaymentCheck**](CartPaymentCheck.md) |  |  [optional]
 **creditCard** | [**CartPaymentCreditCard**](CartPaymentCreditCard.md) |  |  [optional]

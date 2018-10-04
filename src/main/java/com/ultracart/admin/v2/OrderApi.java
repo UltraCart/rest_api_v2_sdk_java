@@ -1545,7 +1545,7 @@ public class OrderApi {
 
     /**
      * Update an order
-     * Update a new order on the UltraCart account. 
+     * Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation. 
      * @param order Order to update (required)
      * @param orderId The order id to update. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1559,7 +1559,7 @@ public class OrderApi {
 
     /**
      * Update an order
-     * Update a new order on the UltraCart account. 
+     * Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation. 
      * @param order Order to update (required)
      * @param orderId The order id to update. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1574,7 +1574,7 @@ public class OrderApi {
 
     /**
      * Update an order (asynchronously)
-     * Update a new order on the UltraCart account. 
+     * Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation. 
      * @param order Order to update (required)
      * @param orderId The order id to update. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)

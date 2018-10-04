@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **customField6** | **String** | Custom field 6 |  [optional]
 **customField7** | **String** | Custom field 7 |  [optional]
 **ipAddress** | **String** | IP Address |  [optional]
+**returnCode** | **String** | Return code assigned for send return email operation |  [optional]
 **screenBrandingThemeCode** | **String** | Screen branding theme code |  [optional]
 
 

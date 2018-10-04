@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.Cart;
+import com.ultracart.admin.v2.models.CartAffirmCheckoutResponse;
 import com.ultracart.admin.v2.models.CartFinalizeOrderRequest;
 import com.ultracart.admin.v2.models.CartFinalizeOrderResponse;
 import com.ultracart.admin.v2.models.CartProfileLoginRequest;
@@ -37,10 +38,12 @@ import com.ultracart.admin.v2.models.CartProfileRegisterResponse;
 import com.ultracart.admin.v2.models.CartResponse;
 import com.ultracart.admin.v2.models.CartValidationRequest;
 import com.ultracart.admin.v2.models.CartValidationResponse;
+import com.ultracart.admin.v2.models.CheckoutAllowedCountriesResponse;
 import com.ultracart.admin.v2.models.CheckoutHandoffRequest;
 import com.ultracart.admin.v2.models.CheckoutHandoffResponse;
 import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyRequest;
 import com.ultracart.admin.v2.models.CheckoutSetupBrowserKeyResponse;
+import com.ultracart.admin.v2.models.CheckoutStateProvinceResponse;
 import com.ultracart.admin.v2.models.CityStateZip;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.ItemsResponse;
@@ -319,6 +322,250 @@ public class CheckoutApi {
 
         com.squareup.okhttp.Call call = finalizeOrderValidateBeforeCall(finalizeRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CartFinalizeOrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getAffirmCheckout
+     * @param cartId Cart ID to retrieve (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAffirmCheckoutCall(String cartId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/checkout/cart/{cart_id}/affirmCheckout"
+            .replaceAll("\\{" + "cart_id" + "\\}", apiClient.escapeString(cartId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAffirmCheckoutValidateBeforeCall(String cartId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'cartId' is set
+        if (cartId == null) {
+            throw new ApiException("Missing the required parameter 'cartId' when calling getAffirmCheckout(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getAffirmCheckoutCall(cartId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get affirm checkout (by cart id)
+     * Get a Affirm checkout object for the specified cart_id parameter. 
+     * @param cartId Cart ID to retrieve (required)
+     * @return CartAffirmCheckoutResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CartAffirmCheckoutResponse getAffirmCheckout(String cartId) throws ApiException {
+        ApiResponse<CartAffirmCheckoutResponse> resp = getAffirmCheckoutWithHttpInfo(cartId);
+        return resp.getData();
+    }
+
+    /**
+     * Get affirm checkout (by cart id)
+     * Get a Affirm checkout object for the specified cart_id parameter. 
+     * @param cartId Cart ID to retrieve (required)
+     * @return ApiResponse&lt;CartAffirmCheckoutResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CartAffirmCheckoutResponse> getAffirmCheckoutWithHttpInfo(String cartId) throws ApiException {
+        com.squareup.okhttp.Call call = getAffirmCheckoutValidateBeforeCall(cartId, null, null);
+        Type localVarReturnType = new TypeToken<CartAffirmCheckoutResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get affirm checkout (by cart id) (asynchronously)
+     * Get a Affirm checkout object for the specified cart_id parameter. 
+     * @param cartId Cart ID to retrieve (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAffirmCheckoutAsync(String cartId, final ApiCallback<CartAffirmCheckoutResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAffirmCheckoutValidateBeforeCall(cartId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CartAffirmCheckoutResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getAllowedCountries
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAllowedCountriesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/checkout/allowedCountries";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAllowedCountriesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = getAllowedCountriesCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Allowed countries
+     * Lookup the allowed countries for this merchant id 
+     * @return CheckoutAllowedCountriesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CheckoutAllowedCountriesResponse getAllowedCountries() throws ApiException {
+        ApiResponse<CheckoutAllowedCountriesResponse> resp = getAllowedCountriesWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Allowed countries
+     * Lookup the allowed countries for this merchant id 
+     * @return ApiResponse&lt;CheckoutAllowedCountriesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CheckoutAllowedCountriesResponse> getAllowedCountriesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getAllowedCountriesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<CheckoutAllowedCountriesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Allowed countries (asynchronously)
+     * Lookup the allowed countries for this merchant id 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAllowedCountriesAsync(final ApiCallback<CheckoutAllowedCountriesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAllowedCountriesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CheckoutAllowedCountriesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -708,6 +955,133 @@ public class CheckoutApi {
 
         com.squareup.okhttp.Call call = getCartByReturnCodeValidateBeforeCall(returnCode, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getStateProvincesForCountry
+     * @param countryCode Two letter ISO country code (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStateProvincesForCountryCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/checkout/stateProvincesForCountry/{country_code}"
+            .replaceAll("\\{" + "country_code" + "\\}", apiClient.escapeString(countryCode.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getStateProvincesForCountryValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'countryCode' is set
+        if (countryCode == null) {
+            throw new ApiException("Missing the required parameter 'countryCode' when calling getStateProvincesForCountry(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getStateProvincesForCountryCall(countryCode, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get state/province list for a country code
+     * Lookup a state/province list for a given country code 
+     * @param countryCode Two letter ISO country code (required)
+     * @return CheckoutStateProvinceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CheckoutStateProvinceResponse getStateProvincesForCountry(String countryCode) throws ApiException {
+        ApiResponse<CheckoutStateProvinceResponse> resp = getStateProvincesForCountryWithHttpInfo(countryCode);
+        return resp.getData();
+    }
+
+    /**
+     * Get state/province list for a country code
+     * Lookup a state/province list for a given country code 
+     * @param countryCode Two letter ISO country code (required)
+     * @return ApiResponse&lt;CheckoutStateProvinceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CheckoutStateProvinceResponse> getStateProvincesForCountryWithHttpInfo(String countryCode) throws ApiException {
+        com.squareup.okhttp.Call call = getStateProvincesForCountryValidateBeforeCall(countryCode, null, null);
+        Type localVarReturnType = new TypeToken<CheckoutStateProvinceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get state/province list for a country code (asynchronously)
+     * Lookup a state/province list for a given country code 
+     * @param countryCode Two letter ISO country code (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getStateProvincesForCountryAsync(String countryCode, final ApiCallback<CheckoutStateProvinceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getStateProvincesForCountryValidateBeforeCall(countryCode, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CheckoutStateProvinceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

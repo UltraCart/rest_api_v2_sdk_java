@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderBuysafe
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class OrderBuysafe {
   @SerializedName("buysafe_bond_available")
   private Boolean buysafeBondAvailable = null;

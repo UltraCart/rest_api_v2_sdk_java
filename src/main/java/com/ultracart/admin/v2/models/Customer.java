@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CustomerCard;
 import com.ultracart.admin.v2.models.CustomerEmail;
 import com.ultracart.admin.v2.models.CustomerOrdersSummary;
 import com.ultracart.admin.v2.models.CustomerPricingTier;
+import com.ultracart.admin.v2.models.CustomerPrivacy;
 import com.ultracart.admin.v2.models.CustomerQuotesSummary;
 import com.ultracart.admin.v2.models.CustomerShipping;
 import com.ultracart.admin.v2.models.Order;
@@ -37,7 +38,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class Customer {
   @SerializedName("affiliate_oid")
   private Integer affiliateOid = null;
@@ -134,6 +135,9 @@ public class Customer {
 
   @SerializedName("pricing_tiers")
   private List<CustomerPricingTier> pricingTiers = null;
+
+  @SerializedName("privacy")
+  private CustomerPrivacy privacy = null;
 
   @SerializedName("qb_class")
   private String qbClass = null;
@@ -802,6 +806,24 @@ public class Customer {
     this.pricingTiers = pricingTiers;
   }
 
+  public Customer privacy(CustomerPrivacy privacy) {
+    this.privacy = privacy;
+    return this;
+  }
+
+   /**
+   * Get privacy
+   * @return privacy
+  **/
+  @ApiModelProperty(value = "")
+  public CustomerPrivacy getPrivacy() {
+    return privacy;
+  }
+
+  public void setPrivacy(CustomerPrivacy privacy) {
+    this.privacy = privacy;
+  }
+
   public Customer qbClass(String qbClass) {
     this.qbClass = qbClass;
     return this;
@@ -1166,6 +1188,7 @@ public class Customer {
         Objects.equals(this.ordersSummary, customer.ordersSummary) &&
         Objects.equals(this.password, customer.password) &&
         Objects.equals(this.pricingTiers, customer.pricingTiers) &&
+        Objects.equals(this.privacy, customer.privacy) &&
         Objects.equals(this.qbClass, customer.qbClass) &&
         Objects.equals(this.qbCode, customer.qbCode) &&
         Objects.equals(this.quotes, customer.quotes) &&
@@ -1187,7 +1210,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, qbClass, qbCode, quotes, quotesSummary, referralSource, salesRepCode, sendSignupNotification, shipping, signupDts, suppressBuysafe, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, salesRepCode, sendSignupNotification, shipping, signupDts, suppressBuysafe, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1228,6 +1251,7 @@ public class Customer {
     sb.append("    ordersSummary: ").append(toIndentedString(ordersSummary)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    pricingTiers: ").append(toIndentedString(pricingTiers)).append("\n");
+    sb.append("    privacy: ").append(toIndentedString(privacy)).append("\n");
     sb.append("    qbClass: ").append(toIndentedString(qbClass)).append("\n");
     sb.append("    qbCode: ").append(toIndentedString(qbCode)).append("\n");
     sb.append("    quotes: ").append(toIndentedString(quotes)).append("\n");

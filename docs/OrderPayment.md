@@ -33,7 +33,6 @@ AMAZON_SC | &quot;Amazon SC&quot;
 CASH | &quot;Cash&quot;
 CHECK | &quot;Check&quot;
 COD | &quot;COD&quot;
-COINBASE | &quot;Coinbase&quot;
 CREDIT_CARD | &quot;Credit Card&quot;
 EBAY | &quot;eBay&quot;
 ECHECK | &quot;eCheck&quot;

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CartCheckout
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class CartCheckout {
   @SerializedName("comments")
   private String comments = null;
@@ -54,6 +54,9 @@ public class CartCheckout {
 
   @SerializedName("ip_address")
   private String ipAddress = null;
+
+  @SerializedName("return_code")
+  private String returnCode = null;
 
   @SerializedName("screen_branding_theme_code")
   private String screenBrandingThemeCode = null;
@@ -220,6 +223,24 @@ public class CartCheckout {
     this.ipAddress = ipAddress;
   }
 
+  public CartCheckout returnCode(String returnCode) {
+    this.returnCode = returnCode;
+    return this;
+  }
+
+   /**
+   * Return code assigned for send return email operation
+   * @return returnCode
+  **/
+  @ApiModelProperty(value = "Return code assigned for send return email operation")
+  public String getReturnCode() {
+    return returnCode;
+  }
+
+  public void setReturnCode(String returnCode) {
+    this.returnCode = returnCode;
+  }
+
   public CartCheckout screenBrandingThemeCode(String screenBrandingThemeCode) {
     this.screenBrandingThemeCode = screenBrandingThemeCode;
     return this;
@@ -257,12 +278,13 @@ public class CartCheckout {
         Objects.equals(this.customField6, cartCheckout.customField6) &&
         Objects.equals(this.customField7, cartCheckout.customField7) &&
         Objects.equals(this.ipAddress, cartCheckout.ipAddress) &&
+        Objects.equals(this.returnCode, cartCheckout.returnCode) &&
         Objects.equals(this.screenBrandingThemeCode, cartCheckout.screenBrandingThemeCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, ipAddress, screenBrandingThemeCode);
+    return Objects.hash(comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, ipAddress, returnCode, screenBrandingThemeCode);
   }
 
 
@@ -280,6 +302,7 @@ public class CartCheckout {
     sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    returnCode: ").append(toIndentedString(returnCode)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
     sb.append("}");
     return sb.toString();

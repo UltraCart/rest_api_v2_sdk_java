@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **ordersSummary** | [**CustomerOrdersSummary**](CustomerOrdersSummary.md) |  |  [optional]
 **password** | **String** | Password (may only be set, never read) |  [optional]
 **pricingTiers** | [**List&lt;CustomerPricingTier&gt;**](CustomerPricingTier.md) | Pricing tiers for this customer |  [optional]
+**privacy** | [**CustomerPrivacy**](CustomerPrivacy.md) |  |  [optional]
 **qbClass** | **String** | QuickBooks class to import this customer as |  [optional]
 **qbCode** | **String** | QuickBooks name to import this customer as |  [optional]
 **quotes** | [**List&lt;Order&gt;**](Order.md) | Quotes associated with this customer profile |  [optional]

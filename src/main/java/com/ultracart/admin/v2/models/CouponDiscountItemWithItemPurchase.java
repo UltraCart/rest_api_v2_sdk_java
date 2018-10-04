@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * CouponDiscountItemWithItemPurchase
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class CouponDiscountItemWithItemPurchase {
   @SerializedName("currency_code")
   private String currencyCode = null;

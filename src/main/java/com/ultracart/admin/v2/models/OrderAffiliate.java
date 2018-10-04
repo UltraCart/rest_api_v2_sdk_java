@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * OrderAffiliate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class OrderAffiliate {
   @SerializedName("affiliate_oid")
   private Integer affiliateOid = null;

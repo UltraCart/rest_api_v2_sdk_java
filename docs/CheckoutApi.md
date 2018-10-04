@@ -6,9 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cityState**](CheckoutApi.md#cityState) | **POST** /checkout/city_state | City/State for Zip
 [**finalizeOrder**](CheckoutApi.md#finalizeOrder) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+[**getAffirmCheckout**](CheckoutApi.md#getAffirmCheckout) | **GET** /checkout/cart/{cart_id}/affirmCheckout | Get affirm checkout (by cart id)
+[**getAllowedCountries**](CheckoutApi.md#getAllowedCountries) | **POST** /checkout/allowedCountries | Allowed countries
 [**getCart**](CheckoutApi.md#getCart) | **GET** /checkout/cart | Get cart
 [**getCartByCartId**](CheckoutApi.md#getCartByCartId) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
 [**getCartByReturnCode**](CheckoutApi.md#getCartByReturnCode) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**getStateProvincesForCountry**](CheckoutApi.md#getStateProvincesForCountry) | **POST** /checkout/stateProvincesForCountry/{country_code} | Get state/province list for a country code
 [**handoffCart**](CheckoutApi.md#handoffCart) | **POST** /checkout/cart/handoff | Handoff cart
 [**login**](CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
 [**logout**](CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
@@ -138,6 +141,132 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getAffirmCheckout"></a>
+# **getAffirmCheckout**
+> CartAffirmCheckoutResponse getAffirmCheckout(cartId)
+
+Get affirm checkout (by cart id)
+
+Get a Affirm checkout object for the specified cart_id parameter. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CheckoutApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
+ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+CheckoutApi apiInstance = new CheckoutApi();
+String cartId = "cartId_example"; // String | Cart ID to retrieve
+try {
+    CartAffirmCheckoutResponse result = apiInstance.getAffirmCheckout(cartId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CheckoutApi#getAffirmCheckout");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cartId** | **String**| Cart ID to retrieve |
+
+### Return type
+
+[**CartAffirmCheckoutResponse**](CartAffirmCheckoutResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getAllowedCountries"></a>
+# **getAllowedCountries**
+> CheckoutAllowedCountriesResponse getAllowedCountries()
+
+Allowed countries
+
+Lookup the allowed countries for this merchant id 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CheckoutApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
+ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+CheckoutApi apiInstance = new CheckoutApi();
+try {
+    CheckoutAllowedCountriesResponse result = apiInstance.getAllowedCountries();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CheckoutApi#getAllowedCountries");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CheckoutAllowedCountriesResponse**](CheckoutAllowedCountriesResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -333,6 +462,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CartResponse**](CartResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getStateProvincesForCountry"></a>
+# **getStateProvincesForCountry**
+> CheckoutStateProvinceResponse getStateProvincesForCountry(countryCode)
+
+Get state/province list for a country code
+
+Lookup a state/province list for a given country code 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CheckoutApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
+ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+CheckoutApi apiInstance = new CheckoutApi();
+String countryCode = "countryCode_example"; // String | Two letter ISO country code
+try {
+    CheckoutStateProvinceResponse result = apiInstance.getStateProvincesForCountry(countryCode);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CheckoutApi#getStateProvincesForCountry");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **countryCode** | **String**| Two letter ISO country code |
+
+### Return type
+
+[**CheckoutStateProvinceResponse**](CheckoutStateProvinceResponse.md)
 
 ### Authorization
 

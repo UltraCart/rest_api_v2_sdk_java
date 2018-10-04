@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * DistributionCenter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class DistributionCenter {
   @SerializedName("address1")
   private String address1 = null;
@@ -67,6 +67,9 @@ public class DistributionCenter {
 
   @SerializedName("hold_before_transmission")
   private Boolean holdBeforeTransmission = null;
+
+  @SerializedName("holdAutoOrderBeforeShipmentMinutes")
+  private Integer holdAutoOrderBeforeShipmentMinutes = null;
 
   @SerializedName("latitude")
   private BigDecimal latitude = null;
@@ -360,6 +363,24 @@ public class DistributionCenter {
 
   public void setHoldBeforeTransmission(Boolean holdBeforeTransmission) {
     this.holdBeforeTransmission = holdBeforeTransmission;
+  }
+
+  public DistributionCenter holdAutoOrderBeforeShipmentMinutes(Integer holdAutoOrderBeforeShipmentMinutes) {
+    this.holdAutoOrderBeforeShipmentMinutes = holdAutoOrderBeforeShipmentMinutes;
+    return this;
+  }
+
+   /**
+   * Get holdAutoOrderBeforeShipmentMinutes
+   * @return holdAutoOrderBeforeShipmentMinutes
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getHoldAutoOrderBeforeShipmentMinutes() {
+    return holdAutoOrderBeforeShipmentMinutes;
+  }
+
+  public void setHoldAutoOrderBeforeShipmentMinutes(Integer holdAutoOrderBeforeShipmentMinutes) {
+    this.holdAutoOrderBeforeShipmentMinutes = holdAutoOrderBeforeShipmentMinutes;
   }
 
   public DistributionCenter latitude(BigDecimal latitude) {
@@ -745,6 +766,7 @@ public class DistributionCenter {
         Objects.equals(this.ftpPassword, distributionCenter.ftpPassword) &&
         Objects.equals(this.holdBeforeShipmentMinutes, distributionCenter.holdBeforeShipmentMinutes) &&
         Objects.equals(this.holdBeforeTransmission, distributionCenter.holdBeforeTransmission) &&
+        Objects.equals(this.holdAutoOrderBeforeShipmentMinutes, distributionCenter.holdAutoOrderBeforeShipmentMinutes) &&
         Objects.equals(this.latitude, distributionCenter.latitude) &&
         Objects.equals(this.longitude, distributionCenter.longitude) &&
         Objects.equals(this.name, distributionCenter.name) &&
@@ -769,7 +791,7 @@ public class DistributionCenter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, code, countryCode, defaultCenter, defaultHandlesAllItems, distributionCenterOid, duns, estimateFromDistributionCenterOid, ftpPassword, holdBeforeShipmentMinutes, holdBeforeTransmission, latitude, longitude, name, noCustomerDirectShipments, noSplitShipment, postalCode, processDays, processInventoryStartTime, processInventoryStopTime, requireAsn, sendKitInsteadOfComponents, shipmentCutoffTimeFriday, shipmentCutoffTimeMonday, shipmentCutoffTimeSaturday, shipmentCutoffTimeSunday, shipmentCutoffTimeThursday, shipmentCutoffTimeTuesday, shipmentCutoffTimeWednesday, state, transport);
+    return Objects.hash(address1, address2, city, code, countryCode, defaultCenter, defaultHandlesAllItems, distributionCenterOid, duns, estimateFromDistributionCenterOid, ftpPassword, holdBeforeShipmentMinutes, holdBeforeTransmission, holdAutoOrderBeforeShipmentMinutes, latitude, longitude, name, noCustomerDirectShipments, noSplitShipment, postalCode, processDays, processInventoryStartTime, processInventoryStopTime, requireAsn, sendKitInsteadOfComponents, shipmentCutoffTimeFriday, shipmentCutoffTimeMonday, shipmentCutoffTimeSaturday, shipmentCutoffTimeSunday, shipmentCutoffTimeThursday, shipmentCutoffTimeTuesday, shipmentCutoffTimeWednesday, state, transport);
   }
 
 
@@ -791,6 +813,7 @@ public class DistributionCenter {
     sb.append("    ftpPassword: ").append(toIndentedString(ftpPassword)).append("\n");
     sb.append("    holdBeforeShipmentMinutes: ").append(toIndentedString(holdBeforeShipmentMinutes)).append("\n");
     sb.append("    holdBeforeTransmission: ").append(toIndentedString(holdBeforeTransmission)).append("\n");
+    sb.append("    holdAutoOrderBeforeShipmentMinutes: ").append(toIndentedString(holdAutoOrderBeforeShipmentMinutes)).append("\n");
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

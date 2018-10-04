@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **packedByUser** | **String** | Packed by user |  [optional]
 **perishableClass** | **String** | Perishable class of the item |  [optional]
 **pricingTierName** | **String** | Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned |  [optional]
+**properties** | [**List&lt;OrderItemProperty&gt;**](OrderItemProperty.md) | Properties |  [optional]
 **quantity** | [**BigDecimal**](BigDecimal.md) | Quantity |  [optional]
 **quantityRefunded** | [**BigDecimal**](BigDecimal.md) | Quantity refunded on this item (read only except refund operation) |  [optional]
 **quickbooksClass** | **String** | QuickBooks class |  [optional]

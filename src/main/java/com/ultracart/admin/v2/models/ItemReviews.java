@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * ItemReviews
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class ItemReviews {
   @SerializedName("has_approved_review")
   private Boolean hasApprovedReview = null;

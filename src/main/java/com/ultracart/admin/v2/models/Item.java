@@ -63,7 +63,7 @@ import java.util.List;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-01T22:01:03.096-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
 public class Item {
   @SerializedName("accounting")
   private ItemAccounting accounting = null;
@@ -151,6 +151,9 @@ public class Item {
 
   @SerializedName("parent_category_id")
   private Integer parentCategoryId = null;
+
+  @SerializedName("parent_category_path")
+  private String parentCategoryPath = null;
 
   @SerializedName("payment_processing")
   private ItemPaymentProcessing paymentProcessing = null;
@@ -738,6 +741,24 @@ public class Item {
     this.parentCategoryId = parentCategoryId;
   }
 
+  public Item parentCategoryPath(String parentCategoryPath) {
+    this.parentCategoryPath = parentCategoryPath;
+    return this;
+  }
+
+   /**
+   * Parent category path.  / indicates the root folder.
+   * @return parentCategoryPath
+  **/
+  @ApiModelProperty(value = "Parent category path.  / indicates the root folder.")
+  public String getParentCategoryPath() {
+    return parentCategoryPath;
+  }
+
+  public void setParentCategoryPath(String parentCategoryPath) {
+    this.parentCategoryPath = parentCategoryPath;
+  }
+
   public Item paymentProcessing(ItemPaymentProcessing paymentProcessing) {
     this.paymentProcessing = paymentProcessing;
     return this;
@@ -1089,6 +1110,7 @@ public class Item {
         Objects.equals(this.merchantItemOid, item.merchantItemOid) &&
         Objects.equals(this.options, item.options) &&
         Objects.equals(this.parentCategoryId, item.parentCategoryId) &&
+        Objects.equals(this.parentCategoryPath, item.parentCategoryPath) &&
         Objects.equals(this.paymentProcessing, item.paymentProcessing) &&
         Objects.equals(this.physical, item.physical) &&
         Objects.equals(this.pricing, item.pricing) &&
@@ -1109,7 +1131,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, paymentProcessing, physical, pricing, realtimePricing, related, reporting, restriction, revguard, reviews, salesforce, shipping, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
+    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, realtimePricing, related, reporting, restriction, revguard, reviews, salesforce, shipping, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
   }
 
 
@@ -1147,6 +1169,7 @@ public class Item {
     sb.append("    merchantItemOid: ").append(toIndentedString(merchantItemOid)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    parentCategoryId: ").append(toIndentedString(parentCategoryId)).append("\n");
+    sb.append("    parentCategoryPath: ").append(toIndentedString(parentCategoryPath)).append("\n");
     sb.append("    paymentProcessing: ").append(toIndentedString(paymentProcessing)).append("\n");
     sb.append("    physical: ").append(toIndentedString(physical)).append("\n");
     sb.append("    pricing: ").append(toIndentedString(pricing)).append("\n");
