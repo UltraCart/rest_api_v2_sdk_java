@@ -27,8 +27,14 @@ import java.math.BigDecimal;
 /**
  * Currency
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class Currency {
+  @SerializedName("currency_code")
+  private String currencyCode = null;
+
+  @SerializedName("exchange_rate")
+  private BigDecimal exchangeRate = null;
+
   @SerializedName("localized")
   private BigDecimal localized = null;
 
@@ -37,6 +43,42 @@ public class Currency {
 
   @SerializedName("value")
   private BigDecimal value = null;
+
+  public Currency currencyCode(String currencyCode) {
+    this.currencyCode = currencyCode;
+    return this;
+  }
+
+   /**
+   * Currency code of the localized value
+   * @return currencyCode
+  **/
+  @ApiModelProperty(value = "Currency code of the localized value")
+  public String getCurrencyCode() {
+    return currencyCode;
+  }
+
+  public void setCurrencyCode(String currencyCode) {
+    this.currencyCode = currencyCode;
+  }
+
+  public Currency exchangeRate(BigDecimal exchangeRate) {
+    this.exchangeRate = exchangeRate;
+    return this;
+  }
+
+   /**
+   * Exchange rate used to localize
+   * @return exchangeRate
+  **/
+  @ApiModelProperty(value = "Exchange rate used to localize")
+  public BigDecimal getExchangeRate() {
+    return exchangeRate;
+  }
+
+  public void setExchangeRate(BigDecimal exchangeRate) {
+    this.exchangeRate = exchangeRate;
+  }
 
   public Currency localized(BigDecimal localized) {
     this.localized = localized;
@@ -102,14 +144,16 @@ public class Currency {
       return false;
     }
     Currency currency = (Currency) o;
-    return Objects.equals(this.localized, currency.localized) &&
+    return Objects.equals(this.currencyCode, currency.currencyCode) &&
+        Objects.equals(this.exchangeRate, currency.exchangeRate) &&
+        Objects.equals(this.localized, currency.localized) &&
         Objects.equals(this.localizedFormatted, currency.localizedFormatted) &&
         Objects.equals(this.value, currency.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(localized, localizedFormatted, value);
+    return Objects.hash(currencyCode, exchangeRate, localized, localizedFormatted, value);
   }
 
 
@@ -118,6 +162,8 @@ public class Currency {
     StringBuilder sb = new StringBuilder();
     sb.append("class Currency {\n");
     
+    sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+    sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
     sb.append("    localized: ").append(toIndentedString(localized)).append("\n");
     sb.append("    localizedFormatted: ").append(toIndentedString(localizedFormatted)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

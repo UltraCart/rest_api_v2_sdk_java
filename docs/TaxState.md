@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **taxRate** | [**BigDecimal**](BigDecimal.md) | Tax Rate |  [optional]
 **taxRateFormatted** | **String** | Tax rate formatted |  [optional]
 **taxShipping** | **Boolean** | True if taxation within this jurisdiction should charge tax on shipping |  [optional]
+**useUltracartManagedRates** | **Boolean** | If true, use UltraCart managed rates for this state |  [optional]
 
 
 

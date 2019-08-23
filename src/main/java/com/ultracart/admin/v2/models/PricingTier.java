@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * PricingTier
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class PricingTier {
   @SerializedName("allow_3rd_party_billing")
   private Boolean allow3rdPartyBilling = null;
@@ -113,6 +113,9 @@ public class PricingTier {
 
   @SerializedName("suppress_buysafe")
   private Boolean suppressBuysafe = null;
+
+  @SerializedName("suppress_mailing_list")
+  private Boolean suppressMailingList = null;
 
   @SerializedName("tax_exempt")
   private Boolean taxExempt = null;
@@ -624,6 +627,24 @@ public class PricingTier {
     this.suppressBuysafe = suppressBuysafe;
   }
 
+  public PricingTier suppressMailingList(Boolean suppressMailingList) {
+    this.suppressMailingList = suppressMailingList;
+    return this;
+  }
+
+   /**
+   * Suppress mailing list
+   * @return suppressMailingList
+  **/
+  @ApiModelProperty(value = "Suppress mailing list")
+  public Boolean isSuppressMailingList() {
+    return suppressMailingList;
+  }
+
+  public void setSuppressMailingList(Boolean suppressMailingList) {
+    this.suppressMailingList = suppressMailingList;
+  }
+
   public PricingTier taxExempt(Boolean taxExempt) {
     this.taxExempt = taxExempt;
     return this;
@@ -698,13 +719,14 @@ public class PricingTier {
         Objects.equals(this.realtimePercentageDiscount, pricingTier.realtimePercentageDiscount) &&
         Objects.equals(this.signupNotification, pricingTier.signupNotification) &&
         Objects.equals(this.suppressBuysafe, pricingTier.suppressBuysafe) &&
+        Objects.equals(this.suppressMailingList, pricingTier.suppressMailingList) &&
         Objects.equals(this.taxExempt, pricingTier.taxExempt) &&
         Objects.equals(this.trackSeparately, pricingTier.trackSeparately);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, signupNotification, suppressBuysafe, taxExempt, trackSeparately);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
   }
 
 
@@ -741,6 +763,7 @@ public class PricingTier {
     sb.append("    realtimePercentageDiscount: ").append(toIndentedString(realtimePercentageDiscount)).append("\n");
     sb.append("    signupNotification: ").append(toIndentedString(signupNotification)).append("\n");
     sb.append("    suppressBuysafe: ").append(toIndentedString(suppressBuysafe)).append("\n");
+    sb.append("    suppressMailingList: ").append(toIndentedString(suppressMailingList)).append("\n");
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    trackSeparately: ").append(toIndentedString(trackSeparately)).append("\n");
     sb.append("}");

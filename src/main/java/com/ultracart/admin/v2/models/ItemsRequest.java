@@ -19,9 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.Item;
-import com.ultracart.admin.v2.models.ResponseMetadata;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,37 +29,10 @@ import java.util.List;
 /**
  * ItemsRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class ItemsRequest {
-  @SerializedName("error")
-  private Error error = null;
-
   @SerializedName("items")
   private List<Item> items = null;
-
-  @SerializedName("metadata")
-  private ResponseMetadata metadata = null;
-
-  @SerializedName("success")
-  private Boolean success = null;
-
-  public ItemsRequest error(Error error) {
-    this.error = error;
-    return this;
-  }
-
-   /**
-   * Get error
-   * @return error
-  **/
-  @ApiModelProperty(value = "")
-  public Error getError() {
-    return error;
-  }
-
-  public void setError(Error error) {
-    this.error = error;
-  }
 
   public ItemsRequest items(List<Item> items) {
     this.items = items;
@@ -89,42 +60,6 @@ public class ItemsRequest {
     this.items = items;
   }
 
-  public ItemsRequest metadata(ResponseMetadata metadata) {
-    this.metadata = metadata;
-    return this;
-  }
-
-   /**
-   * Get metadata
-   * @return metadata
-  **/
-  @ApiModelProperty(value = "")
-  public ResponseMetadata getMetadata() {
-    return metadata;
-  }
-
-  public void setMetadata(ResponseMetadata metadata) {
-    this.metadata = metadata;
-  }
-
-  public ItemsRequest success(Boolean success) {
-    this.success = success;
-    return this;
-  }
-
-   /**
-   * Indicates if API call was successful
-   * @return success
-  **/
-  @ApiModelProperty(value = "Indicates if API call was successful")
-  public Boolean isSuccess() {
-    return success;
-  }
-
-  public void setSuccess(Boolean success) {
-    this.success = success;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -135,15 +70,12 @@ public class ItemsRequest {
       return false;
     }
     ItemsRequest itemsRequest = (ItemsRequest) o;
-    return Objects.equals(this.error, itemsRequest.error) &&
-        Objects.equals(this.items, itemsRequest.items) &&
-        Objects.equals(this.metadata, itemsRequest.metadata) &&
-        Objects.equals(this.success, itemsRequest.success);
+    return Objects.equals(this.items, itemsRequest.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, items, metadata, success);
+    return Objects.hash(items);
   }
 
 
@@ -152,10 +84,7 @@ public class ItemsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemsRequest {\n");
     
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }

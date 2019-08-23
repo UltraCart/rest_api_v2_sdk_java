@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.TaxProviderUltraCartState;
+import com.ultracart.admin.v2.models.UltraCartConfig;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,8 +30,11 @@ import java.util.List;
 /**
  * TaxProviderUltraCart
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class TaxProviderUltraCart {
+  @SerializedName("configuration")
+  private UltraCartConfig _configuration = null;
+
   @SerializedName("description")
   private String description = null;
 
@@ -42,6 +46,24 @@ public class TaxProviderUltraCart {
 
   @SerializedName("title")
   private String title = null;
+
+  public TaxProviderUltraCart _configuration(UltraCartConfig _configuration) {
+    this._configuration = _configuration;
+    return this;
+  }
+
+   /**
+   * Get _configuration
+   * @return _configuration
+  **/
+  @ApiModelProperty(value = "")
+  public UltraCartConfig getConfiguration() {
+    return _configuration;
+  }
+
+  public void setConfiguration(UltraCartConfig _configuration) {
+    this._configuration = _configuration;
+  }
 
   public TaxProviderUltraCart description(String description) {
     this.description = description;
@@ -133,7 +155,8 @@ public class TaxProviderUltraCart {
       return false;
     }
     TaxProviderUltraCart taxProviderUltraCart = (TaxProviderUltraCart) o;
-    return Objects.equals(this.description, taxProviderUltraCart.description) &&
+    return Objects.equals(this._configuration, taxProviderUltraCart._configuration) &&
+        Objects.equals(this.description, taxProviderUltraCart.description) &&
         Objects.equals(this.selected, taxProviderUltraCart.selected) &&
         Objects.equals(this.states, taxProviderUltraCart.states) &&
         Objects.equals(this.title, taxProviderUltraCart.title);
@@ -141,7 +164,7 @@ public class TaxProviderUltraCart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, selected, states, title);
+    return Objects.hash(_configuration, description, selected, states, title);
   }
 
 
@@ -150,6 +173,7 @@ public class TaxProviderUltraCart {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaxProviderUltraCart {\n");
     
+    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    selected: ").append(toIndentedString(selected)).append("\n");
     sb.append("    states: ").append(toIndentedString(states)).append("\n");

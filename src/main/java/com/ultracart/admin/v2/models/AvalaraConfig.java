@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * AvalaraConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class AvalaraConfig {
   @SerializedName("account_id")
   private String accountId = null;
@@ -43,6 +43,12 @@ public class AvalaraConfig {
   @SerializedName("enable_upc")
   private Boolean enableUpc = null;
 
+  @SerializedName("estimate_only")
+  private Boolean estimateOnly = null;
+
+  @SerializedName("guest_customer_code")
+  private String guestCustomerCode = null;
+
   @SerializedName("last_test_dts")
   private String lastTestDts = null;
 
@@ -51,6 +57,9 @@ public class AvalaraConfig {
 
   @SerializedName("sandbox")
   private Boolean sandbox = null;
+
+  @SerializedName("send_test_orders")
+  private Boolean sendTestOrders = null;
 
   @SerializedName("service_url")
   private String serviceUrl = null;
@@ -148,6 +157,42 @@ public class AvalaraConfig {
     this.enableUpc = enableUpc;
   }
 
+  public AvalaraConfig estimateOnly(Boolean estimateOnly) {
+    this.estimateOnly = estimateOnly;
+    return this;
+  }
+
+   /**
+   * True if this Avalara configuration is to estimate taxes only and not report placed orders to Avalara
+   * @return estimateOnly
+  **/
+  @ApiModelProperty(value = "True if this Avalara configuration is to estimate taxes only and not report placed orders to Avalara")
+  public Boolean isEstimateOnly() {
+    return estimateOnly;
+  }
+
+  public void setEstimateOnly(Boolean estimateOnly) {
+    this.estimateOnly = estimateOnly;
+  }
+
+  public AvalaraConfig guestCustomerCode(String guestCustomerCode) {
+    this.guestCustomerCode = guestCustomerCode;
+    return this;
+  }
+
+   /**
+   * Optional customer code for customers without profiles, defaults to GuestCustomer
+   * @return guestCustomerCode
+  **/
+  @ApiModelProperty(value = "Optional customer code for customers without profiles, defaults to GuestCustomer")
+  public String getGuestCustomerCode() {
+    return guestCustomerCode;
+  }
+
+  public void setGuestCustomerCode(String guestCustomerCode) {
+    this.guestCustomerCode = guestCustomerCode;
+  }
+
   public AvalaraConfig lastTestDts(String lastTestDts) {
     this.lastTestDts = lastTestDts;
     return this;
@@ -202,6 +247,24 @@ public class AvalaraConfig {
     this.sandbox = sandbox;
   }
 
+  public AvalaraConfig sendTestOrders(Boolean sendTestOrders) {
+    this.sendTestOrders = sendTestOrders;
+    return this;
+  }
+
+   /**
+   * Send test orders through to Avalara.  The default is to not transmit test orders to Avalara.
+   * @return sendTestOrders
+  **/
+  @ApiModelProperty(value = "Send test orders through to Avalara.  The default is to not transmit test orders to Avalara.")
+  public Boolean isSendTestOrders() {
+    return sendTestOrders;
+  }
+
+  public void setSendTestOrders(Boolean sendTestOrders) {
+    this.sendTestOrders = sendTestOrders;
+  }
+
   public AvalaraConfig serviceUrl(String serviceUrl) {
     this.serviceUrl = serviceUrl;
     return this;
@@ -253,16 +316,19 @@ public class AvalaraConfig {
         Objects.equals(this.avalaraOid, avalaraConfig.avalaraOid) &&
         Objects.equals(this.companyId, avalaraConfig.companyId) &&
         Objects.equals(this.enableUpc, avalaraConfig.enableUpc) &&
+        Objects.equals(this.estimateOnly, avalaraConfig.estimateOnly) &&
+        Objects.equals(this.guestCustomerCode, avalaraConfig.guestCustomerCode) &&
         Objects.equals(this.lastTestDts, avalaraConfig.lastTestDts) &&
         Objects.equals(this.licenseKey, avalaraConfig.licenseKey) &&
         Objects.equals(this.sandbox, avalaraConfig.sandbox) &&
+        Objects.equals(this.sendTestOrders, avalaraConfig.sendTestOrders) &&
         Objects.equals(this.serviceUrl, avalaraConfig.serviceUrl) &&
         Objects.equals(this.testResults, avalaraConfig.testResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, active, avalaraOid, companyId, enableUpc, lastTestDts, licenseKey, sandbox, serviceUrl, testResults);
+    return Objects.hash(accountId, active, avalaraOid, companyId, enableUpc, estimateOnly, guestCustomerCode, lastTestDts, licenseKey, sandbox, sendTestOrders, serviceUrl, testResults);
   }
 
 
@@ -276,9 +342,12 @@ public class AvalaraConfig {
     sb.append("    avalaraOid: ").append(toIndentedString(avalaraOid)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    enableUpc: ").append(toIndentedString(enableUpc)).append("\n");
+    sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
+    sb.append("    guestCustomerCode: ").append(toIndentedString(guestCustomerCode)).append("\n");
     sb.append("    lastTestDts: ").append(toIndentedString(lastTestDts)).append("\n");
     sb.append("    licenseKey: ").append(toIndentedString(licenseKey)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
+    sb.append("    sendTestOrders: ").append(toIndentedString(sendTestOrders)).append("\n");
     sb.append("    serviceUrl: ").append(toIndentedString(serviceUrl)).append("\n");
     sb.append("    testResults: ").append(toIndentedString(testResults)).append("\n");
     sb.append("}");

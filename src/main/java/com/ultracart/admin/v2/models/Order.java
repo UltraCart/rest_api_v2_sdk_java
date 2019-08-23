@@ -37,6 +37,7 @@ import com.ultracart.admin.v2.models.OrderItem;
 import com.ultracart.admin.v2.models.OrderLinkedShipment;
 import com.ultracart.admin.v2.models.OrderMarketing;
 import com.ultracart.admin.v2.models.OrderPayment;
+import com.ultracart.admin.v2.models.OrderProperty;
 import com.ultracart.admin.v2.models.OrderQuote;
 import com.ultracart.admin.v2.models.OrderSalesforce;
 import com.ultracart.admin.v2.models.OrderShipping;
@@ -52,7 +53,7 @@ import java.util.List;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class Order {
   @SerializedName("affiliates")
   private List<OrderAffiliate> affiliates = null;
@@ -191,6 +192,9 @@ public class Order {
 
   @SerializedName("payment")
   private OrderPayment payment = null;
+
+  @SerializedName("properties")
+  private List<OrderProperty> properties = null;
 
   @SerializedName("quote")
   private OrderQuote quote = null;
@@ -687,6 +691,32 @@ public class Order {
     this.payment = payment;
   }
 
+  public Order properties(List<OrderProperty> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public Order addPropertiesItem(OrderProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<OrderProperty>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties, available only through update, not through insert due to the nature of how properties are handled internally
+   * @return properties
+  **/
+  @ApiModelProperty(value = "Properties, available only through update, not through insert due to the nature of how properties are handled internally")
+  public List<OrderProperty> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<OrderProperty> properties) {
+    this.properties = properties;
+  }
+
   public Order quote(OrderQuote quote) {
     this.quote = quote;
     return this;
@@ -848,6 +878,7 @@ public class Order {
         Objects.equals(this.merchantId, order.merchantId) &&
         Objects.equals(this.orderId, order.orderId) &&
         Objects.equals(this.payment, order.payment) &&
+        Objects.equals(this.properties, order.properties) &&
         Objects.equals(this.quote, order.quote) &&
         Objects.equals(this.refundDts, order.refundDts) &&
         Objects.equals(this.rejectDts, order.rejectDts) &&
@@ -859,7 +890,7 @@ public class Order {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, quote, refundDts, rejectDts, salesforce, shipping, summary, taxes);
+    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, taxes);
   }
 
 
@@ -893,6 +924,7 @@ public class Order {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quote: ").append(toIndentedString(quote)).append("\n");
     sb.append("    refundDts: ").append(toIndentedString(refundDts)).append("\n");
     sb.append("    rejectDts: ").append(toIndentedString(rejectDts)).append("\n");

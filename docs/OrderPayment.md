@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **creditCard** | [**OrderPaymentCreditCard**](OrderPaymentCreditCard.md) |  |  [optional]
 **echeck** | [**OrderPaymentECheck**](OrderPaymentECheck.md) |  |  [optional]
 **holdForFraudReview** | **Boolean** | True if order has been held for fraud review |  [optional]
-**paymentDts** | **String** | Date/time that the payment was successfully processed |  [optional]
+**paymentDts** | **String** | Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true |  [optional]
 **paymentMethod** | [**PaymentMethodEnum**](#PaymentMethodEnum) | Payment method |  [optional]
 **paymentMethodAccountingCode** | **String** | Payment method QuickBooks code |  [optional]
 **paymentMethodDepositToAccount** | **String** | Payment method QuickBooks deposit account |  [optional]

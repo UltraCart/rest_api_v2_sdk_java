@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class OrderQuery {
   @SerializedName("cc_email")
   private String ccEmail = null;
@@ -227,6 +227,12 @@ public class OrderQuery {
 
   @SerializedName("purchase_order_number")
   private String purchaseOrderNumber = null;
+
+  @SerializedName("refund_date_begin")
+  private String refundDateBegin = null;
+
+  @SerializedName("refund_date_end")
+  private String refundDateEnd = null;
 
   @SerializedName("rma")
   private String rma = null;
@@ -627,6 +633,42 @@ public class OrderQuery {
     this.purchaseOrderNumber = purchaseOrderNumber;
   }
 
+  public OrderQuery refundDateBegin(String refundDateBegin) {
+    this.refundDateBegin = refundDateBegin;
+    return this;
+  }
+
+   /**
+   * Date/time that the order was refunded
+   * @return refundDateBegin
+  **/
+  @ApiModelProperty(value = "Date/time that the order was refunded")
+  public String getRefundDateBegin() {
+    return refundDateBegin;
+  }
+
+  public void setRefundDateBegin(String refundDateBegin) {
+    this.refundDateBegin = refundDateBegin;
+  }
+
+  public OrderQuery refundDateEnd(String refundDateEnd) {
+    this.refundDateEnd = refundDateEnd;
+    return this;
+  }
+
+   /**
+   * Date/time that the order was refunded
+   * @return refundDateEnd
+  **/
+  @ApiModelProperty(value = "Date/time that the order was refunded")
+  public String getRefundDateEnd() {
+    return refundDateEnd;
+  }
+
+  public void setRefundDateEnd(String refundDateEnd) {
+    this.refundDateEnd = refundDateEnd;
+  }
+
   public OrderQuery rma(String rma) {
     this.rma = rma;
     return this;
@@ -784,6 +826,8 @@ public class OrderQuery {
         Objects.equals(this.phone, orderQuery.phone) &&
         Objects.equals(this.postalCode, orderQuery.postalCode) &&
         Objects.equals(this.purchaseOrderNumber, orderQuery.purchaseOrderNumber) &&
+        Objects.equals(this.refundDateBegin, orderQuery.refundDateBegin) &&
+        Objects.equals(this.refundDateEnd, orderQuery.refundDateEnd) &&
         Objects.equals(this.rma, orderQuery.rma) &&
         Objects.equals(this.screenBrandingThemeCode, orderQuery.screenBrandingThemeCode) &&
         Objects.equals(this.shipmentDateBegin, orderQuery.shipmentDateBegin) &&
@@ -795,7 +839,7 @@ public class OrderQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, stateRegion, storefrontHostName, total);
+    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, stateRegion, storefrontHostName, total);
   }
 
 
@@ -825,6 +869,8 @@ public class OrderQuery {
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    purchaseOrderNumber: ").append(toIndentedString(purchaseOrderNumber)).append("\n");
+    sb.append("    refundDateBegin: ").append(toIndentedString(refundDateBegin)).append("\n");
+    sb.append("    refundDateEnd: ").append(toIndentedString(refundDateEnd)).append("\n");
     sb.append("    rma: ").append(toIndentedString(rma)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
     sb.append("    shipmentDateBegin: ").append(toIndentedString(shipmentDateBegin)).append("\n");

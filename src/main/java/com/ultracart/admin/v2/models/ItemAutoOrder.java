@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ItemAutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class ItemAutoOrder {
   @SerializedName("auth_future_amount")
   private BigDecimal authFutureAmount = null;
@@ -73,6 +73,9 @@ public class ItemAutoOrder {
 
   @SerializedName("free_shipping_auto_order")
   private Boolean freeShippingAutoOrder = null;
+
+  @SerializedName("refund_other_auto_orders")
+  private Boolean refundOtherAutoOrders = null;
 
   @SerializedName("steps")
   private List<ItemAutoOrderStep> steps = null;
@@ -353,6 +356,24 @@ public class ItemAutoOrder {
     this.freeShippingAutoOrder = freeShippingAutoOrder;
   }
 
+  public ItemAutoOrder refundOtherAutoOrders(Boolean refundOtherAutoOrders) {
+    this.refundOtherAutoOrders = refundOtherAutoOrders;
+    return this;
+  }
+
+   /**
+   * True if other auto orders for this customer should refunded if this item is refunded.
+   * @return refundOtherAutoOrders
+  **/
+  @ApiModelProperty(value = "True if other auto orders for this customer should refunded if this item is refunded.")
+  public Boolean isRefundOtherAutoOrders() {
+    return refundOtherAutoOrders;
+  }
+
+  public void setRefundOtherAutoOrders(Boolean refundOtherAutoOrders) {
+    this.refundOtherAutoOrders = refundOtherAutoOrders;
+  }
+
   public ItemAutoOrder steps(List<ItemAutoOrderStep> steps) {
     this.steps = steps;
     return this;
@@ -403,12 +424,13 @@ public class ItemAutoOrder {
         Objects.equals(this.autoOrderable, itemAutoOrder.autoOrderable) &&
         Objects.equals(this.cancelOtherAutoOrders, itemAutoOrder.cancelOtherAutoOrders) &&
         Objects.equals(this.freeShippingAutoOrder, itemAutoOrder.freeShippingAutoOrder) &&
+        Objects.equals(this.refundOtherAutoOrders, itemAutoOrder.refundOtherAutoOrders) &&
         Objects.equals(this.steps, itemAutoOrder.steps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderDowngradeItems, autoOrderPaused, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, steps);
+    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderDowngradeItems, autoOrderPaused, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, refundOtherAutoOrders, steps);
   }
 
 
@@ -431,6 +453,7 @@ public class ItemAutoOrder {
     sb.append("    autoOrderable: ").append(toIndentedString(autoOrderable)).append("\n");
     sb.append("    cancelOtherAutoOrders: ").append(toIndentedString(cancelOtherAutoOrders)).append("\n");
     sb.append("    freeShippingAutoOrder: ").append(toIndentedString(freeShippingAutoOrder)).append("\n");
+    sb.append("    refundOtherAutoOrders: ").append(toIndentedString(refundOtherAutoOrders)).append("\n");
     sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("}");
     return sb.toString();

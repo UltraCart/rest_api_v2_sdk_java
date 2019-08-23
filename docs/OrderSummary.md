@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**arbitraryShippingHandlingTotal** | [**Currency**](Currency.md) |  |  [optional]
 **otherRefunded** | [**Currency**](Currency.md) |  |  [optional]
 **shippingHandlingRefunded** | [**Currency**](Currency.md) |  |  [optional]
 **shippingHandlingTotal** | [**Currency**](Currency.md) |  |  [optional]

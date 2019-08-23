@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * OrderPaymentCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class OrderPaymentCreditCard {
   @SerializedName("card_auth_ticket")
   private String cardAuthTicket = null;
@@ -113,6 +113,9 @@ public class OrderPaymentCreditCard {
 
   @SerializedName("card_type")
   private CardTypeEnum cardType = null;
+
+  @SerializedName("card_verification_number_token")
+  private String cardVerificationNumberToken = null;
 
   public OrderPaymentCreditCard cardAuthTicket(String cardAuthTicket) {
     this.cardAuthTicket = cardAuthTicket;
@@ -294,6 +297,24 @@ public class OrderPaymentCreditCard {
     this.cardType = cardType;
   }
 
+  public OrderPaymentCreditCard cardVerificationNumberToken(String cardVerificationNumberToken) {
+    this.cardVerificationNumberToken = cardVerificationNumberToken;
+    return this;
+  }
+
+   /**
+   * Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries
+   * @return cardVerificationNumberToken
+  **/
+  @ApiModelProperty(value = "Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries")
+  public String getCardVerificationNumberToken() {
+    return cardVerificationNumberToken;
+  }
+
+  public void setCardVerificationNumberToken(String cardVerificationNumberToken) {
+    this.cardVerificationNumberToken = cardVerificationNumberToken;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -313,12 +334,13 @@ public class OrderPaymentCreditCard {
         Objects.equals(this.cardNumber, orderPaymentCreditCard.cardNumber) &&
         Objects.equals(this.cardNumberToken, orderPaymentCreditCard.cardNumberToken) &&
         Objects.equals(this.cardNumberTruncated, orderPaymentCreditCard.cardNumberTruncated) &&
-        Objects.equals(this.cardType, orderPaymentCreditCard.cardType);
+        Objects.equals(this.cardType, orderPaymentCreditCard.cardType) &&
+        Objects.equals(this.cardVerificationNumberToken, orderPaymentCreditCard.cardVerificationNumberToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardAuthTicket, cardAuthorizationAmount, cardAuthorizationDts, cardAuthorizationReferenceNumber, cardExpirationMonth, cardExpirationYear, cardNumber, cardNumberToken, cardNumberTruncated, cardType);
+    return Objects.hash(cardAuthTicket, cardAuthorizationAmount, cardAuthorizationDts, cardAuthorizationReferenceNumber, cardExpirationMonth, cardExpirationYear, cardNumber, cardNumberToken, cardNumberTruncated, cardType, cardVerificationNumberToken);
   }
 
 
@@ -337,6 +359,7 @@ public class OrderPaymentCreditCard {
     sb.append("    cardNumberToken: ").append(toIndentedString(cardNumberToken)).append("\n");
     sb.append("    cardNumberTruncated: ").append(toIndentedString(cardNumberTruncated)).append("\n");
     sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
+    sb.append("    cardVerificationNumberToken: ").append(toIndentedString(cardVerificationNumberToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

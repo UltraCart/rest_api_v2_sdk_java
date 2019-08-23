@@ -27,8 +27,11 @@ import java.io.IOException;
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class OrderSummary {
+  @SerializedName("arbitrary_shipping_handling_total")
+  private Currency arbitraryShippingHandlingTotal = null;
+
   @SerializedName("other_refunded")
   private Currency otherRefunded = null;
 
@@ -70,6 +73,24 @@ public class OrderSummary {
 
   @SerializedName("total_refunded")
   private Currency totalRefunded = null;
+
+  public OrderSummary arbitraryShippingHandlingTotal(Currency arbitraryShippingHandlingTotal) {
+    this.arbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+    return this;
+  }
+
+   /**
+   * Get arbitraryShippingHandlingTotal
+   * @return arbitraryShippingHandlingTotal
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getArbitraryShippingHandlingTotal() {
+    return arbitraryShippingHandlingTotal;
+  }
+
+  public void setArbitraryShippingHandlingTotal(Currency arbitraryShippingHandlingTotal) {
+    this.arbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+  }
 
   public OrderSummary otherRefunded(Currency otherRefunded) {
     this.otherRefunded = otherRefunded;
@@ -333,7 +354,8 @@ public class OrderSummary {
       return false;
     }
     OrderSummary orderSummary = (OrderSummary) o;
-    return Objects.equals(this.otherRefunded, orderSummary.otherRefunded) &&
+    return Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
+        Objects.equals(this.otherRefunded, orderSummary.otherRefunded) &&
         Objects.equals(this.shippingHandlingRefunded, orderSummary.shippingHandlingRefunded) &&
         Objects.equals(this.shippingHandlingTotal, orderSummary.shippingHandlingTotal) &&
         Objects.equals(this.shippingHandlingTotalDiscount, orderSummary.shippingHandlingTotalDiscount) &&
@@ -351,7 +373,7 @@ public class OrderSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
+    return Objects.hash(arbitraryShippingHandlingTotal, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
   }
 
 
@@ -360,6 +382,7 @@ public class OrderSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderSummary {\n");
     
+    sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
     sb.append("    otherRefunded: ").append(toIndentedString(otherRefunded)).append("\n");
     sb.append("    shippingHandlingRefunded: ").append(toIndentedString(shippingHandlingRefunded)).append("\n");
     sb.append("    shippingHandlingTotal: ").append(toIndentedString(shippingHandlingTotal)).append("\n");

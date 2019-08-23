@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **realtimePercentageDiscount** | [**BigDecimal**](BigDecimal.md) | Realtime percentage discount |  [optional]
 **signupNotification** | [**PricingTierNotification**](PricingTierNotification.md) |  |  [optional]
 **suppressBuysafe** | **Boolean** | Suppress buySAFE |  [optional]
+**suppressMailingList** | **Boolean** | Suppress mailing list |  [optional]
 **taxExempt** | **Boolean** | Tax Exempt |  [optional]
 **trackSeparately** | **Boolean** | Track separately |  [optional]
 

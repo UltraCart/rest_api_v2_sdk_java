@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * TaxState
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class TaxState {
   @SerializedName("accounting_code")
   private String accountingCode = null;
@@ -73,6 +73,9 @@ public class TaxState {
 
   @SerializedName("tax_shipping")
   private Boolean taxShipping = null;
+
+  @SerializedName("use_ultracart_managed_rates")
+  private Boolean useUltracartManagedRates = null;
 
   public TaxState accountingCode(String accountingCode) {
     this.accountingCode = accountingCode;
@@ -334,6 +337,24 @@ public class TaxState {
     this.taxShipping = taxShipping;
   }
 
+  public TaxState useUltracartManagedRates(Boolean useUltracartManagedRates) {
+    this.useUltracartManagedRates = useUltracartManagedRates;
+    return this;
+  }
+
+   /**
+   * If true, use UltraCart managed rates for this state
+   * @return useUltracartManagedRates
+  **/
+  @ApiModelProperty(value = "If true, use UltraCart managed rates for this state")
+  public Boolean isUseUltracartManagedRates() {
+    return useUltracartManagedRates;
+  }
+
+  public void setUseUltracartManagedRates(Boolean useUltracartManagedRates) {
+    this.useUltracartManagedRates = useUltracartManagedRates;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -357,12 +378,13 @@ public class TaxState {
         Objects.equals(this.taxGiftWrap, taxState.taxGiftWrap) &&
         Objects.equals(this.taxRate, taxState.taxRate) &&
         Objects.equals(this.taxRateFormatted, taxState.taxRateFormatted) &&
-        Objects.equals(this.taxShipping, taxState.taxShipping);
+        Objects.equals(this.taxShipping, taxState.taxShipping) &&
+        Objects.equals(this.useUltracartManagedRates, taxState.useUltracartManagedRates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, counties, countryOid, dontCollectCity, dontCollectCounty, dontCollectPostalCode, dontCollectState, stateCode, stateOid, taxGiftCharge, taxGiftWrap, taxRate, taxRateFormatted, taxShipping);
+    return Objects.hash(accountingCode, counties, countryOid, dontCollectCity, dontCollectCounty, dontCollectPostalCode, dontCollectState, stateCode, stateOid, taxGiftCharge, taxGiftWrap, taxRate, taxRateFormatted, taxShipping, useUltracartManagedRates);
   }
 
 
@@ -385,6 +407,7 @@ public class TaxState {
     sb.append("    taxRate: ").append(toIndentedString(taxRate)).append("\n");
     sb.append("    taxRateFormatted: ").append(toIndentedString(taxRateFormatted)).append("\n");
     sb.append("    taxShipping: ").append(toIndentedString(taxShipping)).append("\n");
+    sb.append("    useUltracartManagedRates: ").append(toIndentedString(useUltracartManagedRates)).append("\n");
     sb.append("}");
     return sb.toString();
   }

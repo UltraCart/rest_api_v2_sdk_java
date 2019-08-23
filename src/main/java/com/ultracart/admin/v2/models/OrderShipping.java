@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * OrderShipping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class OrderShipping {
   @SerializedName("address1")
   private String address1 = null;
@@ -60,6 +60,12 @@ public class OrderShipping {
 
   @SerializedName("last_name")
   private String lastName = null;
+
+  @SerializedName("least_cost_route")
+  private Boolean leastCostRoute = null;
+
+  @SerializedName("least_cost_route_shipping_methods")
+  private List<String> leastCostRouteShippingMethods = null;
 
   @SerializedName("lift_gate")
   private Boolean liftGate = null;
@@ -284,6 +290,50 @@ public class OrderShipping {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+  }
+
+  public OrderShipping leastCostRoute(Boolean leastCostRoute) {
+    this.leastCostRoute = leastCostRoute;
+    return this;
+  }
+
+   /**
+   * If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.
+   * @return leastCostRoute
+  **/
+  @ApiModelProperty(value = "If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.")
+  public Boolean isLeastCostRoute() {
+    return leastCostRoute;
+  }
+
+  public void setLeastCostRoute(Boolean leastCostRoute) {
+    this.leastCostRoute = leastCostRoute;
+  }
+
+  public OrderShipping leastCostRouteShippingMethods(List<String> leastCostRouteShippingMethods) {
+    this.leastCostRouteShippingMethods = leastCostRouteShippingMethods;
+    return this;
+  }
+
+  public OrderShipping addLeastCostRouteShippingMethodsItem(String leastCostRouteShippingMethodsItem) {
+    if (this.leastCostRouteShippingMethods == null) {
+      this.leastCostRouteShippingMethods = new ArrayList<String>();
+    }
+    this.leastCostRouteShippingMethods.add(leastCostRouteShippingMethodsItem);
+    return this;
+  }
+
+   /**
+   * List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.
+   * @return leastCostRouteShippingMethods
+  **/
+  @ApiModelProperty(value = "List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.")
+  public List<String> getLeastCostRouteShippingMethods() {
+    return leastCostRouteShippingMethods;
+  }
+
+  public void setLeastCostRouteShippingMethods(List<String> leastCostRouteShippingMethods) {
+    this.leastCostRouteShippingMethods = leastCostRouteShippingMethods;
   }
 
   public OrderShipping liftGate(Boolean liftGate) {
@@ -584,6 +634,8 @@ public class OrderShipping {
         Objects.equals(this.eveningPhone, orderShipping.eveningPhone) &&
         Objects.equals(this.firstName, orderShipping.firstName) &&
         Objects.equals(this.lastName, orderShipping.lastName) &&
+        Objects.equals(this.leastCostRoute, orderShipping.leastCostRoute) &&
+        Objects.equals(this.leastCostRouteShippingMethods, orderShipping.leastCostRouteShippingMethods) &&
         Objects.equals(this.liftGate, orderShipping.liftGate) &&
         Objects.equals(this.postalCode, orderShipping.postalCode) &&
         Objects.equals(this.rma, orderShipping.rma) &&
@@ -603,7 +655,7 @@ public class OrderShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, deliveryDate, eveningPhone, firstName, lastName, liftGate, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumbers, weight);
+    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, deliveryDate, eveningPhone, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumbers, weight);
   }
 
 
@@ -622,6 +674,8 @@ public class OrderShipping {
     sb.append("    eveningPhone: ").append(toIndentedString(eveningPhone)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    leastCostRoute: ").append(toIndentedString(leastCostRoute)).append("\n");
+    sb.append("    leastCostRouteShippingMethods: ").append(toIndentedString(leastCostRouteShippingMethods)).append("\n");
     sb.append("    liftGate: ").append(toIndentedString(liftGate)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    rma: ").append(toIndentedString(rma)).append("\n");

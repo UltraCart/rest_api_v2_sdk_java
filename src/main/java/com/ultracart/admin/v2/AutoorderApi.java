@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.AutoOrder;
+import com.ultracart.admin.v2.models.AutoOrderQuery;
 import com.ultracart.admin.v2.models.AutoOrderResponse;
 import com.ultracart.admin.v2.models.AutoOrdersResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
@@ -707,6 +708,156 @@ public class AutoOrderApi {
         }
 
         com.squareup.okhttp.Call call = getAutoOrdersValidateBeforeCall(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getAutoOrdersByQuery
+     * @param autoOrderQuery Auto order query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAutoOrdersByQueryCall(AutoOrderQuery autoOrderQuery, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = autoOrderQuery;
+        
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/query";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_sort", sort));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAutoOrdersByQueryValidateBeforeCall(AutoOrderQuery autoOrderQuery, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'autoOrderQuery' is set
+        if (autoOrderQuery == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderQuery' when calling getAutoOrdersByQuery(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getAutoOrdersByQueryCall(autoOrderQuery, limit, offset, sort, expand, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Retrieve auto orders
+     * Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param autoOrderQuery Auto order query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @return AutoOrdersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AutoOrdersResponse getAutoOrdersByQuery(AutoOrderQuery autoOrderQuery, Integer limit, Integer offset, String sort, String expand) throws ApiException {
+        ApiResponse<AutoOrdersResponse> resp = getAutoOrdersByQueryWithHttpInfo(autoOrderQuery, limit, offset, sort, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve auto orders
+     * Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param autoOrderQuery Auto order query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @return ApiResponse&lt;AutoOrdersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AutoOrdersResponse> getAutoOrdersByQueryWithHttpInfo(AutoOrderQuery autoOrderQuery, Integer limit, Integer offset, String sort, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoOrdersByQueryValidateBeforeCall(autoOrderQuery, limit, offset, sort, expand, null, null);
+        Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve auto orders (asynchronously)
+     * Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param autoOrderQuery Auto order query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAutoOrdersByQueryAsync(AutoOrderQuery autoOrderQuery, Integer limit, Integer offset, String sort, String expand, final ApiCallback<AutoOrdersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAutoOrdersByQueryValidateBeforeCall(autoOrderQuery, limit, offset, sort, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

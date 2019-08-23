@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **phone** | **String** | Phone |  [optional]
 **postalCode** | **String** | Postal code |  [optional]
 **purchaseOrderNumber** | **String** | Purchase order number |  [optional]
+**refundDateBegin** | **String** | Date/time that the order was refunded |  [optional]
+**refundDateEnd** | **String** | Date/time that the order was refunded |  [optional]
 **rma** | **String** | RMA number |  [optional]
 **screenBrandingThemeCode** | **String** | Screen branding theme code associated with the order (legacy checkout) |  [optional]
 **shipmentDateBegin** | **String** | Date/time that the order was shipping |  [optional]

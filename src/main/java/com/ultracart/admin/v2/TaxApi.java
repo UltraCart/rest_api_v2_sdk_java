@@ -32,7 +32,9 @@ import com.ultracart.admin.v2.models.TaxCity;
 import com.ultracart.admin.v2.models.TaxCountry;
 import com.ultracart.admin.v2.models.TaxCounty;
 import com.ultracart.admin.v2.models.TaxPostalCode;
+import com.ultracart.admin.v2.models.TaxProviderActivateResult;
 import com.ultracart.admin.v2.models.TaxProviderAvalara;
+import com.ultracart.admin.v2.models.TaxProviderAvalaraCompaniesResult;
 import com.ultracart.admin.v2.models.TaxProviderSelf;
 import com.ultracart.admin.v2.models.TaxProviderSelfCountriesResponse;
 import com.ultracart.admin.v2.models.TaxProviderSelfRegionsResponse;
@@ -841,6 +843,132 @@ public class TaxApi {
 
         com.squareup.okhttp.Call call = getTaxProviderAvalaraValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TaxProviderAvalara>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTaxProviderAvalaraCompanies
+     * @param taxProviderAvalara TaxProviderAvalara object (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTaxProviderAvalaraCompaniesCall(TaxProviderAvalara taxProviderAvalara, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = taxProviderAvalara;
+        
+        // create path and map variables
+        String localVarPath = "/tax/providers/avalara/companies";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTaxProviderAvalaraCompaniesValidateBeforeCall(TaxProviderAvalara taxProviderAvalara, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'taxProviderAvalara' is set
+        if (taxProviderAvalara == null) {
+            throw new ApiException("Missing the required parameter 'taxProviderAvalara' when calling getTaxProviderAvalaraCompanies(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getTaxProviderAvalaraCompaniesCall(taxProviderAvalara, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Returns Avalara Tax companies configured by the merchant
+     * Returns Avalara Tax companies configured by the merchant 
+     * @param taxProviderAvalara TaxProviderAvalara object (required)
+     * @return TaxProviderAvalaraCompaniesResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TaxProviderAvalaraCompaniesResult getTaxProviderAvalaraCompanies(TaxProviderAvalara taxProviderAvalara) throws ApiException {
+        ApiResponse<TaxProviderAvalaraCompaniesResult> resp = getTaxProviderAvalaraCompaniesWithHttpInfo(taxProviderAvalara);
+        return resp.getData();
+    }
+
+    /**
+     * Returns Avalara Tax companies configured by the merchant
+     * Returns Avalara Tax companies configured by the merchant 
+     * @param taxProviderAvalara TaxProviderAvalara object (required)
+     * @return ApiResponse&lt;TaxProviderAvalaraCompaniesResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TaxProviderAvalaraCompaniesResult> getTaxProviderAvalaraCompaniesWithHttpInfo(TaxProviderAvalara taxProviderAvalara) throws ApiException {
+        com.squareup.okhttp.Call call = getTaxProviderAvalaraCompaniesValidateBeforeCall(taxProviderAvalara, null, null);
+        Type localVarReturnType = new TypeToken<TaxProviderAvalaraCompaniesResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns Avalara Tax companies configured by the merchant (asynchronously)
+     * Returns Avalara Tax companies configured by the merchant 
+     * @param taxProviderAvalara TaxProviderAvalara object (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTaxProviderAvalaraCompaniesAsync(TaxProviderAvalara taxProviderAvalara, final ApiCallback<TaxProviderAvalaraCompaniesResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTaxProviderAvalaraCompaniesValidateBeforeCall(taxProviderAvalara, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TaxProviderAvalaraCompaniesResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1880,22 +2008,25 @@ public class TaxApi {
      * Toggle a tax provider to active
      * Toggle a tax provider to active. 
      * @param providerName The tax provider to set active. (required)
+     * @return TaxProviderActivateResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void setActiveTaxProvider(String providerName) throws ApiException {
-        setActiveTaxProviderWithHttpInfo(providerName);
+    public TaxProviderActivateResult setActiveTaxProvider(String providerName) throws ApiException {
+        ApiResponse<TaxProviderActivateResult> resp = setActiveTaxProviderWithHttpInfo(providerName);
+        return resp.getData();
     }
 
     /**
      * Toggle a tax provider to active
      * Toggle a tax provider to active. 
      * @param providerName The tax provider to set active. (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;TaxProviderActivateResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> setActiveTaxProviderWithHttpInfo(String providerName) throws ApiException {
+    public ApiResponse<TaxProviderActivateResult> setActiveTaxProviderWithHttpInfo(String providerName) throws ApiException {
         com.squareup.okhttp.Call call = setActiveTaxProviderValidateBeforeCall(providerName, null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<TaxProviderActivateResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -1906,7 +2037,7 @@ public class TaxApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setActiveTaxProviderAsync(String providerName, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call setActiveTaxProviderAsync(String providerName, final ApiCallback<TaxProviderActivateResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1928,7 +2059,8 @@ public class TaxApi {
         }
 
         com.squareup.okhttp.Call call = setActiveTaxProviderValidateBeforeCall(providerName, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<TaxProviderActivateResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**

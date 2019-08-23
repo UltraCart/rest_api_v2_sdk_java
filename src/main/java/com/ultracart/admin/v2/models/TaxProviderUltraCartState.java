@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * TaxProviderUltraCartState
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class TaxProviderUltraCartState {
   @SerializedName("enabled")
   private Boolean enabled = null;
@@ -37,8 +37,17 @@ public class TaxProviderUltraCartState {
   @SerializedName("state_name")
   private String stateName = null;
 
+  @SerializedName("tax_gift_charge")
+  private Boolean taxGiftCharge = null;
+
+  @SerializedName("tax_gift_wrap")
+  private Boolean taxGiftWrap = null;
+
   @SerializedName("tax_rate_formatted")
   private String taxRateFormatted = null;
+
+  @SerializedName("tax_shipping")
+  private Boolean taxShipping = null;
 
   public TaxProviderUltraCartState enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -94,6 +103,42 @@ public class TaxProviderUltraCartState {
     this.stateName = stateName;
   }
 
+  public TaxProviderUltraCartState taxGiftCharge(Boolean taxGiftCharge) {
+    this.taxGiftCharge = taxGiftCharge;
+    return this;
+  }
+
+   /**
+   * True if gift charges should be taxed in this state.
+   * @return taxGiftCharge
+  **/
+  @ApiModelProperty(value = "True if gift charges should be taxed in this state.")
+  public Boolean isTaxGiftCharge() {
+    return taxGiftCharge;
+  }
+
+  public void setTaxGiftCharge(Boolean taxGiftCharge) {
+    this.taxGiftCharge = taxGiftCharge;
+  }
+
+  public TaxProviderUltraCartState taxGiftWrap(Boolean taxGiftWrap) {
+    this.taxGiftWrap = taxGiftWrap;
+    return this;
+  }
+
+   /**
+   * True if gift wrap should be taxed in this state.
+   * @return taxGiftWrap
+  **/
+  @ApiModelProperty(value = "True if gift wrap should be taxed in this state.")
+  public Boolean isTaxGiftWrap() {
+    return taxGiftWrap;
+  }
+
+  public void setTaxGiftWrap(Boolean taxGiftWrap) {
+    this.taxGiftWrap = taxGiftWrap;
+  }
+
   public TaxProviderUltraCartState taxRateFormatted(String taxRateFormatted) {
     this.taxRateFormatted = taxRateFormatted;
     return this;
@@ -112,6 +157,24 @@ public class TaxProviderUltraCartState {
     this.taxRateFormatted = taxRateFormatted;
   }
 
+  public TaxProviderUltraCartState taxShipping(Boolean taxShipping) {
+    this.taxShipping = taxShipping;
+    return this;
+  }
+
+   /**
+   * True if shipping should be taxed in this state.
+   * @return taxShipping
+  **/
+  @ApiModelProperty(value = "True if shipping should be taxed in this state.")
+  public Boolean isTaxShipping() {
+    return taxShipping;
+  }
+
+  public void setTaxShipping(Boolean taxShipping) {
+    this.taxShipping = taxShipping;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -125,12 +188,15 @@ public class TaxProviderUltraCartState {
     return Objects.equals(this.enabled, taxProviderUltraCartState.enabled) &&
         Objects.equals(this.stateCode, taxProviderUltraCartState.stateCode) &&
         Objects.equals(this.stateName, taxProviderUltraCartState.stateName) &&
-        Objects.equals(this.taxRateFormatted, taxProviderUltraCartState.taxRateFormatted);
+        Objects.equals(this.taxGiftCharge, taxProviderUltraCartState.taxGiftCharge) &&
+        Objects.equals(this.taxGiftWrap, taxProviderUltraCartState.taxGiftWrap) &&
+        Objects.equals(this.taxRateFormatted, taxProviderUltraCartState.taxRateFormatted) &&
+        Objects.equals(this.taxShipping, taxProviderUltraCartState.taxShipping);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, stateCode, stateName, taxRateFormatted);
+    return Objects.hash(enabled, stateCode, stateName, taxGiftCharge, taxGiftWrap, taxRateFormatted, taxShipping);
   }
 
 
@@ -142,7 +208,10 @@ public class TaxProviderUltraCartState {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    stateCode: ").append(toIndentedString(stateCode)).append("\n");
     sb.append("    stateName: ").append(toIndentedString(stateName)).append("\n");
+    sb.append("    taxGiftCharge: ").append(toIndentedString(taxGiftCharge)).append("\n");
+    sb.append("    taxGiftWrap: ").append(toIndentedString(taxGiftWrap)).append("\n");
     sb.append("    taxRateFormatted: ").append(toIndentedString(taxRateFormatted)).append("\n");
+    sb.append("    taxShipping: ").append(toIndentedString(taxShipping)).append("\n");
     sb.append("}");
     return sb.toString();
   }

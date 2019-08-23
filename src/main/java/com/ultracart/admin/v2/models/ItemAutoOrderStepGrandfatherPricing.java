@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * ItemAutoOrderStepGrandfatherPricing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class ItemAutoOrderStepGrandfatherPricing {
   @SerializedName("on_or_before_date")
   private String onOrBeforeDate = null;

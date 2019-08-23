@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class OrderPayment {
   @SerializedName("check")
   private OrderPaymentCheck check = null;
@@ -300,10 +300,10 @@ public class OrderPayment {
   }
 
    /**
-   * Date/time that the payment was successfully processed
+   * Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true
    * @return paymentDts
   **/
-  @ApiModelProperty(value = "Date/time that the payment was successfully processed")
+  @ApiModelProperty(value = "Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true")
   public String getPaymentDts() {
     return paymentDts;
   }

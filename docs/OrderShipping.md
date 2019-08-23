@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **eveningPhone** | **String** | Evening phone |  [optional]
 **firstName** | **String** | First name |  [optional]
 **lastName** | **String** | Last name |  [optional]
+**leastCostRoute** | **Boolean** | If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts. |  [optional]
+**leastCostRouteShippingMethods** | **List&lt;String&gt;** | List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts. |  [optional]
 **liftGate** | **Boolean** | Lift gate requested (LTL shipping methods only) |  [optional]
 **postalCode** | **String** | Postal code |  [optional]
 **rma** | **String** | RMA number |  [optional]

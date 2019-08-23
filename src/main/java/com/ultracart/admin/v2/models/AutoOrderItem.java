@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.AutoOrderItemFutureSchedule;
 import com.ultracart.admin.v2.models.AutoOrderItemOption;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * AutoOrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class AutoOrderItem {
   @SerializedName("arbitrary_item_id")
   private String arbitraryItemId = null;
@@ -124,6 +125,9 @@ public class AutoOrderItem {
 
   @SerializedName("frequency")
   private FrequencyEnum frequency = null;
+
+  @SerializedName("future_schedules")
+  private List<AutoOrderItemFutureSchedule> futureSchedules = null;
 
   @SerializedName("last_order_dts")
   private String lastOrderDts = null;
@@ -311,6 +315,32 @@ public class AutoOrderItem {
     this.frequency = frequency;
   }
 
+  public AutoOrderItem futureSchedules(List<AutoOrderItemFutureSchedule> futureSchedules) {
+    this.futureSchedules = futureSchedules;
+    return this;
+  }
+
+  public AutoOrderItem addFutureSchedulesItem(AutoOrderItemFutureSchedule futureSchedulesItem) {
+    if (this.futureSchedules == null) {
+      this.futureSchedules = new ArrayList<AutoOrderItemFutureSchedule>();
+    }
+    this.futureSchedules.add(futureSchedulesItem);
+    return this;
+  }
+
+   /**
+   * The future rebill schedule for this item up to the next ten rebills
+   * @return futureSchedules
+  **/
+  @ApiModelProperty(value = "The future rebill schedule for this item up to the next ten rebills")
+  public List<AutoOrderItemFutureSchedule> getFutureSchedules() {
+    return futureSchedules;
+  }
+
+  public void setFutureSchedules(List<AutoOrderItemFutureSchedule> futureSchedules) {
+    this.futureSchedules = futureSchedules;
+  }
+
   public AutoOrderItem lastOrderDts(String lastOrderDts) {
     this.lastOrderDts = lastOrderDts;
     return this;
@@ -451,10 +481,10 @@ public class AutoOrderItem {
   }
 
    /**
-   * The original item id purchased
+   * The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.
    * @return originalItemId
   **/
-  @ApiModelProperty(value = "The original item id purchased")
+  @ApiModelProperty(value = "The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.")
   public String getOriginalItemId() {
     return originalItemId;
   }
@@ -589,6 +619,7 @@ public class AutoOrderItem {
         Objects.equals(this.arbitraryUnitCostRemainingOrders, autoOrderItem.arbitraryUnitCostRemainingOrders) &&
         Objects.equals(this.autoOrderItemOid, autoOrderItem.autoOrderItemOid) &&
         Objects.equals(this.frequency, autoOrderItem.frequency) &&
+        Objects.equals(this.futureSchedules, autoOrderItem.futureSchedules) &&
         Objects.equals(this.lastOrderDts, autoOrderItem.lastOrderDts) &&
         Objects.equals(this.lifeTimeValue, autoOrderItem.lifeTimeValue) &&
         Objects.equals(this.nextPreshipmentNoticeDts, autoOrderItem.nextPreshipmentNoticeDts) &&
@@ -607,7 +638,7 @@ public class AutoOrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, frequency, lastOrderDts, lifeTimeValue, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount);
+    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount);
   }
 
 
@@ -624,6 +655,7 @@ public class AutoOrderItem {
     sb.append("    arbitraryUnitCostRemainingOrders: ").append(toIndentedString(arbitraryUnitCostRemainingOrders)).append("\n");
     sb.append("    autoOrderItemOid: ").append(toIndentedString(autoOrderItemOid)).append("\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
+    sb.append("    futureSchedules: ").append(toIndentedString(futureSchedules)).append("\n");
     sb.append("    lastOrderDts: ").append(toIndentedString(lastOrderDts)).append("\n");
     sb.append("    lifeTimeValue: ").append(toIndentedString(lifeTimeValue)).append("\n");
     sb.append("    nextPreshipmentNoticeDts: ").append(toIndentedString(nextPreshipmentNoticeDts)).append("\n");

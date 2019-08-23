@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * OrderCoupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class OrderCoupon {
   @SerializedName("accounting_code")
   private String accountingCode = null;
+
+  @SerializedName("automatically_applied")
+  private Boolean automaticallyApplied = null;
 
   @SerializedName("base_coupon_code")
   private String baseCouponCode = null;
@@ -53,6 +56,24 @@ public class OrderCoupon {
 
   public void setAccountingCode(String accountingCode) {
     this.accountingCode = accountingCode;
+  }
+
+  public OrderCoupon automaticallyApplied(Boolean automaticallyApplied) {
+    this.automaticallyApplied = automaticallyApplied;
+    return this;
+  }
+
+   /**
+   * Whether or not the coupon was automatically applied to the order
+   * @return automaticallyApplied
+  **/
+  @ApiModelProperty(value = "Whether or not the coupon was automatically applied to the order")
+  public Boolean isAutomaticallyApplied() {
+    return automaticallyApplied;
+  }
+
+  public void setAutomaticallyApplied(Boolean automaticallyApplied) {
+    this.automaticallyApplied = automaticallyApplied;
   }
 
   public OrderCoupon baseCouponCode(String baseCouponCode) {
@@ -102,13 +123,14 @@ public class OrderCoupon {
     }
     OrderCoupon orderCoupon = (OrderCoupon) o;
     return Objects.equals(this.accountingCode, orderCoupon.accountingCode) &&
+        Objects.equals(this.automaticallyApplied, orderCoupon.automaticallyApplied) &&
         Objects.equals(this.baseCouponCode, orderCoupon.baseCouponCode) &&
         Objects.equals(this.couponCode, orderCoupon.couponCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, baseCouponCode, couponCode);
+    return Objects.hash(accountingCode, automaticallyApplied, baseCouponCode, couponCode);
   }
 
 
@@ -118,6 +140,7 @@ public class OrderCoupon {
     sb.append("class OrderCoupon {\n");
     
     sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
+    sb.append("    automaticallyApplied: ").append(toIndentedString(automaticallyApplied)).append("\n");
     sb.append("    baseCouponCode: ").append(toIndentedString(baseCouponCode)).append("\n");
     sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
     sb.append("}");

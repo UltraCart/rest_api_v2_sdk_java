@@ -26,13 +26,22 @@ import java.io.IOException;
 /**
  * TaxJarConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class TaxJarConfig {
   @SerializedName("active")
   private Boolean active = null;
 
   @SerializedName("api_key")
   private String apiKey = null;
+
+  @SerializedName("estimate_only")
+  private Boolean estimateOnly = null;
+
+  @SerializedName("send_test_orders")
+  private Boolean sendTestOrders = null;
+
+  @SerializedName("use_distribution_center_from")
+  private Boolean useDistributionCenterFrom = null;
 
   public TaxJarConfig active(Boolean active) {
     this.active = active;
@@ -70,6 +79,60 @@ public class TaxJarConfig {
     this.apiKey = apiKey;
   }
 
+  public TaxJarConfig estimateOnly(Boolean estimateOnly) {
+    this.estimateOnly = estimateOnly;
+    return this;
+  }
+
+   /**
+   * True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar
+   * @return estimateOnly
+  **/
+  @ApiModelProperty(value = "True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar")
+  public Boolean isEstimateOnly() {
+    return estimateOnly;
+  }
+
+  public void setEstimateOnly(Boolean estimateOnly) {
+    this.estimateOnly = estimateOnly;
+  }
+
+  public TaxJarConfig sendTestOrders(Boolean sendTestOrders) {
+    this.sendTestOrders = sendTestOrders;
+    return this;
+  }
+
+   /**
+   * Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar.
+   * @return sendTestOrders
+  **/
+  @ApiModelProperty(value = "Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar.")
+  public Boolean isSendTestOrders() {
+    return sendTestOrders;
+  }
+
+  public void setSendTestOrders(Boolean sendTestOrders) {
+    this.sendTestOrders = sendTestOrders;
+  }
+
+  public TaxJarConfig useDistributionCenterFrom(Boolean useDistributionCenterFrom) {
+    this.useDistributionCenterFrom = useDistributionCenterFrom;
+    return this;
+  }
+
+   /**
+   * Use distribution center from address
+   * @return useDistributionCenterFrom
+  **/
+  @ApiModelProperty(value = "Use distribution center from address")
+  public Boolean isUseDistributionCenterFrom() {
+    return useDistributionCenterFrom;
+  }
+
+  public void setUseDistributionCenterFrom(Boolean useDistributionCenterFrom) {
+    this.useDistributionCenterFrom = useDistributionCenterFrom;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,12 +144,15 @@ public class TaxJarConfig {
     }
     TaxJarConfig taxJarConfig = (TaxJarConfig) o;
     return Objects.equals(this.active, taxJarConfig.active) &&
-        Objects.equals(this.apiKey, taxJarConfig.apiKey);
+        Objects.equals(this.apiKey, taxJarConfig.apiKey) &&
+        Objects.equals(this.estimateOnly, taxJarConfig.estimateOnly) &&
+        Objects.equals(this.sendTestOrders, taxJarConfig.sendTestOrders) &&
+        Objects.equals(this.useDistributionCenterFrom, taxJarConfig.useDistributionCenterFrom);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, apiKey);
+    return Objects.hash(active, apiKey, estimateOnly, sendTestOrders, useDistributionCenterFrom);
   }
 
 
@@ -97,6 +163,9 @@ public class TaxJarConfig {
     
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
+    sb.append("    sendTestOrders: ").append(toIndentedString(sendTestOrders)).append("\n");
+    sb.append("    useDistributionCenterFrom: ").append(toIndentedString(useDistributionCenterFrom)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
 [**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
 [**getAutoOrders**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
 [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
 
@@ -283,6 +284,73 @@ Name | Type | Description  | Notes
  **since** | **String**| Fetch auto orders that have been created/modified since this date/time. | [optional]
  **sort** | **String**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**AutoOrdersResponse**](AutoOrdersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getAutoOrdersByQuery"></a>
+# **getAutoOrdersByQuery**
+> AutoOrdersResponse getAutoOrdersByQuery(autoOrderQuery, limit, offset, sort, expand)
+
+Retrieve auto orders
+
+Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.AutoOrderApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+AutoOrderApi apiInstance = new AutoOrderApi();
+AutoOrderQuery autoOrderQuery = new AutoOrderQuery(); // AutoOrderQuery | Auto order query
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String sort = "sort_example"; // String | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+String expand = "expand_example"; // String | The object expansion to perform on the result.
+try {
+    AutoOrdersResponse result = apiInstance.getAutoOrdersByQuery(autoOrderQuery, limit, offset, sort, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoOrderApi#getAutoOrdersByQuery");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrderQuery** | [**AutoOrderQuery**](AutoOrderQuery.md)| Auto order query |
+ **limit** | **Integer**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
+ **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **String**| The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
+ **expand** | **String**| The object expansion to perform on the result. | [optional]
 
 ### Return type
 

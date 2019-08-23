@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CartBilling;
 import com.ultracart.admin.v2.models.CartBuysafe;
 import com.ultracart.admin.v2.models.CartCheckout;
 import com.ultracart.admin.v2.models.CartCoupon;
+import com.ultracart.admin.v2.models.CartCurrencyConversion;
 import com.ultracart.admin.v2.models.CartCustomerProfile;
 import com.ultracart.admin.v2.models.CartGift;
 import com.ultracart.admin.v2.models.CartGiftCertificate;
@@ -45,7 +46,7 @@ import java.util.List;
 /**
  * Cart
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class Cart {
   @SerializedName("affiliate")
   private CartAffiliate affiliate = null;
@@ -70,6 +71,9 @@ public class Cart {
 
   @SerializedName("currency_code")
   private String currencyCode = null;
+
+  @SerializedName("currency_conversion")
+  private CartCurrencyConversion currencyConversion = null;
 
   @SerializedName("customer_profile")
   private CartCustomerProfile customerProfile = null;
@@ -266,6 +270,24 @@ public class Cart {
 
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
+  }
+
+  public Cart currencyConversion(CartCurrencyConversion currencyConversion) {
+    this.currencyConversion = currencyConversion;
+    return this;
+  }
+
+   /**
+   * Get currencyConversion
+   * @return currencyConversion
+  **/
+  @ApiModelProperty(value = "")
+  public CartCurrencyConversion getCurrencyConversion() {
+    return currencyConversion;
+  }
+
+  public void setCurrencyConversion(CartCurrencyConversion currencyConversion) {
+    this.currencyConversion = currencyConversion;
   }
 
   public Cart customerProfile(CartCustomerProfile customerProfile) {
@@ -564,6 +586,7 @@ public class Cart {
         Objects.equals(this.checkout, cart.checkout) &&
         Objects.equals(this.coupons, cart.coupons) &&
         Objects.equals(this.currencyCode, cart.currencyCode) &&
+        Objects.equals(this.currencyConversion, cart.currencyConversion) &&
         Objects.equals(this.customerProfile, cart.customerProfile) &&
         Objects.equals(this.exchangeRate, cart.exchangeRate) &&
         Objects.equals(this.gift, cart.gift) &&
@@ -583,7 +606,7 @@ public class Cart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliate, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, settings, shipping, summary, taxes, upsellAfter);
+    return Objects.hash(affiliate, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, settings, shipping, summary, taxes, upsellAfter);
   }
 
 
@@ -600,6 +623,7 @@ public class Cart {
     sb.append("    checkout: ").append(toIndentedString(checkout)).append("\n");
     sb.append("    coupons: ").append(toIndentedString(coupons)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+    sb.append("    currencyConversion: ").append(toIndentedString(currencyConversion)).append("\n");
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");

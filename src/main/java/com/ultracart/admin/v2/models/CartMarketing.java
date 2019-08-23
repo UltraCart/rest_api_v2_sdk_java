@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CartMarketing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class CartMarketing {
   @SerializedName("advertising_source")
   private String advertisingSource = null;

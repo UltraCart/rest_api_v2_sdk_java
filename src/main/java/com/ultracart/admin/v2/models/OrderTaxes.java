@@ -27,8 +27,17 @@ import java.math.BigDecimal;
 /**
  * OrderTaxes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class OrderTaxes {
+  @SerializedName("arbitrary_tax")
+  private BigDecimal arbitraryTax = null;
+
+  @SerializedName("arbitrary_tax_rate")
+  private BigDecimal arbitraryTaxRate = null;
+
+  @SerializedName("arbitrary_taxable_subtotal")
+  private BigDecimal arbitraryTaxableSubtotal = null;
+
   @SerializedName("tax_city_accounting_code")
   private String taxCityAccountingCode = null;
 
@@ -40,6 +49,9 @@ public class OrderTaxes {
 
   @SerializedName("tax_county_accounting_code")
   private String taxCountyAccountingCode = null;
+
+  @SerializedName("tax_gift_charge")
+  private Boolean taxGiftCharge = null;
 
   @SerializedName("tax_postal_code_accounting_code")
   private String taxPostalCodeAccountingCode = null;
@@ -62,8 +74,65 @@ public class OrderTaxes {
   @SerializedName("tax_rate_state")
   private BigDecimal taxRateState = null;
 
+  @SerializedName("tax_shipping")
+  private Boolean taxShipping = null;
+
   @SerializedName("tax_state_accounting_code")
   private String taxStateAccountingCode = null;
+
+  public OrderTaxes arbitraryTax(BigDecimal arbitraryTax) {
+    this.arbitraryTax = arbitraryTax;
+    return this;
+  }
+
+   /**
+   * Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+   * @return arbitraryTax
+  **/
+  @ApiModelProperty(value = "Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.")
+  public BigDecimal getArbitraryTax() {
+    return arbitraryTax;
+  }
+
+  public void setArbitraryTax(BigDecimal arbitraryTax) {
+    this.arbitraryTax = arbitraryTax;
+  }
+
+  public OrderTaxes arbitraryTaxRate(BigDecimal arbitraryTaxRate) {
+    this.arbitraryTaxRate = arbitraryTaxRate;
+    return this;
+  }
+
+   /**
+   * Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+   * @return arbitraryTaxRate
+  **/
+  @ApiModelProperty(value = "Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.")
+  public BigDecimal getArbitraryTaxRate() {
+    return arbitraryTaxRate;
+  }
+
+  public void setArbitraryTaxRate(BigDecimal arbitraryTaxRate) {
+    this.arbitraryTaxRate = arbitraryTaxRate;
+  }
+
+  public OrderTaxes arbitraryTaxableSubtotal(BigDecimal arbitraryTaxableSubtotal) {
+    this.arbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
+    return this;
+  }
+
+   /**
+   * Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+   * @return arbitraryTaxableSubtotal
+  **/
+  @ApiModelProperty(value = "Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.")
+  public BigDecimal getArbitraryTaxableSubtotal() {
+    return arbitraryTaxableSubtotal;
+  }
+
+  public void setArbitraryTaxableSubtotal(BigDecimal arbitraryTaxableSubtotal) {
+    this.arbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
+  }
 
   public OrderTaxes taxCityAccountingCode(String taxCityAccountingCode) {
     this.taxCityAccountingCode = taxCityAccountingCode;
@@ -137,6 +206,24 @@ public class OrderTaxes {
     this.taxCountyAccountingCode = taxCountyAccountingCode;
   }
 
+  public OrderTaxes taxGiftCharge(Boolean taxGiftCharge) {
+    this.taxGiftCharge = taxGiftCharge;
+    return this;
+  }
+
+   /**
+   * True if gift charge is taxed
+   * @return taxGiftCharge
+  **/
+  @ApiModelProperty(value = "True if gift charge is taxed")
+  public Boolean isTaxGiftCharge() {
+    return taxGiftCharge;
+  }
+
+  public void setTaxGiftCharge(Boolean taxGiftCharge) {
+    this.taxGiftCharge = taxGiftCharge;
+  }
+
   public OrderTaxes taxPostalCodeAccountingCode(String taxPostalCodeAccountingCode) {
     this.taxPostalCodeAccountingCode = taxPostalCodeAccountingCode;
     return this;
@@ -161,10 +248,10 @@ public class OrderTaxes {
   }
 
    /**
-   * Tax rate
+   * Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields.
    * @return taxRate
   **/
-  @ApiModelProperty(value = "Tax rate")
+  @ApiModelProperty(value = "Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields.")
   public BigDecimal getTaxRate() {
     return taxRate;
   }
@@ -263,16 +350,34 @@ public class OrderTaxes {
     this.taxRateState = taxRateState;
   }
 
+  public OrderTaxes taxShipping(Boolean taxShipping) {
+    this.taxShipping = taxShipping;
+    return this;
+  }
+
+   /**
+   * True if shipping is taxed
+   * @return taxShipping
+  **/
+  @ApiModelProperty(value = "True if shipping is taxed")
+  public Boolean isTaxShipping() {
+    return taxShipping;
+  }
+
+  public void setTaxShipping(Boolean taxShipping) {
+    this.taxShipping = taxShipping;
+  }
+
   public OrderTaxes taxStateAccountingCode(String taxStateAccountingCode) {
     this.taxStateAccountingCode = taxStateAccountingCode;
     return this;
   }
 
    /**
-   * QuickBOoks tax state code
+   * QuickBooks tax state code
    * @return taxStateAccountingCode
   **/
-  @ApiModelProperty(value = "QuickBOoks tax state code")
+  @ApiModelProperty(value = "QuickBooks tax state code")
   public String getTaxStateAccountingCode() {
     return taxStateAccountingCode;
   }
@@ -291,10 +396,14 @@ public class OrderTaxes {
       return false;
     }
     OrderTaxes orderTaxes = (OrderTaxes) o;
-    return Objects.equals(this.taxCityAccountingCode, orderTaxes.taxCityAccountingCode) &&
+    return Objects.equals(this.arbitraryTax, orderTaxes.arbitraryTax) &&
+        Objects.equals(this.arbitraryTaxRate, orderTaxes.arbitraryTaxRate) &&
+        Objects.equals(this.arbitraryTaxableSubtotal, orderTaxes.arbitraryTaxableSubtotal) &&
+        Objects.equals(this.taxCityAccountingCode, orderTaxes.taxCityAccountingCode) &&
         Objects.equals(this.taxCountryAccountingCode, orderTaxes.taxCountryAccountingCode) &&
         Objects.equals(this.taxCounty, orderTaxes.taxCounty) &&
         Objects.equals(this.taxCountyAccountingCode, orderTaxes.taxCountyAccountingCode) &&
+        Objects.equals(this.taxGiftCharge, orderTaxes.taxGiftCharge) &&
         Objects.equals(this.taxPostalCodeAccountingCode, orderTaxes.taxPostalCodeAccountingCode) &&
         Objects.equals(this.taxRate, orderTaxes.taxRate) &&
         Objects.equals(this.taxRateCity, orderTaxes.taxRateCity) &&
@@ -302,12 +411,13 @@ public class OrderTaxes {
         Objects.equals(this.taxRateCounty, orderTaxes.taxRateCounty) &&
         Objects.equals(this.taxRatePostalCode, orderTaxes.taxRatePostalCode) &&
         Objects.equals(this.taxRateState, orderTaxes.taxRateState) &&
+        Objects.equals(this.taxShipping, orderTaxes.taxShipping) &&
         Objects.equals(this.taxStateAccountingCode, orderTaxes.taxStateAccountingCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taxCityAccountingCode, taxCountryAccountingCode, taxCounty, taxCountyAccountingCode, taxPostalCodeAccountingCode, taxRate, taxRateCity, taxRateCountry, taxRateCounty, taxRatePostalCode, taxRateState, taxStateAccountingCode);
+    return Objects.hash(arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, taxCityAccountingCode, taxCountryAccountingCode, taxCounty, taxCountyAccountingCode, taxGiftCharge, taxPostalCodeAccountingCode, taxRate, taxRateCity, taxRateCountry, taxRateCounty, taxRatePostalCode, taxRateState, taxShipping, taxStateAccountingCode);
   }
 
 
@@ -316,10 +426,14 @@ public class OrderTaxes {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderTaxes {\n");
     
+    sb.append("    arbitraryTax: ").append(toIndentedString(arbitraryTax)).append("\n");
+    sb.append("    arbitraryTaxRate: ").append(toIndentedString(arbitraryTaxRate)).append("\n");
+    sb.append("    arbitraryTaxableSubtotal: ").append(toIndentedString(arbitraryTaxableSubtotal)).append("\n");
     sb.append("    taxCityAccountingCode: ").append(toIndentedString(taxCityAccountingCode)).append("\n");
     sb.append("    taxCountryAccountingCode: ").append(toIndentedString(taxCountryAccountingCode)).append("\n");
     sb.append("    taxCounty: ").append(toIndentedString(taxCounty)).append("\n");
     sb.append("    taxCountyAccountingCode: ").append(toIndentedString(taxCountyAccountingCode)).append("\n");
+    sb.append("    taxGiftCharge: ").append(toIndentedString(taxGiftCharge)).append("\n");
     sb.append("    taxPostalCodeAccountingCode: ").append(toIndentedString(taxPostalCodeAccountingCode)).append("\n");
     sb.append("    taxRate: ").append(toIndentedString(taxRate)).append("\n");
     sb.append("    taxRateCity: ").append(toIndentedString(taxRateCity)).append("\n");
@@ -327,6 +441,7 @@ public class OrderTaxes {
     sb.append("    taxRateCounty: ").append(toIndentedString(taxRateCounty)).append("\n");
     sb.append("    taxRatePostalCode: ").append(toIndentedString(taxRatePostalCode)).append("\n");
     sb.append("    taxRateState: ").append(toIndentedString(taxRateState)).append("\n");
+    sb.append("    taxShipping: ").append(toIndentedString(taxShipping)).append("\n");
     sb.append("    taxStateAccountingCode: ").append(toIndentedString(taxStateAccountingCode)).append("\n");
     sb.append("}");
     return sb.toString();

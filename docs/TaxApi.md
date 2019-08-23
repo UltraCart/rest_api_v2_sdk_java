@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**deleteTaxProviderSelfPostalCode**](TaxApi.md#deleteTaxProviderSelfPostalCode) | **DELETE** /tax/providers/self/postalCode/{postal_code} | Deletes a Self tax provider postalCode
 [**deleteTaxProviderSelfState**](TaxApi.md#deleteTaxProviderSelfState) | **DELETE** /tax/providers/self/state/{stateCode} | Deletes a Self tax provider state
 [**getTaxProviderAvalara**](TaxApi.md#getTaxProviderAvalara) | **GET** /tax/providers/avalara | Retrieve the Avalara tax provider
+[**getTaxProviderAvalaraCompanies**](TaxApi.md#getTaxProviderAvalaraCompanies) | **POST** /tax/providers/avalara/companies | Returns Avalara Tax companies configured by the merchant
 [**getTaxProviderAvalaraTest**](TaxApi.md#getTaxProviderAvalaraTest) | **GET** /tax/providers/avalara/test | Attempts to connect to Avalara and returns back the response
 [**getTaxProviderSelf**](TaxApi.md#getTaxProviderSelf) | **GET** /tax/providers/self | Retrieve the Self tax provider
 [**getTaxProviderSelfCountries**](TaxApi.md#getTaxProviderSelfCountries) | **GET** /tax/providers/self/countries | Retrieve the Self tax provider countries
@@ -375,6 +376,65 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**TaxProviderAvalara**](TaxProviderAvalara.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getTaxProviderAvalaraCompanies"></a>
+# **getTaxProviderAvalaraCompanies**
+> TaxProviderAvalaraCompaniesResult getTaxProviderAvalaraCompanies(taxProviderAvalara)
+
+Returns Avalara Tax companies configured by the merchant
+
+Returns Avalara Tax companies configured by the merchant 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.TaxApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+TaxApi apiInstance = new TaxApi();
+TaxProviderAvalara taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
+try {
+    TaxProviderAvalaraCompaniesResult result = apiInstance.getTaxProviderAvalaraCompanies(taxProviderAvalara);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderAvalaraCompanies");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **taxProviderAvalara** | [**TaxProviderAvalara**](TaxProviderAvalara.md)| TaxProviderAvalara object |
+
+### Return type
+
+[**TaxProviderAvalaraCompaniesResult**](TaxProviderAvalaraCompaniesResult.md)
 
 ### Authorization
 
@@ -839,7 +899,7 @@ Name | Type | Description  | Notes
 
 <a name="setActiveTaxProvider"></a>
 # **setActiveTaxProvider**
-> setActiveTaxProvider(providerName)
+> TaxProviderActivateResult setActiveTaxProvider(providerName)
 
 Toggle a tax provider to active
 
@@ -869,7 +929,8 @@ ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
 TaxApi apiInstance = new TaxApi();
 String providerName = "providerName_example"; // String | The tax provider to set active.
 try {
-    apiInstance.setActiveTaxProvider(providerName);
+    TaxProviderActivateResult result = apiInstance.setActiveTaxProvider(providerName);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TaxApi#setActiveTaxProvider");
     e.printStackTrace();
@@ -884,7 +945,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**TaxProviderActivateResult**](TaxProviderActivateResult.md)
 
 ### Authorization
 

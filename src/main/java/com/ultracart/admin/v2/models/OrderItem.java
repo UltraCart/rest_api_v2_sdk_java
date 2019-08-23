@@ -35,13 +35,22 @@ import java.util.List;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class OrderItem {
   @SerializedName("accounting_code")
   private String accountingCode = null;
 
   @SerializedName("activation_codes")
   private List<String> activationCodes = null;
+
+  @SerializedName("arbitrary_unit_cost")
+  private Currency arbitraryUnitCost = null;
+
+  @SerializedName("auto_order_last_rebill_dts")
+  private String autoOrderLastRebillDts = null;
+
+  @SerializedName("auto_order_schedule")
+  private String autoOrderSchedule = null;
 
   @SerializedName("barcode")
   private String barcode = null;
@@ -229,6 +238,60 @@ public class OrderItem {
 
   public void setActivationCodes(List<String> activationCodes) {
     this.activationCodes = activationCodes;
+  }
+
+  public OrderItem arbitraryUnitCost(Currency arbitraryUnitCost) {
+    this.arbitraryUnitCost = arbitraryUnitCost;
+    return this;
+  }
+
+   /**
+   * Get arbitraryUnitCost
+   * @return arbitraryUnitCost
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getArbitraryUnitCost() {
+    return arbitraryUnitCost;
+  }
+
+  public void setArbitraryUnitCost(Currency arbitraryUnitCost) {
+    this.arbitraryUnitCost = arbitraryUnitCost;
+  }
+
+  public OrderItem autoOrderLastRebillDts(String autoOrderLastRebillDts) {
+    this.autoOrderLastRebillDts = autoOrderLastRebillDts;
+    return this;
+  }
+
+   /**
+   * Date/time of the last rebill, used only during order insert to help project future rebills
+   * @return autoOrderLastRebillDts
+  **/
+  @ApiModelProperty(value = "Date/time of the last rebill, used only during order insert to help project future rebills")
+  public String getAutoOrderLastRebillDts() {
+    return autoOrderLastRebillDts;
+  }
+
+  public void setAutoOrderLastRebillDts(String autoOrderLastRebillDts) {
+    this.autoOrderLastRebillDts = autoOrderLastRebillDts;
+  }
+
+  public OrderItem autoOrderSchedule(String autoOrderSchedule) {
+    this.autoOrderSchedule = autoOrderSchedule;
+    return this;
+  }
+
+   /**
+   * Auto order schedule, used only during inserts supplying the recurring schedule
+   * @return autoOrderSchedule
+  **/
+  @ApiModelProperty(value = "Auto order schedule, used only during inserts supplying the recurring schedule")
+  public String getAutoOrderSchedule() {
+    return autoOrderSchedule;
+  }
+
+  public void setAutoOrderSchedule(String autoOrderSchedule) {
+    this.autoOrderSchedule = autoOrderSchedule;
   }
 
   public OrderItem barcode(String barcode) {
@@ -1123,6 +1186,9 @@ public class OrderItem {
     OrderItem orderItem = (OrderItem) o;
     return Objects.equals(this.accountingCode, orderItem.accountingCode) &&
         Objects.equals(this.activationCodes, orderItem.activationCodes) &&
+        Objects.equals(this.arbitraryUnitCost, orderItem.arbitraryUnitCost) &&
+        Objects.equals(this.autoOrderLastRebillDts, orderItem.autoOrderLastRebillDts) &&
+        Objects.equals(this.autoOrderSchedule, orderItem.autoOrderSchedule) &&
         Objects.equals(this.barcode, orderItem.barcode) &&
         Objects.equals(this.channelPartnerItemId, orderItem.channelPartnerItemId) &&
         Objects.equals(this.cogs, orderItem.cogs) &&
@@ -1175,7 +1241,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, taxFree, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, taxFree, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
 
@@ -1186,6 +1252,9 @@ public class OrderItem {
     
     sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
     sb.append("    activationCodes: ").append(toIndentedString(activationCodes)).append("\n");
+    sb.append("    arbitraryUnitCost: ").append(toIndentedString(arbitraryUnitCost)).append("\n");
+    sb.append("    autoOrderLastRebillDts: ").append(toIndentedString(autoOrderLastRebillDts)).append("\n");
+    sb.append("    autoOrderSchedule: ").append(toIndentedString(autoOrderSchedule)).append("\n");
     sb.append("    barcode: ").append(toIndentedString(barcode)).append("\n");
     sb.append("    channelPartnerItemId: ").append(toIndentedString(channelPartnerItemId)).append("\n");
     sb.append("    cogs: ").append(toIndentedString(cogs)).append("\n");

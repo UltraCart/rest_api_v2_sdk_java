@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SelfConfig;
 import com.ultracart.admin.v2.models.TaxCountry;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -29,8 +30,11 @@ import java.util.List;
 /**
  * TaxProviderSelf
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class TaxProviderSelf {
+  @SerializedName("configuration")
+  private SelfConfig _configuration = null;
+
   @SerializedName("countries")
   private List<TaxCountry> countries = null;
 
@@ -42,6 +46,24 @@ public class TaxProviderSelf {
 
   @SerializedName("title")
   private String title = null;
+
+  public TaxProviderSelf _configuration(SelfConfig _configuration) {
+    this._configuration = _configuration;
+    return this;
+  }
+
+   /**
+   * Get _configuration
+   * @return _configuration
+  **/
+  @ApiModelProperty(value = "")
+  public SelfConfig getConfiguration() {
+    return _configuration;
+  }
+
+  public void setConfiguration(SelfConfig _configuration) {
+    this._configuration = _configuration;
+  }
 
   public TaxProviderSelf countries(List<TaxCountry> countries) {
     this.countries = countries;
@@ -133,7 +155,8 @@ public class TaxProviderSelf {
       return false;
     }
     TaxProviderSelf taxProviderSelf = (TaxProviderSelf) o;
-    return Objects.equals(this.countries, taxProviderSelf.countries) &&
+    return Objects.equals(this._configuration, taxProviderSelf._configuration) &&
+        Objects.equals(this.countries, taxProviderSelf.countries) &&
         Objects.equals(this.description, taxProviderSelf.description) &&
         Objects.equals(this.selected, taxProviderSelf.selected) &&
         Objects.equals(this.title, taxProviderSelf.title);
@@ -141,7 +164,7 @@ public class TaxProviderSelf {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countries, description, selected, title);
+    return Objects.hash(_configuration, countries, description, selected, title);
   }
 
 
@@ -150,6 +173,7 @@ public class TaxProviderSelf {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaxProviderSelf {\n");
     
+    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    selected: ").append(toIndentedString(selected)).append("\n");

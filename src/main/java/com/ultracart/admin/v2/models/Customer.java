@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CustomerAttachment;
 import com.ultracart.admin.v2.models.CustomerBilling;
 import com.ultracart.admin.v2.models.CustomerCard;
 import com.ultracart.admin.v2.models.CustomerEmail;
@@ -26,7 +27,10 @@ import com.ultracart.admin.v2.models.CustomerOrdersSummary;
 import com.ultracart.admin.v2.models.CustomerPricingTier;
 import com.ultracart.admin.v2.models.CustomerPrivacy;
 import com.ultracart.admin.v2.models.CustomerQuotesSummary;
+import com.ultracart.admin.v2.models.CustomerReviewer;
 import com.ultracart.admin.v2.models.CustomerShipping;
+import com.ultracart.admin.v2.models.CustomerSoftwareEntitlement;
+import com.ultracart.admin.v2.models.CustomerTaxCodes;
 import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +42,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-04T16:26:06.805-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
 public class Customer {
   @SerializedName("affiliate_oid")
   private Integer affiliateOid = null;
@@ -57,6 +61,9 @@ public class Customer {
 
   @SerializedName("allow_selection_of_address_type")
   private Boolean allowSelectionOfAddressType = null;
+
+  @SerializedName("attachments")
+  private List<CustomerAttachment> attachments = null;
 
   @SerializedName("auto_approve_cod")
   private Boolean autoApproveCod = null;
@@ -154,6 +161,9 @@ public class Customer {
   @SerializedName("referral_source")
   private String referralSource = null;
 
+  @SerializedName("reviewer")
+  private CustomerReviewer reviewer = null;
+
   @SerializedName("sales_rep_code")
   private String salesRepCode = null;
 
@@ -166,8 +176,14 @@ public class Customer {
   @SerializedName("signup_dts")
   private String signupDts = null;
 
+  @SerializedName("software_entitlements")
+  private List<CustomerSoftwareEntitlement> softwareEntitlements = null;
+
   @SerializedName("suppress_buysafe")
   private Boolean suppressBuysafe = null;
+
+  @SerializedName("tax_codes")
+  private CustomerTaxCodes taxCodes = null;
 
   @SerializedName("tax_exempt")
   private Boolean taxExempt = null;
@@ -296,6 +312,32 @@ public class Customer {
 
   public void setAllowSelectionOfAddressType(Boolean allowSelectionOfAddressType) {
     this.allowSelectionOfAddressType = allowSelectionOfAddressType;
+  }
+
+  public Customer attachments(List<CustomerAttachment> attachments) {
+    this.attachments = attachments;
+    return this;
+  }
+
+  public Customer addAttachmentsItem(CustomerAttachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<CustomerAttachment>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+   /**
+   * Attachments
+   * @return attachments
+  **/
+  @ApiModelProperty(value = "Attachments")
+  public List<CustomerAttachment> getAttachments() {
+    return attachments;
+  }
+
+  public void setAttachments(List<CustomerAttachment> attachments) {
+    this.attachments = attachments;
   }
 
   public Customer autoApproveCod(Boolean autoApproveCod) {
@@ -922,6 +964,24 @@ public class Customer {
     this.referralSource = referralSource;
   }
 
+  public Customer reviewer(CustomerReviewer reviewer) {
+    this.reviewer = reviewer;
+    return this;
+  }
+
+   /**
+   * Get reviewer
+   * @return reviewer
+  **/
+  @ApiModelProperty(value = "")
+  public CustomerReviewer getReviewer() {
+    return reviewer;
+  }
+
+  public void setReviewer(CustomerReviewer reviewer) {
+    this.reviewer = reviewer;
+  }
+
   public Customer salesRepCode(String salesRepCode) {
     this.salesRepCode = salesRepCode;
     return this;
@@ -1002,6 +1062,32 @@ public class Customer {
     this.signupDts = signupDts;
   }
 
+  public Customer softwareEntitlements(List<CustomerSoftwareEntitlement> softwareEntitlements) {
+    this.softwareEntitlements = softwareEntitlements;
+    return this;
+  }
+
+  public Customer addSoftwareEntitlementsItem(CustomerSoftwareEntitlement softwareEntitlementsItem) {
+    if (this.softwareEntitlements == null) {
+      this.softwareEntitlements = new ArrayList<CustomerSoftwareEntitlement>();
+    }
+    this.softwareEntitlements.add(softwareEntitlementsItem);
+    return this;
+  }
+
+   /**
+   * Software entitlements owned by this customer
+   * @return softwareEntitlements
+  **/
+  @ApiModelProperty(value = "Software entitlements owned by this customer")
+  public List<CustomerSoftwareEntitlement> getSoftwareEntitlements() {
+    return softwareEntitlements;
+  }
+
+  public void setSoftwareEntitlements(List<CustomerSoftwareEntitlement> softwareEntitlements) {
+    this.softwareEntitlements = softwareEntitlements;
+  }
+
   public Customer suppressBuysafe(Boolean suppressBuysafe) {
     this.suppressBuysafe = suppressBuysafe;
     return this;
@@ -1018,6 +1104,24 @@ public class Customer {
 
   public void setSuppressBuysafe(Boolean suppressBuysafe) {
     this.suppressBuysafe = suppressBuysafe;
+  }
+
+  public Customer taxCodes(CustomerTaxCodes taxCodes) {
+    this.taxCodes = taxCodes;
+    return this;
+  }
+
+   /**
+   * Get taxCodes
+   * @return taxCodes
+  **/
+  @ApiModelProperty(value = "")
+  public CustomerTaxCodes getTaxCodes() {
+    return taxCodes;
+  }
+
+  public void setTaxCodes(CustomerTaxCodes taxCodes) {
+    this.taxCodes = taxCodes;
   }
 
   public Customer taxExempt(Boolean taxExempt) {
@@ -1162,6 +1266,7 @@ public class Customer {
         Objects.equals(this.allowPurchaseOrder, customer.allowPurchaseOrder) &&
         Objects.equals(this.allowQuoteRequest, customer.allowQuoteRequest) &&
         Objects.equals(this.allowSelectionOfAddressType, customer.allowSelectionOfAddressType) &&
+        Objects.equals(this.attachments, customer.attachments) &&
         Objects.equals(this.autoApproveCod, customer.autoApproveCod) &&
         Objects.equals(this.autoApprovePurchaseOrder, customer.autoApprovePurchaseOrder) &&
         Objects.equals(this.automaticMerchantNotes, customer.automaticMerchantNotes) &&
@@ -1194,11 +1299,14 @@ public class Customer {
         Objects.equals(this.quotes, customer.quotes) &&
         Objects.equals(this.quotesSummary, customer.quotesSummary) &&
         Objects.equals(this.referralSource, customer.referralSource) &&
+        Objects.equals(this.reviewer, customer.reviewer) &&
         Objects.equals(this.salesRepCode, customer.salesRepCode) &&
         Objects.equals(this.sendSignupNotification, customer.sendSignupNotification) &&
         Objects.equals(this.shipping, customer.shipping) &&
         Objects.equals(this.signupDts, customer.signupDts) &&
+        Objects.equals(this.softwareEntitlements, customer.softwareEntitlements) &&
         Objects.equals(this.suppressBuysafe, customer.suppressBuysafe) &&
+        Objects.equals(this.taxCodes, customer.taxCodes) &&
         Objects.equals(this.taxExempt, customer.taxExempt) &&
         Objects.equals(this.taxId, customer.taxId) &&
         Objects.equals(this.terms, customer.terms) &&
@@ -1210,7 +1318,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, salesRepCode, sendSignupNotification, shipping, signupDts, suppressBuysafe, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1225,6 +1333,7 @@ public class Customer {
     sb.append("    allowPurchaseOrder: ").append(toIndentedString(allowPurchaseOrder)).append("\n");
     sb.append("    allowQuoteRequest: ").append(toIndentedString(allowQuoteRequest)).append("\n");
     sb.append("    allowSelectionOfAddressType: ").append(toIndentedString(allowSelectionOfAddressType)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    autoApproveCod: ").append(toIndentedString(autoApproveCod)).append("\n");
     sb.append("    autoApprovePurchaseOrder: ").append(toIndentedString(autoApprovePurchaseOrder)).append("\n");
     sb.append("    automaticMerchantNotes: ").append(toIndentedString(automaticMerchantNotes)).append("\n");
@@ -1257,11 +1366,14 @@ public class Customer {
     sb.append("    quotes: ").append(toIndentedString(quotes)).append("\n");
     sb.append("    quotesSummary: ").append(toIndentedString(quotesSummary)).append("\n");
     sb.append("    referralSource: ").append(toIndentedString(referralSource)).append("\n");
+    sb.append("    reviewer: ").append(toIndentedString(reviewer)).append("\n");
     sb.append("    salesRepCode: ").append(toIndentedString(salesRepCode)).append("\n");
     sb.append("    sendSignupNotification: ").append(toIndentedString(sendSignupNotification)).append("\n");
     sb.append("    shipping: ").append(toIndentedString(shipping)).append("\n");
     sb.append("    signupDts: ").append(toIndentedString(signupDts)).append("\n");
+    sb.append("    softwareEntitlements: ").append(toIndentedString(softwareEntitlements)).append("\n");
     sb.append("    suppressBuysafe: ").append(toIndentedString(suppressBuysafe)).append("\n");
+    sb.append("    taxCodes: ").append(toIndentedString(taxCodes)).append("\n");
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
     sb.append("    terms: ").append(toIndentedString(terms)).append("\n");

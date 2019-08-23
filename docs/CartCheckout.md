@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **customField5** | **String** | Custom field 5 |  [optional]
 **customField6** | **String** | Custom field 6 |  [optional]
 **customField7** | **String** | Custom field 7 |  [optional]
-**ipAddress** | **String** | IP Address |  [optional]
+**ipAddress** | **String** | IP Address (read only unless non-browser key authenticated) |  [optional]
 **returnCode** | **String** | Return code assigned for send return email operation |  [optional]
 **screenBrandingThemeCode** | **String** | Screen branding theme code |  [optional]
 
