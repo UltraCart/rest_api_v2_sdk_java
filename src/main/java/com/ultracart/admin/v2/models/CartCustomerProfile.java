@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CartCustomerProfile
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class CartCustomerProfile {
   @SerializedName("allow_3rd_party_billing")
   private Boolean allow3rdPartyBilling = null;
@@ -53,6 +53,9 @@ public class CartCustomerProfile {
 
   @SerializedName("dhl_account_number")
   private String dhlAccountNumber = null;
+
+  @SerializedName("dhl_duty_account_number")
+  private String dhlDutyAccountNumber = null;
 
   @SerializedName("email")
   private String email = null;
@@ -236,6 +239,24 @@ public class CartCustomerProfile {
 
   public void setDhlAccountNumber(String dhlAccountNumber) {
     this.dhlAccountNumber = dhlAccountNumber;
+  }
+
+  public CartCustomerProfile dhlDutyAccountNumber(String dhlDutyAccountNumber) {
+    this.dhlDutyAccountNumber = dhlDutyAccountNumber;
+    return this;
+  }
+
+   /**
+   * DHL duty account number on file
+   * @return dhlDutyAccountNumber
+  **/
+  @ApiModelProperty(value = "DHL duty account number on file")
+  public String getDhlDutyAccountNumber() {
+    return dhlDutyAccountNumber;
+  }
+
+  public void setDhlDutyAccountNumber(String dhlDutyAccountNumber) {
+    this.dhlDutyAccountNumber = dhlDutyAccountNumber;
   }
 
   public CartCustomerProfile email(String email) {
@@ -523,6 +544,7 @@ public class CartCustomerProfile {
         Objects.equals(this.creditCards, cartCustomerProfile.creditCards) &&
         Objects.equals(this.customerProfileOid, cartCustomerProfile.customerProfileOid) &&
         Objects.equals(this.dhlAccountNumber, cartCustomerProfile.dhlAccountNumber) &&
+        Objects.equals(this.dhlDutyAccountNumber, cartCustomerProfile.dhlDutyAccountNumber) &&
         Objects.equals(this.email, cartCustomerProfile.email) &&
         Objects.equals(this.fedexAccountNumber, cartCustomerProfile.fedexAccountNumber) &&
         Objects.equals(this.freeShipping, cartCustomerProfile.freeShipping) &&
@@ -541,7 +563,7 @@ public class CartCustomerProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, billingAddresses, creditCards, customerProfileOid, dhlAccountNumber, email, fedexAccountNumber, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, pricingTiers, shippingAddresses, taxExempt, upsAccountNumber);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, billingAddresses, creditCards, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, fedexAccountNumber, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, pricingTiers, shippingAddresses, taxExempt, upsAccountNumber);
   }
 
 
@@ -557,6 +579,7 @@ public class CartCustomerProfile {
     sb.append("    creditCards: ").append(toIndentedString(creditCards)).append("\n");
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    dhlAccountNumber: ").append(toIndentedString(dhlAccountNumber)).append("\n");
+    sb.append("    dhlDutyAccountNumber: ").append(toIndentedString(dhlDutyAccountNumber)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    fedexAccountNumber: ").append(toIndentedString(fedexAccountNumber)).append("\n");
     sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");

@@ -19,26 +19,23 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.VerificationRecord;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * EmailDomain
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class EmailDomain {
-  @SerializedName("dkim_headers")
-  private String dkimHeaders = null;
+  @SerializedName("comment")
+  private String comment = null;
 
-  @SerializedName("dkim_public")
-  private String dkimPublic = null;
-
-  @SerializedName("dkim_selector")
-  private String dkimSelector = null;
-
-  @SerializedName("dkim_signing_domain")
-  private String dkimSigningDomain = null;
+  @SerializedName("dkim")
+  private List<VerificationRecord> dkim = null;
 
   @SerializedName("dkim_status")
   private String dkimStatus = null;
@@ -49,91 +46,66 @@ public class EmailDomain {
   @SerializedName("esp_domain_uuid")
   private String espDomainUuid = null;
 
-  @SerializedName("hostname")
-  private String hostname = null;
+  @SerializedName("identity_status")
+  private String identityStatus = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
 
-  @SerializedName("tracking_domain")
-  private String trackingDomain = null;
+  @SerializedName("provider")
+  private String provider = null;
 
-  @SerializedName("type")
-  private String type = null;
+  @SerializedName("start_dkim_dts")
+  private String startDkimDts = null;
 
-  @SerializedName("value")
-  private String value = null;
+  @SerializedName("start_identity_dts")
+  private String startIdentityDts = null;
 
-  public EmailDomain dkimHeaders(String dkimHeaders) {
-    this.dkimHeaders = dkimHeaders;
+  @SerializedName("verification")
+  private VerificationRecord verification = null;
+
+  public EmailDomain comment(String comment) {
+    this.comment = comment;
     return this;
   }
 
    /**
-   * Get dkimHeaders
-   * @return dkimHeaders
+   * Get comment
+   * @return comment
   **/
   @ApiModelProperty(value = "")
-  public String getDkimHeaders() {
-    return dkimHeaders;
+  public String getComment() {
+    return comment;
   }
 
-  public void setDkimHeaders(String dkimHeaders) {
-    this.dkimHeaders = dkimHeaders;
+  public void setComment(String comment) {
+    this.comment = comment;
   }
 
-  public EmailDomain dkimPublic(String dkimPublic) {
-    this.dkimPublic = dkimPublic;
+  public EmailDomain dkim(List<VerificationRecord> dkim) {
+    this.dkim = dkim;
+    return this;
+  }
+
+  public EmailDomain addDkimItem(VerificationRecord dkimItem) {
+    if (this.dkim == null) {
+      this.dkim = new ArrayList<VerificationRecord>();
+    }
+    this.dkim.add(dkimItem);
     return this;
   }
 
    /**
-   * Get dkimPublic
-   * @return dkimPublic
+   * Get dkim
+   * @return dkim
   **/
   @ApiModelProperty(value = "")
-  public String getDkimPublic() {
-    return dkimPublic;
+  public List<VerificationRecord> getDkim() {
+    return dkim;
   }
 
-  public void setDkimPublic(String dkimPublic) {
-    this.dkimPublic = dkimPublic;
-  }
-
-  public EmailDomain dkimSelector(String dkimSelector) {
-    this.dkimSelector = dkimSelector;
-    return this;
-  }
-
-   /**
-   * Get dkimSelector
-   * @return dkimSelector
-  **/
-  @ApiModelProperty(value = "")
-  public String getDkimSelector() {
-    return dkimSelector;
-  }
-
-  public void setDkimSelector(String dkimSelector) {
-    this.dkimSelector = dkimSelector;
-  }
-
-  public EmailDomain dkimSigningDomain(String dkimSigningDomain) {
-    this.dkimSigningDomain = dkimSigningDomain;
-    return this;
-  }
-
-   /**
-   * Get dkimSigningDomain
-   * @return dkimSigningDomain
-  **/
-  @ApiModelProperty(value = "")
-  public String getDkimSigningDomain() {
-    return dkimSigningDomain;
-  }
-
-  public void setDkimSigningDomain(String dkimSigningDomain) {
-    this.dkimSigningDomain = dkimSigningDomain;
+  public void setDkim(List<VerificationRecord> dkim) {
+    this.dkim = dkim;
   }
 
   public EmailDomain dkimStatus(String dkimStatus) {
@@ -190,22 +162,22 @@ public class EmailDomain {
     this.espDomainUuid = espDomainUuid;
   }
 
-  public EmailDomain hostname(String hostname) {
-    this.hostname = hostname;
+  public EmailDomain identityStatus(String identityStatus) {
+    this.identityStatus = identityStatus;
     return this;
   }
 
    /**
-   * Get hostname
-   * @return hostname
+   * Get identityStatus
+   * @return identityStatus
   **/
   @ApiModelProperty(value = "")
-  public String getHostname() {
-    return hostname;
+  public String getIdentityStatus() {
+    return identityStatus;
   }
 
-  public void setHostname(String hostname) {
-    this.hostname = hostname;
+  public void setIdentityStatus(String identityStatus) {
+    this.identityStatus = identityStatus;
   }
 
   public EmailDomain merchantId(String merchantId) {
@@ -226,58 +198,76 @@ public class EmailDomain {
     this.merchantId = merchantId;
   }
 
-  public EmailDomain trackingDomain(String trackingDomain) {
-    this.trackingDomain = trackingDomain;
+  public EmailDomain provider(String provider) {
+    this.provider = provider;
     return this;
   }
 
    /**
-   * Get trackingDomain
-   * @return trackingDomain
+   * Get provider
+   * @return provider
   **/
   @ApiModelProperty(value = "")
-  public String getTrackingDomain() {
-    return trackingDomain;
+  public String getProvider() {
+    return provider;
   }
 
-  public void setTrackingDomain(String trackingDomain) {
-    this.trackingDomain = trackingDomain;
+  public void setProvider(String provider) {
+    this.provider = provider;
   }
 
-  public EmailDomain type(String type) {
-    this.type = type;
+  public EmailDomain startDkimDts(String startDkimDts) {
+    this.startDkimDts = startDkimDts;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get startDkimDts
+   * @return startDkimDts
   **/
   @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
+  public String getStartDkimDts() {
+    return startDkimDts;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setStartDkimDts(String startDkimDts) {
+    this.startDkimDts = startDkimDts;
   }
 
-  public EmailDomain value(String value) {
-    this.value = value;
+  public EmailDomain startIdentityDts(String startIdentityDts) {
+    this.startIdentityDts = startIdentityDts;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get startIdentityDts
+   * @return startIdentityDts
   **/
   @ApiModelProperty(value = "")
-  public String getValue() {
-    return value;
+  public String getStartIdentityDts() {
+    return startIdentityDts;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setStartIdentityDts(String startIdentityDts) {
+    this.startIdentityDts = startIdentityDts;
+  }
+
+  public EmailDomain verification(VerificationRecord verification) {
+    this.verification = verification;
+    return this;
+  }
+
+   /**
+   * Get verification
+   * @return verification
+  **/
+  @ApiModelProperty(value = "")
+  public VerificationRecord getVerification() {
+    return verification;
+  }
+
+  public void setVerification(VerificationRecord verification) {
+    this.verification = verification;
   }
 
 
@@ -290,23 +280,22 @@ public class EmailDomain {
       return false;
     }
     EmailDomain emailDomain = (EmailDomain) o;
-    return Objects.equals(this.dkimHeaders, emailDomain.dkimHeaders) &&
-        Objects.equals(this.dkimPublic, emailDomain.dkimPublic) &&
-        Objects.equals(this.dkimSelector, emailDomain.dkimSelector) &&
-        Objects.equals(this.dkimSigningDomain, emailDomain.dkimSigningDomain) &&
+    return Objects.equals(this.comment, emailDomain.comment) &&
+        Objects.equals(this.dkim, emailDomain.dkim) &&
         Objects.equals(this.dkimStatus, emailDomain.dkimStatus) &&
         Objects.equals(this.domain, emailDomain.domain) &&
         Objects.equals(this.espDomainUuid, emailDomain.espDomainUuid) &&
-        Objects.equals(this.hostname, emailDomain.hostname) &&
+        Objects.equals(this.identityStatus, emailDomain.identityStatus) &&
         Objects.equals(this.merchantId, emailDomain.merchantId) &&
-        Objects.equals(this.trackingDomain, emailDomain.trackingDomain) &&
-        Objects.equals(this.type, emailDomain.type) &&
-        Objects.equals(this.value, emailDomain.value);
+        Objects.equals(this.provider, emailDomain.provider) &&
+        Objects.equals(this.startDkimDts, emailDomain.startDkimDts) &&
+        Objects.equals(this.startIdentityDts, emailDomain.startIdentityDts) &&
+        Objects.equals(this.verification, emailDomain.verification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dkimHeaders, dkimPublic, dkimSelector, dkimSigningDomain, dkimStatus, domain, espDomainUuid, hostname, merchantId, trackingDomain, type, value);
+    return Objects.hash(comment, dkim, dkimStatus, domain, espDomainUuid, identityStatus, merchantId, provider, startDkimDts, startIdentityDts, verification);
   }
 
 
@@ -315,18 +304,17 @@ public class EmailDomain {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailDomain {\n");
     
-    sb.append("    dkimHeaders: ").append(toIndentedString(dkimHeaders)).append("\n");
-    sb.append("    dkimPublic: ").append(toIndentedString(dkimPublic)).append("\n");
-    sb.append("    dkimSelector: ").append(toIndentedString(dkimSelector)).append("\n");
-    sb.append("    dkimSigningDomain: ").append(toIndentedString(dkimSigningDomain)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    dkim: ").append(toIndentedString(dkim)).append("\n");
     sb.append("    dkimStatus: ").append(toIndentedString(dkimStatus)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");
-    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    identityStatus: ").append(toIndentedString(identityStatus)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    trackingDomain: ").append(toIndentedString(trackingDomain)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    startDkimDts: ").append(toIndentedString(startDkimDts)).append("\n");
+    sb.append("    startIdentityDts: ").append(toIndentedString(startIdentityDts)).append("\n");
+    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
     sb.append("}");
     return sb.toString();
   }

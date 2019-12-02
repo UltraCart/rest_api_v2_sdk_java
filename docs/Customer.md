@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**activity** | [**CustomerActivity**](CustomerActivity.md) |  |  [optional]
 **affiliateOid** | **Integer** | Affiliate oid |  [optional]
 **allow3rdPartyBilling** | **Boolean** | Allow 3rd party billing |  [optional]
 **allowCod** | **Boolean** | Allow COD |  [optional]
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **ccEmails** | [**List&lt;CustomerEmail&gt;**](CustomerEmail.md) | Additional emails to CC notification |  [optional]
 **customerProfileOid** | **Integer** | Customer profile object identifier |  [optional]
 **dhlAccountNumber** | **String** | DHL account number |  [optional]
+**dhlDutyAccountNumber** | **String** | DHL duty account number |  [optional]
 **email** | **String** | Email address of this customer profile |  [optional]
 **exemptShippingHandlingCharge** | **Boolean** | Exempt shipping handling charge |  [optional]
 **fedexAccountNumber** | **String** | FedEx account number |  [optional]

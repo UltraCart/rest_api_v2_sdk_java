@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * OrderBilling
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class OrderBilling {
   @SerializedName("address1")
   private String address1 = null;
@@ -50,6 +50,9 @@ public class OrderBilling {
 
   @SerializedName("day_phone")
   private String dayPhone = null;
+
+  @SerializedName("day_phone_e164")
+  private String dayPhoneE164 = null;
 
   @SerializedName("email")
   private String email = null;
@@ -206,6 +209,24 @@ public class OrderBilling {
     this.dayPhone = dayPhone;
   }
 
+  public OrderBilling dayPhoneE164(String dayPhoneE164) {
+    this.dayPhoneE164 = dayPhoneE164;
+    return this;
+  }
+
+   /**
+   * Day time phone (E164 format)
+   * @return dayPhoneE164
+  **/
+  @ApiModelProperty(value = "Day time phone (E164 format)")
+  public String getDayPhoneE164() {
+    return dayPhoneE164;
+  }
+
+  public void setDayPhoneE164(String dayPhoneE164) {
+    this.dayPhoneE164 = dayPhoneE164;
+  }
+
   public OrderBilling email(String email) {
     this.email = email;
     return this;
@@ -349,6 +370,7 @@ public class OrderBilling {
         Objects.equals(this.company, orderBilling.company) &&
         Objects.equals(this.countryCode, orderBilling.countryCode) &&
         Objects.equals(this.dayPhone, orderBilling.dayPhone) &&
+        Objects.equals(this.dayPhoneE164, orderBilling.dayPhoneE164) &&
         Objects.equals(this.email, orderBilling.email) &&
         Objects.equals(this.eveningPhone, orderBilling.eveningPhone) &&
         Objects.equals(this.firstName, orderBilling.firstName) &&
@@ -360,7 +382,7 @@ public class OrderBilling {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, ccEmails, city, company, countryCode, dayPhone, email, eveningPhone, firstName, lastName, postalCode, stateRegion, title);
+    return Objects.hash(address1, address2, ccEmails, city, company, countryCode, dayPhone, dayPhoneE164, email, eveningPhone, firstName, lastName, postalCode, stateRegion, title);
   }
 
 
@@ -376,6 +398,7 @@ public class OrderBilling {
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    dayPhone: ").append(toIndentedString(dayPhone)).append("\n");
+    sb.append("    dayPhoneE164: ").append(toIndentedString(dayPhoneE164)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    eveningPhone: ").append(toIndentedString(eveningPhone)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **company** | **String** | Company |  [optional]
 **countryCode** | **String** | ISO-3166 two letter country code |  [optional]
 **dayPhone** | **String** | Day time phone |  [optional]
+**dayPhoneE164** | **String** | Day time phone (E164 format) |  [optional]
 **email** | **String** | Email |  [optional]
 **eveningPhone** | **String** | Evening phone |  [optional]
 **firstName** | **String** | First name |  [optional]

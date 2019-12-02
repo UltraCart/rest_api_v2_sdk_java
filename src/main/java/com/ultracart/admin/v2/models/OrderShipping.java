@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * OrderShipping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class OrderShipping {
   @SerializedName("address1")
   private String address1 = null;
@@ -48,6 +48,9 @@ public class OrderShipping {
 
   @SerializedName("day_phone")
   private String dayPhone = null;
+
+  @SerializedName("day_phone_e164")
+  private String dayPhoneE164 = null;
 
   @SerializedName("delivery_date")
   private String deliveryDate = null;
@@ -218,6 +221,24 @@ public class OrderShipping {
 
   public void setDayPhone(String dayPhone) {
     this.dayPhone = dayPhone;
+  }
+
+  public OrderShipping dayPhoneE164(String dayPhoneE164) {
+    this.dayPhoneE164 = dayPhoneE164;
+    return this;
+  }
+
+   /**
+   * Day time phone (E164 format)
+   * @return dayPhoneE164
+  **/
+  @ApiModelProperty(value = "Day time phone (E164 format)")
+  public String getDayPhoneE164() {
+    return dayPhoneE164;
+  }
+
+  public void setDayPhoneE164(String dayPhoneE164) {
+    this.dayPhoneE164 = dayPhoneE164;
   }
 
   public OrderShipping deliveryDate(String deliveryDate) {
@@ -630,6 +651,7 @@ public class OrderShipping {
         Objects.equals(this.company, orderShipping.company) &&
         Objects.equals(this.countryCode, orderShipping.countryCode) &&
         Objects.equals(this.dayPhone, orderShipping.dayPhone) &&
+        Objects.equals(this.dayPhoneE164, orderShipping.dayPhoneE164) &&
         Objects.equals(this.deliveryDate, orderShipping.deliveryDate) &&
         Objects.equals(this.eveningPhone, orderShipping.eveningPhone) &&
         Objects.equals(this.firstName, orderShipping.firstName) &&
@@ -655,7 +677,7 @@ public class OrderShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, deliveryDate, eveningPhone, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumbers, weight);
+    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, dayPhoneE164, deliveryDate, eveningPhone, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumbers, weight);
   }
 
 
@@ -670,6 +692,7 @@ public class OrderShipping {
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    dayPhone: ").append(toIndentedString(dayPhone)).append("\n");
+    sb.append("    dayPhoneE164: ").append(toIndentedString(dayPhoneE164)).append("\n");
     sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
     sb.append("    eveningPhone: ").append(toIndentedString(eveningPhone)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");

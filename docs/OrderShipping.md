@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **company** | **String** | Company |  [optional]
 **countryCode** | **String** | ISO-3166 two letter country code |  [optional]
 **dayPhone** | **String** | Day time phone |  [optional]
+**dayPhoneE164** | **String** | Day time phone (E164 format) |  [optional]
 **deliveryDate** | **String** | Date the customer is requesting delivery on.  Typically used for perishable product delivery. |  [optional]
 **eveningPhone** | **String** | Evening phone |  [optional]
 **firstName** | **String** | First name |  [optional]

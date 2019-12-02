@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class AutoOrder {
   @SerializedName("auto_order_code")
   private String autoOrderCode = null;
@@ -52,6 +52,9 @@ public class AutoOrder {
 
   @SerializedName("canceled_dts")
   private String canceledDts = null;
+
+  @SerializedName("completed")
+  private Boolean completed = null;
 
   @SerializedName("credit_card_attempt")
   private Integer creditCardAttempt = null;
@@ -210,6 +213,24 @@ public class AutoOrder {
 
   public void setCanceledDts(String canceledDts) {
     this.canceledDts = canceledDts;
+  }
+
+  public AutoOrder completed(Boolean completed) {
+    this.completed = completed;
+    return this;
+  }
+
+   /**
+   * True if the auto order ran successfully to completion
+   * @return completed
+  **/
+  @ApiModelProperty(value = "True if the auto order ran successfully to completion")
+  public Boolean isCompleted() {
+    return completed;
+  }
+
+  public void setCompleted(Boolean completed) {
+    this.completed = completed;
   }
 
   public AutoOrder creditCardAttempt(Integer creditCardAttempt) {
@@ -443,6 +464,7 @@ public class AutoOrder {
         Objects.equals(this.cancelUpgrade, autoOrder.cancelUpgrade) &&
         Objects.equals(this.canceledByUser, autoOrder.canceledByUser) &&
         Objects.equals(this.canceledDts, autoOrder.canceledDts) &&
+        Objects.equals(this.completed, autoOrder.completed) &&
         Objects.equals(this.creditCardAttempt, autoOrder.creditCardAttempt) &&
         Objects.equals(this.disabledDts, autoOrder.disabledDts) &&
         Objects.equals(this.enabled, autoOrder.enabled) &&
@@ -458,7 +480,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelUpgrade, canceledByUser, canceledDts, creditCardAttempt, disabledDts, enabled, failureReason, items, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode);
+    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode);
   }
 
 
@@ -474,6 +496,7 @@ public class AutoOrder {
     sb.append("    cancelUpgrade: ").append(toIndentedString(cancelUpgrade)).append("\n");
     sb.append("    canceledByUser: ").append(toIndentedString(canceledByUser)).append("\n");
     sb.append("    canceledDts: ").append(toIndentedString(canceledDts)).append("\n");
+    sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
     sb.append("    creditCardAttempt: ").append(toIndentedString(creditCardAttempt)).append("\n");
     sb.append("    disabledDts: ").append(toIndentedString(disabledDts)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");

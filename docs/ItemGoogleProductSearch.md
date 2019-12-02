@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **searchLowestPrice** | [**BigDecimal**](BigDecimal.md) | Search lowest price |  [optional]
 **searchLowestUrl** | **String** | Search lowest URL |  [optional]
 **searchPosition** | **Integer** | Search position |  [optional]
+**shippingLabel** | **String** |  |  [optional]
 **size** | **String** | Size |  [optional]
 **videoDirector** | **String** | Video - director |  [optional]
 **videoFormat** | **String** | Video - format |  [optional]

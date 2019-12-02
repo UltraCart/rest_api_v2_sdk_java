@@ -25,11 +25,13 @@ import com.ultracart.admin.v2.models.ResponseMetadata;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * EmailStatSummaryResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class EmailStatSummaryResponse {
   @SerializedName("error")
   private Error error = null;
@@ -38,7 +40,7 @@ public class EmailStatSummaryResponse {
   private ResponseMetadata metadata = null;
 
   @SerializedName("stats")
-  private EmailStat stats = null;
+  private List<EmailStat> stats = null;
 
   @SerializedName("success")
   private Boolean success = null;
@@ -79,8 +81,16 @@ public class EmailStatSummaryResponse {
     this.metadata = metadata;
   }
 
-  public EmailStatSummaryResponse stats(EmailStat stats) {
+  public EmailStatSummaryResponse stats(List<EmailStat> stats) {
     this.stats = stats;
+    return this;
+  }
+
+  public EmailStatSummaryResponse addStatsItem(EmailStat statsItem) {
+    if (this.stats == null) {
+      this.stats = new ArrayList<EmailStat>();
+    }
+    this.stats.add(statsItem);
     return this;
   }
 
@@ -89,11 +99,11 @@ public class EmailStatSummaryResponse {
    * @return stats
   **/
   @ApiModelProperty(value = "")
-  public EmailStat getStats() {
+  public List<EmailStat> getStats() {
     return stats;
   }
 
-  public void setStats(EmailStat stats) {
+  public void setStats(List<EmailStat> stats) {
     this.stats = stats;
   }
 

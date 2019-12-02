@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **cancelUpgrade** | **Boolean** | True if the auto order was canceled because the customer purchased an upgrade item |  [optional]
 **canceledByUser** | **String** | The user that canceled the auto order |  [optional]
 **canceledDts** | **String** | The date/time that the auto order was canceled |  [optional]
+**completed** | **Boolean** | True if the auto order ran successfully to completion |  [optional]
 **creditCardAttempt** | **Integer** | The number of credit card attempts that have taken place |  [optional]
 **disabledDts** | **String** | The date/time the auto order was disabled due to failed rebills |  [optional]
 **enabled** | **Boolean** | True if this auto order is enabled |  [optional]

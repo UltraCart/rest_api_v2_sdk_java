@@ -29,10 +29,12 @@ import java.io.IOException;
 
 import com.ultracart.admin.v2.models.Customer;
 import com.ultracart.admin.v2.models.CustomerEditorValues;
+import com.ultracart.admin.v2.models.CustomerEmailListChanges;
 import com.ultracart.admin.v2.models.CustomerQuery;
 import com.ultracart.admin.v2.models.CustomerResponse;
 import com.ultracart.admin.v2.models.CustomersResponse;
 import com.ultracart.admin.v2.models.DataTablesServerSideResponse;
+import com.ultracart.admin.v2.models.EmailListsResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 
 import java.lang.reflect.Type;
@@ -1026,6 +1028,123 @@ public class CustomerApi {
         return call;
     }
     /**
+     * Build call for getEmailLists
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailListsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/customer/email_lists";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailListsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = getEmailListsCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Retrieve all email lists across all storefronts
+     * Retrieve all email lists across all storefronts 
+     * @return EmailListsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailListsResponse getEmailLists() throws ApiException {
+        ApiResponse<EmailListsResponse> resp = getEmailListsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve all email lists across all storefronts
+     * Retrieve all email lists across all storefronts 
+     * @return ApiResponse&lt;EmailListsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailListsResponse> getEmailListsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getEmailListsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<EmailListsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve all email lists across all storefronts (asynchronously)
+     * Retrieve all email lists across all storefronts 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailListsAsync(final ApiCallback<EmailListsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailListsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailListsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for insertCustomer
      * @param customer Customer to insert (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1296,6 +1415,142 @@ public class CustomerApi {
 
         com.squareup.okhttp.Call call = updateCustomerValidateBeforeCall(customer, customerProfileOid, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateCustomerEmailLists
+     * @param customerProfileOid The customer profile oid (required)
+     * @param listChanges List changes (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateCustomerEmailListsCall(Integer customerProfileOid, CustomerEmailListChanges listChanges, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = listChanges;
+        
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/email_lists"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateCustomerEmailListsValidateBeforeCall(Integer customerProfileOid, CustomerEmailListChanges listChanges, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling updateCustomerEmailLists(Async)");
+        }
+        
+        // verify the required parameter 'listChanges' is set
+        if (listChanges == null) {
+            throw new ApiException("Missing the required parameter 'listChanges' when calling updateCustomerEmailLists(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = updateCustomerEmailListsCall(customerProfileOid, listChanges, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Update email list subscriptions for a customer
+     * Update email list subscriptions for a customer 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param listChanges List changes (required)
+     * @return CustomerEmailListChanges
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerEmailListChanges updateCustomerEmailLists(Integer customerProfileOid, CustomerEmailListChanges listChanges) throws ApiException {
+        ApiResponse<CustomerEmailListChanges> resp = updateCustomerEmailListsWithHttpInfo(customerProfileOid, listChanges);
+        return resp.getData();
+    }
+
+    /**
+     * Update email list subscriptions for a customer
+     * Update email list subscriptions for a customer 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param listChanges List changes (required)
+     * @return ApiResponse&lt;CustomerEmailListChanges&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerEmailListChanges> updateCustomerEmailListsWithHttpInfo(Integer customerProfileOid, CustomerEmailListChanges listChanges) throws ApiException {
+        com.squareup.okhttp.Call call = updateCustomerEmailListsValidateBeforeCall(customerProfileOid, listChanges, null, null);
+        Type localVarReturnType = new TypeToken<CustomerEmailListChanges>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update email list subscriptions for a customer (asynchronously)
+     * Update email list subscriptions for a customer 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param listChanges List changes (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateCustomerEmailListsAsync(Integer customerProfileOid, CustomerEmailListChanges listChanges, final ApiCallback<CustomerEmailListChanges> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateCustomerEmailListsValidateBeforeCall(customerProfileOid, listChanges, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerEmailListChanges>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

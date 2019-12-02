@@ -29,8 +29,11 @@ import java.util.List;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class EmailCampaign {
+  @SerializedName("click_rate_formatted")
+  private String clickRateFormatted = null;
+
   @SerializedName("created_dts")
   private String createdDts = null;
 
@@ -52,6 +55,12 @@ public class EmailCampaign {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("open_rate_formatted")
+  private String openRateFormatted = null;
+
+  @SerializedName("revenue_formatted")
+  private String revenueFormatted = null;
+
   @SerializedName("scheduled_dts")
   private String scheduledDts = null;
 
@@ -63,6 +72,24 @@ public class EmailCampaign {
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
+
+  public EmailCampaign clickRateFormatted(String clickRateFormatted) {
+    this.clickRateFormatted = clickRateFormatted;
+    return this;
+  }
+
+   /**
+   * Click rate of emails
+   * @return clickRateFormatted
+  **/
+  @ApiModelProperty(value = "Click rate of emails")
+  public String getClickRateFormatted() {
+    return clickRateFormatted;
+  }
+
+  public void setClickRateFormatted(String clickRateFormatted) {
+    this.clickRateFormatted = clickRateFormatted;
+  }
 
   public EmailCampaign createdDts(String createdDts) {
     this.createdDts = createdDts;
@@ -198,6 +225,42 @@ public class EmailCampaign {
     this.name = name;
   }
 
+  public EmailCampaign openRateFormatted(String openRateFormatted) {
+    this.openRateFormatted = openRateFormatted;
+    return this;
+  }
+
+   /**
+   * Open rate of emails
+   * @return openRateFormatted
+  **/
+  @ApiModelProperty(value = "Open rate of emails")
+  public String getOpenRateFormatted() {
+    return openRateFormatted;
+  }
+
+  public void setOpenRateFormatted(String openRateFormatted) {
+    this.openRateFormatted = openRateFormatted;
+  }
+
+  public EmailCampaign revenueFormatted(String revenueFormatted) {
+    this.revenueFormatted = revenueFormatted;
+    return this;
+  }
+
+   /**
+   * Revenue associated with campaign
+   * @return revenueFormatted
+  **/
+  @ApiModelProperty(value = "Revenue associated with campaign")
+  public String getRevenueFormatted() {
+    return revenueFormatted;
+  }
+
+  public void setRevenueFormatted(String revenueFormatted) {
+    this.revenueFormatted = revenueFormatted;
+  }
+
   public EmailCampaign scheduledDts(String scheduledDts) {
     this.scheduledDts = scheduledDts;
     return this;
@@ -280,13 +343,16 @@ public class EmailCampaign {
       return false;
     }
     EmailCampaign emailCampaign = (EmailCampaign) o;
-    return Objects.equals(this.createdDts, emailCampaign.createdDts) &&
+    return Objects.equals(this.clickRateFormatted, emailCampaign.clickRateFormatted) &&
+        Objects.equals(this.createdDts, emailCampaign.createdDts) &&
         Objects.equals(this.deleted, emailCampaign.deleted) &&
         Objects.equals(this.emailCampaignUuid, emailCampaign.emailCampaignUuid) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailCampaign.emailCommunicationSequenceUuid) &&
         Objects.equals(this.memberships, emailCampaign.memberships) &&
         Objects.equals(this.merchantId, emailCampaign.merchantId) &&
         Objects.equals(this.name, emailCampaign.name) &&
+        Objects.equals(this.openRateFormatted, emailCampaign.openRateFormatted) &&
+        Objects.equals(this.revenueFormatted, emailCampaign.revenueFormatted) &&
         Objects.equals(this.scheduledDts, emailCampaign.scheduledDts) &&
         Objects.equals(this.status, emailCampaign.status) &&
         Objects.equals(this.statusDts, emailCampaign.statusDts) &&
@@ -295,7 +361,7 @@ public class EmailCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, memberships, merchantId, name, scheduledDts, status, statusDts, storefrontOid);
+    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, memberships, merchantId, name, openRateFormatted, revenueFormatted, scheduledDts, status, statusDts, storefrontOid);
   }
 
 
@@ -304,6 +370,7 @@ public class EmailCampaign {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailCampaign {\n");
     
+    sb.append("    clickRateFormatted: ").append(toIndentedString(clickRateFormatted)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailCampaignUuid: ").append(toIndentedString(emailCampaignUuid)).append("\n");
@@ -311,6 +378,8 @@ public class EmailCampaign {
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
+    sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");

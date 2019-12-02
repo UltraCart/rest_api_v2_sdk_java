@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * ItemGoogleProductSearch
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class ItemGoogleProductSearch {
   @SerializedName("adwords_grouping")
   private String adwordsGrouping = null;
@@ -151,6 +151,9 @@ public class ItemGoogleProductSearch {
 
   @SerializedName("search_position")
   private Integer searchPosition = null;
+
+  @SerializedName("shippingLabel")
+  private String shippingLabel = null;
 
   @SerializedName("size")
   private String size = null;
@@ -908,6 +911,24 @@ public class ItemGoogleProductSearch {
     this.searchPosition = searchPosition;
   }
 
+  public ItemGoogleProductSearch shippingLabel(String shippingLabel) {
+    this.shippingLabel = shippingLabel;
+    return this;
+  }
+
+   /**
+   * Get shippingLabel
+   * @return shippingLabel
+  **/
+  @ApiModelProperty(value = "")
+  public String getShippingLabel() {
+    return shippingLabel;
+  }
+
+  public void setShippingLabel(String shippingLabel) {
+    this.shippingLabel = shippingLabel;
+  }
+
   public ItemGoogleProductSearch size(String size) {
     this.size = size;
     return this;
@@ -1067,6 +1088,7 @@ public class ItemGoogleProductSearch {
         Objects.equals(this.searchLowestPrice, itemGoogleProductSearch.searchLowestPrice) &&
         Objects.equals(this.searchLowestUrl, itemGoogleProductSearch.searchLowestUrl) &&
         Objects.equals(this.searchPosition, itemGoogleProductSearch.searchPosition) &&
+        Objects.equals(this.shippingLabel, itemGoogleProductSearch.shippingLabel) &&
         Objects.equals(this.size, itemGoogleProductSearch.size) &&
         Objects.equals(this.videoDirector, itemGoogleProductSearch.videoDirector) &&
         Objects.equals(this.videoFormat, itemGoogleProductSearch.videoFormat) &&
@@ -1077,7 +1099,7 @@ public class ItemGoogleProductSearch {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adwordsGrouping, adwordsLabel1, adwordsLabel2, adwordsLabel3, adwordsLabel4, adwordsLabel5, ageGroup, availableAtPhysicalStore, bookAuthor, bookFormat, bookIsbn, bookPublisher, categoryDescription, color, condition, customLabel0, customLabel1, customLabel2, customLabel3, customLabel4, gender, googleProductCategory, musicArtist, musicFormat, musicReleaseDate, omitFromFeed, productType, promotionId1, promotionId10, promotionId2, promotionId3, promotionId4, promotionId5, promotionId6, promotionId7, promotionId8, promotionId9, searchDts, searchLowestPrice, searchLowestUrl, searchPosition, size, videoDirector, videoFormat, videoRating, videoReleaseDate, videoStarring);
+    return Objects.hash(adwordsGrouping, adwordsLabel1, adwordsLabel2, adwordsLabel3, adwordsLabel4, adwordsLabel5, ageGroup, availableAtPhysicalStore, bookAuthor, bookFormat, bookIsbn, bookPublisher, categoryDescription, color, condition, customLabel0, customLabel1, customLabel2, customLabel3, customLabel4, gender, googleProductCategory, musicArtist, musicFormat, musicReleaseDate, omitFromFeed, productType, promotionId1, promotionId10, promotionId2, promotionId3, promotionId4, promotionId5, promotionId6, promotionId7, promotionId8, promotionId9, searchDts, searchLowestPrice, searchLowestUrl, searchPosition, shippingLabel, size, videoDirector, videoFormat, videoRating, videoReleaseDate, videoStarring);
   }
 
 
@@ -1127,6 +1149,7 @@ public class ItemGoogleProductSearch {
     sb.append("    searchLowestPrice: ").append(toIndentedString(searchLowestPrice)).append("\n");
     sb.append("    searchLowestUrl: ").append(toIndentedString(searchLowestUrl)).append("\n");
     sb.append("    searchPosition: ").append(toIndentedString(searchPosition)).append("\n");
+    sb.append("    shippingLabel: ").append(toIndentedString(shippingLabel)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    videoDirector: ").append(toIndentedString(videoDirector)).append("\n");
     sb.append("    videoFormat: ").append(toIndentedString(videoFormat)).append("\n");

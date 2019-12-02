@@ -43,6 +43,7 @@ PURCHASE_ORDER | &quot;Purchase Order&quot;
 QUOTE_REQUEST | &quot;Quote Request&quot;
 UNKNOWN | &quot;Unknown&quot;
 WIRE_TRANSFER | &quot;Wire Transfer&quot;
+WALMART | &quot;Walmart&quot;
 
 
 <a name="PaymentStatusEnum"></a>

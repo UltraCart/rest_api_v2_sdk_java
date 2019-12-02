@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ItemEmailNotifications
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class ItemEmailNotifications {
   @SerializedName("skip_receipt")
   private Boolean skipReceipt = null;

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CustomerActivity;
 import com.ultracart.admin.v2.models.CustomerAttachment;
 import com.ultracart.admin.v2.models.CustomerBilling;
 import com.ultracart.admin.v2.models.CustomerCard;
@@ -42,8 +43,11 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-23T03:23:57.585-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
 public class Customer {
+  @SerializedName("activity")
+  private CustomerActivity activity = null;
+
   @SerializedName("affiliate_oid")
   private Integer affiliateOid = null;
 
@@ -91,6 +95,9 @@ public class Customer {
 
   @SerializedName("dhl_account_number")
   private String dhlAccountNumber = null;
+
+  @SerializedName("dhl_duty_account_number")
+  private String dhlDutyAccountNumber = null;
 
   @SerializedName("email")
   private String email = null;
@@ -205,6 +212,24 @@ public class Customer {
 
   @SerializedName("website_url")
   private String websiteUrl = null;
+
+  public Customer activity(CustomerActivity activity) {
+    this.activity = activity;
+    return this;
+  }
+
+   /**
+   * Get activity
+   * @return activity
+  **/
+  @ApiModelProperty(value = "")
+  public CustomerActivity getActivity() {
+    return activity;
+  }
+
+  public void setActivity(CustomerActivity activity) {
+    this.activity = activity;
+  }
 
   public Customer affiliateOid(Integer affiliateOid) {
     this.affiliateOid = affiliateOid;
@@ -524,6 +549,24 @@ public class Customer {
 
   public void setDhlAccountNumber(String dhlAccountNumber) {
     this.dhlAccountNumber = dhlAccountNumber;
+  }
+
+  public Customer dhlDutyAccountNumber(String dhlDutyAccountNumber) {
+    this.dhlDutyAccountNumber = dhlDutyAccountNumber;
+    return this;
+  }
+
+   /**
+   * DHL duty account number
+   * @return dhlDutyAccountNumber
+  **/
+  @ApiModelProperty(value = "DHL duty account number")
+  public String getDhlDutyAccountNumber() {
+    return dhlDutyAccountNumber;
+  }
+
+  public void setDhlDutyAccountNumber(String dhlDutyAccountNumber) {
+    this.dhlDutyAccountNumber = dhlDutyAccountNumber;
   }
 
   public Customer email(String email) {
@@ -1260,7 +1303,8 @@ public class Customer {
       return false;
     }
     Customer customer = (Customer) o;
-    return Objects.equals(this.affiliateOid, customer.affiliateOid) &&
+    return Objects.equals(this.activity, customer.activity) &&
+        Objects.equals(this.affiliateOid, customer.affiliateOid) &&
         Objects.equals(this.allow3rdPartyBilling, customer.allow3rdPartyBilling) &&
         Objects.equals(this.allowCod, customer.allowCod) &&
         Objects.equals(this.allowPurchaseOrder, customer.allowPurchaseOrder) &&
@@ -1276,6 +1320,7 @@ public class Customer {
         Objects.equals(this.ccEmails, customer.ccEmails) &&
         Objects.equals(this.customerProfileOid, customer.customerProfileOid) &&
         Objects.equals(this.dhlAccountNumber, customer.dhlAccountNumber) &&
+        Objects.equals(this.dhlDutyAccountNumber, customer.dhlDutyAccountNumber) &&
         Objects.equals(this.email, customer.email) &&
         Objects.equals(this.exemptShippingHandlingCharge, customer.exemptShippingHandlingCharge) &&
         Objects.equals(this.fedexAccountNumber, customer.fedexAccountNumber) &&
@@ -1318,7 +1363,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1327,6 +1372,7 @@ public class Customer {
     StringBuilder sb = new StringBuilder();
     sb.append("class Customer {\n");
     
+    sb.append("    activity: ").append(toIndentedString(activity)).append("\n");
     sb.append("    affiliateOid: ").append(toIndentedString(affiliateOid)).append("\n");
     sb.append("    allow3rdPartyBilling: ").append(toIndentedString(allow3rdPartyBilling)).append("\n");
     sb.append("    allowCod: ").append(toIndentedString(allowCod)).append("\n");
@@ -1343,6 +1389,7 @@ public class Customer {
     sb.append("    ccEmails: ").append(toIndentedString(ccEmails)).append("\n");
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    dhlAccountNumber: ").append(toIndentedString(dhlAccountNumber)).append("\n");
+    sb.append("    dhlDutyAccountNumber: ").append(toIndentedString(dhlDutyAccountNumber)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    exemptShippingHandlingCharge: ").append(toIndentedString(exemptShippingHandlingCharge)).append("\n");
     sb.append("    fedexAccountNumber: ").append(toIndentedString(fedexAccountNumber)).append("\n");
