@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **salesforce** | [**OrderSalesforce**](OrderSalesforce.md) |  |  [optional]
 **shipping** | [**OrderShipping**](OrderShipping.md) |  |  [optional]
 **summary** | [**OrderSummary**](OrderSummary.md) |  |  [optional]
+**tags** | [**List&lt;OrderTag&gt;**](OrderTag.md) | tags, available only through update, not through insert due to the nature of how tags are handled internally |  [optional]
 **taxes** | [**OrderTaxes**](OrderTaxes.md) |  |  [optional]
 
 

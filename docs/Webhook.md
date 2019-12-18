@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **consecutiveFailures** | **Integer** | The number of consecutive failures that have occurred trying to deliver notifications to the target server |  [optional]
 **disabled** | **Boolean** | True if the webhook has been disabled |  [optional]
 **eventCategories** | [**List&lt;WebhookEventCategory&gt;**](WebhookEventCategory.md) | The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval. |  [optional]
+**iamAccessKey** | **String** | IAM Access Key for AWS SQS Delivery |  [optional]
+**iamSecretKey** | **String** | IAM Secret Key for AWS SQS Delivery |  [optional]
 **maximumEvents** | **Integer** | The maximum number of events in the payload that UltraCart will deliver |  [optional]
 **maximumSize** | **Integer** | The maximum size of the payload that UltraCart will deliver |  [optional]
 **merchantId** | **String** | The UltraCart merchant ID that owns this webhook |  [optional]

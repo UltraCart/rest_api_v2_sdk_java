@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.Distance;
 import com.ultracart.admin.v2.models.OrderItemEdi;
 import com.ultracart.admin.v2.models.OrderItemOption;
 import com.ultracart.admin.v2.models.OrderItemProperty;
+import com.ultracart.admin.v2.models.OrderItemTag;
 import com.ultracart.admin.v2.models.Weight;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,7 +36,7 @@ import java.util.List;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
 public class OrderItem {
   @SerializedName("accounting_code")
   private String accountingCode = null;
@@ -168,6 +169,9 @@ public class OrderItem {
 
   @SerializedName("special_product_type")
   private String specialProductType = null;
+
+  @SerializedName("tags")
+  private List<OrderItemTag> tags = null;
 
   @SerializedName("tax_free")
   private Boolean taxFree = null;
@@ -1012,6 +1016,32 @@ public class OrderItem {
     this.specialProductType = specialProductType;
   }
 
+  public OrderItem tags(List<OrderItemTag> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public OrderItem addTagsItem(OrderItemTag tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<OrderItemTag>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Tags
+   * @return tags
+  **/
+  @ApiModelProperty(value = "Tags")
+  public List<OrderItemTag> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<OrderItemTag> tags) {
+    this.tags = tags;
+  }
+
   public OrderItem taxFree(Boolean taxFree) {
     this.taxFree = taxFree;
     return this;
@@ -1228,6 +1258,7 @@ public class OrderItem {
         Objects.equals(this.shippedByUser, orderItem.shippedByUser) &&
         Objects.equals(this.shippedDts, orderItem.shippedDts) &&
         Objects.equals(this.specialProductType, orderItem.specialProductType) &&
+        Objects.equals(this.tags, orderItem.tags) &&
         Objects.equals(this.taxFree, orderItem.taxFree) &&
         Objects.equals(this.taxableCost, orderItem.taxableCost) &&
         Objects.equals(this.totalCostWithDiscount, orderItem.totalCostWithDiscount) &&
@@ -1241,7 +1272,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, taxFree, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, tags, taxFree, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
 
@@ -1294,6 +1325,7 @@ public class OrderItem {
     sb.append("    shippedByUser: ").append(toIndentedString(shippedByUser)).append("\n");
     sb.append("    shippedDts: ").append(toIndentedString(shippedDts)).append("\n");
     sb.append("    specialProductType: ").append(toIndentedString(specialProductType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    taxFree: ").append(toIndentedString(taxFree)).append("\n");
     sb.append("    taxableCost: ").append(toIndentedString(taxableCost)).append("\n");
     sb.append("    totalCostWithDiscount: ").append(toIndentedString(totalCostWithDiscount)).append("\n");

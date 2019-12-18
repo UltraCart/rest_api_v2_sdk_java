@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CartGiftCertificate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
 public class CartGiftCertificate {
   @SerializedName("gift_certificate_amount")
   private Currency giftCertificateAmount = null;

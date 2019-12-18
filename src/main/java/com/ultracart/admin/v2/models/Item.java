@@ -49,6 +49,7 @@ import com.ultracart.admin.v2.models.ItemRevguard;
 import com.ultracart.admin.v2.models.ItemReviews;
 import com.ultracart.admin.v2.models.ItemSalesforce;
 import com.ultracart.admin.v2.models.ItemShipping;
+import com.ultracart.admin.v2.models.ItemTags;
 import com.ultracart.admin.v2.models.ItemTax;
 import com.ultracart.admin.v2.models.ItemThirdPartyEmailMarketing;
 import com.ultracart.admin.v2.models.ItemVariantItem;
@@ -63,7 +64,7 @@ import java.util.List;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
 public class Item {
   @SerializedName("accounting")
   private ItemAccounting accounting = null;
@@ -187,6 +188,9 @@ public class Item {
 
   @SerializedName("shipping")
   private ItemShipping shipping = null;
+
+  @SerializedName("tags")
+  private ItemTags tags = null;
 
   @SerializedName("tax")
   private ItemTax tax = null;
@@ -957,6 +961,24 @@ public class Item {
     this.shipping = shipping;
   }
 
+  public Item tags(ItemTags tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @ApiModelProperty(value = "")
+  public ItemTags getTags() {
+    return tags;
+  }
+
+  public void setTags(ItemTags tags) {
+    this.tags = tags;
+  }
+
   public Item tax(ItemTax tax) {
     this.tax = tax;
     return this;
@@ -1122,6 +1144,7 @@ public class Item {
         Objects.equals(this.reviews, item.reviews) &&
         Objects.equals(this.salesforce, item.salesforce) &&
         Objects.equals(this.shipping, item.shipping) &&
+        Objects.equals(this.tags, item.tags) &&
         Objects.equals(this.tax, item.tax) &&
         Objects.equals(this.thirdPartyEmailMarketing, item.thirdPartyEmailMarketing) &&
         Objects.equals(this.variantItems, item.variantItems) &&
@@ -1131,7 +1154,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, realtimePricing, related, reporting, restriction, revguard, reviews, salesforce, shipping, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
+    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, realtimePricing, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
   }
 
 
@@ -1181,6 +1204,7 @@ public class Item {
     sb.append("    reviews: ").append(toIndentedString(reviews)).append("\n");
     sb.append("    salesforce: ").append(toIndentedString(salesforce)).append("\n");
     sb.append("    shipping: ").append(toIndentedString(shipping)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
     sb.append("    thirdPartyEmailMarketing: ").append(toIndentedString(thirdPartyEmailMarketing)).append("\n");
     sb.append("    variantItems: ").append(toIndentedString(variantItems)).append("\n");

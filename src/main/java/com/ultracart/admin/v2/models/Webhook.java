@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Webhook
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
 public class Webhook {
   @SerializedName("api_user_oid")
   private Integer apiUserOid = null;
@@ -150,6 +150,12 @@ public class Webhook {
 
   @SerializedName("event_categories")
   private List<WebhookEventCategory> eventCategories = null;
+
+  @SerializedName("iam_access_key")
+  private String iamAccessKey = null;
+
+  @SerializedName("iam_secret_key")
+  private String iamSecretKey = null;
 
   @SerializedName("maximum_events")
   private Integer maximumEvents = null;
@@ -342,6 +348,42 @@ public class Webhook {
     this.eventCategories = eventCategories;
   }
 
+  public Webhook iamAccessKey(String iamAccessKey) {
+    this.iamAccessKey = iamAccessKey;
+    return this;
+  }
+
+   /**
+   * IAM Access Key for AWS SQS Delivery
+   * @return iamAccessKey
+  **/
+  @ApiModelProperty(value = "IAM Access Key for AWS SQS Delivery")
+  public String getIamAccessKey() {
+    return iamAccessKey;
+  }
+
+  public void setIamAccessKey(String iamAccessKey) {
+    this.iamAccessKey = iamAccessKey;
+  }
+
+  public Webhook iamSecretKey(String iamSecretKey) {
+    this.iamSecretKey = iamSecretKey;
+    return this;
+  }
+
+   /**
+   * IAM Secret Key for AWS SQS Delivery
+   * @return iamSecretKey
+  **/
+  @ApiModelProperty(value = "IAM Secret Key for AWS SQS Delivery")
+  public String getIamSecretKey() {
+    return iamSecretKey;
+  }
+
+  public void setIamSecretKey(String iamSecretKey) {
+    this.iamSecretKey = iamSecretKey;
+  }
+
   public Webhook maximumEvents(Integer maximumEvents) {
     this.maximumEvents = maximumEvents;
     return this;
@@ -487,6 +529,8 @@ public class Webhook {
         Objects.equals(this.consecutiveFailures, webhook.consecutiveFailures) &&
         Objects.equals(this.disabled, webhook.disabled) &&
         Objects.equals(this.eventCategories, webhook.eventCategories) &&
+        Objects.equals(this.iamAccessKey, webhook.iamAccessKey) &&
+        Objects.equals(this.iamSecretKey, webhook.iamSecretKey) &&
         Objects.equals(this.maximumEvents, webhook.maximumEvents) &&
         Objects.equals(this.maximumSize, webhook.maximumSize) &&
         Objects.equals(this.merchantId, webhook.merchantId) &&
@@ -498,7 +542,7 @@ public class Webhook {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, consecutiveFailures, disabled, eventCategories, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
+    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, consecutiveFailures, disabled, eventCategories, iamAccessKey, iamSecretKey, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
   }
 
 
@@ -516,6 +560,8 @@ public class Webhook {
     sb.append("    consecutiveFailures: ").append(toIndentedString(consecutiveFailures)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    eventCategories: ").append(toIndentedString(eventCategories)).append("\n");
+    sb.append("    iamAccessKey: ").append(toIndentedString(iamAccessKey)).append("\n");
+    sb.append("    iamSecretKey: ").append(toIndentedString(iamSecretKey)).append("\n");
     sb.append("    maximumEvents: ").append(toIndentedString(maximumEvents)).append("\n");
     sb.append("    maximumSize: ").append(toIndentedString(maximumSize)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");

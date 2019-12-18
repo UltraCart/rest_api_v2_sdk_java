@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CartSettingsShippingEstimate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
 public class CartSettingsShippingEstimate {
   @SerializedName("allow_3rd_party_billing")
   private Boolean allow3rdPartyBilling = null;

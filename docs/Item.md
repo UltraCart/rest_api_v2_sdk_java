@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **reviews** | [**ItemReviews**](ItemReviews.md) |  |  [optional]
 **salesforce** | [**ItemSalesforce**](ItemSalesforce.md) |  |  [optional]
 **shipping** | [**ItemShipping**](ItemShipping.md) |  |  [optional]
+**tags** | [**ItemTags**](ItemTags.md) |  |  [optional]
 **tax** | [**ItemTax**](ItemTax.md) |  |  [optional]
 **thirdPartyEmailMarketing** | [**List&lt;ItemThirdPartyEmailMarketing&gt;**](ItemThirdPartyEmailMarketing.md) | 3rd Party Email Marketing |  [optional]
 **variantItems** | [**List&lt;ItemVariantItem&gt;**](ItemVariantItem.md) | Variant Items |  [optional]

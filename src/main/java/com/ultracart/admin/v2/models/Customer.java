@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CustomerAttachment;
 import com.ultracart.admin.v2.models.CustomerBilling;
 import com.ultracart.admin.v2.models.CustomerCard;
 import com.ultracart.admin.v2.models.CustomerEmail;
+import com.ultracart.admin.v2.models.CustomerLoyalty;
 import com.ultracart.admin.v2.models.CustomerOrdersSummary;
 import com.ultracart.admin.v2.models.CustomerPricingTier;
 import com.ultracart.admin.v2.models.CustomerPrivacy;
@@ -31,6 +32,7 @@ import com.ultracart.admin.v2.models.CustomerQuotesSummary;
 import com.ultracart.admin.v2.models.CustomerReviewer;
 import com.ultracart.admin.v2.models.CustomerShipping;
 import com.ultracart.admin.v2.models.CustomerSoftwareEntitlement;
+import com.ultracart.admin.v2.models.CustomerTag;
 import com.ultracart.admin.v2.models.CustomerTaxCodes;
 import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
@@ -43,7 +45,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
 public class Customer {
   @SerializedName("activity")
   private CustomerActivity activity = null;
@@ -120,6 +122,9 @@ public class Customer {
   @SerializedName("last_modified_dts")
   private String lastModifiedDts = null;
 
+  @SerializedName("loyalty")
+  private CustomerLoyalty loyalty = null;
+
   @SerializedName("maximum_item_count")
   private Integer maximumItemCount = null;
 
@@ -188,6 +193,9 @@ public class Customer {
 
   @SerializedName("suppress_buysafe")
   private Boolean suppressBuysafe = null;
+
+  @SerializedName("tags")
+  private List<CustomerTag> tags = null;
 
   @SerializedName("tax_codes")
   private CustomerTaxCodes taxCodes = null;
@@ -695,6 +703,24 @@ public class Customer {
     this.lastModifiedDts = lastModifiedDts;
   }
 
+  public Customer loyalty(CustomerLoyalty loyalty) {
+    this.loyalty = loyalty;
+    return this;
+  }
+
+   /**
+   * Get loyalty
+   * @return loyalty
+  **/
+  @ApiModelProperty(value = "")
+  public CustomerLoyalty getLoyalty() {
+    return loyalty;
+  }
+
+  public void setLoyalty(CustomerLoyalty loyalty) {
+    this.loyalty = loyalty;
+  }
+
   public Customer maximumItemCount(Integer maximumItemCount) {
     this.maximumItemCount = maximumItemCount;
     return this;
@@ -1149,6 +1175,32 @@ public class Customer {
     this.suppressBuysafe = suppressBuysafe;
   }
 
+  public Customer tags(List<CustomerTag> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public Customer addTagsItem(CustomerTag tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<CustomerTag>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Tags for this customer
+   * @return tags
+  **/
+  @ApiModelProperty(value = "Tags for this customer")
+  public List<CustomerTag> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<CustomerTag> tags) {
+    this.tags = tags;
+  }
+
   public Customer taxCodes(CustomerTaxCodes taxCodes) {
     this.taxCodes = taxCodes;
     return this;
@@ -1328,6 +1380,7 @@ public class Customer {
         Objects.equals(this.freeShippingMinimum, customer.freeShippingMinimum) &&
         Objects.equals(this.lastModifiedBy, customer.lastModifiedBy) &&
         Objects.equals(this.lastModifiedDts, customer.lastModifiedDts) &&
+        Objects.equals(this.loyalty, customer.loyalty) &&
         Objects.equals(this.maximumItemCount, customer.maximumItemCount) &&
         Objects.equals(this.minimumItemCount, customer.minimumItemCount) &&
         Objects.equals(this.minimumSubtotal, customer.minimumSubtotal) &&
@@ -1351,6 +1404,7 @@ public class Customer {
         Objects.equals(this.signupDts, customer.signupDts) &&
         Objects.equals(this.softwareEntitlements, customer.softwareEntitlements) &&
         Objects.equals(this.suppressBuysafe, customer.suppressBuysafe) &&
+        Objects.equals(this.tags, customer.tags) &&
         Objects.equals(this.taxCodes, customer.taxCodes) &&
         Objects.equals(this.taxExempt, customer.taxExempt) &&
         Objects.equals(this.taxId, customer.taxId) &&
@@ -1363,7 +1417,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1397,6 +1451,7 @@ public class Customer {
     sb.append("    freeShippingMinimum: ").append(toIndentedString(freeShippingMinimum)).append("\n");
     sb.append("    lastModifiedBy: ").append(toIndentedString(lastModifiedBy)).append("\n");
     sb.append("    lastModifiedDts: ").append(toIndentedString(lastModifiedDts)).append("\n");
+    sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
     sb.append("    maximumItemCount: ").append(toIndentedString(maximumItemCount)).append("\n");
     sb.append("    minimumItemCount: ").append(toIndentedString(minimumItemCount)).append("\n");
     sb.append("    minimumSubtotal: ").append(toIndentedString(minimumSubtotal)).append("\n");
@@ -1420,6 +1475,7 @@ public class Customer {
     sb.append("    signupDts: ").append(toIndentedString(signupDts)).append("\n");
     sb.append("    softwareEntitlements: ").append(toIndentedString(softwareEntitlements)).append("\n");
     sb.append("    suppressBuysafe: ").append(toIndentedString(suppressBuysafe)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    taxCodes: ").append(toIndentedString(taxCodes)).append("\n");
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");

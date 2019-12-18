@@ -42,6 +42,7 @@ import com.ultracart.admin.v2.models.OrderQuote;
 import com.ultracart.admin.v2.models.OrderSalesforce;
 import com.ultracart.admin.v2.models.OrderShipping;
 import com.ultracart.admin.v2.models.OrderSummary;
+import com.ultracart.admin.v2.models.OrderTag;
 import com.ultracart.admin.v2.models.OrderTaxes;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -53,7 +54,7 @@ import java.util.List;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
 public class Order {
   @SerializedName("affiliates")
   private List<OrderAffiliate> affiliates = null;
@@ -213,6 +214,9 @@ public class Order {
 
   @SerializedName("summary")
   private OrderSummary summary = null;
+
+  @SerializedName("Tags")
+  private List<OrderTag> tags = null;
 
   @SerializedName("taxes")
   private OrderTaxes taxes = null;
@@ -825,6 +829,32 @@ public class Order {
     this.summary = summary;
   }
 
+  public Order tags(List<OrderTag> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public Order addTagsItem(OrderTag tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<OrderTag>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * tags, available only through update, not through insert due to the nature of how tags are handled internally
+   * @return tags
+  **/
+  @ApiModelProperty(value = "tags, available only through update, not through insert due to the nature of how tags are handled internally")
+  public List<OrderTag> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<OrderTag> tags) {
+    this.tags = tags;
+  }
+
   public Order taxes(OrderTaxes taxes) {
     this.taxes = taxes;
     return this;
@@ -885,12 +915,13 @@ public class Order {
         Objects.equals(this.salesforce, order.salesforce) &&
         Objects.equals(this.shipping, order.shipping) &&
         Objects.equals(this.summary, order.summary) &&
+        Objects.equals(this.tags, order.tags) &&
         Objects.equals(this.taxes, order.taxes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, taxes);
+    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, tags, taxes);
   }
 
 
@@ -931,6 +962,7 @@ public class Order {
     sb.append("    salesforce: ").append(toIndentedString(salesforce)).append("\n");
     sb.append("    shipping: ").append(toIndentedString(shipping)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * EmailCommseqStatResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-02T10:19:41.023-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
 public class EmailCommseqStatResponse {
   @SerializedName("error")
   private Error error = null;
