@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class EmailCampaign {
   @SerializedName("click_rate_formatted")
   private String clickRateFormatted = null;
@@ -45,6 +45,12 @@ public class EmailCampaign {
 
   @SerializedName("email_communication_sequence_uuid")
   private String emailCommunicationSequenceUuid = null;
+
+  @SerializedName("esp_domain_user")
+  private String espDomainUser = null;
+
+  @SerializedName("esp_domain_uuid")
+  private String espDomainUuid = null;
 
   @SerializedName("memberships")
   private List<EmailListSegmentMembership> memberships = null;
@@ -161,6 +167,42 @@ public class EmailCampaign {
 
   public void setEmailCommunicationSequenceUuid(String emailCommunicationSequenceUuid) {
     this.emailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
+  }
+
+  public EmailCampaign espDomainUser(String espDomainUser) {
+    this.espDomainUser = espDomainUser;
+    return this;
+  }
+
+   /**
+   * User of the sending address
+   * @return espDomainUser
+  **/
+  @ApiModelProperty(value = "User of the sending address")
+  public String getEspDomainUser() {
+    return espDomainUser;
+  }
+
+  public void setEspDomainUser(String espDomainUser) {
+    this.espDomainUser = espDomainUser;
+  }
+
+  public EmailCampaign espDomainUuid(String espDomainUuid) {
+    this.espDomainUuid = espDomainUuid;
+    return this;
+  }
+
+   /**
+   * UUID of the sending domain
+   * @return espDomainUuid
+  **/
+  @ApiModelProperty(value = "UUID of the sending domain")
+  public String getEspDomainUuid() {
+    return espDomainUuid;
+  }
+
+  public void setEspDomainUuid(String espDomainUuid) {
+    this.espDomainUuid = espDomainUuid;
   }
 
   public EmailCampaign memberships(List<EmailListSegmentMembership> memberships) {
@@ -348,6 +390,8 @@ public class EmailCampaign {
         Objects.equals(this.deleted, emailCampaign.deleted) &&
         Objects.equals(this.emailCampaignUuid, emailCampaign.emailCampaignUuid) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailCampaign.emailCommunicationSequenceUuid) &&
+        Objects.equals(this.espDomainUser, emailCampaign.espDomainUser) &&
+        Objects.equals(this.espDomainUuid, emailCampaign.espDomainUuid) &&
         Objects.equals(this.memberships, emailCampaign.memberships) &&
         Objects.equals(this.merchantId, emailCampaign.merchantId) &&
         Objects.equals(this.name, emailCampaign.name) &&
@@ -361,7 +405,7 @@ public class EmailCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, memberships, merchantId, name, openRateFormatted, revenueFormatted, scheduledDts, status, statusDts, storefrontOid);
+    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, espDomainUser, espDomainUuid, memberships, merchantId, name, openRateFormatted, revenueFormatted, scheduledDts, status, statusDts, storefrontOid);
   }
 
 
@@ -375,6 +419,8 @@ public class EmailCampaign {
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailCampaignUuid: ").append(toIndentedString(emailCampaignUuid)).append("\n");
     sb.append("    emailCommunicationSequenceUuid: ").append(toIndentedString(emailCommunicationSequenceUuid)).append("\n");
+    sb.append("    espDomainUser: ").append(toIndentedString(espDomainUser)).append("\n");
+    sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

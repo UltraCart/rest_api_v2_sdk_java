@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **deleted** | **Boolean** | True if this campaign was deleted |  [optional]
 **emailCampaignUuid** | **String** | Email campaign UUID |  [optional]
 **emailCommunicationSequenceUuid** | **String** | Email communication sequence UUID |  [optional]
+**espDomainUser** | **String** | User of the sending address |  [optional]
+**espDomainUuid** | **String** | UUID of the sending domain |  [optional]
 **memberships** | [**List&lt;EmailListSegmentMembership&gt;**](EmailListSegmentMembership.md) | List and segment memberships |  [optional]
 **merchantId** | **String** | Merchant ID |  [optional]
 **name** | **String** | Name of email campaign |  [optional]

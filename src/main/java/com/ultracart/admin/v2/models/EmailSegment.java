@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * EmailSegment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class EmailSegment {
   @SerializedName("created_dts")
   private String createdDts = null;
@@ -36,6 +36,9 @@ public class EmailSegment {
 
   @SerializedName("email_segment_uuid")
   private String emailSegmentUuid = null;
+
+  @SerializedName("facebook_custom_audience")
+  private Boolean facebookCustomAudience = null;
 
   @SerializedName("filter_profile_equation_json")
   private String filterProfileEquationJson = null;
@@ -107,6 +110,24 @@ public class EmailSegment {
 
   public void setEmailSegmentUuid(String emailSegmentUuid) {
     this.emailSegmentUuid = emailSegmentUuid;
+  }
+
+  public EmailSegment facebookCustomAudience(Boolean facebookCustomAudience) {
+    this.facebookCustomAudience = facebookCustomAudience;
+    return this;
+  }
+
+   /**
+   * True if you want to sync to a facebook custom audience
+   * @return facebookCustomAudience
+  **/
+  @ApiModelProperty(value = "True if you want to sync to a facebook custom audience")
+  public Boolean isFacebookCustomAudience() {
+    return facebookCustomAudience;
+  }
+
+  public void setFacebookCustomAudience(Boolean facebookCustomAudience) {
+    this.facebookCustomAudience = facebookCustomAudience;
   }
 
   public EmailSegment filterProfileEquationJson(String filterProfileEquationJson) {
@@ -230,6 +251,7 @@ public class EmailSegment {
     return Objects.equals(this.createdDts, emailSegment.createdDts) &&
         Objects.equals(this.deleted, emailSegment.deleted) &&
         Objects.equals(this.emailSegmentUuid, emailSegment.emailSegmentUuid) &&
+        Objects.equals(this.facebookCustomAudience, emailSegment.facebookCustomAudience) &&
         Objects.equals(this.filterProfileEquationJson, emailSegment.filterProfileEquationJson) &&
         Objects.equals(this.memberCount, emailSegment.memberCount) &&
         Objects.equals(this.merchantId, emailSegment.merchantId) &&
@@ -240,7 +262,7 @@ public class EmailSegment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdDts, deleted, emailSegmentUuid, filterProfileEquationJson, memberCount, merchantId, name, rebuildRequired, storefrontOid);
+    return Objects.hash(createdDts, deleted, emailSegmentUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rebuildRequired, storefrontOid);
   }
 
 
@@ -252,6 +274,7 @@ public class EmailSegment {
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailSegmentUuid: ").append(toIndentedString(emailSegmentUuid)).append("\n");
+    sb.append("    facebookCustomAudience: ").append(toIndentedString(facebookCustomAudience)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    memberCount: ").append(toIndentedString(memberCount)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");

@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **name** | **String** | List or segment name |  [optional]
 **openCount** | **Integer** | Count of opened emails |  [optional]
 **openCountFormatted** | **String** | Count of opened emails, formatted |  [optional]
+**orderCount** | **Integer** | Count of orders |  [optional]
+**orderCountFormatted** | **String** | Count of orders, formatted |  [optional]
 **permanentBounceCount** | **Integer** | Count of emails permanently bounced |  [optional]
 **permanentBounceCountFormatted** | **String** | Count of emails permanently bounced, formatted |  [optional]
 **profit** | [**BigDecimal**](BigDecimal.md) | Profit |  [optional]

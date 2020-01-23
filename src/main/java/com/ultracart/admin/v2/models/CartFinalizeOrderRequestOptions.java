@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * CartFinalizeOrderRequestOptions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class CartFinalizeOrderRequestOptions {
   @SerializedName("auto_approve_purchase_order")
   private Boolean autoApprovePurchaseOrder = null;

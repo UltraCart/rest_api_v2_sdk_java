@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **paymentProcessing** | [**ItemPaymentProcessing**](ItemPaymentProcessing.md) |  |  [optional]
 **physical** | [**ItemPhysical**](ItemPhysical.md) |  |  [optional]
 **pricing** | [**ItemPricing**](ItemPricing.md) |  |  [optional]
+**properties** | [**List&lt;ItemProperty&gt;**](ItemProperty.md) | Properties |  [optional]
 **realtimePricing** | [**ItemRealtimePricing**](ItemRealtimePricing.md) |  |  [optional]
 **related** | [**ItemRelated**](ItemRelated.md) |  |  [optional]
 **reporting** | [**ItemReporting**](ItemReporting.md) |  |  [optional]

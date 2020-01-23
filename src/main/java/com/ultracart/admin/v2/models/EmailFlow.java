@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * EmailFlow
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class EmailFlow {
   @SerializedName("allow_multiple_concurrent_enrollments")
   private Boolean allowMultipleConcurrentEnrollments = null;
+
+  @SerializedName("click_rate_formatted")
+  private String clickRateFormatted = null;
 
   @SerializedName("created_dts")
   private String createdDts = null;
@@ -43,6 +46,12 @@ public class EmailFlow {
   @SerializedName("email_flow_uuid")
   private String emailFlowUuid = null;
 
+  @SerializedName("esp_domain_user")
+  private String espDomainUser = null;
+
+  @SerializedName("esp_domain_uuid")
+  private String espDomainUuid = null;
+
   @SerializedName("filter_profile_equation_json")
   private String filterProfileEquationJson = null;
 
@@ -51,6 +60,12 @@ public class EmailFlow {
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("open_rate_formatted")
+  private String openRateFormatted = null;
+
+  @SerializedName("revenue_formatted")
+  private String revenueFormatted = null;
 
   @SerializedName("status")
   private String status = null;
@@ -86,6 +101,24 @@ public class EmailFlow {
 
   public void setAllowMultipleConcurrentEnrollments(Boolean allowMultipleConcurrentEnrollments) {
     this.allowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
+  }
+
+  public EmailFlow clickRateFormatted(String clickRateFormatted) {
+    this.clickRateFormatted = clickRateFormatted;
+    return this;
+  }
+
+   /**
+   * Click rate of emails, formatted
+   * @return clickRateFormatted
+  **/
+  @ApiModelProperty(value = "Click rate of emails, formatted")
+  public String getClickRateFormatted() {
+    return clickRateFormatted;
+  }
+
+  public void setClickRateFormatted(String clickRateFormatted) {
+    this.clickRateFormatted = clickRateFormatted;
   }
 
   public EmailFlow createdDts(String createdDts) {
@@ -160,6 +193,42 @@ public class EmailFlow {
     this.emailFlowUuid = emailFlowUuid;
   }
 
+  public EmailFlow espDomainUser(String espDomainUser) {
+    this.espDomainUser = espDomainUser;
+    return this;
+  }
+
+   /**
+   * Username of sending email
+   * @return espDomainUser
+  **/
+  @ApiModelProperty(value = "Username of sending email")
+  public String getEspDomainUser() {
+    return espDomainUser;
+  }
+
+  public void setEspDomainUser(String espDomainUser) {
+    this.espDomainUser = espDomainUser;
+  }
+
+  public EmailFlow espDomainUuid(String espDomainUuid) {
+    this.espDomainUuid = espDomainUuid;
+    return this;
+  }
+
+   /**
+   * UUID of sending domain
+   * @return espDomainUuid
+  **/
+  @ApiModelProperty(value = "UUID of sending domain")
+  public String getEspDomainUuid() {
+    return espDomainUuid;
+  }
+
+  public void setEspDomainUuid(String espDomainUuid) {
+    this.espDomainUuid = espDomainUuid;
+  }
+
   public EmailFlow filterProfileEquationJson(String filterProfileEquationJson) {
     this.filterProfileEquationJson = filterProfileEquationJson;
     return this;
@@ -212,6 +281,42 @@ public class EmailFlow {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public EmailFlow openRateFormatted(String openRateFormatted) {
+    this.openRateFormatted = openRateFormatted;
+    return this;
+  }
+
+   /**
+   * Open rate of emails, formatted
+   * @return openRateFormatted
+  **/
+  @ApiModelProperty(value = "Open rate of emails, formatted")
+  public String getOpenRateFormatted() {
+    return openRateFormatted;
+  }
+
+  public void setOpenRateFormatted(String openRateFormatted) {
+    this.openRateFormatted = openRateFormatted;
+  }
+
+  public EmailFlow revenueFormatted(String revenueFormatted) {
+    this.revenueFormatted = revenueFormatted;
+    return this;
+  }
+
+   /**
+   * Revenue, formatted
+   * @return revenueFormatted
+  **/
+  @ApiModelProperty(value = "Revenue, formatted")
+  public String getRevenueFormatted() {
+    return revenueFormatted;
+  }
+
+  public void setRevenueFormatted(String revenueFormatted) {
+    this.revenueFormatted = revenueFormatted;
   }
 
   public EmailFlow status(String status) {
@@ -333,13 +438,18 @@ public class EmailFlow {
     }
     EmailFlow emailFlow = (EmailFlow) o;
     return Objects.equals(this.allowMultipleConcurrentEnrollments, emailFlow.allowMultipleConcurrentEnrollments) &&
+        Objects.equals(this.clickRateFormatted, emailFlow.clickRateFormatted) &&
         Objects.equals(this.createdDts, emailFlow.createdDts) &&
         Objects.equals(this.deleted, emailFlow.deleted) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailFlow.emailCommunicationSequenceUuid) &&
         Objects.equals(this.emailFlowUuid, emailFlow.emailFlowUuid) &&
+        Objects.equals(this.espDomainUser, emailFlow.espDomainUser) &&
+        Objects.equals(this.espDomainUuid, emailFlow.espDomainUuid) &&
         Objects.equals(this.filterProfileEquationJson, emailFlow.filterProfileEquationJson) &&
         Objects.equals(this.merchantId, emailFlow.merchantId) &&
         Objects.equals(this.name, emailFlow.name) &&
+        Objects.equals(this.openRateFormatted, emailFlow.openRateFormatted) &&
+        Objects.equals(this.revenueFormatted, emailFlow.revenueFormatted) &&
         Objects.equals(this.status, emailFlow.status) &&
         Objects.equals(this.statusDts, emailFlow.statusDts) &&
         Objects.equals(this.storefrontOid, emailFlow.storefrontOid) &&
@@ -350,7 +460,7 @@ public class EmailFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, filterProfileEquationJson, merchantId, name, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, espDomainUser, espDomainUuid, filterProfileEquationJson, merchantId, name, openRateFormatted, revenueFormatted, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
   }
 
 
@@ -360,13 +470,18 @@ public class EmailFlow {
     sb.append("class EmailFlow {\n");
     
     sb.append("    allowMultipleConcurrentEnrollments: ").append(toIndentedString(allowMultipleConcurrentEnrollments)).append("\n");
+    sb.append("    clickRateFormatted: ").append(toIndentedString(clickRateFormatted)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailCommunicationSequenceUuid: ").append(toIndentedString(emailCommunicationSequenceUuid)).append("\n");
     sb.append("    emailFlowUuid: ").append(toIndentedString(emailFlowUuid)).append("\n");
+    sb.append("    espDomainUser: ").append(toIndentedString(espDomainUser)).append("\n");
+    sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
+    sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");

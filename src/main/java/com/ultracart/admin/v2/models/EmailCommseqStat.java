@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * EmailCommseqStat
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class EmailCommseqStat {
   @SerializedName("click_count")
   private Integer clickCount = null;
@@ -70,6 +70,12 @@ public class EmailCommseqStat {
 
   @SerializedName("open_count_formatted")
   private String openCountFormatted = null;
+
+  @SerializedName("order_count")
+  private Integer orderCount = null;
+
+  @SerializedName("order_count_formatted")
+  private String orderCountFormatted = null;
 
   @SerializedName("permanent_bounce_count")
   private Integer permanentBounceCount = null;
@@ -372,6 +378,42 @@ public class EmailCommseqStat {
 
   public void setOpenCountFormatted(String openCountFormatted) {
     this.openCountFormatted = openCountFormatted;
+  }
+
+  public EmailCommseqStat orderCount(Integer orderCount) {
+    this.orderCount = orderCount;
+    return this;
+  }
+
+   /**
+   * Count of orders
+   * @return orderCount
+  **/
+  @ApiModelProperty(value = "Count of orders")
+  public Integer getOrderCount() {
+    return orderCount;
+  }
+
+  public void setOrderCount(Integer orderCount) {
+    this.orderCount = orderCount;
+  }
+
+  public EmailCommseqStat orderCountFormatted(String orderCountFormatted) {
+    this.orderCountFormatted = orderCountFormatted;
+    return this;
+  }
+
+   /**
+   * Count of orders, formatted
+   * @return orderCountFormatted
+  **/
+  @ApiModelProperty(value = "Count of orders, formatted")
+  public String getOrderCountFormatted() {
+    return orderCountFormatted;
+  }
+
+  public void setOrderCountFormatted(String orderCountFormatted) {
+    this.orderCountFormatted = orderCountFormatted;
   }
 
   public EmailCommseqStat permanentBounceCount(Integer permanentBounceCount) {
@@ -704,6 +746,8 @@ public class EmailCommseqStat {
         Objects.equals(this.merchantId, emailCommseqStat.merchantId) &&
         Objects.equals(this.openCount, emailCommseqStat.openCount) &&
         Objects.equals(this.openCountFormatted, emailCommseqStat.openCountFormatted) &&
+        Objects.equals(this.orderCount, emailCommseqStat.orderCount) &&
+        Objects.equals(this.orderCountFormatted, emailCommseqStat.orderCountFormatted) &&
         Objects.equals(this.permanentBounceCount, emailCommseqStat.permanentBounceCount) &&
         Objects.equals(this.permanentBounceCountFormatted, emailCommseqStat.permanentBounceCountFormatted) &&
         Objects.equals(this.profit, emailCommseqStat.profit) &&
@@ -725,7 +769,7 @@ public class EmailCommseqStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickCount, clickCountFormatted, deliveredCount, deliveredCountFormatted, emailCommunicationSequenceUuid, finishedCount, finishedCountFormatted, inProgressCount, inProgressCountFormatted, kickboxCount, kickboxCountFormatted, merchantId, openCount, openCountFormatted, permanentBounceCount, permanentBounceCountFormatted, profit, profitFormatted, revenue, revenueFormatted, sendCount, sendCountFormatted, skippedCount, skippedCountFormatted, spamCount, spamCountFormatted, startedCount, startedCountFormatted, storefrontOid, viewCount, viewCountFormatted);
+    return Objects.hash(clickCount, clickCountFormatted, deliveredCount, deliveredCountFormatted, emailCommunicationSequenceUuid, finishedCount, finishedCountFormatted, inProgressCount, inProgressCountFormatted, kickboxCount, kickboxCountFormatted, merchantId, openCount, openCountFormatted, orderCount, orderCountFormatted, permanentBounceCount, permanentBounceCountFormatted, profit, profitFormatted, revenue, revenueFormatted, sendCount, sendCountFormatted, skippedCount, skippedCountFormatted, spamCount, spamCountFormatted, startedCount, startedCountFormatted, storefrontOid, viewCount, viewCountFormatted);
   }
 
 
@@ -748,6 +792,8 @@ public class EmailCommseqStat {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    openCount: ").append(toIndentedString(openCount)).append("\n");
     sb.append("    openCountFormatted: ").append(toIndentedString(openCountFormatted)).append("\n");
+    sb.append("    orderCount: ").append(toIndentedString(orderCount)).append("\n");
+    sb.append("    orderCountFormatted: ").append(toIndentedString(orderCountFormatted)).append("\n");
     sb.append("    permanentBounceCount: ").append(toIndentedString(permanentBounceCount)).append("\n");
     sb.append("    permanentBounceCountFormatted: ").append(toIndentedString(permanentBounceCountFormatted)).append("\n");
     sb.append("    profit: ").append(toIndentedString(profit)).append("\n");

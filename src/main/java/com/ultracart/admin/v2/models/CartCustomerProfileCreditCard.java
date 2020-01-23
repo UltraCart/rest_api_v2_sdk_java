@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CartCustomerProfileCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class CartCustomerProfileCreditCard {
   @SerializedName("card_expiration_month")
   private Integer cardExpirationMonth = null;

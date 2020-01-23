@@ -31,7 +31,7 @@ import java.io.IOException;
 /**
  * CartPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class CartPayment {
   @SerializedName("affirm")
   private CartPaymentAffirm affirm = null;

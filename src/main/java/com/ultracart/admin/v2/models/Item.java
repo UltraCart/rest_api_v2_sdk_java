@@ -41,6 +41,7 @@ import com.ultracart.admin.v2.models.ItemOption;
 import com.ultracart.admin.v2.models.ItemPaymentProcessing;
 import com.ultracart.admin.v2.models.ItemPhysical;
 import com.ultracart.admin.v2.models.ItemPricing;
+import com.ultracart.admin.v2.models.ItemProperty;
 import com.ultracart.admin.v2.models.ItemRealtimePricing;
 import com.ultracart.admin.v2.models.ItemRelated;
 import com.ultracart.admin.v2.models.ItemReporting;
@@ -64,7 +65,7 @@ import java.util.List;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class Item {
   @SerializedName("accounting")
   private ItemAccounting accounting = null;
@@ -164,6 +165,9 @@ public class Item {
 
   @SerializedName("pricing")
   private ItemPricing pricing = null;
+
+  @SerializedName("properties")
+  private List<ItemProperty> properties = null;
 
   @SerializedName("realtime_pricing")
   private ItemRealtimePricing realtimePricing = null;
@@ -817,6 +821,32 @@ public class Item {
     this.pricing = pricing;
   }
 
+  public Item properties(List<ItemProperty> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public Item addPropertiesItem(ItemProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<ItemProperty>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties
+   * @return properties
+  **/
+  @ApiModelProperty(value = "Properties")
+  public List<ItemProperty> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<ItemProperty> properties) {
+    this.properties = properties;
+  }
+
   public Item realtimePricing(ItemRealtimePricing realtimePricing) {
     this.realtimePricing = realtimePricing;
     return this;
@@ -1136,6 +1166,7 @@ public class Item {
         Objects.equals(this.paymentProcessing, item.paymentProcessing) &&
         Objects.equals(this.physical, item.physical) &&
         Objects.equals(this.pricing, item.pricing) &&
+        Objects.equals(this.properties, item.properties) &&
         Objects.equals(this.realtimePricing, item.realtimePricing) &&
         Objects.equals(this.related, item.related) &&
         Objects.equals(this.reporting, item.reporting) &&
@@ -1154,7 +1185,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, realtimePricing, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
+    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
   }
 
 
@@ -1196,6 +1227,7 @@ public class Item {
     sb.append("    paymentProcessing: ").append(toIndentedString(paymentProcessing)).append("\n");
     sb.append("    physical: ").append(toIndentedString(physical)).append("\n");
     sb.append("    pricing: ").append(toIndentedString(pricing)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    realtimePricing: ").append(toIndentedString(realtimePricing)).append("\n");
     sb.append("    related: ").append(toIndentedString(related)).append("\n");
     sb.append("    reporting: ").append(toIndentedString(reporting)).append("\n");

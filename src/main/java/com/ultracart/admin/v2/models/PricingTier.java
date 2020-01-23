@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * PricingTier
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class PricingTier {
   @SerializedName("allow_3rd_party_billing")
   private Boolean allow3rdPartyBilling = null;

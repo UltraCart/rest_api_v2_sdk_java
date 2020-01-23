@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * OrderReplacement
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class OrderReplacement {
   @SerializedName("additional_merchant_notes_new_order")
   private String additionalMerchantNotesNewOrder = null;

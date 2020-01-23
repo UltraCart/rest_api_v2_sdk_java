@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * EmailList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class EmailList {
   @SerializedName("created_dts")
   private String createdDts = null;
@@ -45,6 +45,12 @@ public class EmailList {
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("public_description")
+  private String publicDescription = null;
+
+  @SerializedName("public_list")
+  private Boolean publicList = null;
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
@@ -157,6 +163,42 @@ public class EmailList {
     this.name = name;
   }
 
+  public EmailList publicDescription(String publicDescription) {
+    this.publicDescription = publicDescription;
+    return this;
+  }
+
+   /**
+   * Description of list shown to customer.
+   * @return publicDescription
+  **/
+  @ApiModelProperty(value = "Description of list shown to customer.")
+  public String getPublicDescription() {
+    return publicDescription;
+  }
+
+  public void setPublicDescription(String publicDescription) {
+    this.publicDescription = publicDescription;
+  }
+
+  public EmailList publicList(Boolean publicList) {
+    this.publicList = publicList;
+    return this;
+  }
+
+   /**
+   * True if this list is public
+   * @return publicList
+  **/
+  @ApiModelProperty(value = "True if this list is public")
+  public Boolean isPublicList() {
+    return publicList;
+  }
+
+  public void setPublicList(Boolean publicList) {
+    this.publicList = publicList;
+  }
+
   public EmailList storefrontOid(Integer storefrontOid) {
     this.storefrontOid = storefrontOid;
     return this;
@@ -191,12 +233,14 @@ public class EmailList {
         Objects.equals(this.memberCount, emailList.memberCount) &&
         Objects.equals(this.merchantId, emailList.merchantId) &&
         Objects.equals(this.name, emailList.name) &&
+        Objects.equals(this.publicDescription, emailList.publicDescription) &&
+        Objects.equals(this.publicList, emailList.publicList) &&
         Objects.equals(this.storefrontOid, emailList.storefrontOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdDts, deleted, emailListUuid, memberCount, merchantId, name, storefrontOid);
+    return Objects.hash(createdDts, deleted, emailListUuid, memberCount, merchantId, name, publicDescription, publicList, storefrontOid);
   }
 
 
@@ -211,6 +255,8 @@ public class EmailList {
     sb.append("    memberCount: ").append(toIndentedString(memberCount)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    publicDescription: ").append(toIndentedString(publicDescription)).append("\n");
+    sb.append("    publicList: ").append(toIndentedString(publicList)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("}");
     return sb.toString();

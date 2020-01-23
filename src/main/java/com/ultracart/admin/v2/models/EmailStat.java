@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * EmailStat
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-18T09:30:36.220-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
 public class EmailStat {
   @SerializedName("click_count")
   private Integer clickCount = null;
@@ -58,6 +58,12 @@ public class EmailStat {
 
   @SerializedName("open_count_formatted")
   private String openCountFormatted = null;
+
+  @SerializedName("order_count")
+  private Integer orderCount = null;
+
+  @SerializedName("order_count_formatted")
+  private String orderCountFormatted = null;
 
   @SerializedName("permanent_bounce_count")
   private Integer permanentBounceCount = null;
@@ -294,6 +300,42 @@ public class EmailStat {
 
   public void setOpenCountFormatted(String openCountFormatted) {
     this.openCountFormatted = openCountFormatted;
+  }
+
+  public EmailStat orderCount(Integer orderCount) {
+    this.orderCount = orderCount;
+    return this;
+  }
+
+   /**
+   * Count of orders
+   * @return orderCount
+  **/
+  @ApiModelProperty(value = "Count of orders")
+  public Integer getOrderCount() {
+    return orderCount;
+  }
+
+  public void setOrderCount(Integer orderCount) {
+    this.orderCount = orderCount;
+  }
+
+  public EmailStat orderCountFormatted(String orderCountFormatted) {
+    this.orderCountFormatted = orderCountFormatted;
+    return this;
+  }
+
+   /**
+   * Count of orders, formatted
+   * @return orderCountFormatted
+  **/
+  @ApiModelProperty(value = "Count of orders, formatted")
+  public String getOrderCountFormatted() {
+    return orderCountFormatted;
+  }
+
+  public void setOrderCountFormatted(String orderCountFormatted) {
+    this.orderCountFormatted = orderCountFormatted;
   }
 
   public EmailStat permanentBounceCount(Integer permanentBounceCount) {
@@ -658,6 +700,8 @@ public class EmailStat {
         Objects.equals(this.name, emailStat.name) &&
         Objects.equals(this.openCount, emailStat.openCount) &&
         Objects.equals(this.openCountFormatted, emailStat.openCountFormatted) &&
+        Objects.equals(this.orderCount, emailStat.orderCount) &&
+        Objects.equals(this.orderCountFormatted, emailStat.orderCountFormatted) &&
         Objects.equals(this.permanentBounceCount, emailStat.permanentBounceCount) &&
         Objects.equals(this.permanentBounceCountFormatted, emailStat.permanentBounceCountFormatted) &&
         Objects.equals(this.profit, emailStat.profit) &&
@@ -681,7 +725,7 @@ public class EmailStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickCount, clickCountFormatted, deliveredCount, deliveredCountFormatted, kickboxCount, kickboxCountFormatted, merchantId, name, openCount, openCountFormatted, permanentBounceCount, permanentBounceCountFormatted, profit, profitFormatted, revenue, revenueFormatted, sendCount, sendCountFormatted, skippedCount, skippedCountFormatted, spamCount, spamCountFormatted, statType, status, statusDts, storefrontOid, uuid, viewCount, viewCountFormatted);
+    return Objects.hash(clickCount, clickCountFormatted, deliveredCount, deliveredCountFormatted, kickboxCount, kickboxCountFormatted, merchantId, name, openCount, openCountFormatted, orderCount, orderCountFormatted, permanentBounceCount, permanentBounceCountFormatted, profit, profitFormatted, revenue, revenueFormatted, sendCount, sendCountFormatted, skippedCount, skippedCountFormatted, spamCount, spamCountFormatted, statType, status, statusDts, storefrontOid, uuid, viewCount, viewCountFormatted);
   }
 
 
@@ -700,6 +744,8 @@ public class EmailStat {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openCount: ").append(toIndentedString(openCount)).append("\n");
     sb.append("    openCountFormatted: ").append(toIndentedString(openCountFormatted)).append("\n");
+    sb.append("    orderCount: ").append(toIndentedString(orderCount)).append("\n");
+    sb.append("    orderCountFormatted: ").append(toIndentedString(orderCountFormatted)).append("\n");
     sb.append("    permanentBounceCount: ").append(toIndentedString(permanentBounceCount)).append("\n");
     sb.append("    permanentBounceCountFormatted: ").append(toIndentedString(permanentBounceCountFormatted)).append("\n");
     sb.append("    profit: ").append(toIndentedString(profit)).append("\n");
