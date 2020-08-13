@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,12 +23,23 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CustomerQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class CustomerQuery {
+  @SerializedName("all_tags")
+  private List<String> allTags = null;
+
+  @SerializedName("any_tags")
+  private List<String> anyTags = null;
+
   @SerializedName("billing_city")
   private String billingCity = null;
 
@@ -108,6 +120,58 @@ public class CustomerQuery {
 
   @SerializedName("signup_dts_start")
   private String signupDtsStart = null;
+
+  public CustomerQuery allTags(List<String> allTags) {
+    this.allTags = allTags;
+    return this;
+  }
+
+  public CustomerQuery addAllTagsItem(String allTagsItem) {
+    if (this.allTags == null) {
+      this.allTags = new ArrayList<String>();
+    }
+    this.allTags.add(allTagsItem);
+    return this;
+  }
+
+   /**
+   * All tags the customer must have
+   * @return allTags
+  **/
+  @ApiModelProperty(value = "All tags the customer must have")
+  public List<String> getAllTags() {
+    return allTags;
+  }
+
+  public void setAllTags(List<String> allTags) {
+    this.allTags = allTags;
+  }
+
+  public CustomerQuery anyTags(List<String> anyTags) {
+    this.anyTags = anyTags;
+    return this;
+  }
+
+  public CustomerQuery addAnyTagsItem(String anyTagsItem) {
+    if (this.anyTags == null) {
+      this.anyTags = new ArrayList<String>();
+    }
+    this.anyTags.add(anyTagsItem);
+    return this;
+  }
+
+   /**
+   * Any of these tags the customer must have
+   * @return anyTags
+  **/
+  @ApiModelProperty(value = "Any of these tags the customer must have")
+  public List<String> getAnyTags() {
+    return anyTags;
+  }
+
+  public void setAnyTags(List<String> anyTags) {
+    this.anyTags = anyTags;
+  }
 
   public CustomerQuery billingCity(String billingCity) {
     this.billingCity = billingCity;
@@ -605,7 +669,9 @@ public class CustomerQuery {
       return false;
     }
     CustomerQuery customerQuery = (CustomerQuery) o;
-    return Objects.equals(this.billingCity, customerQuery.billingCity) &&
+    return Objects.equals(this.allTags, customerQuery.allTags) &&
+        Objects.equals(this.anyTags, customerQuery.anyTags) &&
+        Objects.equals(this.billingCity, customerQuery.billingCity) &&
         Objects.equals(this.billingCompany, customerQuery.billingCompany) &&
         Objects.equals(this.billingCountryCode, customerQuery.billingCountryCode) &&
         Objects.equals(this.billingDayPhone, customerQuery.billingDayPhone) &&
@@ -636,7 +702,7 @@ public class CustomerQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingCity, billingCompany, billingCountryCode, billingDayPhone, billingEveningPhone, billingFirstName, billingLastName, billingPostalCode, billingState, email, lastModifiedDtsEnd, lastModifiedDtsStart, pricingTierName, pricingTierOid, qbClass, quickbooksCode, shippingCity, shippingCompany, shippingCountryCode, shippingDayPhone, shippingEveningPhone, shippingFirstName, shippingLastName, shippingPostalCode, shippingState, signupDtsEnd, signupDtsStart);
+    return Objects.hash(allTags, anyTags, billingCity, billingCompany, billingCountryCode, billingDayPhone, billingEveningPhone, billingFirstName, billingLastName, billingPostalCode, billingState, email, lastModifiedDtsEnd, lastModifiedDtsStart, pricingTierName, pricingTierOid, qbClass, quickbooksCode, shippingCity, shippingCompany, shippingCountryCode, shippingDayPhone, shippingEveningPhone, shippingFirstName, shippingLastName, shippingPostalCode, shippingState, signupDtsEnd, signupDtsStart);
   }
 
 
@@ -645,6 +711,8 @@ public class CustomerQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerQuery {\n");
     
+    sb.append("    allTags: ").append(toIndentedString(allTags)).append("\n");
+    sb.append("    anyTags: ").append(toIndentedString(anyTags)).append("\n");
     sb.append("    billingCity: ").append(toIndentedString(billingCity)).append("\n");
     sb.append("    billingCompany: ").append(toIndentedString(billingCompany)).append("\n");
     sb.append("    billingCountryCode: ").append(toIndentedString(billingCountryCode)).append("\n");

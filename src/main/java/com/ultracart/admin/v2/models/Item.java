@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,7 +66,10 @@ import java.util.List;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class Item {
   @SerializedName("accounting")
   private ItemAccounting accounting = null;
@@ -133,6 +137,9 @@ public class Item {
   @SerializedName("kit")
   private Boolean kit = null;
 
+  @SerializedName("kit_component_only")
+  private Boolean kitComponentOnly = null;
+
   @SerializedName("kit_definition")
   private ItemKitDefinition kitDefinition = null;
 
@@ -171,6 +178,9 @@ public class Item {
 
   @SerializedName("realtime_pricing")
   private ItemRealtimePricing realtimePricing = null;
+
+  @SerializedName("recommend_replenishment_days")
+  private Integer recommendReplenishmentDays = null;
 
   @SerializedName("related")
   private ItemRelated related = null;
@@ -615,6 +625,24 @@ public class Item {
     this.kit = kit;
   }
 
+  public Item kitComponentOnly(Boolean kitComponentOnly) {
+    this.kitComponentOnly = kitComponentOnly;
+    return this;
+  }
+
+   /**
+   * True if this item can only be usd as a kit component
+   * @return kitComponentOnly
+  **/
+  @ApiModelProperty(value = "True if this item can only be usd as a kit component")
+  public Boolean isKitComponentOnly() {
+    return kitComponentOnly;
+  }
+
+  public void setKitComponentOnly(Boolean kitComponentOnly) {
+    this.kitComponentOnly = kitComponentOnly;
+  }
+
   public Item kitDefinition(ItemKitDefinition kitDefinition) {
     this.kitDefinition = kitDefinition;
     return this;
@@ -863,6 +891,24 @@ public class Item {
 
   public void setRealtimePricing(ItemRealtimePricing realtimePricing) {
     this.realtimePricing = realtimePricing;
+  }
+
+  public Item recommendReplenishmentDays(Integer recommendReplenishmentDays) {
+    this.recommendReplenishmentDays = recommendReplenishmentDays;
+    return this;
+  }
+
+   /**
+   * Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable.
+   * @return recommendReplenishmentDays
+  **/
+  @ApiModelProperty(value = "Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable.")
+  public Integer getRecommendReplenishmentDays() {
+    return recommendReplenishmentDays;
+  }
+
+  public void setRecommendReplenishmentDays(Integer recommendReplenishmentDays) {
+    this.recommendReplenishmentDays = recommendReplenishmentDays;
   }
 
   public Item related(ItemRelated related) {
@@ -1155,6 +1201,7 @@ public class Item {
         Objects.equals(this.instantPaymentNotifications, item.instantPaymentNotifications) &&
         Objects.equals(this.internal, item.internal) &&
         Objects.equals(this.kit, item.kit) &&
+        Objects.equals(this.kitComponentOnly, item.kitComponentOnly) &&
         Objects.equals(this.kitDefinition, item.kitDefinition) &&
         Objects.equals(this.lastModifiedDts, item.lastModifiedDts) &&
         Objects.equals(this.merchantId, item.merchantId) &&
@@ -1168,6 +1215,7 @@ public class Item {
         Objects.equals(this.pricing, item.pricing) &&
         Objects.equals(this.properties, item.properties) &&
         Objects.equals(this.realtimePricing, item.realtimePricing) &&
+        Objects.equals(this.recommendReplenishmentDays, item.recommendReplenishmentDays) &&
         Objects.equals(this.related, item.related) &&
         Objects.equals(this.reporting, item.reporting) &&
         Objects.equals(this.restriction, item.restriction) &&
@@ -1185,7 +1233,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
+    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitComponentOnly, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, recommendReplenishmentDays, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
   }
 
 
@@ -1216,6 +1264,7 @@ public class Item {
     sb.append("    instantPaymentNotifications: ").append(toIndentedString(instantPaymentNotifications)).append("\n");
     sb.append("    internal: ").append(toIndentedString(internal)).append("\n");
     sb.append("    kit: ").append(toIndentedString(kit)).append("\n");
+    sb.append("    kitComponentOnly: ").append(toIndentedString(kitComponentOnly)).append("\n");
     sb.append("    kitDefinition: ").append(toIndentedString(kitDefinition)).append("\n");
     sb.append("    lastModifiedDts: ").append(toIndentedString(lastModifiedDts)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
@@ -1229,6 +1278,7 @@ public class Item {
     sb.append("    pricing: ").append(toIndentedString(pricing)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    realtimePricing: ").append(toIndentedString(realtimePricing)).append("\n");
+    sb.append("    recommendReplenishmentDays: ").append(toIndentedString(recommendReplenishmentDays)).append("\n");
     sb.append("    related: ").append(toIndentedString(related)).append("\n");
     sb.append("    reporting: ").append(toIndentedString(reporting)).append("\n");
     sb.append("    restriction: ").append(toIndentedString(restriction)).append("\n");

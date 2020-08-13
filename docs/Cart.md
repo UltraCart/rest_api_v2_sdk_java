@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **marketing** | [**CartMarketing**](CartMarketing.md) |  |  [optional]
 **merchantId** | **String** | Merchant ID this cart is associated with |  [optional]
 **payment** | [**CartPayment**](CartPayment.md) |  |  [optional]
+**properties** | [**List&lt;CartProperty&gt;**](CartProperty.md) | Properties associated with the cart |  [optional]
 **settings** | [**CartSettings**](CartSettings.md) |  |  [optional]
 **shipping** | [**CartShipping**](CartShipping.md) |  |  [optional]
 **summary** | [**CartSummary**](CartSummary.md) |  |  [optional]

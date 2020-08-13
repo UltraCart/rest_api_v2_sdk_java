@@ -14,20 +14,33 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.EmailListSegmentUsedBy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * EmailSegment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailSegment {
+  @SerializedName("allow_csv_download")
+  private Boolean allowCsvDownload = null;
+
+  @SerializedName("allow_facebook_audiences")
+  private Boolean allowFacebookAudiences = null;
+
   @SerializedName("created_dts")
   private String createdDts = null;
 
@@ -52,11 +65,53 @@ public class EmailSegment {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("rank_json")
+  private String rankJson = null;
+
   @SerializedName("rebuild_required")
   private Boolean rebuildRequired = null;
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
+
+  @SerializedName("used_by")
+  private List<EmailListSegmentUsedBy> usedBy = null;
+
+  public EmailSegment allowCsvDownload(Boolean allowCsvDownload) {
+    this.allowCsvDownload = allowCsvDownload;
+    return this;
+  }
+
+   /**
+   * True if the current user has the rights to download this segment.
+   * @return allowCsvDownload
+  **/
+  @ApiModelProperty(value = "True if the current user has the rights to download this segment.")
+  public Boolean isAllowCsvDownload() {
+    return allowCsvDownload;
+  }
+
+  public void setAllowCsvDownload(Boolean allowCsvDownload) {
+    this.allowCsvDownload = allowCsvDownload;
+  }
+
+  public EmailSegment allowFacebookAudiences(Boolean allowFacebookAudiences) {
+    this.allowFacebookAudiences = allowFacebookAudiences;
+    return this;
+  }
+
+   /**
+   * True if this StoreFront has the Facebook Analytics app connected and supports them
+   * @return allowFacebookAudiences
+  **/
+  @ApiModelProperty(value = "True if this StoreFront has the Facebook Analytics app connected and supports them")
+  public Boolean isAllowFacebookAudiences() {
+    return allowFacebookAudiences;
+  }
+
+  public void setAllowFacebookAudiences(Boolean allowFacebookAudiences) {
+    this.allowFacebookAudiences = allowFacebookAudiences;
+  }
 
   public EmailSegment createdDts(String createdDts) {
     this.createdDts = createdDts;
@@ -202,6 +257,24 @@ public class EmailSegment {
     this.name = name;
   }
 
+  public EmailSegment rankJson(String rankJson) {
+    this.rankJson = rankJson;
+    return this;
+  }
+
+   /**
+   * Rank settings json
+   * @return rankJson
+  **/
+  @ApiModelProperty(value = "Rank settings json")
+  public String getRankJson() {
+    return rankJson;
+  }
+
+  public void setRankJson(String rankJson) {
+    this.rankJson = rankJson;
+  }
+
   public EmailSegment rebuildRequired(Boolean rebuildRequired) {
     this.rebuildRequired = rebuildRequired;
     return this;
@@ -238,6 +311,32 @@ public class EmailSegment {
     this.storefrontOid = storefrontOid;
   }
 
+  public EmailSegment usedBy(List<EmailListSegmentUsedBy> usedBy) {
+    this.usedBy = usedBy;
+    return this;
+  }
+
+  public EmailSegment addUsedByItem(EmailListSegmentUsedBy usedByItem) {
+    if (this.usedBy == null) {
+      this.usedBy = new ArrayList<EmailListSegmentUsedBy>();
+    }
+    this.usedBy.add(usedByItem);
+    return this;
+  }
+
+   /**
+   * Details on the flows or campaigns that use this list.
+   * @return usedBy
+  **/
+  @ApiModelProperty(value = "Details on the flows or campaigns that use this list.")
+  public List<EmailListSegmentUsedBy> getUsedBy() {
+    return usedBy;
+  }
+
+  public void setUsedBy(List<EmailListSegmentUsedBy> usedBy) {
+    this.usedBy = usedBy;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -248,7 +347,9 @@ public class EmailSegment {
       return false;
     }
     EmailSegment emailSegment = (EmailSegment) o;
-    return Objects.equals(this.createdDts, emailSegment.createdDts) &&
+    return Objects.equals(this.allowCsvDownload, emailSegment.allowCsvDownload) &&
+        Objects.equals(this.allowFacebookAudiences, emailSegment.allowFacebookAudiences) &&
+        Objects.equals(this.createdDts, emailSegment.createdDts) &&
         Objects.equals(this.deleted, emailSegment.deleted) &&
         Objects.equals(this.emailSegmentUuid, emailSegment.emailSegmentUuid) &&
         Objects.equals(this.facebookCustomAudience, emailSegment.facebookCustomAudience) &&
@@ -256,13 +357,15 @@ public class EmailSegment {
         Objects.equals(this.memberCount, emailSegment.memberCount) &&
         Objects.equals(this.merchantId, emailSegment.merchantId) &&
         Objects.equals(this.name, emailSegment.name) &&
+        Objects.equals(this.rankJson, emailSegment.rankJson) &&
         Objects.equals(this.rebuildRequired, emailSegment.rebuildRequired) &&
-        Objects.equals(this.storefrontOid, emailSegment.storefrontOid);
+        Objects.equals(this.storefrontOid, emailSegment.storefrontOid) &&
+        Objects.equals(this.usedBy, emailSegment.usedBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdDts, deleted, emailSegmentUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rebuildRequired, storefrontOid);
+    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, usedBy);
   }
 
 
@@ -271,6 +374,8 @@ public class EmailSegment {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailSegment {\n");
     
+    sb.append("    allowCsvDownload: ").append(toIndentedString(allowCsvDownload)).append("\n");
+    sb.append("    allowFacebookAudiences: ").append(toIndentedString(allowFacebookAudiences)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailSegmentUuid: ").append(toIndentedString(emailSegmentUuid)).append("\n");
@@ -279,8 +384,10 @@ public class EmailSegment {
     sb.append("    memberCount: ").append(toIndentedString(memberCount)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rankJson: ").append(toIndentedString(rankJson)).append("\n");
     sb.append("    rebuildRequired: ").append(toIndentedString(rebuildRequired)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    usedBy: ").append(toIndentedString(usedBy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

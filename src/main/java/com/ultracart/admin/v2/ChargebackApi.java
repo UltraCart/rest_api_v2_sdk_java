@@ -67,7 +67,7 @@ public class ChargebackApi {
      */
     public com.squareup.okhttp.Call deleteChargebackCall(Integer chargebackDisputeOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}"
             .replaceAll("\\{" + "chargeback_dispute_oid" + "\\}", apiClient.escapeString(chargebackDisputeOid.toString()));
@@ -106,7 +106,7 @@ public class ChargebackApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteChargebackValidateBeforeCall(Integer chargebackDisputeOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -115,14 +115,10 @@ public class ChargebackApi {
             throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling deleteChargeback(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteChargebackCall(chargebackDisputeOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -195,7 +191,7 @@ public class ChargebackApi {
      */
     public com.squareup.okhttp.Call getChargebackDisputeCall(Integer chargebackDisputeOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}"
             .replaceAll("\\{" + "chargeback_dispute_oid" + "\\}", apiClient.escapeString(chargebackDisputeOid.toString()));
@@ -236,7 +232,7 @@ public class ChargebackApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getChargebackDisputeValidateBeforeCall(Integer chargebackDisputeOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -245,14 +241,10 @@ public class ChargebackApi {
             throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling getChargebackDispute(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getChargebackDisputeCall(chargebackDisputeOid, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -338,7 +330,7 @@ public class ChargebackApi {
      */
     public com.squareup.okhttp.Call getChargebackDisputesCall(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/chargeback/chargebacks";
 
@@ -400,18 +392,14 @@ public class ChargebackApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getChargebackDisputesValidateBeforeCall(String orderId, String caseNumber, String status, String expirationDtsStart, String expirationDtsEnd, String chargebackDtsStart, String chargebackDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getChargebackDisputesCall(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -517,7 +505,7 @@ public class ChargebackApi {
      */
     public com.squareup.okhttp.Call insertChargebackCall(ChargebackDispute chargeback, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = chargeback;
-        
+
         // create path and map variables
         String localVarPath = "/chargeback/chargebacks";
 
@@ -557,7 +545,7 @@ public class ChargebackApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertChargebackValidateBeforeCall(ChargebackDispute chargeback, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -566,14 +554,10 @@ public class ChargebackApi {
             throw new ApiException("Missing the required parameter 'chargeback' when calling insertChargeback(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertChargebackCall(chargeback, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -650,7 +634,7 @@ public class ChargebackApi {
      */
     public com.squareup.okhttp.Call updateChargebackCall(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = chargeback;
-        
+
         // create path and map variables
         String localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}"
             .replaceAll("\\{" + "chargeback_dispute_oid" + "\\}", apiClient.escapeString(chargebackDisputeOid.toString()));
@@ -691,7 +675,7 @@ public class ChargebackApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateChargebackValidateBeforeCall(ChargebackDispute chargeback, Integer chargebackDisputeOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -705,14 +689,10 @@ public class ChargebackApi {
             throw new ApiException("Missing the required parameter 'chargebackDisputeOid' when calling updateChargeback(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateChargebackCall(chargeback, chargebackDisputeOid, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

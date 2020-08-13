@@ -27,27 +27,46 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ultracart.admin.v2.models.AddLibraryItemRequest;
+import com.ultracart.admin.v2.models.ApplyLibraryItemResponse;
 import com.ultracart.admin.v2.models.BaseResponse;
 import com.ultracart.admin.v2.models.CountriesResponse;
 import com.ultracart.admin.v2.models.EmailBaseTemplateListResponse;
 import com.ultracart.admin.v2.models.EmailCampaign;
 import com.ultracart.admin.v2.models.EmailCampaignResponse;
 import com.ultracart.admin.v2.models.EmailCampaignsResponse;
+import com.ultracart.admin.v2.models.EmailClicksResponse;
 import com.ultracart.admin.v2.models.EmailCommseq;
 import com.ultracart.admin.v2.models.EmailCommseqEmail;
 import com.ultracart.admin.v2.models.EmailCommseqEmailResponse;
+import com.ultracart.admin.v2.models.EmailCommseqEmailSendTestRequest;
+import com.ultracart.admin.v2.models.EmailCommseqEmailSendTestResponse;
 import com.ultracart.admin.v2.models.EmailCommseqEmailsRequest;
 import com.ultracart.admin.v2.models.EmailCommseqEmailsResponse;
+import com.ultracart.admin.v2.models.EmailCommseqPostcard;
+import com.ultracart.admin.v2.models.EmailCommseqPostcardResponse;
+import com.ultracart.admin.v2.models.EmailCommseqPostcardSendTestRequest;
+import com.ultracart.admin.v2.models.EmailCommseqPostcardSendTestResponse;
+import com.ultracart.admin.v2.models.EmailCommseqPostcardsRequest;
+import com.ultracart.admin.v2.models.EmailCommseqPostcardsResponse;
 import com.ultracart.admin.v2.models.EmailCommseqResponse;
 import com.ultracart.admin.v2.models.EmailCommseqStatResponse;
 import com.ultracart.admin.v2.models.EmailCommseqsResponse;
 import com.ultracart.admin.v2.models.EmailCustomer;
 import com.ultracart.admin.v2.models.EmailCustomerEditorUrlResponse;
+import com.ultracart.admin.v2.models.EmailCustomersResponse;
 import com.ultracart.admin.v2.models.EmailDashboardActivityResponse;
 import com.ultracart.admin.v2.models.EmailDashboardStatsResponse;
+import com.ultracart.admin.v2.models.EmailEditorTokenResponse;
 import com.ultracart.admin.v2.models.EmailFlow;
+import com.ultracart.admin.v2.models.EmailFlowBackPopulateRequest;
+import com.ultracart.admin.v2.models.EmailFlowBackPopulateResponse;
 import com.ultracart.admin.v2.models.EmailFlowResponse;
 import com.ultracart.admin.v2.models.EmailFlowsResponse;
+import com.ultracart.admin.v2.models.EmailGlobalSettings;
+import com.ultracart.admin.v2.models.EmailGlobalSettingsResponse;
+import com.ultracart.admin.v2.models.EmailGlobalUnsubscribeRequest;
+import com.ultracart.admin.v2.models.EmailGlobalUnsubscribeResponse;
 import com.ultracart.admin.v2.models.EmailHistogramPropertyNamesResponse;
 import com.ultracart.admin.v2.models.EmailHistogramPropertyValuesResponse;
 import com.ultracart.admin.v2.models.EmailList;
@@ -56,6 +75,10 @@ import com.ultracart.admin.v2.models.EmailListCustomersResponse;
 import com.ultracart.admin.v2.models.EmailListResponse;
 import com.ultracart.admin.v2.models.EmailListSubscribeResponse;
 import com.ultracart.admin.v2.models.EmailListsResponse;
+import com.ultracart.admin.v2.models.EmailOrdersResponse;
+import com.ultracart.admin.v2.models.EmailPerformanceResponse;
+import com.ultracart.admin.v2.models.EmailPlan;
+import com.ultracart.admin.v2.models.EmailPlanResponse;
 import com.ultracart.admin.v2.models.EmailSegment;
 import com.ultracart.admin.v2.models.EmailSegmentArchiveResponse;
 import com.ultracart.admin.v2.models.EmailSegmentCustomersResponse;
@@ -64,8 +87,14 @@ import com.ultracart.admin.v2.models.EmailSegmentResponse;
 import com.ultracart.admin.v2.models.EmailSegmentsResponse;
 import com.ultracart.admin.v2.models.EmailSendingDomainResponse;
 import com.ultracart.admin.v2.models.EmailSendingDomainsResponse;
+import com.ultracart.admin.v2.models.EmailSettings;
+import com.ultracart.admin.v2.models.EmailSettingsResponse;
+import com.ultracart.admin.v2.models.EmailStatPostcardSummaryRequest;
+import com.ultracart.admin.v2.models.EmailStatPostcardSummaryResponse;
 import com.ultracart.admin.v2.models.EmailStatSummaryRequest;
 import com.ultracart.admin.v2.models.EmailStatSummaryResponse;
+import com.ultracart.admin.v2.models.EmailStepStatRequest;
+import com.ultracart.admin.v2.models.EmailStepStatResponse;
 import com.ultracart.admin.v2.models.EmailStepWaitingRequest;
 import com.ultracart.admin.v2.models.EmailStepWaitingResponse;
 import com.ultracart.admin.v2.models.EmailTemplate;
@@ -78,7 +107,15 @@ import com.ultracart.admin.v2.models.ExperimentResponse;
 import com.ultracart.admin.v2.models.ExperimentsResponse;
 import com.ultracart.admin.v2.models.GeocodeRequest;
 import com.ultracart.admin.v2.models.GeocodeResponse;
+import com.ultracart.admin.v2.models.LibraryFilterValuesResponse;
+import com.ultracart.admin.v2.models.LibraryItem;
+import com.ultracart.admin.v2.models.LibraryItemQuery;
+import com.ultracart.admin.v2.models.LibraryItemResponse;
+import com.ultracart.admin.v2.models.LibraryItemsResponse;
 import com.ultracart.admin.v2.models.LookupResponse;
+import com.ultracart.admin.v2.models.TransactionEmail;
+import com.ultracart.admin.v2.models.TransactionEmailListResponse;
+import com.ultracart.admin.v2.models.TransactionEmailResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -106,17 +143,272 @@ public class StorefrontApi {
     }
 
     /**
-     * Build call for archiveEmailList
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * Build call for addToLibrary
+     * @param addLibraryRequest New library item (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call archiveEmailListCall(String storefrontOid, String emailListUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call addToLibraryCall(AddLibraryItemRequest addLibraryRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = addLibraryRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addToLibraryValidateBeforeCall(AddLibraryItemRequest addLibraryRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'addLibraryRequest' is set
+        if (addLibraryRequest == null) {
+            throw new ApiException("Missing the required parameter 'addLibraryRequest' when calling addToLibrary(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addToLibraryCall(addLibraryRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Add to library
+     * 
+     * @param addLibraryRequest New library item (required)
+     * @return LibraryItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LibraryItemResponse addToLibrary(AddLibraryItemRequest addLibraryRequest) throws ApiException {
+        ApiResponse<LibraryItemResponse> resp = addToLibraryWithHttpInfo(addLibraryRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Add to library
+     * 
+     * @param addLibraryRequest New library item (required)
+     * @return ApiResponse&lt;LibraryItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LibraryItemResponse> addToLibraryWithHttpInfo(AddLibraryItemRequest addLibraryRequest) throws ApiException {
+        com.squareup.okhttp.Call call = addToLibraryValidateBeforeCall(addLibraryRequest, null, null);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Add to library (asynchronously)
+     * 
+     * @param addLibraryRequest New library item (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addToLibraryAsync(AddLibraryItemRequest addLibraryRequest, final ApiCallback<LibraryItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addToLibraryValidateBeforeCall(addLibraryRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for applyToStoreFront
+     * @param libraryItemOid  (required)
+     * @param storefrontOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call applyToStoreFrontCall(Integer libraryItemOid, Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid}"
+            .replaceAll("\\{" + "library_item_oid" + "\\}", apiClient.escapeString(libraryItemOid.toString()))
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call applyToStoreFrontValidateBeforeCall(Integer libraryItemOid, Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'libraryItemOid' is set
+        if (libraryItemOid == null) {
+            throw new ApiException("Missing the required parameter 'libraryItemOid' when calling applyToStoreFront(Async)");
+        }
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling applyToStoreFront(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = applyToStoreFrontCall(libraryItemOid, storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Apply library item to storefront.
+     * 
+     * @param libraryItemOid  (required)
+     * @param storefrontOid  (required)
+     * @return ApplyLibraryItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApplyLibraryItemResponse applyToStoreFront(Integer libraryItemOid, Integer storefrontOid) throws ApiException {
+        ApiResponse<ApplyLibraryItemResponse> resp = applyToStoreFrontWithHttpInfo(libraryItemOid, storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Apply library item to storefront.
+     * 
+     * @param libraryItemOid  (required)
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;ApplyLibraryItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApplyLibraryItemResponse> applyToStoreFrontWithHttpInfo(Integer libraryItemOid, Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = applyToStoreFrontValidateBeforeCall(libraryItemOid, storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<ApplyLibraryItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Apply library item to storefront. (asynchronously)
+     * 
+     * @param libraryItemOid  (required)
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call applyToStoreFrontAsync(Integer libraryItemOid, Integer storefrontOid, final ApiCallback<ApplyLibraryItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = applyToStoreFrontValidateBeforeCall(libraryItemOid, storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApplyLibraryItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for archiveEmailList
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call archiveEmailListCall(Integer storefrontOid, String emailListUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -156,9 +448,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call archiveEmailListValidateBeforeCall(String storefrontOid, String emailListUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call archiveEmailListValidateBeforeCall(Integer storefrontOid, String emailListUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -170,25 +462,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailListUuid' when calling archiveEmailList(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = archiveEmailListCall(storefrontOid, emailListUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Archive email list
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @return EmailListArchiveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailListArchiveResponse archiveEmailList(String storefrontOid, String emailListUuid) throws ApiException {
+    public EmailListArchiveResponse archiveEmailList(Integer storefrontOid, String emailListUuid) throws ApiException {
         ApiResponse<EmailListArchiveResponse> resp = archiveEmailListWithHttpInfo(storefrontOid, emailListUuid);
         return resp.getData();
     }
@@ -196,12 +484,12 @@ public class StorefrontApi {
     /**
      * Archive email list
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @return ApiResponse&lt;EmailListArchiveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailListArchiveResponse> archiveEmailListWithHttpInfo(String storefrontOid, String emailListUuid) throws ApiException {
+    public ApiResponse<EmailListArchiveResponse> archiveEmailListWithHttpInfo(Integer storefrontOid, String emailListUuid) throws ApiException {
         com.squareup.okhttp.Call call = archiveEmailListValidateBeforeCall(storefrontOid, emailListUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailListArchiveResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -210,13 +498,13 @@ public class StorefrontApi {
     /**
      * Archive email list (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call archiveEmailListAsync(String storefrontOid, String emailListUuid, final ApiCallback<EmailListArchiveResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call archiveEmailListAsync(Integer storefrontOid, String emailListUuid, final ApiCallback<EmailListArchiveResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -244,16 +532,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for archiveEmailSegment
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call archiveEmailSegmentCall(String storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call archiveEmailSegmentCall(Integer storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -293,9 +581,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call archiveEmailSegmentValidateBeforeCall(String storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call archiveEmailSegmentValidateBeforeCall(Integer storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -307,25 +595,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailSegmentUuid' when calling archiveEmailSegment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = archiveEmailSegmentCall(storefrontOid, emailSegmentUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Archive email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @return EmailSegmentArchiveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentArchiveResponse archiveEmailSegment(String storefrontOid, String emailSegmentUuid) throws ApiException {
+    public EmailSegmentArchiveResponse archiveEmailSegment(Integer storefrontOid, String emailSegmentUuid) throws ApiException {
         ApiResponse<EmailSegmentArchiveResponse> resp = archiveEmailSegmentWithHttpInfo(storefrontOid, emailSegmentUuid);
         return resp.getData();
     }
@@ -333,12 +617,12 @@ public class StorefrontApi {
     /**
      * Archive email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @return ApiResponse&lt;EmailSegmentArchiveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentArchiveResponse> archiveEmailSegmentWithHttpInfo(String storefrontOid, String emailSegmentUuid) throws ApiException {
+    public ApiResponse<EmailSegmentArchiveResponse> archiveEmailSegmentWithHttpInfo(Integer storefrontOid, String emailSegmentUuid) throws ApiException {
         com.squareup.okhttp.Call call = archiveEmailSegmentValidateBeforeCall(storefrontOid, emailSegmentUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentArchiveResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -347,13 +631,13 @@ public class StorefrontApi {
     /**
      * Archive email segment (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call archiveEmailSegmentAsync(String storefrontOid, String emailSegmentUuid, final ApiCallback<EmailSegmentArchiveResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call archiveEmailSegmentAsync(Integer storefrontOid, String emailSegmentUuid, final ApiCallback<EmailSegmentArchiveResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -380,18 +664,160 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for checkDownloadEmailSegment
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param emailSegmentRebuildUuid null (required)
+     * Build call for backPopulateEmailFlow
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
+     * @param backPopulateRequest The request to back populate (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call checkDownloadEmailSegmentCall(String storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call backPopulateEmailFlowCall(Integer storefrontOid, String emailFlowUuid, EmailFlowBackPopulateRequest backPopulateRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = backPopulateRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/flows/{email_flow_uuid}/backfill"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_flow_uuid" + "\\}", apiClient.escapeString(emailFlowUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call backPopulateEmailFlowValidateBeforeCall(Integer storefrontOid, String emailFlowUuid, EmailFlowBackPopulateRequest backPopulateRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling backPopulateEmailFlow(Async)");
+        }
+        
+        // verify the required parameter 'emailFlowUuid' is set
+        if (emailFlowUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailFlowUuid' when calling backPopulateEmailFlow(Async)");
+        }
+        
+        // verify the required parameter 'backPopulateRequest' is set
+        if (backPopulateRequest == null) {
+            throw new ApiException("Missing the required parameter 'backPopulateRequest' when calling backPopulateEmailFlow(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = backPopulateEmailFlowCall(storefrontOid, emailFlowUuid, backPopulateRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Back populate email flow
+     * 
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
+     * @param backPopulateRequest The request to back populate (required)
+     * @return EmailFlowBackPopulateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailFlowBackPopulateResponse backPopulateEmailFlow(Integer storefrontOid, String emailFlowUuid, EmailFlowBackPopulateRequest backPopulateRequest) throws ApiException {
+        ApiResponse<EmailFlowBackPopulateResponse> resp = backPopulateEmailFlowWithHttpInfo(storefrontOid, emailFlowUuid, backPopulateRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Back populate email flow
+     * 
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
+     * @param backPopulateRequest The request to back populate (required)
+     * @return ApiResponse&lt;EmailFlowBackPopulateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailFlowBackPopulateResponse> backPopulateEmailFlowWithHttpInfo(Integer storefrontOid, String emailFlowUuid, EmailFlowBackPopulateRequest backPopulateRequest) throws ApiException {
+        com.squareup.okhttp.Call call = backPopulateEmailFlowValidateBeforeCall(storefrontOid, emailFlowUuid, backPopulateRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailFlowBackPopulateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Back populate email flow (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
+     * @param backPopulateRequest The request to back populate (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call backPopulateEmailFlowAsync(Integer storefrontOid, String emailFlowUuid, EmailFlowBackPopulateRequest backPopulateRequest, final ApiCallback<EmailFlowBackPopulateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = backPopulateEmailFlowValidateBeforeCall(storefrontOid, emailFlowUuid, backPopulateRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailFlowBackPopulateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for checkDownloadEmailSegment
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param emailSegmentRebuildUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call checkDownloadEmailSegmentCall(Integer storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -432,9 +858,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call checkDownloadEmailSegmentValidateBeforeCall(String storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call checkDownloadEmailSegmentValidateBeforeCall(Integer storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -451,26 +877,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailSegmentRebuildUuid' when calling checkDownloadEmailSegment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = checkDownloadEmailSegmentCall(storefrontOid, emailSegmentUuid, emailSegmentRebuildUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Check download of email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param emailSegmentRebuildUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param emailSegmentRebuildUuid  (required)
      * @return EmailSegmentDownloadPrepareResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentDownloadPrepareResponse checkDownloadEmailSegment(String storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid) throws ApiException {
+    public EmailSegmentDownloadPrepareResponse checkDownloadEmailSegment(Integer storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid) throws ApiException {
         ApiResponse<EmailSegmentDownloadPrepareResponse> resp = checkDownloadEmailSegmentWithHttpInfo(storefrontOid, emailSegmentUuid, emailSegmentRebuildUuid);
         return resp.getData();
     }
@@ -478,13 +900,13 @@ public class StorefrontApi {
     /**
      * Check download of email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param emailSegmentRebuildUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param emailSegmentRebuildUuid  (required)
      * @return ApiResponse&lt;EmailSegmentDownloadPrepareResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentDownloadPrepareResponse> checkDownloadEmailSegmentWithHttpInfo(String storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid) throws ApiException {
+    public ApiResponse<EmailSegmentDownloadPrepareResponse> checkDownloadEmailSegmentWithHttpInfo(Integer storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid) throws ApiException {
         com.squareup.okhttp.Call call = checkDownloadEmailSegmentValidateBeforeCall(storefrontOid, emailSegmentUuid, emailSegmentRebuildUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentDownloadPrepareResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -493,14 +915,14 @@ public class StorefrontApi {
     /**
      * Check download of email segment (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param emailSegmentRebuildUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param emailSegmentRebuildUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call checkDownloadEmailSegmentAsync(String storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid, final ApiCallback<EmailSegmentDownloadPrepareResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call checkDownloadEmailSegmentAsync(Integer storefrontOid, String emailSegmentUuid, String emailSegmentRebuildUuid, final ApiCallback<EmailSegmentDownloadPrepareResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -528,16 +950,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for cloneEmailCampaign
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
+     * @param targetStorefrontOid  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call cloneEmailCampaignCall(String storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call cloneEmailCampaignCall(Integer storefrontOid, String emailCampaignUuid, Integer targetStorefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -545,6 +968,8 @@ public class StorefrontApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (targetStorefrontOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("target_storefront_oid", targetStorefrontOid));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -577,9 +1002,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call cloneEmailCampaignValidateBeforeCall(String storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call cloneEmailCampaignValidateBeforeCall(Integer storefrontOid, String emailCampaignUuid, Integer targetStorefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -591,39 +1016,37 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCampaignUuid' when calling cloneEmailCampaign(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = cloneEmailCampaignCall(storefrontOid, emailCampaignUuid, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = cloneEmailCampaignCall(storefrontOid, emailCampaignUuid, targetStorefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Clone email campaign
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
+     * @param targetStorefrontOid  (optional)
      * @return EmailCampaignResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCampaignResponse cloneEmailCampaign(String storefrontOid, String emailCampaignUuid) throws ApiException {
-        ApiResponse<EmailCampaignResponse> resp = cloneEmailCampaignWithHttpInfo(storefrontOid, emailCampaignUuid);
+    public EmailCampaignResponse cloneEmailCampaign(Integer storefrontOid, String emailCampaignUuid, Integer targetStorefrontOid) throws ApiException {
+        ApiResponse<EmailCampaignResponse> resp = cloneEmailCampaignWithHttpInfo(storefrontOid, emailCampaignUuid, targetStorefrontOid);
         return resp.getData();
     }
 
     /**
      * Clone email campaign
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
+     * @param targetStorefrontOid  (optional)
      * @return ApiResponse&lt;EmailCampaignResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCampaignResponse> cloneEmailCampaignWithHttpInfo(String storefrontOid, String emailCampaignUuid) throws ApiException {
-        com.squareup.okhttp.Call call = cloneEmailCampaignValidateBeforeCall(storefrontOid, emailCampaignUuid, null, null);
+    public ApiResponse<EmailCampaignResponse> cloneEmailCampaignWithHttpInfo(Integer storefrontOid, String emailCampaignUuid, Integer targetStorefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = cloneEmailCampaignValidateBeforeCall(storefrontOid, emailCampaignUuid, targetStorefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailCampaignResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -631,13 +1054,14 @@ public class StorefrontApi {
     /**
      * Clone email campaign (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
+     * @param targetStorefrontOid  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call cloneEmailCampaignAsync(String storefrontOid, String emailCampaignUuid, final ApiCallback<EmailCampaignResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call cloneEmailCampaignAsync(Integer storefrontOid, String emailCampaignUuid, Integer targetStorefrontOid, final ApiCallback<EmailCampaignResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -658,23 +1082,24 @@ public class StorefrontApi {
             };
         }
 
-        com.squareup.okhttp.Call call = cloneEmailCampaignValidateBeforeCall(storefrontOid, emailCampaignUuid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = cloneEmailCampaignValidateBeforeCall(storefrontOid, emailCampaignUuid, targetStorefrontOid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmailCampaignResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for cloneEmailFlow
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
+     * @param targetStorefrontOid  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call cloneEmailFlowCall(String storefrontOid, String emailFlowUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call cloneEmailFlowCall(Integer storefrontOid, String emailFlowUuid, Integer targetStorefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -682,6 +1107,8 @@ public class StorefrontApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (targetStorefrontOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("target_storefront_oid", targetStorefrontOid));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -714,9 +1141,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call cloneEmailFlowValidateBeforeCall(String storefrontOid, String emailFlowUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call cloneEmailFlowValidateBeforeCall(Integer storefrontOid, String emailFlowUuid, Integer targetStorefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -728,39 +1155,37 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailFlowUuid' when calling cloneEmailFlow(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = cloneEmailFlowCall(storefrontOid, emailFlowUuid, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = cloneEmailFlowCall(storefrontOid, emailFlowUuid, targetStorefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Clone email flow
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
+     * @param targetStorefrontOid  (optional)
      * @return EmailFlowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailFlowResponse cloneEmailFlow(String storefrontOid, String emailFlowUuid) throws ApiException {
-        ApiResponse<EmailFlowResponse> resp = cloneEmailFlowWithHttpInfo(storefrontOid, emailFlowUuid);
+    public EmailFlowResponse cloneEmailFlow(Integer storefrontOid, String emailFlowUuid, Integer targetStorefrontOid) throws ApiException {
+        ApiResponse<EmailFlowResponse> resp = cloneEmailFlowWithHttpInfo(storefrontOid, emailFlowUuid, targetStorefrontOid);
         return resp.getData();
     }
 
     /**
      * Clone email flow
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
+     * @param targetStorefrontOid  (optional)
      * @return ApiResponse&lt;EmailFlowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailFlowResponse> cloneEmailFlowWithHttpInfo(String storefrontOid, String emailFlowUuid) throws ApiException {
-        com.squareup.okhttp.Call call = cloneEmailFlowValidateBeforeCall(storefrontOid, emailFlowUuid, null, null);
+    public ApiResponse<EmailFlowResponse> cloneEmailFlowWithHttpInfo(Integer storefrontOid, String emailFlowUuid, Integer targetStorefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = cloneEmailFlowValidateBeforeCall(storefrontOid, emailFlowUuid, targetStorefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailFlowResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -768,13 +1193,14 @@ public class StorefrontApi {
     /**
      * Clone email flow (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
+     * @param targetStorefrontOid  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call cloneEmailFlowAsync(String storefrontOid, String emailFlowUuid, final ApiCallback<EmailFlowResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call cloneEmailFlowAsync(Integer storefrontOid, String emailFlowUuid, Integer targetStorefrontOid, final ApiCallback<EmailFlowResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -795,14 +1221,143 @@ public class StorefrontApi {
             };
         }
 
-        com.squareup.okhttp.Call call = cloneEmailFlowValidateBeforeCall(storefrontOid, emailFlowUuid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = cloneEmailFlowValidateBeforeCall(storefrontOid, emailFlowUuid, targetStorefrontOid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmailFlowResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
+     * Build call for cloneLibraryItem
+     * @param libraryItemOid  (required)
+     * @param storefrontOid  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cloneLibraryItemCall(Integer libraryItemOid, Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library/{library_item_oid}/clone"
+            .replaceAll("\\{" + "library_item_oid" + "\\}", apiClient.escapeString(libraryItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (storefrontOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("storefront_oid", storefrontOid));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call cloneLibraryItemValidateBeforeCall(Integer libraryItemOid, Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'libraryItemOid' is set
+        if (libraryItemOid == null) {
+            throw new ApiException("Missing the required parameter 'libraryItemOid' when calling cloneLibraryItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = cloneLibraryItemCall(libraryItemOid, storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Clone public library item.
+     * 
+     * @param libraryItemOid  (required)
+     * @param storefrontOid  (optional)
+     * @return LibraryItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LibraryItemResponse cloneLibraryItem(Integer libraryItemOid, Integer storefrontOid) throws ApiException {
+        ApiResponse<LibraryItemResponse> resp = cloneLibraryItemWithHttpInfo(libraryItemOid, storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Clone public library item.
+     * 
+     * @param libraryItemOid  (required)
+     * @param storefrontOid  (optional)
+     * @return ApiResponse&lt;LibraryItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LibraryItemResponse> cloneLibraryItemWithHttpInfo(Integer libraryItemOid, Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = cloneLibraryItemValidateBeforeCall(libraryItemOid, storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Clone public library item. (asynchronously)
+     * 
+     * @param libraryItemOid  (required)
+     * @param storefrontOid  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cloneLibraryItemAsync(Integer libraryItemOid, Integer storefrontOid, final ApiCallback<LibraryItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cloneLibraryItemValidateBeforeCall(libraryItemOid, storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for createEmailSendingDomain
-     * @param domain null (required)
+     * @param domain  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -810,7 +1365,7 @@ public class StorefrontApi {
      */
     public com.squareup.okhttp.Call createEmailSendingDomainCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/email/sending_domains/{domain}/create"
             .replaceAll("\\{" + "domain" + "\\}", apiClient.escapeString(domain.toString()));
@@ -849,7 +1404,7 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createEmailSendingDomainValidateBeforeCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -858,20 +1413,16 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'domain' when calling createEmailSendingDomain(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = createEmailSendingDomainCall(domain, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create email campaign
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @return EmailSendingDomainResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -883,7 +1434,7 @@ public class StorefrontApi {
     /**
      * Create email campaign
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @return ApiResponse&lt;EmailSendingDomainResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -896,7 +1447,7 @@ public class StorefrontApi {
     /**
      * Create email campaign (asynchronously)
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -928,17 +1479,146 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for deleteEmailEmail
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * Build call for deleteEmailCommseqStat
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteEmailEmailCall(String storefrontOid, String commseqEmailUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteEmailCommseqStatCall(Integer storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", apiClient.escapeString(commseqUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteEmailCommseqStatValidateBeforeCall(Integer storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling deleteEmailCommseqStat(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling deleteEmailCommseqStat(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteEmailCommseqStatCall(storefrontOid, commseqUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete communication sequence stats
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteEmailCommseqStat(Integer storefrontOid, String commseqUuid) throws ApiException {
+        deleteEmailCommseqStatWithHttpInfo(storefrontOid, commseqUuid);
+    }
+
+    /**
+     * Delete communication sequence stats
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteEmailCommseqStatWithHttpInfo(Integer storefrontOid, String commseqUuid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteEmailCommseqStatValidateBeforeCall(storefrontOid, commseqUuid, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete communication sequence stats (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteEmailCommseqStatAsync(Integer storefrontOid, String commseqUuid, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteEmailCommseqStatValidateBeforeCall(storefrontOid, commseqUuid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteEmailEmail
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteEmailEmailCall(Integer storefrontOid, String commseqEmailUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -978,9 +1658,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteEmailEmailValidateBeforeCall(String storefrontOid, String commseqEmailUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteEmailEmailValidateBeforeCall(Integer storefrontOid, String commseqEmailUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -992,25 +1672,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'commseqEmailUuid' when calling deleteEmailEmail(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteEmailEmailCall(storefrontOid, commseqEmailUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete email email
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @return BaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BaseResponse deleteEmailEmail(String storefrontOid, String commseqEmailUuid) throws ApiException {
+    public BaseResponse deleteEmailEmail(Integer storefrontOid, String commseqEmailUuid) throws ApiException {
         ApiResponse<BaseResponse> resp = deleteEmailEmailWithHttpInfo(storefrontOid, commseqEmailUuid);
         return resp.getData();
     }
@@ -1018,12 +1694,12 @@ public class StorefrontApi {
     /**
      * Delete email email
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @return ApiResponse&lt;BaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BaseResponse> deleteEmailEmailWithHttpInfo(String storefrontOid, String commseqEmailUuid) throws ApiException {
+    public ApiResponse<BaseResponse> deleteEmailEmailWithHttpInfo(Integer storefrontOid, String commseqEmailUuid) throws ApiException {
         com.squareup.okhttp.Call call = deleteEmailEmailValidateBeforeCall(storefrontOid, commseqEmailUuid, null, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1032,13 +1708,13 @@ public class StorefrontApi {
     /**
      * Delete email email (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteEmailEmailAsync(String storefrontOid, String commseqEmailUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteEmailEmailAsync(Integer storefrontOid, String commseqEmailUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1066,17 +1742,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for deleteEmailListCustomer
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteEmailListCustomerCall(String storefrontOid, String emailListUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteEmailListCustomerCall(Integer storefrontOid, String emailListUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -1117,9 +1793,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteEmailListCustomerValidateBeforeCall(String storefrontOid, String emailListUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteEmailListCustomerValidateBeforeCall(Integer storefrontOid, String emailListUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -1136,26 +1812,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCustomerUuid' when calling deleteEmailListCustomer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteEmailListCustomerCall(storefrontOid, emailListUuid, emailCustomerUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete email list customer
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @return BaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BaseResponse deleteEmailListCustomer(String storefrontOid, String emailListUuid, String emailCustomerUuid) throws ApiException {
+    public BaseResponse deleteEmailListCustomer(Integer storefrontOid, String emailListUuid, String emailCustomerUuid) throws ApiException {
         ApiResponse<BaseResponse> resp = deleteEmailListCustomerWithHttpInfo(storefrontOid, emailListUuid, emailCustomerUuid);
         return resp.getData();
     }
@@ -1163,13 +1835,13 @@ public class StorefrontApi {
     /**
      * Delete email list customer
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @return ApiResponse&lt;BaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BaseResponse> deleteEmailListCustomerWithHttpInfo(String storefrontOid, String emailListUuid, String emailCustomerUuid) throws ApiException {
+    public ApiResponse<BaseResponse> deleteEmailListCustomerWithHttpInfo(Integer storefrontOid, String emailListUuid, String emailCustomerUuid) throws ApiException {
         com.squareup.okhttp.Call call = deleteEmailListCustomerValidateBeforeCall(storefrontOid, emailListUuid, emailCustomerUuid, null, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1178,14 +1850,14 @@ public class StorefrontApi {
     /**
      * Delete email list customer (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteEmailListCustomerAsync(String storefrontOid, String emailListUuid, String emailCustomerUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteEmailListCustomerAsync(Integer storefrontOid, String emailListUuid, String emailCustomerUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1212,8 +1884,141 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for deleteEmailPostcard
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteEmailPostcardCall(Integer storefrontOid, String commseqPostcardUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_postcard_uuid" + "\\}", apiClient.escapeString(commseqPostcardUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteEmailPostcardValidateBeforeCall(Integer storefrontOid, String commseqPostcardUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling deleteEmailPostcard(Async)");
+        }
+        
+        // verify the required parameter 'commseqPostcardUuid' is set
+        if (commseqPostcardUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqPostcardUuid' when calling deleteEmailPostcard(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteEmailPostcardCall(storefrontOid, commseqPostcardUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete email postcard
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @return BaseResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BaseResponse deleteEmailPostcard(Integer storefrontOid, String commseqPostcardUuid) throws ApiException {
+        ApiResponse<BaseResponse> resp = deleteEmailPostcardWithHttpInfo(storefrontOid, commseqPostcardUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Delete email postcard
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @return ApiResponse&lt;BaseResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<BaseResponse> deleteEmailPostcardWithHttpInfo(Integer storefrontOid, String commseqPostcardUuid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteEmailPostcardValidateBeforeCall(storefrontOid, commseqPostcardUuid, null, null);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete email postcard (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteEmailPostcardAsync(Integer storefrontOid, String commseqPostcardUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteEmailPostcardValidateBeforeCall(storefrontOid, commseqPostcardUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for deleteEmailSendingDomain
-     * @param domain null (required)
+     * @param domain  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1221,7 +2026,7 @@ public class StorefrontApi {
      */
     public com.squareup.okhttp.Call deleteEmailSendingDomainCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/email/sending_domains/{domain}"
             .replaceAll("\\{" + "domain" + "\\}", apiClient.escapeString(domain.toString()));
@@ -1260,7 +2065,7 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteEmailSendingDomainValidateBeforeCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1269,20 +2074,16 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'domain' when calling deleteEmailSendingDomain(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteEmailSendingDomainCall(domain, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * delete email campaign
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @return BaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1294,7 +2095,7 @@ public class StorefrontApi {
     /**
      * delete email campaign
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @return ApiResponse&lt;BaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1307,7 +2108,7 @@ public class StorefrontApi {
     /**
      * delete email campaign (asynchronously)
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1340,16 +2141,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for deleteExperiment
-     * @param storefrontOid null (required)
-     * @param storefrontExperimentOid null (required)
+     * @param storefrontOid  (required)
+     * @param storefrontExperimentOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteExperimentCall(String storefrontOid, Integer storefrontExperimentOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteExperimentCall(Integer storefrontOid, Integer storefrontExperimentOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/experiments/{storefront_experiment_oid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -1389,9 +2190,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteExperimentValidateBeforeCall(String storefrontOid, Integer storefrontExperimentOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteExperimentValidateBeforeCall(Integer storefrontOid, Integer storefrontExperimentOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -1403,36 +2204,32 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'storefrontExperimentOid' when calling deleteExperiment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteExperimentCall(storefrontOid, storefrontExperimentOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete experiment
      * 
-     * @param storefrontOid null (required)
-     * @param storefrontExperimentOid null (required)
+     * @param storefrontOid  (required)
+     * @param storefrontExperimentOid  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteExperiment(String storefrontOid, Integer storefrontExperimentOid) throws ApiException {
+    public void deleteExperiment(Integer storefrontOid, Integer storefrontExperimentOid) throws ApiException {
         deleteExperimentWithHttpInfo(storefrontOid, storefrontExperimentOid);
     }
 
     /**
      * Delete experiment
      * 
-     * @param storefrontOid null (required)
-     * @param storefrontExperimentOid null (required)
+     * @param storefrontOid  (required)
+     * @param storefrontExperimentOid  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteExperimentWithHttpInfo(String storefrontOid, Integer storefrontExperimentOid) throws ApiException {
+    public ApiResponse<Void> deleteExperimentWithHttpInfo(Integer storefrontOid, Integer storefrontExperimentOid) throws ApiException {
         com.squareup.okhttp.Call call = deleteExperimentValidateBeforeCall(storefrontOid, storefrontExperimentOid, null, null);
         return apiClient.execute(call);
     }
@@ -1440,13 +2237,13 @@ public class StorefrontApi {
     /**
      * Delete experiment (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param storefrontExperimentOid null (required)
+     * @param storefrontOid  (required)
+     * @param storefrontExperimentOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteExperimentAsync(String storefrontOid, Integer storefrontExperimentOid, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteExperimentAsync(Integer storefrontOid, Integer storefrontExperimentOid, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1472,17 +2269,259 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for deleteLibraryItem
+     * @param libraryItemOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteLibraryItemCall(Integer libraryItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library/{library_item_oid}"
+            .replaceAll("\\{" + "library_item_oid" + "\\}", apiClient.escapeString(libraryItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteLibraryItemValidateBeforeCall(Integer libraryItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'libraryItemOid' is set
+        if (libraryItemOid == null) {
+            throw new ApiException("Missing the required parameter 'libraryItemOid' when calling deleteLibraryItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteLibraryItemCall(libraryItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete library item
+     * 
+     * @param libraryItemOid  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteLibraryItem(Integer libraryItemOid) throws ApiException {
+        deleteLibraryItemWithHttpInfo(libraryItemOid);
+    }
+
+    /**
+     * Delete library item
+     * 
+     * @param libraryItemOid  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteLibraryItemWithHttpInfo(Integer libraryItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteLibraryItemValidateBeforeCall(libraryItemOid, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete library item (asynchronously)
+     * 
+     * @param libraryItemOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteLibraryItemAsync(Integer libraryItemOid, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteLibraryItemValidateBeforeCall(libraryItemOid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for duplicateLibraryItem
+     * @param libraryItemOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call duplicateLibraryItemCall(Integer libraryItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library/{library_item_oid}/duplicate"
+            .replaceAll("\\{" + "library_item_oid" + "\\}", apiClient.escapeString(libraryItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call duplicateLibraryItemValidateBeforeCall(Integer libraryItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'libraryItemOid' is set
+        if (libraryItemOid == null) {
+            throw new ApiException("Missing the required parameter 'libraryItemOid' when calling duplicateLibraryItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = duplicateLibraryItemCall(libraryItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Duplicate library item.
+     * 
+     * @param libraryItemOid  (required)
+     * @return LibraryItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LibraryItemResponse duplicateLibraryItem(Integer libraryItemOid) throws ApiException {
+        ApiResponse<LibraryItemResponse> resp = duplicateLibraryItemWithHttpInfo(libraryItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Duplicate library item.
+     * 
+     * @param libraryItemOid  (required)
+     * @return ApiResponse&lt;LibraryItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LibraryItemResponse> duplicateLibraryItemWithHttpInfo(Integer libraryItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = duplicateLibraryItemValidateBeforeCall(libraryItemOid, null, null);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Duplicate library item. (asynchronously)
+     * 
+     * @param libraryItemOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call duplicateLibraryItemAsync(Integer libraryItemOid, final ApiCallback<LibraryItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = duplicateLibraryItemValidateBeforeCall(libraryItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for geocodeAddress
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param geocodeRequest geocode request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call geocodeAddressCall(String storefrontOid, GeocodeRequest geocodeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call geocodeAddressCall(Integer storefrontOid, GeocodeRequest geocodeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = geocodeRequest;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/geocode"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -1521,9 +2560,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call geocodeAddressValidateBeforeCall(String storefrontOid, GeocodeRequest geocodeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call geocodeAddressValidateBeforeCall(Integer storefrontOid, GeocodeRequest geocodeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -1535,25 +2574,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'geocodeRequest' when calling geocodeAddress(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = geocodeAddressCall(storefrontOid, geocodeRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Obtain lat/long for an address
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param geocodeRequest geocode request (required)
      * @return GeocodeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GeocodeResponse geocodeAddress(String storefrontOid, GeocodeRequest geocodeRequest) throws ApiException {
+    public GeocodeResponse geocodeAddress(Integer storefrontOid, GeocodeRequest geocodeRequest) throws ApiException {
         ApiResponse<GeocodeResponse> resp = geocodeAddressWithHttpInfo(storefrontOid, geocodeRequest);
         return resp.getData();
     }
@@ -1561,12 +2596,12 @@ public class StorefrontApi {
     /**
      * Obtain lat/long for an address
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param geocodeRequest geocode request (required)
      * @return ApiResponse&lt;GeocodeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GeocodeResponse> geocodeAddressWithHttpInfo(String storefrontOid, GeocodeRequest geocodeRequest) throws ApiException {
+    public ApiResponse<GeocodeResponse> geocodeAddressWithHttpInfo(Integer storefrontOid, GeocodeRequest geocodeRequest) throws ApiException {
         com.squareup.okhttp.Call call = geocodeAddressValidateBeforeCall(storefrontOid, geocodeRequest, null, null);
         Type localVarReturnType = new TypeToken<GeocodeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1575,13 +2610,13 @@ public class StorefrontApi {
     /**
      * Obtain lat/long for an address (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param geocodeRequest geocode request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call geocodeAddressAsync(String storefrontOid, GeocodeRequest geocodeRequest, final ApiCallback<GeocodeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call geocodeAddressAsync(Integer storefrontOid, GeocodeRequest geocodeRequest, final ApiCallback<GeocodeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1609,15 +2644,15 @@ public class StorefrontApi {
     }
     /**
      * Build call for getCountries
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCountriesCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCountriesCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/countries"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -1656,33 +2691,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCountriesValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCountriesValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getCountries(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCountriesCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get countries
      * Obtain a list of all the countries 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return CountriesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CountriesResponse getCountries(String storefrontOid) throws ApiException {
+    public CountriesResponse getCountries(Integer storefrontOid) throws ApiException {
         ApiResponse<CountriesResponse> resp = getCountriesWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -1690,11 +2721,11 @@ public class StorefrontApi {
     /**
      * Get countries
      * Obtain a list of all the countries 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;CountriesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CountriesResponse> getCountriesWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<CountriesResponse> getCountriesWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getCountriesValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<CountriesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1703,12 +2734,12 @@ public class StorefrontApi {
     /**
      * Get countries (asynchronously)
      * Obtain a list of all the countries 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCountriesAsync(String storefrontOid, final ApiCallback<CountriesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCountriesAsync(Integer storefrontOid, final ApiCallback<CountriesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1735,16 +2766,139 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for getEmailBaseTemplates
-     * @param storefrontOid null (required)
+     * Build call for getEditorToken
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailBaseTemplatesCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEditorTokenCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/editor_token"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEditorTokenValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEditorToken(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEditorTokenCall(storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets editor token
+     * Fetches a temporary authentication token for the editor 
+     * @param storefrontOid  (required)
+     * @return EmailEditorTokenResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailEditorTokenResponse getEditorToken(Integer storefrontOid) throws ApiException {
+        ApiResponse<EmailEditorTokenResponse> resp = getEditorTokenWithHttpInfo(storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Gets editor token
+     * Fetches a temporary authentication token for the editor 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;EmailEditorTokenResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailEditorTokenResponse> getEditorTokenWithHttpInfo(Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = getEditorTokenValidateBeforeCall(storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<EmailEditorTokenResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets editor token (asynchronously)
+     * Fetches a temporary authentication token for the editor 
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEditorTokenAsync(Integer storefrontOid, final ApiCallback<EmailEditorTokenResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEditorTokenValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailEditorTokenResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailBaseTemplates
+     * @param storefrontOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailBaseTemplatesCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/baseTemplates"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -1783,33 +2937,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailBaseTemplatesValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailBaseTemplatesValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailBaseTemplates(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailBaseTemplatesCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email communication base templates
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return EmailBaseTemplateListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailBaseTemplateListResponse getEmailBaseTemplates(String storefrontOid) throws ApiException {
+    public EmailBaseTemplateListResponse getEmailBaseTemplates(Integer storefrontOid) throws ApiException {
         ApiResponse<EmailBaseTemplateListResponse> resp = getEmailBaseTemplatesWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -1817,11 +2967,11 @@ public class StorefrontApi {
     /**
      * Get email communication base templates
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;EmailBaseTemplateListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailBaseTemplateListResponse> getEmailBaseTemplatesWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<EmailBaseTemplateListResponse> getEmailBaseTemplatesWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailBaseTemplatesValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailBaseTemplateListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1830,12 +2980,12 @@ public class StorefrontApi {
     /**
      * Get email communication base templates (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailBaseTemplatesAsync(String storefrontOid, final ApiCallback<EmailBaseTemplateListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailBaseTemplatesAsync(Integer storefrontOid, final ApiCallback<EmailBaseTemplateListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1863,16 +3013,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailCampaign
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignCall(String storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCampaignCall(Integer storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -1912,9 +3062,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCampaignValidateBeforeCall(String storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCampaignValidateBeforeCall(Integer storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -1926,25 +3076,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCampaignUuid' when calling getEmailCampaign(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailCampaignCall(storefrontOid, emailCampaignUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email campaign
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @return EmailCampaignResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCampaignResponse getEmailCampaign(String storefrontOid, String emailCampaignUuid) throws ApiException {
+    public EmailCampaignResponse getEmailCampaign(Integer storefrontOid, String emailCampaignUuid) throws ApiException {
         ApiResponse<EmailCampaignResponse> resp = getEmailCampaignWithHttpInfo(storefrontOid, emailCampaignUuid);
         return resp.getData();
     }
@@ -1952,12 +3098,12 @@ public class StorefrontApi {
     /**
      * Get email campaign
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @return ApiResponse&lt;EmailCampaignResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCampaignResponse> getEmailCampaignWithHttpInfo(String storefrontOid, String emailCampaignUuid) throws ApiException {
+    public ApiResponse<EmailCampaignResponse> getEmailCampaignWithHttpInfo(Integer storefrontOid, String emailCampaignUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCampaignValidateBeforeCall(storefrontOid, emailCampaignUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailCampaignResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1966,13 +3112,13 @@ public class StorefrontApi {
     /**
      * Get email campaign (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignAsync(String storefrontOid, String emailCampaignUuid, final ApiCallback<EmailCampaignResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCampaignAsync(Integer storefrontOid, String emailCampaignUuid, final ApiCallback<EmailCampaignResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2000,15 +3146,15 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailCampaigns
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignsCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCampaignsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/campaigns"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -2047,33 +3193,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCampaignsValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCampaignsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailCampaigns(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailCampaignsCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email campaigns
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return EmailCampaignsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCampaignsResponse getEmailCampaigns(String storefrontOid) throws ApiException {
+    public EmailCampaignsResponse getEmailCampaigns(Integer storefrontOid) throws ApiException {
         ApiResponse<EmailCampaignsResponse> resp = getEmailCampaignsWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -2081,11 +3223,11 @@ public class StorefrontApi {
     /**
      * Get email campaigns
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;EmailCampaignsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCampaignsResponse> getEmailCampaignsWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<EmailCampaignsResponse> getEmailCampaignsWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCampaignsValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailCampaignsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2094,12 +3236,12 @@ public class StorefrontApi {
     /**
      * Get email campaigns (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignsAsync(String storefrontOid, final ApiCallback<EmailCampaignsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCampaignsAsync(Integer storefrontOid, final ApiCallback<EmailCampaignsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2127,16 +3269,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailCampaignsWithStats
-     * @param storefrontOid null (required)
-     * @param statDays null (required)
+     * @param storefrontOid  (required)
+     * @param statDays  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignsWithStatsCall(String storefrontOid, String statDays, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCampaignsWithStatsCall(Integer storefrontOid, String statDays, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/campaignsWithStats/{stat_days}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -2176,9 +3318,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCampaignsWithStatsValidateBeforeCall(String storefrontOid, String statDays, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCampaignsWithStatsValidateBeforeCall(Integer storefrontOid, String statDays, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -2190,25 +3332,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'statDays' when calling getEmailCampaignsWithStats(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailCampaignsWithStatsCall(storefrontOid, statDays, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email campaigns with stats
      * 
-     * @param storefrontOid null (required)
-     * @param statDays null (required)
+     * @param storefrontOid  (required)
+     * @param statDays  (required)
      * @return EmailCampaignsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCampaignsResponse getEmailCampaignsWithStats(String storefrontOid, String statDays) throws ApiException {
+    public EmailCampaignsResponse getEmailCampaignsWithStats(Integer storefrontOid, String statDays) throws ApiException {
         ApiResponse<EmailCampaignsResponse> resp = getEmailCampaignsWithStatsWithHttpInfo(storefrontOid, statDays);
         return resp.getData();
     }
@@ -2216,12 +3354,12 @@ public class StorefrontApi {
     /**
      * Get email campaigns with stats
      * 
-     * @param storefrontOid null (required)
-     * @param statDays null (required)
+     * @param storefrontOid  (required)
+     * @param statDays  (required)
      * @return ApiResponse&lt;EmailCampaignsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCampaignsResponse> getEmailCampaignsWithStatsWithHttpInfo(String storefrontOid, String statDays) throws ApiException {
+    public ApiResponse<EmailCampaignsResponse> getEmailCampaignsWithStatsWithHttpInfo(Integer storefrontOid, String statDays) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCampaignsWithStatsValidateBeforeCall(storefrontOid, statDays, null, null);
         Type localVarReturnType = new TypeToken<EmailCampaignsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2230,13 +3368,13 @@ public class StorefrontApi {
     /**
      * Get email campaigns with stats (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param statDays null (required)
+     * @param storefrontOid  (required)
+     * @param statDays  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignsWithStatsAsync(String storefrontOid, String statDays, final ApiCallback<EmailCampaignsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCampaignsWithStatsAsync(Integer storefrontOid, String statDays, final ApiCallback<EmailCampaignsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2264,16 +3402,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailCommseq
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqCall(String storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqCall(Integer storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -2313,9 +3451,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCommseqValidateBeforeCall(String storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCommseqValidateBeforeCall(Integer storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -2327,25 +3465,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'commseqUuid' when calling getEmailCommseq(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailCommseqCall(storefrontOid, commseqUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email commseq
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @return EmailCommseqResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqResponse getEmailCommseq(String storefrontOid, String commseqUuid) throws ApiException {
+    public EmailCommseqResponse getEmailCommseq(Integer storefrontOid, String commseqUuid) throws ApiException {
         ApiResponse<EmailCommseqResponse> resp = getEmailCommseqWithHttpInfo(storefrontOid, commseqUuid);
         return resp.getData();
     }
@@ -2353,12 +3487,12 @@ public class StorefrontApi {
     /**
      * Get email commseq
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @return ApiResponse&lt;EmailCommseqResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqResponse> getEmailCommseqWithHttpInfo(String storefrontOid, String commseqUuid) throws ApiException {
+    public ApiResponse<EmailCommseqResponse> getEmailCommseqWithHttpInfo(Integer storefrontOid, String commseqUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCommseqValidateBeforeCall(storefrontOid, commseqUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2367,13 +3501,13 @@ public class StorefrontApi {
     /**
      * Get email commseq (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqAsync(String storefrontOid, String commseqUuid, final ApiCallback<EmailCommseqResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqAsync(Integer storefrontOid, String commseqUuid, final ApiCallback<EmailCommseqResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2401,17 +3535,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailCommseqEmailStats
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param statsRequest StatsRequest (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqEmailStatsCall(String storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqEmailStatsCall(Integer storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = statsRequest;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -2451,9 +3585,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCommseqEmailStatsValidateBeforeCall(String storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCommseqEmailStatsValidateBeforeCall(Integer storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -2470,26 +3604,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'statsRequest' when calling getEmailCommseqEmailStats(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailCommseqEmailStatsCall(storefrontOid, commseqUuid, statsRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email communication sequence emails stats
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param statsRequest StatsRequest (required)
      * @return EmailStatSummaryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailStatSummaryResponse getEmailCommseqEmailStats(String storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest) throws ApiException {
+    public EmailStatSummaryResponse getEmailCommseqEmailStats(Integer storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest) throws ApiException {
         ApiResponse<EmailStatSummaryResponse> resp = getEmailCommseqEmailStatsWithHttpInfo(storefrontOid, commseqUuid, statsRequest);
         return resp.getData();
     }
@@ -2497,13 +3627,13 @@ public class StorefrontApi {
     /**
      * Get email communication sequence emails stats
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param statsRequest StatsRequest (required)
      * @return ApiResponse&lt;EmailStatSummaryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailStatSummaryResponse> getEmailCommseqEmailStatsWithHttpInfo(String storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest) throws ApiException {
+    public ApiResponse<EmailStatSummaryResponse> getEmailCommseqEmailStatsWithHttpInfo(Integer storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCommseqEmailStatsValidateBeforeCall(storefrontOid, commseqUuid, statsRequest, null, null);
         Type localVarReturnType = new TypeToken<EmailStatSummaryResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2512,14 +3642,14 @@ public class StorefrontApi {
     /**
      * Get email communication sequence emails stats (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param statsRequest StatsRequest (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqEmailStatsAsync(String storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest, final ApiCallback<EmailStatSummaryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqEmailStatsAsync(Integer storefrontOid, String commseqUuid, EmailStatSummaryRequest statsRequest, final ApiCallback<EmailStatSummaryResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2546,17 +3676,159 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for getEmailCommseqStatOverall
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * Build call for getEmailCommseqPostcardStats
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param statsRequest StatsRequest (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqStatOverallCall(String storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call getEmailCommseqPostcardStatsCall(Integer storefrontOid, String commseqUuid, EmailStatPostcardSummaryRequest statsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = statsRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", apiClient.escapeString(commseqUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailCommseqPostcardStatsValidateBeforeCall(Integer storefrontOid, String commseqUuid, EmailStatPostcardSummaryRequest statsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailCommseqPostcardStats(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling getEmailCommseqPostcardStats(Async)");
+        }
+        
+        // verify the required parameter 'statsRequest' is set
+        if (statsRequest == null) {
+            throw new ApiException("Missing the required parameter 'statsRequest' when calling getEmailCommseqPostcardStats(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailCommseqPostcardStatsCall(storefrontOid, commseqUuid, statsRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email communication sequence postcard stats
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param statsRequest StatsRequest (required)
+     * @return EmailStatPostcardSummaryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailStatPostcardSummaryResponse getEmailCommseqPostcardStats(Integer storefrontOid, String commseqUuid, EmailStatPostcardSummaryRequest statsRequest) throws ApiException {
+        ApiResponse<EmailStatPostcardSummaryResponse> resp = getEmailCommseqPostcardStatsWithHttpInfo(storefrontOid, commseqUuid, statsRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Get email communication sequence postcard stats
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param statsRequest StatsRequest (required)
+     * @return ApiResponse&lt;EmailStatPostcardSummaryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailStatPostcardSummaryResponse> getEmailCommseqPostcardStatsWithHttpInfo(Integer storefrontOid, String commseqUuid, EmailStatPostcardSummaryRequest statsRequest) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailCommseqPostcardStatsValidateBeforeCall(storefrontOid, commseqUuid, statsRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailStatPostcardSummaryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email communication sequence postcard stats (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param statsRequest StatsRequest (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailCommseqPostcardStatsAsync(Integer storefrontOid, String commseqUuid, EmailStatPostcardSummaryRequest statsRequest, final ApiCallback<EmailStatPostcardSummaryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailCommseqPostcardStatsValidateBeforeCall(storefrontOid, commseqUuid, statsRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailStatPostcardSummaryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailCommseqStatOverall
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailCommseqStatOverallCall(Integer storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -2596,9 +3868,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCommseqStatOverallValidateBeforeCall(String storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCommseqStatOverallValidateBeforeCall(Integer storefrontOid, String commseqUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -2610,25 +3882,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'commseqUuid' when calling getEmailCommseqStatOverall(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailCommseqStatOverallCall(storefrontOid, commseqUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get communication sequence stats overall
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @return EmailCommseqStatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqStatResponse getEmailCommseqStatOverall(String storefrontOid, String commseqUuid) throws ApiException {
+    public EmailCommseqStatResponse getEmailCommseqStatOverall(Integer storefrontOid, String commseqUuid) throws ApiException {
         ApiResponse<EmailCommseqStatResponse> resp = getEmailCommseqStatOverallWithHttpInfo(storefrontOid, commseqUuid);
         return resp.getData();
     }
@@ -2636,12 +3904,12 @@ public class StorefrontApi {
     /**
      * Get communication sequence stats overall
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @return ApiResponse&lt;EmailCommseqStatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqStatResponse> getEmailCommseqStatOverallWithHttpInfo(String storefrontOid, String commseqUuid) throws ApiException {
+    public ApiResponse<EmailCommseqStatResponse> getEmailCommseqStatOverallWithHttpInfo(Integer storefrontOid, String commseqUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCommseqStatOverallValidateBeforeCall(storefrontOid, commseqUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqStatResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2650,13 +3918,13 @@ public class StorefrontApi {
     /**
      * Get communication sequence stats overall (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqStatOverallAsync(String storefrontOid, String commseqUuid, final ApiCallback<EmailCommseqStatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqStatOverallAsync(Integer storefrontOid, String commseqUuid, final ApiCallback<EmailCommseqStatResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2683,18 +3951,160 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for getEmailCommseqStepStats
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param statsRequest StatsRequest (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailCommseqStepStatsCall(Integer storefrontOid, String commseqUuid, EmailStepStatRequest statsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = statsRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", apiClient.escapeString(commseqUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailCommseqStepStatsValidateBeforeCall(Integer storefrontOid, String commseqUuid, EmailStepStatRequest statsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailCommseqStepStats(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling getEmailCommseqStepStats(Async)");
+        }
+        
+        // verify the required parameter 'statsRequest' is set
+        if (statsRequest == null) {
+            throw new ApiException("Missing the required parameter 'statsRequest' when calling getEmailCommseqStepStats(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailCommseqStepStatsCall(storefrontOid, commseqUuid, statsRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email communication sequence step stats
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param statsRequest StatsRequest (required)
+     * @return EmailStepStatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailStepStatResponse getEmailCommseqStepStats(Integer storefrontOid, String commseqUuid, EmailStepStatRequest statsRequest) throws ApiException {
+        ApiResponse<EmailStepStatResponse> resp = getEmailCommseqStepStatsWithHttpInfo(storefrontOid, commseqUuid, statsRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Get email communication sequence step stats
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param statsRequest StatsRequest (required)
+     * @return ApiResponse&lt;EmailStepStatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailStepStatResponse> getEmailCommseqStepStatsWithHttpInfo(Integer storefrontOid, String commseqUuid, EmailStepStatRequest statsRequest) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailCommseqStepStatsValidateBeforeCall(storefrontOid, commseqUuid, statsRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailStepStatResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email communication sequence step stats (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param statsRequest StatsRequest (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailCommseqStepStatsAsync(Integer storefrontOid, String commseqUuid, EmailStepStatRequest statsRequest, final ApiCallback<EmailStepStatResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailCommseqStepStatsValidateBeforeCall(storefrontOid, commseqUuid, statsRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailStepStatResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getEmailCommseqStepWaiting
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param waitingRequest WaitingRequest (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqStepWaitingCall(String storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqStepWaitingCall(Integer storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = waitingRequest;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -2734,9 +4144,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCommseqStepWaitingValidateBeforeCall(String storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCommseqStepWaitingValidateBeforeCall(Integer storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -2753,26 +4163,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'waitingRequest' when calling getEmailCommseqStepWaiting(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailCommseqStepWaitingCall(storefrontOid, commseqUuid, waitingRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email communication sequence customers waiting at each requested step
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param waitingRequest WaitingRequest (required)
      * @return EmailStepWaitingResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailStepWaitingResponse getEmailCommseqStepWaiting(String storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest) throws ApiException {
+    public EmailStepWaitingResponse getEmailCommseqStepWaiting(Integer storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest) throws ApiException {
         ApiResponse<EmailStepWaitingResponse> resp = getEmailCommseqStepWaitingWithHttpInfo(storefrontOid, commseqUuid, waitingRequest);
         return resp.getData();
     }
@@ -2780,13 +4186,13 @@ public class StorefrontApi {
     /**
      * Get email communication sequence customers waiting at each requested step
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param waitingRequest WaitingRequest (required)
      * @return ApiResponse&lt;EmailStepWaitingResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailStepWaitingResponse> getEmailCommseqStepWaitingWithHttpInfo(String storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest) throws ApiException {
+    public ApiResponse<EmailStepWaitingResponse> getEmailCommseqStepWaitingWithHttpInfo(Integer storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCommseqStepWaitingValidateBeforeCall(storefrontOid, commseqUuid, waitingRequest, null, null);
         Type localVarReturnType = new TypeToken<EmailStepWaitingResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2795,14 +4201,14 @@ public class StorefrontApi {
     /**
      * Get email communication sequence customers waiting at each requested step (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param waitingRequest WaitingRequest (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqStepWaitingAsync(String storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest, final ApiCallback<EmailStepWaitingResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqStepWaitingAsync(Integer storefrontOid, String commseqUuid, EmailStepWaitingRequest waitingRequest, final ApiCallback<EmailStepWaitingResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2830,15 +4236,15 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailCommseqs
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqsCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/commseqs"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -2877,33 +4283,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCommseqsValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCommseqsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailCommseqs(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailCommseqsCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email commseqs
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return EmailCommseqsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqsResponse getEmailCommseqs(String storefrontOid) throws ApiException {
+    public EmailCommseqsResponse getEmailCommseqs(Integer storefrontOid) throws ApiException {
         ApiResponse<EmailCommseqsResponse> resp = getEmailCommseqsWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -2911,11 +4313,11 @@ public class StorefrontApi {
     /**
      * Get email commseqs
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;EmailCommseqsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqsResponse> getEmailCommseqsWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<EmailCommseqsResponse> getEmailCommseqsWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCommseqsValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2924,12 +4326,12 @@ public class StorefrontApi {
     /**
      * Get email commseqs (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCommseqsAsync(String storefrontOid, final ApiCallback<EmailCommseqsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCommseqsAsync(Integer storefrontOid, final ApiCallback<EmailCommseqsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2956,17 +4358,291 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for getEmailDashboardActivity
-     * @param storefrontOid null (required)
-     * @param lastRecords null (optional)
+     * Build call for getEmailCustomerEditorUrl
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailDashboardActivityCall(String storefrontOid, Integer lastRecords, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCustomerEditorUrlCall(Integer storefrontOid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_customer_uuid" + "\\}", apiClient.escapeString(emailCustomerUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailCustomerEditorUrlValidateBeforeCall(Integer storefrontOid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailCustomerEditorUrl(Async)");
+        }
+        
+        // verify the required parameter 'emailCustomerUuid' is set
+        if (emailCustomerUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailCustomerUuid' when calling getEmailCustomerEditorUrl(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailCustomerEditorUrlCall(storefrontOid, emailCustomerUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get customers editor URL
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @return EmailCustomerEditorUrlResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCustomerEditorUrlResponse getEmailCustomerEditorUrl(Integer storefrontOid, String emailCustomerUuid) throws ApiException {
+        ApiResponse<EmailCustomerEditorUrlResponse> resp = getEmailCustomerEditorUrlWithHttpInfo(storefrontOid, emailCustomerUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get customers editor URL
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @return ApiResponse&lt;EmailCustomerEditorUrlResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCustomerEditorUrlResponse> getEmailCustomerEditorUrlWithHttpInfo(Integer storefrontOid, String emailCustomerUuid) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailCustomerEditorUrlValidateBeforeCall(storefrontOid, emailCustomerUuid, null, null);
+        Type localVarReturnType = new TypeToken<EmailCustomerEditorUrlResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get customers editor URL (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailCustomerEditorUrlAsync(Integer storefrontOid, String emailCustomerUuid, final ApiCallback<EmailCustomerEditorUrlResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailCustomerEditorUrlValidateBeforeCall(storefrontOid, emailCustomerUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCustomerEditorUrlResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailCustomers
+     * @param storefrontOid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param searchEmailPrefix  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailCustomersCall(Integer storefrontOid, Integer pageNumber, Integer pageSize, String searchEmailPrefix, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/customers"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (pageNumber != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pageNumber", pageNumber));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pageSize", pageSize));
+        if (searchEmailPrefix != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("searchEmailPrefix", searchEmailPrefix));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailCustomersValidateBeforeCall(Integer storefrontOid, Integer pageNumber, Integer pageSize, String searchEmailPrefix, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailCustomers(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailCustomersCall(storefrontOid, pageNumber, pageSize, searchEmailPrefix, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email customers
+     * 
+     * @param storefrontOid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param searchEmailPrefix  (optional)
+     * @return EmailCustomersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCustomersResponse getEmailCustomers(Integer storefrontOid, Integer pageNumber, Integer pageSize, String searchEmailPrefix) throws ApiException {
+        ApiResponse<EmailCustomersResponse> resp = getEmailCustomersWithHttpInfo(storefrontOid, pageNumber, pageSize, searchEmailPrefix);
+        return resp.getData();
+    }
+
+    /**
+     * Get email customers
+     * 
+     * @param storefrontOid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param searchEmailPrefix  (optional)
+     * @return ApiResponse&lt;EmailCustomersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCustomersResponse> getEmailCustomersWithHttpInfo(Integer storefrontOid, Integer pageNumber, Integer pageSize, String searchEmailPrefix) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailCustomersValidateBeforeCall(storefrontOid, pageNumber, pageSize, searchEmailPrefix, null, null);
+        Type localVarReturnType = new TypeToken<EmailCustomersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email customers (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param searchEmailPrefix  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailCustomersAsync(Integer storefrontOid, Integer pageNumber, Integer pageSize, String searchEmailPrefix, final ApiCallback<EmailCustomersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailCustomersValidateBeforeCall(storefrontOid, pageNumber, pageSize, searchEmailPrefix, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCustomersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailDashboardActivity
+     * @param storefrontOid  (required)
+     * @param lastRecords  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailDashboardActivityCall(Integer storefrontOid, Integer lastRecords, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/dashboard_activity"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -3007,34 +4683,30 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailDashboardActivityValidateBeforeCall(String storefrontOid, Integer lastRecords, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailDashboardActivityValidateBeforeCall(Integer storefrontOid, Integer lastRecords, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailDashboardActivity(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailDashboardActivityCall(storefrontOid, lastRecords, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email dashboard activity
      * 
-     * @param storefrontOid null (required)
-     * @param lastRecords null (optional)
+     * @param storefrontOid  (required)
+     * @param lastRecords  (optional)
      * @return EmailDashboardActivityResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailDashboardActivityResponse getEmailDashboardActivity(String storefrontOid, Integer lastRecords) throws ApiException {
+    public EmailDashboardActivityResponse getEmailDashboardActivity(Integer storefrontOid, Integer lastRecords) throws ApiException {
         ApiResponse<EmailDashboardActivityResponse> resp = getEmailDashboardActivityWithHttpInfo(storefrontOid, lastRecords);
         return resp.getData();
     }
@@ -3042,12 +4714,12 @@ public class StorefrontApi {
     /**
      * Get email dashboard activity
      * 
-     * @param storefrontOid null (required)
-     * @param lastRecords null (optional)
+     * @param storefrontOid  (required)
+     * @param lastRecords  (optional)
      * @return ApiResponse&lt;EmailDashboardActivityResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailDashboardActivityResponse> getEmailDashboardActivityWithHttpInfo(String storefrontOid, Integer lastRecords) throws ApiException {
+    public ApiResponse<EmailDashboardActivityResponse> getEmailDashboardActivityWithHttpInfo(Integer storefrontOid, Integer lastRecords) throws ApiException {
         com.squareup.okhttp.Call call = getEmailDashboardActivityValidateBeforeCall(storefrontOid, lastRecords, null, null);
         Type localVarReturnType = new TypeToken<EmailDashboardActivityResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3056,13 +4728,13 @@ public class StorefrontApi {
     /**
      * Get email dashboard activity (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param lastRecords null (optional)
+     * @param storefrontOid  (required)
+     * @param lastRecords  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailDashboardActivityAsync(String storefrontOid, Integer lastRecords, final ApiCallback<EmailDashboardActivityResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailDashboardActivityAsync(Integer storefrontOid, Integer lastRecords, final ApiCallback<EmailDashboardActivityResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3090,16 +4762,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailDashboardStats
-     * @param storefrontOid null (required)
-     * @param days null (optional)
+     * @param storefrontOid  (required)
+     * @param days  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailDashboardStatsCall(String storefrontOid, Integer days, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailDashboardStatsCall(Integer storefrontOid, Integer days, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/dashboard_stats"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -3140,34 +4812,30 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailDashboardStatsValidateBeforeCall(String storefrontOid, Integer days, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailDashboardStatsValidateBeforeCall(Integer storefrontOid, Integer days, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailDashboardStats(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailDashboardStatsCall(storefrontOid, days, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get dashboard stats
      * 
-     * @param storefrontOid null (required)
-     * @param days null (optional)
+     * @param storefrontOid  (required)
+     * @param days  (optional)
      * @return EmailDashboardStatsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailDashboardStatsResponse getEmailDashboardStats(String storefrontOid, Integer days) throws ApiException {
+    public EmailDashboardStatsResponse getEmailDashboardStats(Integer storefrontOid, Integer days) throws ApiException {
         ApiResponse<EmailDashboardStatsResponse> resp = getEmailDashboardStatsWithHttpInfo(storefrontOid, days);
         return resp.getData();
     }
@@ -3175,12 +4843,12 @@ public class StorefrontApi {
     /**
      * Get dashboard stats
      * 
-     * @param storefrontOid null (required)
-     * @param days null (optional)
+     * @param storefrontOid  (required)
+     * @param days  (optional)
      * @return ApiResponse&lt;EmailDashboardStatsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailDashboardStatsResponse> getEmailDashboardStatsWithHttpInfo(String storefrontOid, Integer days) throws ApiException {
+    public ApiResponse<EmailDashboardStatsResponse> getEmailDashboardStatsWithHttpInfo(Integer storefrontOid, Integer days) throws ApiException {
         com.squareup.okhttp.Call call = getEmailDashboardStatsValidateBeforeCall(storefrontOid, days, null, null);
         Type localVarReturnType = new TypeToken<EmailDashboardStatsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3189,13 +4857,13 @@ public class StorefrontApi {
     /**
      * Get dashboard stats (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param days null (optional)
+     * @param storefrontOid  (required)
+     * @param days  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailDashboardStatsAsync(String storefrontOid, Integer days, final ApiCallback<EmailDashboardStatsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailDashboardStatsAsync(Integer storefrontOid, Integer days, final ApiCallback<EmailDashboardStatsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3223,16 +4891,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailEmail
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailEmailCall(String storefrontOid, String commseqEmailUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEmailCall(Integer storefrontOid, String commseqEmailUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -3272,9 +4940,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailEmailValidateBeforeCall(String storefrontOid, String commseqEmailUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailEmailValidateBeforeCall(Integer storefrontOid, String commseqEmailUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -3286,25 +4954,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'commseqEmailUuid' when calling getEmailEmail(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailEmailCall(storefrontOid, commseqEmailUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email email
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @return EmailCommseqEmailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqEmailResponse getEmailEmail(String storefrontOid, String commseqEmailUuid) throws ApiException {
+    public EmailCommseqEmailResponse getEmailEmail(Integer storefrontOid, String commseqEmailUuid) throws ApiException {
         ApiResponse<EmailCommseqEmailResponse> resp = getEmailEmailWithHttpInfo(storefrontOid, commseqEmailUuid);
         return resp.getData();
     }
@@ -3312,12 +4976,12 @@ public class StorefrontApi {
     /**
      * Get email email
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @return ApiResponse&lt;EmailCommseqEmailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqEmailResponse> getEmailEmailWithHttpInfo(String storefrontOid, String commseqEmailUuid) throws ApiException {
+    public ApiResponse<EmailCommseqEmailResponse> getEmailEmailWithHttpInfo(Integer storefrontOid, String commseqEmailUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailEmailValidateBeforeCall(storefrontOid, commseqEmailUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqEmailResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3326,13 +4990,13 @@ public class StorefrontApi {
     /**
      * Get email email (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailEmailAsync(String storefrontOid, String commseqEmailUuid, final ApiCallback<EmailCommseqEmailResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEmailAsync(Integer storefrontOid, String commseqEmailUuid, final ApiCallback<EmailCommseqEmailResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3359,16 +5023,477 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for getEmailEmails
-     * @param storefrontOid null (required)
+     * Build call for getEmailEmailClicks
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param days  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailEmailsCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEmailClicksCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", apiClient.escapeString(commseqUuid.toString()))
+            .replaceAll("\\{" + "commseq_step_uuid" + "\\}", apiClient.escapeString(commseqStepUuid.toString()))
+            .replaceAll("\\{" + "commseq_email_uuid" + "\\}", apiClient.escapeString(commseqEmailUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (days != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("days", days));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailEmailClicksValidateBeforeCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailEmailClicks(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling getEmailEmailClicks(Async)");
+        }
+        
+        // verify the required parameter 'commseqStepUuid' is set
+        if (commseqStepUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqStepUuid' when calling getEmailEmailClicks(Async)");
+        }
+        
+        // verify the required parameter 'commseqEmailUuid' is set
+        if (commseqEmailUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqEmailUuid' when calling getEmailEmailClicks(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailEmailClicksCall(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email email clicks
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param days  (optional)
+     * @return EmailClicksResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailClicksResponse getEmailEmailClicks(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days) throws ApiException {
+        ApiResponse<EmailClicksResponse> resp = getEmailEmailClicksWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days);
+        return resp.getData();
+    }
+
+    /**
+     * Get email email clicks
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param days  (optional)
+     * @return ApiResponse&lt;EmailClicksResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailClicksResponse> getEmailEmailClicksWithHttpInfo(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailEmailClicksValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days, null, null);
+        Type localVarReturnType = new TypeToken<EmailClicksResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email email clicks (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param days  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailEmailClicksAsync(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days, final ApiCallback<EmailClicksResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailEmailClicksValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailClicksResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailEmailCustomerEditorUrl
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param orderId  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailEmailCustomerEditorUrlCall(Integer storefrontOid, String commseqEmailUuid, String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/orders/{order_id}/editor_url"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_email_uuid" + "\\}", apiClient.escapeString(commseqEmailUuid.toString()))
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailEmailCustomerEditorUrlValidateBeforeCall(Integer storefrontOid, String commseqEmailUuid, String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailEmailCustomerEditorUrl(Async)");
+        }
+        
+        // verify the required parameter 'commseqEmailUuid' is set
+        if (commseqEmailUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqEmailUuid' when calling getEmailEmailCustomerEditorUrl(Async)");
+        }
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getEmailEmailCustomerEditorUrl(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailEmailCustomerEditorUrlCall(storefrontOid, commseqEmailUuid, orderId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email order customer editor url
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param orderId  (required)
+     * @return EmailCustomerEditorUrlResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCustomerEditorUrlResponse getEmailEmailCustomerEditorUrl(Integer storefrontOid, String commseqEmailUuid, String orderId) throws ApiException {
+        ApiResponse<EmailCustomerEditorUrlResponse> resp = getEmailEmailCustomerEditorUrlWithHttpInfo(storefrontOid, commseqEmailUuid, orderId);
+        return resp.getData();
+    }
+
+    /**
+     * Get email order customer editor url
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param orderId  (required)
+     * @return ApiResponse&lt;EmailCustomerEditorUrlResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCustomerEditorUrlResponse> getEmailEmailCustomerEditorUrlWithHttpInfo(Integer storefrontOid, String commseqEmailUuid, String orderId) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailEmailCustomerEditorUrlValidateBeforeCall(storefrontOid, commseqEmailUuid, orderId, null, null);
+        Type localVarReturnType = new TypeToken<EmailCustomerEditorUrlResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email order customer editor url (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param orderId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailEmailCustomerEditorUrlAsync(Integer storefrontOid, String commseqEmailUuid, String orderId, final ApiCallback<EmailCustomerEditorUrlResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailEmailCustomerEditorUrlValidateBeforeCall(storefrontOid, commseqEmailUuid, orderId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCustomerEditorUrlResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailEmailOrders
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param days  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailEmailOrdersCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/orders"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", apiClient.escapeString(commseqUuid.toString()))
+            .replaceAll("\\{" + "commseq_step_uuid" + "\\}", apiClient.escapeString(commseqStepUuid.toString()))
+            .replaceAll("\\{" + "commseq_email_uuid" + "\\}", apiClient.escapeString(commseqEmailUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (days != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("days", days));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailEmailOrdersValidateBeforeCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailEmailOrders(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling getEmailEmailOrders(Async)");
+        }
+        
+        // verify the required parameter 'commseqStepUuid' is set
+        if (commseqStepUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqStepUuid' when calling getEmailEmailOrders(Async)");
+        }
+        
+        // verify the required parameter 'commseqEmailUuid' is set
+        if (commseqEmailUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqEmailUuid' when calling getEmailEmailOrders(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailEmailOrdersCall(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email email orders
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param days  (optional)
+     * @return EmailOrdersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailOrdersResponse getEmailEmailOrders(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days) throws ApiException {
+        ApiResponse<EmailOrdersResponse> resp = getEmailEmailOrdersWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days);
+        return resp.getData();
+    }
+
+    /**
+     * Get email email orders
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param days  (optional)
+     * @return ApiResponse&lt;EmailOrdersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailOrdersResponse> getEmailEmailOrdersWithHttpInfo(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailEmailOrdersValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days, null, null);
+        Type localVarReturnType = new TypeToken<EmailOrdersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email email orders (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param days  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailEmailOrdersAsync(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String commseqEmailUuid, Integer days, final ApiCallback<EmailOrdersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailEmailOrdersValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailOrdersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailEmails
+     * @param storefrontOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailEmailsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/emails"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -3407,33 +5532,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailEmailsValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailEmailsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailEmails(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailEmailsCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email emails
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return EmailCommseqEmailsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqEmailsResponse getEmailEmails(String storefrontOid) throws ApiException {
+    public EmailCommseqEmailsResponse getEmailEmails(Integer storefrontOid) throws ApiException {
         ApiResponse<EmailCommseqEmailsResponse> resp = getEmailEmailsWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -3441,11 +5562,11 @@ public class StorefrontApi {
     /**
      * Get email emails
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;EmailCommseqEmailsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqEmailsResponse> getEmailEmailsWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<EmailCommseqEmailsResponse> getEmailEmailsWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailEmailsValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqEmailsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3454,12 +5575,12 @@ public class StorefrontApi {
     /**
      * Get email emails (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailEmailsAsync(String storefrontOid, final ApiCallback<EmailCommseqEmailsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEmailsAsync(Integer storefrontOid, final ApiCallback<EmailCommseqEmailsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3487,16 +5608,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailEmailsMultiple
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseqEmailsRequest Request of email uuids (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailEmailsMultipleCall(String storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEmailsMultipleCall(Integer storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCommseqEmailsRequest;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/emails/multiple"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -3535,9 +5656,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailEmailsMultipleValidateBeforeCall(String storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailEmailsMultipleValidateBeforeCall(Integer storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -3549,25 +5670,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCommseqEmailsRequest' when calling getEmailEmailsMultiple(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailEmailsMultipleCall(storefrontOid, emailCommseqEmailsRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email emails multiple
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseqEmailsRequest Request of email uuids (required)
      * @return EmailCommseqEmailsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqEmailsResponse getEmailEmailsMultiple(String storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest) throws ApiException {
+    public EmailCommseqEmailsResponse getEmailEmailsMultiple(Integer storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest) throws ApiException {
         ApiResponse<EmailCommseqEmailsResponse> resp = getEmailEmailsMultipleWithHttpInfo(storefrontOid, emailCommseqEmailsRequest);
         return resp.getData();
     }
@@ -3575,12 +5692,12 @@ public class StorefrontApi {
     /**
      * Get email emails multiple
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseqEmailsRequest Request of email uuids (required)
      * @return ApiResponse&lt;EmailCommseqEmailsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqEmailsResponse> getEmailEmailsMultipleWithHttpInfo(String storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest) throws ApiException {
+    public ApiResponse<EmailCommseqEmailsResponse> getEmailEmailsMultipleWithHttpInfo(Integer storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest) throws ApiException {
         com.squareup.okhttp.Call call = getEmailEmailsMultipleValidateBeforeCall(storefrontOid, emailCommseqEmailsRequest, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqEmailsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3589,13 +5706,13 @@ public class StorefrontApi {
     /**
      * Get email emails multiple (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseqEmailsRequest Request of email uuids (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailEmailsMultipleAsync(String storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest, final ApiCallback<EmailCommseqEmailsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEmailsMultipleAsync(Integer storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest, final ApiCallback<EmailCommseqEmailsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3623,16 +5740,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailFlow
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailFlowCall(String storefrontOid, String emailFlowUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailFlowCall(Integer storefrontOid, String emailFlowUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/flows/{email_flow_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -3672,9 +5789,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailFlowValidateBeforeCall(String storefrontOid, String emailFlowUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailFlowValidateBeforeCall(Integer storefrontOid, String emailFlowUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -3686,25 +5803,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailFlowUuid' when calling getEmailFlow(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailFlowCall(storefrontOid, emailFlowUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email flow
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
      * @return EmailFlowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailFlowResponse getEmailFlow(String storefrontOid, String emailFlowUuid) throws ApiException {
+    public EmailFlowResponse getEmailFlow(Integer storefrontOid, String emailFlowUuid) throws ApiException {
         ApiResponse<EmailFlowResponse> resp = getEmailFlowWithHttpInfo(storefrontOid, emailFlowUuid);
         return resp.getData();
     }
@@ -3712,12 +5825,12 @@ public class StorefrontApi {
     /**
      * Get email flow
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
      * @return ApiResponse&lt;EmailFlowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailFlowResponse> getEmailFlowWithHttpInfo(String storefrontOid, String emailFlowUuid) throws ApiException {
+    public ApiResponse<EmailFlowResponse> getEmailFlowWithHttpInfo(Integer storefrontOid, String emailFlowUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailFlowValidateBeforeCall(storefrontOid, emailFlowUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailFlowResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3726,13 +5839,13 @@ public class StorefrontApi {
     /**
      * Get email flow (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailFlowAsync(String storefrontOid, String emailFlowUuid, final ApiCallback<EmailFlowResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailFlowAsync(Integer storefrontOid, String emailFlowUuid, final ApiCallback<EmailFlowResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3760,15 +5873,15 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailFlows
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailFlowsCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailFlowsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/flows"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -3807,33 +5920,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailFlowsValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailFlowsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailFlows(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailFlowsCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email flows
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return EmailFlowsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailFlowsResponse getEmailFlows(String storefrontOid) throws ApiException {
+    public EmailFlowsResponse getEmailFlows(Integer storefrontOid) throws ApiException {
         ApiResponse<EmailFlowsResponse> resp = getEmailFlowsWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -3841,11 +5950,11 @@ public class StorefrontApi {
     /**
      * Get email flows
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;EmailFlowsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailFlowsResponse> getEmailFlowsWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<EmailFlowsResponse> getEmailFlowsWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailFlowsValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailFlowsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3854,12 +5963,12 @@ public class StorefrontApi {
     /**
      * Get email flows (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailFlowsAsync(String storefrontOid, final ApiCallback<EmailFlowsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailFlowsAsync(Integer storefrontOid, final ApiCallback<EmailFlowsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3886,17 +5995,130 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for getEmailList
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * Build call for getEmailGlobalSettings
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailListCall(String storefrontOid, String emailListUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailGlobalSettingsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/email/global_settings";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailGlobalSettingsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
+        com.squareup.okhttp.Call call = getEmailGlobalSettingsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email globalsettings
+     * 
+     * @return EmailGlobalSettingsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailGlobalSettingsResponse getEmailGlobalSettings() throws ApiException {
+        ApiResponse<EmailGlobalSettingsResponse> resp = getEmailGlobalSettingsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get email globalsettings
+     * 
+     * @return ApiResponse&lt;EmailGlobalSettingsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailGlobalSettingsResponse> getEmailGlobalSettingsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getEmailGlobalSettingsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<EmailGlobalSettingsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email globalsettings (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailGlobalSettingsAsync(final ApiCallback<EmailGlobalSettingsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailGlobalSettingsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailGlobalSettingsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailList
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailListCall(Integer storefrontOid, String emailListUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists/{email_list_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -3936,9 +6158,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailListValidateBeforeCall(String storefrontOid, String emailListUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailListValidateBeforeCall(Integer storefrontOid, String emailListUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -3950,25 +6172,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailListUuid' when calling getEmailList(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailListCall(storefrontOid, emailListUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email list
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @return EmailListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailListResponse getEmailList(String storefrontOid, String emailListUuid) throws ApiException {
+    public EmailListResponse getEmailList(Integer storefrontOid, String emailListUuid) throws ApiException {
         ApiResponse<EmailListResponse> resp = getEmailListWithHttpInfo(storefrontOid, emailListUuid);
         return resp.getData();
     }
@@ -3976,12 +6194,12 @@ public class StorefrontApi {
     /**
      * Get email list
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @return ApiResponse&lt;EmailListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailListResponse> getEmailListWithHttpInfo(String storefrontOid, String emailListUuid) throws ApiException {
+    public ApiResponse<EmailListResponse> getEmailListWithHttpInfo(Integer storefrontOid, String emailListUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailListValidateBeforeCall(storefrontOid, emailListUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3990,13 +6208,13 @@ public class StorefrontApi {
     /**
      * Get email list (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailListAsync(String storefrontOid, String emailListUuid, final ApiCallback<EmailListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailListAsync(Integer storefrontOid, String emailListUuid, final ApiCallback<EmailListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4024,17 +6242,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailListCustomerEditorUrl
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailListCustomerEditorUrlCall(String storefrontOid, String emailListUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailListCustomerEditorUrlCall(Integer storefrontOid, String emailListUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -4075,9 +6293,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailListCustomerEditorUrlValidateBeforeCall(String storefrontOid, String emailListUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailListCustomerEditorUrlValidateBeforeCall(Integer storefrontOid, String emailListUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -4094,56 +6312,52 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCustomerUuid' when calling getEmailListCustomerEditorUrl(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailListCustomerEditorUrlCall(storefrontOid, emailListUuid, emailCustomerUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
-     * Get email list customers
+     * Get email list customer editor url
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @return EmailCustomerEditorUrlResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCustomerEditorUrlResponse getEmailListCustomerEditorUrl(String storefrontOid, String emailListUuid, String emailCustomerUuid) throws ApiException {
+    public EmailCustomerEditorUrlResponse getEmailListCustomerEditorUrl(Integer storefrontOid, String emailListUuid, String emailCustomerUuid) throws ApiException {
         ApiResponse<EmailCustomerEditorUrlResponse> resp = getEmailListCustomerEditorUrlWithHttpInfo(storefrontOid, emailListUuid, emailCustomerUuid);
         return resp.getData();
     }
 
     /**
-     * Get email list customers
+     * Get email list customer editor url
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @return ApiResponse&lt;EmailCustomerEditorUrlResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCustomerEditorUrlResponse> getEmailListCustomerEditorUrlWithHttpInfo(String storefrontOid, String emailListUuid, String emailCustomerUuid) throws ApiException {
+    public ApiResponse<EmailCustomerEditorUrlResponse> getEmailListCustomerEditorUrlWithHttpInfo(Integer storefrontOid, String emailListUuid, String emailCustomerUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailListCustomerEditorUrlValidateBeforeCall(storefrontOid, emailListUuid, emailCustomerUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailCustomerEditorUrlResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get email list customers (asynchronously)
+     * Get email list customer editor url (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailListCustomerEditorUrlAsync(String storefrontOid, String emailListUuid, String emailCustomerUuid, final ApiCallback<EmailCustomerEditorUrlResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailListCustomerEditorUrlAsync(Integer storefrontOid, String emailListUuid, String emailCustomerUuid, final ApiCallback<EmailCustomerEditorUrlResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4171,18 +6385,18 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailListCustomers
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param pageNumber null (optional)
-     * @param pageSize null (optional)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailListCustomersCall(String storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailListCustomersCall(Integer storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -4226,9 +6440,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailListCustomersValidateBeforeCall(String storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailListCustomersValidateBeforeCall(Integer storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -4240,27 +6454,23 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailListUuid' when calling getEmailListCustomers(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailListCustomersCall(storefrontOid, emailListUuid, pageNumber, pageSize, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email list customers
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param pageNumber null (optional)
-     * @param pageSize null (optional)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
      * @return EmailListCustomersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailListCustomersResponse getEmailListCustomers(String storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize) throws ApiException {
+    public EmailListCustomersResponse getEmailListCustomers(Integer storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize) throws ApiException {
         ApiResponse<EmailListCustomersResponse> resp = getEmailListCustomersWithHttpInfo(storefrontOid, emailListUuid, pageNumber, pageSize);
         return resp.getData();
     }
@@ -4268,14 +6478,14 @@ public class StorefrontApi {
     /**
      * Get email list customers
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param pageNumber null (optional)
-     * @param pageSize null (optional)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
      * @return ApiResponse&lt;EmailListCustomersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailListCustomersResponse> getEmailListCustomersWithHttpInfo(String storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize) throws ApiException {
+    public ApiResponse<EmailListCustomersResponse> getEmailListCustomersWithHttpInfo(Integer storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = getEmailListCustomersValidateBeforeCall(storefrontOid, emailListUuid, pageNumber, pageSize, null, null);
         Type localVarReturnType = new TypeToken<EmailListCustomersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4284,15 +6494,15 @@ public class StorefrontApi {
     /**
      * Get email list customers (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param pageNumber null (optional)
-     * @param pageSize null (optional)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailListCustomersAsync(String storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize, final ApiCallback<EmailListCustomersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailListCustomersAsync(Integer storefrontOid, String emailListUuid, Integer pageNumber, Integer pageSize, final ApiCallback<EmailListCustomersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4320,15 +6530,15 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailLists
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailListsCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailListsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -4367,33 +6577,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailListsValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailListsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailLists(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailListsCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email lists
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return EmailListsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailListsResponse getEmailLists(String storefrontOid) throws ApiException {
+    public EmailListsResponse getEmailLists(Integer storefrontOid) throws ApiException {
         ApiResponse<EmailListsResponse> resp = getEmailListsWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -4401,11 +6607,11 @@ public class StorefrontApi {
     /**
      * Get email lists
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;EmailListsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailListsResponse> getEmailListsWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<EmailListsResponse> getEmailListsWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailListsValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailListsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4414,12 +6620,12 @@ public class StorefrontApi {
     /**
      * Get email lists (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailListsAsync(String storefrontOid, final ApiCallback<EmailListsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailListsAsync(Integer storefrontOid, final ApiCallback<EmailListsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4446,17 +6652,651 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for getEmailSegment
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * Build call for getEmailPerformance
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailSegmentCall(String storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailPerformanceCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/performance"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailPerformanceValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailPerformance(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailPerformanceCall(storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email performance
+     * 
+     * @param storefrontOid  (required)
+     * @return EmailPerformanceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailPerformanceResponse getEmailPerformance(Integer storefrontOid) throws ApiException {
+        ApiResponse<EmailPerformanceResponse> resp = getEmailPerformanceWithHttpInfo(storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get email performance
+     * 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;EmailPerformanceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailPerformanceResponse> getEmailPerformanceWithHttpInfo(Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailPerformanceValidateBeforeCall(storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<EmailPerformanceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email performance (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPerformanceAsync(Integer storefrontOid, final ApiCallback<EmailPerformanceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailPerformanceValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailPerformanceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailPlan
+     * @param storefrontOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPlanCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/plan"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailPlanValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailPlan(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailPlanCall(storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email plan
+     * 
+     * @param storefrontOid  (required)
+     * @return EmailPlanResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailPlanResponse getEmailPlan(Integer storefrontOid) throws ApiException {
+        ApiResponse<EmailPlanResponse> resp = getEmailPlanWithHttpInfo(storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get email plan
+     * 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;EmailPlanResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailPlanResponse> getEmailPlanWithHttpInfo(Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailPlanValidateBeforeCall(storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<EmailPlanResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email plan (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPlanAsync(Integer storefrontOid, final ApiCallback<EmailPlanResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailPlanValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailPlanResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailPostcard
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPostcardCall(Integer storefrontOid, String commseqPostcardUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_postcard_uuid" + "\\}", apiClient.escapeString(commseqPostcardUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailPostcardValidateBeforeCall(Integer storefrontOid, String commseqPostcardUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailPostcard(Async)");
+        }
+        
+        // verify the required parameter 'commseqPostcardUuid' is set
+        if (commseqPostcardUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqPostcardUuid' when calling getEmailPostcard(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailPostcardCall(storefrontOid, commseqPostcardUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email postcard
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @return EmailCommseqPostcardResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqPostcardResponse getEmailPostcard(Integer storefrontOid, String commseqPostcardUuid) throws ApiException {
+        ApiResponse<EmailCommseqPostcardResponse> resp = getEmailPostcardWithHttpInfo(storefrontOid, commseqPostcardUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get email postcard
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @return ApiResponse&lt;EmailCommseqPostcardResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqPostcardResponse> getEmailPostcardWithHttpInfo(Integer storefrontOid, String commseqPostcardUuid) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailPostcardValidateBeforeCall(storefrontOid, commseqPostcardUuid, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email postcard (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPostcardAsync(Integer storefrontOid, String commseqPostcardUuid, final ApiCallback<EmailCommseqPostcardResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailPostcardValidateBeforeCall(storefrontOid, commseqPostcardUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailPostcards
+     * @param storefrontOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPostcardsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/postcards"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailPostcardsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailPostcards(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailPostcardsCall(storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email postcards
+     * 
+     * @param storefrontOid  (required)
+     * @return EmailCommseqPostcardsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqPostcardsResponse getEmailPostcards(Integer storefrontOid) throws ApiException {
+        ApiResponse<EmailCommseqPostcardsResponse> resp = getEmailPostcardsWithHttpInfo(storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get email postcards
+     * 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;EmailCommseqPostcardsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqPostcardsResponse> getEmailPostcardsWithHttpInfo(Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailPostcardsValidateBeforeCall(storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email postcards (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPostcardsAsync(Integer storefrontOid, final ApiCallback<EmailCommseqPostcardsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailPostcardsValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailPostcardsMultiple
+     * @param storefrontOid  (required)
+     * @param emailCommseqPostcardsRequest Request of postcard uuids (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPostcardsMultipleCall(Integer storefrontOid, EmailCommseqPostcardsRequest emailCommseqPostcardsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailCommseqPostcardsRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/postcards/multiple"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailPostcardsMultipleValidateBeforeCall(Integer storefrontOid, EmailCommseqPostcardsRequest emailCommseqPostcardsRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailPostcardsMultiple(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqPostcardsRequest' is set
+        if (emailCommseqPostcardsRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqPostcardsRequest' when calling getEmailPostcardsMultiple(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailPostcardsMultipleCall(storefrontOid, emailCommseqPostcardsRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email postcards multiple
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqPostcardsRequest Request of postcard uuids (required)
+     * @return EmailCommseqPostcardsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqPostcardsResponse getEmailPostcardsMultiple(Integer storefrontOid, EmailCommseqPostcardsRequest emailCommseqPostcardsRequest) throws ApiException {
+        ApiResponse<EmailCommseqPostcardsResponse> resp = getEmailPostcardsMultipleWithHttpInfo(storefrontOid, emailCommseqPostcardsRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Get email postcards multiple
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqPostcardsRequest Request of postcard uuids (required)
+     * @return ApiResponse&lt;EmailCommseqPostcardsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqPostcardsResponse> getEmailPostcardsMultipleWithHttpInfo(Integer storefrontOid, EmailCommseqPostcardsRequest emailCommseqPostcardsRequest) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailPostcardsMultipleValidateBeforeCall(storefrontOid, emailCommseqPostcardsRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email postcards multiple (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqPostcardsRequest Request of postcard uuids (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailPostcardsMultipleAsync(Integer storefrontOid, EmailCommseqPostcardsRequest emailCommseqPostcardsRequest, final ApiCallback<EmailCommseqPostcardsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailPostcardsMultipleValidateBeforeCall(storefrontOid, emailCommseqPostcardsRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailSegment
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailSegmentCall(Integer storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments/{email_segment_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -4496,9 +7336,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailSegmentValidateBeforeCall(String storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailSegmentValidateBeforeCall(Integer storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -4510,25 +7350,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailSegmentUuid' when calling getEmailSegment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailSegmentCall(storefrontOid, emailSegmentUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @return EmailSegmentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentResponse getEmailSegment(String storefrontOid, String emailSegmentUuid) throws ApiException {
+    public EmailSegmentResponse getEmailSegment(Integer storefrontOid, String emailSegmentUuid) throws ApiException {
         ApiResponse<EmailSegmentResponse> resp = getEmailSegmentWithHttpInfo(storefrontOid, emailSegmentUuid);
         return resp.getData();
     }
@@ -4536,12 +7372,12 @@ public class StorefrontApi {
     /**
      * Get email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @return ApiResponse&lt;EmailSegmentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentResponse> getEmailSegmentWithHttpInfo(String storefrontOid, String emailSegmentUuid) throws ApiException {
+    public ApiResponse<EmailSegmentResponse> getEmailSegmentWithHttpInfo(Integer storefrontOid, String emailSegmentUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailSegmentValidateBeforeCall(storefrontOid, emailSegmentUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4550,13 +7386,13 @@ public class StorefrontApi {
     /**
      * Get email segment (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailSegmentAsync(String storefrontOid, String emailSegmentUuid, final ApiCallback<EmailSegmentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailSegmentAsync(Integer storefrontOid, String emailSegmentUuid, final ApiCallback<EmailSegmentResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4584,17 +7420,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailSegmentCustomerEditorUrl
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailSegmentCustomerEditorUrlCall(String storefrontOid, String emailSegmentUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailSegmentCustomerEditorUrlCall(Integer storefrontOid, String emailSegmentUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers/{email_customer_uuid}/editor_url"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -4635,9 +7471,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailSegmentCustomerEditorUrlValidateBeforeCall(String storefrontOid, String emailSegmentUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailSegmentCustomerEditorUrlValidateBeforeCall(Integer storefrontOid, String emailSegmentUuid, String emailCustomerUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -4654,26 +7490,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCustomerUuid' when calling getEmailSegmentCustomerEditorUrl(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailSegmentCustomerEditorUrlCall(storefrontOid, emailSegmentUuid, emailCustomerUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email segment customers editor URL
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @return EmailCustomerEditorUrlResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCustomerEditorUrlResponse getEmailSegmentCustomerEditorUrl(String storefrontOid, String emailSegmentUuid, String emailCustomerUuid) throws ApiException {
+    public EmailCustomerEditorUrlResponse getEmailSegmentCustomerEditorUrl(Integer storefrontOid, String emailSegmentUuid, String emailCustomerUuid) throws ApiException {
         ApiResponse<EmailCustomerEditorUrlResponse> resp = getEmailSegmentCustomerEditorUrlWithHttpInfo(storefrontOid, emailSegmentUuid, emailCustomerUuid);
         return resp.getData();
     }
@@ -4681,13 +7513,13 @@ public class StorefrontApi {
     /**
      * Get email segment customers editor URL
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @return ApiResponse&lt;EmailCustomerEditorUrlResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCustomerEditorUrlResponse> getEmailSegmentCustomerEditorUrlWithHttpInfo(String storefrontOid, String emailSegmentUuid, String emailCustomerUuid) throws ApiException {
+    public ApiResponse<EmailCustomerEditorUrlResponse> getEmailSegmentCustomerEditorUrlWithHttpInfo(Integer storefrontOid, String emailSegmentUuid, String emailCustomerUuid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailSegmentCustomerEditorUrlValidateBeforeCall(storefrontOid, emailSegmentUuid, emailCustomerUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailCustomerEditorUrlResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4696,14 +7528,14 @@ public class StorefrontApi {
     /**
      * Get email segment customers editor URL (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param emailCustomerUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param emailCustomerUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailSegmentCustomerEditorUrlAsync(String storefrontOid, String emailSegmentUuid, String emailCustomerUuid, final ApiCallback<EmailCustomerEditorUrlResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailSegmentCustomerEditorUrlAsync(Integer storefrontOid, String emailSegmentUuid, String emailCustomerUuid, final ApiCallback<EmailCustomerEditorUrlResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4731,18 +7563,18 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailSegmentCustomers
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param pageNumber null (optional)
-     * @param pageSize null (optional)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailSegmentCustomersCall(String storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailSegmentCustomersCall(Integer storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -4786,9 +7618,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailSegmentCustomersValidateBeforeCall(String storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailSegmentCustomersValidateBeforeCall(Integer storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -4800,27 +7632,23 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailSegmentUuid' when calling getEmailSegmentCustomers(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailSegmentCustomersCall(storefrontOid, emailSegmentUuid, pageNumber, pageSize, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email segment customers
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param pageNumber null (optional)
-     * @param pageSize null (optional)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
      * @return EmailSegmentCustomersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentCustomersResponse getEmailSegmentCustomers(String storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize) throws ApiException {
+    public EmailSegmentCustomersResponse getEmailSegmentCustomers(Integer storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize) throws ApiException {
         ApiResponse<EmailSegmentCustomersResponse> resp = getEmailSegmentCustomersWithHttpInfo(storefrontOid, emailSegmentUuid, pageNumber, pageSize);
         return resp.getData();
     }
@@ -4828,14 +7656,14 @@ public class StorefrontApi {
     /**
      * Get email segment customers
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param pageNumber null (optional)
-     * @param pageSize null (optional)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
      * @return ApiResponse&lt;EmailSegmentCustomersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentCustomersResponse> getEmailSegmentCustomersWithHttpInfo(String storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize) throws ApiException {
+    public ApiResponse<EmailSegmentCustomersResponse> getEmailSegmentCustomersWithHttpInfo(Integer storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = getEmailSegmentCustomersValidateBeforeCall(storefrontOid, emailSegmentUuid, pageNumber, pageSize, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentCustomersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4844,15 +7672,15 @@ public class StorefrontApi {
     /**
      * Get email segment customers (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param pageNumber null (optional)
-     * @param pageSize null (optional)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailSegmentCustomersAsync(String storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize, final ApiCallback<EmailSegmentCustomersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailSegmentCustomersAsync(Integer storefrontOid, String emailSegmentUuid, Integer pageNumber, Integer pageSize, final ApiCallback<EmailSegmentCustomersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4880,15 +7708,15 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailSegments
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailSegmentsCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailSegmentsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -4927,33 +7755,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailSegmentsValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailSegmentsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailSegments(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailSegmentsCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email segments
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return EmailSegmentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentsResponse getEmailSegments(String storefrontOid) throws ApiException {
+    public EmailSegmentsResponse getEmailSegments(Integer storefrontOid) throws ApiException {
         ApiResponse<EmailSegmentsResponse> resp = getEmailSegmentsWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -4961,11 +7785,11 @@ public class StorefrontApi {
     /**
      * Get email segments
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;EmailSegmentsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentsResponse> getEmailSegmentsWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<EmailSegmentsResponse> getEmailSegmentsWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailSegmentsValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4974,12 +7798,12 @@ public class StorefrontApi {
     /**
      * Get email segments (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailSegmentsAsync(String storefrontOid, final ApiCallback<EmailSegmentsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailSegmentsAsync(Integer storefrontOid, final ApiCallback<EmailSegmentsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5007,7 +7831,7 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailSendingDomain
-     * @param domain null (required)
+     * @param domain  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -5015,7 +7839,7 @@ public class StorefrontApi {
      */
     public com.squareup.okhttp.Call getEmailSendingDomainCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/email/sending_domain/{domain}"
             .replaceAll("\\{" + "domain" + "\\}", apiClient.escapeString(domain.toString()));
@@ -5054,7 +7878,7 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEmailSendingDomainValidateBeforeCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -5063,20 +7887,16 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'domain' when calling getEmailSendingDomain(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailSendingDomainCall(domain, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email sending domain
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @return EmailSendingDomainResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5088,7 +7908,7 @@ public class StorefrontApi {
     /**
      * Get email sending domain
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @return ApiResponse&lt;EmailSendingDomainResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5101,7 +7921,7 @@ public class StorefrontApi {
     /**
      * Get email sending domain (asynchronously)
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5134,7 +7954,7 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailSendingDomainStatus
-     * @param domain null (required)
+     * @param domain  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -5142,7 +7962,7 @@ public class StorefrontApi {
      */
     public com.squareup.okhttp.Call getEmailSendingDomainStatusCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/email/sending_domains/{domain}/status"
             .replaceAll("\\{" + "domain" + "\\}", apiClient.escapeString(domain.toString()));
@@ -5181,7 +8001,7 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEmailSendingDomainStatusValidateBeforeCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -5190,20 +8010,16 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'domain' when calling getEmailSendingDomainStatus(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailSendingDomainStatusCall(domain, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email sending domain status
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @return EmailSendingDomainResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5215,7 +8031,7 @@ public class StorefrontApi {
     /**
      * Get email sending domain status
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @return ApiResponse&lt;EmailSendingDomainResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5228,7 +8044,7 @@ public class StorefrontApi {
     /**
      * Get email sending domain status (asynchronously)
      * 
-     * @param domain null (required)
+     * @param domain  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5268,7 +8084,7 @@ public class StorefrontApi {
      */
     public com.squareup.okhttp.Call getEmailSendingDomainsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/email/sending_domains";
 
@@ -5306,18 +8122,14 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEmailSendingDomainsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getEmailSendingDomainsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -5377,17 +8189,140 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for getEmailTemplate
-     * @param storefrontOid null (required)
-     * @param emailTemplateOid null (required)
+     * Build call for getEmailSettings
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailTemplateCall(String storefrontOid, Integer emailTemplateOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailSettingsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/settings"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailSettingsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailSettings(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailSettingsCall(storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email settings
+     * 
+     * @param storefrontOid  (required)
+     * @return EmailSettingsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailSettingsResponse getEmailSettings(Integer storefrontOid) throws ApiException {
+        ApiResponse<EmailSettingsResponse> resp = getEmailSettingsWithHttpInfo(storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get email settings
+     * 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;EmailSettingsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailSettingsResponse> getEmailSettingsWithHttpInfo(Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailSettingsValidateBeforeCall(storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<EmailSettingsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email settings (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailSettingsAsync(Integer storefrontOid, final ApiCallback<EmailSettingsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailSettingsValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailSettingsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailTemplate
+     * @param storefrontOid  (required)
+     * @param emailTemplateOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailTemplateCall(Integer storefrontOid, Integer emailTemplateOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/templates/{email_template_oid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -5427,9 +8362,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailTemplateValidateBeforeCall(String storefrontOid, Integer emailTemplateOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailTemplateValidateBeforeCall(Integer storefrontOid, Integer emailTemplateOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -5441,25 +8376,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailTemplateOid' when calling getEmailTemplate(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailTemplateCall(storefrontOid, emailTemplateOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email template
      * 
-     * @param storefrontOid null (required)
-     * @param emailTemplateOid null (required)
+     * @param storefrontOid  (required)
+     * @param emailTemplateOid  (required)
      * @return EmailTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailTemplate getEmailTemplate(String storefrontOid, Integer emailTemplateOid) throws ApiException {
+    public EmailTemplate getEmailTemplate(Integer storefrontOid, Integer emailTemplateOid) throws ApiException {
         ApiResponse<EmailTemplate> resp = getEmailTemplateWithHttpInfo(storefrontOid, emailTemplateOid);
         return resp.getData();
     }
@@ -5467,12 +8398,12 @@ public class StorefrontApi {
     /**
      * Get email template
      * 
-     * @param storefrontOid null (required)
-     * @param emailTemplateOid null (required)
+     * @param storefrontOid  (required)
+     * @param emailTemplateOid  (required)
      * @return ApiResponse&lt;EmailTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailTemplate> getEmailTemplateWithHttpInfo(String storefrontOid, Integer emailTemplateOid) throws ApiException {
+    public ApiResponse<EmailTemplate> getEmailTemplateWithHttpInfo(Integer storefrontOid, Integer emailTemplateOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailTemplateValidateBeforeCall(storefrontOid, emailTemplateOid, null, null);
         Type localVarReturnType = new TypeToken<EmailTemplate>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5481,13 +8412,13 @@ public class StorefrontApi {
     /**
      * Get email template (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailTemplateOid null (required)
+     * @param storefrontOid  (required)
+     * @param emailTemplateOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailTemplateAsync(String storefrontOid, Integer emailTemplateOid, final ApiCallback<EmailTemplate> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailTemplateAsync(Integer storefrontOid, Integer emailTemplateOid, final ApiCallback<EmailTemplate> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5515,16 +8446,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailTemplates
-     * @param storefrontOid null (required)
-     * @param triggerType null (optional)
+     * @param storefrontOid  (required)
+     * @param triggerType  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailTemplatesCall(String storefrontOid, String triggerType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailTemplatesCall(Integer storefrontOid, String triggerType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/templates"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -5565,34 +8496,30 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailTemplatesValidateBeforeCall(String storefrontOid, String triggerType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailTemplatesValidateBeforeCall(Integer storefrontOid, String triggerType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailTemplates(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailTemplatesCall(storefrontOid, triggerType, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get email templates
      * 
-     * @param storefrontOid null (required)
-     * @param triggerType null (optional)
+     * @param storefrontOid  (required)
+     * @param triggerType  (optional)
      * @return EmailTemplatesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailTemplatesResponse getEmailTemplates(String storefrontOid, String triggerType) throws ApiException {
+    public EmailTemplatesResponse getEmailTemplates(Integer storefrontOid, String triggerType) throws ApiException {
         ApiResponse<EmailTemplatesResponse> resp = getEmailTemplatesWithHttpInfo(storefrontOid, triggerType);
         return resp.getData();
     }
@@ -5600,12 +8527,12 @@ public class StorefrontApi {
     /**
      * Get email templates
      * 
-     * @param storefrontOid null (required)
-     * @param triggerType null (optional)
+     * @param storefrontOid  (required)
+     * @param triggerType  (optional)
      * @return ApiResponse&lt;EmailTemplatesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailTemplatesResponse> getEmailTemplatesWithHttpInfo(String storefrontOid, String triggerType) throws ApiException {
+    public ApiResponse<EmailTemplatesResponse> getEmailTemplatesWithHttpInfo(Integer storefrontOid, String triggerType) throws ApiException {
         com.squareup.okhttp.Call call = getEmailTemplatesValidateBeforeCall(storefrontOid, triggerType, null, null);
         Type localVarReturnType = new TypeToken<EmailTemplatesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5614,13 +8541,13 @@ public class StorefrontApi {
     /**
      * Get email templates (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param triggerType null (optional)
+     * @param storefrontOid  (required)
+     * @param triggerType  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailTemplatesAsync(String storefrontOid, String triggerType, final ApiCallback<EmailTemplatesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailTemplatesAsync(Integer storefrontOid, String triggerType, final ApiCallback<EmailTemplatesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5648,15 +8575,15 @@ public class StorefrontApi {
     }
     /**
      * Build call for getEmailThirdPartyProviders
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailThirdPartyProvidersCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailThirdPartyProvidersCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/third_party_providers"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -5695,33 +8622,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailThirdPartyProvidersValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailThirdPartyProvidersValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailThirdPartyProviders(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEmailThirdPartyProvidersCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a list of third party email providers
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return EmailThirdPartyProvidersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailThirdPartyProvidersResponse getEmailThirdPartyProviders(String storefrontOid) throws ApiException {
+    public EmailThirdPartyProvidersResponse getEmailThirdPartyProviders(Integer storefrontOid) throws ApiException {
         ApiResponse<EmailThirdPartyProvidersResponse> resp = getEmailThirdPartyProvidersWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -5729,11 +8652,11 @@ public class StorefrontApi {
     /**
      * Get a list of third party email providers
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;EmailThirdPartyProvidersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailThirdPartyProvidersResponse> getEmailThirdPartyProvidersWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<EmailThirdPartyProvidersResponse> getEmailThirdPartyProvidersWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getEmailThirdPartyProvidersValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<EmailThirdPartyProvidersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5742,12 +8665,12 @@ public class StorefrontApi {
     /**
      * Get a list of third party email providers (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailThirdPartyProvidersAsync(String storefrontOid, final ApiCallback<EmailThirdPartyProvidersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailThirdPartyProvidersAsync(Integer storefrontOid, final ApiCallback<EmailThirdPartyProvidersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5775,15 +8698,15 @@ public class StorefrontApi {
     }
     /**
      * Build call for getExperiments
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getExperimentsCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getExperimentsCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/experiments"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -5822,33 +8745,29 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getExperimentsValidateBeforeCall(String storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getExperimentsValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getExperiments(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getExperimentsCall(storefrontOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get experiments
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ExperimentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ExperimentsResponse getExperiments(String storefrontOid) throws ApiException {
+    public ExperimentsResponse getExperiments(Integer storefrontOid) throws ApiException {
         ApiResponse<ExperimentsResponse> resp = getExperimentsWithHttpInfo(storefrontOid);
         return resp.getData();
     }
@@ -5856,11 +8775,11 @@ public class StorefrontApi {
     /**
      * Get experiments
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @return ApiResponse&lt;ExperimentsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ExperimentsResponse> getExperimentsWithHttpInfo(String storefrontOid) throws ApiException {
+    public ApiResponse<ExperimentsResponse> getExperimentsWithHttpInfo(Integer storefrontOid) throws ApiException {
         com.squareup.okhttp.Call call = getExperimentsValidateBeforeCall(storefrontOid, null, null);
         Type localVarReturnType = new TypeToken<ExperimentsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5869,12 +8788,12 @@ public class StorefrontApi {
     /**
      * Get experiments (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getExperimentsAsync(String storefrontOid, final ApiCallback<ExperimentsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getExperimentsAsync(Integer storefrontOid, final ApiCallback<ExperimentsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5902,16 +8821,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for getHistogramPropertyNames
-     * @param storefrontOid null (required)
-     * @param propertyType null (optional)
+     * @param storefrontOid  (required)
+     * @param propertyType  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHistogramPropertyNamesCall(String storefrontOid, String propertyType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getHistogramPropertyNamesCall(Integer storefrontOid, String propertyType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/histogram/property_names"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -5952,34 +8871,30 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getHistogramPropertyNamesValidateBeforeCall(String storefrontOid, String propertyType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHistogramPropertyNamesValidateBeforeCall(Integer storefrontOid, String propertyType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getHistogramPropertyNames(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getHistogramPropertyNamesCall(storefrontOid, propertyType, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get histogram property names
      * Obtain a list of property names for a given property type 
-     * @param storefrontOid null (required)
-     * @param propertyType null (optional)
+     * @param storefrontOid  (required)
+     * @param propertyType  (optional)
      * @return EmailHistogramPropertyNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailHistogramPropertyNamesResponse getHistogramPropertyNames(String storefrontOid, String propertyType) throws ApiException {
+    public EmailHistogramPropertyNamesResponse getHistogramPropertyNames(Integer storefrontOid, String propertyType) throws ApiException {
         ApiResponse<EmailHistogramPropertyNamesResponse> resp = getHistogramPropertyNamesWithHttpInfo(storefrontOid, propertyType);
         return resp.getData();
     }
@@ -5987,12 +8902,12 @@ public class StorefrontApi {
     /**
      * Get histogram property names
      * Obtain a list of property names for a given property type 
-     * @param storefrontOid null (required)
-     * @param propertyType null (optional)
+     * @param storefrontOid  (required)
+     * @param propertyType  (optional)
      * @return ApiResponse&lt;EmailHistogramPropertyNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailHistogramPropertyNamesResponse> getHistogramPropertyNamesWithHttpInfo(String storefrontOid, String propertyType) throws ApiException {
+    public ApiResponse<EmailHistogramPropertyNamesResponse> getHistogramPropertyNamesWithHttpInfo(Integer storefrontOid, String propertyType) throws ApiException {
         com.squareup.okhttp.Call call = getHistogramPropertyNamesValidateBeforeCall(storefrontOid, propertyType, null, null);
         Type localVarReturnType = new TypeToken<EmailHistogramPropertyNamesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6001,13 +8916,13 @@ public class StorefrontApi {
     /**
      * Get histogram property names (asynchronously)
      * Obtain a list of property names for a given property type 
-     * @param storefrontOid null (required)
-     * @param propertyType null (optional)
+     * @param storefrontOid  (required)
+     * @param propertyType  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getHistogramPropertyNamesAsync(String storefrontOid, String propertyType, final ApiCallback<EmailHistogramPropertyNamesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getHistogramPropertyNamesAsync(Integer storefrontOid, String propertyType, final ApiCallback<EmailHistogramPropertyNamesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6035,18 +8950,18 @@ public class StorefrontApi {
     }
     /**
      * Build call for getHistogramPropertyValues
-     * @param storefrontOid null (required)
-     * @param propertyName null (optional)
-     * @param propertyType null (optional)
-     * @param limit null (optional)
+     * @param storefrontOid  (required)
+     * @param propertyName  (optional)
+     * @param propertyType  (optional)
+     * @param limit  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHistogramPropertyValuesCall(String storefrontOid, String propertyName, String propertyType, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getHistogramPropertyValuesCall(Integer storefrontOid, String propertyName, String propertyType, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/histogram/property_values"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -6091,36 +9006,32 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getHistogramPropertyValuesValidateBeforeCall(String storefrontOid, String propertyName, String propertyType, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHistogramPropertyValuesValidateBeforeCall(Integer storefrontOid, String propertyName, String propertyType, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getHistogramPropertyValues(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getHistogramPropertyValuesCall(storefrontOid, propertyName, propertyType, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get histogram property values
      * Obtain a list of property values for a given property name and type 
-     * @param storefrontOid null (required)
-     * @param propertyName null (optional)
-     * @param propertyType null (optional)
-     * @param limit null (optional)
+     * @param storefrontOid  (required)
+     * @param propertyName  (optional)
+     * @param propertyType  (optional)
+     * @param limit  (optional)
      * @return EmailHistogramPropertyValuesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailHistogramPropertyValuesResponse getHistogramPropertyValues(String storefrontOid, String propertyName, String propertyType, Integer limit) throws ApiException {
+    public EmailHistogramPropertyValuesResponse getHistogramPropertyValues(Integer storefrontOid, String propertyName, String propertyType, Integer limit) throws ApiException {
         ApiResponse<EmailHistogramPropertyValuesResponse> resp = getHistogramPropertyValuesWithHttpInfo(storefrontOid, propertyName, propertyType, limit);
         return resp.getData();
     }
@@ -6128,14 +9039,14 @@ public class StorefrontApi {
     /**
      * Get histogram property values
      * Obtain a list of property values for a given property name and type 
-     * @param storefrontOid null (required)
-     * @param propertyName null (optional)
-     * @param propertyType null (optional)
-     * @param limit null (optional)
+     * @param storefrontOid  (required)
+     * @param propertyName  (optional)
+     * @param propertyType  (optional)
+     * @param limit  (optional)
      * @return ApiResponse&lt;EmailHistogramPropertyValuesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailHistogramPropertyValuesResponse> getHistogramPropertyValuesWithHttpInfo(String storefrontOid, String propertyName, String propertyType, Integer limit) throws ApiException {
+    public ApiResponse<EmailHistogramPropertyValuesResponse> getHistogramPropertyValuesWithHttpInfo(Integer storefrontOid, String propertyName, String propertyType, Integer limit) throws ApiException {
         com.squareup.okhttp.Call call = getHistogramPropertyValuesValidateBeforeCall(storefrontOid, propertyName, propertyType, limit, null, null);
         Type localVarReturnType = new TypeToken<EmailHistogramPropertyValuesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6144,15 +9055,15 @@ public class StorefrontApi {
     /**
      * Get histogram property values (asynchronously)
      * Obtain a list of property values for a given property name and type 
-     * @param storefrontOid null (required)
-     * @param propertyName null (optional)
-     * @param propertyType null (optional)
-     * @param limit null (optional)
+     * @param storefrontOid  (required)
+     * @param propertyName  (optional)
+     * @param propertyType  (optional)
+     * @param limit  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getHistogramPropertyValuesAsync(String storefrontOid, String propertyName, String propertyType, Integer limit, final ApiCallback<EmailHistogramPropertyValuesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getHistogramPropertyValuesAsync(Integer storefrontOid, String propertyName, String propertyType, Integer limit, final ApiCallback<EmailHistogramPropertyValuesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6179,17 +9090,781 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for getLibraryFilterValues
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getLibraryFilterValuesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library/filter_values";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getLibraryFilterValuesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getLibraryFilterValuesCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get library values used to populate drop down boxes for filtering.
+     * 
+     * @return LibraryFilterValuesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LibraryFilterValuesResponse getLibraryFilterValues() throws ApiException {
+        ApiResponse<LibraryFilterValuesResponse> resp = getLibraryFilterValuesWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get library values used to populate drop down boxes for filtering.
+     * 
+     * @return ApiResponse&lt;LibraryFilterValuesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LibraryFilterValuesResponse> getLibraryFilterValuesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getLibraryFilterValuesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<LibraryFilterValuesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get library values used to populate drop down boxes for filtering. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getLibraryFilterValuesAsync(final ApiCallback<LibraryFilterValuesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getLibraryFilterValuesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LibraryFilterValuesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getLibraryItem
+     * @param libraryItemOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getLibraryItemCall(Integer libraryItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library/{library_item_oid}"
+            .replaceAll("\\{" + "library_item_oid" + "\\}", apiClient.escapeString(libraryItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getLibraryItemValidateBeforeCall(Integer libraryItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'libraryItemOid' is set
+        if (libraryItemOid == null) {
+            throw new ApiException("Missing the required parameter 'libraryItemOid' when calling getLibraryItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getLibraryItemCall(libraryItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get library item.
+     * 
+     * @param libraryItemOid  (required)
+     * @return LibraryItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LibraryItemResponse getLibraryItem(Integer libraryItemOid) throws ApiException {
+        ApiResponse<LibraryItemResponse> resp = getLibraryItemWithHttpInfo(libraryItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get library item.
+     * 
+     * @param libraryItemOid  (required)
+     * @return ApiResponse&lt;LibraryItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LibraryItemResponse> getLibraryItemWithHttpInfo(Integer libraryItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = getLibraryItemValidateBeforeCall(libraryItemOid, null, null);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get library item. (asynchronously)
+     * 
+     * @param libraryItemOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getLibraryItemAsync(Integer libraryItemOid, final ApiCallback<LibraryItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getLibraryItemValidateBeforeCall(libraryItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getLibraryItemsByQuery
+     * @param itemQuery Item query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getLibraryItemsByQueryCall(LibraryItemQuery itemQuery, Integer limit, Integer offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = itemQuery;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library/query";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_sort", sort));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getLibraryItemsByQueryValidateBeforeCall(LibraryItemQuery itemQuery, Integer limit, Integer offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'itemQuery' is set
+        if (itemQuery == null) {
+            throw new ApiException("Missing the required parameter 'itemQuery' when calling getLibraryItemsByQuery(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getLibraryItemsByQueryCall(itemQuery, limit, offset, sort, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve library items
+     * Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param itemQuery Item query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @return LibraryItemsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LibraryItemsResponse getLibraryItemsByQuery(LibraryItemQuery itemQuery, Integer limit, Integer offset, String sort) throws ApiException {
+        ApiResponse<LibraryItemsResponse> resp = getLibraryItemsByQueryWithHttpInfo(itemQuery, limit, offset, sort);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve library items
+     * Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param itemQuery Item query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @return ApiResponse&lt;LibraryItemsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LibraryItemsResponse> getLibraryItemsByQueryWithHttpInfo(LibraryItemQuery itemQuery, Integer limit, Integer offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getLibraryItemsByQueryValidateBeforeCall(itemQuery, limit, offset, sort, null, null);
+        Type localVarReturnType = new TypeToken<LibraryItemsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve library items (asynchronously)
+     * Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param itemQuery Item query (required)
+     * @param limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getLibraryItemsByQueryAsync(LibraryItemQuery itemQuery, Integer limit, Integer offset, String sort, final ApiCallback<LibraryItemsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getLibraryItemsByQueryValidateBeforeCall(itemQuery, limit, offset, sort, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LibraryItemsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTransactionEmail
+     * @param storefrontOid  (required)
+     * @param emailId  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTransactionEmailCall(Integer storefrontOid, String emailId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/transaction_email/list/{email_id}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_id" + "\\}", apiClient.escapeString(emailId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTransactionEmailValidateBeforeCall(Integer storefrontOid, String emailId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getTransactionEmail(Async)");
+        }
+        
+        // verify the required parameter 'emailId' is set
+        if (emailId == null) {
+            throw new ApiException("Missing the required parameter 'emailId' when calling getTransactionEmail(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getTransactionEmailCall(storefrontOid, emailId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets a transaction email object
+     * Fetch a transactional email 
+     * @param storefrontOid  (required)
+     * @param emailId  (required)
+     * @return TransactionEmailResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TransactionEmailResponse getTransactionEmail(Integer storefrontOid, String emailId) throws ApiException {
+        ApiResponse<TransactionEmailResponse> resp = getTransactionEmailWithHttpInfo(storefrontOid, emailId);
+        return resp.getData();
+    }
+
+    /**
+     * Gets a transaction email object
+     * Fetch a transactional email 
+     * @param storefrontOid  (required)
+     * @param emailId  (required)
+     * @return ApiResponse&lt;TransactionEmailResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TransactionEmailResponse> getTransactionEmailWithHttpInfo(Integer storefrontOid, String emailId) throws ApiException {
+        com.squareup.okhttp.Call call = getTransactionEmailValidateBeforeCall(storefrontOid, emailId, null, null);
+        Type localVarReturnType = new TypeToken<TransactionEmailResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets a transaction email object (asynchronously)
+     * Fetch a transactional email 
+     * @param storefrontOid  (required)
+     * @param emailId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTransactionEmailAsync(Integer storefrontOid, String emailId, final ApiCallback<TransactionEmailResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTransactionEmailValidateBeforeCall(storefrontOid, emailId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TransactionEmailResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTransactionEmailList
+     * @param storefrontOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTransactionEmailListCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/transaction_email/list"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTransactionEmailListValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getTransactionEmailList(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getTransactionEmailListCall(storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets a list of transaction email names
+     * Obtain a list of all transactional emails and return back just their names 
+     * @param storefrontOid  (required)
+     * @return TransactionEmailListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TransactionEmailListResponse getTransactionEmailList(Integer storefrontOid) throws ApiException {
+        ApiResponse<TransactionEmailListResponse> resp = getTransactionEmailListWithHttpInfo(storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Gets a list of transaction email names
+     * Obtain a list of all transactional emails and return back just their names 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;TransactionEmailListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TransactionEmailListResponse> getTransactionEmailListWithHttpInfo(Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = getTransactionEmailListValidateBeforeCall(storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<TransactionEmailListResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets a list of transaction email names (asynchronously)
+     * Obtain a list of all transactional emails and return back just their names 
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTransactionEmailListAsync(Integer storefrontOid, final ApiCallback<TransactionEmailListResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTransactionEmailListValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TransactionEmailListResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for globalUnsubscribe
+     * @param storefrontOid  (required)
+     * @param unsubscribe Unsubscribe (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call globalUnsubscribeCall(Integer storefrontOid, EmailGlobalUnsubscribeRequest unsubscribe, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = unsubscribe;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/globalUnsubscribe"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call globalUnsubscribeValidateBeforeCall(Integer storefrontOid, EmailGlobalUnsubscribeRequest unsubscribe, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling globalUnsubscribe(Async)");
+        }
+        
+        // verify the required parameter 'unsubscribe' is set
+        if (unsubscribe == null) {
+            throw new ApiException("Missing the required parameter 'unsubscribe' when calling globalUnsubscribe(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = globalUnsubscribeCall(storefrontOid, unsubscribe, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Globally unsubscribe a customer
+     * 
+     * @param storefrontOid  (required)
+     * @param unsubscribe Unsubscribe (required)
+     * @return EmailGlobalUnsubscribeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailGlobalUnsubscribeResponse globalUnsubscribe(Integer storefrontOid, EmailGlobalUnsubscribeRequest unsubscribe) throws ApiException {
+        ApiResponse<EmailGlobalUnsubscribeResponse> resp = globalUnsubscribeWithHttpInfo(storefrontOid, unsubscribe);
+        return resp.getData();
+    }
+
+    /**
+     * Globally unsubscribe a customer
+     * 
+     * @param storefrontOid  (required)
+     * @param unsubscribe Unsubscribe (required)
+     * @return ApiResponse&lt;EmailGlobalUnsubscribeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailGlobalUnsubscribeResponse> globalUnsubscribeWithHttpInfo(Integer storefrontOid, EmailGlobalUnsubscribeRequest unsubscribe) throws ApiException {
+        com.squareup.okhttp.Call call = globalUnsubscribeValidateBeforeCall(storefrontOid, unsubscribe, null, null);
+        Type localVarReturnType = new TypeToken<EmailGlobalUnsubscribeResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Globally unsubscribe a customer (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param unsubscribe Unsubscribe (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call globalUnsubscribeAsync(Integer storefrontOid, EmailGlobalUnsubscribeRequest unsubscribe, final ApiCallback<EmailGlobalUnsubscribeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = globalUnsubscribeValidateBeforeCall(storefrontOid, unsubscribe, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailGlobalUnsubscribeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for importEmailThirdPartyProviderList
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param importRequest lists to import (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call importEmailThirdPartyProviderListCall(String storefrontOid, EmailThirdPartyListImportRequest importRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call importEmailThirdPartyProviderListCall(Integer storefrontOid, EmailThirdPartyListImportRequest importRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = importRequest;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/third_party_providers/import"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -6228,9 +9903,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call importEmailThirdPartyProviderListValidateBeforeCall(String storefrontOid, EmailThirdPartyListImportRequest importRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call importEmailThirdPartyProviderListValidateBeforeCall(Integer storefrontOid, EmailThirdPartyListImportRequest importRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -6242,36 +9917,32 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'importRequest' when calling importEmailThirdPartyProviderList(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = importEmailThirdPartyProviderListCall(storefrontOid, importRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Import a third party provider list
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param importRequest lists to import (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void importEmailThirdPartyProviderList(String storefrontOid, EmailThirdPartyListImportRequest importRequest) throws ApiException {
+    public void importEmailThirdPartyProviderList(Integer storefrontOid, EmailThirdPartyListImportRequest importRequest) throws ApiException {
         importEmailThirdPartyProviderListWithHttpInfo(storefrontOid, importRequest);
     }
 
     /**
      * Import a third party provider list
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param importRequest lists to import (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> importEmailThirdPartyProviderListWithHttpInfo(String storefrontOid, EmailThirdPartyListImportRequest importRequest) throws ApiException {
+    public ApiResponse<Void> importEmailThirdPartyProviderListWithHttpInfo(Integer storefrontOid, EmailThirdPartyListImportRequest importRequest) throws ApiException {
         com.squareup.okhttp.Call call = importEmailThirdPartyProviderListValidateBeforeCall(storefrontOid, importRequest, null, null);
         return apiClient.execute(call);
     }
@@ -6279,13 +9950,13 @@ public class StorefrontApi {
     /**
      * Import a third party provider list (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param importRequest lists to import (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call importEmailThirdPartyProviderListAsync(String storefrontOid, EmailThirdPartyListImportRequest importRequest, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call importEmailThirdPartyProviderListAsync(Integer storefrontOid, EmailThirdPartyListImportRequest importRequest, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6312,16 +9983,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for insertEmailCampaign
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCampaign Email campaign (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertEmailCampaignCall(String storefrontOid, EmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailCampaignCall(Integer storefrontOid, EmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCampaign;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/campaigns"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -6360,9 +10031,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertEmailCampaignValidateBeforeCall(String storefrontOid, EmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertEmailCampaignValidateBeforeCall(Integer storefrontOid, EmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -6374,25 +10045,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCampaign' when calling insertEmailCampaign(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertEmailCampaignCall(storefrontOid, emailCampaign, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Insert email campaign
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCampaign Email campaign (required)
      * @return EmailCampaignResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCampaignResponse insertEmailCampaign(String storefrontOid, EmailCampaign emailCampaign) throws ApiException {
+    public EmailCampaignResponse insertEmailCampaign(Integer storefrontOid, EmailCampaign emailCampaign) throws ApiException {
         ApiResponse<EmailCampaignResponse> resp = insertEmailCampaignWithHttpInfo(storefrontOid, emailCampaign);
         return resp.getData();
     }
@@ -6400,12 +10067,12 @@ public class StorefrontApi {
     /**
      * Insert email campaign
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCampaign Email campaign (required)
      * @return ApiResponse&lt;EmailCampaignResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCampaignResponse> insertEmailCampaignWithHttpInfo(String storefrontOid, EmailCampaign emailCampaign) throws ApiException {
+    public ApiResponse<EmailCampaignResponse> insertEmailCampaignWithHttpInfo(Integer storefrontOid, EmailCampaign emailCampaign) throws ApiException {
         com.squareup.okhttp.Call call = insertEmailCampaignValidateBeforeCall(storefrontOid, emailCampaign, null, null);
         Type localVarReturnType = new TypeToken<EmailCampaignResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6414,13 +10081,13 @@ public class StorefrontApi {
     /**
      * Insert email campaign (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCampaign Email campaign (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertEmailCampaignAsync(String storefrontOid, EmailCampaign emailCampaign, final ApiCallback<EmailCampaignResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailCampaignAsync(Integer storefrontOid, EmailCampaign emailCampaign, final ApiCallback<EmailCampaignResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6448,16 +10115,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for insertEmailCommseq
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseq Email commseq (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertEmailCommseqCall(String storefrontOid, EmailCommseq emailCommseq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailCommseqCall(Integer storefrontOid, EmailCommseq emailCommseq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCommseq;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/commseqs"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -6496,9 +10163,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertEmailCommseqValidateBeforeCall(String storefrontOid, EmailCommseq emailCommseq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertEmailCommseqValidateBeforeCall(Integer storefrontOid, EmailCommseq emailCommseq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -6510,25 +10177,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCommseq' when calling insertEmailCommseq(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertEmailCommseqCall(storefrontOid, emailCommseq, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Insert email commseq
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseq Email commseq (required)
      * @return EmailCommseqResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqResponse insertEmailCommseq(String storefrontOid, EmailCommseq emailCommseq) throws ApiException {
+    public EmailCommseqResponse insertEmailCommseq(Integer storefrontOid, EmailCommseq emailCommseq) throws ApiException {
         ApiResponse<EmailCommseqResponse> resp = insertEmailCommseqWithHttpInfo(storefrontOid, emailCommseq);
         return resp.getData();
     }
@@ -6536,12 +10199,12 @@ public class StorefrontApi {
     /**
      * Insert email commseq
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseq Email commseq (required)
      * @return ApiResponse&lt;EmailCommseqResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqResponse> insertEmailCommseqWithHttpInfo(String storefrontOid, EmailCommseq emailCommseq) throws ApiException {
+    public ApiResponse<EmailCommseqResponse> insertEmailCommseqWithHttpInfo(Integer storefrontOid, EmailCommseq emailCommseq) throws ApiException {
         com.squareup.okhttp.Call call = insertEmailCommseqValidateBeforeCall(storefrontOid, emailCommseq, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6550,13 +10213,13 @@ public class StorefrontApi {
     /**
      * Insert email commseq (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseq Email commseq (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertEmailCommseqAsync(String storefrontOid, EmailCommseq emailCommseq, final ApiCallback<EmailCommseqResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailCommseqAsync(Integer storefrontOid, EmailCommseq emailCommseq, final ApiCallback<EmailCommseqResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6584,16 +10247,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for insertEmailEmail
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseqEmail Email email (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertEmailEmailCall(String storefrontOid, EmailCommseqEmail emailCommseqEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailEmailCall(Integer storefrontOid, EmailCommseqEmail emailCommseqEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCommseqEmail;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/emails"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -6632,9 +10295,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertEmailEmailValidateBeforeCall(String storefrontOid, EmailCommseqEmail emailCommseqEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertEmailEmailValidateBeforeCall(Integer storefrontOid, EmailCommseqEmail emailCommseqEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -6646,25 +10309,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCommseqEmail' when calling insertEmailEmail(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertEmailEmailCall(storefrontOid, emailCommseqEmail, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Insert email email
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseqEmail Email email (required)
      * @return EmailCommseqEmailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqEmailResponse insertEmailEmail(String storefrontOid, EmailCommseqEmail emailCommseqEmail) throws ApiException {
+    public EmailCommseqEmailResponse insertEmailEmail(Integer storefrontOid, EmailCommseqEmail emailCommseqEmail) throws ApiException {
         ApiResponse<EmailCommseqEmailResponse> resp = insertEmailEmailWithHttpInfo(storefrontOid, emailCommseqEmail);
         return resp.getData();
     }
@@ -6672,12 +10331,12 @@ public class StorefrontApi {
     /**
      * Insert email email
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseqEmail Email email (required)
      * @return ApiResponse&lt;EmailCommseqEmailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqEmailResponse> insertEmailEmailWithHttpInfo(String storefrontOid, EmailCommseqEmail emailCommseqEmail) throws ApiException {
+    public ApiResponse<EmailCommseqEmailResponse> insertEmailEmailWithHttpInfo(Integer storefrontOid, EmailCommseqEmail emailCommseqEmail) throws ApiException {
         com.squareup.okhttp.Call call = insertEmailEmailValidateBeforeCall(storefrontOid, emailCommseqEmail, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqEmailResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6686,13 +10345,13 @@ public class StorefrontApi {
     /**
      * Insert email email (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailCommseqEmail Email email (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertEmailEmailAsync(String storefrontOid, EmailCommseqEmail emailCommseqEmail, final ApiCallback<EmailCommseqEmailResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailEmailAsync(Integer storefrontOid, EmailCommseqEmail emailCommseqEmail, final ApiCallback<EmailCommseqEmailResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6720,16 +10379,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for insertEmailFlow
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailFlow Email flow (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertEmailFlowCall(String storefrontOid, EmailFlow emailFlow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailFlowCall(Integer storefrontOid, EmailFlow emailFlow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailFlow;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/flows"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -6768,9 +10427,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertEmailFlowValidateBeforeCall(String storefrontOid, EmailFlow emailFlow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertEmailFlowValidateBeforeCall(Integer storefrontOid, EmailFlow emailFlow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -6782,25 +10441,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailFlow' when calling insertEmailFlow(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertEmailFlowCall(storefrontOid, emailFlow, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Insert email flow
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailFlow Email flow (required)
      * @return EmailFlowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailFlowResponse insertEmailFlow(String storefrontOid, EmailFlow emailFlow) throws ApiException {
+    public EmailFlowResponse insertEmailFlow(Integer storefrontOid, EmailFlow emailFlow) throws ApiException {
         ApiResponse<EmailFlowResponse> resp = insertEmailFlowWithHttpInfo(storefrontOid, emailFlow);
         return resp.getData();
     }
@@ -6808,12 +10463,12 @@ public class StorefrontApi {
     /**
      * Insert email flow
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailFlow Email flow (required)
      * @return ApiResponse&lt;EmailFlowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailFlowResponse> insertEmailFlowWithHttpInfo(String storefrontOid, EmailFlow emailFlow) throws ApiException {
+    public ApiResponse<EmailFlowResponse> insertEmailFlowWithHttpInfo(Integer storefrontOid, EmailFlow emailFlow) throws ApiException {
         com.squareup.okhttp.Call call = insertEmailFlowValidateBeforeCall(storefrontOid, emailFlow, null, null);
         Type localVarReturnType = new TypeToken<EmailFlowResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6822,13 +10477,13 @@ public class StorefrontApi {
     /**
      * Insert email flow (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailFlow Email flow (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertEmailFlowAsync(String storefrontOid, EmailFlow emailFlow, final ApiCallback<EmailFlowResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailFlowAsync(Integer storefrontOid, EmailFlow emailFlow, final ApiCallback<EmailFlowResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6856,16 +10511,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for insertEmailList
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailList Email list (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertEmailListCall(String storefrontOid, EmailList emailList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailListCall(Integer storefrontOid, EmailList emailList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailList;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -6904,9 +10559,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertEmailListValidateBeforeCall(String storefrontOid, EmailList emailList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertEmailListValidateBeforeCall(Integer storefrontOid, EmailList emailList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -6918,25 +10573,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailList' when calling insertEmailList(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertEmailListCall(storefrontOid, emailList, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Insert email list
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailList Email list (required)
      * @return EmailListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailListResponse insertEmailList(String storefrontOid, EmailList emailList) throws ApiException {
+    public EmailListResponse insertEmailList(Integer storefrontOid, EmailList emailList) throws ApiException {
         ApiResponse<EmailListResponse> resp = insertEmailListWithHttpInfo(storefrontOid, emailList);
         return resp.getData();
     }
@@ -6944,12 +10595,12 @@ public class StorefrontApi {
     /**
      * Insert email list
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailList Email list (required)
      * @return ApiResponse&lt;EmailListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailListResponse> insertEmailListWithHttpInfo(String storefrontOid, EmailList emailList) throws ApiException {
+    public ApiResponse<EmailListResponse> insertEmailListWithHttpInfo(Integer storefrontOid, EmailList emailList) throws ApiException {
         com.squareup.okhttp.Call call = insertEmailListValidateBeforeCall(storefrontOid, emailList, null, null);
         Type localVarReturnType = new TypeToken<EmailListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6958,13 +10609,13 @@ public class StorefrontApi {
     /**
      * Insert email list (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailList Email list (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertEmailListAsync(String storefrontOid, EmailList emailList, final ApiCallback<EmailListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailListAsync(Integer storefrontOid, EmailList emailList, final ApiCallback<EmailListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6991,17 +10642,149 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for insertEmailPostcard
+     * @param storefrontOid  (required)
+     * @param emailCommseqPostcard Email postcard (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertEmailPostcardCall(Integer storefrontOid, EmailCommseqPostcard emailCommseqPostcard, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailCommseqPostcard;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/postcards"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertEmailPostcardValidateBeforeCall(Integer storefrontOid, EmailCommseqPostcard emailCommseqPostcard, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling insertEmailPostcard(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqPostcard' is set
+        if (emailCommseqPostcard == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqPostcard' when calling insertEmailPostcard(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertEmailPostcardCall(storefrontOid, emailCommseqPostcard, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert email postcard
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqPostcard Email postcard (required)
+     * @return EmailCommseqPostcardResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqPostcardResponse insertEmailPostcard(Integer storefrontOid, EmailCommseqPostcard emailCommseqPostcard) throws ApiException {
+        ApiResponse<EmailCommseqPostcardResponse> resp = insertEmailPostcardWithHttpInfo(storefrontOid, emailCommseqPostcard);
+        return resp.getData();
+    }
+
+    /**
+     * Insert email postcard
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqPostcard Email postcard (required)
+     * @return ApiResponse&lt;EmailCommseqPostcardResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqPostcardResponse> insertEmailPostcardWithHttpInfo(Integer storefrontOid, EmailCommseqPostcard emailCommseqPostcard) throws ApiException {
+        com.squareup.okhttp.Call call = insertEmailPostcardValidateBeforeCall(storefrontOid, emailCommseqPostcard, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert email postcard (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqPostcard Email postcard (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertEmailPostcardAsync(Integer storefrontOid, EmailCommseqPostcard emailCommseqPostcard, final ApiCallback<EmailCommseqPostcardResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertEmailPostcardValidateBeforeCall(storefrontOid, emailCommseqPostcard, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for insertEmailSegment
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailSegment Email segment (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertEmailSegmentCall(String storefrontOid, EmailSegment emailSegment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailSegmentCall(Integer storefrontOid, EmailSegment emailSegment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailSegment;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
@@ -7040,9 +10823,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertEmailSegmentValidateBeforeCall(String storefrontOid, EmailSegment emailSegment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertEmailSegmentValidateBeforeCall(Integer storefrontOid, EmailSegment emailSegment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -7054,25 +10837,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailSegment' when calling insertEmailSegment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertEmailSegmentCall(storefrontOid, emailSegment, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Insert email segment
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailSegment Email segment (required)
      * @return EmailSegmentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentResponse insertEmailSegment(String storefrontOid, EmailSegment emailSegment) throws ApiException {
+    public EmailSegmentResponse insertEmailSegment(Integer storefrontOid, EmailSegment emailSegment) throws ApiException {
         ApiResponse<EmailSegmentResponse> resp = insertEmailSegmentWithHttpInfo(storefrontOid, emailSegment);
         return resp.getData();
     }
@@ -7080,12 +10859,12 @@ public class StorefrontApi {
     /**
      * Insert email segment
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailSegment Email segment (required)
      * @return ApiResponse&lt;EmailSegmentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentResponse> insertEmailSegmentWithHttpInfo(String storefrontOid, EmailSegment emailSegment) throws ApiException {
+    public ApiResponse<EmailSegmentResponse> insertEmailSegmentWithHttpInfo(Integer storefrontOid, EmailSegment emailSegment) throws ApiException {
         com.squareup.okhttp.Call call = insertEmailSegmentValidateBeforeCall(storefrontOid, emailSegment, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7094,13 +10873,13 @@ public class StorefrontApi {
     /**
      * Insert email segment (asynchronously)
      * 
-     * @param storefrontOid null (required)
+     * @param storefrontOid  (required)
      * @param emailSegment Email segment (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertEmailSegmentAsync(String storefrontOid, EmailSegment emailSegment, final ApiCallback<EmailSegmentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertEmailSegmentAsync(Integer storefrontOid, EmailSegment emailSegment, final ApiCallback<EmailSegmentResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7128,16 +10907,16 @@ public class StorefrontApi {
     }
     /**
      * Build call for prepareDownloadEmailSegment
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call prepareDownloadEmailSegmentCall(String storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call prepareDownloadEmailSegmentCall(Integer storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -7177,9 +10956,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call prepareDownloadEmailSegmentValidateBeforeCall(String storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call prepareDownloadEmailSegmentValidateBeforeCall(Integer storefrontOid, String emailSegmentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -7191,25 +10970,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailSegmentUuid' when calling prepareDownloadEmailSegment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = prepareDownloadEmailSegmentCall(storefrontOid, emailSegmentUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Prepare download of email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @return EmailSegmentDownloadPrepareResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentDownloadPrepareResponse prepareDownloadEmailSegment(String storefrontOid, String emailSegmentUuid) throws ApiException {
+    public EmailSegmentDownloadPrepareResponse prepareDownloadEmailSegment(Integer storefrontOid, String emailSegmentUuid) throws ApiException {
         ApiResponse<EmailSegmentDownloadPrepareResponse> resp = prepareDownloadEmailSegmentWithHttpInfo(storefrontOid, emailSegmentUuid);
         return resp.getData();
     }
@@ -7217,12 +10992,12 @@ public class StorefrontApi {
     /**
      * Prepare download of email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @return ApiResponse&lt;EmailSegmentDownloadPrepareResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentDownloadPrepareResponse> prepareDownloadEmailSegmentWithHttpInfo(String storefrontOid, String emailSegmentUuid) throws ApiException {
+    public ApiResponse<EmailSegmentDownloadPrepareResponse> prepareDownloadEmailSegmentWithHttpInfo(Integer storefrontOid, String emailSegmentUuid) throws ApiException {
         com.squareup.okhttp.Call call = prepareDownloadEmailSegmentValidateBeforeCall(storefrontOid, emailSegmentUuid, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentDownloadPrepareResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7231,13 +11006,13 @@ public class StorefrontApi {
     /**
      * Prepare download of email segment (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call prepareDownloadEmailSegmentAsync(String storefrontOid, String emailSegmentUuid, final ApiCallback<EmailSegmentDownloadPrepareResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call prepareDownloadEmailSegmentAsync(Integer storefrontOid, String emailSegmentUuid, final ApiCallback<EmailSegmentDownloadPrepareResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7264,18 +11039,301 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for search
-     * @param category null (optional)
-     * @param matches null (optional)
-     * @param maxHits null (optional)
+     * Build call for releaseEmailCommseqStepWaiting
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchCall(String category, String matches, Integer maxHits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call releaseEmailCommseqStepWaitingCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", apiClient.escapeString(commseqUuid.toString()))
+            .replaceAll("\\{" + "commseq_step_uuid" + "\\}", apiClient.escapeString(commseqStepUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call releaseEmailCommseqStepWaitingValidateBeforeCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling releaseEmailCommseqStepWaiting(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling releaseEmailCommseqStepWaiting(Async)");
+        }
+        
+        // verify the required parameter 'commseqStepUuid' is set
+        if (commseqStepUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqStepUuid' when calling releaseEmailCommseqStepWaiting(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = releaseEmailCommseqStepWaitingCall(storefrontOid, commseqUuid, commseqStepUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Release email communication sequence customers waiting at the specified step
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void releaseEmailCommseqStepWaiting(Integer storefrontOid, String commseqUuid, String commseqStepUuid) throws ApiException {
+        releaseEmailCommseqStepWaitingWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid);
+    }
+
+    /**
+     * Release email communication sequence customers waiting at the specified step
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> releaseEmailCommseqStepWaitingWithHttpInfo(Integer storefrontOid, String commseqUuid, String commseqStepUuid) throws ApiException {
+        com.squareup.okhttp.Call call = releaseEmailCommseqStepWaitingValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Release email communication sequence customers waiting at the specified step (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call releaseEmailCommseqStepWaitingAsync(Integer storefrontOid, String commseqUuid, String commseqStepUuid, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = releaseEmailCommseqStepWaitingValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for review
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param emailCommseqEmailReviewRequest Email commseq email review request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reviewCall(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailReviewRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailCommseqEmailReviewRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_email_uuid" + "\\}", apiClient.escapeString(commseqEmailUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reviewValidateBeforeCall(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailReviewRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling review(Async)");
+        }
+        
+        // verify the required parameter 'commseqEmailUuid' is set
+        if (commseqEmailUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqEmailUuid' when calling review(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqEmailReviewRequest' is set
+        if (emailCommseqEmailReviewRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqEmailReviewRequest' when calling review(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = reviewCall(storefrontOid, commseqEmailUuid, emailCommseqEmailReviewRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Request a review of an email
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param emailCommseqEmailReviewRequest Email commseq email review request (required)
+     * @return EmailCommseqEmailSendTestResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqEmailSendTestResponse review(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailReviewRequest) throws ApiException {
+        ApiResponse<EmailCommseqEmailSendTestResponse> resp = reviewWithHttpInfo(storefrontOid, commseqEmailUuid, emailCommseqEmailReviewRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Request a review of an email
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param emailCommseqEmailReviewRequest Email commseq email review request (required)
+     * @return ApiResponse&lt;EmailCommseqEmailSendTestResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqEmailSendTestResponse> reviewWithHttpInfo(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailReviewRequest) throws ApiException {
+        com.squareup.okhttp.Call call = reviewValidateBeforeCall(storefrontOid, commseqEmailUuid, emailCommseqEmailReviewRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailSendTestResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Request a review of an email (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param emailCommseqEmailReviewRequest Email commseq email review request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reviewAsync(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailReviewRequest, final ApiCallback<EmailCommseqEmailSendTestResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reviewValidateBeforeCall(storefrontOid, commseqEmailUuid, emailCommseqEmailReviewRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailSendTestResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for search
+     * @param category  (optional)
+     * @param matches  (optional)
+     * @param storefrontOid  (optional)
+     * @param maxHits  (optional)
+     * @param subcategory  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call searchCall(String category, String matches, String storefrontOid, Integer maxHits, String subcategory, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/search";
 
@@ -7285,8 +11343,12 @@ public class StorefrontApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("category", category));
         if (matches != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("matches", matches));
+        if (storefrontOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("storefront_oid", storefrontOid));
         if (maxHits != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("max_hits", maxHits));
+        if (subcategory != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("subcategory", subcategory));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7319,45 +11381,45 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(String category, String matches, Integer maxHits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchValidateBeforeCall(String category, String matches, String storefrontOid, Integer maxHits, String subcategory, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
-        com.squareup.okhttp.Call call = searchCall(category, matches, maxHits, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = searchCall(category, matches, storefrontOid, maxHits, subcategory, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Searches for all matching values
      * 
-     * @param category null (optional)
-     * @param matches null (optional)
-     * @param maxHits null (optional)
+     * @param category  (optional)
+     * @param matches  (optional)
+     * @param storefrontOid  (optional)
+     * @param maxHits  (optional)
+     * @param subcategory  (optional)
      * @return LookupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LookupResponse search(String category, String matches, Integer maxHits) throws ApiException {
-        ApiResponse<LookupResponse> resp = searchWithHttpInfo(category, matches, maxHits);
+    public LookupResponse search(String category, String matches, String storefrontOid, Integer maxHits, String subcategory) throws ApiException {
+        ApiResponse<LookupResponse> resp = searchWithHttpInfo(category, matches, storefrontOid, maxHits, subcategory);
         return resp.getData();
     }
 
     /**
      * Searches for all matching values
      * 
-     * @param category null (optional)
-     * @param matches null (optional)
-     * @param maxHits null (optional)
+     * @param category  (optional)
+     * @param matches  (optional)
+     * @param storefrontOid  (optional)
+     * @param maxHits  (optional)
+     * @param subcategory  (optional)
      * @return ApiResponse&lt;LookupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LookupResponse> searchWithHttpInfo(String category, String matches, Integer maxHits) throws ApiException {
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(category, matches, maxHits, null, null);
+    public ApiResponse<LookupResponse> searchWithHttpInfo(String category, String matches, String storefrontOid, Integer maxHits, String subcategory) throws ApiException {
+        com.squareup.okhttp.Call call = searchValidateBeforeCall(category, matches, storefrontOid, maxHits, subcategory, null, null);
         Type localVarReturnType = new TypeToken<LookupResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -7365,14 +11427,16 @@ public class StorefrontApi {
     /**
      * Searches for all matching values (asynchronously)
      * 
-     * @param category null (optional)
-     * @param matches null (optional)
-     * @param maxHits null (optional)
+     * @param category  (optional)
+     * @param matches  (optional)
+     * @param storefrontOid  (optional)
+     * @param maxHits  (optional)
+     * @param subcategory  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchAsync(String category, String matches, Integer maxHits, final ApiCallback<LookupResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchAsync(String category, String matches, String storefrontOid, Integer maxHits, String subcategory, final ApiCallback<LookupResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7393,24 +11457,24 @@ public class StorefrontApi {
             };
         }
 
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(category, matches, maxHits, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchValidateBeforeCall(category, matches, storefrontOid, maxHits, subcategory, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<LookupResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for searchEmailListCustomers
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param startsWith null (optional)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param startsWith  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchEmailListCustomersCall(String storefrontOid, String emailListUuid, String startsWith, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchEmailListCustomersCall(Integer storefrontOid, String emailListUuid, String startsWith, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists/{email_list_uuid}/search"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -7452,9 +11516,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchEmailListCustomersValidateBeforeCall(String storefrontOid, String emailListUuid, String startsWith, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchEmailListCustomersValidateBeforeCall(Integer storefrontOid, String emailListUuid, String startsWith, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -7466,26 +11530,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailListUuid' when calling searchEmailListCustomers(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = searchEmailListCustomersCall(storefrontOid, emailListUuid, startsWith, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Search email list customers
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param startsWith null (optional)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param startsWith  (optional)
      * @return EmailListCustomersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailListCustomersResponse searchEmailListCustomers(String storefrontOid, String emailListUuid, String startsWith) throws ApiException {
+    public EmailListCustomersResponse searchEmailListCustomers(Integer storefrontOid, String emailListUuid, String startsWith) throws ApiException {
         ApiResponse<EmailListCustomersResponse> resp = searchEmailListCustomersWithHttpInfo(storefrontOid, emailListUuid, startsWith);
         return resp.getData();
     }
@@ -7493,13 +11553,13 @@ public class StorefrontApi {
     /**
      * Search email list customers
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param startsWith null (optional)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param startsWith  (optional)
      * @return ApiResponse&lt;EmailListCustomersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailListCustomersResponse> searchEmailListCustomersWithHttpInfo(String storefrontOid, String emailListUuid, String startsWith) throws ApiException {
+    public ApiResponse<EmailListCustomersResponse> searchEmailListCustomersWithHttpInfo(Integer storefrontOid, String emailListUuid, String startsWith) throws ApiException {
         com.squareup.okhttp.Call call = searchEmailListCustomersValidateBeforeCall(storefrontOid, emailListUuid, startsWith, null, null);
         Type localVarReturnType = new TypeToken<EmailListCustomersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7508,14 +11568,14 @@ public class StorefrontApi {
     /**
      * Search email list customers (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
-     * @param startsWith null (optional)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
+     * @param startsWith  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchEmailListCustomersAsync(String storefrontOid, String emailListUuid, String startsWith, final ApiCallback<EmailListCustomersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchEmailListCustomersAsync(Integer storefrontOid, String emailListUuid, String startsWith, final ApiCallback<EmailListCustomersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7543,17 +11603,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for searchEmailSegmentCustomers
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param startsWith null (optional)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param startsWith  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchEmailSegmentCustomersCall(String storefrontOid, String emailSegmentUuid, String startsWith, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchEmailSegmentCustomersCall(Integer storefrontOid, String emailSegmentUuid, String startsWith, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -7595,9 +11655,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchEmailSegmentCustomersValidateBeforeCall(String storefrontOid, String emailSegmentUuid, String startsWith, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchEmailSegmentCustomersValidateBeforeCall(Integer storefrontOid, String emailSegmentUuid, String startsWith, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -7609,26 +11669,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailSegmentUuid' when calling searchEmailSegmentCustomers(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = searchEmailSegmentCustomersCall(storefrontOid, emailSegmentUuid, startsWith, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Search email segment customers
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param startsWith null (optional)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param startsWith  (optional)
      * @return EmailSegmentCustomersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentCustomersResponse searchEmailSegmentCustomers(String storefrontOid, String emailSegmentUuid, String startsWith) throws ApiException {
+    public EmailSegmentCustomersResponse searchEmailSegmentCustomers(Integer storefrontOid, String emailSegmentUuid, String startsWith) throws ApiException {
         ApiResponse<EmailSegmentCustomersResponse> resp = searchEmailSegmentCustomersWithHttpInfo(storefrontOid, emailSegmentUuid, startsWith);
         return resp.getData();
     }
@@ -7636,13 +11692,13 @@ public class StorefrontApi {
     /**
      * Search email segment customers
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param startsWith null (optional)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param startsWith  (optional)
      * @return ApiResponse&lt;EmailSegmentCustomersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentCustomersResponse> searchEmailSegmentCustomersWithHttpInfo(String storefrontOid, String emailSegmentUuid, String startsWith) throws ApiException {
+    public ApiResponse<EmailSegmentCustomersResponse> searchEmailSegmentCustomersWithHttpInfo(Integer storefrontOid, String emailSegmentUuid, String startsWith) throws ApiException {
         com.squareup.okhttp.Call call = searchEmailSegmentCustomersValidateBeforeCall(storefrontOid, emailSegmentUuid, startsWith, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentCustomersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7651,14 +11707,14 @@ public class StorefrontApi {
     /**
      * Search email segment customers (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
-     * @param startsWith null (optional)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
+     * @param startsWith  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchEmailSegmentCustomersAsync(String storefrontOid, String emailSegmentUuid, String startsWith, final ApiCallback<EmailSegmentCustomersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchEmailSegmentCustomersAsync(Integer storefrontOid, String emailSegmentUuid, String startsWith, final ApiCallback<EmailSegmentCustomersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7685,17 +11741,301 @@ public class StorefrontApi {
         return call;
     }
     /**
-     * Build call for startEmailCampaign
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * Build call for sendEmailTest
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param emailCommseqEmailTestRequest Email commseq email test request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call startEmailCampaignCall(String storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call sendEmailTestCall(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailTestRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailCommseqEmailTestRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_email_uuid" + "\\}", apiClient.escapeString(commseqEmailUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sendEmailTestValidateBeforeCall(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailTestRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling sendEmailTest(Async)");
+        }
+        
+        // verify the required parameter 'commseqEmailUuid' is set
+        if (commseqEmailUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqEmailUuid' when calling sendEmailTest(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqEmailTestRequest' is set
+        if (emailCommseqEmailTestRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqEmailTestRequest' when calling sendEmailTest(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sendEmailTestCall(storefrontOid, commseqEmailUuid, emailCommseqEmailTestRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Send email test
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param emailCommseqEmailTestRequest Email commseq email test request (required)
+     * @return EmailCommseqEmailSendTestResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqEmailSendTestResponse sendEmailTest(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailTestRequest) throws ApiException {
+        ApiResponse<EmailCommseqEmailSendTestResponse> resp = sendEmailTestWithHttpInfo(storefrontOid, commseqEmailUuid, emailCommseqEmailTestRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Send email test
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param emailCommseqEmailTestRequest Email commseq email test request (required)
+     * @return ApiResponse&lt;EmailCommseqEmailSendTestResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqEmailSendTestResponse> sendEmailTestWithHttpInfo(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailTestRequest) throws ApiException {
+        com.squareup.okhttp.Call call = sendEmailTestValidateBeforeCall(storefrontOid, commseqEmailUuid, emailCommseqEmailTestRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailSendTestResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Send email test (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param emailCommseqEmailTestRequest Email commseq email test request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sendEmailTestAsync(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailTestRequest, final ApiCallback<EmailCommseqEmailSendTestResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sendEmailTestValidateBeforeCall(storefrontOid, commseqEmailUuid, emailCommseqEmailTestRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailSendTestResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for sendPostcardTest
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param emailCommseqPostcardTestRequest Email commseq email test request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendPostcardTestCall(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailCommseqPostcardTestRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_postcard_uuid" + "\\}", apiClient.escapeString(commseqPostcardUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sendPostcardTestValidateBeforeCall(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling sendPostcardTest(Async)");
+        }
+        
+        // verify the required parameter 'commseqPostcardUuid' is set
+        if (commseqPostcardUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqPostcardUuid' when calling sendPostcardTest(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqPostcardTestRequest' is set
+        if (emailCommseqPostcardTestRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqPostcardTestRequest' when calling sendPostcardTest(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sendPostcardTestCall(storefrontOid, commseqPostcardUuid, emailCommseqPostcardTestRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Send postcard test
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param emailCommseqPostcardTestRequest Email commseq email test request (required)
+     * @return EmailCommseqPostcardSendTestResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqPostcardSendTestResponse sendPostcardTest(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest) throws ApiException {
+        ApiResponse<EmailCommseqPostcardSendTestResponse> resp = sendPostcardTestWithHttpInfo(storefrontOid, commseqPostcardUuid, emailCommseqPostcardTestRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Send postcard test
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param emailCommseqPostcardTestRequest Email commseq email test request (required)
+     * @return ApiResponse&lt;EmailCommseqPostcardSendTestResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqPostcardSendTestResponse> sendPostcardTestWithHttpInfo(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest) throws ApiException {
+        com.squareup.okhttp.Call call = sendPostcardTestValidateBeforeCall(storefrontOid, commseqPostcardUuid, emailCommseqPostcardTestRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardSendTestResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Send postcard test (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param emailCommseqPostcardTestRequest Email commseq email test request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sendPostcardTestAsync(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest, final ApiCallback<EmailCommseqPostcardSendTestResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sendPostcardTestValidateBeforeCall(storefrontOid, commseqPostcardUuid, emailCommseqPostcardTestRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardSendTestResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for startEmailCampaign
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call startEmailCampaignCall(Integer storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -7735,9 +12075,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call startEmailCampaignValidateBeforeCall(String storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call startEmailCampaignValidateBeforeCall(Integer storefrontOid, String emailCampaignUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -7749,25 +12089,21 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCampaignUuid' when calling startEmailCampaign(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = startEmailCampaignCall(storefrontOid, emailCampaignUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Start email campaign
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @return BaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BaseResponse startEmailCampaign(String storefrontOid, String emailCampaignUuid) throws ApiException {
+    public BaseResponse startEmailCampaign(Integer storefrontOid, String emailCampaignUuid) throws ApiException {
         ApiResponse<BaseResponse> resp = startEmailCampaignWithHttpInfo(storefrontOid, emailCampaignUuid);
         return resp.getData();
     }
@@ -7775,12 +12111,12 @@ public class StorefrontApi {
     /**
      * Start email campaign
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @return ApiResponse&lt;BaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BaseResponse> startEmailCampaignWithHttpInfo(String storefrontOid, String emailCampaignUuid) throws ApiException {
+    public ApiResponse<BaseResponse> startEmailCampaignWithHttpInfo(Integer storefrontOid, String emailCampaignUuid) throws ApiException {
         com.squareup.okhttp.Call call = startEmailCampaignValidateBeforeCall(storefrontOid, emailCampaignUuid, null, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7789,13 +12125,13 @@ public class StorefrontApi {
     /**
      * Start email campaign (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call startEmailCampaignAsync(String storefrontOid, String emailCampaignUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call startEmailCampaignAsync(Integer storefrontOid, String emailCampaignUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7823,17 +12159,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for subscribeToEmailList
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param customers Customers (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call subscribeToEmailListCall(String storefrontOid, String emailListUuid, List<EmailCustomer> customers, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call subscribeToEmailListCall(Integer storefrontOid, String emailListUuid, List<EmailCustomer> customers, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = customers;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -7873,9 +12209,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call subscribeToEmailListValidateBeforeCall(String storefrontOid, String emailListUuid, List<EmailCustomer> customers, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call subscribeToEmailListValidateBeforeCall(Integer storefrontOid, String emailListUuid, List<EmailCustomer> customers, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -7892,26 +12228,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'customers' when calling subscribeToEmailList(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = subscribeToEmailListCall(storefrontOid, emailListUuid, customers, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Subscribe customers to email list
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param customers Customers (required)
      * @return EmailListSubscribeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailListSubscribeResponse subscribeToEmailList(String storefrontOid, String emailListUuid, List<EmailCustomer> customers) throws ApiException {
+    public EmailListSubscribeResponse subscribeToEmailList(Integer storefrontOid, String emailListUuid, List<EmailCustomer> customers) throws ApiException {
         ApiResponse<EmailListSubscribeResponse> resp = subscribeToEmailListWithHttpInfo(storefrontOid, emailListUuid, customers);
         return resp.getData();
     }
@@ -7919,13 +12251,13 @@ public class StorefrontApi {
     /**
      * Subscribe customers to email list
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param customers Customers (required)
      * @return ApiResponse&lt;EmailListSubscribeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailListSubscribeResponse> subscribeToEmailListWithHttpInfo(String storefrontOid, String emailListUuid, List<EmailCustomer> customers) throws ApiException {
+    public ApiResponse<EmailListSubscribeResponse> subscribeToEmailListWithHttpInfo(Integer storefrontOid, String emailListUuid, List<EmailCustomer> customers) throws ApiException {
         com.squareup.okhttp.Call call = subscribeToEmailListValidateBeforeCall(storefrontOid, emailListUuid, customers, null, null);
         Type localVarReturnType = new TypeToken<EmailListSubscribeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7934,14 +12266,14 @@ public class StorefrontApi {
     /**
      * Subscribe customers to email list (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param customers Customers (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call subscribeToEmailListAsync(String storefrontOid, String emailListUuid, List<EmailCustomer> customers, final ApiCallback<EmailListSubscribeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call subscribeToEmailListAsync(Integer storefrontOid, String emailListUuid, List<EmailCustomer> customers, final ApiCallback<EmailListSubscribeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7969,17 +12301,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for updateEmailCampaign
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @param emailCampaign Email campaign (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateEmailCampaignCall(String storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailCampaignCall(Integer storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCampaign;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -8019,9 +12351,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateEmailCampaignValidateBeforeCall(String storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateEmailCampaignValidateBeforeCall(Integer storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -8038,26 +12370,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCampaign' when calling updateEmailCampaign(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateEmailCampaignCall(storefrontOid, emailCampaignUuid, emailCampaign, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update email campaign
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @param emailCampaign Email campaign (required)
      * @return EmailCampaignResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCampaignResponse updateEmailCampaign(String storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign) throws ApiException {
+    public EmailCampaignResponse updateEmailCampaign(Integer storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign) throws ApiException {
         ApiResponse<EmailCampaignResponse> resp = updateEmailCampaignWithHttpInfo(storefrontOid, emailCampaignUuid, emailCampaign);
         return resp.getData();
     }
@@ -8065,13 +12393,13 @@ public class StorefrontApi {
     /**
      * Update email campaign
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @param emailCampaign Email campaign (required)
      * @return ApiResponse&lt;EmailCampaignResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCampaignResponse> updateEmailCampaignWithHttpInfo(String storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign) throws ApiException {
+    public ApiResponse<EmailCampaignResponse> updateEmailCampaignWithHttpInfo(Integer storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign) throws ApiException {
         com.squareup.okhttp.Call call = updateEmailCampaignValidateBeforeCall(storefrontOid, emailCampaignUuid, emailCampaign, null, null);
         Type localVarReturnType = new TypeToken<EmailCampaignResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8080,14 +12408,14 @@ public class StorefrontApi {
     /**
      * Update email campaign (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailCampaignUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailCampaignUuid  (required)
      * @param emailCampaign Email campaign (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateEmailCampaignAsync(String storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign, final ApiCallback<EmailCampaignResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailCampaignAsync(Integer storefrontOid, String emailCampaignUuid, EmailCampaign emailCampaign, final ApiCallback<EmailCampaignResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8115,17 +12443,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for updateEmailCommseq
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param emailCommseq Email commseq (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateEmailCommseqCall(String storefrontOid, String commseqUuid, EmailCommseq emailCommseq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailCommseqCall(Integer storefrontOid, String commseqUuid, EmailCommseq emailCommseq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCommseq;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -8165,9 +12493,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateEmailCommseqValidateBeforeCall(String storefrontOid, String commseqUuid, EmailCommseq emailCommseq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateEmailCommseqValidateBeforeCall(Integer storefrontOid, String commseqUuid, EmailCommseq emailCommseq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -8184,26 +12512,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCommseq' when calling updateEmailCommseq(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateEmailCommseqCall(storefrontOid, commseqUuid, emailCommseq, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update email commseq
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param emailCommseq Email commseq (required)
      * @return EmailCommseqResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqResponse updateEmailCommseq(String storefrontOid, String commseqUuid, EmailCommseq emailCommseq) throws ApiException {
+    public EmailCommseqResponse updateEmailCommseq(Integer storefrontOid, String commseqUuid, EmailCommseq emailCommseq) throws ApiException {
         ApiResponse<EmailCommseqResponse> resp = updateEmailCommseqWithHttpInfo(storefrontOid, commseqUuid, emailCommseq);
         return resp.getData();
     }
@@ -8211,13 +12535,13 @@ public class StorefrontApi {
     /**
      * Update email commseq
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param emailCommseq Email commseq (required)
      * @return ApiResponse&lt;EmailCommseqResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqResponse> updateEmailCommseqWithHttpInfo(String storefrontOid, String commseqUuid, EmailCommseq emailCommseq) throws ApiException {
+    public ApiResponse<EmailCommseqResponse> updateEmailCommseqWithHttpInfo(Integer storefrontOid, String commseqUuid, EmailCommseq emailCommseq) throws ApiException {
         com.squareup.okhttp.Call call = updateEmailCommseqValidateBeforeCall(storefrontOid, commseqUuid, emailCommseq, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8226,14 +12550,14 @@ public class StorefrontApi {
     /**
      * Update email commseq (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param commseqUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
      * @param emailCommseq Email commseq (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateEmailCommseqAsync(String storefrontOid, String commseqUuid, EmailCommseq emailCommseq, final ApiCallback<EmailCommseqResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailCommseqAsync(Integer storefrontOid, String commseqUuid, EmailCommseq emailCommseq, final ApiCallback<EmailCommseqResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8260,18 +12584,156 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for updateEmailCustomer
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param emailCustomer Email customer (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailCustomerCall(Integer storefrontOid, String emailCustomerUuid, EmailCustomer emailCustomer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailCustomer;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/customers/{email_customer_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_customer_uuid" + "\\}", apiClient.escapeString(emailCustomerUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateEmailCustomerValidateBeforeCall(Integer storefrontOid, String emailCustomerUuid, EmailCustomer emailCustomer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateEmailCustomer(Async)");
+        }
+        
+        // verify the required parameter 'emailCustomerUuid' is set
+        if (emailCustomerUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailCustomerUuid' when calling updateEmailCustomer(Async)");
+        }
+        
+        // verify the required parameter 'emailCustomer' is set
+        if (emailCustomer == null) {
+            throw new ApiException("Missing the required parameter 'emailCustomer' when calling updateEmailCustomer(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateEmailCustomerCall(storefrontOid, emailCustomerUuid, emailCustomer, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update email customer
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param emailCustomer Email customer (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void updateEmailCustomer(Integer storefrontOid, String emailCustomerUuid, EmailCustomer emailCustomer) throws ApiException {
+        updateEmailCustomerWithHttpInfo(storefrontOid, emailCustomerUuid, emailCustomer);
+    }
+
+    /**
+     * Update email customer
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param emailCustomer Email customer (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> updateEmailCustomerWithHttpInfo(Integer storefrontOid, String emailCustomerUuid, EmailCustomer emailCustomer) throws ApiException {
+        com.squareup.okhttp.Call call = updateEmailCustomerValidateBeforeCall(storefrontOid, emailCustomerUuid, emailCustomer, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Update email customer (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param emailCustomer Email customer (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailCustomerAsync(Integer storefrontOid, String emailCustomerUuid, EmailCustomer emailCustomer, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateEmailCustomerValidateBeforeCall(storefrontOid, emailCustomerUuid, emailCustomer, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for updateEmailEmail
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @param emailCommseqEmail Email commseq email (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateEmailEmailCall(String storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailEmailCall(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCommseqEmail;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -8311,9 +12773,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateEmailEmailValidateBeforeCall(String storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateEmailEmailValidateBeforeCall(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -8330,26 +12792,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailCommseqEmail' when calling updateEmailEmail(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateEmailEmailCall(storefrontOid, commseqEmailUuid, emailCommseqEmail, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update email email
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @param emailCommseqEmail Email commseq email (required)
      * @return EmailCommseqEmailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqEmailResponse updateEmailEmail(String storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail) throws ApiException {
+    public EmailCommseqEmailResponse updateEmailEmail(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail) throws ApiException {
         ApiResponse<EmailCommseqEmailResponse> resp = updateEmailEmailWithHttpInfo(storefrontOid, commseqEmailUuid, emailCommseqEmail);
         return resp.getData();
     }
@@ -8357,13 +12815,13 @@ public class StorefrontApi {
     /**
      * Update email email
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @param emailCommseqEmail Email commseq email (required)
      * @return ApiResponse&lt;EmailCommseqEmailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqEmailResponse> updateEmailEmailWithHttpInfo(String storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail) throws ApiException {
+    public ApiResponse<EmailCommseqEmailResponse> updateEmailEmailWithHttpInfo(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail) throws ApiException {
         com.squareup.okhttp.Call call = updateEmailEmailValidateBeforeCall(storefrontOid, commseqEmailUuid, emailCommseqEmail, null, null);
         Type localVarReturnType = new TypeToken<EmailCommseqEmailResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8372,14 +12830,14 @@ public class StorefrontApi {
     /**
      * Update email email (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param commseqEmailUuid null (required)
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
      * @param emailCommseqEmail Email commseq email (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateEmailEmailAsync(String storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail, final ApiCallback<EmailCommseqEmailResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailEmailAsync(Integer storefrontOid, String commseqEmailUuid, EmailCommseqEmail emailCommseqEmail, final ApiCallback<EmailCommseqEmailResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8407,17 +12865,17 @@ public class StorefrontApi {
     }
     /**
      * Build call for updateEmailFlow
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
      * @param emailFlow Email flow (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateEmailFlowCall(String storefrontOid, String emailFlowUuid, EmailFlow emailFlow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailFlowCall(Integer storefrontOid, String emailFlowUuid, EmailFlow emailFlow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailFlow;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/flows/{email_flow_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -8457,9 +12915,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateEmailFlowValidateBeforeCall(String storefrontOid, String emailFlowUuid, EmailFlow emailFlow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateEmailFlowValidateBeforeCall(Integer storefrontOid, String emailFlowUuid, EmailFlow emailFlow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -8476,26 +12934,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailFlow' when calling updateEmailFlow(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateEmailFlowCall(storefrontOid, emailFlowUuid, emailFlow, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update email flow
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
      * @param emailFlow Email flow (required)
      * @return EmailFlowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailFlowResponse updateEmailFlow(String storefrontOid, String emailFlowUuid, EmailFlow emailFlow) throws ApiException {
+    public EmailFlowResponse updateEmailFlow(Integer storefrontOid, String emailFlowUuid, EmailFlow emailFlow) throws ApiException {
         ApiResponse<EmailFlowResponse> resp = updateEmailFlowWithHttpInfo(storefrontOid, emailFlowUuid, emailFlow);
         return resp.getData();
     }
@@ -8503,13 +12957,13 @@ public class StorefrontApi {
     /**
      * Update email flow
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
      * @param emailFlow Email flow (required)
      * @return ApiResponse&lt;EmailFlowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailFlowResponse> updateEmailFlowWithHttpInfo(String storefrontOid, String emailFlowUuid, EmailFlow emailFlow) throws ApiException {
+    public ApiResponse<EmailFlowResponse> updateEmailFlowWithHttpInfo(Integer storefrontOid, String emailFlowUuid, EmailFlow emailFlow) throws ApiException {
         com.squareup.okhttp.Call call = updateEmailFlowValidateBeforeCall(storefrontOid, emailFlowUuid, emailFlow, null, null);
         Type localVarReturnType = new TypeToken<EmailFlowResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8518,14 +12972,14 @@ public class StorefrontApi {
     /**
      * Update email flow (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailFlowUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailFlowUuid  (required)
      * @param emailFlow Email flow (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateEmailFlowAsync(String storefrontOid, String emailFlowUuid, EmailFlow emailFlow, final ApiCallback<EmailFlowResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailFlowAsync(Integer storefrontOid, String emailFlowUuid, EmailFlow emailFlow, final ApiCallback<EmailFlowResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8552,18 +13006,140 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for updateEmailGlobalSettings
+     * @param globalSettings global settings request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailGlobalSettingsCall(EmailGlobalSettings globalSettings, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = globalSettings;
+
+        // create path and map variables
+        String localVarPath = "/storefront/email/global_settings";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateEmailGlobalSettingsValidateBeforeCall(EmailGlobalSettings globalSettings, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'globalSettings' is set
+        if (globalSettings == null) {
+            throw new ApiException("Missing the required parameter 'globalSettings' when calling updateEmailGlobalSettings(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateEmailGlobalSettingsCall(globalSettings, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update email global settings
+     * 
+     * @param globalSettings global settings request (required)
+     * @return EmailGlobalSettingsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailGlobalSettingsResponse updateEmailGlobalSettings(EmailGlobalSettings globalSettings) throws ApiException {
+        ApiResponse<EmailGlobalSettingsResponse> resp = updateEmailGlobalSettingsWithHttpInfo(globalSettings);
+        return resp.getData();
+    }
+
+    /**
+     * Update email global settings
+     * 
+     * @param globalSettings global settings request (required)
+     * @return ApiResponse&lt;EmailGlobalSettingsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailGlobalSettingsResponse> updateEmailGlobalSettingsWithHttpInfo(EmailGlobalSettings globalSettings) throws ApiException {
+        com.squareup.okhttp.Call call = updateEmailGlobalSettingsValidateBeforeCall(globalSettings, null, null);
+        Type localVarReturnType = new TypeToken<EmailGlobalSettingsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update email global settings (asynchronously)
+     * 
+     * @param globalSettings global settings request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailGlobalSettingsAsync(EmailGlobalSettings globalSettings, final ApiCallback<EmailGlobalSettingsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateEmailGlobalSettingsValidateBeforeCall(globalSettings, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailGlobalSettingsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for updateEmailList
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param emailList Email list (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateEmailListCall(String storefrontOid, String emailListUuid, EmailList emailList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailListCall(Integer storefrontOid, String emailListUuid, EmailList emailList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailList;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/lists/{email_list_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -8603,9 +13179,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateEmailListValidateBeforeCall(String storefrontOid, String emailListUuid, EmailList emailList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateEmailListValidateBeforeCall(Integer storefrontOid, String emailListUuid, EmailList emailList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -8622,26 +13198,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailList' when calling updateEmailList(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateEmailListCall(storefrontOid, emailListUuid, emailList, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update email list
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param emailList Email list (required)
      * @return EmailListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailListResponse updateEmailList(String storefrontOid, String emailListUuid, EmailList emailList) throws ApiException {
+    public EmailListResponse updateEmailList(Integer storefrontOid, String emailListUuid, EmailList emailList) throws ApiException {
         ApiResponse<EmailListResponse> resp = updateEmailListWithHttpInfo(storefrontOid, emailListUuid, emailList);
         return resp.getData();
     }
@@ -8649,13 +13221,13 @@ public class StorefrontApi {
     /**
      * Update email list
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param emailList Email list (required)
      * @return ApiResponse&lt;EmailListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailListResponse> updateEmailListWithHttpInfo(String storefrontOid, String emailListUuid, EmailList emailList) throws ApiException {
+    public ApiResponse<EmailListResponse> updateEmailListWithHttpInfo(Integer storefrontOid, String emailListUuid, EmailList emailList) throws ApiException {
         com.squareup.okhttp.Call call = updateEmailListValidateBeforeCall(storefrontOid, emailListUuid, emailList, null, null);
         Type localVarReturnType = new TypeToken<EmailListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8664,14 +13236,14 @@ public class StorefrontApi {
     /**
      * Update email list (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailListUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailListUuid  (required)
      * @param emailList Email list (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateEmailListAsync(String storefrontOid, String emailListUuid, EmailList emailList, final ApiCallback<EmailListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailListAsync(Integer storefrontOid, String emailListUuid, EmailList emailList, final ApiCallback<EmailListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8698,18 +13270,292 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for updateEmailPlan
+     * @param storefrontOid  (required)
+     * @param settings plan request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailPlanCall(Integer storefrontOid, EmailPlan settings, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = settings;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/plan"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateEmailPlanValidateBeforeCall(Integer storefrontOid, EmailPlan settings, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateEmailPlan(Async)");
+        }
+        
+        // verify the required parameter 'settings' is set
+        if (settings == null) {
+            throw new ApiException("Missing the required parameter 'settings' when calling updateEmailPlan(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateEmailPlanCall(storefrontOid, settings, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update email plan
+     * 
+     * @param storefrontOid  (required)
+     * @param settings plan request (required)
+     * @return EmailPlanResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailPlanResponse updateEmailPlan(Integer storefrontOid, EmailPlan settings) throws ApiException {
+        ApiResponse<EmailPlanResponse> resp = updateEmailPlanWithHttpInfo(storefrontOid, settings);
+        return resp.getData();
+    }
+
+    /**
+     * Update email plan
+     * 
+     * @param storefrontOid  (required)
+     * @param settings plan request (required)
+     * @return ApiResponse&lt;EmailPlanResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailPlanResponse> updateEmailPlanWithHttpInfo(Integer storefrontOid, EmailPlan settings) throws ApiException {
+        com.squareup.okhttp.Call call = updateEmailPlanValidateBeforeCall(storefrontOid, settings, null, null);
+        Type localVarReturnType = new TypeToken<EmailPlanResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update email plan (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param settings plan request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailPlanAsync(Integer storefrontOid, EmailPlan settings, final ApiCallback<EmailPlanResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateEmailPlanValidateBeforeCall(storefrontOid, settings, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailPlanResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateEmailPostcard
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param emailCommseqPostcard Email commseq postcard (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailPostcardCall(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcard emailCommseqPostcard, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailCommseqPostcard;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_postcard_uuid" + "\\}", apiClient.escapeString(commseqPostcardUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateEmailPostcardValidateBeforeCall(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcard emailCommseqPostcard, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateEmailPostcard(Async)");
+        }
+        
+        // verify the required parameter 'commseqPostcardUuid' is set
+        if (commseqPostcardUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqPostcardUuid' when calling updateEmailPostcard(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqPostcard' is set
+        if (emailCommseqPostcard == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqPostcard' when calling updateEmailPostcard(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateEmailPostcardCall(storefrontOid, commseqPostcardUuid, emailCommseqPostcard, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update email postcard
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param emailCommseqPostcard Email commseq postcard (required)
+     * @return EmailCommseqPostcardResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqPostcardResponse updateEmailPostcard(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcard emailCommseqPostcard) throws ApiException {
+        ApiResponse<EmailCommseqPostcardResponse> resp = updateEmailPostcardWithHttpInfo(storefrontOid, commseqPostcardUuid, emailCommseqPostcard);
+        return resp.getData();
+    }
+
+    /**
+     * Update email postcard
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param emailCommseqPostcard Email commseq postcard (required)
+     * @return ApiResponse&lt;EmailCommseqPostcardResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqPostcardResponse> updateEmailPostcardWithHttpInfo(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcard emailCommseqPostcard) throws ApiException {
+        com.squareup.okhttp.Call call = updateEmailPostcardValidateBeforeCall(storefrontOid, commseqPostcardUuid, emailCommseqPostcard, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update email postcard (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqPostcardUuid  (required)
+     * @param emailCommseqPostcard Email commseq postcard (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailPostcardAsync(Integer storefrontOid, String commseqPostcardUuid, EmailCommseqPostcard emailCommseqPostcard, final ApiCallback<EmailCommseqPostcardResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateEmailPostcardValidateBeforeCall(storefrontOid, commseqPostcardUuid, emailCommseqPostcard, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqPostcardResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for updateEmailSegment
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param emailSegment Email segment (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateEmailSegmentCall(String storefrontOid, String emailSegmentUuid, EmailSegment emailSegment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailSegmentCall(Integer storefrontOid, String emailSegmentUuid, EmailSegment emailSegment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailSegment;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/email/segments/{email_segment_uuid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -8749,9 +13595,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateEmailSegmentValidateBeforeCall(String storefrontOid, String emailSegmentUuid, EmailSegment emailSegment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateEmailSegmentValidateBeforeCall(Integer storefrontOid, String emailSegmentUuid, EmailSegment emailSegment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -8768,26 +13614,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'emailSegment' when calling updateEmailSegment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateEmailSegmentCall(storefrontOid, emailSegmentUuid, emailSegment, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param emailSegment Email segment (required)
      * @return EmailSegmentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailSegmentResponse updateEmailSegment(String storefrontOid, String emailSegmentUuid, EmailSegment emailSegment) throws ApiException {
+    public EmailSegmentResponse updateEmailSegment(Integer storefrontOid, String emailSegmentUuid, EmailSegment emailSegment) throws ApiException {
         ApiResponse<EmailSegmentResponse> resp = updateEmailSegmentWithHttpInfo(storefrontOid, emailSegmentUuid, emailSegment);
         return resp.getData();
     }
@@ -8795,13 +13637,13 @@ public class StorefrontApi {
     /**
      * Update email segment
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param emailSegment Email segment (required)
      * @return ApiResponse&lt;EmailSegmentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailSegmentResponse> updateEmailSegmentWithHttpInfo(String storefrontOid, String emailSegmentUuid, EmailSegment emailSegment) throws ApiException {
+    public ApiResponse<EmailSegmentResponse> updateEmailSegmentWithHttpInfo(Integer storefrontOid, String emailSegmentUuid, EmailSegment emailSegment) throws ApiException {
         com.squareup.okhttp.Call call = updateEmailSegmentValidateBeforeCall(storefrontOid, emailSegmentUuid, emailSegment, null, null);
         Type localVarReturnType = new TypeToken<EmailSegmentResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8810,14 +13652,14 @@ public class StorefrontApi {
     /**
      * Update email segment (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param emailSegmentUuid null (required)
+     * @param storefrontOid  (required)
+     * @param emailSegmentUuid  (required)
      * @param emailSegment Email segment (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateEmailSegmentAsync(String storefrontOid, String emailSegmentUuid, EmailSegment emailSegment, final ApiCallback<EmailSegmentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateEmailSegmentAsync(Integer storefrontOid, String emailSegmentUuid, EmailSegment emailSegment, final ApiCallback<EmailSegmentResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8844,18 +13686,150 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for updateEmailSettings
+     * @param storefrontOid  (required)
+     * @param settings settings request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailSettingsCall(Integer storefrontOid, EmailSettings settings, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = settings;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/settings"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateEmailSettingsValidateBeforeCall(Integer storefrontOid, EmailSettings settings, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateEmailSettings(Async)");
+        }
+        
+        // verify the required parameter 'settings' is set
+        if (settings == null) {
+            throw new ApiException("Missing the required parameter 'settings' when calling updateEmailSettings(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateEmailSettingsCall(storefrontOid, settings, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update email settings
+     * 
+     * @param storefrontOid  (required)
+     * @param settings settings request (required)
+     * @return EmailSettingsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailSettingsResponse updateEmailSettings(Integer storefrontOid, EmailSettings settings) throws ApiException {
+        ApiResponse<EmailSettingsResponse> resp = updateEmailSettingsWithHttpInfo(storefrontOid, settings);
+        return resp.getData();
+    }
+
+    /**
+     * Update email settings
+     * 
+     * @param storefrontOid  (required)
+     * @param settings settings request (required)
+     * @return ApiResponse&lt;EmailSettingsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailSettingsResponse> updateEmailSettingsWithHttpInfo(Integer storefrontOid, EmailSettings settings) throws ApiException {
+        com.squareup.okhttp.Call call = updateEmailSettingsValidateBeforeCall(storefrontOid, settings, null, null);
+        Type localVarReturnType = new TypeToken<EmailSettingsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update email settings (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param settings settings request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailSettingsAsync(Integer storefrontOid, EmailSettings settings, final ApiCallback<EmailSettingsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateEmailSettingsValidateBeforeCall(storefrontOid, settings, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailSettingsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for updateExperiment
-     * @param storefrontOid null (required)
-     * @param storefrontExperimentOid null (required)
+     * @param storefrontOid  (required)
+     * @param storefrontExperimentOid  (required)
      * @param experiment Experiment (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateExperimentCall(String storefrontOid, Integer storefrontExperimentOid, Experiment experiment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateExperimentCall(Integer storefrontOid, Integer storefrontExperimentOid, Experiment experiment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = experiment;
-        
+
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/experiments/{storefront_experiment_oid}"
             .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
@@ -8895,9 +13869,9 @@ public class StorefrontApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateExperimentValidateBeforeCall(String storefrontOid, Integer storefrontExperimentOid, Experiment experiment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateExperimentValidateBeforeCall(Integer storefrontOid, Integer storefrontExperimentOid, Experiment experiment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -8914,26 +13888,22 @@ public class StorefrontApi {
             throw new ApiException("Missing the required parameter 'experiment' when calling updateExperiment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateExperimentCall(storefrontOid, storefrontExperimentOid, experiment, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update experiment
      * 
-     * @param storefrontOid null (required)
-     * @param storefrontExperimentOid null (required)
+     * @param storefrontOid  (required)
+     * @param storefrontExperimentOid  (required)
      * @param experiment Experiment (required)
      * @return ExperimentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ExperimentResponse updateExperiment(String storefrontOid, Integer storefrontExperimentOid, Experiment experiment) throws ApiException {
+    public ExperimentResponse updateExperiment(Integer storefrontOid, Integer storefrontExperimentOid, Experiment experiment) throws ApiException {
         ApiResponse<ExperimentResponse> resp = updateExperimentWithHttpInfo(storefrontOid, storefrontExperimentOid, experiment);
         return resp.getData();
     }
@@ -8941,13 +13911,13 @@ public class StorefrontApi {
     /**
      * Update experiment
      * 
-     * @param storefrontOid null (required)
-     * @param storefrontExperimentOid null (required)
+     * @param storefrontOid  (required)
+     * @param storefrontExperimentOid  (required)
      * @param experiment Experiment (required)
      * @return ApiResponse&lt;ExperimentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ExperimentResponse> updateExperimentWithHttpInfo(String storefrontOid, Integer storefrontExperimentOid, Experiment experiment) throws ApiException {
+    public ApiResponse<ExperimentResponse> updateExperimentWithHttpInfo(Integer storefrontOid, Integer storefrontExperimentOid, Experiment experiment) throws ApiException {
         com.squareup.okhttp.Call call = updateExperimentValidateBeforeCall(storefrontOid, storefrontExperimentOid, experiment, null, null);
         Type localVarReturnType = new TypeToken<ExperimentResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8956,14 +13926,14 @@ public class StorefrontApi {
     /**
      * Update experiment (asynchronously)
      * 
-     * @param storefrontOid null (required)
-     * @param storefrontExperimentOid null (required)
+     * @param storefrontOid  (required)
+     * @param storefrontExperimentOid  (required)
      * @param experiment Experiment (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateExperimentAsync(String storefrontOid, Integer storefrontExperimentOid, Experiment experiment, final ApiCallback<ExperimentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateExperimentAsync(Integer storefrontOid, Integer storefrontExperimentOid, Experiment experiment, final ApiCallback<ExperimentResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8986,6 +13956,280 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = updateExperimentValidateBeforeCall(storefrontOid, storefrontExperimentOid, experiment, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ExperimentResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateLibraryItem
+     * @param libraryItemOid  (required)
+     * @param libraryItem Library item (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateLibraryItemCall(Integer libraryItemOid, LibraryItem libraryItem, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = libraryItem;
+
+        // create path and map variables
+        String localVarPath = "/storefront/code_library/{library_item_oid}"
+            .replaceAll("\\{" + "library_item_oid" + "\\}", apiClient.escapeString(libraryItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateLibraryItemValidateBeforeCall(Integer libraryItemOid, LibraryItem libraryItem, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'libraryItemOid' is set
+        if (libraryItemOid == null) {
+            throw new ApiException("Missing the required parameter 'libraryItemOid' when calling updateLibraryItem(Async)");
+        }
+        
+        // verify the required parameter 'libraryItem' is set
+        if (libraryItem == null) {
+            throw new ApiException("Missing the required parameter 'libraryItem' when calling updateLibraryItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateLibraryItemCall(libraryItemOid, libraryItem, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update library item. Note that only certain fields may be updated via this method.
+     * 
+     * @param libraryItemOid  (required)
+     * @param libraryItem Library item (required)
+     * @return LibraryItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LibraryItemResponse updateLibraryItem(Integer libraryItemOid, LibraryItem libraryItem) throws ApiException {
+        ApiResponse<LibraryItemResponse> resp = updateLibraryItemWithHttpInfo(libraryItemOid, libraryItem);
+        return resp.getData();
+    }
+
+    /**
+     * Update library item. Note that only certain fields may be updated via this method.
+     * 
+     * @param libraryItemOid  (required)
+     * @param libraryItem Library item (required)
+     * @return ApiResponse&lt;LibraryItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LibraryItemResponse> updateLibraryItemWithHttpInfo(Integer libraryItemOid, LibraryItem libraryItem) throws ApiException {
+        com.squareup.okhttp.Call call = updateLibraryItemValidateBeforeCall(libraryItemOid, libraryItem, null, null);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update library item. Note that only certain fields may be updated via this method. (asynchronously)
+     * 
+     * @param libraryItemOid  (required)
+     * @param libraryItem Library item (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateLibraryItemAsync(Integer libraryItemOid, LibraryItem libraryItem, final ApiCallback<LibraryItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateLibraryItemValidateBeforeCall(libraryItemOid, libraryItem, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateTransactionEmail
+     * @param storefrontOid  (required)
+     * @param emailId  (required)
+     * @param transactionEmail TransactionEmail (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateTransactionEmailCall(Integer storefrontOid, String emailId, TransactionEmail transactionEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = transactionEmail;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/transaction_email/list/{email_id}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_id" + "\\}", apiClient.escapeString(emailId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateTransactionEmailValidateBeforeCall(Integer storefrontOid, String emailId, TransactionEmail transactionEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateTransactionEmail(Async)");
+        }
+        
+        // verify the required parameter 'emailId' is set
+        if (emailId == null) {
+            throw new ApiException("Missing the required parameter 'emailId' when calling updateTransactionEmail(Async)");
+        }
+        
+        // verify the required parameter 'transactionEmail' is set
+        if (transactionEmail == null) {
+            throw new ApiException("Missing the required parameter 'transactionEmail' when calling updateTransactionEmail(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateTransactionEmailCall(storefrontOid, emailId, transactionEmail, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates a transaction email object
+     * Updates a transactional email 
+     * @param storefrontOid  (required)
+     * @param emailId  (required)
+     * @param transactionEmail TransactionEmail (required)
+     * @return TransactionEmailResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TransactionEmailResponse updateTransactionEmail(Integer storefrontOid, String emailId, TransactionEmail transactionEmail) throws ApiException {
+        ApiResponse<TransactionEmailResponse> resp = updateTransactionEmailWithHttpInfo(storefrontOid, emailId, transactionEmail);
+        return resp.getData();
+    }
+
+    /**
+     * Updates a transaction email object
+     * Updates a transactional email 
+     * @param storefrontOid  (required)
+     * @param emailId  (required)
+     * @param transactionEmail TransactionEmail (required)
+     * @return ApiResponse&lt;TransactionEmailResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TransactionEmailResponse> updateTransactionEmailWithHttpInfo(Integer storefrontOid, String emailId, TransactionEmail transactionEmail) throws ApiException {
+        com.squareup.okhttp.Call call = updateTransactionEmailValidateBeforeCall(storefrontOid, emailId, transactionEmail, null, null);
+        Type localVarReturnType = new TypeToken<TransactionEmailResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates a transaction email object (asynchronously)
+     * Updates a transactional email 
+     * @param storefrontOid  (required)
+     * @param emailId  (required)
+     * @param transactionEmail TransactionEmail (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateTransactionEmailAsync(Integer storefrontOid, String emailId, TransactionEmail transactionEmail, final ApiCallback<TransactionEmailResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateTransactionEmailValidateBeforeCall(storefrontOid, emailId, transactionEmail, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TransactionEmailResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

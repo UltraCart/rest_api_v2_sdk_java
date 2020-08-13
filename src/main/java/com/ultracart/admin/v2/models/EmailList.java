@@ -14,20 +14,30 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.EmailListSegmentUsedBy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * EmailList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailList {
+  @SerializedName("allow_csv_download")
+  private Boolean allowCsvDownload = null;
+
   @SerializedName("created_dts")
   private String createdDts = null;
 
@@ -54,6 +64,27 @@ public class EmailList {
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
+
+  @SerializedName("used_by")
+  private List<EmailListSegmentUsedBy> usedBy = null;
+
+  public EmailList allowCsvDownload(Boolean allowCsvDownload) {
+    this.allowCsvDownload = allowCsvDownload;
+    return this;
+  }
+
+   /**
+   * True if the current user has the rights to download this list.
+   * @return allowCsvDownload
+  **/
+  @ApiModelProperty(value = "True if the current user has the rights to download this list.")
+  public Boolean isAllowCsvDownload() {
+    return allowCsvDownload;
+  }
+
+  public void setAllowCsvDownload(Boolean allowCsvDownload) {
+    this.allowCsvDownload = allowCsvDownload;
+  }
 
   public EmailList createdDts(String createdDts) {
     this.createdDts = createdDts;
@@ -217,6 +248,32 @@ public class EmailList {
     this.storefrontOid = storefrontOid;
   }
 
+  public EmailList usedBy(List<EmailListSegmentUsedBy> usedBy) {
+    this.usedBy = usedBy;
+    return this;
+  }
+
+  public EmailList addUsedByItem(EmailListSegmentUsedBy usedByItem) {
+    if (this.usedBy == null) {
+      this.usedBy = new ArrayList<EmailListSegmentUsedBy>();
+    }
+    this.usedBy.add(usedByItem);
+    return this;
+  }
+
+   /**
+   * Details on the flows or campaigns that use this list.
+   * @return usedBy
+  **/
+  @ApiModelProperty(value = "Details on the flows or campaigns that use this list.")
+  public List<EmailListSegmentUsedBy> getUsedBy() {
+    return usedBy;
+  }
+
+  public void setUsedBy(List<EmailListSegmentUsedBy> usedBy) {
+    this.usedBy = usedBy;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -227,7 +284,8 @@ public class EmailList {
       return false;
     }
     EmailList emailList = (EmailList) o;
-    return Objects.equals(this.createdDts, emailList.createdDts) &&
+    return Objects.equals(this.allowCsvDownload, emailList.allowCsvDownload) &&
+        Objects.equals(this.createdDts, emailList.createdDts) &&
         Objects.equals(this.deleted, emailList.deleted) &&
         Objects.equals(this.emailListUuid, emailList.emailListUuid) &&
         Objects.equals(this.memberCount, emailList.memberCount) &&
@@ -235,12 +293,13 @@ public class EmailList {
         Objects.equals(this.name, emailList.name) &&
         Objects.equals(this.publicDescription, emailList.publicDescription) &&
         Objects.equals(this.publicList, emailList.publicList) &&
-        Objects.equals(this.storefrontOid, emailList.storefrontOid);
+        Objects.equals(this.storefrontOid, emailList.storefrontOid) &&
+        Objects.equals(this.usedBy, emailList.usedBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdDts, deleted, emailListUuid, memberCount, merchantId, name, publicDescription, publicList, storefrontOid);
+    return Objects.hash(allowCsvDownload, createdDts, deleted, emailListUuid, memberCount, merchantId, name, publicDescription, publicList, storefrontOid, usedBy);
   }
 
 
@@ -249,6 +308,7 @@ public class EmailList {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailList {\n");
     
+    sb.append("    allowCsvDownload: ").append(toIndentedString(allowCsvDownload)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailListUuid: ").append(toIndentedString(emailListUuid)).append("\n");
@@ -258,6 +318,7 @@ public class EmailList {
     sb.append("    publicDescription: ").append(toIndentedString(publicDescription)).append("\n");
     sb.append("    publicList: ").append(toIndentedString(publicList)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    usedBy: ").append(toIndentedString(usedBy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

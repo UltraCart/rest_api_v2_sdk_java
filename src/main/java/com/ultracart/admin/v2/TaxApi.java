@@ -38,6 +38,7 @@ import com.ultracart.admin.v2.models.TaxProviderAvalaraCompaniesResult;
 import com.ultracart.admin.v2.models.TaxProviderSelf;
 import com.ultracart.admin.v2.models.TaxProviderSelfCountriesResponse;
 import com.ultracart.admin.v2.models.TaxProviderSelfRegionsResponse;
+import com.ultracart.admin.v2.models.TaxProviderSovos;
 import com.ultracart.admin.v2.models.TaxProviderTaxJar;
 import com.ultracart.admin.v2.models.TaxProviderTestResult;
 import com.ultracart.admin.v2.models.TaxProviderUltraCart;
@@ -80,7 +81,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call deleteTaxProviderSelfCityCall(String city, TaxCity taxCity, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxCity;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/city/{city}"
             .replaceAll("\\{" + "city" + "\\}", apiClient.escapeString(city.toString()));
@@ -119,7 +120,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTaxProviderSelfCityValidateBeforeCall(String city, TaxCity taxCity, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -133,14 +134,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxCity' when calling deleteTaxProviderSelfCity(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteTaxProviderSelfCityCall(city, taxCity, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -212,7 +209,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call deleteTaxProviderSelfCountryCall(String countryCode, TaxCountry taxCountry, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxCountry;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/country/{countryCode}"
             .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()));
@@ -251,7 +248,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTaxProviderSelfCountryValidateBeforeCall(String countryCode, TaxCountry taxCountry, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -265,14 +262,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxCountry' when calling deleteTaxProviderSelfCountry(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteTaxProviderSelfCountryCall(countryCode, taxCountry, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -344,7 +337,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call deleteTaxProviderSelfCountyCall(String county, TaxCounty taxCounty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxCounty;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/county/{county}"
             .replaceAll("\\{" + "county" + "\\}", apiClient.escapeString(county.toString()));
@@ -383,7 +376,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTaxProviderSelfCountyValidateBeforeCall(String county, TaxCounty taxCounty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -397,14 +390,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxCounty' when calling deleteTaxProviderSelfCounty(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteTaxProviderSelfCountyCall(county, taxCounty, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -476,7 +465,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call deleteTaxProviderSelfPostalCodeCall(String postalCode, TaxPostalCode taxPostalCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxPostalCode;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/postalCode/{postal_code}"
             .replaceAll("\\{" + "postal_code" + "\\}", apiClient.escapeString(postalCode.toString()));
@@ -515,7 +504,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTaxProviderSelfPostalCodeValidateBeforeCall(String postalCode, TaxPostalCode taxPostalCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -529,14 +518,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxPostalCode' when calling deleteTaxProviderSelfPostalCode(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteTaxProviderSelfPostalCodeCall(postalCode, taxPostalCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -608,7 +593,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call deleteTaxProviderSelfStateCall(String stateCode, TaxState taxState, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxState;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/state/{stateCode}"
             .replaceAll("\\{" + "stateCode" + "\\}", apiClient.escapeString(stateCode.toString()));
@@ -647,7 +632,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTaxProviderSelfStateValidateBeforeCall(String stateCode, TaxState taxState, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -661,14 +646,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxState' when calling deleteTaxProviderSelfState(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteTaxProviderSelfStateCall(stateCode, taxState, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -738,7 +719,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderAvalaraCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/avalara";
 
@@ -776,18 +757,14 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderAvalaraValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderAvalaraCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -856,7 +833,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderAvalaraCompaniesCall(TaxProviderAvalara taxProviderAvalara, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxProviderAvalara;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/avalara/companies";
 
@@ -894,7 +871,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderAvalaraCompaniesValidateBeforeCall(TaxProviderAvalara taxProviderAvalara, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -903,14 +880,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxProviderAvalara' when calling getTaxProviderAvalaraCompanies(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderAvalaraCompaniesCall(taxProviderAvalara, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -981,7 +954,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderAvalaraTestCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/avalara/test";
 
@@ -1019,18 +992,14 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderAvalaraTestValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderAvalaraTestCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1098,7 +1067,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderSelfCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self";
 
@@ -1136,18 +1105,14 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderSelfValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderSelfCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1215,7 +1180,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderSelfCountriesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/countries";
 
@@ -1253,18 +1218,14 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderSelfCountriesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderSelfCountriesCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1333,7 +1294,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderSelfRegionsByCountryCodeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/regions/{countryCode}"
             .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()));
@@ -1372,7 +1333,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderSelfRegionsByCountryCodeValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1381,14 +1342,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'countryCode' when calling getTaxProviderSelfRegionsByCountryCode(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderSelfRegionsByCountryCodeCall(countryCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1451,6 +1408,232 @@ public class TaxApi {
         return call;
     }
     /**
+     * Build call for getTaxProviderSovos
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTaxProviderSovosCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tax/providers/sovos";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTaxProviderSovosValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getTaxProviderSovosCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve the Sovos tax provider
+     * Retrieves the Sovos tax provider. 
+     * @return TaxProviderSovos
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TaxProviderSovos getTaxProviderSovos() throws ApiException {
+        ApiResponse<TaxProviderSovos> resp = getTaxProviderSovosWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve the Sovos tax provider
+     * Retrieves the Sovos tax provider. 
+     * @return ApiResponse&lt;TaxProviderSovos&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TaxProviderSovos> getTaxProviderSovosWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getTaxProviderSovosValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<TaxProviderSovos>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the Sovos tax provider (asynchronously)
+     * Retrieves the Sovos tax provider. 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTaxProviderSovosAsync(final ApiCallback<TaxProviderSovos> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTaxProviderSovosValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TaxProviderSovos>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTaxProviderSovosTest
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTaxProviderSovosTestCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tax/providers/sovos/test";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTaxProviderSovosTestValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getTaxProviderSovosTestCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Attempts to connect to Sovos and returns back the response
+     * Attempts to connect to Sovos and returns back the response. 
+     * @return TaxProviderTestResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TaxProviderTestResult getTaxProviderSovosTest() throws ApiException {
+        ApiResponse<TaxProviderTestResult> resp = getTaxProviderSovosTestWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Attempts to connect to Sovos and returns back the response
+     * Attempts to connect to Sovos and returns back the response. 
+     * @return ApiResponse&lt;TaxProviderTestResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TaxProviderTestResult> getTaxProviderSovosTestWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getTaxProviderSovosTestValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<TaxProviderTestResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Attempts to connect to Sovos and returns back the response (asynchronously)
+     * Attempts to connect to Sovos and returns back the response. 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTaxProviderSovosTestAsync(final ApiCallback<TaxProviderTestResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTaxProviderSovosTestValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TaxProviderTestResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getTaxProviderTaxJar
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -1459,7 +1642,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderTaxJarCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/taxjar";
 
@@ -1497,18 +1680,14 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderTaxJarValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderTaxJarCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1576,7 +1755,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderTaxJarTestCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/taxjar/test";
 
@@ -1614,18 +1793,14 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderTaxJarTestValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderTaxJarTestCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1693,7 +1868,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProviderUltraCartCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/ultracart";
 
@@ -1731,18 +1906,14 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProviderUltraCartValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getTaxProviderUltraCartCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1813,7 +1984,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call getTaxProvidersCall(Integer limit, Integer offset, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers";
 
@@ -1857,18 +2028,14 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTaxProvidersValidateBeforeCall(Integer limit, Integer offset, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getTaxProvidersCall(limit, offset, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1946,7 +2113,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call setActiveTaxProviderCall(String providerName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/setActive/{providerName}"
             .replaceAll("\\{" + "providerName" + "\\}", apiClient.escapeString(providerName.toString()));
@@ -1985,7 +2152,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call setActiveTaxProviderValidateBeforeCall(String providerName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1994,14 +2161,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'providerName' when calling setActiveTaxProvider(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = setActiveTaxProviderCall(providerName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2073,7 +2236,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderAvalaraCall(TaxProviderAvalara taxProviderAvalara, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxProviderAvalara;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/avalara";
 
@@ -2111,7 +2274,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderAvalaraValidateBeforeCall(TaxProviderAvalara taxProviderAvalara, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2120,14 +2283,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxProviderAvalara' when calling updateTaxProviderAvalara(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderAvalaraCall(taxProviderAvalara, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2199,7 +2358,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderSelfCall(TaxProviderSelf taxProviderSelf, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxProviderSelf;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self";
 
@@ -2237,7 +2396,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderSelfValidateBeforeCall(TaxProviderSelf taxProviderSelf, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2246,14 +2405,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxProviderSelf' when calling updateTaxProviderSelf(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderSelfCall(taxProviderSelf, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2326,7 +2481,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderSelfCityCall(String city, TaxCity taxCity, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxCity;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/city/{city}"
             .replaceAll("\\{" + "city" + "\\}", apiClient.escapeString(city.toString()));
@@ -2365,7 +2520,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderSelfCityValidateBeforeCall(String city, TaxCity taxCity, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2379,14 +2534,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxCity' when calling updateTaxProviderSelfCity(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderSelfCityCall(city, taxCity, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2462,7 +2613,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderSelfCountryCall(String countryCode, TaxCountry taxCountry, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxCountry;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/country/{countryCode}"
             .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()));
@@ -2501,7 +2652,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderSelfCountryValidateBeforeCall(String countryCode, TaxCountry taxCountry, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2515,14 +2666,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxCountry' when calling updateTaxProviderSelfCountry(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderSelfCountryCall(countryCode, taxCountry, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2598,7 +2745,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderSelfCountyCall(String county, TaxCounty taxCounty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxCounty;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/county/{county}"
             .replaceAll("\\{" + "county" + "\\}", apiClient.escapeString(county.toString()));
@@ -2637,7 +2784,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderSelfCountyValidateBeforeCall(String county, TaxCounty taxCounty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2651,14 +2798,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxCounty' when calling updateTaxProviderSelfCounty(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderSelfCountyCall(county, taxCounty, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2734,7 +2877,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderSelfPostalCodeCall(String postalCode, TaxPostalCode taxPostalCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxPostalCode;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/postalCode/{postal_code}"
             .replaceAll("\\{" + "postal_code" + "\\}", apiClient.escapeString(postalCode.toString()));
@@ -2773,7 +2916,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderSelfPostalCodeValidateBeforeCall(String postalCode, TaxPostalCode taxPostalCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2787,14 +2930,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxPostalCode' when calling updateTaxProviderSelfPostalCode(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderSelfPostalCodeCall(postalCode, taxPostalCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2870,7 +3009,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderSelfStateCall(String stateCode, TaxState taxState, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxState;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/self/state/{stateCode}"
             .replaceAll("\\{" + "stateCode" + "\\}", apiClient.escapeString(stateCode.toString()));
@@ -2909,7 +3048,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderSelfStateValidateBeforeCall(String stateCode, TaxState taxState, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2923,14 +3062,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxState' when calling updateTaxProviderSelfState(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderSelfStateCall(stateCode, taxState, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2996,6 +3131,128 @@ public class TaxApi {
         return call;
     }
     /**
+     * Build call for updateTaxProviderSovos
+     * @param taxProviderSovos TaxProviderSovos object (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateTaxProviderSovosCall(TaxProviderSovos taxProviderSovos, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = taxProviderSovos;
+
+        // create path and map variables
+        String localVarPath = "/tax/providers/sovos";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateTaxProviderSovosValidateBeforeCall(TaxProviderSovos taxProviderSovos, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'taxProviderSovos' is set
+        if (taxProviderSovos == null) {
+            throw new ApiException("Missing the required parameter 'taxProviderSovos' when calling updateTaxProviderSovos(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateTaxProviderSovosCall(taxProviderSovos, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update the Sovos tax provider
+     * Update the Sovos tax provider. 
+     * @param taxProviderSovos TaxProviderSovos object (required)
+     * @return TaxProviderSovos
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TaxProviderSovos updateTaxProviderSovos(TaxProviderSovos taxProviderSovos) throws ApiException {
+        ApiResponse<TaxProviderSovos> resp = updateTaxProviderSovosWithHttpInfo(taxProviderSovos);
+        return resp.getData();
+    }
+
+    /**
+     * Update the Sovos tax provider
+     * Update the Sovos tax provider. 
+     * @param taxProviderSovos TaxProviderSovos object (required)
+     * @return ApiResponse&lt;TaxProviderSovos&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TaxProviderSovos> updateTaxProviderSovosWithHttpInfo(TaxProviderSovos taxProviderSovos) throws ApiException {
+        com.squareup.okhttp.Call call = updateTaxProviderSovosValidateBeforeCall(taxProviderSovos, null, null);
+        Type localVarReturnType = new TypeToken<TaxProviderSovos>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update the Sovos tax provider (asynchronously)
+     * Update the Sovos tax provider. 
+     * @param taxProviderSovos TaxProviderSovos object (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateTaxProviderSovosAsync(TaxProviderSovos taxProviderSovos, final ApiCallback<TaxProviderSovos> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateTaxProviderSovosValidateBeforeCall(taxProviderSovos, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TaxProviderSovos>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for updateTaxProviderTaxJar
      * @param taxProviderTaxJar TaxProviderTaxJar object (required)
      * @param progressListener Progress listener
@@ -3005,7 +3262,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderTaxJarCall(TaxProviderTaxJar taxProviderTaxJar, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxProviderTaxJar;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/taxjar";
 
@@ -3043,7 +3300,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderTaxJarValidateBeforeCall(TaxProviderTaxJar taxProviderTaxJar, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -3052,14 +3309,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxProviderTaxJar' when calling updateTaxProviderTaxJar(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderTaxJarCall(taxProviderTaxJar, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3131,7 +3384,7 @@ public class TaxApi {
      */
     public com.squareup.okhttp.Call updateTaxProviderUltraCartCall(TaxProviderUltraCart taxProviderUltracart, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taxProviderUltracart;
-        
+
         // create path and map variables
         String localVarPath = "/tax/providers/ultracart";
 
@@ -3169,7 +3422,7 @@ public class TaxApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTaxProviderUltraCartValidateBeforeCall(TaxProviderUltraCart taxProviderUltracart, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -3178,14 +3431,10 @@ public class TaxApi {
             throw new ApiException("Missing the required parameter 'taxProviderUltracart' when calling updateTaxProviderUltraCart(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateTaxProviderUltraCartCall(taxProviderUltracart, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

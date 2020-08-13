@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,13 +32,19 @@ import java.util.List;
 /**
  * ItemContent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class ItemContent {
   @SerializedName("assignments")
   private List<ItemContentAssignment> assignments = null;
 
   @SerializedName("attributes")
   private List<ItemContentAttribute> attributes = null;
+
+  @SerializedName("custom_thank_you_url")
+  private String customThankYouUrl = null;
 
   @SerializedName("exclude_from_search")
   private Boolean excludeFromSearch = null;
@@ -116,6 +123,24 @@ public class ItemContent {
 
   public void setAttributes(List<ItemContentAttribute> attributes) {
     this.attributes = attributes;
+  }
+
+  public ItemContent customThankYouUrl(String customThankYouUrl) {
+    this.customThankYouUrl = customThankYouUrl;
+    return this;
+  }
+
+   /**
+   * Custom Thank You URL
+   * @return customThankYouUrl
+  **/
+  @ApiModelProperty(value = "Custom Thank You URL")
+  public String getCustomThankYouUrl() {
+    return customThankYouUrl;
+  }
+
+  public void setCustomThankYouUrl(String customThankYouUrl) {
+    this.customThankYouUrl = customThankYouUrl;
   }
 
   public ItemContent excludeFromSearch(Boolean excludeFromSearch) {
@@ -300,6 +325,7 @@ public class ItemContent {
     ItemContent itemContent = (ItemContent) o;
     return Objects.equals(this.assignments, itemContent.assignments) &&
         Objects.equals(this.attributes, itemContent.attributes) &&
+        Objects.equals(this.customThankYouUrl, itemContent.customThankYouUrl) &&
         Objects.equals(this.excludeFromSearch, itemContent.excludeFromSearch) &&
         Objects.equals(this.excludeFromTopSellers, itemContent.excludeFromTopSellers) &&
         Objects.equals(this.extendedDescription, itemContent.extendedDescription) &&
@@ -313,7 +339,7 @@ public class ItemContent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignments, attributes, excludeFromSearch, excludeFromTopSellers, extendedDescription, extendedDescriptionTranslatedTextInstanceOid, multimedia, newItem, newItemEnd, newItemStart, viewUrl);
+    return Objects.hash(assignments, attributes, customThankYouUrl, excludeFromSearch, excludeFromTopSellers, extendedDescription, extendedDescriptionTranslatedTextInstanceOid, multimedia, newItem, newItemEnd, newItemStart, viewUrl);
   }
 
 
@@ -324,6 +350,7 @@ public class ItemContent {
     
     sb.append("    assignments: ").append(toIndentedString(assignments)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    customThankYouUrl: ").append(toIndentedString(customThankYouUrl)).append("\n");
     sb.append("    excludeFromSearch: ").append(toIndentedString(excludeFromSearch)).append("\n");
     sb.append("    excludeFromTopSellers: ").append(toIndentedString(excludeFromTopSellers)).append("\n");
     sb.append("    extendedDescription: ").append(toIndentedString(extendedDescription)).append("\n");

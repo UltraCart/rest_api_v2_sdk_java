@@ -69,7 +69,7 @@ public class FulfillmentApi {
      */
     public com.squareup.okhttp.Call acknowledgeOrdersCall(String distributionCenterCode, List<String> orderIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = orderIds;
-        
+
         // create path and map variables
         String localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements"
             .replaceAll("\\{" + "distribution_center_code" + "\\}", apiClient.escapeString(distributionCenterCode.toString()));
@@ -108,7 +108,7 @@ public class FulfillmentApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call acknowledgeOrdersValidateBeforeCall(String distributionCenterCode, List<String> orderIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -122,14 +122,10 @@ public class FulfillmentApi {
             throw new ApiException("Missing the required parameter 'orderIds' when calling acknowledgeOrders(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = acknowledgeOrdersCall(distributionCenterCode, orderIds, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -200,7 +196,7 @@ public class FulfillmentApi {
      */
     public com.squareup.okhttp.Call getDistributionCenterOrdersCall(String distributionCenterCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/orders"
             .replaceAll("\\{" + "distribution_center_code" + "\\}", apiClient.escapeString(distributionCenterCode.toString()));
@@ -239,7 +235,7 @@ public class FulfillmentApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDistributionCenterOrdersValidateBeforeCall(String distributionCenterCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -248,14 +244,10 @@ public class FulfillmentApi {
             throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling getDistributionCenterOrders(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getDistributionCenterOrdersCall(distributionCenterCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -326,7 +318,7 @@ public class FulfillmentApi {
      */
     public com.squareup.okhttp.Call getDistributionCentersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/fulfillment/distribution_centers";
 
@@ -364,18 +356,14 @@ public class FulfillmentApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDistributionCentersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getDistributionCentersCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -445,7 +433,7 @@ public class FulfillmentApi {
      */
     public com.squareup.okhttp.Call shipOrdersCall(String distributionCenterCode, List<FulfillmentShipment> shipments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = shipments;
-        
+
         // create path and map variables
         String localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/shipments"
             .replaceAll("\\{" + "distribution_center_code" + "\\}", apiClient.escapeString(distributionCenterCode.toString()));
@@ -484,7 +472,7 @@ public class FulfillmentApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call shipOrdersValidateBeforeCall(String distributionCenterCode, List<FulfillmentShipment> shipments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -498,14 +486,10 @@ public class FulfillmentApi {
             throw new ApiException("Missing the required parameter 'shipments' when calling shipOrders(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = shipOrdersCall(distributionCenterCode, shipments, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -577,7 +561,7 @@ public class FulfillmentApi {
      */
     public com.squareup.okhttp.Call updateInventoryCall(String distributionCenterCode, List<FulfillmentInventory> inventories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = inventories;
-        
+
         // create path and map variables
         String localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory"
             .replaceAll("\\{" + "distribution_center_code" + "\\}", apiClient.escapeString(distributionCenterCode.toString()));
@@ -616,7 +600,7 @@ public class FulfillmentApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateInventoryValidateBeforeCall(String distributionCenterCode, List<FulfillmentInventory> inventories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -630,14 +614,10 @@ public class FulfillmentApi {
             throw new ApiException("Missing the required parameter 'inventories' when calling updateInventory(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateInventoryCall(distributionCenterCode, inventories, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

@@ -71,7 +71,7 @@ public class AffiliateApi {
      */
     public com.squareup.okhttp.Call getClicksByQueryCall(AffiliateClickQuery clickQuery, Integer limit, Integer offset, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = clickQuery;
-        
+
         // create path and map variables
         String localVarPath = "/affiliate/clicks/query";
 
@@ -115,7 +115,7 @@ public class AffiliateApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getClicksByQueryValidateBeforeCall(AffiliateClickQuery clickQuery, Integer limit, Integer offset, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -124,14 +124,10 @@ public class AffiliateApi {
             throw new ApiException("Missing the required parameter 'clickQuery' when calling getClicksByQuery(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getClicksByQueryCall(clickQuery, limit, offset, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -215,7 +211,7 @@ public class AffiliateApi {
      */
     public com.squareup.okhttp.Call getLedgersByQueryCall(AffiliateLedgerQuery ledgerQuery, Integer limit, Integer offset, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ledgerQuery;
-        
+
         // create path and map variables
         String localVarPath = "/affiliate/ledgers/query";
 
@@ -259,7 +255,7 @@ public class AffiliateApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getLedgersByQueryValidateBeforeCall(AffiliateLedgerQuery ledgerQuery, Integer limit, Integer offset, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -268,14 +264,10 @@ public class AffiliateApi {
             throw new ApiException("Missing the required parameter 'ledgerQuery' when calling getLedgersByQuery(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getLedgersByQueryCall(ledgerQuery, limit, offset, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

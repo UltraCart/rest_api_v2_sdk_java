@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,6 +32,7 @@ import com.ultracart.admin.v2.models.CartGiftCertificate;
 import com.ultracart.admin.v2.models.CartItem;
 import com.ultracart.admin.v2.models.CartMarketing;
 import com.ultracart.admin.v2.models.CartPayment;
+import com.ultracart.admin.v2.models.CartProperty;
 import com.ultracart.admin.v2.models.CartSettings;
 import com.ultracart.admin.v2.models.CartShipping;
 import com.ultracart.admin.v2.models.CartSummary;
@@ -46,7 +48,10 @@ import java.util.List;
 /**
  * Cart
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class Cart {
   @SerializedName("affiliate")
   private CartAffiliate affiliate = null;
@@ -104,6 +109,9 @@ public class Cart {
 
   @SerializedName("payment")
   private CartPayment payment = null;
+
+  @SerializedName("properties")
+  private List<CartProperty> properties = null;
 
   @SerializedName("settings")
   private CartSettings settings = null;
@@ -478,6 +486,32 @@ public class Cart {
     this.payment = payment;
   }
 
+  public Cart properties(List<CartProperty> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public Cart addPropertiesItem(CartProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<CartProperty>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties associated with the cart
+   * @return properties
+  **/
+  @ApiModelProperty(value = "Properties associated with the cart")
+  public List<CartProperty> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<CartProperty> properties) {
+    this.properties = properties;
+  }
+
   public Cart settings(CartSettings settings) {
     this.settings = settings;
     return this;
@@ -597,6 +631,7 @@ public class Cart {
         Objects.equals(this.marketing, cart.marketing) &&
         Objects.equals(this.merchantId, cart.merchantId) &&
         Objects.equals(this.payment, cart.payment) &&
+        Objects.equals(this.properties, cart.properties) &&
         Objects.equals(this.settings, cart.settings) &&
         Objects.equals(this.shipping, cart.shipping) &&
         Objects.equals(this.summary, cart.summary) &&
@@ -606,7 +641,7 @@ public class Cart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliate, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, settings, shipping, summary, taxes, upsellAfter);
+    return Objects.hash(affiliate, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, properties, settings, shipping, summary, taxes, upsellAfter);
   }
 
 
@@ -634,6 +669,7 @@ public class Cart {
     sb.append("    marketing: ").append(toIndentedString(marketing)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    shipping: ").append(toIndentedString(shipping)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");

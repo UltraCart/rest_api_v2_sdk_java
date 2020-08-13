@@ -72,7 +72,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call deleteCustomerCall(Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/customer/customers/{customer_profile_oid}"
             .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
@@ -111,7 +111,7 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteCustomerValidateBeforeCall(Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -120,14 +120,10 @@ public class CustomerApi {
             throw new ApiException("Missing the required parameter 'customerProfileOid' when calling deleteCustomer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteCustomerCall(customerProfileOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -200,7 +196,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call getCustomerCall(Integer customerProfileOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/customer/customers/{customer_profile_oid}"
             .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
@@ -241,7 +237,7 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCustomerValidateBeforeCall(Integer customerProfileOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -250,14 +246,10 @@ public class CustomerApi {
             throw new ApiException("Missing the required parameter 'customerProfileOid' when calling getCustomer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCustomerCall(customerProfileOid, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -363,7 +355,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call getCustomersCall(String email, String qbClass, String quickbooksCode, String lastModifiedDtsStart, String lastModifiedDtsEnd, String signupDtsStart, String signupDtsEnd, String billingFirstName, String billingLastName, String billingCompany, String billingCity, String billingState, String billingPostalCode, String billingCountryCode, String billingDayPhone, String billingEveningPhone, String shippingFirstName, String shippingLastName, String shippingCompany, String shippingCity, String shippingState, String shippingPostalCode, String shippingCountryCode, String shippingDayPhone, String shippingEveningPhone, Integer pricingTierOid, String pricingTierName, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/customer/customers";
 
@@ -465,18 +457,14 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCustomersValidateBeforeCall(String email, String qbClass, String quickbooksCode, String lastModifiedDtsStart, String lastModifiedDtsEnd, String signupDtsStart, String signupDtsEnd, String billingFirstName, String billingLastName, String billingCompany, String billingCity, String billingState, String billingPostalCode, String billingCountryCode, String billingDayPhone, String billingEveningPhone, String shippingFirstName, String shippingLastName, String shippingCompany, String shippingCity, String shippingState, String shippingPostalCode, String shippingCountryCode, String shippingDayPhone, String shippingEveningPhone, Integer pricingTierOid, String pricingTierName, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getCustomersCall(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -646,7 +634,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call getCustomersByQueryCall(CustomerQuery customerQuery, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = customerQuery;
-        
+
         // create path and map variables
         String localVarPath = "/customer/customers/query";
 
@@ -692,9 +680,9 @@ public class CustomerApi {
         }
 
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCustomersByQueryValidateBeforeCall(CustomerQuery customerQuery, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -703,14 +691,10 @@ public class CustomerApi {
             throw new ApiException("Missing the required parameter 'customerQuery' when calling getCustomersByQuery(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCustomersByQueryCall(customerQuery, limit, offset, since, sort, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -797,7 +781,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call getCustomersForDataTablesCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/customer/customers/dataTables";
 
@@ -837,18 +821,14 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCustomersForDataTablesValidateBeforeCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getCustomersForDataTablesCall(expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -919,7 +899,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call getEditorValuesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/customer/editor_values";
 
@@ -957,18 +937,14 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEditorValuesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getEditorValuesCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1036,7 +1012,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call getEmailListsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/customer/email_lists";
 
@@ -1074,18 +1050,14 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEmailListsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getEmailListsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1155,7 +1127,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call insertCustomerCall(Customer customer, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = customer;
-        
+
         // create path and map variables
         String localVarPath = "/customer/customers";
 
@@ -1195,7 +1167,7 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertCustomerValidateBeforeCall(Customer customer, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1204,14 +1176,10 @@ public class CustomerApi {
             throw new ApiException("Missing the required parameter 'customer' when calling insertCustomer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertCustomerCall(customer, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1288,7 +1256,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call updateCustomerCall(Customer customer, Integer customerProfileOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = customer;
-        
+
         // create path and map variables
         String localVarPath = "/customer/customers/{customer_profile_oid}"
             .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
@@ -1329,7 +1297,7 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateCustomerValidateBeforeCall(Customer customer, Integer customerProfileOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1343,14 +1311,10 @@ public class CustomerApi {
             throw new ApiException("Missing the required parameter 'customerProfileOid' when calling updateCustomer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateCustomerCall(customer, customerProfileOid, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1429,7 +1393,7 @@ public class CustomerApi {
      */
     public com.squareup.okhttp.Call updateCustomerEmailListsCall(Integer customerProfileOid, CustomerEmailListChanges listChanges, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = listChanges;
-        
+
         // create path and map variables
         String localVarPath = "/customer/customers/{customer_profile_oid}/email_lists"
             .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
@@ -1468,7 +1432,7 @@ public class CustomerApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateCustomerEmailListsValidateBeforeCall(Integer customerProfileOid, CustomerEmailListChanges listChanges, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1482,14 +1446,10 @@ public class CustomerApi {
             throw new ApiException("Missing the required parameter 'listChanges' when calling updateCustomerEmailLists(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateCustomerEmailListsCall(customerProfileOid, listChanges, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

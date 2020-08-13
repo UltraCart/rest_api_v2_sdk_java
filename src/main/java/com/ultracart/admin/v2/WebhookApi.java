@@ -70,7 +70,7 @@ public class WebhookApi {
      */
     public com.squareup.okhttp.Call deleteWebhookCall(Integer webhookOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/webhook/webhooks/{webhookOid}"
             .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()));
@@ -109,7 +109,7 @@ public class WebhookApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteWebhookValidateBeforeCall(Integer webhookOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -118,14 +118,10 @@ public class WebhookApi {
             throw new ApiException("Missing the required parameter 'webhookOid' when calling deleteWebhook(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteWebhookCall(webhookOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -193,7 +189,7 @@ public class WebhookApi {
      */
     public com.squareup.okhttp.Call deleteWebhookByUrlCall(Webhook webhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = webhook;
-        
+
         // create path and map variables
         String localVarPath = "/webhook/webhooks";
 
@@ -231,7 +227,7 @@ public class WebhookApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteWebhookByUrlValidateBeforeCall(Webhook webhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -240,14 +236,10 @@ public class WebhookApi {
             throw new ApiException("Missing the required parameter 'webhook' when calling deleteWebhookByUrl(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteWebhookByUrlCall(webhook, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -320,7 +312,7 @@ public class WebhookApi {
      */
     public com.squareup.okhttp.Call getWebhookLogCall(Integer webhookOid, String requestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/webhook/webhooks/{webhookOid}/logs/{requestId}"
             .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()))
@@ -360,7 +352,7 @@ public class WebhookApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getWebhookLogValidateBeforeCall(Integer webhookOid, String requestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -374,14 +366,10 @@ public class WebhookApi {
             throw new ApiException("Missing the required parameter 'requestId' when calling getWebhookLog(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getWebhookLogCall(webhookOid, requestId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -459,7 +447,7 @@ public class WebhookApi {
      */
     public com.squareup.okhttp.Call getWebhookLogSummariesCall(Integer webhookOid, Integer limit, Integer offset, String since, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/webhook/webhooks/{webhookOid}/logs"
             .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()));
@@ -504,7 +492,7 @@ public class WebhookApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getWebhookLogSummariesValidateBeforeCall(Integer webhookOid, Integer limit, Integer offset, String since, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -513,14 +501,10 @@ public class WebhookApi {
             throw new ApiException("Missing the required parameter 'webhookOid' when calling getWebhookLogSummaries(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getWebhookLogSummariesCall(webhookOid, limit, offset, since, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -604,7 +588,7 @@ public class WebhookApi {
      */
     public com.squareup.okhttp.Call getWebhooksCall(Integer limit, Integer offset, String sort, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/webhook/webhooks";
 
@@ -650,18 +634,14 @@ public class WebhookApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getWebhooksValidateBeforeCall(Integer limit, Integer offset, String sort, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getWebhooksCall(limit, offset, sort, placeholders, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -743,7 +723,7 @@ public class WebhookApi {
      */
     public com.squareup.okhttp.Call insertWebhookCall(Webhook webhook, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = webhook;
-        
+
         // create path and map variables
         String localVarPath = "/webhook/webhooks";
 
@@ -783,7 +763,7 @@ public class WebhookApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertWebhookValidateBeforeCall(Webhook webhook, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -792,14 +772,10 @@ public class WebhookApi {
             throw new ApiException("Missing the required parameter 'webhook' when calling insertWebhook(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertWebhookCall(webhook, placeholders, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -875,7 +851,7 @@ public class WebhookApi {
      */
     public com.squareup.okhttp.Call resendEventCall(Integer webhookOid, String eventName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/webhook/webhooks/{webhookOid}/reflow/{eventName}"
             .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()))
@@ -915,7 +891,7 @@ public class WebhookApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call resendEventValidateBeforeCall(Integer webhookOid, String eventName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -929,14 +905,10 @@ public class WebhookApi {
             throw new ApiException("Missing the required parameter 'eventName' when calling resendEvent(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = resendEventCall(webhookOid, eventName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1013,7 +985,7 @@ public class WebhookApi {
      */
     public com.squareup.okhttp.Call updateWebhookCall(Webhook webhook, Integer webhookOid, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = webhook;
-        
+
         // create path and map variables
         String localVarPath = "/webhook/webhooks/{webhookOid}"
             .replaceAll("\\{" + "webhookOid" + "\\}", apiClient.escapeString(webhookOid.toString()));
@@ -1054,7 +1026,7 @@ public class WebhookApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateWebhookValidateBeforeCall(Webhook webhook, Integer webhookOid, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1068,14 +1040,10 @@ public class WebhookApi {
             throw new ApiException("Missing the required parameter 'webhookOid' when calling updateWebhook(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateWebhookCall(webhook, webhookOid, placeholders, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

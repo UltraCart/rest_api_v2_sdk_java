@@ -14,20 +14,30 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Customer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DataTablesServerSideResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class DataTablesServerSideResponse {
+  @SerializedName("data")
+  private List<Customer> data = null;
+
   @SerializedName("draw")
   private Integer draw = null;
 
@@ -36,6 +46,32 @@ public class DataTablesServerSideResponse {
 
   @SerializedName("recordsTotal")
   private Integer recordsTotal = null;
+
+  public DataTablesServerSideResponse data(List<Customer> data) {
+    this.data = data;
+    return this;
+  }
+
+  public DataTablesServerSideResponse addDataItem(Customer dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<Customer>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @ApiModelProperty(value = "")
+  public List<Customer> getData() {
+    return data;
+  }
+
+  public void setData(List<Customer> data) {
+    this.data = data;
+  }
 
   public DataTablesServerSideResponse draw(Integer draw) {
     this.draw = draw;
@@ -101,14 +137,15 @@ public class DataTablesServerSideResponse {
       return false;
     }
     DataTablesServerSideResponse dataTablesServerSideResponse = (DataTablesServerSideResponse) o;
-    return Objects.equals(this.draw, dataTablesServerSideResponse.draw) &&
+    return Objects.equals(this.data, dataTablesServerSideResponse.data) &&
+        Objects.equals(this.draw, dataTablesServerSideResponse.draw) &&
         Objects.equals(this.recordsFiltered, dataTablesServerSideResponse.recordsFiltered) &&
         Objects.equals(this.recordsTotal, dataTablesServerSideResponse.recordsTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(draw, recordsFiltered, recordsTotal);
+    return Objects.hash(data, draw, recordsFiltered, recordsTotal);
   }
 
 
@@ -117,6 +154,7 @@ public class DataTablesServerSideResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataTablesServerSideResponse {\n");
     
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    draw: ").append(toIndentedString(draw)).append("\n");
     sb.append("    recordsFiltered: ").append(toIndentedString(recordsFiltered)).append("\n");
     sb.append("    recordsTotal: ").append(toIndentedString(recordsTotal)).append("\n");

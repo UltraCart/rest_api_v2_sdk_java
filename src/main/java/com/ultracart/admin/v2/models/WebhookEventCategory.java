@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,8 +30,17 @@ import java.util.List;
 /**
  * WebhookEventCategory
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class WebhookEventCategory {
+  @SerializedName("any_subscribed")
+  private Boolean anySubscribed = null;
+
+  @SerializedName("available_expansions")
+  private List<String> availableExpansions = null;
+
   @SerializedName("event_category")
   private String eventCategory = null;
 
@@ -39,6 +49,50 @@ public class WebhookEventCategory {
 
   @SerializedName("subscribed")
   private Boolean subscribed = null;
+
+  public WebhookEventCategory anySubscribed(Boolean anySubscribed) {
+    this.anySubscribed = anySubscribed;
+    return this;
+  }
+
+   /**
+   * True if any events are subscribed to.
+   * @return anySubscribed
+  **/
+  @ApiModelProperty(value = "True if any events are subscribed to.")
+  public Boolean isAnySubscribed() {
+    return anySubscribed;
+  }
+
+  public void setAnySubscribed(Boolean anySubscribed) {
+    this.anySubscribed = anySubscribed;
+  }
+
+  public WebhookEventCategory availableExpansions(List<String> availableExpansions) {
+    this.availableExpansions = availableExpansions;
+    return this;
+  }
+
+  public WebhookEventCategory addAvailableExpansionsItem(String availableExpansionsItem) {
+    if (this.availableExpansions == null) {
+      this.availableExpansions = new ArrayList<String>();
+    }
+    this.availableExpansions.add(availableExpansionsItem);
+    return this;
+  }
+
+   /**
+   * Array of available expansion constants
+   * @return availableExpansions
+  **/
+  @ApiModelProperty(value = "Array of available expansion constants")
+  public List<String> getAvailableExpansions() {
+    return availableExpansions;
+  }
+
+  public void setAvailableExpansions(List<String> availableExpansions) {
+    this.availableExpansions = availableExpansions;
+  }
 
   public WebhookEventCategory eventCategory(String eventCategory) {
     this.eventCategory = eventCategory;
@@ -112,14 +166,16 @@ public class WebhookEventCategory {
       return false;
     }
     WebhookEventCategory webhookEventCategory = (WebhookEventCategory) o;
-    return Objects.equals(this.eventCategory, webhookEventCategory.eventCategory) &&
+    return Objects.equals(this.anySubscribed, webhookEventCategory.anySubscribed) &&
+        Objects.equals(this.availableExpansions, webhookEventCategory.availableExpansions) &&
+        Objects.equals(this.eventCategory, webhookEventCategory.eventCategory) &&
         Objects.equals(this.events, webhookEventCategory.events) &&
         Objects.equals(this.subscribed, webhookEventCategory.subscribed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventCategory, events, subscribed);
+    return Objects.hash(anySubscribed, availableExpansions, eventCategory, events, subscribed);
   }
 
 
@@ -128,6 +184,8 @@ public class WebhookEventCategory {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookEventCategory {\n");
     
+    sb.append("    anySubscribed: ").append(toIndentedString(anySubscribed)).append("\n");
+    sb.append("    availableExpansions: ").append(toIndentedString(availableExpansions)).append("\n");
     sb.append("    eventCategory: ").append(toIndentedString(eventCategory)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    subscribed: ").append(toIndentedString(subscribed)).append("\n");

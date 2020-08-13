@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,10 @@ import java.util.List;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailCampaign {
   @SerializedName("click_rate_formatted")
   private String clickRateFormatted = null;
@@ -46,11 +50,17 @@ public class EmailCampaign {
   @SerializedName("email_communication_sequence_uuid")
   private String emailCommunicationSequenceUuid = null;
 
+  @SerializedName("end_once_customer_purchases")
+  private Boolean endOnceCustomerPurchases = null;
+
   @SerializedName("esp_domain_user")
   private String espDomainUser = null;
 
   @SerializedName("esp_domain_uuid")
   private String espDomainUuid = null;
+
+  @SerializedName("esp_friendly_name")
+  private String espFriendlyName = null;
 
   @SerializedName("memberships")
   private List<EmailListSegmentMembership> memberships = null;
@@ -63,6 +73,9 @@ public class EmailCampaign {
 
   @SerializedName("open_rate_formatted")
   private String openRateFormatted = null;
+
+  @SerializedName("prevent_sending_due_to_spam")
+  private Boolean preventSendingDueToSpam = null;
 
   @SerializedName("revenue_formatted")
   private String revenueFormatted = null;
@@ -169,6 +182,24 @@ public class EmailCampaign {
     this.emailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
   }
 
+  public EmailCampaign endOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
+    this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+    return this;
+  }
+
+   /**
+   * True if the customer should end the flow once they purchase
+   * @return endOnceCustomerPurchases
+  **/
+  @ApiModelProperty(value = "True if the customer should end the flow once they purchase")
+  public Boolean isEndOnceCustomerPurchases() {
+    return endOnceCustomerPurchases;
+  }
+
+  public void setEndOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
+    this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+  }
+
   public EmailCampaign espDomainUser(String espDomainUser) {
     this.espDomainUser = espDomainUser;
     return this;
@@ -203,6 +234,24 @@ public class EmailCampaign {
 
   public void setEspDomainUuid(String espDomainUuid) {
     this.espDomainUuid = espDomainUuid;
+  }
+
+  public EmailCampaign espFriendlyName(String espFriendlyName) {
+    this.espFriendlyName = espFriendlyName;
+    return this;
+  }
+
+   /**
+   * Friendly name of the sending email
+   * @return espFriendlyName
+  **/
+  @ApiModelProperty(value = "Friendly name of the sending email")
+  public String getEspFriendlyName() {
+    return espFriendlyName;
+  }
+
+  public void setEspFriendlyName(String espFriendlyName) {
+    this.espFriendlyName = espFriendlyName;
   }
 
   public EmailCampaign memberships(List<EmailListSegmentMembership> memberships) {
@@ -283,6 +332,24 @@ public class EmailCampaign {
 
   public void setOpenRateFormatted(String openRateFormatted) {
     this.openRateFormatted = openRateFormatted;
+  }
+
+  public EmailCampaign preventSendingDueToSpam(Boolean preventSendingDueToSpam) {
+    this.preventSendingDueToSpam = preventSendingDueToSpam;
+    return this;
+  }
+
+   /**
+   * True if this campaign is prevented from sending at this time due to spam complaints.
+   * @return preventSendingDueToSpam
+  **/
+  @ApiModelProperty(value = "True if this campaign is prevented from sending at this time due to spam complaints.")
+  public Boolean isPreventSendingDueToSpam() {
+    return preventSendingDueToSpam;
+  }
+
+  public void setPreventSendingDueToSpam(Boolean preventSendingDueToSpam) {
+    this.preventSendingDueToSpam = preventSendingDueToSpam;
   }
 
   public EmailCampaign revenueFormatted(String revenueFormatted) {
@@ -390,12 +457,15 @@ public class EmailCampaign {
         Objects.equals(this.deleted, emailCampaign.deleted) &&
         Objects.equals(this.emailCampaignUuid, emailCampaign.emailCampaignUuid) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailCampaign.emailCommunicationSequenceUuid) &&
+        Objects.equals(this.endOnceCustomerPurchases, emailCampaign.endOnceCustomerPurchases) &&
         Objects.equals(this.espDomainUser, emailCampaign.espDomainUser) &&
         Objects.equals(this.espDomainUuid, emailCampaign.espDomainUuid) &&
+        Objects.equals(this.espFriendlyName, emailCampaign.espFriendlyName) &&
         Objects.equals(this.memberships, emailCampaign.memberships) &&
         Objects.equals(this.merchantId, emailCampaign.merchantId) &&
         Objects.equals(this.name, emailCampaign.name) &&
         Objects.equals(this.openRateFormatted, emailCampaign.openRateFormatted) &&
+        Objects.equals(this.preventSendingDueToSpam, emailCampaign.preventSendingDueToSpam) &&
         Objects.equals(this.revenueFormatted, emailCampaign.revenueFormatted) &&
         Objects.equals(this.scheduledDts, emailCampaign.scheduledDts) &&
         Objects.equals(this.status, emailCampaign.status) &&
@@ -405,7 +475,7 @@ public class EmailCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, espDomainUser, espDomainUuid, memberships, merchantId, name, openRateFormatted, revenueFormatted, scheduledDts, status, statusDts, storefrontOid);
+    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, espDomainUser, espDomainUuid, espFriendlyName, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, scheduledDts, status, statusDts, storefrontOid);
   }
 
 
@@ -419,12 +489,15 @@ public class EmailCampaign {
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailCampaignUuid: ").append(toIndentedString(emailCampaignUuid)).append("\n");
     sb.append("    emailCommunicationSequenceUuid: ").append(toIndentedString(emailCommunicationSequenceUuid)).append("\n");
+    sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
     sb.append("    espDomainUser: ").append(toIndentedString(espDomainUser)).append("\n");
     sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");
+    sb.append("    espFriendlyName: ").append(toIndentedString(espFriendlyName)).append("\n");
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
+    sb.append("    preventSendingDueToSpam: ").append(toIndentedString(preventSendingDueToSpam)).append("\n");
     sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

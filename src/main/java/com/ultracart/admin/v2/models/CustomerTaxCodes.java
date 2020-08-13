@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,13 +27,19 @@ import java.io.IOException;
 /**
  * CustomerTaxCodes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class CustomerTaxCodes {
   @SerializedName("avalara_customer_code")
   private String avalaraCustomerCode = null;
 
   @SerializedName("avalara_entity_use_code")
   private String avalaraEntityUseCode = null;
+
+  @SerializedName("sovos_customer_code")
+  private String sovosCustomerCode = null;
 
   @SerializedName("taxjar_customer_id")
   private String taxjarCustomerId = null;
@@ -73,6 +80,24 @@ public class CustomerTaxCodes {
     this.avalaraEntityUseCode = avalaraEntityUseCode;
   }
 
+  public CustomerTaxCodes sovosCustomerCode(String sovosCustomerCode) {
+    this.sovosCustomerCode = sovosCustomerCode;
+    return this;
+  }
+
+   /**
+   * Sovos customer code
+   * @return sovosCustomerCode
+  **/
+  @ApiModelProperty(value = "Sovos customer code")
+  public String getSovosCustomerCode() {
+    return sovosCustomerCode;
+  }
+
+  public void setSovosCustomerCode(String sovosCustomerCode) {
+    this.sovosCustomerCode = sovosCustomerCode;
+  }
+
   public CustomerTaxCodes taxjarCustomerId(String taxjarCustomerId) {
     this.taxjarCustomerId = taxjarCustomerId;
     return this;
@@ -103,12 +128,13 @@ public class CustomerTaxCodes {
     CustomerTaxCodes customerTaxCodes = (CustomerTaxCodes) o;
     return Objects.equals(this.avalaraCustomerCode, customerTaxCodes.avalaraCustomerCode) &&
         Objects.equals(this.avalaraEntityUseCode, customerTaxCodes.avalaraEntityUseCode) &&
+        Objects.equals(this.sovosCustomerCode, customerTaxCodes.sovosCustomerCode) &&
         Objects.equals(this.taxjarCustomerId, customerTaxCodes.taxjarCustomerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(avalaraCustomerCode, avalaraEntityUseCode, taxjarCustomerId);
+    return Objects.hash(avalaraCustomerCode, avalaraEntityUseCode, sovosCustomerCode, taxjarCustomerId);
   }
 
 
@@ -119,6 +145,7 @@ public class CustomerTaxCodes {
     
     sb.append("    avalaraCustomerCode: ").append(toIndentedString(avalaraCustomerCode)).append("\n");
     sb.append("    avalaraEntityUseCode: ").append(toIndentedString(avalaraEntityUseCode)).append("\n");
+    sb.append("    sovosCustomerCode: ").append(toIndentedString(sovosCustomerCode)).append("\n");
     sb.append("    taxjarCustomerId: ").append(toIndentedString(taxjarCustomerId)).append("\n");
     sb.append("}");
     return sb.toString();

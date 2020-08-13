@@ -70,7 +70,7 @@ public class OauthApi {
      */
     public com.squareup.okhttp.Call oauthAccessTokenCall(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/oauth/token";
 
@@ -118,7 +118,7 @@ public class OauthApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call oauthAccessTokenValidateBeforeCall(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -132,14 +132,10 @@ public class OauthApi {
             throw new ApiException("Missing the required parameter 'grantType' when calling oauthAccessToken(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = oauthAccessTokenCall(clientId, grantType, code, redirectUri, refreshToken, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -224,7 +220,7 @@ public class OauthApi {
      */
     public com.squareup.okhttp.Call oauthRevokeCall(String clientId, String token, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/oauth/revoke";
 
@@ -266,7 +262,7 @@ public class OauthApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call oauthRevokeValidateBeforeCall(String clientId, String token, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -280,14 +276,10 @@ public class OauthApi {
             throw new ApiException("Missing the required parameter 'token' when calling oauthRevoke(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = oauthRevokeCall(clientId, token, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

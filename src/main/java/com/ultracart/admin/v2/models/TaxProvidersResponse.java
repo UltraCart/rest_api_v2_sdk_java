@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +24,7 @@ import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
 import com.ultracart.admin.v2.models.TaxProviderAvalara;
 import com.ultracart.admin.v2.models.TaxProviderSelf;
+import com.ultracart.admin.v2.models.TaxProviderSovos;
 import com.ultracart.admin.v2.models.TaxProviderTaxJar;
 import com.ultracart.admin.v2.models.TaxProviderUltraCart;
 import io.swagger.annotations.ApiModel;
@@ -32,7 +34,10 @@ import java.io.IOException;
 /**
  * TaxProvidersResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class TaxProvidersResponse {
   @SerializedName("avalara")
   private TaxProviderAvalara avalara = null;
@@ -45,6 +50,9 @@ public class TaxProvidersResponse {
 
   @SerializedName("self")
   private TaxProviderSelf self = null;
+
+  @SerializedName("sovos")
+  private TaxProviderSovos sovos = null;
 
   @SerializedName("success")
   private Boolean success = null;
@@ -127,6 +135,24 @@ public class TaxProvidersResponse {
     this.self = self;
   }
 
+  public TaxProvidersResponse sovos(TaxProviderSovos sovos) {
+    this.sovos = sovos;
+    return this;
+  }
+
+   /**
+   * Get sovos
+   * @return sovos
+  **/
+  @ApiModelProperty(value = "")
+  public TaxProviderSovos getSovos() {
+    return sovos;
+  }
+
+  public void setSovos(TaxProviderSovos sovos) {
+    this.sovos = sovos;
+  }
+
   public TaxProvidersResponse success(Boolean success) {
     this.success = success;
     return this;
@@ -195,6 +221,7 @@ public class TaxProvidersResponse {
         Objects.equals(this.error, taxProvidersResponse.error) &&
         Objects.equals(this.metadata, taxProvidersResponse.metadata) &&
         Objects.equals(this.self, taxProvidersResponse.self) &&
+        Objects.equals(this.sovos, taxProvidersResponse.sovos) &&
         Objects.equals(this.success, taxProvidersResponse.success) &&
         Objects.equals(this.taxjar, taxProvidersResponse.taxjar) &&
         Objects.equals(this.ultracart, taxProvidersResponse.ultracart);
@@ -202,7 +229,7 @@ public class TaxProvidersResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(avalara, error, metadata, self, success, taxjar, ultracart);
+    return Objects.hash(avalara, error, metadata, self, sovos, success, taxjar, ultracart);
   }
 
 
@@ -215,6 +242,7 @@ public class TaxProvidersResponse {
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
+    sb.append("    sovos: ").append(toIndentedString(sovos)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    taxjar: ").append(toIndentedString(taxjar)).append("\n");
     sb.append("    ultracart: ").append(toIndentedString(ultracart)).append("\n");

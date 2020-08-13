@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,13 +31,19 @@ import java.util.List;
 /**
  * ItemPricing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class ItemPricing {
   @SerializedName("allow_arbitrary_cost")
   private Boolean allowArbitraryCost = null;
 
   @SerializedName("arbitrary_cost_velocity_code")
   private String arbitraryCostVelocityCode = null;
+
+  @SerializedName("auto_order_cost")
+  private BigDecimal autoOrderCost = null;
 
   @SerializedName("automatic_pricing_tier_name")
   private String automaticPricingTierName = null;
@@ -117,6 +124,24 @@ public class ItemPricing {
 
   public void setArbitraryCostVelocityCode(String arbitraryCostVelocityCode) {
     this.arbitraryCostVelocityCode = arbitraryCostVelocityCode;
+  }
+
+  public ItemPricing autoOrderCost(BigDecimal autoOrderCost) {
+    this.autoOrderCost = autoOrderCost;
+    return this;
+  }
+
+   /**
+   * Cost if customer selects to receive item on auto order.  Set to zero to delete.
+   * @return autoOrderCost
+  **/
+  @ApiModelProperty(value = "Cost if customer selects to receive item on auto order.  Set to zero to delete.")
+  public BigDecimal getAutoOrderCost() {
+    return autoOrderCost;
+  }
+
+  public void setAutoOrderCost(BigDecimal autoOrderCost) {
+    this.autoOrderCost = autoOrderCost;
   }
 
   public ItemPricing automaticPricingTierName(String automaticPricingTierName) {
@@ -409,6 +434,7 @@ public class ItemPricing {
     ItemPricing itemPricing = (ItemPricing) o;
     return Objects.equals(this.allowArbitraryCost, itemPricing.allowArbitraryCost) &&
         Objects.equals(this.arbitraryCostVelocityCode, itemPricing.arbitraryCostVelocityCode) &&
+        Objects.equals(this.autoOrderCost, itemPricing.autoOrderCost) &&
         Objects.equals(this.automaticPricingTierName, itemPricing.automaticPricingTierName) &&
         Objects.equals(this.automaticPricingTierOid, itemPricing.automaticPricingTierOid) &&
         Objects.equals(this.cogs, itemPricing.cogs) &&
@@ -428,7 +454,7 @@ public class ItemPricing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowArbitraryCost, arbitraryCostVelocityCode, automaticPricingTierName, automaticPricingTierOid, cogs, cost, currencyCode, manufacturerSuggestedRetailPrice, maximumArbitraryCost, minimumAdvertisedPrice, minimumArbitraryCost, mixAndMatchGroup, mixAndMatchGroupOid, saleCost, saleEnd, saleStart, tiers);
+    return Objects.hash(allowArbitraryCost, arbitraryCostVelocityCode, autoOrderCost, automaticPricingTierName, automaticPricingTierOid, cogs, cost, currencyCode, manufacturerSuggestedRetailPrice, maximumArbitraryCost, minimumAdvertisedPrice, minimumArbitraryCost, mixAndMatchGroup, mixAndMatchGroupOid, saleCost, saleEnd, saleStart, tiers);
   }
 
 
@@ -439,6 +465,7 @@ public class ItemPricing {
     
     sb.append("    allowArbitraryCost: ").append(toIndentedString(allowArbitraryCost)).append("\n");
     sb.append("    arbitraryCostVelocityCode: ").append(toIndentedString(arbitraryCostVelocityCode)).append("\n");
+    sb.append("    autoOrderCost: ").append(toIndentedString(autoOrderCost)).append("\n");
     sb.append("    automaticPricingTierName: ").append(toIndentedString(automaticPricingTierName)).append("\n");
     sb.append("    automaticPricingTierOid: ").append(toIndentedString(automaticPricingTierOid)).append("\n");
     sb.append("    cogs: ").append(toIndentedString(cogs)).append("\n");

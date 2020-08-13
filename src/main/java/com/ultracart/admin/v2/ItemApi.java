@@ -71,7 +71,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call deleteItemCall(Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/item/items/{merchant_item_oid}"
             .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
@@ -110,7 +110,7 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteItemValidateBeforeCall(Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -119,14 +119,10 @@ public class ItemApi {
             throw new ApiException("Missing the required parameter 'merchantItemOid' when calling deleteItem(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteItemCall(merchantItemOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -196,7 +192,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call getItemCall(Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/item/items/{merchant_item_oid}"
             .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
@@ -239,7 +235,7 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getItemValidateBeforeCall(Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -248,14 +244,10 @@ public class ItemApi {
             throw new ApiException("Missing the required parameter 'merchantItemOid' when calling getItem(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getItemCall(merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -335,7 +327,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call getItemByMerchantItemIdCall(String merchantItemId, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/item/items/merchant_item_id/{merchant_item_id}"
             .replaceAll("\\{" + "merchant_item_id" + "\\}", apiClient.escapeString(merchantItemId.toString()));
@@ -378,7 +370,7 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getItemByMerchantItemIdValidateBeforeCall(String merchantItemId, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -387,14 +379,10 @@ public class ItemApi {
             throw new ApiException("Missing the required parameter 'merchantItemId' when calling getItemByMerchantItemId(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getItemByMerchantItemIdCall(merchantItemId, expand, placeholders, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -479,7 +467,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call getItemsCall(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/item/items";
 
@@ -533,18 +521,14 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getItemsValidateBeforeCall(Integer parentCategoryId, String parentCategoryPath, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getItemsCall(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -637,7 +621,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call getPricingTiersCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/item/pricing_tiers";
 
@@ -677,18 +661,14 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getPricingTiersValidateBeforeCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getPricingTiersCall(expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -762,7 +742,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call insertItemCall(Item item, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = item;
-        
+
         // create path and map variables
         String localVarPath = "/item/items";
 
@@ -804,7 +784,7 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertItemValidateBeforeCall(Item item, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -813,14 +793,10 @@ public class ItemApi {
             throw new ApiException("Missing the required parameter 'item' when calling insertItem(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertItemCall(item, expand, placeholders, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -901,7 +877,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call updateItemCall(Item item, Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = item;
-        
+
         // create path and map variables
         String localVarPath = "/item/items/{merchant_item_oid}"
             .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
@@ -944,7 +920,7 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateItemValidateBeforeCall(Item item, Integer merchantItemOid, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -958,14 +934,10 @@ public class ItemApi {
             throw new ApiException("Missing the required parameter 'merchantItemOid' when calling updateItem(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateItemCall(item, merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1049,7 +1021,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call updateItemsCall(ItemsRequest itemsRequest, String expand, Boolean placeholders, Boolean async, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = itemsRequest;
-        
+
         // create path and map variables
         String localVarPath = "/item/items/batch";
 
@@ -1093,7 +1065,7 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateItemsValidateBeforeCall(ItemsRequest itemsRequest, String expand, Boolean placeholders, Boolean async, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1102,14 +1074,10 @@ public class ItemApi {
             throw new ApiException("Missing the required parameter 'itemsRequest' when calling updateItems(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateItemsCall(itemsRequest, expand, placeholders, async, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1190,7 +1158,7 @@ public class ItemApi {
      */
     public com.squareup.okhttp.Call uploadTemporaryMultimediaCall(File file, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/item/temp_multimedia";
 
@@ -1230,7 +1198,7 @@ public class ItemApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call uploadTemporaryMultimediaValidateBeforeCall(File file, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1239,14 +1207,10 @@ public class ItemApi {
             throw new ApiException("Missing the required parameter 'file' when calling uploadTemporaryMultimedia(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = uploadTemporaryMultimediaCall(file, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

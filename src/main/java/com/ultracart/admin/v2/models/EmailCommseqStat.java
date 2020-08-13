@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,13 +28,22 @@ import java.math.BigDecimal;
 /**
  * EmailCommseqStat
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailCommseqStat {
   @SerializedName("click_count")
   private Integer clickCount = null;
 
   @SerializedName("click_count_formatted")
   private String clickCountFormatted = null;
+
+  @SerializedName("conversion_count")
+  private Integer conversionCount = null;
+
+  @SerializedName("conversion_count_formatted")
+  private String conversionCountFormatted = null;
 
   @SerializedName("delivered_count")
   private Integer deliveredCount = null;
@@ -122,6 +132,12 @@ public class EmailCommseqStat {
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
 
+  @SerializedName("unsubscribe_count")
+  private Integer unsubscribeCount = null;
+
+  @SerializedName("unsubscribe_count_formatted")
+  private String unsubscribeCountFormatted = null;
+
   @SerializedName("view_count")
   private Integer viewCount = null;
 
@@ -162,6 +178,42 @@ public class EmailCommseqStat {
 
   public void setClickCountFormatted(String clickCountFormatted) {
     this.clickCountFormatted = clickCountFormatted;
+  }
+
+  public EmailCommseqStat conversionCount(Integer conversionCount) {
+    this.conversionCount = conversionCount;
+    return this;
+  }
+
+   /**
+   * Count of conversion
+   * @return conversionCount
+  **/
+  @ApiModelProperty(value = "Count of conversion")
+  public Integer getConversionCount() {
+    return conversionCount;
+  }
+
+  public void setConversionCount(Integer conversionCount) {
+    this.conversionCount = conversionCount;
+  }
+
+  public EmailCommseqStat conversionCountFormatted(String conversionCountFormatted) {
+    this.conversionCountFormatted = conversionCountFormatted;
+    return this;
+  }
+
+   /**
+   * Count of conversions, formatted
+   * @return conversionCountFormatted
+  **/
+  @ApiModelProperty(value = "Count of conversions, formatted")
+  public String getConversionCountFormatted() {
+    return conversionCountFormatted;
+  }
+
+  public void setConversionCountFormatted(String conversionCountFormatted) {
+    this.conversionCountFormatted = conversionCountFormatted;
   }
 
   public EmailCommseqStat deliveredCount(Integer deliveredCount) {
@@ -686,6 +738,42 @@ public class EmailCommseqStat {
     this.storefrontOid = storefrontOid;
   }
 
+  public EmailCommseqStat unsubscribeCount(Integer unsubscribeCount) {
+    this.unsubscribeCount = unsubscribeCount;
+    return this;
+  }
+
+   /**
+   * Count of unsubscribes caused
+   * @return unsubscribeCount
+  **/
+  @ApiModelProperty(value = "Count of unsubscribes caused")
+  public Integer getUnsubscribeCount() {
+    return unsubscribeCount;
+  }
+
+  public void setUnsubscribeCount(Integer unsubscribeCount) {
+    this.unsubscribeCount = unsubscribeCount;
+  }
+
+  public EmailCommseqStat unsubscribeCountFormatted(String unsubscribeCountFormatted) {
+    this.unsubscribeCountFormatted = unsubscribeCountFormatted;
+    return this;
+  }
+
+   /**
+   * Count of unsubscribes caused, formatted
+   * @return unsubscribeCountFormatted
+  **/
+  @ApiModelProperty(value = "Count of unsubscribes caused, formatted")
+  public String getUnsubscribeCountFormatted() {
+    return unsubscribeCountFormatted;
+  }
+
+  public void setUnsubscribeCountFormatted(String unsubscribeCountFormatted) {
+    this.unsubscribeCountFormatted = unsubscribeCountFormatted;
+  }
+
   public EmailCommseqStat viewCount(Integer viewCount) {
     this.viewCount = viewCount;
     return this;
@@ -734,6 +822,8 @@ public class EmailCommseqStat {
     EmailCommseqStat emailCommseqStat = (EmailCommseqStat) o;
     return Objects.equals(this.clickCount, emailCommseqStat.clickCount) &&
         Objects.equals(this.clickCountFormatted, emailCommseqStat.clickCountFormatted) &&
+        Objects.equals(this.conversionCount, emailCommseqStat.conversionCount) &&
+        Objects.equals(this.conversionCountFormatted, emailCommseqStat.conversionCountFormatted) &&
         Objects.equals(this.deliveredCount, emailCommseqStat.deliveredCount) &&
         Objects.equals(this.deliveredCountFormatted, emailCommseqStat.deliveredCountFormatted) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailCommseqStat.emailCommunicationSequenceUuid) &&
@@ -763,13 +853,15 @@ public class EmailCommseqStat {
         Objects.equals(this.startedCount, emailCommseqStat.startedCount) &&
         Objects.equals(this.startedCountFormatted, emailCommseqStat.startedCountFormatted) &&
         Objects.equals(this.storefrontOid, emailCommseqStat.storefrontOid) &&
+        Objects.equals(this.unsubscribeCount, emailCommseqStat.unsubscribeCount) &&
+        Objects.equals(this.unsubscribeCountFormatted, emailCommseqStat.unsubscribeCountFormatted) &&
         Objects.equals(this.viewCount, emailCommseqStat.viewCount) &&
         Objects.equals(this.viewCountFormatted, emailCommseqStat.viewCountFormatted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickCount, clickCountFormatted, deliveredCount, deliveredCountFormatted, emailCommunicationSequenceUuid, finishedCount, finishedCountFormatted, inProgressCount, inProgressCountFormatted, kickboxCount, kickboxCountFormatted, merchantId, openCount, openCountFormatted, orderCount, orderCountFormatted, permanentBounceCount, permanentBounceCountFormatted, profit, profitFormatted, revenue, revenueFormatted, sendCount, sendCountFormatted, skippedCount, skippedCountFormatted, spamCount, spamCountFormatted, startedCount, startedCountFormatted, storefrontOid, viewCount, viewCountFormatted);
+    return Objects.hash(clickCount, clickCountFormatted, conversionCount, conversionCountFormatted, deliveredCount, deliveredCountFormatted, emailCommunicationSequenceUuid, finishedCount, finishedCountFormatted, inProgressCount, inProgressCountFormatted, kickboxCount, kickboxCountFormatted, merchantId, openCount, openCountFormatted, orderCount, orderCountFormatted, permanentBounceCount, permanentBounceCountFormatted, profit, profitFormatted, revenue, revenueFormatted, sendCount, sendCountFormatted, skippedCount, skippedCountFormatted, spamCount, spamCountFormatted, startedCount, startedCountFormatted, storefrontOid, unsubscribeCount, unsubscribeCountFormatted, viewCount, viewCountFormatted);
   }
 
 
@@ -780,6 +872,8 @@ public class EmailCommseqStat {
     
     sb.append("    clickCount: ").append(toIndentedString(clickCount)).append("\n");
     sb.append("    clickCountFormatted: ").append(toIndentedString(clickCountFormatted)).append("\n");
+    sb.append("    conversionCount: ").append(toIndentedString(conversionCount)).append("\n");
+    sb.append("    conversionCountFormatted: ").append(toIndentedString(conversionCountFormatted)).append("\n");
     sb.append("    deliveredCount: ").append(toIndentedString(deliveredCount)).append("\n");
     sb.append("    deliveredCountFormatted: ").append(toIndentedString(deliveredCountFormatted)).append("\n");
     sb.append("    emailCommunicationSequenceUuid: ").append(toIndentedString(emailCommunicationSequenceUuid)).append("\n");
@@ -809,6 +903,8 @@ public class EmailCommseqStat {
     sb.append("    startedCount: ").append(toIndentedString(startedCount)).append("\n");
     sb.append("    startedCountFormatted: ").append(toIndentedString(startedCountFormatted)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    unsubscribeCount: ").append(toIndentedString(unsubscribeCount)).append("\n");
+    sb.append("    unsubscribeCountFormatted: ").append(toIndentedString(unsubscribeCountFormatted)).append("\n");
     sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
     sb.append("    viewCountFormatted: ").append(toIndentedString(viewCountFormatted)).append("\n");
     sb.append("}");

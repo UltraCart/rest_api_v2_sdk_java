@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,10 @@ import java.math.BigDecimal;
 /**
  * ExperimentVariation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class ExperimentVariation {
   @SerializedName("add_to_cart_count")
   private Integer addToCartCount = null;
@@ -37,6 +41,9 @@ public class ExperimentVariation {
 
   @SerializedName("average_objective_per_session")
   private BigDecimal averageObjectivePerSession = null;
+
+  @SerializedName("average_order_value")
+  private BigDecimal averageOrderValue = null;
 
   @SerializedName("bounce_count")
   private Integer bounceCount = null;
@@ -67,6 +74,9 @@ public class ExperimentVariation {
 
   @SerializedName("traffic_percentage")
   private BigDecimal trafficPercentage = null;
+
+  @SerializedName("url")
+  private String url = null;
 
   @SerializedName("variation_name")
   private String variationName = null;
@@ -129,6 +139,24 @@ public class ExperimentVariation {
 
   public void setAverageObjectivePerSession(BigDecimal averageObjectivePerSession) {
     this.averageObjectivePerSession = averageObjectivePerSession;
+  }
+
+  public ExperimentVariation averageOrderValue(BigDecimal averageOrderValue) {
+    this.averageOrderValue = averageOrderValue;
+    return this;
+  }
+
+   /**
+   * Average order value for this variation
+   * @return averageOrderValue
+  **/
+  @ApiModelProperty(value = "Average order value for this variation")
+  public BigDecimal getAverageOrderValue() {
+    return averageOrderValue;
+  }
+
+  public void setAverageOrderValue(BigDecimal averageOrderValue) {
+    this.averageOrderValue = averageOrderValue;
   }
 
   public ExperimentVariation bounceCount(Integer bounceCount) {
@@ -311,6 +339,24 @@ public class ExperimentVariation {
     this.trafficPercentage = trafficPercentage;
   }
 
+  public ExperimentVariation url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Url of the variation if this experiment is a url experiment.
+   * @return url
+  **/
+  @ApiModelProperty(value = "Url of the variation if this experiment is a url experiment.")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
   public ExperimentVariation variationName(String variationName) {
     this.variationName = variationName;
     return this;
@@ -378,6 +424,7 @@ public class ExperimentVariation {
     return Objects.equals(this.addToCartCount, experimentVariation.addToCartCount) &&
         Objects.equals(this.averageDurationSeconds, experimentVariation.averageDurationSeconds) &&
         Objects.equals(this.averageObjectivePerSession, experimentVariation.averageObjectivePerSession) &&
+        Objects.equals(this.averageOrderValue, experimentVariation.averageOrderValue) &&
         Objects.equals(this.bounceCount, experimentVariation.bounceCount) &&
         Objects.equals(this.conversionRate, experimentVariation.conversionRate) &&
         Objects.equals(this.durationSecondsSum, experimentVariation.durationSecondsSum) &&
@@ -388,6 +435,7 @@ public class ExperimentVariation {
         Objects.equals(this.revenue, experimentVariation.revenue) &&
         Objects.equals(this.sessionCount, experimentVariation.sessionCount) &&
         Objects.equals(this.trafficPercentage, experimentVariation.trafficPercentage) &&
+        Objects.equals(this.url, experimentVariation.url) &&
         Objects.equals(this.variationName, experimentVariation.variationName) &&
         Objects.equals(this.variationNumber, experimentVariation.variationNumber) &&
         Objects.equals(this.winner, experimentVariation.winner);
@@ -395,7 +443,7 @@ public class ExperimentVariation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, bounceCount, conversionRate, durationSecondsSum, initiateCheckoutCount, orderCount, originalTrafficPercentage, pageViewCount, revenue, sessionCount, trafficPercentage, variationName, variationNumber, winner);
+    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, durationSecondsSum, initiateCheckoutCount, orderCount, originalTrafficPercentage, pageViewCount, revenue, sessionCount, trafficPercentage, url, variationName, variationNumber, winner);
   }
 
 
@@ -407,6 +455,7 @@ public class ExperimentVariation {
     sb.append("    addToCartCount: ").append(toIndentedString(addToCartCount)).append("\n");
     sb.append("    averageDurationSeconds: ").append(toIndentedString(averageDurationSeconds)).append("\n");
     sb.append("    averageObjectivePerSession: ").append(toIndentedString(averageObjectivePerSession)).append("\n");
+    sb.append("    averageOrderValue: ").append(toIndentedString(averageOrderValue)).append("\n");
     sb.append("    bounceCount: ").append(toIndentedString(bounceCount)).append("\n");
     sb.append("    conversionRate: ").append(toIndentedString(conversionRate)).append("\n");
     sb.append("    durationSecondsSum: ").append(toIndentedString(durationSecondsSum)).append("\n");
@@ -417,6 +466,7 @@ public class ExperimentVariation {
     sb.append("    revenue: ").append(toIndentedString(revenue)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
     sb.append("    trafficPercentage: ").append(toIndentedString(trafficPercentage)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    variationName: ").append(toIndentedString(variationName)).append("\n");
     sb.append("    variationNumber: ").append(toIndentedString(variationNumber)).append("\n");
     sb.append("    winner: ").append(toIndentedString(winner)).append("\n");

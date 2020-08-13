@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ipAddress** | **String** | IP Address (read only unless non-browser key authenticated) |  [optional]
 **returnCode** | **String** | Return code assigned for send return email operation |  [optional]
 **screenBrandingThemeCode** | **String** | Screen branding theme code |  [optional]
+**userAgent** | **String** | User agent of the browser |  [optional]
 
 
 

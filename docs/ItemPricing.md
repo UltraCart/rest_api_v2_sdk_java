@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowArbitraryCost** | **Boolean** | Allow arbitrary cost |  [optional]
 **arbitraryCostVelocityCode** | **String** | Arbitrary cost velocity code |  [optional]
+**autoOrderCost** | [**BigDecimal**](BigDecimal.md) | Cost if customer selects to receive item on auto order.  Set to zero to delete. |  [optional]
 **automaticPricingTierName** | **String** | Automatic pricing tier name |  [optional]
 **automaticPricingTierOid** | **Integer** | Automatic pricing tier object identifier |  [optional]
 **cogs** | [**BigDecimal**](BigDecimal.md) | Cost of goods sold |  [optional]

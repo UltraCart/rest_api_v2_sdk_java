@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,10 @@ import java.util.List;
 /**
  * EmailCommseqStep
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailCommseqStep {
   @SerializedName("alt_child_email_communication_sequence_steps")
   private List<EmailCommseqStep> altChildEmailCommunicationSequenceSteps = null;
@@ -40,8 +44,20 @@ public class EmailCommseqStep {
   @SerializedName("email_communication_sequence_step_uuid")
   private String emailCommunicationSequenceStepUuid = null;
 
+  @SerializedName("email_pending_review")
+  private Boolean emailPendingReview = null;
+
+  @SerializedName("email_rejected")
+  private Boolean emailRejected = null;
+
+  @SerializedName("email_requires_review")
+  private Boolean emailRequiresReview = null;
+
   @SerializedName("filter_profile_equation_json")
   private String filterProfileEquationJson = null;
+
+  @SerializedName("merchant_notes")
+  private String merchantNotes = null;
 
   @SerializedName("step_config_json")
   private String stepConfigJson = null;
@@ -174,6 +190,60 @@ public class EmailCommseqStep {
     this.emailCommunicationSequenceStepUuid = emailCommunicationSequenceStepUuid;
   }
 
+  public EmailCommseqStep emailPendingReview(Boolean emailPendingReview) {
+    this.emailPendingReview = emailPendingReview;
+    return this;
+  }
+
+   /**
+   * True if the content of the email associated with this step is pending review by UltraCart
+   * @return emailPendingReview
+  **/
+  @ApiModelProperty(value = "True if the content of the email associated with this step is pending review by UltraCart")
+  public Boolean isEmailPendingReview() {
+    return emailPendingReview;
+  }
+
+  public void setEmailPendingReview(Boolean emailPendingReview) {
+    this.emailPendingReview = emailPendingReview;
+  }
+
+  public EmailCommseqStep emailRejected(Boolean emailRejected) {
+    this.emailRejected = emailRejected;
+    return this;
+  }
+
+   /**
+   * True if the content of the email associated with this step was rejected during review by UltraCart
+   * @return emailRejected
+  **/
+  @ApiModelProperty(value = "True if the content of the email associated with this step was rejected during review by UltraCart")
+  public Boolean isEmailRejected() {
+    return emailRejected;
+  }
+
+  public void setEmailRejected(Boolean emailRejected) {
+    this.emailRejected = emailRejected;
+  }
+
+  public EmailCommseqStep emailRequiresReview(Boolean emailRequiresReview) {
+    this.emailRequiresReview = emailRequiresReview;
+    return this;
+  }
+
+   /**
+   * True if the content of the email associated with this step requires review by UltraCart
+   * @return emailRequiresReview
+  **/
+  @ApiModelProperty(value = "True if the content of the email associated with this step requires review by UltraCart")
+  public Boolean isEmailRequiresReview() {
+    return emailRequiresReview;
+  }
+
+  public void setEmailRequiresReview(Boolean emailRequiresReview) {
+    this.emailRequiresReview = emailRequiresReview;
+  }
+
   public EmailCommseqStep filterProfileEquationJson(String filterProfileEquationJson) {
     this.filterProfileEquationJson = filterProfileEquationJson;
     return this;
@@ -190,6 +260,24 @@ public class EmailCommseqStep {
 
   public void setFilterProfileEquationJson(String filterProfileEquationJson) {
     this.filterProfileEquationJson = filterProfileEquationJson;
+  }
+
+  public EmailCommseqStep merchantNotes(String merchantNotes) {
+    this.merchantNotes = merchantNotes;
+    return this;
+  }
+
+   /**
+   * Internal merchant notes
+   * @return merchantNotes
+  **/
+  @ApiModelProperty(value = "Internal merchant notes")
+  public String getMerchantNotes() {
+    return merchantNotes;
+  }
+
+  public void setMerchantNotes(String merchantNotes) {
+    this.merchantNotes = merchantNotes;
   }
 
   public EmailCommseqStep stepConfigJson(String stepConfigJson) {
@@ -241,14 +329,18 @@ public class EmailCommseqStep {
     return Objects.equals(this.altChildEmailCommunicationSequenceSteps, emailCommseqStep.altChildEmailCommunicationSequenceSteps) &&
         Objects.equals(this.childEmailCommunicationSequenceSteps, emailCommseqStep.childEmailCommunicationSequenceSteps) &&
         Objects.equals(this.emailCommunicationSequenceStepUuid, emailCommseqStep.emailCommunicationSequenceStepUuid) &&
+        Objects.equals(this.emailPendingReview, emailCommseqStep.emailPendingReview) &&
+        Objects.equals(this.emailRejected, emailCommseqStep.emailRejected) &&
+        Objects.equals(this.emailRequiresReview, emailCommseqStep.emailRequiresReview) &&
         Objects.equals(this.filterProfileEquationJson, emailCommseqStep.filterProfileEquationJson) &&
+        Objects.equals(this.merchantNotes, emailCommseqStep.merchantNotes) &&
         Objects.equals(this.stepConfigJson, emailCommseqStep.stepConfigJson) &&
         Objects.equals(this.type, emailCommseqStep.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(altChildEmailCommunicationSequenceSteps, childEmailCommunicationSequenceSteps, emailCommunicationSequenceStepUuid, filterProfileEquationJson, stepConfigJson, type);
+    return Objects.hash(altChildEmailCommunicationSequenceSteps, childEmailCommunicationSequenceSteps, emailCommunicationSequenceStepUuid, emailPendingReview, emailRejected, emailRequiresReview, filterProfileEquationJson, merchantNotes, stepConfigJson, type);
   }
 
 
@@ -260,7 +352,11 @@ public class EmailCommseqStep {
     sb.append("    altChildEmailCommunicationSequenceSteps: ").append(toIndentedString(altChildEmailCommunicationSequenceSteps)).append("\n");
     sb.append("    childEmailCommunicationSequenceSteps: ").append(toIndentedString(childEmailCommunicationSequenceSteps)).append("\n");
     sb.append("    emailCommunicationSequenceStepUuid: ").append(toIndentedString(emailCommunicationSequenceStepUuid)).append("\n");
+    sb.append("    emailPendingReview: ").append(toIndentedString(emailPendingReview)).append("\n");
+    sb.append("    emailRejected: ").append(toIndentedString(emailRejected)).append("\n");
+    sb.append("    emailRequiresReview: ").append(toIndentedString(emailRequiresReview)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
+    sb.append("    merchantNotes: ").append(toIndentedString(merchantNotes)).append("\n");
     sb.append("    stepConfigJson: ").append(toIndentedString(stepConfigJson)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

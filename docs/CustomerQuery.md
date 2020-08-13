@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allTags** | **List&lt;String&gt;** | All tags the customer must have |  [optional]
+**anyTags** | **List&lt;String&gt;** | Any of these tags the customer must have |  [optional]
 **billingCity** | **String** | Billing city |  [optional]
 **billingCompany** | **String** | Billing company |  [optional]
 **billingCountryCode** | **String** | Billing country code |  [optional]

@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.AutoOrderItemFutureSchedule;
 import com.ultracart.admin.v2.models.AutoOrderItemOption;
+import com.ultracart.admin.v2.models.AutoOrderItemSimpleSchedule;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,7 +33,10 @@ import java.util.List;
 /**
  * AutoOrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class AutoOrderItem {
   @SerializedName("arbitrary_item_id")
   private String arbitraryItemId = null;
@@ -170,6 +175,9 @@ public class AutoOrderItem {
 
   @SerializedName("remaining_repeat_count")
   private Integer remainingRepeatCount = null;
+
+  @SerializedName("simple_schedule")
+  private AutoOrderItemSimpleSchedule simpleSchedule = null;
 
   public AutoOrderItem arbitraryItemId(String arbitraryItemId) {
     this.arbitraryItemId = arbitraryItemId;
@@ -601,6 +609,24 @@ public class AutoOrderItem {
     this.remainingRepeatCount = remainingRepeatCount;
   }
 
+  public AutoOrderItem simpleSchedule(AutoOrderItemSimpleSchedule simpleSchedule) {
+    this.simpleSchedule = simpleSchedule;
+    return this;
+  }
+
+   /**
+   * Get simpleSchedule
+   * @return simpleSchedule
+  **/
+  @ApiModelProperty(value = "")
+  public AutoOrderItemSimpleSchedule getSimpleSchedule() {
+    return simpleSchedule;
+  }
+
+  public void setSimpleSchedule(AutoOrderItemSimpleSchedule simpleSchedule) {
+    this.simpleSchedule = simpleSchedule;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -633,12 +659,13 @@ public class AutoOrderItem {
         Objects.equals(this.paypalRecurringPaymentProfileId, autoOrderItem.paypalRecurringPaymentProfileId) &&
         Objects.equals(this.preshipmentNoticeSent, autoOrderItem.preshipmentNoticeSent) &&
         Objects.equals(this.rebillValue, autoOrderItem.rebillValue) &&
-        Objects.equals(this.remainingRepeatCount, autoOrderItem.remainingRepeatCount);
+        Objects.equals(this.remainingRepeatCount, autoOrderItem.remainingRepeatCount) &&
+        Objects.equals(this.simpleSchedule, autoOrderItem.simpleSchedule);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount);
+    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount, simpleSchedule);
   }
 
 
@@ -670,6 +697,7 @@ public class AutoOrderItem {
     sb.append("    preshipmentNoticeSent: ").append(toIndentedString(preshipmentNoticeSent)).append("\n");
     sb.append("    rebillValue: ").append(toIndentedString(rebillValue)).append("\n");
     sb.append("    remainingRepeatCount: ").append(toIndentedString(remainingRepeatCount)).append("\n");
+    sb.append("    simpleSchedule: ").append(toIndentedString(simpleSchedule)).append("\n");
     sb.append("}");
     return sb.toString();
   }

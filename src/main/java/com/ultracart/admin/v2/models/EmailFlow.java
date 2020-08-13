@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,10 +27,16 @@ import java.io.IOException;
 /**
  * EmailFlow
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailFlow {
   @SerializedName("allow_multiple_concurrent_enrollments")
   private Boolean allowMultipleConcurrentEnrollments = null;
+
+  @SerializedName("back_populating")
+  private Boolean backPopulating = null;
 
   @SerializedName("click_rate_formatted")
   private String clickRateFormatted = null;
@@ -46,11 +53,20 @@ public class EmailFlow {
   @SerializedName("email_flow_uuid")
   private String emailFlowUuid = null;
 
+  @SerializedName("end_once_customer_purchases")
+  private Boolean endOnceCustomerPurchases = null;
+
+  @SerializedName("enrolled_customers")
+  private Integer enrolledCustomers = null;
+
   @SerializedName("esp_domain_user")
   private String espDomainUser = null;
 
   @SerializedName("esp_domain_uuid")
   private String espDomainUuid = null;
+
+  @SerializedName("esp_friendly_name")
+  private String espFriendlyName = null;
 
   @SerializedName("filter_profile_equation_json")
   private String filterProfileEquationJson = null;
@@ -101,6 +117,24 @@ public class EmailFlow {
 
   public void setAllowMultipleConcurrentEnrollments(Boolean allowMultipleConcurrentEnrollments) {
     this.allowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
+  }
+
+  public EmailFlow backPopulating(Boolean backPopulating) {
+    this.backPopulating = backPopulating;
+    return this;
+  }
+
+   /**
+   * True if the flow is currently performing a back population.
+   * @return backPopulating
+  **/
+  @ApiModelProperty(value = "True if the flow is currently performing a back population.")
+  public Boolean isBackPopulating() {
+    return backPopulating;
+  }
+
+  public void setBackPopulating(Boolean backPopulating) {
+    this.backPopulating = backPopulating;
   }
 
   public EmailFlow clickRateFormatted(String clickRateFormatted) {
@@ -193,6 +227,42 @@ public class EmailFlow {
     this.emailFlowUuid = emailFlowUuid;
   }
 
+  public EmailFlow endOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
+    this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+    return this;
+  }
+
+   /**
+   * True if the customer should end the flow once they purchase
+   * @return endOnceCustomerPurchases
+  **/
+  @ApiModelProperty(value = "True if the customer should end the flow once they purchase")
+  public Boolean isEndOnceCustomerPurchases() {
+    return endOnceCustomerPurchases;
+  }
+
+  public void setEndOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
+    this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+  }
+
+  public EmailFlow enrolledCustomers(Integer enrolledCustomers) {
+    this.enrolledCustomers = enrolledCustomers;
+    return this;
+  }
+
+   /**
+   * Number of enrolled customers.
+   * @return enrolledCustomers
+  **/
+  @ApiModelProperty(value = "Number of enrolled customers.")
+  public Integer getEnrolledCustomers() {
+    return enrolledCustomers;
+  }
+
+  public void setEnrolledCustomers(Integer enrolledCustomers) {
+    this.enrolledCustomers = enrolledCustomers;
+  }
+
   public EmailFlow espDomainUser(String espDomainUser) {
     this.espDomainUser = espDomainUser;
     return this;
@@ -227,6 +297,24 @@ public class EmailFlow {
 
   public void setEspDomainUuid(String espDomainUuid) {
     this.espDomainUuid = espDomainUuid;
+  }
+
+  public EmailFlow espFriendlyName(String espFriendlyName) {
+    this.espFriendlyName = espFriendlyName;
+    return this;
+  }
+
+   /**
+   * Friendly name of the sending email
+   * @return espFriendlyName
+  **/
+  @ApiModelProperty(value = "Friendly name of the sending email")
+  public String getEspFriendlyName() {
+    return espFriendlyName;
+  }
+
+  public void setEspFriendlyName(String espFriendlyName) {
+    this.espFriendlyName = espFriendlyName;
   }
 
   public EmailFlow filterProfileEquationJson(String filterProfileEquationJson) {
@@ -438,13 +526,17 @@ public class EmailFlow {
     }
     EmailFlow emailFlow = (EmailFlow) o;
     return Objects.equals(this.allowMultipleConcurrentEnrollments, emailFlow.allowMultipleConcurrentEnrollments) &&
+        Objects.equals(this.backPopulating, emailFlow.backPopulating) &&
         Objects.equals(this.clickRateFormatted, emailFlow.clickRateFormatted) &&
         Objects.equals(this.createdDts, emailFlow.createdDts) &&
         Objects.equals(this.deleted, emailFlow.deleted) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailFlow.emailCommunicationSequenceUuid) &&
         Objects.equals(this.emailFlowUuid, emailFlow.emailFlowUuid) &&
+        Objects.equals(this.endOnceCustomerPurchases, emailFlow.endOnceCustomerPurchases) &&
+        Objects.equals(this.enrolledCustomers, emailFlow.enrolledCustomers) &&
         Objects.equals(this.espDomainUser, emailFlow.espDomainUser) &&
         Objects.equals(this.espDomainUuid, emailFlow.espDomainUuid) &&
+        Objects.equals(this.espFriendlyName, emailFlow.espFriendlyName) &&
         Objects.equals(this.filterProfileEquationJson, emailFlow.filterProfileEquationJson) &&
         Objects.equals(this.merchantId, emailFlow.merchantId) &&
         Objects.equals(this.name, emailFlow.name) &&
@@ -460,7 +552,7 @@ public class EmailFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, espDomainUser, espDomainUuid, filterProfileEquationJson, merchantId, name, openRateFormatted, revenueFormatted, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, enrolledCustomers, espDomainUser, espDomainUuid, espFriendlyName, filterProfileEquationJson, merchantId, name, openRateFormatted, revenueFormatted, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
   }
 
 
@@ -470,13 +562,17 @@ public class EmailFlow {
     sb.append("class EmailFlow {\n");
     
     sb.append("    allowMultipleConcurrentEnrollments: ").append(toIndentedString(allowMultipleConcurrentEnrollments)).append("\n");
+    sb.append("    backPopulating: ").append(toIndentedString(backPopulating)).append("\n");
     sb.append("    clickRateFormatted: ").append(toIndentedString(clickRateFormatted)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailCommunicationSequenceUuid: ").append(toIndentedString(emailCommunicationSequenceUuid)).append("\n");
     sb.append("    emailFlowUuid: ").append(toIndentedString(emailFlowUuid)).append("\n");
+    sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
+    sb.append("    enrolledCustomers: ").append(toIndentedString(enrolledCustomers)).append("\n");
     sb.append("    espDomainUser: ").append(toIndentedString(espDomainUser)).append("\n");
     sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");
+    sb.append("    espFriendlyName: ").append(toIndentedString(espFriendlyName)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

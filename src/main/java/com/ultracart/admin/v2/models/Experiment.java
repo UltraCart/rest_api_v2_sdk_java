@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,10 @@ import java.util.List;
 /**
  * Experiment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class Experiment {
   @SerializedName("container_id")
   private String containerId = null;
@@ -42,6 +46,9 @@ public class Experiment {
 
   @SerializedName("equal_weighting")
   private Boolean equalWeighting = null;
+
+  @SerializedName("experiment_type")
+  private String experimentType = null;
 
   @SerializedName("id")
   private String id = null;
@@ -198,6 +205,24 @@ public class Experiment {
 
   public void setEqualWeighting(Boolean equalWeighting) {
     this.equalWeighting = equalWeighting;
+  }
+
+  public Experiment experimentType(String experimentType) {
+    this.experimentType = experimentType;
+    return this;
+  }
+
+   /**
+   * The type of experiment
+   * @return experimentType
+  **/
+  @ApiModelProperty(value = "The type of experiment")
+  public String getExperimentType() {
+    return experimentType;
+  }
+
+  public void setExperimentType(String experimentType) {
+    this.experimentType = experimentType;
   }
 
   public Experiment id(String id) {
@@ -438,6 +463,7 @@ public class Experiment {
         Objects.equals(this.durationDays, experiment.durationDays) &&
         Objects.equals(this.endDts, experiment.endDts) &&
         Objects.equals(this.equalWeighting, experiment.equalWeighting) &&
+        Objects.equals(this.experimentType, experiment.experimentType) &&
         Objects.equals(this.id, experiment.id) &&
         Objects.equals(this.name, experiment.name) &&
         Objects.equals(this.notes, experiment.notes) &&
@@ -454,7 +480,7 @@ public class Experiment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerId, durationDays, endDts, equalWeighting, id, name, notes, objective, optimizationType, sessionCount, startDts, status, storefrontExperimentOid, storefrontOid, uri, variations);
+    return Objects.hash(containerId, durationDays, endDts, equalWeighting, experimentType, id, name, notes, objective, optimizationType, sessionCount, startDts, status, storefrontExperimentOid, storefrontOid, uri, variations);
   }
 
 
@@ -467,6 +493,7 @@ public class Experiment {
     sb.append("    durationDays: ").append(toIndentedString(durationDays)).append("\n");
     sb.append("    endDts: ").append(toIndentedString(endDts)).append("\n");
     sb.append("    equalWeighting: ").append(toIndentedString(equalWeighting)).append("\n");
+    sb.append("    experimentType: ").append(toIndentedString(experimentType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");

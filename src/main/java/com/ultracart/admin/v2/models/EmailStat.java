@@ -14,26 +14,42 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.EmailStat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * EmailStat
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailStat {
   @SerializedName("click_count")
   private Integer clickCount = null;
 
   @SerializedName("click_count_formatted")
   private String clickCountFormatted = null;
+
+  @SerializedName("conversion_count")
+  private Integer conversionCount = null;
+
+  @SerializedName("conversion_count_formatted")
+  private String conversionCountFormatted = null;
+
+  @SerializedName("deleted")
+  private Boolean deleted = null;
 
   @SerializedName("delivered_count")
   private Integer deliveredCount = null;
@@ -110,8 +126,20 @@ public class EmailStat {
   @SerializedName("status_dts")
   private String statusDts = null;
 
+  @SerializedName("step_uuid")
+  private String stepUuid = null;
+
+  @SerializedName("steps")
+  private List<EmailStat> steps = null;
+
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
+
+  @SerializedName("unsubscribe_count")
+  private Integer unsubscribeCount = null;
+
+  @SerializedName("unsubscribe_count_formatted")
+  private String unsubscribeCountFormatted = null;
 
   @SerializedName("uuid")
   private String uuid = null;
@@ -156,6 +184,60 @@ public class EmailStat {
 
   public void setClickCountFormatted(String clickCountFormatted) {
     this.clickCountFormatted = clickCountFormatted;
+  }
+
+  public EmailStat conversionCount(Integer conversionCount) {
+    this.conversionCount = conversionCount;
+    return this;
+  }
+
+   /**
+   * Count of conversions
+   * @return conversionCount
+  **/
+  @ApiModelProperty(value = "Count of conversions")
+  public Integer getConversionCount() {
+    return conversionCount;
+  }
+
+  public void setConversionCount(Integer conversionCount) {
+    this.conversionCount = conversionCount;
+  }
+
+  public EmailStat conversionCountFormatted(String conversionCountFormatted) {
+    this.conversionCountFormatted = conversionCountFormatted;
+    return this;
+  }
+
+   /**
+   * Count of conversions, formatted
+   * @return conversionCountFormatted
+  **/
+  @ApiModelProperty(value = "Count of conversions, formatted")
+  public String getConversionCountFormatted() {
+    return conversionCountFormatted;
+  }
+
+  public void setConversionCountFormatted(String conversionCountFormatted) {
+    this.conversionCountFormatted = conversionCountFormatted;
+  }
+
+  public EmailStat deleted(Boolean deleted) {
+    this.deleted = deleted;
+    return this;
+  }
+
+   /**
+   * True if campaign/flow has been archived
+   * @return deleted
+  **/
+  @ApiModelProperty(value = "True if campaign/flow has been archived")
+  public Boolean isDeleted() {
+    return deleted;
+  }
+
+  public void setDeleted(Boolean deleted) {
+    this.deleted = deleted;
   }
 
   public EmailStat deliveredCount(Integer deliveredCount) {
@@ -608,6 +690,50 @@ public class EmailStat {
     this.statusDts = statusDts;
   }
 
+  public EmailStat stepUuid(String stepUuid) {
+    this.stepUuid = stepUuid;
+    return this;
+  }
+
+   /**
+   * Step UUID if the statistics are at the step/email level
+   * @return stepUuid
+  **/
+  @ApiModelProperty(value = "Step UUID if the statistics are at the step/email level")
+  public String getStepUuid() {
+    return stepUuid;
+  }
+
+  public void setStepUuid(String stepUuid) {
+    this.stepUuid = stepUuid;
+  }
+
+  public EmailStat steps(List<EmailStat> steps) {
+    this.steps = steps;
+    return this;
+  }
+
+  public EmailStat addStepsItem(EmailStat stepsItem) {
+    if (this.steps == null) {
+      this.steps = new ArrayList<EmailStat>();
+    }
+    this.steps.add(stepsItem);
+    return this;
+  }
+
+   /**
+   * Get steps
+   * @return steps
+  **/
+  @ApiModelProperty(value = "")
+  public List<EmailStat> getSteps() {
+    return steps;
+  }
+
+  public void setSteps(List<EmailStat> steps) {
+    this.steps = steps;
+  }
+
   public EmailStat storefrontOid(Integer storefrontOid) {
     this.storefrontOid = storefrontOid;
     return this;
@@ -626,16 +752,52 @@ public class EmailStat {
     this.storefrontOid = storefrontOid;
   }
 
+  public EmailStat unsubscribeCount(Integer unsubscribeCount) {
+    this.unsubscribeCount = unsubscribeCount;
+    return this;
+  }
+
+   /**
+   * Count of emails classified as unsubscribe
+   * @return unsubscribeCount
+  **/
+  @ApiModelProperty(value = "Count of emails classified as unsubscribe")
+  public Integer getUnsubscribeCount() {
+    return unsubscribeCount;
+  }
+
+  public void setUnsubscribeCount(Integer unsubscribeCount) {
+    this.unsubscribeCount = unsubscribeCount;
+  }
+
+  public EmailStat unsubscribeCountFormatted(String unsubscribeCountFormatted) {
+    this.unsubscribeCountFormatted = unsubscribeCountFormatted;
+    return this;
+  }
+
+   /**
+   * Count of emails classified as unsubscribe, formatted
+   * @return unsubscribeCountFormatted
+  **/
+  @ApiModelProperty(value = "Count of emails classified as unsubscribe, formatted")
+  public String getUnsubscribeCountFormatted() {
+    return unsubscribeCountFormatted;
+  }
+
+  public void setUnsubscribeCountFormatted(String unsubscribeCountFormatted) {
+    this.unsubscribeCountFormatted = unsubscribeCountFormatted;
+  }
+
   public EmailStat uuid(String uuid) {
     this.uuid = uuid;
     return this;
   }
 
    /**
-   * List or segment uuid
+   * List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation.
    * @return uuid
   **/
-  @ApiModelProperty(value = "List or segment uuid")
+  @ApiModelProperty(value = "List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation.")
   public String getUuid() {
     return uuid;
   }
@@ -692,6 +854,9 @@ public class EmailStat {
     EmailStat emailStat = (EmailStat) o;
     return Objects.equals(this.clickCount, emailStat.clickCount) &&
         Objects.equals(this.clickCountFormatted, emailStat.clickCountFormatted) &&
+        Objects.equals(this.conversionCount, emailStat.conversionCount) &&
+        Objects.equals(this.conversionCountFormatted, emailStat.conversionCountFormatted) &&
+        Objects.equals(this.deleted, emailStat.deleted) &&
         Objects.equals(this.deliveredCount, emailStat.deliveredCount) &&
         Objects.equals(this.deliveredCountFormatted, emailStat.deliveredCountFormatted) &&
         Objects.equals(this.kickboxCount, emailStat.kickboxCount) &&
@@ -717,7 +882,11 @@ public class EmailStat {
         Objects.equals(this.statType, emailStat.statType) &&
         Objects.equals(this.status, emailStat.status) &&
         Objects.equals(this.statusDts, emailStat.statusDts) &&
+        Objects.equals(this.stepUuid, emailStat.stepUuid) &&
+        Objects.equals(this.steps, emailStat.steps) &&
         Objects.equals(this.storefrontOid, emailStat.storefrontOid) &&
+        Objects.equals(this.unsubscribeCount, emailStat.unsubscribeCount) &&
+        Objects.equals(this.unsubscribeCountFormatted, emailStat.unsubscribeCountFormatted) &&
         Objects.equals(this.uuid, emailStat.uuid) &&
         Objects.equals(this.viewCount, emailStat.viewCount) &&
         Objects.equals(this.viewCountFormatted, emailStat.viewCountFormatted);
@@ -725,7 +894,7 @@ public class EmailStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickCount, clickCountFormatted, deliveredCount, deliveredCountFormatted, kickboxCount, kickboxCountFormatted, merchantId, name, openCount, openCountFormatted, orderCount, orderCountFormatted, permanentBounceCount, permanentBounceCountFormatted, profit, profitFormatted, revenue, revenueFormatted, sendCount, sendCountFormatted, skippedCount, skippedCountFormatted, spamCount, spamCountFormatted, statType, status, statusDts, storefrontOid, uuid, viewCount, viewCountFormatted);
+    return Objects.hash(clickCount, clickCountFormatted, conversionCount, conversionCountFormatted, deleted, deliveredCount, deliveredCountFormatted, kickboxCount, kickboxCountFormatted, merchantId, name, openCount, openCountFormatted, orderCount, orderCountFormatted, permanentBounceCount, permanentBounceCountFormatted, profit, profitFormatted, revenue, revenueFormatted, sendCount, sendCountFormatted, skippedCount, skippedCountFormatted, spamCount, spamCountFormatted, statType, status, statusDts, stepUuid, steps, storefrontOid, unsubscribeCount, unsubscribeCountFormatted, uuid, viewCount, viewCountFormatted);
   }
 
 
@@ -736,6 +905,9 @@ public class EmailStat {
     
     sb.append("    clickCount: ").append(toIndentedString(clickCount)).append("\n");
     sb.append("    clickCountFormatted: ").append(toIndentedString(clickCountFormatted)).append("\n");
+    sb.append("    conversionCount: ").append(toIndentedString(conversionCount)).append("\n");
+    sb.append("    conversionCountFormatted: ").append(toIndentedString(conversionCountFormatted)).append("\n");
+    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    deliveredCount: ").append(toIndentedString(deliveredCount)).append("\n");
     sb.append("    deliveredCountFormatted: ").append(toIndentedString(deliveredCountFormatted)).append("\n");
     sb.append("    kickboxCount: ").append(toIndentedString(kickboxCount)).append("\n");
@@ -761,7 +933,11 @@ public class EmailStat {
     sb.append("    statType: ").append(toIndentedString(statType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
+    sb.append("    stepUuid: ").append(toIndentedString(stepUuid)).append("\n");
+    sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    unsubscribeCount: ").append(toIndentedString(unsubscribeCount)).append("\n");
+    sb.append("    unsubscribeCountFormatted: ").append(toIndentedString(unsubscribeCountFormatted)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
     sb.append("    viewCountFormatted: ").append(toIndentedString(viewCountFormatted)).append("\n");

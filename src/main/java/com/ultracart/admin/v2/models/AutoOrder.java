@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +31,10 @@ import java.util.List;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class AutoOrder {
   @SerializedName("auto_order_code")
   private String autoOrderCode = null;
@@ -88,6 +92,58 @@ public class AutoOrder {
 
   @SerializedName("rotating_transaction_gateway_code")
   private String rotatingTransactionGatewayCode = null;
+
+  /**
+   * The status of the auto order
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    ACTIVE("active"),
+    
+    CANCELED("canceled"),
+    
+    DISABLED("disabled");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String text) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("status")
+  private StatusEnum status = null;
 
   public AutoOrder autoOrderCode(String autoOrderCode) {
     this.autoOrderCode = autoOrderCode;
@@ -447,6 +503,24 @@ public class AutoOrder {
     this.rotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
   }
 
+  public AutoOrder status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * The status of the auto order
+   * @return status
+  **/
+  @ApiModelProperty(value = "The status of the auto order")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -475,12 +549,13 @@ public class AutoOrder {
         Objects.equals(this.originalOrderId, autoOrder.originalOrderId) &&
         Objects.equals(this.overrideAffiliateId, autoOrder.overrideAffiliateId) &&
         Objects.equals(this.rebillOrders, autoOrder.rebillOrders) &&
-        Objects.equals(this.rotatingTransactionGatewayCode, autoOrder.rotatingTransactionGatewayCode);
+        Objects.equals(this.rotatingTransactionGatewayCode, autoOrder.rotatingTransactionGatewayCode) &&
+        Objects.equals(this.status, autoOrder.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode);
+    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
 
@@ -508,6 +583,7 @@ public class AutoOrder {
     sb.append("    overrideAffiliateId: ").append(toIndentedString(overrideAffiliateId)).append("\n");
     sb.append("    rebillOrders: ").append(toIndentedString(rebillOrders)).append("\n");
     sb.append("    rotatingTransactionGatewayCode: ").append(toIndentedString(rotatingTransactionGatewayCode)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

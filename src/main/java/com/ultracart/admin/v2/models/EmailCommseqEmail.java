@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,10 @@ import java.io.IOException;
 /**
  * EmailCommseqEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailCommseqEmail {
   @SerializedName("deleted")
   private Boolean deleted = null;
@@ -37,8 +41,14 @@ public class EmailCommseqEmail {
   @SerializedName("email_communication_sequence_email_uuid")
   private String emailCommunicationSequenceEmailUuid = null;
 
+  @SerializedName("email_communication_sequence_uuid")
+  private String emailCommunicationSequenceUuid = null;
+
   @SerializedName("email_container_cjson")
   private String emailContainerCjson = null;
+
+  @SerializedName("email_container_cjson_last_modified_dts")
+  private String emailContainerCjsonLastModifiedDts = null;
 
   @SerializedName("email_template_vm_path")
   private String emailTemplateVmPath = null;
@@ -52,8 +62,17 @@ public class EmailCommseqEmail {
   @SerializedName("merchant_id")
   private String merchantId = null;
 
+  @SerializedName("pending_review")
+  private Boolean pendingReview = null;
+
   @SerializedName("preview_text")
   private String previewText = null;
+
+  @SerializedName("rejected")
+  private Boolean rejected = null;
+
+  @SerializedName("requires_review")
+  private Boolean requiresReview = null;
 
   @SerializedName("smart_sending")
   private Boolean smartSending = null;
@@ -124,6 +143,24 @@ public class EmailCommseqEmail {
     this.emailCommunicationSequenceEmailUuid = emailCommunicationSequenceEmailUuid;
   }
 
+  public EmailCommseqEmail emailCommunicationSequenceUuid(String emailCommunicationSequenceUuid) {
+    this.emailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
+    return this;
+  }
+
+   /**
+   * Email commseq UUID
+   * @return emailCommunicationSequenceUuid
+  **/
+  @ApiModelProperty(value = "Email commseq UUID")
+  public String getEmailCommunicationSequenceUuid() {
+    return emailCommunicationSequenceUuid;
+  }
+
+  public void setEmailCommunicationSequenceUuid(String emailCommunicationSequenceUuid) {
+    this.emailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
+  }
+
   public EmailCommseqEmail emailContainerCjson(String emailContainerCjson) {
     this.emailContainerCjson = emailContainerCjson;
     return this;
@@ -140,6 +177,24 @@ public class EmailCommseqEmail {
 
   public void setEmailContainerCjson(String emailContainerCjson) {
     this.emailContainerCjson = emailContainerCjson;
+  }
+
+  public EmailCommseqEmail emailContainerCjsonLastModifiedDts(String emailContainerCjsonLastModifiedDts) {
+    this.emailContainerCjsonLastModifiedDts = emailContainerCjsonLastModifiedDts;
+    return this;
+  }
+
+   /**
+   * Timestamp the last time the container was modified.
+   * @return emailContainerCjsonLastModifiedDts
+  **/
+  @ApiModelProperty(value = "Timestamp the last time the container was modified.")
+  public String getEmailContainerCjsonLastModifiedDts() {
+    return emailContainerCjsonLastModifiedDts;
+  }
+
+  public void setEmailContainerCjsonLastModifiedDts(String emailContainerCjsonLastModifiedDts) {
+    this.emailContainerCjsonLastModifiedDts = emailContainerCjsonLastModifiedDts;
   }
 
   public EmailCommseqEmail emailTemplateVmPath(String emailTemplateVmPath) {
@@ -214,6 +269,24 @@ public class EmailCommseqEmail {
     this.merchantId = merchantId;
   }
 
+  public EmailCommseqEmail pendingReview(Boolean pendingReview) {
+    this.pendingReview = pendingReview;
+    return this;
+  }
+
+   /**
+   * True if the content of this email is pending review by UltraCart
+   * @return pendingReview
+  **/
+  @ApiModelProperty(value = "True if the content of this email is pending review by UltraCart")
+  public Boolean isPendingReview() {
+    return pendingReview;
+  }
+
+  public void setPendingReview(Boolean pendingReview) {
+    this.pendingReview = pendingReview;
+  }
+
   public EmailCommseqEmail previewText(String previewText) {
     this.previewText = previewText;
     return this;
@@ -230,6 +303,42 @@ public class EmailCommseqEmail {
 
   public void setPreviewText(String previewText) {
     this.previewText = previewText;
+  }
+
+  public EmailCommseqEmail rejected(Boolean rejected) {
+    this.rejected = rejected;
+    return this;
+  }
+
+   /**
+   * True if the content of this email was rejected during review by UltraCart
+   * @return rejected
+  **/
+  @ApiModelProperty(value = "True if the content of this email was rejected during review by UltraCart")
+  public Boolean isRejected() {
+    return rejected;
+  }
+
+  public void setRejected(Boolean rejected) {
+    this.rejected = rejected;
+  }
+
+  public EmailCommseqEmail requiresReview(Boolean requiresReview) {
+    this.requiresReview = requiresReview;
+    return this;
+  }
+
+   /**
+   * True if the content of this email is requires review by UltraCart
+   * @return requiresReview
+  **/
+  @ApiModelProperty(value = "True if the content of this email is requires review by UltraCart")
+  public Boolean isRequiresReview() {
+    return requiresReview;
+  }
+
+  public void setRequiresReview(Boolean requiresReview) {
+    this.requiresReview = requiresReview;
   }
 
   public EmailCommseqEmail smartSending(Boolean smartSending) {
@@ -335,12 +444,17 @@ public class EmailCommseqEmail {
     return Objects.equals(this.deleted, emailCommseqEmail.deleted) &&
         Objects.equals(this.editedByUser, emailCommseqEmail.editedByUser) &&
         Objects.equals(this.emailCommunicationSequenceEmailUuid, emailCommseqEmail.emailCommunicationSequenceEmailUuid) &&
+        Objects.equals(this.emailCommunicationSequenceUuid, emailCommseqEmail.emailCommunicationSequenceUuid) &&
         Objects.equals(this.emailContainerCjson, emailCommseqEmail.emailContainerCjson) &&
+        Objects.equals(this.emailContainerCjsonLastModifiedDts, emailCommseqEmail.emailContainerCjsonLastModifiedDts) &&
         Objects.equals(this.emailTemplateVmPath, emailCommseqEmail.emailTemplateVmPath) &&
         Objects.equals(this.filterProfileEquationJson, emailCommseqEmail.filterProfileEquationJson) &&
         Objects.equals(this.individuallyRender, emailCommseqEmail.individuallyRender) &&
         Objects.equals(this.merchantId, emailCommseqEmail.merchantId) &&
+        Objects.equals(this.pendingReview, emailCommseqEmail.pendingReview) &&
         Objects.equals(this.previewText, emailCommseqEmail.previewText) &&
+        Objects.equals(this.rejected, emailCommseqEmail.rejected) &&
+        Objects.equals(this.requiresReview, emailCommseqEmail.requiresReview) &&
         Objects.equals(this.smartSending, emailCommseqEmail.smartSending) &&
         Objects.equals(this.storefrontOid, emailCommseqEmail.storefrontOid) &&
         Objects.equals(this.subject, emailCommseqEmail.subject) &&
@@ -350,7 +464,7 @@ public class EmailCommseqEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailContainerCjson, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, merchantId, previewText, smartSending, storefrontOid, subject, transactionalEmail, version);
+    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, merchantId, pendingReview, previewText, rejected, requiresReview, smartSending, storefrontOid, subject, transactionalEmail, version);
   }
 
 
@@ -362,12 +476,17 @@ public class EmailCommseqEmail {
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    editedByUser: ").append(toIndentedString(editedByUser)).append("\n");
     sb.append("    emailCommunicationSequenceEmailUuid: ").append(toIndentedString(emailCommunicationSequenceEmailUuid)).append("\n");
+    sb.append("    emailCommunicationSequenceUuid: ").append(toIndentedString(emailCommunicationSequenceUuid)).append("\n");
     sb.append("    emailContainerCjson: ").append(toIndentedString(emailContainerCjson)).append("\n");
+    sb.append("    emailContainerCjsonLastModifiedDts: ").append(toIndentedString(emailContainerCjsonLastModifiedDts)).append("\n");
     sb.append("    emailTemplateVmPath: ").append(toIndentedString(emailTemplateVmPath)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    individuallyRender: ").append(toIndentedString(individuallyRender)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    pendingReview: ").append(toIndentedString(pendingReview)).append("\n");
     sb.append("    previewText: ").append(toIndentedString(previewText)).append("\n");
+    sb.append("    rejected: ").append(toIndentedString(rejected)).append("\n");
+    sb.append("    requiresReview: ").append(toIndentedString(requiresReview)).append("\n");
     sb.append("    smartSending: ").append(toIndentedString(smartSending)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");

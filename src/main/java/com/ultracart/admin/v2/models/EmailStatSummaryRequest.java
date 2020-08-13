@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,10 +29,16 @@ import java.util.List;
 /**
  * EmailStatSummaryRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class EmailStatSummaryRequest {
   @SerializedName("commseq_email_uuids")
   private List<String> commseqEmailUuids = null;
+
+  @SerializedName("commseq_step_uuids")
+  private List<String> commseqStepUuids = null;
 
   @SerializedName("days")
   private Integer days = null;
@@ -60,6 +67,32 @@ public class EmailStatSummaryRequest {
 
   public void setCommseqEmailUuids(List<String> commseqEmailUuids) {
     this.commseqEmailUuids = commseqEmailUuids;
+  }
+
+  public EmailStatSummaryRequest commseqStepUuids(List<String> commseqStepUuids) {
+    this.commseqStepUuids = commseqStepUuids;
+    return this;
+  }
+
+  public EmailStatSummaryRequest addCommseqStepUuidsItem(String commseqStepUuidsItem) {
+    if (this.commseqStepUuids == null) {
+      this.commseqStepUuids = new ArrayList<String>();
+    }
+    this.commseqStepUuids.add(commseqStepUuidsItem);
+    return this;
+  }
+
+   /**
+   * Get commseqStepUuids
+   * @return commseqStepUuids
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getCommseqStepUuids() {
+    return commseqStepUuids;
+  }
+
+  public void setCommseqStepUuids(List<String> commseqStepUuids) {
+    this.commseqStepUuids = commseqStepUuids;
   }
 
   public EmailStatSummaryRequest days(Integer days) {
@@ -91,12 +124,13 @@ public class EmailStatSummaryRequest {
     }
     EmailStatSummaryRequest emailStatSummaryRequest = (EmailStatSummaryRequest) o;
     return Objects.equals(this.commseqEmailUuids, emailStatSummaryRequest.commseqEmailUuids) &&
+        Objects.equals(this.commseqStepUuids, emailStatSummaryRequest.commseqStepUuids) &&
         Objects.equals(this.days, emailStatSummaryRequest.days);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commseqEmailUuids, days);
+    return Objects.hash(commseqEmailUuids, commseqStepUuids, days);
   }
 
 
@@ -106,6 +140,7 @@ public class EmailStatSummaryRequest {
     sb.append("class EmailStatSummaryRequest {\n");
     
     sb.append("    commseqEmailUuids: ").append(toIndentedString(commseqEmailUuids)).append("\n");
+    sb.append("    commseqStepUuids: ").append(toIndentedString(commseqStepUuids)).append("\n");
     sb.append("    days: ").append(toIndentedString(days)).append("\n");
     sb.append("}");
     return sb.toString();

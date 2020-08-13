@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **affiliateOid** | **Integer** | Associates an order with an affiliate when this value is set. |  [optional]
+**allowMultipleOneTimeCodes** | **Boolean** | True if multiple one time codes for this coupon can be used on a cart at the same time. |  [optional]
 **amountOffItems** | [**CouponAmountOffItems**](CouponAmountOffItems.md) |  |  [optional]
 **amountOffShipping** | [**CouponAmountOffShipping**](CouponAmountOffShipping.md) |  |  [optional]
 **amountOffShippingWithItemsPurchase** | [**CouponAmountOffShippingWithItemsPurchase**](CouponAmountOffShippingWithItemsPurchase.md) |  |  [optional]
@@ -32,6 +33,7 @@ Name | Type | Description | Notes
 **freeShippingWithItemsPurchase** | [**CouponFreeShippingWithItemsPurchase**](CouponFreeShippingWithItemsPurchase.md) |  |  [optional]
 **freeShippingWithSubtotal** | [**CouponFreeShippingWithSubtotal**](CouponFreeShippingWithSubtotal.md) |  |  [optional]
 **merchantCode** | **String** | Merchant code of coupon up to 20 characters. |  [optional]
+**merchantNotes** | **String** | Internal notes about this coupon.  These are not visible to customer. |  [optional]
 **multipleAmountsOffItems** | [**CouponMultipleAmountsOffItems**](CouponMultipleAmountsOffItems.md) |  |  [optional]
 **noDiscount** | [**CouponNoDiscount**](CouponNoDiscount.md) |  |  [optional]
 **percentOffItemWithItemsQuantityPurchase** | [**CouponPercentOffItemWithItemsQuantityPurchase**](CouponPercentOffItemWithItemsQuantityPurchase.md) |  |  [optional]
@@ -46,6 +48,9 @@ Name | Type | Description | Notes
 **percentOffSubtotalWithItemsPurchase** | [**CouponPercentOffSubtotalWithItemsPurchase**](CouponPercentOffSubtotalWithItemsPurchase.md) |  |  [optional]
 **percentOffSubtotalWithSubtotal** | [**CouponPercentOffSubtotalWithSubtotal**](CouponPercentOffSubtotalWithSubtotal.md) |  |  [optional]
 **quickbooksCode** | **String** | Quickbooks accounting code. |  [optional]
+**restrictByPostalCodes** | **List&lt;String&gt;** | Optional list of postal codes which restrict a coupon to within these postal codes. |  [optional]
+**restrictByScreenBrandingThemeCodes** | [**List&lt;CouponRestriction&gt;**](CouponRestriction.md) | Optional list of legacy screen branding theme codes to limit coupon use to only those themes. |  [optional]
+**restrictByStorefronts** | [**List&lt;CouponRestriction&gt;**](CouponRestriction.md) | Optional list of storefronts to limit coupon use to only those storefronts. |  [optional]
 **startDts** | **String** | Date/time when coupon is valid |  [optional]
 **tieredAmountOffItem** | [**CouponTieredAmountOffItem**](CouponTieredAmountOffItem.md) |  |  [optional]
 **tieredAmountOffSubtotal** | [**CouponTieredAmountOffSubtotal**](CouponTieredAmountOffSubtotal.md) |  |  [optional]

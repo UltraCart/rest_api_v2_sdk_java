@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,10 @@ import java.math.BigDecimal;
 /**
  * CheckoutHandoffRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class CheckoutHandoffRequest {
   @SerializedName("cart")
   private Cart cart = null;
@@ -103,6 +107,9 @@ public class CheckoutHandoffRequest {
 
   @SerializedName("secure_host_name")
   private String secureHostName = null;
+
+  @SerializedName("ucacid")
+  private String ucacid = null;
 
   public CheckoutHandoffRequest cart(Cart cart) {
     this.cart = cart;
@@ -230,6 +237,24 @@ public class CheckoutHandoffRequest {
     this.secureHostName = secureHostName;
   }
 
+  public CheckoutHandoffRequest ucacid(String ucacid) {
+    this.ucacid = ucacid;
+    return this;
+  }
+
+   /**
+   * The UltraCart Analytics cookie value.  Populate this if you&#39;re handing off from a different domain than the checkout.
+   * @return ucacid
+  **/
+  @ApiModelProperty(value = "The UltraCart Analytics cookie value.  Populate this if you're handing off from a different domain than the checkout.")
+  public String getUcacid() {
+    return ucacid;
+  }
+
+  public void setUcacid(String ucacid) {
+    this.ucacid = ucacid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -246,12 +271,13 @@ public class CheckoutHandoffRequest {
         Objects.equals(this.operation, checkoutHandoffRequest.operation) &&
         Objects.equals(this.paypalMaximumUpsellRevenue, checkoutHandoffRequest.paypalMaximumUpsellRevenue) &&
         Objects.equals(this.paypalReturnUrl, checkoutHandoffRequest.paypalReturnUrl) &&
-        Objects.equals(this.secureHostName, checkoutHandoffRequest.secureHostName);
+        Objects.equals(this.secureHostName, checkoutHandoffRequest.secureHostName) &&
+        Objects.equals(this.ucacid, checkoutHandoffRequest.ucacid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cart, errorParameterName, errorReturnUrl, operation, paypalMaximumUpsellRevenue, paypalReturnUrl, secureHostName);
+    return Objects.hash(cart, errorParameterName, errorReturnUrl, operation, paypalMaximumUpsellRevenue, paypalReturnUrl, secureHostName, ucacid);
   }
 
 
@@ -267,6 +293,7 @@ public class CheckoutHandoffRequest {
     sb.append("    paypalMaximumUpsellRevenue: ").append(toIndentedString(paypalMaximumUpsellRevenue)).append("\n");
     sb.append("    paypalReturnUrl: ").append(toIndentedString(paypalReturnUrl)).append("\n");
     sb.append("    secureHostName: ").append(toIndentedString(secureHostName)).append("\n");
+    sb.append("    ucacid: ").append(toIndentedString(ucacid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

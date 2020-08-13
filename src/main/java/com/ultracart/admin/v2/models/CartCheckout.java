@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,10 @@ import java.io.IOException;
 /**
  * CartCheckout
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class CartCheckout {
   @SerializedName("comments")
   private String comments = null;
@@ -60,6 +64,9 @@ public class CartCheckout {
 
   @SerializedName("screen_branding_theme_code")
   private String screenBrandingThemeCode = null;
+
+  @SerializedName("user_agent")
+  private String userAgent = null;
 
   public CartCheckout comments(String comments) {
     this.comments = comments;
@@ -259,6 +266,24 @@ public class CartCheckout {
     this.screenBrandingThemeCode = screenBrandingThemeCode;
   }
 
+  public CartCheckout userAgent(String userAgent) {
+    this.userAgent = userAgent;
+    return this;
+  }
+
+   /**
+   * User agent of the browser
+   * @return userAgent
+  **/
+  @ApiModelProperty(value = "User agent of the browser")
+  public String getUserAgent() {
+    return userAgent;
+  }
+
+  public void setUserAgent(String userAgent) {
+    this.userAgent = userAgent;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -279,12 +304,13 @@ public class CartCheckout {
         Objects.equals(this.customField7, cartCheckout.customField7) &&
         Objects.equals(this.ipAddress, cartCheckout.ipAddress) &&
         Objects.equals(this.returnCode, cartCheckout.returnCode) &&
-        Objects.equals(this.screenBrandingThemeCode, cartCheckout.screenBrandingThemeCode);
+        Objects.equals(this.screenBrandingThemeCode, cartCheckout.screenBrandingThemeCode) &&
+        Objects.equals(this.userAgent, cartCheckout.userAgent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, ipAddress, returnCode, screenBrandingThemeCode);
+    return Objects.hash(comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, ipAddress, returnCode, screenBrandingThemeCode, userAgent);
   }
 
 
@@ -304,6 +330,7 @@ public class CartCheckout {
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    returnCode: ").append(toIndentedString(returnCode)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
+    sb.append("    userAgent: ").append(toIndentedString(userAgent)).append("\n");
     sb.append("}");
     return sb.toString();
   }

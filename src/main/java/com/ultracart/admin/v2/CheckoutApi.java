@@ -47,6 +47,7 @@ import com.ultracart.admin.v2.models.CheckoutStateProvinceResponse;
 import com.ultracart.admin.v2.models.CityStateZip;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.ItemsResponse;
+import com.ultracart.admin.v2.models.RegisterAffiliateClickRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call cityStateCall(Cart cart, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = cart;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/city_state";
 
@@ -121,7 +122,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call cityStateValidateBeforeCall(Cart cart, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -130,14 +131,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'cart' when calling cityState(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = cityStateCall(cart, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -209,7 +206,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call finalizeOrderCall(CartFinalizeOrderRequest finalizeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = finalizeRequest;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart/finalizeOrder";
 
@@ -247,7 +244,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call finalizeOrderValidateBeforeCall(CartFinalizeOrderRequest finalizeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -256,14 +253,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'finalizeRequest' when calling finalizeOrder(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = finalizeOrderCall(finalizeRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -335,7 +328,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call getAffirmCheckoutCall(String cartId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart/{cart_id}/affirmCheckout"
             .replaceAll("\\{" + "cart_id" + "\\}", apiClient.escapeString(cartId.toString()));
@@ -374,7 +367,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAffirmCheckoutValidateBeforeCall(String cartId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -383,14 +376,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'cartId' when calling getAffirmCheckout(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getAffirmCheckoutCall(cartId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -461,7 +450,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call getAllowedCountriesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/allowedCountries";
 
@@ -499,18 +488,14 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAllowedCountriesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getAllowedCountriesCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -579,7 +564,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call getCartCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart";
 
@@ -619,18 +604,14 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCartValidateBeforeCall(String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getCartCall(expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -703,7 +684,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call getCartByCartIdCall(String cartId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart/{cart_id}"
             .replaceAll("\\{" + "cart_id" + "\\}", apiClient.escapeString(cartId.toString()));
@@ -744,7 +725,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCartByCartIdValidateBeforeCall(String cartId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -753,14 +734,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'cartId' when calling getCartByCartId(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCartByCartIdCall(cartId, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -836,7 +813,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call getCartByReturnCodeCall(String returnCode, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/return/{return_code}"
             .replaceAll("\\{" + "return_code" + "\\}", apiClient.escapeString(returnCode.toString()));
@@ -877,7 +854,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCartByReturnCodeValidateBeforeCall(String returnCode, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -886,14 +863,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'returnCode' when calling getCartByReturnCode(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCartByReturnCodeCall(returnCode, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -968,7 +941,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call getStateProvincesForCountryCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/stateProvincesForCountry/{country_code}"
             .replaceAll("\\{" + "country_code" + "\\}", apiClient.escapeString(countryCode.toString()));
@@ -1007,7 +980,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStateProvincesForCountryValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1016,14 +989,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'countryCode' when calling getStateProvincesForCountry(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getStateProvincesForCountryCall(countryCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1096,7 +1065,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call handoffCartCall(CheckoutHandoffRequest handoffRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = handoffRequest;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart/handoff";
 
@@ -1136,7 +1105,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call handoffCartValidateBeforeCall(CheckoutHandoffRequest handoffRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1145,14 +1114,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'handoffRequest' when calling handoffCart(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = handoffCartCall(handoffRequest, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1228,7 +1193,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call loginCall(CartProfileLoginRequest loginRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = loginRequest;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart/profile/login";
 
@@ -1268,7 +1233,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call loginValidateBeforeCall(CartProfileLoginRequest loginRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1277,14 +1242,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'loginRequest' when calling login(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = loginCall(loginRequest, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1360,7 +1321,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call logoutCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = cart;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart/profile/logout";
 
@@ -1400,7 +1361,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call logoutValidateBeforeCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1409,14 +1370,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'cart' when calling logout(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = logoutCall(cart, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1492,7 +1449,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call registerCall(CartProfileRegisterRequest registerRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = registerRequest;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart/profile/register";
 
@@ -1532,7 +1489,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call registerValidateBeforeCall(CartProfileRegisterRequest registerRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1541,14 +1498,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'registerRequest' when calling register(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = registerCall(registerRequest, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1614,6 +1567,134 @@ public class CheckoutApi {
         return call;
     }
     /**
+     * Build call for registerAffiliateClick
+     * @param registerAffiliateClickRequest Register affiliate click request (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call registerAffiliateClickCall(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = registerAffiliateClickRequest;
+
+        // create path and map variables
+        String localVarPath = "/checkout/affiliateClick/register";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call registerAffiliateClickValidateBeforeCall(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'registerAffiliateClickRequest' is set
+        if (registerAffiliateClickRequest == null) {
+            throw new ApiException("Missing the required parameter 'registerAffiliateClickRequest' when calling registerAffiliateClick(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = registerAffiliateClickCall(registerAffiliateClickRequest, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Register affiliate click
+     * Register an affiliate click.  Used by custom checkouts that are completely API based and do not perform checkout handoff. 
+     * @param registerAffiliateClickRequest Register affiliate click request (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return CheckoutHandoffResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CheckoutHandoffResponse registerAffiliateClick(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand) throws ApiException {
+        ApiResponse<CheckoutHandoffResponse> resp = registerAffiliateClickWithHttpInfo(registerAffiliateClickRequest, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Register affiliate click
+     * Register an affiliate click.  Used by custom checkouts that are completely API based and do not perform checkout handoff. 
+     * @param registerAffiliateClickRequest Register affiliate click request (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;CheckoutHandoffResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CheckoutHandoffResponse> registerAffiliateClickWithHttpInfo(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = registerAffiliateClickValidateBeforeCall(registerAffiliateClickRequest, expand, null, null);
+        Type localVarReturnType = new TypeToken<CheckoutHandoffResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Register affiliate click (asynchronously)
+     * Register an affiliate click.  Used by custom checkouts that are completely API based and do not perform checkout handoff. 
+     * @param registerAffiliateClickRequest Register affiliate click request (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call registerAffiliateClickAsync(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand, final ApiCallback<CheckoutHandoffResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = registerAffiliateClickValidateBeforeCall(registerAffiliateClickRequest, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CheckoutHandoffResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for relatedItemsForCart
      * @param cart Cart (required)
      * @param expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
@@ -1624,7 +1705,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call relatedItemsForCartCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = cart;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/related_items";
 
@@ -1664,7 +1745,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call relatedItemsForCartValidateBeforeCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1673,14 +1754,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'cart' when calling relatedItemsForCart(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = relatedItemsForCartCall(cart, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1757,7 +1834,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call relatedItemsForItemCall(String itemId, Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = cart;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/relatedItems/{item_id}"
             .replaceAll("\\{" + "item_id" + "\\}", apiClient.escapeString(itemId.toString()));
@@ -1798,7 +1875,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call relatedItemsForItemValidateBeforeCall(String itemId, Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1812,14 +1889,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'cart' when calling relatedItemsForItem(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = relatedItemsForItemCall(itemId, cart, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1897,7 +1970,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call setupBrowserKeyCall(CheckoutSetupBrowserKeyRequest browserKeyRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = browserKeyRequest;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/browser_key";
 
@@ -1935,7 +2008,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call setupBrowserKeyValidateBeforeCall(CheckoutSetupBrowserKeyRequest browserKeyRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1944,14 +2017,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'browserKeyRequest' when calling setupBrowserKey(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = setupBrowserKeyCall(browserKeyRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2024,7 +2093,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call updateCartCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = cart;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart";
 
@@ -2064,7 +2133,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateCartValidateBeforeCall(Cart cart, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2073,14 +2142,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'cart' when calling updateCart(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateCartCall(cart, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2156,7 +2221,7 @@ public class CheckoutApi {
      */
     public com.squareup.okhttp.Call validateCartCall(CartValidationRequest validationRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = validationRequest;
-        
+
         // create path and map variables
         String localVarPath = "/checkout/cart/validate";
 
@@ -2196,7 +2261,7 @@ public class CheckoutApi {
         String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call validateCartValidateBeforeCall(CartValidationRequest validationRequest, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2205,14 +2270,10 @@ public class CheckoutApi {
             throw new ApiException("Missing the required parameter 'validationRequest' when calling validateCart(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = validateCartCall(validationRequest, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

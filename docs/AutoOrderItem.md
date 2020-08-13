@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **preshipmentNoticeSent** | **Boolean** | True if the preshipment notice associated with the next rebill has been sent |  [optional]
 **rebillValue** | [**BigDecimal**](BigDecimal.md) | The value of the rebills of this item |  [optional]
 **remainingRepeatCount** | **Integer** | The number of rebills remaining before this item is complete |  [optional]
+**simpleSchedule** | [**AutoOrderItemSimpleSchedule**](AutoOrderItemSimpleSchedule.md) |  |  [optional]
 
 
 <a name="FrequencyEnum"></a>

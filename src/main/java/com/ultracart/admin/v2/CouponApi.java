@@ -71,7 +71,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call deleteCouponCall(Integer couponOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons/{coupon_oid}"
             .replaceAll("\\{" + "coupon_oid" + "\\}", apiClient.escapeString(couponOid.toString()));
@@ -110,7 +110,7 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteCouponValidateBeforeCall(Integer couponOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -119,14 +119,10 @@ public class CouponApi {
             throw new ApiException("Missing the required parameter 'couponOid' when calling deleteCoupon(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteCouponCall(couponOid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -199,7 +195,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call generateCouponCodesCall(Integer couponOid, CouponCodesRequest couponCodesRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = couponCodesRequest;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons/{coupon_oid}/generate_codes"
             .replaceAll("\\{" + "coupon_oid" + "\\}", apiClient.escapeString(couponOid.toString()));
@@ -238,7 +234,7 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call generateCouponCodesValidateBeforeCall(Integer couponOid, CouponCodesRequest couponCodesRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -252,14 +248,10 @@ public class CouponApi {
             throw new ApiException("Missing the required parameter 'couponCodesRequest' when calling generateCouponCodes(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = generateCouponCodesCall(couponOid, couponCodesRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -335,7 +327,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call generateOneTimeCodesByMerchantCodeCall(String merchantCode, CouponCodesRequest couponCodesRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = couponCodesRequest;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons/merchant_code/{merchant_code}/generate_codes"
             .replaceAll("\\{" + "merchant_code" + "\\}", apiClient.escapeString(merchantCode.toString()));
@@ -374,7 +366,7 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call generateOneTimeCodesByMerchantCodeValidateBeforeCall(String merchantCode, CouponCodesRequest couponCodesRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -388,14 +380,10 @@ public class CouponApi {
             throw new ApiException("Missing the required parameter 'couponCodesRequest' when calling generateOneTimeCodesByMerchantCode(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = generateOneTimeCodesByMerchantCodeCall(merchantCode, couponCodesRequest, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -471,7 +459,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call getCouponCall(Integer couponOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons/{coupon_oid}"
             .replaceAll("\\{" + "coupon_oid" + "\\}", apiClient.escapeString(couponOid.toString()));
@@ -512,7 +500,7 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCouponValidateBeforeCall(Integer couponOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -521,14 +509,10 @@ public class CouponApi {
             throw new ApiException("Missing the required parameter 'couponOid' when calling getCoupon(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCouponCall(couponOid, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -604,7 +588,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call getCouponByMerchantCodeCall(String merchantCode, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons/merchant_code/{merchant_code}"
             .replaceAll("\\{" + "merchant_code" + "\\}", apiClient.escapeString(merchantCode.toString()));
@@ -645,7 +629,7 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCouponByMerchantCodeValidateBeforeCall(String merchantCode, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -654,14 +638,10 @@ public class CouponApi {
             throw new ApiException("Missing the required parameter 'merchantCode' when calling getCouponByMerchantCode(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCouponByMerchantCodeCall(merchantCode, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -748,7 +728,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call getCouponsCall(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons";
 
@@ -812,18 +792,14 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCouponsValidateBeforeCall(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getCouponsCall(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -935,7 +911,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call getCouponsByQueryCall(CouponQuery couponQuery, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = couponQuery;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons/query";
 
@@ -981,7 +957,7 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCouponsByQueryValidateBeforeCall(CouponQuery couponQuery, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -990,14 +966,10 @@ public class CouponApi {
             throw new ApiException("Missing the required parameter 'couponQuery' when calling getCouponsByQuery(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCouponsByQueryCall(couponQuery, limit, offset, sort, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1080,7 +1052,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call getEditorValuesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/editor_values";
 
@@ -1118,18 +1090,14 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEditorValuesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getEditorValuesCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1199,7 +1167,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call insertCouponCall(Coupon coupon, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = coupon;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons";
 
@@ -1239,7 +1207,7 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertCouponValidateBeforeCall(Coupon coupon, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1248,14 +1216,10 @@ public class CouponApi {
             throw new ApiException("Missing the required parameter 'coupon' when calling insertCoupon(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = insertCouponCall(coupon, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1332,7 +1296,7 @@ public class CouponApi {
      */
     public com.squareup.okhttp.Call updateCouponCall(Coupon coupon, Integer couponOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = coupon;
-        
+
         // create path and map variables
         String localVarPath = "/coupon/coupons/{coupon_oid}"
             .replaceAll("\\{" + "coupon_oid" + "\\}", apiClient.escapeString(couponOid.toString()));
@@ -1373,7 +1337,7 @@ public class CouponApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateCouponValidateBeforeCall(Coupon coupon, Integer couponOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1387,14 +1351,10 @@ public class CouponApi {
             throw new ApiException("Missing the required parameter 'couponOid' when calling updateCoupon(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateCouponCall(coupon, couponOid, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

@@ -29,7 +29,9 @@ import java.io.IOException;
 
 import com.ultracart.admin.v2.models.AutoOrder;
 import com.ultracart.admin.v2.models.AutoOrderQuery;
+import com.ultracart.admin.v2.models.AutoOrderQueryBatch;
 import com.ultracart.admin.v2.models.AutoOrderResponse;
+import com.ultracart.admin.v2.models.AutoOrdersRequest;
 import com.ultracart.admin.v2.models.AutoOrdersResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 
@@ -69,7 +71,7 @@ public class AutoOrderApi {
      */
     public com.squareup.okhttp.Call getAutoOrderCall(Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/auto_order/auto_orders/{auto_order_oid}"
             .replaceAll("\\{" + "auto_order_oid" + "\\}", apiClient.escapeString(autoOrderOid.toString()));
@@ -110,7 +112,7 @@ public class AutoOrderApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAutoOrderValidateBeforeCall(Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -119,14 +121,10 @@ public class AutoOrderApi {
             throw new ApiException("Missing the required parameter 'autoOrderOid' when calling getAutoOrder(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getAutoOrderCall(autoOrderOid, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -202,7 +200,7 @@ public class AutoOrderApi {
      */
     public com.squareup.okhttp.Call getAutoOrderByCodeCall(String autoOrderCode, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/auto_order/auto_orders/code/{auto_order_code}"
             .replaceAll("\\{" + "auto_order_code" + "\\}", apiClient.escapeString(autoOrderCode.toString()));
@@ -243,7 +241,7 @@ public class AutoOrderApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAutoOrderByCodeValidateBeforeCall(String autoOrderCode, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -252,14 +250,10 @@ public class AutoOrderApi {
             throw new ApiException("Missing the required parameter 'autoOrderCode' when calling getAutoOrderByCode(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getAutoOrderByCodeCall(autoOrderCode, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -335,7 +329,7 @@ public class AutoOrderApi {
      */
     public com.squareup.okhttp.Call getAutoOrderByReferenceOrderIdCall(String referenceOrderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/auto_order/auto_orders/reference_order_id/{reference_order_id}"
             .replaceAll("\\{" + "reference_order_id" + "\\}", apiClient.escapeString(referenceOrderId.toString()));
@@ -376,7 +370,7 @@ public class AutoOrderApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAutoOrderByReferenceOrderIdValidateBeforeCall(String referenceOrderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -385,14 +379,10 @@ public class AutoOrderApi {
             throw new ApiException("Missing the required parameter 'referenceOrderId' when calling getAutoOrderByReferenceOrderId(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getAutoOrderByReferenceOrderIdCall(referenceOrderId, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -480,7 +470,7 @@ public class AutoOrderApi {
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch auto orders that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -489,7 +479,7 @@ public class AutoOrderApi {
      */
     public com.squareup.okhttp.Call getAutoOrdersCall(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/auto_order/auto_orders";
 
@@ -573,18 +563,14 @@ public class AutoOrderApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAutoOrdersValidateBeforeCall(String autoOrderCode, String originalOrderId, String firstName, String lastName, String company, String city, String state, String postalCode, String countryCode, String phone, String email, String originalOrderDateBegin, String originalOrderDateEnd, String nextShipmentDateBegin, String nextShipmentDateEnd, String cardType, String itemId, String status, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getAutoOrdersCall(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -611,7 +597,7 @@ public class AutoOrderApi {
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch auto orders that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return AutoOrdersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -645,7 +631,7 @@ public class AutoOrderApi {
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch auto orders that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;AutoOrdersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -680,7 +666,7 @@ public class AutoOrderApi {
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch auto orders that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -713,6 +699,134 @@ public class AutoOrderApi {
         return call;
     }
     /**
+     * Build call for getAutoOrdersBatch
+     * @param autoOrderBatch Auto order batch (required)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAutoOrdersBatchCall(AutoOrderQueryBatch autoOrderBatch, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = autoOrderBatch;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAutoOrdersBatchValidateBeforeCall(AutoOrderQueryBatch autoOrderBatch, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'autoOrderBatch' is set
+        if (autoOrderBatch == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderBatch' when calling getAutoOrdersBatch(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getAutoOrdersBatchCall(autoOrderBatch, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve auto order batch
+     * Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error. 
+     * @param autoOrderBatch Auto order batch (required)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @return AutoOrdersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AutoOrdersResponse getAutoOrdersBatch(AutoOrderQueryBatch autoOrderBatch, String expand) throws ApiException {
+        ApiResponse<AutoOrdersResponse> resp = getAutoOrdersBatchWithHttpInfo(autoOrderBatch, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve auto order batch
+     * Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error. 
+     * @param autoOrderBatch Auto order batch (required)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @return ApiResponse&lt;AutoOrdersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AutoOrdersResponse> getAutoOrdersBatchWithHttpInfo(AutoOrderQueryBatch autoOrderBatch, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getAutoOrdersBatchValidateBeforeCall(autoOrderBatch, expand, null, null);
+        Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve auto order batch (asynchronously)
+     * Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error. 
+     * @param autoOrderBatch Auto order batch (required)
+     * @param expand The object expansion to perform on the result. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAutoOrdersBatchAsync(AutoOrderQueryBatch autoOrderBatch, String expand, final ApiCallback<AutoOrdersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAutoOrdersBatchValidateBeforeCall(autoOrderBatch, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getAutoOrdersByQuery
      * @param autoOrderQuery Auto order query (required)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -726,7 +840,7 @@ public class AutoOrderApi {
      */
     public com.squareup.okhttp.Call getAutoOrdersByQueryCall(AutoOrderQuery autoOrderQuery, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = autoOrderQuery;
-        
+
         // create path and map variables
         String localVarPath = "/auto_order/auto_orders/query";
 
@@ -772,7 +886,7 @@ public class AutoOrderApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAutoOrdersByQueryValidateBeforeCall(AutoOrderQuery autoOrderQuery, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -781,14 +895,10 @@ public class AutoOrderApi {
             throw new ApiException("Missing the required parameter 'autoOrderQuery' when calling getAutoOrdersByQuery(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getAutoOrdersByQueryCall(autoOrderQuery, limit, offset, sort, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -874,7 +984,7 @@ public class AutoOrderApi {
      */
     public com.squareup.okhttp.Call updateAutoOrderCall(AutoOrder autoOrder, Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = autoOrder;
-        
+
         // create path and map variables
         String localVarPath = "/auto_order/auto_orders/{auto_order_oid}"
             .replaceAll("\\{" + "auto_order_oid" + "\\}", apiClient.escapeString(autoOrderOid.toString()));
@@ -915,7 +1025,7 @@ public class AutoOrderApi {
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateAutoOrderValidateBeforeCall(AutoOrder autoOrder, Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -929,14 +1039,10 @@ public class AutoOrderApi {
             throw new ApiException("Missing the required parameter 'autoOrderOid' when calling updateAutoOrder(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateAutoOrderCall(autoOrder, autoOrderOid, expand, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1001,6 +1107,146 @@ public class AutoOrderApi {
 
         com.squareup.okhttp.Call call = updateAutoOrderValidateBeforeCall(autoOrder, autoOrderOid, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateAutoOrdersBatch
+     * @param autoOrdersRequest Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param async True if the operation should be run async.  No result returned (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateAutoOrdersBatchCall(AutoOrdersRequest autoOrdersRequest, String expand, Boolean placeholders, Boolean async, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = autoOrdersRequest;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_placeholders", placeholders));
+        if (async != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_async", async));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateAutoOrdersBatchValidateBeforeCall(AutoOrdersRequest autoOrdersRequest, String expand, Boolean placeholders, Boolean async, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'autoOrdersRequest' is set
+        if (autoOrdersRequest == null) {
+            throw new ApiException("Missing the required parameter 'autoOrdersRequest' when calling updateAutoOrdersBatch(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateAutoOrdersBatchCall(autoOrdersRequest, expand, placeholders, async, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update multiple auto orders
+     * Update multiple auto orders on the UltraCart account. 
+     * @param autoOrdersRequest Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param async True if the operation should be run async.  No result returned (optional)
+     * @return AutoOrdersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AutoOrdersResponse updateAutoOrdersBatch(AutoOrdersRequest autoOrdersRequest, String expand, Boolean placeholders, Boolean async) throws ApiException {
+        ApiResponse<AutoOrdersResponse> resp = updateAutoOrdersBatchWithHttpInfo(autoOrdersRequest, expand, placeholders, async);
+        return resp.getData();
+    }
+
+    /**
+     * Update multiple auto orders
+     * Update multiple auto orders on the UltraCart account. 
+     * @param autoOrdersRequest Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param async True if the operation should be run async.  No result returned (optional)
+     * @return ApiResponse&lt;AutoOrdersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AutoOrdersResponse> updateAutoOrdersBatchWithHttpInfo(AutoOrdersRequest autoOrdersRequest, String expand, Boolean placeholders, Boolean async) throws ApiException {
+        com.squareup.okhttp.Call call = updateAutoOrdersBatchValidateBeforeCall(autoOrdersRequest, expand, placeholders, async, null, null);
+        Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update multiple auto orders (asynchronously)
+     * Update multiple auto orders on the UltraCart account. 
+     * @param autoOrdersRequest Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param async True if the operation should be run async.  No result returned (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateAutoOrdersBatchAsync(AutoOrdersRequest autoOrdersRequest, String expand, Boolean placeholders, Boolean async, final ApiCallback<AutoOrdersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateAutoOrdersBatchValidateBeforeCall(autoOrdersRequest, expand, placeholders, async, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AutoOrdersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

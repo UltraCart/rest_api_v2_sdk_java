@@ -14,6 +14,7 @@
 package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,6 +53,7 @@ import com.ultracart.admin.v2.models.CouponPercentOffSubtotalAndFreeShipping;
 import com.ultracart.admin.v2.models.CouponPercentOffSubtotalLimit;
 import com.ultracart.admin.v2.models.CouponPercentOffSubtotalWithItemsPurchase;
 import com.ultracart.admin.v2.models.CouponPercentOffSubtotalWithSubtotal;
+import com.ultracart.admin.v2.models.CouponRestriction;
 import com.ultracart.admin.v2.models.CouponTieredAmountOffItem;
 import com.ultracart.admin.v2.models.CouponTieredAmountOffSubtotal;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffItems;
@@ -60,14 +62,22 @@ import com.ultracart.admin.v2.models.CouponTieredPercentOffSubtotal;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T15:16:21.092-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+
+
+
 public class Coupon {
   @SerializedName("affiliate_oid")
   private Integer affiliateOid = null;
+
+  @SerializedName("allow_multiple_one_time_codes")
+  private Boolean allowMultipleOneTimeCodes = null;
 
   @SerializedName("amount_off_items")
   private CouponAmountOffItems amountOffItems = null;
@@ -96,7 +106,7 @@ public class Coupon {
   @SerializedName("automatically_apply_coupon_codes")
   private CouponAutomaticallyApplyCouponCodes automaticallyApplyCouponCodes = null;
 
-  @SerializedName("calculated_)description")
+  @SerializedName("calculated_description")
   private String calculatedDescription = null;
 
   @SerializedName("can_be_used_with_other_coupons")
@@ -150,6 +160,9 @@ public class Coupon {
   @SerializedName("merchant_code")
   private String merchantCode = null;
 
+  @SerializedName("merchant_notes")
+  private String merchantNotes = null;
+
   @SerializedName("multiple_amounts_off_items")
   private CouponMultipleAmountsOffItems multipleAmountsOffItems = null;
 
@@ -183,7 +196,7 @@ public class Coupon {
   @SerializedName("percent_off_subtotal_limit")
   private CouponPercentOffSubtotalLimit percentOffSubtotalLimit = null;
 
-  @SerializedName("percent_off_subtotal_with_items purchase")
+  @SerializedName("percent_off_subtotal_with_items_purchase")
   private CouponPercentOffSubtotalWithItemsPurchase percentOffSubtotalWithItemsPurchase = null;
 
   @SerializedName("percent_off_subtotal_with_subtotal")
@@ -191,6 +204,15 @@ public class Coupon {
 
   @SerializedName("quickbooks_code")
   private String quickbooksCode = null;
+
+  @SerializedName("restrict_by_postal_codes")
+  private List<String> restrictByPostalCodes = null;
+
+  @SerializedName("restrict_by_screen_branding_theme_codes")
+  private List<CouponRestriction> restrictByScreenBrandingThemeCodes = null;
+
+  @SerializedName("restrict_by_storefronts")
+  private List<CouponRestriction> restrictByStorefronts = null;
 
   @SerializedName("start_dts")
   private String startDts = null;
@@ -229,6 +251,24 @@ public class Coupon {
 
   public void setAffiliateOid(Integer affiliateOid) {
     this.affiliateOid = affiliateOid;
+  }
+
+  public Coupon allowMultipleOneTimeCodes(Boolean allowMultipleOneTimeCodes) {
+    this.allowMultipleOneTimeCodes = allowMultipleOneTimeCodes;
+    return this;
+  }
+
+   /**
+   * True if multiple one time codes for this coupon can be used on a cart at the same time.
+   * @return allowMultipleOneTimeCodes
+  **/
+  @ApiModelProperty(value = "True if multiple one time codes for this coupon can be used on a cart at the same time.")
+  public Boolean isAllowMultipleOneTimeCodes() {
+    return allowMultipleOneTimeCodes;
+  }
+
+  public void setAllowMultipleOneTimeCodes(Boolean allowMultipleOneTimeCodes) {
+    this.allowMultipleOneTimeCodes = allowMultipleOneTimeCodes;
   }
 
   public Coupon amountOffItems(CouponAmountOffItems amountOffItems) {
@@ -717,6 +757,24 @@ public class Coupon {
     this.merchantCode = merchantCode;
   }
 
+  public Coupon merchantNotes(String merchantNotes) {
+    this.merchantNotes = merchantNotes;
+    return this;
+  }
+
+   /**
+   * Internal notes about this coupon.  These are not visible to customer.
+   * @return merchantNotes
+  **/
+  @ApiModelProperty(value = "Internal notes about this coupon.  These are not visible to customer.")
+  public String getMerchantNotes() {
+    return merchantNotes;
+  }
+
+  public void setMerchantNotes(String merchantNotes) {
+    this.merchantNotes = merchantNotes;
+  }
+
   public Coupon multipleAmountsOffItems(CouponMultipleAmountsOffItems multipleAmountsOffItems) {
     this.multipleAmountsOffItems = multipleAmountsOffItems;
     return this;
@@ -969,6 +1027,84 @@ public class Coupon {
     this.quickbooksCode = quickbooksCode;
   }
 
+  public Coupon restrictByPostalCodes(List<String> restrictByPostalCodes) {
+    this.restrictByPostalCodes = restrictByPostalCodes;
+    return this;
+  }
+
+  public Coupon addRestrictByPostalCodesItem(String restrictByPostalCodesItem) {
+    if (this.restrictByPostalCodes == null) {
+      this.restrictByPostalCodes = new ArrayList<String>();
+    }
+    this.restrictByPostalCodes.add(restrictByPostalCodesItem);
+    return this;
+  }
+
+   /**
+   * Optional list of postal codes which restrict a coupon to within these postal codes.
+   * @return restrictByPostalCodes
+  **/
+  @ApiModelProperty(value = "Optional list of postal codes which restrict a coupon to within these postal codes.")
+  public List<String> getRestrictByPostalCodes() {
+    return restrictByPostalCodes;
+  }
+
+  public void setRestrictByPostalCodes(List<String> restrictByPostalCodes) {
+    this.restrictByPostalCodes = restrictByPostalCodes;
+  }
+
+  public Coupon restrictByScreenBrandingThemeCodes(List<CouponRestriction> restrictByScreenBrandingThemeCodes) {
+    this.restrictByScreenBrandingThemeCodes = restrictByScreenBrandingThemeCodes;
+    return this;
+  }
+
+  public Coupon addRestrictByScreenBrandingThemeCodesItem(CouponRestriction restrictByScreenBrandingThemeCodesItem) {
+    if (this.restrictByScreenBrandingThemeCodes == null) {
+      this.restrictByScreenBrandingThemeCodes = new ArrayList<CouponRestriction>();
+    }
+    this.restrictByScreenBrandingThemeCodes.add(restrictByScreenBrandingThemeCodesItem);
+    return this;
+  }
+
+   /**
+   * Optional list of legacy screen branding theme codes to limit coupon use to only those themes.
+   * @return restrictByScreenBrandingThemeCodes
+  **/
+  @ApiModelProperty(value = "Optional list of legacy screen branding theme codes to limit coupon use to only those themes.")
+  public List<CouponRestriction> getRestrictByScreenBrandingThemeCodes() {
+    return restrictByScreenBrandingThemeCodes;
+  }
+
+  public void setRestrictByScreenBrandingThemeCodes(List<CouponRestriction> restrictByScreenBrandingThemeCodes) {
+    this.restrictByScreenBrandingThemeCodes = restrictByScreenBrandingThemeCodes;
+  }
+
+  public Coupon restrictByStorefronts(List<CouponRestriction> restrictByStorefronts) {
+    this.restrictByStorefronts = restrictByStorefronts;
+    return this;
+  }
+
+  public Coupon addRestrictByStorefrontsItem(CouponRestriction restrictByStorefrontsItem) {
+    if (this.restrictByStorefronts == null) {
+      this.restrictByStorefronts = new ArrayList<CouponRestriction>();
+    }
+    this.restrictByStorefronts.add(restrictByStorefrontsItem);
+    return this;
+  }
+
+   /**
+   * Optional list of storefronts to limit coupon use to only those storefronts.
+   * @return restrictByStorefronts
+  **/
+  @ApiModelProperty(value = "Optional list of storefronts to limit coupon use to only those storefronts.")
+  public List<CouponRestriction> getRestrictByStorefronts() {
+    return restrictByStorefronts;
+  }
+
+  public void setRestrictByStorefronts(List<CouponRestriction> restrictByStorefronts) {
+    this.restrictByStorefronts = restrictByStorefronts;
+  }
+
   public Coupon startDts(String startDts) {
     this.startDts = startDts;
     return this;
@@ -1106,6 +1242,7 @@ public class Coupon {
     }
     Coupon coupon = (Coupon) o;
     return Objects.equals(this.affiliateOid, coupon.affiliateOid) &&
+        Objects.equals(this.allowMultipleOneTimeCodes, coupon.allowMultipleOneTimeCodes) &&
         Objects.equals(this.amountOffItems, coupon.amountOffItems) &&
         Objects.equals(this.amountOffShipping, coupon.amountOffShipping) &&
         Objects.equals(this.amountOffShippingWithItemsPurchase, coupon.amountOffShippingWithItemsPurchase) &&
@@ -1133,6 +1270,7 @@ public class Coupon {
         Objects.equals(this.freeShippingWithItemsPurchase, coupon.freeShippingWithItemsPurchase) &&
         Objects.equals(this.freeShippingWithSubtotal, coupon.freeShippingWithSubtotal) &&
         Objects.equals(this.merchantCode, coupon.merchantCode) &&
+        Objects.equals(this.merchantNotes, coupon.merchantNotes) &&
         Objects.equals(this.multipleAmountsOffItems, coupon.multipleAmountsOffItems) &&
         Objects.equals(this.noDiscount, coupon.noDiscount) &&
         Objects.equals(this.percentOffItemWithItemsQuantityPurchase, coupon.percentOffItemWithItemsQuantityPurchase) &&
@@ -1147,6 +1285,9 @@ public class Coupon {
         Objects.equals(this.percentOffSubtotalWithItemsPurchase, coupon.percentOffSubtotalWithItemsPurchase) &&
         Objects.equals(this.percentOffSubtotalWithSubtotal, coupon.percentOffSubtotalWithSubtotal) &&
         Objects.equals(this.quickbooksCode, coupon.quickbooksCode) &&
+        Objects.equals(this.restrictByPostalCodes, coupon.restrictByPostalCodes) &&
+        Objects.equals(this.restrictByScreenBrandingThemeCodes, coupon.restrictByScreenBrandingThemeCodes) &&
+        Objects.equals(this.restrictByStorefronts, coupon.restrictByStorefronts) &&
         Objects.equals(this.startDts, coupon.startDts) &&
         Objects.equals(this.tieredAmountOffItem, coupon.tieredAmountOffItem) &&
         Objects.equals(this.tieredAmountOffSubtotal, coupon.tieredAmountOffSubtotal) &&
@@ -1158,7 +1299,7 @@ public class Coupon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, automaticallyApplyCouponCodes, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, merchantCode, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, startDts, tieredAmountOffItem, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, automaticallyApplyCouponCodes, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, tieredAmountOffItem, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
   }
 
 
@@ -1168,6 +1309,7 @@ public class Coupon {
     sb.append("class Coupon {\n");
     
     sb.append("    affiliateOid: ").append(toIndentedString(affiliateOid)).append("\n");
+    sb.append("    allowMultipleOneTimeCodes: ").append(toIndentedString(allowMultipleOneTimeCodes)).append("\n");
     sb.append("    amountOffItems: ").append(toIndentedString(amountOffItems)).append("\n");
     sb.append("    amountOffShipping: ").append(toIndentedString(amountOffShipping)).append("\n");
     sb.append("    amountOffShippingWithItemsPurchase: ").append(toIndentedString(amountOffShippingWithItemsPurchase)).append("\n");
@@ -1195,6 +1337,7 @@ public class Coupon {
     sb.append("    freeShippingWithItemsPurchase: ").append(toIndentedString(freeShippingWithItemsPurchase)).append("\n");
     sb.append("    freeShippingWithSubtotal: ").append(toIndentedString(freeShippingWithSubtotal)).append("\n");
     sb.append("    merchantCode: ").append(toIndentedString(merchantCode)).append("\n");
+    sb.append("    merchantNotes: ").append(toIndentedString(merchantNotes)).append("\n");
     sb.append("    multipleAmountsOffItems: ").append(toIndentedString(multipleAmountsOffItems)).append("\n");
     sb.append("    noDiscount: ").append(toIndentedString(noDiscount)).append("\n");
     sb.append("    percentOffItemWithItemsQuantityPurchase: ").append(toIndentedString(percentOffItemWithItemsQuantityPurchase)).append("\n");
@@ -1209,6 +1352,9 @@ public class Coupon {
     sb.append("    percentOffSubtotalWithItemsPurchase: ").append(toIndentedString(percentOffSubtotalWithItemsPurchase)).append("\n");
     sb.append("    percentOffSubtotalWithSubtotal: ").append(toIndentedString(percentOffSubtotalWithSubtotal)).append("\n");
     sb.append("    quickbooksCode: ").append(toIndentedString(quickbooksCode)).append("\n");
+    sb.append("    restrictByPostalCodes: ").append(toIndentedString(restrictByPostalCodes)).append("\n");
+    sb.append("    restrictByScreenBrandingThemeCodes: ").append(toIndentedString(restrictByScreenBrandingThemeCodes)).append("\n");
+    sb.append("    restrictByStorefronts: ").append(toIndentedString(restrictByStorefronts)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    tieredAmountOffItem: ").append(toIndentedString(tieredAmountOffItem)).append("\n");
     sb.append("    tieredAmountOffSubtotal: ").append(toIndentedString(tieredAmountOffSubtotal)).append("\n");
