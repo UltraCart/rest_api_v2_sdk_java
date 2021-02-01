@@ -9,6 +9,10 @@ Name | Type | Description | Notes
 **lists** | [**List&lt;EmailThirdPartyList&gt;**](EmailThirdPartyList.md) | lists |  [optional]
 **logoUrl** | **String** | logo_url |  [optional]
 **name** | **String** | name |  [optional]
+**supportsAddTags** | **Boolean** | True if this provider can support adding tags |  [optional]
+**supportsListSubscribe** | **Boolean** | True if this provider can support list subscribe |  [optional]
+**supportsListUnsubscribe** | **Boolean** | True if this provider can support list unsubscribe |  [optional]
+**supportsRemoveTags** | **Boolean** | True if this provider can support remove tags |  [optional]
 
 
 

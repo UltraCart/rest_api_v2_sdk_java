@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.EmailCommseqPostcard;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -32,7 +33,7 @@ import java.util.List;
 /**
  * EmailCommseqPostcardsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -48,6 +49,9 @@ public class EmailCommseqPostcardsResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public EmailCommseqPostcardsResponse error(Error error) {
     this.error = error;
@@ -129,6 +133,24 @@ public class EmailCommseqPostcardsResponse {
     this.success = success;
   }
 
+  public EmailCommseqPostcardsResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -142,12 +164,13 @@ public class EmailCommseqPostcardsResponse {
     return Objects.equals(this.error, emailCommseqPostcardsResponse.error) &&
         Objects.equals(this.metadata, emailCommseqPostcardsResponse.metadata) &&
         Objects.equals(this.postcards, emailCommseqPostcardsResponse.postcards) &&
-        Objects.equals(this.success, emailCommseqPostcardsResponse.success);
+        Objects.equals(this.success, emailCommseqPostcardsResponse.success) &&
+        Objects.equals(this.warning, emailCommseqPostcardsResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, postcards, success);
+    return Objects.hash(error, metadata, postcards, success, warning);
   }
 
 
@@ -160,6 +183,7 @@ public class EmailCommseqPostcardsResponse {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    postcards: ").append(toIndentedString(postcards)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

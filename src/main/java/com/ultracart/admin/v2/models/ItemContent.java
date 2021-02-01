@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ItemContent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -185,10 +185,10 @@ public class ItemContent {
   }
 
    /**
-   * Extended description (max 2000 characters)
+   * Extended description (max 10000 characters)
    * @return extendedDescription
   **/
-  @ApiModelProperty(value = "Extended description (max 2000 characters)")
+  @ApiModelProperty(value = "Extended description (max 10000 characters)")
   public String getExtendedDescription() {
     return extendedDescription;
   }

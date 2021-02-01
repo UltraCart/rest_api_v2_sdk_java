@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailThirdPartyProvider
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -49,6 +49,18 @@ public class EmailThirdPartyProvider {
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("supports_add_tags")
+  private Boolean supportsAddTags = null;
+
+  @SerializedName("supports_list_subscribe")
+  private Boolean supportsListSubscribe = null;
+
+  @SerializedName("supports_list_unsubscribe")
+  private Boolean supportsListUnsubscribe = null;
+
+  @SerializedName("supports_remove_tags")
+  private Boolean supportsRemoveTags = null;
 
   public EmailThirdPartyProvider connectUrl(String connectUrl) {
     this.connectUrl = connectUrl;
@@ -148,6 +160,78 @@ public class EmailThirdPartyProvider {
     this.name = name;
   }
 
+  public EmailThirdPartyProvider supportsAddTags(Boolean supportsAddTags) {
+    this.supportsAddTags = supportsAddTags;
+    return this;
+  }
+
+   /**
+   * True if this provider can support adding tags
+   * @return supportsAddTags
+  **/
+  @ApiModelProperty(value = "True if this provider can support adding tags")
+  public Boolean isSupportsAddTags() {
+    return supportsAddTags;
+  }
+
+  public void setSupportsAddTags(Boolean supportsAddTags) {
+    this.supportsAddTags = supportsAddTags;
+  }
+
+  public EmailThirdPartyProvider supportsListSubscribe(Boolean supportsListSubscribe) {
+    this.supportsListSubscribe = supportsListSubscribe;
+    return this;
+  }
+
+   /**
+   * True if this provider can support list subscribe
+   * @return supportsListSubscribe
+  **/
+  @ApiModelProperty(value = "True if this provider can support list subscribe")
+  public Boolean isSupportsListSubscribe() {
+    return supportsListSubscribe;
+  }
+
+  public void setSupportsListSubscribe(Boolean supportsListSubscribe) {
+    this.supportsListSubscribe = supportsListSubscribe;
+  }
+
+  public EmailThirdPartyProvider supportsListUnsubscribe(Boolean supportsListUnsubscribe) {
+    this.supportsListUnsubscribe = supportsListUnsubscribe;
+    return this;
+  }
+
+   /**
+   * True if this provider can support list unsubscribe
+   * @return supportsListUnsubscribe
+  **/
+  @ApiModelProperty(value = "True if this provider can support list unsubscribe")
+  public Boolean isSupportsListUnsubscribe() {
+    return supportsListUnsubscribe;
+  }
+
+  public void setSupportsListUnsubscribe(Boolean supportsListUnsubscribe) {
+    this.supportsListUnsubscribe = supportsListUnsubscribe;
+  }
+
+  public EmailThirdPartyProvider supportsRemoveTags(Boolean supportsRemoveTags) {
+    this.supportsRemoveTags = supportsRemoveTags;
+    return this;
+  }
+
+   /**
+   * True if this provider can support remove tags
+   * @return supportsRemoveTags
+  **/
+  @ApiModelProperty(value = "True if this provider can support remove tags")
+  public Boolean isSupportsRemoveTags() {
+    return supportsRemoveTags;
+  }
+
+  public void setSupportsRemoveTags(Boolean supportsRemoveTags) {
+    this.supportsRemoveTags = supportsRemoveTags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -162,12 +246,16 @@ public class EmailThirdPartyProvider {
         Objects.equals(this.listCount, emailThirdPartyProvider.listCount) &&
         Objects.equals(this.lists, emailThirdPartyProvider.lists) &&
         Objects.equals(this.logoUrl, emailThirdPartyProvider.logoUrl) &&
-        Objects.equals(this.name, emailThirdPartyProvider.name);
+        Objects.equals(this.name, emailThirdPartyProvider.name) &&
+        Objects.equals(this.supportsAddTags, emailThirdPartyProvider.supportsAddTags) &&
+        Objects.equals(this.supportsListSubscribe, emailThirdPartyProvider.supportsListSubscribe) &&
+        Objects.equals(this.supportsListUnsubscribe, emailThirdPartyProvider.supportsListUnsubscribe) &&
+        Objects.equals(this.supportsRemoveTags, emailThirdPartyProvider.supportsRemoveTags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectUrl, listCount, lists, logoUrl, name);
+    return Objects.hash(connectUrl, listCount, lists, logoUrl, name, supportsAddTags, supportsListSubscribe, supportsListUnsubscribe, supportsRemoveTags);
   }
 
 
@@ -181,6 +269,10 @@ public class EmailThirdPartyProvider {
     sb.append("    lists: ").append(toIndentedString(lists)).append("\n");
     sb.append("    logoUrl: ").append(toIndentedString(logoUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    supportsAddTags: ").append(toIndentedString(supportsAddTags)).append("\n");
+    sb.append("    supportsListSubscribe: ").append(toIndentedString(supportsListSubscribe)).append("\n");
+    sb.append("    supportsListUnsubscribe: ").append(toIndentedString(supportsListUnsubscribe)).append("\n");
+    sb.append("    supportsRemoveTags: ").append(toIndentedString(supportsRemoveTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **avalaraEntityUseCode** | **String** | Avalara entity use code |  [optional]
 **sovosCustomerCode** | **String** | Sovos customer code |  [optional]
 **taxjarCustomerId** | **String** | TaxJar customer id |  [optional]
+**taxjarExemptionType** | **String** | TaxJar exemption type |  [optional]
 
 
 

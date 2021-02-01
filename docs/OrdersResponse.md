@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  |  [optional]
 **orders** | [**List&lt;Order&gt;**](Order.md) | orders |  [optional]
 **success** | **Boolean** | Indicates if API call was successful |  [optional]
+**warning** | [**Warning**](Warning.md) |  |  [optional]
 
 
 

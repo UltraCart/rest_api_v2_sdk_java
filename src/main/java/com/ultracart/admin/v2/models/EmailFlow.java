@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailFlow
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -65,11 +65,17 @@ public class EmailFlow {
   @SerializedName("esp_domain_uuid")
   private String espDomainUuid = null;
 
+  @SerializedName("esp_flow_folder_uuid")
+  private String espFlowFolderUuid = null;
+
   @SerializedName("esp_friendly_name")
   private String espFriendlyName = null;
 
   @SerializedName("filter_profile_equation_json")
   private String filterProfileEquationJson = null;
+
+  @SerializedName("library_item_oid")
+  private Integer libraryItemOid = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
@@ -82,6 +88,12 @@ public class EmailFlow {
 
   @SerializedName("revenue_formatted")
   private String revenueFormatted = null;
+
+  @SerializedName("revenue_per_customer_formatted")
+  private String revenuePerCustomerFormatted = null;
+
+  @SerializedName("screenshot_large_full_url")
+  private String screenshotLargeFullUrl = null;
 
   @SerializedName("status")
   private String status = null;
@@ -299,6 +311,24 @@ public class EmailFlow {
     this.espDomainUuid = espDomainUuid;
   }
 
+  public EmailFlow espFlowFolderUuid(String espFlowFolderUuid) {
+    this.espFlowFolderUuid = espFlowFolderUuid;
+    return this;
+  }
+
+   /**
+   * Flow folder UUID.  Null for uncategorized
+   * @return espFlowFolderUuid
+  **/
+  @ApiModelProperty(value = "Flow folder UUID.  Null for uncategorized")
+  public String getEspFlowFolderUuid() {
+    return espFlowFolderUuid;
+  }
+
+  public void setEspFlowFolderUuid(String espFlowFolderUuid) {
+    this.espFlowFolderUuid = espFlowFolderUuid;
+  }
+
   public EmailFlow espFriendlyName(String espFriendlyName) {
     this.espFriendlyName = espFriendlyName;
     return this;
@@ -333,6 +363,24 @@ public class EmailFlow {
 
   public void setFilterProfileEquationJson(String filterProfileEquationJson) {
     this.filterProfileEquationJson = filterProfileEquationJson;
+  }
+
+  public EmailFlow libraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+    return this;
+  }
+
+   /**
+   * If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+   * @return libraryItemOid
+  **/
+  @ApiModelProperty(value = "If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.")
+  public Integer getLibraryItemOid() {
+    return libraryItemOid;
+  }
+
+  public void setLibraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
   }
 
   public EmailFlow merchantId(String merchantId) {
@@ -405,6 +453,42 @@ public class EmailFlow {
 
   public void setRevenueFormatted(String revenueFormatted) {
     this.revenueFormatted = revenueFormatted;
+  }
+
+  public EmailFlow revenuePerCustomerFormatted(String revenuePerCustomerFormatted) {
+    this.revenuePerCustomerFormatted = revenuePerCustomerFormatted;
+    return this;
+  }
+
+   /**
+   * Revenue per customer, formatted
+   * @return revenuePerCustomerFormatted
+  **/
+  @ApiModelProperty(value = "Revenue per customer, formatted")
+  public String getRevenuePerCustomerFormatted() {
+    return revenuePerCustomerFormatted;
+  }
+
+  public void setRevenuePerCustomerFormatted(String revenuePerCustomerFormatted) {
+    this.revenuePerCustomerFormatted = revenuePerCustomerFormatted;
+  }
+
+  public EmailFlow screenshotLargeFullUrl(String screenshotLargeFullUrl) {
+    this.screenshotLargeFullUrl = screenshotLargeFullUrl;
+    return this;
+  }
+
+   /**
+   * URL to a large full length screenshot
+   * @return screenshotLargeFullUrl
+  **/
+  @ApiModelProperty(value = "URL to a large full length screenshot")
+  public String getScreenshotLargeFullUrl() {
+    return screenshotLargeFullUrl;
+  }
+
+  public void setScreenshotLargeFullUrl(String screenshotLargeFullUrl) {
+    this.screenshotLargeFullUrl = screenshotLargeFullUrl;
   }
 
   public EmailFlow status(String status) {
@@ -536,12 +620,16 @@ public class EmailFlow {
         Objects.equals(this.enrolledCustomers, emailFlow.enrolledCustomers) &&
         Objects.equals(this.espDomainUser, emailFlow.espDomainUser) &&
         Objects.equals(this.espDomainUuid, emailFlow.espDomainUuid) &&
+        Objects.equals(this.espFlowFolderUuid, emailFlow.espFlowFolderUuid) &&
         Objects.equals(this.espFriendlyName, emailFlow.espFriendlyName) &&
         Objects.equals(this.filterProfileEquationJson, emailFlow.filterProfileEquationJson) &&
+        Objects.equals(this.libraryItemOid, emailFlow.libraryItemOid) &&
         Objects.equals(this.merchantId, emailFlow.merchantId) &&
         Objects.equals(this.name, emailFlow.name) &&
         Objects.equals(this.openRateFormatted, emailFlow.openRateFormatted) &&
         Objects.equals(this.revenueFormatted, emailFlow.revenueFormatted) &&
+        Objects.equals(this.revenuePerCustomerFormatted, emailFlow.revenuePerCustomerFormatted) &&
+        Objects.equals(this.screenshotLargeFullUrl, emailFlow.screenshotLargeFullUrl) &&
         Objects.equals(this.status, emailFlow.status) &&
         Objects.equals(this.statusDts, emailFlow.statusDts) &&
         Objects.equals(this.storefrontOid, emailFlow.storefrontOid) &&
@@ -552,7 +640,7 @@ public class EmailFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, enrolledCustomers, espDomainUser, espDomainUuid, espFriendlyName, filterProfileEquationJson, merchantId, name, openRateFormatted, revenueFormatted, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, merchantId, name, openRateFormatted, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
   }
 
 
@@ -572,12 +660,16 @@ public class EmailFlow {
     sb.append("    enrolledCustomers: ").append(toIndentedString(enrolledCustomers)).append("\n");
     sb.append("    espDomainUser: ").append(toIndentedString(espDomainUser)).append("\n");
     sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");
+    sb.append("    espFlowFolderUuid: ").append(toIndentedString(espFlowFolderUuid)).append("\n");
     sb.append("    espFriendlyName: ").append(toIndentedString(espFriendlyName)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
+    sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
     sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
+    sb.append("    revenuePerCustomerFormatted: ").append(toIndentedString(revenuePerCustomerFormatted)).append("\n");
+    sb.append("    screenshotLargeFullUrl: ").append(toIndentedString(screenshotLargeFullUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");

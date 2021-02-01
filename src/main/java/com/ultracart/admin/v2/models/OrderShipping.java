@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.OrderTrackingNumberDetails;
 import com.ultracart.admin.v2.models.Weight;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * OrderShipping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -112,6 +113,9 @@ public class OrderShipping {
 
   @SerializedName("title")
   private String title = null;
+
+  @SerializedName("tracking_number_details")
+  private List<OrderTrackingNumberDetails> trackingNumberDetails = null;
 
   @SerializedName("tracking_numbers")
   private List<String> trackingNumbers = null;
@@ -595,6 +599,32 @@ public class OrderShipping {
     this.title = title;
   }
 
+  public OrderShipping trackingNumberDetails(List<OrderTrackingNumberDetails> trackingNumberDetails) {
+    this.trackingNumberDetails = trackingNumberDetails;
+    return this;
+  }
+
+  public OrderShipping addTrackingNumberDetailsItem(OrderTrackingNumberDetails trackingNumberDetailsItem) {
+    if (this.trackingNumberDetails == null) {
+      this.trackingNumberDetails = new ArrayList<OrderTrackingNumberDetails>();
+    }
+    this.trackingNumberDetails.add(trackingNumberDetailsItem);
+    return this;
+  }
+
+   /**
+   * Tracking number details
+   * @return trackingNumberDetails
+  **/
+  @ApiModelProperty(value = "Tracking number details")
+  public List<OrderTrackingNumberDetails> getTrackingNumberDetails() {
+    return trackingNumberDetails;
+  }
+
+  public void setTrackingNumberDetails(List<OrderTrackingNumberDetails> trackingNumberDetails) {
+    this.trackingNumberDetails = trackingNumberDetails;
+  }
+
   public OrderShipping trackingNumbers(List<String> trackingNumbers) {
     this.trackingNumbers = trackingNumbers;
     return this;
@@ -675,13 +705,14 @@ public class OrderShipping {
         Objects.equals(this.specialInstructions, orderShipping.specialInstructions) &&
         Objects.equals(this.stateRegion, orderShipping.stateRegion) &&
         Objects.equals(this.title, orderShipping.title) &&
+        Objects.equals(this.trackingNumberDetails, orderShipping.trackingNumberDetails) &&
         Objects.equals(this.trackingNumbers, orderShipping.trackingNumbers) &&
         Objects.equals(this.weight, orderShipping.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, dayPhoneE164, deliveryDate, eveningPhone, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumbers, weight);
+    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, dayPhoneE164, deliveryDate, eveningPhone, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumberDetails, trackingNumbers, weight);
   }
 
 
@@ -716,6 +747,7 @@ public class OrderShipping {
     sb.append("    specialInstructions: ").append(toIndentedString(specialInstructions)).append("\n");
     sb.append("    stateRegion: ").append(toIndentedString(stateRegion)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    trackingNumberDetails: ").append(toIndentedString(trackingNumberDetails)).append("\n");
     sb.append("    trackingNumbers: ").append(toIndentedString(trackingNumbers)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("}");

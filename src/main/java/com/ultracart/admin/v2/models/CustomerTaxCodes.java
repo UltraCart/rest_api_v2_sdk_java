@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CustomerTaxCodes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -43,6 +43,9 @@ public class CustomerTaxCodes {
 
   @SerializedName("taxjar_customer_id")
   private String taxjarCustomerId = null;
+
+  @SerializedName("taxjar_exemption_type")
+  private String taxjarExemptionType = null;
 
   public CustomerTaxCodes avalaraCustomerCode(String avalaraCustomerCode) {
     this.avalaraCustomerCode = avalaraCustomerCode;
@@ -116,6 +119,24 @@ public class CustomerTaxCodes {
     this.taxjarCustomerId = taxjarCustomerId;
   }
 
+  public CustomerTaxCodes taxjarExemptionType(String taxjarExemptionType) {
+    this.taxjarExemptionType = taxjarExemptionType;
+    return this;
+  }
+
+   /**
+   * TaxJar exemption type
+   * @return taxjarExemptionType
+  **/
+  @ApiModelProperty(value = "TaxJar exemption type")
+  public String getTaxjarExemptionType() {
+    return taxjarExemptionType;
+  }
+
+  public void setTaxjarExemptionType(String taxjarExemptionType) {
+    this.taxjarExemptionType = taxjarExemptionType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +150,13 @@ public class CustomerTaxCodes {
     return Objects.equals(this.avalaraCustomerCode, customerTaxCodes.avalaraCustomerCode) &&
         Objects.equals(this.avalaraEntityUseCode, customerTaxCodes.avalaraEntityUseCode) &&
         Objects.equals(this.sovosCustomerCode, customerTaxCodes.sovosCustomerCode) &&
-        Objects.equals(this.taxjarCustomerId, customerTaxCodes.taxjarCustomerId);
+        Objects.equals(this.taxjarCustomerId, customerTaxCodes.taxjarCustomerId) &&
+        Objects.equals(this.taxjarExemptionType, customerTaxCodes.taxjarExemptionType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(avalaraCustomerCode, avalaraEntityUseCode, sovosCustomerCode, taxjarCustomerId);
+    return Objects.hash(avalaraCustomerCode, avalaraEntityUseCode, sovosCustomerCode, taxjarCustomerId, taxjarExemptionType);
   }
 
 
@@ -147,6 +169,7 @@ public class CustomerTaxCodes {
     sb.append("    avalaraEntityUseCode: ").append(toIndentedString(avalaraEntityUseCode)).append("\n");
     sb.append("    sovosCustomerCode: ").append(toIndentedString(sovosCustomerCode)).append("\n");
     sb.append("    taxjarCustomerId: ").append(toIndentedString(taxjarCustomerId)).append("\n");
+    sb.append("    taxjarExemptionType: ").append(toIndentedString(taxjarExemptionType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

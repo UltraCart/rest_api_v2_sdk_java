@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.io.IOException;
 /**
  * OrderTokenResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -45,6 +46,9 @@ public class OrderTokenResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public OrderTokenResponse error(Error error) {
     this.error = error;
@@ -118,6 +122,24 @@ public class OrderTokenResponse {
     this.success = success;
   }
 
+  public OrderTokenResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,12 +153,13 @@ public class OrderTokenResponse {
     return Objects.equals(this.error, orderTokenResponse.error) &&
         Objects.equals(this.metadata, orderTokenResponse.metadata) &&
         Objects.equals(this.orderToken, orderTokenResponse.orderToken) &&
-        Objects.equals(this.success, orderTokenResponse.success);
+        Objects.equals(this.success, orderTokenResponse.success) &&
+        Objects.equals(this.warning, orderTokenResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, orderToken, success);
+    return Objects.hash(error, metadata, orderToken, success, warning);
   }
 
 
@@ -149,6 +172,7 @@ public class OrderTokenResponse {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    orderToken: ").append(toIndentedString(orderToken)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

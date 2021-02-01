@@ -21,24 +21,34 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
+import com.ultracart.admin.v2.models.LibraryItemAttribute;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ApplyLibraryItemResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
 public class ApplyLibraryItemResponse {
+  @SerializedName("attributes")
+  private List<LibraryItemAttribute> attributes = null;
+
   @SerializedName("cjson")
   private String cjson = null;
 
   @SerializedName("content_type")
   private String contentType = null;
+
+  @SerializedName("email_template_vm_path")
+  private String emailTemplateVmPath = null;
 
   @SerializedName("error")
   private Error error = null;
@@ -58,16 +68,45 @@ public class ApplyLibraryItemResponse {
   @SerializedName("uuid")
   private String uuid = null;
 
+  @SerializedName("warning")
+  private Warning warning = null;
+
+  public ApplyLibraryItemResponse attributes(List<LibraryItemAttribute> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public ApplyLibraryItemResponse addAttributesItem(LibraryItemAttribute attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new ArrayList<LibraryItemAttribute>();
+    }
+    this.attributes.add(attributesItem);
+    return this;
+  }
+
+   /**
+   * Attributes from the library item
+   * @return attributes
+  **/
+  @ApiModelProperty(value = "Attributes from the library item")
+  public List<LibraryItemAttribute> getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(List<LibraryItemAttribute> attributes) {
+    this.attributes = attributes;
+  }
+
   public ApplyLibraryItemResponse cjson(String cjson) {
     this.cjson = cjson;
     return this;
   }
 
    /**
-   * Cjson from library item, only populated if this library item was a cjson snippet
+   * Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional)
    * @return cjson
   **/
-  @ApiModelProperty(value = "Cjson from library item, only populated if this library item was a cjson snippet")
+  @ApiModelProperty(value = "Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional)")
   public String getCjson() {
     return cjson;
   }
@@ -82,16 +121,34 @@ public class ApplyLibraryItemResponse {
   }
 
    /**
-   * flow, campaign, cjson, or upsell
+   * flow, campaign, cjson, upsell, transactional_email or email
    * @return contentType
   **/
-  @ApiModelProperty(value = "flow, campaign, cjson, or upsell")
+  @ApiModelProperty(value = "flow, campaign, cjson, upsell, transactional_email or email")
   public String getContentType() {
     return contentType;
   }
 
   public void setContentType(String contentType) {
     this.contentType = contentType;
+  }
+
+  public ApplyLibraryItemResponse emailTemplateVmPath(String emailTemplateVmPath) {
+    this.emailTemplateVmPath = emailTemplateVmPath;
+    return this;
+  }
+
+   /**
+   * If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI.
+   * @return emailTemplateVmPath
+  **/
+  @ApiModelProperty(value = "If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI.")
+  public String getEmailTemplateVmPath() {
+    return emailTemplateVmPath;
+  }
+
+  public void setEmailTemplateVmPath(String emailTemplateVmPath) {
+    this.emailTemplateVmPath = emailTemplateVmPath;
   }
 
   public ApplyLibraryItemResponse error(Error error) {
@@ -190,16 +247,34 @@ public class ApplyLibraryItemResponse {
   }
 
    /**
-   * UUID of communication flow or campaign if this library item was a campaign or flow
+   * UUID of marketing email or communication flow/campaign if this library item was an email, campaign or flow
    * @return uuid
   **/
-  @ApiModelProperty(value = "UUID of communication flow or campaign if this library item was a campaign or flow")
+  @ApiModelProperty(value = "UUID of marketing email or communication flow/campaign if this library item was an email, campaign or flow")
   public String getUuid() {
     return uuid;
   }
 
   public void setUuid(String uuid) {
     this.uuid = uuid;
+  }
+
+  public ApplyLibraryItemResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
   }
 
 
@@ -212,19 +287,22 @@ public class ApplyLibraryItemResponse {
       return false;
     }
     ApplyLibraryItemResponse applyLibraryItemResponse = (ApplyLibraryItemResponse) o;
-    return Objects.equals(this.cjson, applyLibraryItemResponse.cjson) &&
+    return Objects.equals(this.attributes, applyLibraryItemResponse.attributes) &&
+        Objects.equals(this.cjson, applyLibraryItemResponse.cjson) &&
         Objects.equals(this.contentType, applyLibraryItemResponse.contentType) &&
+        Objects.equals(this.emailTemplateVmPath, applyLibraryItemResponse.emailTemplateVmPath) &&
         Objects.equals(this.error, applyLibraryItemResponse.error) &&
         Objects.equals(this.metadata, applyLibraryItemResponse.metadata) &&
         Objects.equals(this.storefrontOid, applyLibraryItemResponse.storefrontOid) &&
         Objects.equals(this.success, applyLibraryItemResponse.success) &&
         Objects.equals(this.title, applyLibraryItemResponse.title) &&
-        Objects.equals(this.uuid, applyLibraryItemResponse.uuid);
+        Objects.equals(this.uuid, applyLibraryItemResponse.uuid) &&
+        Objects.equals(this.warning, applyLibraryItemResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cjson, contentType, error, metadata, storefrontOid, success, title, uuid);
+    return Objects.hash(attributes, cjson, contentType, emailTemplateVmPath, error, metadata, storefrontOid, success, title, uuid, warning);
   }
 
 
@@ -233,14 +311,17 @@ public class ApplyLibraryItemResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplyLibraryItemResponse {\n");
     
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    cjson: ").append(toIndentedString(cjson)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    emailTemplateVmPath: ").append(toIndentedString(emailTemplateVmPath)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

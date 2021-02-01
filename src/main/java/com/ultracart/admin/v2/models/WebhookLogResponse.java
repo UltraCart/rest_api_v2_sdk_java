@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import com.ultracart.admin.v2.models.WebhookLog;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +31,7 @@ import java.io.IOException;
 /**
  * WebhookLogResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -43,6 +44,9 @@ public class WebhookLogResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   @SerializedName("webhook_log")
   private WebhookLog webhookLog = null;
@@ -101,6 +105,24 @@ public class WebhookLogResponse {
     this.success = success;
   }
 
+  public WebhookLogResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
   public WebhookLogResponse webhookLog(WebhookLog webhookLog) {
     this.webhookLog = webhookLog;
     return this;
@@ -132,12 +154,13 @@ public class WebhookLogResponse {
     return Objects.equals(this.error, webhookLogResponse.error) &&
         Objects.equals(this.metadata, webhookLogResponse.metadata) &&
         Objects.equals(this.success, webhookLogResponse.success) &&
+        Objects.equals(this.warning, webhookLogResponse.warning) &&
         Objects.equals(this.webhookLog, webhookLogResponse.webhookLog);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, success, webhookLog);
+    return Objects.hash(error, metadata, success, warning, webhookLog);
   }
 
 
@@ -149,6 +172,7 @@ public class WebhookLogResponse {
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("    webhookLog: ").append(toIndentedString(webhookLog)).append("\n");
     sb.append("}");
     return sb.toString();

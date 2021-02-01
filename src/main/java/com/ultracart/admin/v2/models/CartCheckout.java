@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CartCheckout
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -62,8 +62,14 @@ public class CartCheckout {
   @SerializedName("return_code")
   private String returnCode = null;
 
+  @SerializedName("return_url")
+  private String returnUrl = null;
+
   @SerializedName("screen_branding_theme_code")
   private String screenBrandingThemeCode = null;
+
+  @SerializedName("storefront_host_name")
+  private String storefrontHostName = null;
 
   @SerializedName("user_agent")
   private String userAgent = null;
@@ -248,6 +254,24 @@ public class CartCheckout {
     this.returnCode = returnCode;
   }
 
+  public CartCheckout returnUrl(String returnUrl) {
+    this.returnUrl = returnUrl;
+    return this;
+  }
+
+   /**
+   * The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol.
+   * @return returnUrl
+  **/
+  @ApiModelProperty(value = "The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol.")
+  public String getReturnUrl() {
+    return returnUrl;
+  }
+
+  public void setReturnUrl(String returnUrl) {
+    this.returnUrl = returnUrl;
+  }
+
   public CartCheckout screenBrandingThemeCode(String screenBrandingThemeCode) {
     this.screenBrandingThemeCode = screenBrandingThemeCode;
     return this;
@@ -264,6 +288,24 @@ public class CartCheckout {
 
   public void setScreenBrandingThemeCode(String screenBrandingThemeCode) {
     this.screenBrandingThemeCode = screenBrandingThemeCode;
+  }
+
+  public CartCheckout storefrontHostName(String storefrontHostName) {
+    this.storefrontHostName = storefrontHostName;
+    return this;
+  }
+
+   /**
+   * StoreFront Host Name
+   * @return storefrontHostName
+  **/
+  @ApiModelProperty(value = "StoreFront Host Name")
+  public String getStorefrontHostName() {
+    return storefrontHostName;
+  }
+
+  public void setStorefrontHostName(String storefrontHostName) {
+    this.storefrontHostName = storefrontHostName;
   }
 
   public CartCheckout userAgent(String userAgent) {
@@ -304,13 +346,15 @@ public class CartCheckout {
         Objects.equals(this.customField7, cartCheckout.customField7) &&
         Objects.equals(this.ipAddress, cartCheckout.ipAddress) &&
         Objects.equals(this.returnCode, cartCheckout.returnCode) &&
+        Objects.equals(this.returnUrl, cartCheckout.returnUrl) &&
         Objects.equals(this.screenBrandingThemeCode, cartCheckout.screenBrandingThemeCode) &&
+        Objects.equals(this.storefrontHostName, cartCheckout.storefrontHostName) &&
         Objects.equals(this.userAgent, cartCheckout.userAgent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, ipAddress, returnCode, screenBrandingThemeCode, userAgent);
+    return Objects.hash(comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, ipAddress, returnCode, returnUrl, screenBrandingThemeCode, storefrontHostName, userAgent);
   }
 
 
@@ -329,7 +373,9 @@ public class CartCheckout {
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    returnCode: ").append(toIndentedString(returnCode)).append("\n");
+    sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
+    sb.append("    storefrontHostName: ").append(toIndentedString(storefrontHostName)).append("\n");
     sb.append("    userAgent: ").append(toIndentedString(userAgent)).append("\n");
     sb.append("}");
     return sb.toString();

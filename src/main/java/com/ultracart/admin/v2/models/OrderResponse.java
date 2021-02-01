@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.Order;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.io.IOException;
 /**
  * OrderResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -46,6 +47,9 @@ public class OrderResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public OrderResponse error(Error error) {
     this.error = error;
@@ -119,6 +123,24 @@ public class OrderResponse {
     this.success = success;
   }
 
+  public OrderResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +154,13 @@ public class OrderResponse {
     return Objects.equals(this.error, orderResponse.error) &&
         Objects.equals(this.metadata, orderResponse.metadata) &&
         Objects.equals(this.order, orderResponse.order) &&
-        Objects.equals(this.success, orderResponse.success);
+        Objects.equals(this.success, orderResponse.success) &&
+        Objects.equals(this.warning, orderResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, order, success);
+    return Objects.hash(error, metadata, order, success, warning);
   }
 
 
@@ -150,6 +173,7 @@ public class OrderResponse {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

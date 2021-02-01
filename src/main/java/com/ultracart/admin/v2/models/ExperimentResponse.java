@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.Experiment;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.io.IOException;
 /**
  * ExperimentResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -46,6 +47,9 @@ public class ExperimentResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public ExperimentResponse error(Error error) {
     this.error = error;
@@ -119,6 +123,24 @@ public class ExperimentResponse {
     this.success = success;
   }
 
+  public ExperimentResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +154,13 @@ public class ExperimentResponse {
     return Objects.equals(this.error, experimentResponse.error) &&
         Objects.equals(this.experiment, experimentResponse.experiment) &&
         Objects.equals(this.metadata, experimentResponse.metadata) &&
-        Objects.equals(this.success, experimentResponse.success);
+        Objects.equals(this.success, experimentResponse.success) &&
+        Objects.equals(this.warning, experimentResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, experiment, metadata, success);
+    return Objects.hash(error, experiment, metadata, success, warning);
   }
 
 
@@ -150,6 +173,7 @@ public class ExperimentResponse {
     sb.append("    experiment: ").append(toIndentedString(experiment)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.io.IOException;
 /**
  * CouponCodesRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -51,6 +52,9 @@ public class CouponCodesRequest {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public CouponCodesRequest error(Error error) {
     this.error = error;
@@ -160,6 +164,24 @@ public class CouponCodesRequest {
     this.success = success;
   }
 
+  public CouponCodesRequest warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -175,12 +197,13 @@ public class CouponCodesRequest {
         Objects.equals(this.expirationSeconds, couponCodesRequest.expirationSeconds) &&
         Objects.equals(this.metadata, couponCodesRequest.metadata) &&
         Objects.equals(this.quantity, couponCodesRequest.quantity) &&
-        Objects.equals(this.success, couponCodesRequest.success);
+        Objects.equals(this.success, couponCodesRequest.success) &&
+        Objects.equals(this.warning, couponCodesRequest.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, expirationDts, expirationSeconds, metadata, quantity, success);
+    return Objects.hash(error, expirationDts, expirationSeconds, metadata, quantity, success, warning);
   }
 
 
@@ -195,6 +218,7 @@ public class CouponCodesRequest {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,6 +27,7 @@ import com.ultracart.admin.v2.models.TaxProviderSelf;
 import com.ultracart.admin.v2.models.TaxProviderSovos;
 import com.ultracart.admin.v2.models.TaxProviderTaxJar;
 import com.ultracart.admin.v2.models.TaxProviderUltraCart;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,7 +35,7 @@ import java.io.IOException;
 /**
  * TaxProvidersResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -62,6 +63,9 @@ public class TaxProvidersResponse {
 
   @SerializedName("ultracart")
   private TaxProviderUltraCart ultracart = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public TaxProvidersResponse avalara(TaxProviderAvalara avalara) {
     this.avalara = avalara;
@@ -207,6 +211,24 @@ public class TaxProvidersResponse {
     this.ultracart = ultracart;
   }
 
+  public TaxProvidersResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -224,12 +246,13 @@ public class TaxProvidersResponse {
         Objects.equals(this.sovos, taxProvidersResponse.sovos) &&
         Objects.equals(this.success, taxProvidersResponse.success) &&
         Objects.equals(this.taxjar, taxProvidersResponse.taxjar) &&
-        Objects.equals(this.ultracart, taxProvidersResponse.ultracart);
+        Objects.equals(this.ultracart, taxProvidersResponse.ultracart) &&
+        Objects.equals(this.warning, taxProvidersResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(avalara, error, metadata, self, sovos, success, taxjar, ultracart);
+    return Objects.hash(avalara, error, metadata, self, sovos, success, taxjar, ultracart, warning);
   }
 
 
@@ -246,6 +269,7 @@ public class TaxProvidersResponse {
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    taxjar: ").append(toIndentedString(taxjar)).append("\n");
     sb.append("    ultracart: ").append(toIndentedString(ultracart)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

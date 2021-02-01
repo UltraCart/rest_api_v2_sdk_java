@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Experiment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -61,6 +61,9 @@ public class Experiment {
 
   @SerializedName("objective")
   private String objective = null;
+
+  @SerializedName("objective_parameter")
+  private String objectiveParameter = null;
 
   @SerializedName("optimization_type")
   private String optimizationType = null;
@@ -297,6 +300,24 @@ public class Experiment {
     this.objective = objective;
   }
 
+  public Experiment objectiveParameter(String objectiveParameter) {
+    this.objectiveParameter = objectiveParameter;
+    return this;
+  }
+
+   /**
+   * Objective parameter (such as event name) that is being optimized
+   * @return objectiveParameter
+  **/
+  @ApiModelProperty(value = "Objective parameter (such as event name) that is being optimized")
+  public String getObjectiveParameter() {
+    return objectiveParameter;
+  }
+
+  public void setObjectiveParameter(String objectiveParameter) {
+    this.objectiveParameter = objectiveParameter;
+  }
+
   public Experiment optimizationType(String optimizationType) {
     this.optimizationType = optimizationType;
     return this;
@@ -468,6 +489,7 @@ public class Experiment {
         Objects.equals(this.name, experiment.name) &&
         Objects.equals(this.notes, experiment.notes) &&
         Objects.equals(this.objective, experiment.objective) &&
+        Objects.equals(this.objectiveParameter, experiment.objectiveParameter) &&
         Objects.equals(this.optimizationType, experiment.optimizationType) &&
         Objects.equals(this.sessionCount, experiment.sessionCount) &&
         Objects.equals(this.startDts, experiment.startDts) &&
@@ -480,7 +502,7 @@ public class Experiment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerId, durationDays, endDts, equalWeighting, experimentType, id, name, notes, objective, optimizationType, sessionCount, startDts, status, storefrontExperimentOid, storefrontOid, uri, variations);
+    return Objects.hash(containerId, durationDays, endDts, equalWeighting, experimentType, id, name, notes, objective, objectiveParameter, optimizationType, sessionCount, startDts, status, storefrontExperimentOid, storefrontOid, uri, variations);
   }
 
 
@@ -498,6 +520,7 @@ public class Experiment {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    objective: ").append(toIndentedString(objective)).append("\n");
+    sb.append("    objectiveParameter: ").append(toIndentedString(objectiveParameter)).append("\n");
     sb.append("    optimizationType: ").append(toIndentedString(optimizationType)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");

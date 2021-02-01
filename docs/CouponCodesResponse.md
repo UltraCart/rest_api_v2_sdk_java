@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **expirationDts** | **String** | Expiration date |  [optional]
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  |  [optional]
 **success** | **Boolean** | Indicates if API call was successful |  [optional]
+**warning** | [**Warning**](Warning.md) |  |  [optional]
 
 
 

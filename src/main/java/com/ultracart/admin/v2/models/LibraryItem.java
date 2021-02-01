@@ -22,23 +22,31 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.LibraryItemAccount;
 import com.ultracart.admin.v2.models.LibraryItemAsset;
+import com.ultracart.admin.v2.models.LibraryItemAttribute;
 import com.ultracart.admin.v2.models.LibraryItemEmail;
+import com.ultracart.admin.v2.models.LibraryItemPublishedMeta;
+import com.ultracart.admin.v2.models.LibraryItemPurchasedMeta;
+import com.ultracart.admin.v2.models.LibraryItemScreenshot;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * LibraryItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
 public class LibraryItem {
   @SerializedName("assets")
   private List<LibraryItemAsset> assets = null;
+
+  @SerializedName("attributes")
+  private List<LibraryItemAttribute> attributes = null;
 
   @SerializedName("categories")
   private List<String> categories = null;
@@ -61,8 +69,65 @@ public class LibraryItem {
   @SerializedName("merchant_id")
   private String merchantId = null;
 
-  @SerializedName("public_item")
-  private Boolean publicItem = null;
+  @SerializedName("my_purchased_version")
+  private Integer myPurchasedVersion = null;
+
+  @SerializedName("original_object_id")
+  private String originalObjectId = null;
+
+  @SerializedName("price")
+  private BigDecimal price = null;
+
+  @SerializedName("price_formatted")
+  private String priceFormatted = null;
+
+  @SerializedName("published")
+  private Boolean published = null;
+
+  @SerializedName("published_dts")
+  private Object publishedDts = null;
+
+  @SerializedName("published_from_library_item_oid")
+  private Integer publishedFromLibraryItemOid = null;
+
+  @SerializedName("published_meta")
+  private LibraryItemPublishedMeta publishedMeta = null;
+
+  @SerializedName("published_version")
+  private Integer publishedVersion = null;
+
+  @SerializedName("purchased")
+  private Boolean purchased = null;
+
+  @SerializedName("purchased_from_library_item_oid")
+  private Integer purchasedFromLibraryItemOid = null;
+
+  @SerializedName("purchased_meta")
+  private LibraryItemPurchasedMeta purchasedMeta = null;
+
+  @SerializedName("purchased_version")
+  private Integer purchasedVersion = null;
+
+  @SerializedName("rejected")
+  private Boolean rejected = null;
+
+  @SerializedName("rejected_reason")
+  private String rejectedReason = null;
+
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
+  @SerializedName("release_version")
+  private Integer releaseVersion = null;
+
+  @SerializedName("reviewed")
+  private Boolean reviewed = null;
+
+  @SerializedName("reviewed_dts")
+  private Object reviewedDts = null;
+
+  @SerializedName("screenshots")
+  private List<LibraryItemScreenshot> screenshots = null;
 
   @SerializedName("share_with_accounts")
   private List<LibraryItemAccount> shareWithAccounts = null;
@@ -70,14 +135,32 @@ public class LibraryItem {
   @SerializedName("share_with_other_emails")
   private List<LibraryItemEmail> shareWithOtherEmails = null;
 
+  @SerializedName("shared")
+  private Boolean shared = null;
+
+  @SerializedName("source")
+  private Boolean source = null;
+
+  @SerializedName("source_to_library_item_oid")
+  private Integer sourceToLibraryItemOid = null;
+
+  @SerializedName("source_version")
+  private Integer sourceVersion = null;
+
   @SerializedName("style")
   private String style = null;
+
+  @SerializedName("times_purchased")
+  private Integer timesPurchased = null;
 
   @SerializedName("title")
   private String title = null;
 
   @SerializedName("type")
   private String type = null;
+
+  @SerializedName("under_review")
+  private Boolean underReview = null;
 
   public LibraryItem assets(List<LibraryItemAsset> assets) {
     this.assets = assets;
@@ -103,6 +186,32 @@ public class LibraryItem {
 
   public void setAssets(List<LibraryItemAsset> assets) {
     this.assets = assets;
+  }
+
+  public LibraryItem attributes(List<LibraryItemAttribute> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public LibraryItem addAttributesItem(LibraryItemAttribute attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new ArrayList<LibraryItemAttribute>();
+    }
+    this.attributes.add(attributesItem);
+    return this;
+  }
+
+   /**
+   * Get attributes
+   * @return attributes
+  **/
+  @ApiModelProperty(value = "")
+  public List<LibraryItemAttribute> getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(List<LibraryItemAttribute> attributes) {
+    this.attributes = attributes;
   }
 
   public LibraryItem categories(List<String> categories) {
@@ -247,22 +356,372 @@ public class LibraryItem {
     this.merchantId = merchantId;
   }
 
-  public LibraryItem publicItem(Boolean publicItem) {
-    this.publicItem = publicItem;
+  public LibraryItem myPurchasedVersion(Integer myPurchasedVersion) {
+    this.myPurchasedVersion = myPurchasedVersion;
     return this;
   }
 
    /**
-   * Get publicItem
-   * @return publicItem
+   * If this is a public item and the merchant has already purchased it, this is their version.  If not yet purchased, this will be zero.  This value will only be populated during a searchPublicItems() call.
+   * @return myPurchasedVersion
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPublicItem() {
-    return publicItem;
+  @ApiModelProperty(value = "If this is a public item and the merchant has already purchased it, this is their version.  If not yet purchased, this will be zero.  This value will only be populated during a searchPublicItems() call.")
+  public Integer getMyPurchasedVersion() {
+    return myPurchasedVersion;
   }
 
-  public void setPublicItem(Boolean publicItem) {
-    this.publicItem = publicItem;
+  public void setMyPurchasedVersion(Integer myPurchasedVersion) {
+    this.myPurchasedVersion = myPurchasedVersion;
+  }
+
+  public LibraryItem originalObjectId(String originalObjectId) {
+    this.originalObjectId = originalObjectId;
+    return this;
+  }
+
+   /**
+   * This id points to the original object that was added to the library. For flows and campaigns, this is a uuid string.  For upsells, it is an oid integer.  For transactional_emails, it is an email name.
+   * @return originalObjectId
+  **/
+  @ApiModelProperty(value = "This id points to the original object that was added to the library. For flows and campaigns, this is a uuid string.  For upsells, it is an oid integer.  For transactional_emails, it is an email name.")
+  public String getOriginalObjectId() {
+    return originalObjectId;
+  }
+
+  public void setOriginalObjectId(String originalObjectId) {
+    this.originalObjectId = originalObjectId;
+  }
+
+  public LibraryItem price(BigDecimal price) {
+    this.price = price;
+    return this;
+  }
+
+   /**
+   * The price of the published item.  Null for any private library items.
+   * @return price
+  **/
+  @ApiModelProperty(value = "The price of the published item.  Null for any private library items.")
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
+
+  public LibraryItem priceFormatted(String priceFormatted) {
+    this.priceFormatted = priceFormatted;
+    return this;
+  }
+
+   /**
+   * The formatted price of the published item.  Null for any private library items.
+   * @return priceFormatted
+  **/
+  @ApiModelProperty(value = "The formatted price of the published item.  Null for any private library items.")
+  public String getPriceFormatted() {
+    return priceFormatted;
+  }
+
+  public void setPriceFormatted(String priceFormatted) {
+    this.priceFormatted = priceFormatted;
+  }
+
+  public LibraryItem published(Boolean published) {
+    this.published = published;
+    return this;
+  }
+
+   /**
+   * True if this library item is a published item (not source)
+   * @return published
+  **/
+  @ApiModelProperty(value = "True if this library item is a published item (not source)")
+  public Boolean isPublished() {
+    return published;
+  }
+
+  public void setPublished(Boolean published) {
+    this.published = published;
+  }
+
+  public LibraryItem publishedDts(Object publishedDts) {
+    this.publishedDts = publishedDts;
+    return this;
+  }
+
+   /**
+   * The timestamp of the last published version
+   * @return publishedDts
+  **/
+  @ApiModelProperty(value = "The timestamp of the last published version")
+  public Object getPublishedDts() {
+    return publishedDts;
+  }
+
+  public void setPublishedDts(Object publishedDts) {
+    this.publishedDts = publishedDts;
+  }
+
+  public LibraryItem publishedFromLibraryItemOid(Integer publishedFromLibraryItemOid) {
+    this.publishedFromLibraryItemOid = publishedFromLibraryItemOid;
+    return this;
+  }
+
+   /**
+   * The source item used to publish this item.  This allows for comparisons between source and published
+   * @return publishedFromLibraryItemOid
+  **/
+  @ApiModelProperty(value = "The source item used to publish this item.  This allows for comparisons between source and published")
+  public Integer getPublishedFromLibraryItemOid() {
+    return publishedFromLibraryItemOid;
+  }
+
+  public void setPublishedFromLibraryItemOid(Integer publishedFromLibraryItemOid) {
+    this.publishedFromLibraryItemOid = publishedFromLibraryItemOid;
+  }
+
+  public LibraryItem publishedMeta(LibraryItemPublishedMeta publishedMeta) {
+    this.publishedMeta = publishedMeta;
+    return this;
+  }
+
+   /**
+   * Get publishedMeta
+   * @return publishedMeta
+  **/
+  @ApiModelProperty(value = "")
+  public LibraryItemPublishedMeta getPublishedMeta() {
+    return publishedMeta;
+  }
+
+  public void setPublishedMeta(LibraryItemPublishedMeta publishedMeta) {
+    this.publishedMeta = publishedMeta;
+  }
+
+  public LibraryItem publishedVersion(Integer publishedVersion) {
+    this.publishedVersion = publishedVersion;
+    return this;
+  }
+
+   /**
+   * The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published
+   * @return publishedVersion
+  **/
+  @ApiModelProperty(value = "The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published")
+  public Integer getPublishedVersion() {
+    return publishedVersion;
+  }
+
+  public void setPublishedVersion(Integer publishedVersion) {
+    this.publishedVersion = publishedVersion;
+  }
+
+  public LibraryItem purchased(Boolean purchased) {
+    this.purchased = purchased;
+    return this;
+  }
+
+   /**
+   * True if this library item has been purchased
+   * @return purchased
+  **/
+  @ApiModelProperty(value = "True if this library item has been purchased")
+  public Boolean isPurchased() {
+    return purchased;
+  }
+
+  public void setPurchased(Boolean purchased) {
+    this.purchased = purchased;
+  }
+
+  public LibraryItem purchasedFromLibraryItemOid(Integer purchasedFromLibraryItemOid) {
+    this.purchasedFromLibraryItemOid = purchasedFromLibraryItemOid;
+    return this;
+  }
+
+   /**
+   * The published item that was purchased to make this item.  This allows for comparisons between published and purchased
+   * @return purchasedFromLibraryItemOid
+  **/
+  @ApiModelProperty(value = "The published item that was purchased to make this item.  This allows for comparisons between published and purchased")
+  public Integer getPurchasedFromLibraryItemOid() {
+    return purchasedFromLibraryItemOid;
+  }
+
+  public void setPurchasedFromLibraryItemOid(Integer purchasedFromLibraryItemOid) {
+    this.purchasedFromLibraryItemOid = purchasedFromLibraryItemOid;
+  }
+
+  public LibraryItem purchasedMeta(LibraryItemPurchasedMeta purchasedMeta) {
+    this.purchasedMeta = purchasedMeta;
+    return this;
+  }
+
+   /**
+   * Get purchasedMeta
+   * @return purchasedMeta
+  **/
+  @ApiModelProperty(value = "")
+  public LibraryItemPurchasedMeta getPurchasedMeta() {
+    return purchasedMeta;
+  }
+
+  public void setPurchasedMeta(LibraryItemPurchasedMeta purchasedMeta) {
+    this.purchasedMeta = purchasedMeta;
+  }
+
+  public LibraryItem purchasedVersion(Integer purchasedVersion) {
+    this.purchasedVersion = purchasedVersion;
+    return this;
+  }
+
+   /**
+   * The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased
+   * @return purchasedVersion
+  **/
+  @ApiModelProperty(value = "The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased")
+  public Integer getPurchasedVersion() {
+    return purchasedVersion;
+  }
+
+  public void setPurchasedVersion(Integer purchasedVersion) {
+    this.purchasedVersion = purchasedVersion;
+  }
+
+  public LibraryItem rejected(Boolean rejected) {
+    this.rejected = rejected;
+    return this;
+  }
+
+   /**
+   * Any published library reviewed by UltraCart staff for malicious or inappropriate content will have this flag set to true.  This is always false for non-published items
+   * @return rejected
+  **/
+  @ApiModelProperty(value = "Any published library reviewed by UltraCart staff for malicious or inappropriate content will have this flag set to true.  This is always false for non-published items")
+  public Boolean isRejected() {
+    return rejected;
+  }
+
+  public void setRejected(Boolean rejected) {
+    this.rejected = rejected;
+  }
+
+  public LibraryItem rejectedReason(String rejectedReason) {
+    this.rejectedReason = rejectedReason;
+    return this;
+  }
+
+   /**
+   * Any rejected published item will have this field populated with the reason.
+   * @return rejectedReason
+  **/
+  @ApiModelProperty(value = "Any rejected published item will have this field populated with the reason.")
+  public String getRejectedReason() {
+    return rejectedReason;
+  }
+
+  public void setRejectedReason(String rejectedReason) {
+    this.rejectedReason = rejectedReason;
+  }
+
+  public LibraryItem releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * Release notes specific to each published version and only appearing on public items.
+   * @return releaseNotes
+  **/
+  @ApiModelProperty(value = "Release notes specific to each published version and only appearing on public items.")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+  }
+
+  public LibraryItem releaseVersion(Integer releaseVersion) {
+    this.releaseVersion = releaseVersion;
+    return this;
+  }
+
+   /**
+   * This counter records how many times a library item has been published.  This is used to show version history.
+   * @return releaseVersion
+  **/
+  @ApiModelProperty(value = "This counter records how many times a library item has been published.  This is used to show version history.")
+  public Integer getReleaseVersion() {
+    return releaseVersion;
+  }
+
+  public void setReleaseVersion(Integer releaseVersion) {
+    this.releaseVersion = releaseVersion;
+  }
+
+  public LibraryItem reviewed(Boolean reviewed) {
+    this.reviewed = reviewed;
+    return this;
+  }
+
+   /**
+   * Any published library items must be reviewed by UltraCart staff for malicious content.  This flag shows the status of that review.  This is always false for non-published items
+   * @return reviewed
+  **/
+  @ApiModelProperty(value = "Any published library items must be reviewed by UltraCart staff for malicious content.  This flag shows the status of that review.  This is always false for non-published items")
+  public Boolean isReviewed() {
+    return reviewed;
+  }
+
+  public void setReviewed(Boolean reviewed) {
+    this.reviewed = reviewed;
+  }
+
+  public LibraryItem reviewedDts(Object reviewedDts) {
+    this.reviewedDts = reviewedDts;
+    return this;
+  }
+
+   /**
+   * This is the timestamp for a published items formal review by UltraCart staff for malicious content.
+   * @return reviewedDts
+  **/
+  @ApiModelProperty(value = "This is the timestamp for a published items formal review by UltraCart staff for malicious content.")
+  public Object getReviewedDts() {
+    return reviewedDts;
+  }
+
+  public void setReviewedDts(Object reviewedDts) {
+    this.reviewedDts = reviewedDts;
+  }
+
+  public LibraryItem screenshots(List<LibraryItemScreenshot> screenshots) {
+    this.screenshots = screenshots;
+    return this;
+  }
+
+  public LibraryItem addScreenshotsItem(LibraryItemScreenshot screenshotsItem) {
+    if (this.screenshots == null) {
+      this.screenshots = new ArrayList<LibraryItemScreenshot>();
+    }
+    this.screenshots.add(screenshotsItem);
+    return this;
+  }
+
+   /**
+   * Get screenshots
+   * @return screenshots
+  **/
+  @ApiModelProperty(value = "")
+  public List<LibraryItemScreenshot> getScreenshots() {
+    return screenshots;
+  }
+
+  public void setScreenshots(List<LibraryItemScreenshot> screenshots) {
+    this.screenshots = screenshots;
   }
 
   public LibraryItem shareWithAccounts(List<LibraryItemAccount> shareWithAccounts) {
@@ -317,6 +776,78 @@ public class LibraryItem {
     this.shareWithOtherEmails = shareWithOtherEmails;
   }
 
+  public LibraryItem shared(Boolean shared) {
+    this.shared = shared;
+    return this;
+  }
+
+   /**
+   * True if this item is shared from another merchant account
+   * @return shared
+  **/
+  @ApiModelProperty(value = "True if this item is shared from another merchant account")
+  public Boolean isShared() {
+    return shared;
+  }
+
+  public void setShared(Boolean shared) {
+    this.shared = shared;
+  }
+
+  public LibraryItem source(Boolean source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * True if this library item has been published
+   * @return source
+  **/
+  @ApiModelProperty(value = "True if this library item has been published")
+  public Boolean isSource() {
+    return source;
+  }
+
+  public void setSource(Boolean source) {
+    this.source = source;
+  }
+
+  public LibraryItem sourceToLibraryItemOid(Integer sourceToLibraryItemOid) {
+    this.sourceToLibraryItemOid = sourceToLibraryItemOid;
+    return this;
+  }
+
+   /**
+   * This oid points to the published library item, if there is one.
+   * @return sourceToLibraryItemOid
+  **/
+  @ApiModelProperty(value = "This oid points to the published library item, if there is one.")
+  public Integer getSourceToLibraryItemOid() {
+    return sourceToLibraryItemOid;
+  }
+
+  public void setSourceToLibraryItemOid(Integer sourceToLibraryItemOid) {
+    this.sourceToLibraryItemOid = sourceToLibraryItemOid;
+  }
+
+  public LibraryItem sourceVersion(Integer sourceVersion) {
+    this.sourceVersion = sourceVersion;
+    return this;
+  }
+
+   /**
+   * The version of this item.  Increment every time the item is saved.
+   * @return sourceVersion
+  **/
+  @ApiModelProperty(value = "The version of this item.  Increment every time the item is saved.")
+  public Integer getSourceVersion() {
+    return sourceVersion;
+  }
+
+  public void setSourceVersion(Integer sourceVersion) {
+    this.sourceVersion = sourceVersion;
+  }
+
   public LibraryItem style(String style) {
     this.style = style;
     return this;
@@ -333,6 +864,24 @@ public class LibraryItem {
 
   public void setStyle(String style) {
     this.style = style;
+  }
+
+  public LibraryItem timesPurchased(Integer timesPurchased) {
+    this.timesPurchased = timesPurchased;
+    return this;
+  }
+
+   /**
+   * Get timesPurchased
+   * @return timesPurchased
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getTimesPurchased() {
+    return timesPurchased;
+  }
+
+  public void setTimesPurchased(Integer timesPurchased) {
+    this.timesPurchased = timesPurchased;
   }
 
   public LibraryItem title(String title) {
@@ -371,6 +920,24 @@ public class LibraryItem {
     this.type = type;
   }
 
+  public LibraryItem underReview(Boolean underReview) {
+    this.underReview = underReview;
+    return this;
+  }
+
+   /**
+   * True if this library item was published but is awaiting review from UltraCart staff.
+   * @return underReview
+  **/
+  @ApiModelProperty(value = "True if this library item was published but is awaiting review from UltraCart staff.")
+  public Boolean isUnderReview() {
+    return underReview;
+  }
+
+  public void setUnderReview(Boolean underReview) {
+    this.underReview = underReview;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -382,6 +949,7 @@ public class LibraryItem {
     }
     LibraryItem libraryItem = (LibraryItem) o;
     return Objects.equals(this.assets, libraryItem.assets) &&
+        Objects.equals(this.attributes, libraryItem.attributes) &&
         Objects.equals(this.categories, libraryItem.categories) &&
         Objects.equals(this.content, libraryItem.content) &&
         Objects.equals(this.contentType, libraryItem.contentType) &&
@@ -389,17 +957,42 @@ public class LibraryItem {
         Objects.equals(this.industries, libraryItem.industries) &&
         Objects.equals(this.libraryItemOid, libraryItem.libraryItemOid) &&
         Objects.equals(this.merchantId, libraryItem.merchantId) &&
-        Objects.equals(this.publicItem, libraryItem.publicItem) &&
+        Objects.equals(this.myPurchasedVersion, libraryItem.myPurchasedVersion) &&
+        Objects.equals(this.originalObjectId, libraryItem.originalObjectId) &&
+        Objects.equals(this.price, libraryItem.price) &&
+        Objects.equals(this.priceFormatted, libraryItem.priceFormatted) &&
+        Objects.equals(this.published, libraryItem.published) &&
+        Objects.equals(this.publishedDts, libraryItem.publishedDts) &&
+        Objects.equals(this.publishedFromLibraryItemOid, libraryItem.publishedFromLibraryItemOid) &&
+        Objects.equals(this.publishedMeta, libraryItem.publishedMeta) &&
+        Objects.equals(this.publishedVersion, libraryItem.publishedVersion) &&
+        Objects.equals(this.purchased, libraryItem.purchased) &&
+        Objects.equals(this.purchasedFromLibraryItemOid, libraryItem.purchasedFromLibraryItemOid) &&
+        Objects.equals(this.purchasedMeta, libraryItem.purchasedMeta) &&
+        Objects.equals(this.purchasedVersion, libraryItem.purchasedVersion) &&
+        Objects.equals(this.rejected, libraryItem.rejected) &&
+        Objects.equals(this.rejectedReason, libraryItem.rejectedReason) &&
+        Objects.equals(this.releaseNotes, libraryItem.releaseNotes) &&
+        Objects.equals(this.releaseVersion, libraryItem.releaseVersion) &&
+        Objects.equals(this.reviewed, libraryItem.reviewed) &&
+        Objects.equals(this.reviewedDts, libraryItem.reviewedDts) &&
+        Objects.equals(this.screenshots, libraryItem.screenshots) &&
         Objects.equals(this.shareWithAccounts, libraryItem.shareWithAccounts) &&
         Objects.equals(this.shareWithOtherEmails, libraryItem.shareWithOtherEmails) &&
+        Objects.equals(this.shared, libraryItem.shared) &&
+        Objects.equals(this.source, libraryItem.source) &&
+        Objects.equals(this.sourceToLibraryItemOid, libraryItem.sourceToLibraryItemOid) &&
+        Objects.equals(this.sourceVersion, libraryItem.sourceVersion) &&
         Objects.equals(this.style, libraryItem.style) &&
+        Objects.equals(this.timesPurchased, libraryItem.timesPurchased) &&
         Objects.equals(this.title, libraryItem.title) &&
-        Objects.equals(this.type, libraryItem.type);
+        Objects.equals(this.type, libraryItem.type) &&
+        Objects.equals(this.underReview, libraryItem.underReview);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assets, categories, content, contentType, description, industries, libraryItemOid, merchantId, publicItem, shareWithAccounts, shareWithOtherEmails, style, title, type);
+    return Objects.hash(assets, attributes, categories, content, contentType, description, industries, libraryItemOid, merchantId, myPurchasedVersion, originalObjectId, price, priceFormatted, published, publishedDts, publishedFromLibraryItemOid, publishedMeta, publishedVersion, purchased, purchasedFromLibraryItemOid, purchasedMeta, purchasedVersion, rejected, rejectedReason, releaseNotes, releaseVersion, reviewed, reviewedDts, screenshots, shareWithAccounts, shareWithOtherEmails, shared, source, sourceToLibraryItemOid, sourceVersion, style, timesPurchased, title, type, underReview);
   }
 
 
@@ -409,6 +1002,7 @@ public class LibraryItem {
     sb.append("class LibraryItem {\n");
     
     sb.append("    assets: ").append(toIndentedString(assets)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
@@ -416,12 +1010,37 @@ public class LibraryItem {
     sb.append("    industries: ").append(toIndentedString(industries)).append("\n");
     sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    publicItem: ").append(toIndentedString(publicItem)).append("\n");
+    sb.append("    myPurchasedVersion: ").append(toIndentedString(myPurchasedVersion)).append("\n");
+    sb.append("    originalObjectId: ").append(toIndentedString(originalObjectId)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    priceFormatted: ").append(toIndentedString(priceFormatted)).append("\n");
+    sb.append("    published: ").append(toIndentedString(published)).append("\n");
+    sb.append("    publishedDts: ").append(toIndentedString(publishedDts)).append("\n");
+    sb.append("    publishedFromLibraryItemOid: ").append(toIndentedString(publishedFromLibraryItemOid)).append("\n");
+    sb.append("    publishedMeta: ").append(toIndentedString(publishedMeta)).append("\n");
+    sb.append("    publishedVersion: ").append(toIndentedString(publishedVersion)).append("\n");
+    sb.append("    purchased: ").append(toIndentedString(purchased)).append("\n");
+    sb.append("    purchasedFromLibraryItemOid: ").append(toIndentedString(purchasedFromLibraryItemOid)).append("\n");
+    sb.append("    purchasedMeta: ").append(toIndentedString(purchasedMeta)).append("\n");
+    sb.append("    purchasedVersion: ").append(toIndentedString(purchasedVersion)).append("\n");
+    sb.append("    rejected: ").append(toIndentedString(rejected)).append("\n");
+    sb.append("    rejectedReason: ").append(toIndentedString(rejectedReason)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
+    sb.append("    releaseVersion: ").append(toIndentedString(releaseVersion)).append("\n");
+    sb.append("    reviewed: ").append(toIndentedString(reviewed)).append("\n");
+    sb.append("    reviewedDts: ").append(toIndentedString(reviewedDts)).append("\n");
+    sb.append("    screenshots: ").append(toIndentedString(screenshots)).append("\n");
     sb.append("    shareWithAccounts: ").append(toIndentedString(shareWithAccounts)).append("\n");
     sb.append("    shareWithOtherEmails: ").append(toIndentedString(shareWithOtherEmails)).append("\n");
+    sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    sourceToLibraryItemOid: ").append(toIndentedString(sourceToLibraryItemOid)).append("\n");
+    sb.append("    sourceVersion: ").append(toIndentedString(sourceVersion)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
+    sb.append("    timesPurchased: ").append(toIndentedString(timesPurchased)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    underReview: ").append(toIndentedString(underReview)).append("\n");
     sb.append("}");
     return sb.toString();
   }

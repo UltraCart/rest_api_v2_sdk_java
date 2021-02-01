@@ -20,18 +20,25 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.LibraryItemAttribute;
+import com.ultracart.admin.v2.models.LibraryItemScreenshot;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * AddLibraryItemRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
 public class AddLibraryItemRequest {
+  @SerializedName("attributes")
+  private List<LibraryItemAttribute> attributes = null;
+
   @SerializedName("cjson")
   private String cjson = null;
 
@@ -41,14 +48,52 @@ public class AddLibraryItemRequest {
   @SerializedName("description")
   private String description = null;
 
+  @SerializedName("email_name")
+  private String emailName = null;
+
+  @SerializedName("email_path")
+  private String emailPath = null;
+
+  @SerializedName("screenshots")
+  private List<LibraryItemScreenshot> screenshots = null;
+
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
 
   @SerializedName("title")
   private String title = null;
 
+  @SerializedName("upsell_offer_oid")
+  private Integer upsellOfferOid = null;
+
   @SerializedName("uuid")
   private String uuid = null;
+
+  public AddLibraryItemRequest attributes(List<LibraryItemAttribute> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public AddLibraryItemRequest addAttributesItem(LibraryItemAttribute attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new ArrayList<LibraryItemAttribute>();
+    }
+    this.attributes.add(attributesItem);
+    return this;
+  }
+
+   /**
+   * Attributes associated with the library item to contain additional configuration.
+   * @return attributes
+  **/
+  @ApiModelProperty(value = "Attributes associated with the library item to contain additional configuration.")
+  public List<LibraryItemAttribute> getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(List<LibraryItemAttribute> attributes) {
+    this.attributes = attributes;
+  }
 
   public AddLibraryItemRequest cjson(String cjson) {
     this.cjson = cjson;
@@ -104,6 +149,68 @@ public class AddLibraryItemRequest {
     this.description = description;
   }
 
+  public AddLibraryItemRequest emailName(String emailName) {
+    this.emailName = emailName;
+    return this;
+  }
+
+   /**
+   * Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm
+   * @return emailName
+  **/
+  @ApiModelProperty(value = "Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm")
+  public String getEmailName() {
+    return emailName;
+  }
+
+  public void setEmailName(String emailName) {
+    this.emailName = emailName;
+  }
+
+  public AddLibraryItemRequest emailPath(String emailPath) {
+    this.emailPath = emailPath;
+    return this;
+  }
+
+   /**
+   * Required if content_type is transactional_email. This is the full path to the email template stored in the file system.  This defines which StoreFront contains the desired email template.  An example is /themes/Elements/core/emails/auto_order_cancel_html.vm
+   * @return emailPath
+  **/
+  @ApiModelProperty(value = "Required if content_type is transactional_email. This is the full path to the email template stored in the file system.  This defines which StoreFront contains the desired email template.  An example is /themes/Elements/core/emails/auto_order_cancel_html.vm")
+  public String getEmailPath() {
+    return emailPath;
+  }
+
+  public void setEmailPath(String emailPath) {
+    this.emailPath = emailPath;
+  }
+
+  public AddLibraryItemRequest screenshots(List<LibraryItemScreenshot> screenshots) {
+    this.screenshots = screenshots;
+    return this;
+  }
+
+  public AddLibraryItemRequest addScreenshotsItem(LibraryItemScreenshot screenshotsItem) {
+    if (this.screenshots == null) {
+      this.screenshots = new ArrayList<LibraryItemScreenshot>();
+    }
+    this.screenshots.add(screenshotsItem);
+    return this;
+  }
+
+   /**
+   * Screenshot urls for display
+   * @return screenshots
+  **/
+  @ApiModelProperty(value = "Screenshot urls for display")
+  public List<LibraryItemScreenshot> getScreenshots() {
+    return screenshots;
+  }
+
+  public void setScreenshots(List<LibraryItemScreenshot> screenshots) {
+    this.screenshots = screenshots;
+  }
+
   public AddLibraryItemRequest storefrontOid(Integer storefrontOid) {
     this.storefrontOid = storefrontOid;
     return this;
@@ -140,16 +247,34 @@ public class AddLibraryItemRequest {
     this.title = title;
   }
 
+  public AddLibraryItemRequest upsellOfferOid(Integer upsellOfferOid) {
+    this.upsellOfferOid = upsellOfferOid;
+    return this;
+  }
+
+   /**
+   * Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer.
+   * @return upsellOfferOid
+  **/
+  @ApiModelProperty(value = "Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer.")
+  public Integer getUpsellOfferOid() {
+    return upsellOfferOid;
+  }
+
+  public void setUpsellOfferOid(Integer upsellOfferOid) {
+    this.upsellOfferOid = upsellOfferOid;
+  }
+
   public AddLibraryItemRequest uuid(String uuid) {
     this.uuid = uuid;
     return this;
   }
 
    /**
-   * UUID of communication flow or campaign, null if this item is neither
+   * UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name
    * @return uuid
   **/
-  @ApiModelProperty(value = "UUID of communication flow or campaign, null if this item is neither")
+  @ApiModelProperty(value = "UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name")
   public String getUuid() {
     return uuid;
   }
@@ -168,17 +293,22 @@ public class AddLibraryItemRequest {
       return false;
     }
     AddLibraryItemRequest addLibraryItemRequest = (AddLibraryItemRequest) o;
-    return Objects.equals(this.cjson, addLibraryItemRequest.cjson) &&
+    return Objects.equals(this.attributes, addLibraryItemRequest.attributes) &&
+        Objects.equals(this.cjson, addLibraryItemRequest.cjson) &&
         Objects.equals(this.contentType, addLibraryItemRequest.contentType) &&
         Objects.equals(this.description, addLibraryItemRequest.description) &&
+        Objects.equals(this.emailName, addLibraryItemRequest.emailName) &&
+        Objects.equals(this.emailPath, addLibraryItemRequest.emailPath) &&
+        Objects.equals(this.screenshots, addLibraryItemRequest.screenshots) &&
         Objects.equals(this.storefrontOid, addLibraryItemRequest.storefrontOid) &&
         Objects.equals(this.title, addLibraryItemRequest.title) &&
+        Objects.equals(this.upsellOfferOid, addLibraryItemRequest.upsellOfferOid) &&
         Objects.equals(this.uuid, addLibraryItemRequest.uuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cjson, contentType, description, storefrontOid, title, uuid);
+    return Objects.hash(attributes, cjson, contentType, description, emailName, emailPath, screenshots, storefrontOid, title, upsellOfferOid, uuid);
   }
 
 
@@ -187,11 +317,16 @@ public class AddLibraryItemRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddLibraryItemRequest {\n");
     
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    cjson: ").append(toIndentedString(cjson)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    emailName: ").append(toIndentedString(emailName)).append("\n");
+    sb.append("    emailPath: ").append(toIndentedString(emailPath)).append("\n");
+    sb.append("    screenshots: ").append(toIndentedString(screenshots)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    upsellOfferOid: ").append(toIndentedString(upsellOfferOid)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();

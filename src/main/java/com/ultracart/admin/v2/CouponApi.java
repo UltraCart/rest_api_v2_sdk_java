@@ -28,13 +28,20 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.Coupon;
+import com.ultracart.admin.v2.models.CouponAutoApplyConditions;
 import com.ultracart.admin.v2.models.CouponCodesRequest;
 import com.ultracart.admin.v2.models.CouponCodesResponse;
+import com.ultracart.admin.v2.models.CouponDeletesRequest;
 import com.ultracart.admin.v2.models.CouponEditorValues;
+import com.ultracart.admin.v2.models.CouponExistsResponse;
+import com.ultracart.admin.v2.models.CouponItemSearchResultsResponse;
 import com.ultracart.admin.v2.models.CouponQuery;
 import com.ultracart.admin.v2.models.CouponResponse;
+import com.ultracart.admin.v2.models.CouponsRequest;
 import com.ultracart.admin.v2.models.CouponsResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.UploadCouponCodesRequest;
+import com.ultracart.admin.v2.models.UploadCouponCodesResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -129,25 +136,22 @@ public class CouponApi {
      * Delete a coupon
      * Delete a coupon on the UltraCart account. 
      * @param couponOid The coupon_oid to delete. (required)
-     * @return CouponResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CouponResponse deleteCoupon(Integer couponOid) throws ApiException {
-        ApiResponse<CouponResponse> resp = deleteCouponWithHttpInfo(couponOid);
-        return resp.getData();
+    public void deleteCoupon(Integer couponOid) throws ApiException {
+        deleteCouponWithHttpInfo(couponOid);
     }
 
     /**
      * Delete a coupon
      * Delete a coupon on the UltraCart account. 
      * @param couponOid The coupon_oid to delete. (required)
-     * @return ApiResponse&lt;CouponResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CouponResponse> deleteCouponWithHttpInfo(Integer couponOid) throws ApiException {
+    public ApiResponse<Void> deleteCouponWithHttpInfo(Integer couponOid) throws ApiException {
         com.squareup.okhttp.Call call = deleteCouponValidateBeforeCall(couponOid, null, null);
-        Type localVarReturnType = new TypeToken<CouponResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -158,7 +162,7 @@ public class CouponApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCouponAsync(Integer couponOid, final ApiCallback<CouponResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteCouponAsync(Integer couponOid, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -180,7 +184,365 @@ public class CouponApi {
         }
 
         com.squareup.okhttp.Call call = deleteCouponValidateBeforeCall(couponOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CouponResponse>(){}.getType();
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteCouponsByCode
+     * @param couponDeleteRequest Coupon oids to delete (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCouponsByCodeCall(CouponDeletesRequest couponDeleteRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = couponDeleteRequest;
+
+        // create path and map variables
+        String localVarPath = "/coupon/coupons/by_code";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCouponsByCodeValidateBeforeCall(CouponDeletesRequest couponDeleteRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'couponDeleteRequest' is set
+        if (couponDeleteRequest == null) {
+            throw new ApiException("Missing the required parameter 'couponDeleteRequest' when calling deleteCouponsByCode(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteCouponsByCodeCall(couponDeleteRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Deletes multiple coupons
+     * Delete coupons on the UltraCart account. 
+     * @param couponDeleteRequest Coupon oids to delete (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteCouponsByCode(CouponDeletesRequest couponDeleteRequest) throws ApiException {
+        deleteCouponsByCodeWithHttpInfo(couponDeleteRequest);
+    }
+
+    /**
+     * Deletes multiple coupons
+     * Delete coupons on the UltraCart account. 
+     * @param couponDeleteRequest Coupon oids to delete (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteCouponsByCodeWithHttpInfo(CouponDeletesRequest couponDeleteRequest) throws ApiException {
+        com.squareup.okhttp.Call call = deleteCouponsByCodeValidateBeforeCall(couponDeleteRequest, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Deletes multiple coupons (asynchronously)
+     * Delete coupons on the UltraCart account. 
+     * @param couponDeleteRequest Coupon oids to delete (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteCouponsByCodeAsync(CouponDeletesRequest couponDeleteRequest, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCouponsByCodeValidateBeforeCall(couponDeleteRequest, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteCouponsByOid
+     * @param couponDeleteRequest Coupon oids to delete (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCouponsByOidCall(CouponDeletesRequest couponDeleteRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = couponDeleteRequest;
+
+        // create path and map variables
+        String localVarPath = "/coupon/coupons/by_oid";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCouponsByOidValidateBeforeCall(CouponDeletesRequest couponDeleteRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'couponDeleteRequest' is set
+        if (couponDeleteRequest == null) {
+            throw new ApiException("Missing the required parameter 'couponDeleteRequest' when calling deleteCouponsByOid(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteCouponsByOidCall(couponDeleteRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Deletes multiple coupons
+     * Delete coupons on the UltraCart account. 
+     * @param couponDeleteRequest Coupon oids to delete (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteCouponsByOid(CouponDeletesRequest couponDeleteRequest) throws ApiException {
+        deleteCouponsByOidWithHttpInfo(couponDeleteRequest);
+    }
+
+    /**
+     * Deletes multiple coupons
+     * Delete coupons on the UltraCart account. 
+     * @param couponDeleteRequest Coupon oids to delete (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteCouponsByOidWithHttpInfo(CouponDeletesRequest couponDeleteRequest) throws ApiException {
+        com.squareup.okhttp.Call call = deleteCouponsByOidValidateBeforeCall(couponDeleteRequest, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Deletes multiple coupons (asynchronously)
+     * Delete coupons on the UltraCart account. 
+     * @param couponDeleteRequest Coupon oids to delete (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteCouponsByOidAsync(CouponDeletesRequest couponDeleteRequest, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCouponsByOidValidateBeforeCall(couponDeleteRequest, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for doesCouponCodeExist
+     * @param merchantCode The coupon merchant code to examine. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call doesCouponCodeExistCall(String merchantCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/coupon/coupons/merchant_code/{merchant_code}/exists"
+            .replaceAll("\\{" + "merchant_code" + "\\}", apiClient.escapeString(merchantCode.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call doesCouponCodeExistValidateBeforeCall(String merchantCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'merchantCode' is set
+        if (merchantCode == null) {
+            throw new ApiException("Missing the required parameter 'merchantCode' when calling doesCouponCodeExist(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = doesCouponCodeExistCall(merchantCode, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Determines if a coupon merchant code already exists
+     * Determines if a coupon merchant code already exists. 
+     * @param merchantCode The coupon merchant code to examine. (required)
+     * @return CouponExistsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CouponExistsResponse doesCouponCodeExist(String merchantCode) throws ApiException {
+        ApiResponse<CouponExistsResponse> resp = doesCouponCodeExistWithHttpInfo(merchantCode);
+        return resp.getData();
+    }
+
+    /**
+     * Determines if a coupon merchant code already exists
+     * Determines if a coupon merchant code already exists. 
+     * @param merchantCode The coupon merchant code to examine. (required)
+     * @return ApiResponse&lt;CouponExistsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CouponExistsResponse> doesCouponCodeExistWithHttpInfo(String merchantCode) throws ApiException {
+        com.squareup.okhttp.Call call = doesCouponCodeExistValidateBeforeCall(merchantCode, null, null);
+        Type localVarReturnType = new TypeToken<CouponExistsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Determines if a coupon merchant code already exists (asynchronously)
+     * Determines if a coupon merchant code already exists. 
+     * @param merchantCode The coupon merchant code to examine. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call doesCouponCodeExistAsync(String merchantCode, final ApiCallback<CouponExistsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = doesCouponCodeExistValidateBeforeCall(merchantCode, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CouponExistsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -445,6 +807,119 @@ public class CouponApi {
 
         com.squareup.okhttp.Call call = generateOneTimeCodesByMerchantCodeValidateBeforeCall(merchantCode, couponCodesRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CouponCodesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getAutoApply
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAutoApplyCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/coupon/auto_apply";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAutoApplyValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getAutoApplyCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve auto apply rules and conditions
+     * Retrieve auto apply rules and conditions 
+     * @return CouponAutoApplyConditions
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CouponAutoApplyConditions getAutoApply() throws ApiException {
+        ApiResponse<CouponAutoApplyConditions> resp = getAutoApplyWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve auto apply rules and conditions
+     * Retrieve auto apply rules and conditions 
+     * @return ApiResponse&lt;CouponAutoApplyConditions&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CouponAutoApplyConditions> getAutoApplyWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getAutoApplyValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<CouponAutoApplyConditions>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve auto apply rules and conditions (asynchronously)
+     * Retrieve auto apply rules and conditions 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAutoApplyAsync(final ApiCallback<CouponAutoApplyConditions> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAutoApplyValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CouponAutoApplyConditions>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1285,6 +1760,383 @@ public class CouponApi {
         return call;
     }
     /**
+     * Build call for insertCoupons
+     * @param couponsRequest Coupons to insert (maximum 20) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertCouponsCall(CouponsRequest couponsRequest, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = couponsRequest;
+
+        // create path and map variables
+        String localVarPath = "/coupon/coupons/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_placeholders", placeholders));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertCouponsValidateBeforeCall(CouponsRequest couponsRequest, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'couponsRequest' is set
+        if (couponsRequest == null) {
+            throw new ApiException("Missing the required parameter 'couponsRequest' when calling insertCoupons(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertCouponsCall(couponsRequest, expand, placeholders, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert multiple coupons
+     * Insert multiple coupon on the UltraCart account. 
+     * @param couponsRequest Coupons to insert (maximum 20) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return CouponsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CouponsResponse insertCoupons(CouponsRequest couponsRequest, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<CouponsResponse> resp = insertCouponsWithHttpInfo(couponsRequest, expand, placeholders);
+        return resp.getData();
+    }
+
+    /**
+     * Insert multiple coupons
+     * Insert multiple coupon on the UltraCart account. 
+     * @param couponsRequest Coupons to insert (maximum 20) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ApiResponse&lt;CouponsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CouponsResponse> insertCouponsWithHttpInfo(CouponsRequest couponsRequest, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = insertCouponsValidateBeforeCall(couponsRequest, expand, placeholders, null, null);
+        Type localVarReturnType = new TypeToken<CouponsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert multiple coupons (asynchronously)
+     * Insert multiple coupon on the UltraCart account. 
+     * @param couponsRequest Coupons to insert (maximum 20) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertCouponsAsync(CouponsRequest couponsRequest, String expand, Boolean placeholders, final ApiCallback<CouponsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertCouponsValidateBeforeCall(couponsRequest, expand, placeholders, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CouponsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for searchItems
+     * @param s  (optional)
+     * @param m  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call searchItemsCall(String s, Integer m, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/coupon/searchItems";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (s != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("s", s));
+        if (m != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("m", m));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call searchItemsValidateBeforeCall(String s, Integer m, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = searchItemsCall(s, m, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Searches for items to display within a coupon editor and assign to coupons
+     * Searches for items to display within a coupon editor and assign to coupons 
+     * @param s  (optional)
+     * @param m  (optional)
+     * @return CouponItemSearchResultsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CouponItemSearchResultsResponse searchItems(String s, Integer m) throws ApiException {
+        ApiResponse<CouponItemSearchResultsResponse> resp = searchItemsWithHttpInfo(s, m);
+        return resp.getData();
+    }
+
+    /**
+     * Searches for items to display within a coupon editor and assign to coupons
+     * Searches for items to display within a coupon editor and assign to coupons 
+     * @param s  (optional)
+     * @param m  (optional)
+     * @return ApiResponse&lt;CouponItemSearchResultsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CouponItemSearchResultsResponse> searchItemsWithHttpInfo(String s, Integer m) throws ApiException {
+        com.squareup.okhttp.Call call = searchItemsValidateBeforeCall(s, m, null, null);
+        Type localVarReturnType = new TypeToken<CouponItemSearchResultsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Searches for items to display within a coupon editor and assign to coupons (asynchronously)
+     * Searches for items to display within a coupon editor and assign to coupons 
+     * @param s  (optional)
+     * @param m  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call searchItemsAsync(String s, Integer m, final ApiCallback<CouponItemSearchResultsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = searchItemsValidateBeforeCall(s, m, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CouponItemSearchResultsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateAutoApply
+     * @param conditions Conditions (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateAutoApplyCall(CouponAutoApplyConditions conditions, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = conditions;
+
+        // create path and map variables
+        String localVarPath = "/coupon/auto_apply";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateAutoApplyValidateBeforeCall(CouponAutoApplyConditions conditions, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conditions' is set
+        if (conditions == null) {
+            throw new ApiException("Missing the required parameter 'conditions' when calling updateAutoApply(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateAutoApplyCall(conditions, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update auto apply rules and conditions
+     * Update auto apply rules and conditions 
+     * @param conditions Conditions (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void updateAutoApply(CouponAutoApplyConditions conditions) throws ApiException {
+        updateAutoApplyWithHttpInfo(conditions);
+    }
+
+    /**
+     * Update auto apply rules and conditions
+     * Update auto apply rules and conditions 
+     * @param conditions Conditions (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> updateAutoApplyWithHttpInfo(CouponAutoApplyConditions conditions) throws ApiException {
+        com.squareup.okhttp.Call call = updateAutoApplyValidateBeforeCall(conditions, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Update auto apply rules and conditions (asynchronously)
+     * Update auto apply rules and conditions 
+     * @param conditions Conditions (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateAutoApplyAsync(CouponAutoApplyConditions conditions, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateAutoApplyValidateBeforeCall(conditions, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for updateCoupon
      * @param coupon Coupon to update (required)
      * @param couponOid The coupon_oid to update. (required)
@@ -1419,6 +2271,278 @@ public class CouponApi {
 
         com.squareup.okhttp.Call call = updateCouponValidateBeforeCall(coupon, couponOid, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CouponResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateCoupons
+     * @param couponsRequest Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param async True if the operation should be run async.  No result returned (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateCouponsCall(CouponsRequest couponsRequest, String expand, Boolean placeholders, Boolean async, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = couponsRequest;
+
+        // create path and map variables
+        String localVarPath = "/coupon/coupons/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_placeholders", placeholders));
+        if (async != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_async", async));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateCouponsValidateBeforeCall(CouponsRequest couponsRequest, String expand, Boolean placeholders, Boolean async, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'couponsRequest' is set
+        if (couponsRequest == null) {
+            throw new ApiException("Missing the required parameter 'couponsRequest' when calling updateCoupons(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateCouponsCall(couponsRequest, expand, placeholders, async, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update multiple coupons
+     * Update multiple coupon on the UltraCart account. 
+     * @param couponsRequest Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param async True if the operation should be run async.  No result returned (optional)
+     * @return CouponsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CouponsResponse updateCoupons(CouponsRequest couponsRequest, String expand, Boolean placeholders, Boolean async) throws ApiException {
+        ApiResponse<CouponsResponse> resp = updateCouponsWithHttpInfo(couponsRequest, expand, placeholders, async);
+        return resp.getData();
+    }
+
+    /**
+     * Update multiple coupons
+     * Update multiple coupon on the UltraCart account. 
+     * @param couponsRequest Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param async True if the operation should be run async.  No result returned (optional)
+     * @return ApiResponse&lt;CouponsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CouponsResponse> updateCouponsWithHttpInfo(CouponsRequest couponsRequest, String expand, Boolean placeholders, Boolean async) throws ApiException {
+        com.squareup.okhttp.Call call = updateCouponsValidateBeforeCall(couponsRequest, expand, placeholders, async, null, null);
+        Type localVarReturnType = new TypeToken<CouponsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update multiple coupons (asynchronously)
+     * Update multiple coupon on the UltraCart account. 
+     * @param couponsRequest Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param async True if the operation should be run async.  No result returned (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateCouponsAsync(CouponsRequest couponsRequest, String expand, Boolean placeholders, Boolean async, final ApiCallback<CouponsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateCouponsValidateBeforeCall(couponsRequest, expand, placeholders, async, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CouponsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for uploadCouponCodes
+     * @param couponOid The coupon oid to associate with the provided one-time codes. (required)
+     * @param uploadCouponCodesRequest One-time coupon codes (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call uploadCouponCodesCall(Integer couponOid, UploadCouponCodesRequest uploadCouponCodesRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = uploadCouponCodesRequest;
+
+        // create path and map variables
+        String localVarPath = "/coupon/coupons/{coupon_oid}/upload_codes"
+            .replaceAll("\\{" + "coupon_oid" + "\\}", apiClient.escapeString(couponOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call uploadCouponCodesValidateBeforeCall(Integer couponOid, UploadCouponCodesRequest uploadCouponCodesRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'couponOid' is set
+        if (couponOid == null) {
+            throw new ApiException("Missing the required parameter 'couponOid' when calling uploadCouponCodes(Async)");
+        }
+        
+        // verify the required parameter 'uploadCouponCodesRequest' is set
+        if (uploadCouponCodesRequest == null) {
+            throw new ApiException("Missing the required parameter 'uploadCouponCodesRequest' when calling uploadCouponCodes(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = uploadCouponCodesCall(couponOid, uploadCouponCodesRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Upload one-time codes for a coupon
+     * Upload one-time codes for a coupon 
+     * @param couponOid The coupon oid to associate with the provided one-time codes. (required)
+     * @param uploadCouponCodesRequest One-time coupon codes (required)
+     * @return UploadCouponCodesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UploadCouponCodesResponse uploadCouponCodes(Integer couponOid, UploadCouponCodesRequest uploadCouponCodesRequest) throws ApiException {
+        ApiResponse<UploadCouponCodesResponse> resp = uploadCouponCodesWithHttpInfo(couponOid, uploadCouponCodesRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Upload one-time codes for a coupon
+     * Upload one-time codes for a coupon 
+     * @param couponOid The coupon oid to associate with the provided one-time codes. (required)
+     * @param uploadCouponCodesRequest One-time coupon codes (required)
+     * @return ApiResponse&lt;UploadCouponCodesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UploadCouponCodesResponse> uploadCouponCodesWithHttpInfo(Integer couponOid, UploadCouponCodesRequest uploadCouponCodesRequest) throws ApiException {
+        com.squareup.okhttp.Call call = uploadCouponCodesValidateBeforeCall(couponOid, uploadCouponCodesRequest, null, null);
+        Type localVarReturnType = new TypeToken<UploadCouponCodesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Upload one-time codes for a coupon (asynchronously)
+     * Upload one-time codes for a coupon 
+     * @param couponOid The coupon oid to associate with the provided one-time codes. (required)
+     * @param uploadCouponCodesRequest One-time coupon codes (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call uploadCouponCodesAsync(Integer couponOid, UploadCouponCodesRequest uploadCouponCodesRequest, final ApiCallback<UploadCouponCodesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = uploadCouponCodesValidateBeforeCall(couponOid, uploadCouponCodesRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UploadCouponCodesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

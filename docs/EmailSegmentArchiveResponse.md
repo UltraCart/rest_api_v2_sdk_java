@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  |  [optional]
 **segmentInUse** | **Boolean** |  |  [optional]
 **success** | **Boolean** | Indicates if API call was successful |  [optional]
+**warning** | [**Warning**](Warning.md) |  |  [optional]
 
 
 

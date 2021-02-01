@@ -28,11 +28,17 @@ import java.io.IOException;
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
 public class OrderSummary {
+  @SerializedName("actual_fulfillment")
+  private Currency actualFulfillment = null;
+
+  @SerializedName("actual_shipping")
+  private Currency actualShipping = null;
+
   @SerializedName("arbitrary_shipping_handling_total")
   private Currency arbitraryShippingHandlingTotal = null;
 
@@ -77,6 +83,42 @@ public class OrderSummary {
 
   @SerializedName("total_refunded")
   private Currency totalRefunded = null;
+
+  public OrderSummary actualFulfillment(Currency actualFulfillment) {
+    this.actualFulfillment = actualFulfillment;
+    return this;
+  }
+
+   /**
+   * Get actualFulfillment
+   * @return actualFulfillment
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getActualFulfillment() {
+    return actualFulfillment;
+  }
+
+  public void setActualFulfillment(Currency actualFulfillment) {
+    this.actualFulfillment = actualFulfillment;
+  }
+
+  public OrderSummary actualShipping(Currency actualShipping) {
+    this.actualShipping = actualShipping;
+    return this;
+  }
+
+   /**
+   * Get actualShipping
+   * @return actualShipping
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getActualShipping() {
+    return actualShipping;
+  }
+
+  public void setActualShipping(Currency actualShipping) {
+    this.actualShipping = actualShipping;
+  }
 
   public OrderSummary arbitraryShippingHandlingTotal(Currency arbitraryShippingHandlingTotal) {
     this.arbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
@@ -358,7 +400,9 @@ public class OrderSummary {
       return false;
     }
     OrderSummary orderSummary = (OrderSummary) o;
-    return Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
+    return Objects.equals(this.actualFulfillment, orderSummary.actualFulfillment) &&
+        Objects.equals(this.actualShipping, orderSummary.actualShipping) &&
+        Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
         Objects.equals(this.otherRefunded, orderSummary.otherRefunded) &&
         Objects.equals(this.shippingHandlingRefunded, orderSummary.shippingHandlingRefunded) &&
         Objects.equals(this.shippingHandlingTotal, orderSummary.shippingHandlingTotal) &&
@@ -377,7 +421,7 @@ public class OrderSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryShippingHandlingTotal, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
+    return Objects.hash(actualFulfillment, actualShipping, arbitraryShippingHandlingTotal, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
   }
 
 
@@ -386,6 +430,8 @@ public class OrderSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderSummary {\n");
     
+    sb.append("    actualFulfillment: ").append(toIndentedString(actualFulfillment)).append("\n");
+    sb.append("    actualShipping: ").append(toIndentedString(actualShipping)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
     sb.append("    otherRefunded: ").append(toIndentedString(otherRefunded)).append("\n");
     sb.append("    shippingHandlingRefunded: ").append(toIndentedString(shippingHandlingRefunded)).append("\n");

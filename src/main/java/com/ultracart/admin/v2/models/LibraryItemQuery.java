@@ -23,11 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * LibraryItemQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -44,8 +45,20 @@ public class LibraryItemQuery {
   @SerializedName("industry")
   private String industry = null;
 
-  @SerializedName("public_items")
-  private Boolean publicItems = null;
+  @SerializedName("price_high")
+  private BigDecimal priceHigh = null;
+
+  @SerializedName("price_low")
+  private BigDecimal priceLow = null;
+
+  @SerializedName("published_dts_begin")
+  private String publishedDtsBegin = null;
+
+  @SerializedName("published_dts_end")
+  private String publishedDtsEnd = null;
+
+  @SerializedName("source_of_published")
+  private Boolean sourceOfPublished = null;
 
   @SerializedName("style")
   private String style = null;
@@ -128,22 +141,94 @@ public class LibraryItemQuery {
     this.industry = industry;
   }
 
-  public LibraryItemQuery publicItems(Boolean publicItems) {
-    this.publicItems = publicItems;
+  public LibraryItemQuery priceHigh(BigDecimal priceHigh) {
+    this.priceHigh = priceHigh;
     return this;
   }
 
    /**
-   * Boolean, true returns back public items as well as merchant owned items
-   * @return publicItems
+   * Maximum price
+   * @return priceHigh
   **/
-  @ApiModelProperty(value = "Boolean, true returns back public items as well as merchant owned items")
-  public Boolean isPublicItems() {
-    return publicItems;
+  @ApiModelProperty(value = "Maximum price")
+  public BigDecimal getPriceHigh() {
+    return priceHigh;
   }
 
-  public void setPublicItems(Boolean publicItems) {
-    this.publicItems = publicItems;
+  public void setPriceHigh(BigDecimal priceHigh) {
+    this.priceHigh = priceHigh;
+  }
+
+  public LibraryItemQuery priceLow(BigDecimal priceLow) {
+    this.priceLow = priceLow;
+    return this;
+  }
+
+   /**
+   * Minimum price
+   * @return priceLow
+  **/
+  @ApiModelProperty(value = "Minimum price")
+  public BigDecimal getPriceLow() {
+    return priceLow;
+  }
+
+  public void setPriceLow(BigDecimal priceLow) {
+    this.priceLow = priceLow;
+  }
+
+  public LibraryItemQuery publishedDtsBegin(String publishedDtsBegin) {
+    this.publishedDtsBegin = publishedDtsBegin;
+    return this;
+  }
+
+   /**
+   * Minimum published date/time
+   * @return publishedDtsBegin
+  **/
+  @ApiModelProperty(value = "Minimum published date/time")
+  public String getPublishedDtsBegin() {
+    return publishedDtsBegin;
+  }
+
+  public void setPublishedDtsBegin(String publishedDtsBegin) {
+    this.publishedDtsBegin = publishedDtsBegin;
+  }
+
+  public LibraryItemQuery publishedDtsEnd(String publishedDtsEnd) {
+    this.publishedDtsEnd = publishedDtsEnd;
+    return this;
+  }
+
+   /**
+   * Maximum published date/time
+   * @return publishedDtsEnd
+  **/
+  @ApiModelProperty(value = "Maximum published date/time")
+  public String getPublishedDtsEnd() {
+    return publishedDtsEnd;
+  }
+
+  public void setPublishedDtsEnd(String publishedDtsEnd) {
+    this.publishedDtsEnd = publishedDtsEnd;
+  }
+
+  public LibraryItemQuery sourceOfPublished(Boolean sourceOfPublished) {
+    this.sourceOfPublished = sourceOfPublished;
+    return this;
+  }
+
+   /**
+   * Boolean, true if this library item has been published and is the master copy of that published work
+   * @return sourceOfPublished
+  **/
+  @ApiModelProperty(value = "Boolean, true if this library item has been published and is the master copy of that published work")
+  public Boolean isSourceOfPublished() {
+    return sourceOfPublished;
+  }
+
+  public void setSourceOfPublished(Boolean sourceOfPublished) {
+    this.sourceOfPublished = sourceOfPublished;
   }
 
   public LibraryItemQuery style(String style) {
@@ -214,7 +299,11 @@ public class LibraryItemQuery {
         Objects.equals(this.contentType, libraryItemQuery.contentType) &&
         Objects.equals(this.description, libraryItemQuery.description) &&
         Objects.equals(this.industry, libraryItemQuery.industry) &&
-        Objects.equals(this.publicItems, libraryItemQuery.publicItems) &&
+        Objects.equals(this.priceHigh, libraryItemQuery.priceHigh) &&
+        Objects.equals(this.priceLow, libraryItemQuery.priceLow) &&
+        Objects.equals(this.publishedDtsBegin, libraryItemQuery.publishedDtsBegin) &&
+        Objects.equals(this.publishedDtsEnd, libraryItemQuery.publishedDtsEnd) &&
+        Objects.equals(this.sourceOfPublished, libraryItemQuery.sourceOfPublished) &&
         Objects.equals(this.style, libraryItemQuery.style) &&
         Objects.equals(this.title, libraryItemQuery.title) &&
         Objects.equals(this.type, libraryItemQuery.type);
@@ -222,7 +311,7 @@ public class LibraryItemQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, contentType, description, industry, publicItems, style, title, type);
+    return Objects.hash(category, contentType, description, industry, priceHigh, priceLow, publishedDtsBegin, publishedDtsEnd, sourceOfPublished, style, title, type);
   }
 
 
@@ -235,7 +324,11 @@ public class LibraryItemQuery {
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
-    sb.append("    publicItems: ").append(toIndentedString(publicItems)).append("\n");
+    sb.append("    priceHigh: ").append(toIndentedString(priceHigh)).append("\n");
+    sb.append("    priceLow: ").append(toIndentedString(priceLow)).append("\n");
+    sb.append("    publishedDtsBegin: ").append(toIndentedString(publishedDtsBegin)).append("\n");
+    sb.append("    publishedDtsEnd: ").append(toIndentedString(publishedDtsEnd)).append("\n");
+    sb.append("    sourceOfPublished: ").append(toIndentedString(sourceOfPublished)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

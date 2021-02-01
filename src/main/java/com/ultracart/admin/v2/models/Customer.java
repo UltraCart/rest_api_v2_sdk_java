@@ -46,7 +46,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -1167,10 +1167,10 @@ public class Customer {
   }
 
    /**
-   * Suppress buySAFE
+   * Suppress buySAFE (deprecated)
    * @return suppressBuysafe
   **/
-  @ApiModelProperty(value = "Suppress buySAFE")
+  @ApiModelProperty(value = "Suppress buySAFE (deprecated)")
   public Boolean isSuppressBuysafe() {
     return suppressBuysafe;
   }

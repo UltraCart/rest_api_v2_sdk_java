@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.EmailCommseqStat;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.io.IOException;
 /**
  * EmailCommseqStatResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -46,6 +47,9 @@ public class EmailCommseqStatResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public EmailCommseqStatResponse error(Error error) {
     this.error = error;
@@ -119,6 +123,24 @@ public class EmailCommseqStatResponse {
     this.success = success;
   }
 
+  public EmailCommseqStatResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +154,13 @@ public class EmailCommseqStatResponse {
     return Objects.equals(this.error, emailCommseqStatResponse.error) &&
         Objects.equals(this.metadata, emailCommseqStatResponse.metadata) &&
         Objects.equals(this.stats, emailCommseqStatResponse.stats) &&
-        Objects.equals(this.success, emailCommseqStatResponse.success);
+        Objects.equals(this.success, emailCommseqStatResponse.success) &&
+        Objects.equals(this.warning, emailCommseqStatResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, stats, success);
+    return Objects.hash(error, metadata, stats, success, warning);
   }
 
 
@@ -150,6 +173,7 @@ public class EmailCommseqStatResponse {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

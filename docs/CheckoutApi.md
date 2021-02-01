@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getCart**](CheckoutApi.md#getCart) | **GET** /checkout/cart | Get cart
 [**getCartByCartId**](CheckoutApi.md#getCartByCartId) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
 [**getCartByReturnCode**](CheckoutApi.md#getCartByReturnCode) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**getCartByReturnToken**](CheckoutApi.md#getCartByReturnToken) | **GET** /checkout/return_token | Get cart (by return token)
 [**getStateProvincesForCountry**](CheckoutApi.md#getStateProvincesForCountry) | **POST** /checkout/stateProvincesForCountry/{country_code} | Get state/province list for a country code
 [**handoffCart**](CheckoutApi.md#handoffCart) | **POST** /checkout/cart/handoff | Handoff cart
 [**login**](CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
@@ -473,6 +474,73 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getCartByReturnToken"></a>
+# **getCartByReturnToken**
+> CartResponse getCartByReturnToken(returnToken, expand)
+
+Get cart (by return token)
+
+Get a cart specified by the encrypted return token parameter. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CheckoutApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
+ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure API key authorization: ultraCartSimpleApiKey
+ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+CheckoutApi apiInstance = new CheckoutApi();
+String returnToken = "returnToken_example"; // String | Return token provided by StoreFront Communications
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CartResponse result = apiInstance.getCartByReturnToken(returnToken, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CheckoutApi#getCartByReturnToken");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **returnToken** | **String**| Return token provided by StoreFront Communications | [optional]
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**CartResponse**](CartResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="getStateProvincesForCountry"></a>
 # **getStateProvincesForCountry**
 > CheckoutStateProvinceResponse getStateProvincesForCountry(countryCode)
@@ -544,7 +612,7 @@ Name | Type | Description  | Notes
 
 Handoff cart
 
-Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
 
 ### Example
 ```java
@@ -808,7 +876,7 @@ Name | Type | Description  | Notes
 
 <a name="registerAffiliateClick"></a>
 # **registerAffiliateClick**
-> CheckoutHandoffResponse registerAffiliateClick(registerAffiliateClickRequest, expand)
+> RegisterAffiliateClickResponse registerAffiliateClick(registerAffiliateClickRequest, expand)
 
 Register affiliate click
 
@@ -845,7 +913,7 @@ CheckoutApi apiInstance = new CheckoutApi();
 RegisterAffiliateClickRequest registerAffiliateClickRequest = new RegisterAffiliateClickRequest(); // RegisterAffiliateClickRequest | Register affiliate click request
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    CheckoutHandoffResponse result = apiInstance.registerAffiliateClick(registerAffiliateClickRequest, expand);
+    RegisterAffiliateClickResponse result = apiInstance.registerAffiliateClick(registerAffiliateClickRequest, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CheckoutApi#registerAffiliateClick");
@@ -862,7 +930,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CheckoutHandoffResponse**](CheckoutHandoffResponse.md)
+[**RegisterAffiliateClickResponse**](RegisterAffiliateClickResponse.md)
 
 ### Authorization
 

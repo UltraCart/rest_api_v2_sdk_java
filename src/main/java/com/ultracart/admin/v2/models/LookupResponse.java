@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.KeyValue;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -32,7 +33,7 @@ import java.util.List;
 /**
  * LookupResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -48,6 +49,9 @@ public class LookupResponse {
 
   @SerializedName("values")
   private List<KeyValue> values = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public LookupResponse error(Error error) {
     this.error = error;
@@ -129,6 +133,24 @@ public class LookupResponse {
     this.values = values;
   }
 
+  public LookupResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -142,12 +164,13 @@ public class LookupResponse {
     return Objects.equals(this.error, lookupResponse.error) &&
         Objects.equals(this.metadata, lookupResponse.metadata) &&
         Objects.equals(this.success, lookupResponse.success) &&
-        Objects.equals(this.values, lookupResponse.values);
+        Objects.equals(this.values, lookupResponse.values) &&
+        Objects.equals(this.warning, lookupResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, success, values);
+    return Objects.hash(error, metadata, success, values, warning);
   }
 
 
@@ -160,6 +183,7 @@ public class LookupResponse {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * TransactionEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -64,6 +64,9 @@ public class TransactionEmail {
 
   @SerializedName("last_modified")
   private String lastModified = null;
+
+  @SerializedName("library_item_oid")
+  private Integer libraryItemOid = null;
 
   @SerializedName("options")
   private List<TransactionEmailOption> options = null;
@@ -280,6 +283,24 @@ public class TransactionEmail {
     this.lastModified = lastModified;
   }
 
+  public TransactionEmail libraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+    return this;
+  }
+
+   /**
+   * If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+   * @return libraryItemOid
+  **/
+  @ApiModelProperty(value = "If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.")
+  public Integer getLibraryItemOid() {
+    return libraryItemOid;
+  }
+
+  public void setLibraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+  }
+
   public TransactionEmail options(List<TransactionEmailOption> options) {
     this.options = options;
     return this;
@@ -470,6 +491,7 @@ public class TransactionEmail {
         Objects.equals(this.handlebarVariables, transactionEmail.handlebarVariables) &&
         Objects.equals(this.invalid, transactionEmail.invalid) &&
         Objects.equals(this.lastModified, transactionEmail.lastModified) &&
+        Objects.equals(this.libraryItemOid, transactionEmail.libraryItemOid) &&
         Objects.equals(this.options, transactionEmail.options) &&
         Objects.equals(this.path, transactionEmail.path) &&
         Objects.equals(this.size, transactionEmail.size) &&
@@ -483,7 +505,7 @@ public class TransactionEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, espDomainUuid, espFriendlyName, espUser, fileExists, fileName, group, handlebarVariables, invalid, lastModified, options, path, size, storeFrontFsDirectoryOid, storeFrontFsFileOid, subject, syntaxErrors, templatePathRelativePath, themeRelativePath);
+    return Objects.hash(content, espDomainUuid, espFriendlyName, espUser, fileExists, fileName, group, handlebarVariables, invalid, lastModified, libraryItemOid, options, path, size, storeFrontFsDirectoryOid, storeFrontFsFileOid, subject, syntaxErrors, templatePathRelativePath, themeRelativePath);
   }
 
 
@@ -502,6 +524,7 @@ public class TransactionEmail {
     sb.append("    handlebarVariables: ").append(toIndentedString(handlebarVariables)).append("\n");
     sb.append("    invalid: ").append(toIndentedString(invalid)).append("\n");
     sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
+    sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");

@@ -20,6 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CouponType;
+import com.ultracart.admin.v2.models.SimpleValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,13 +31,66 @@ import java.util.List;
 /**
  * CouponEditorValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
 public class CouponEditorValues {
+  @SerializedName("affiliates")
+  private List<SimpleValue> affiliates = null;
+
   @SerializedName("coupon_types")
   private List<String> couponTypes = null;
+
+  @SerializedName("coupon_types_for_display")
+  private List<CouponType> couponTypesForDisplay = null;
+
+  @SerializedName("currency_codes")
+  private List<String> currencyCodes = null;
+
+  @SerializedName("deprecated_themes")
+  private List<SimpleValue> deprecatedThemes = null;
+
+  @SerializedName("mix_and_match_names")
+  private List<String> mixAndMatchNames = null;
+
+  @SerializedName("shipping_methods")
+  private List<String> shippingMethods = null;
+
+  @SerializedName("storefronts")
+  private List<SimpleValue> storefronts = null;
+
+  @SerializedName("usable_by")
+  private List<SimpleValue> usableBy = null;
+
+  @SerializedName("valid_with_other_coupons")
+  private List<String> validWithOtherCoupons = null;
+
+  public CouponEditorValues affiliates(List<SimpleValue> affiliates) {
+    this.affiliates = affiliates;
+    return this;
+  }
+
+  public CouponEditorValues addAffiliatesItem(SimpleValue affiliatesItem) {
+    if (this.affiliates == null) {
+      this.affiliates = new ArrayList<SimpleValue>();
+    }
+    this.affiliates.add(affiliatesItem);
+    return this;
+  }
+
+   /**
+   * affiliates
+   * @return affiliates
+  **/
+  @ApiModelProperty(value = "affiliates")
+  public List<SimpleValue> getAffiliates() {
+    return affiliates;
+  }
+
+  public void setAffiliates(List<SimpleValue> affiliates) {
+    this.affiliates = affiliates;
+  }
 
   public CouponEditorValues couponTypes(List<String> couponTypes) {
     this.couponTypes = couponTypes;
@@ -63,6 +118,214 @@ public class CouponEditorValues {
     this.couponTypes = couponTypes;
   }
 
+  public CouponEditorValues couponTypesForDisplay(List<CouponType> couponTypesForDisplay) {
+    this.couponTypesForDisplay = couponTypesForDisplay;
+    return this;
+  }
+
+  public CouponEditorValues addCouponTypesForDisplayItem(CouponType couponTypesForDisplayItem) {
+    if (this.couponTypesForDisplay == null) {
+      this.couponTypesForDisplay = new ArrayList<CouponType>();
+    }
+    this.couponTypesForDisplay.add(couponTypesForDisplayItem);
+    return this;
+  }
+
+   /**
+   * coupon_types_for_display
+   * @return couponTypesForDisplay
+  **/
+  @ApiModelProperty(value = "coupon_types_for_display")
+  public List<CouponType> getCouponTypesForDisplay() {
+    return couponTypesForDisplay;
+  }
+
+  public void setCouponTypesForDisplay(List<CouponType> couponTypesForDisplay) {
+    this.couponTypesForDisplay = couponTypesForDisplay;
+  }
+
+  public CouponEditorValues currencyCodes(List<String> currencyCodes) {
+    this.currencyCodes = currencyCodes;
+    return this;
+  }
+
+  public CouponEditorValues addCurrencyCodesItem(String currencyCodesItem) {
+    if (this.currencyCodes == null) {
+      this.currencyCodes = new ArrayList<String>();
+    }
+    this.currencyCodes.add(currencyCodesItem);
+    return this;
+  }
+
+   /**
+   * currency_codes
+   * @return currencyCodes
+  **/
+  @ApiModelProperty(value = "currency_codes")
+  public List<String> getCurrencyCodes() {
+    return currencyCodes;
+  }
+
+  public void setCurrencyCodes(List<String> currencyCodes) {
+    this.currencyCodes = currencyCodes;
+  }
+
+  public CouponEditorValues deprecatedThemes(List<SimpleValue> deprecatedThemes) {
+    this.deprecatedThemes = deprecatedThemes;
+    return this;
+  }
+
+  public CouponEditorValues addDeprecatedThemesItem(SimpleValue deprecatedThemesItem) {
+    if (this.deprecatedThemes == null) {
+      this.deprecatedThemes = new ArrayList<SimpleValue>();
+    }
+    this.deprecatedThemes.add(deprecatedThemesItem);
+    return this;
+  }
+
+   /**
+   * deprecated_themes
+   * @return deprecatedThemes
+  **/
+  @ApiModelProperty(value = "deprecated_themes")
+  public List<SimpleValue> getDeprecatedThemes() {
+    return deprecatedThemes;
+  }
+
+  public void setDeprecatedThemes(List<SimpleValue> deprecatedThemes) {
+    this.deprecatedThemes = deprecatedThemes;
+  }
+
+  public CouponEditorValues mixAndMatchNames(List<String> mixAndMatchNames) {
+    this.mixAndMatchNames = mixAndMatchNames;
+    return this;
+  }
+
+  public CouponEditorValues addMixAndMatchNamesItem(String mixAndMatchNamesItem) {
+    if (this.mixAndMatchNames == null) {
+      this.mixAndMatchNames = new ArrayList<String>();
+    }
+    this.mixAndMatchNames.add(mixAndMatchNamesItem);
+    return this;
+  }
+
+   /**
+   * mix_and_match_names
+   * @return mixAndMatchNames
+  **/
+  @ApiModelProperty(value = "mix_and_match_names")
+  public List<String> getMixAndMatchNames() {
+    return mixAndMatchNames;
+  }
+
+  public void setMixAndMatchNames(List<String> mixAndMatchNames) {
+    this.mixAndMatchNames = mixAndMatchNames;
+  }
+
+  public CouponEditorValues shippingMethods(List<String> shippingMethods) {
+    this.shippingMethods = shippingMethods;
+    return this;
+  }
+
+  public CouponEditorValues addShippingMethodsItem(String shippingMethodsItem) {
+    if (this.shippingMethods == null) {
+      this.shippingMethods = new ArrayList<String>();
+    }
+    this.shippingMethods.add(shippingMethodsItem);
+    return this;
+  }
+
+   /**
+   * shipping_methods
+   * @return shippingMethods
+  **/
+  @ApiModelProperty(value = "shipping_methods")
+  public List<String> getShippingMethods() {
+    return shippingMethods;
+  }
+
+  public void setShippingMethods(List<String> shippingMethods) {
+    this.shippingMethods = shippingMethods;
+  }
+
+  public CouponEditorValues storefronts(List<SimpleValue> storefronts) {
+    this.storefronts = storefronts;
+    return this;
+  }
+
+  public CouponEditorValues addStorefrontsItem(SimpleValue storefrontsItem) {
+    if (this.storefronts == null) {
+      this.storefronts = new ArrayList<SimpleValue>();
+    }
+    this.storefronts.add(storefrontsItem);
+    return this;
+  }
+
+   /**
+   * storefronts
+   * @return storefronts
+  **/
+  @ApiModelProperty(value = "storefronts")
+  public List<SimpleValue> getStorefronts() {
+    return storefronts;
+  }
+
+  public void setStorefronts(List<SimpleValue> storefronts) {
+    this.storefronts = storefronts;
+  }
+
+  public CouponEditorValues usableBy(List<SimpleValue> usableBy) {
+    this.usableBy = usableBy;
+    return this;
+  }
+
+  public CouponEditorValues addUsableByItem(SimpleValue usableByItem) {
+    if (this.usableBy == null) {
+      this.usableBy = new ArrayList<SimpleValue>();
+    }
+    this.usableBy.add(usableByItem);
+    return this;
+  }
+
+   /**
+   * usable_by
+   * @return usableBy
+  **/
+  @ApiModelProperty(value = "usable_by")
+  public List<SimpleValue> getUsableBy() {
+    return usableBy;
+  }
+
+  public void setUsableBy(List<SimpleValue> usableBy) {
+    this.usableBy = usableBy;
+  }
+
+  public CouponEditorValues validWithOtherCoupons(List<String> validWithOtherCoupons) {
+    this.validWithOtherCoupons = validWithOtherCoupons;
+    return this;
+  }
+
+  public CouponEditorValues addValidWithOtherCouponsItem(String validWithOtherCouponsItem) {
+    if (this.validWithOtherCoupons == null) {
+      this.validWithOtherCoupons = new ArrayList<String>();
+    }
+    this.validWithOtherCoupons.add(validWithOtherCouponsItem);
+    return this;
+  }
+
+   /**
+   * valid_with_other_coupons
+   * @return validWithOtherCoupons
+  **/
+  @ApiModelProperty(value = "valid_with_other_coupons")
+  public List<String> getValidWithOtherCoupons() {
+    return validWithOtherCoupons;
+  }
+
+  public void setValidWithOtherCoupons(List<String> validWithOtherCoupons) {
+    this.validWithOtherCoupons = validWithOtherCoupons;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +336,21 @@ public class CouponEditorValues {
       return false;
     }
     CouponEditorValues couponEditorValues = (CouponEditorValues) o;
-    return Objects.equals(this.couponTypes, couponEditorValues.couponTypes);
+    return Objects.equals(this.affiliates, couponEditorValues.affiliates) &&
+        Objects.equals(this.couponTypes, couponEditorValues.couponTypes) &&
+        Objects.equals(this.couponTypesForDisplay, couponEditorValues.couponTypesForDisplay) &&
+        Objects.equals(this.currencyCodes, couponEditorValues.currencyCodes) &&
+        Objects.equals(this.deprecatedThemes, couponEditorValues.deprecatedThemes) &&
+        Objects.equals(this.mixAndMatchNames, couponEditorValues.mixAndMatchNames) &&
+        Objects.equals(this.shippingMethods, couponEditorValues.shippingMethods) &&
+        Objects.equals(this.storefronts, couponEditorValues.storefronts) &&
+        Objects.equals(this.usableBy, couponEditorValues.usableBy) &&
+        Objects.equals(this.validWithOtherCoupons, couponEditorValues.validWithOtherCoupons);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(couponTypes);
+    return Objects.hash(affiliates, couponTypes, couponTypesForDisplay, currencyCodes, deprecatedThemes, mixAndMatchNames, shippingMethods, storefronts, usableBy, validWithOtherCoupons);
   }
 
 
@@ -87,7 +359,16 @@ public class CouponEditorValues {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponEditorValues {\n");
     
+    sb.append("    affiliates: ").append(toIndentedString(affiliates)).append("\n");
     sb.append("    couponTypes: ").append(toIndentedString(couponTypes)).append("\n");
+    sb.append("    couponTypesForDisplay: ").append(toIndentedString(couponTypesForDisplay)).append("\n");
+    sb.append("    currencyCodes: ").append(toIndentedString(currencyCodes)).append("\n");
+    sb.append("    deprecatedThemes: ").append(toIndentedString(deprecatedThemes)).append("\n");
+    sb.append("    mixAndMatchNames: ").append(toIndentedString(mixAndMatchNames)).append("\n");
+    sb.append("    shippingMethods: ").append(toIndentedString(shippingMethods)).append("\n");
+    sb.append("    storefronts: ").append(toIndentedString(storefronts)).append("\n");
+    sb.append("    usableBy: ").append(toIndentedString(usableBy)).append("\n");
+    sb.append("    validWithOtherCoupons: ").append(toIndentedString(validWithOtherCoupons)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CouponAmountOffItems
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -43,6 +43,9 @@ public class CouponAmountOffItems {
 
   @SerializedName("items")
   private List<String> items = null;
+
+  @SerializedName("limit")
+  private Integer limit = null;
 
   public CouponAmountOffItems currencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
@@ -106,6 +109,24 @@ public class CouponAmountOffItems {
     this.items = items;
   }
 
+  public CouponAmountOffItems limit(Integer limit) {
+    this.limit = limit;
+    return this;
+  }
+
+   /**
+   * The limit of items which are eligible for the discount amount.
+   * @return limit
+  **/
+  @ApiModelProperty(value = "The limit of items which are eligible for the discount amount.")
+  public Integer getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -118,12 +139,13 @@ public class CouponAmountOffItems {
     CouponAmountOffItems couponAmountOffItems = (CouponAmountOffItems) o;
     return Objects.equals(this.currencyCode, couponAmountOffItems.currencyCode) &&
         Objects.equals(this.discountAmount, couponAmountOffItems.discountAmount) &&
-        Objects.equals(this.items, couponAmountOffItems.items);
+        Objects.equals(this.items, couponAmountOffItems.items) &&
+        Objects.equals(this.limit, couponAmountOffItems.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, discountAmount, items);
+    return Objects.hash(currencyCode, discountAmount, items, limit);
   }
 
 
@@ -135,6 +157,7 @@ public class CouponAmountOffItems {
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

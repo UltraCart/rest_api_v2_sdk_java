@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TaxJarConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -40,6 +40,9 @@ public class TaxJarConfig {
 
   @SerializedName("estimate_only")
   private Boolean estimateOnly = null;
+
+  @SerializedName("send_outside_nexus")
+  private Boolean sendOutsideNexus = null;
 
   @SerializedName("send_test_orders")
   private Boolean sendTestOrders = null;
@@ -101,6 +104,24 @@ public class TaxJarConfig {
     this.estimateOnly = estimateOnly;
   }
 
+  public TaxJarConfig sendOutsideNexus(Boolean sendOutsideNexus) {
+    this.sendOutsideNexus = sendOutsideNexus;
+    return this;
+  }
+
+   /**
+   * Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state.
+   * @return sendOutsideNexus
+  **/
+  @ApiModelProperty(value = "Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state.")
+  public Boolean isSendOutsideNexus() {
+    return sendOutsideNexus;
+  }
+
+  public void setSendOutsideNexus(Boolean sendOutsideNexus) {
+    this.sendOutsideNexus = sendOutsideNexus;
+  }
+
   public TaxJarConfig sendTestOrders(Boolean sendTestOrders) {
     this.sendTestOrders = sendTestOrders;
     return this;
@@ -150,13 +171,14 @@ public class TaxJarConfig {
     return Objects.equals(this.active, taxJarConfig.active) &&
         Objects.equals(this.apiKey, taxJarConfig.apiKey) &&
         Objects.equals(this.estimateOnly, taxJarConfig.estimateOnly) &&
+        Objects.equals(this.sendOutsideNexus, taxJarConfig.sendOutsideNexus) &&
         Objects.equals(this.sendTestOrders, taxJarConfig.sendTestOrders) &&
         Objects.equals(this.useDistributionCenterFrom, taxJarConfig.useDistributionCenterFrom);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, apiKey, estimateOnly, sendTestOrders, useDistributionCenterFrom);
+    return Objects.hash(active, apiKey, estimateOnly, sendOutsideNexus, sendTestOrders, useDistributionCenterFrom);
   }
 
 
@@ -168,6 +190,7 @@ public class TaxJarConfig {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
+    sb.append("    sendOutsideNexus: ").append(toIndentedString(sendOutsideNexus)).append("\n");
     sb.append("    sendTestOrders: ").append(toIndentedString(sendTestOrders)).append("\n");
     sb.append("    useDistributionCenterFrom: ").append(toIndentedString(useDistributionCenterFrom)).append("\n");
     sb.append("}");

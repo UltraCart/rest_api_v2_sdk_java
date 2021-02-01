@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemCheckout
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -47,10 +47,10 @@ public class ItemCheckout {
   }
 
    /**
-   * True to suppress buySAFE
+   * True to suppress buySAFE (deprecated)
    * @return suppressBuysafe
   **/
-  @ApiModelProperty(value = "True to suppress buySAFE")
+  @ApiModelProperty(value = "True to suppress buySAFE (deprecated)")
   public Boolean isSuppressBuysafe() {
     return suppressBuysafe;
   }

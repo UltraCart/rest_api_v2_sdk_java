@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -53,6 +53,9 @@ public class EmailCampaign {
   @SerializedName("end_once_customer_purchases")
   private Boolean endOnceCustomerPurchases = null;
 
+  @SerializedName("esp_campaign_folder_uuid")
+  private String espCampaignFolderUuid = null;
+
   @SerializedName("esp_domain_user")
   private String espDomainUser = null;
 
@@ -61,6 +64,9 @@ public class EmailCampaign {
 
   @SerializedName("esp_friendly_name")
   private String espFriendlyName = null;
+
+  @SerializedName("library_item_oid")
+  private Integer libraryItemOid = null;
 
   @SerializedName("memberships")
   private List<EmailListSegmentMembership> memberships = null;
@@ -80,8 +86,14 @@ public class EmailCampaign {
   @SerializedName("revenue_formatted")
   private String revenueFormatted = null;
 
+  @SerializedName("revenue_per_customer_formatted")
+  private String revenuePerCustomerFormatted = null;
+
   @SerializedName("scheduled_dts")
   private String scheduledDts = null;
+
+  @SerializedName("screenshot_large_full_url")
+  private String screenshotLargeFullUrl = null;
 
   @SerializedName("status")
   private String status = null;
@@ -200,6 +212,24 @@ public class EmailCampaign {
     this.endOnceCustomerPurchases = endOnceCustomerPurchases;
   }
 
+  public EmailCampaign espCampaignFolderUuid(String espCampaignFolderUuid) {
+    this.espCampaignFolderUuid = espCampaignFolderUuid;
+    return this;
+  }
+
+   /**
+   * Campaign folder UUID.  Null for uncategorized
+   * @return espCampaignFolderUuid
+  **/
+  @ApiModelProperty(value = "Campaign folder UUID.  Null for uncategorized")
+  public String getEspCampaignFolderUuid() {
+    return espCampaignFolderUuid;
+  }
+
+  public void setEspCampaignFolderUuid(String espCampaignFolderUuid) {
+    this.espCampaignFolderUuid = espCampaignFolderUuid;
+  }
+
   public EmailCampaign espDomainUser(String espDomainUser) {
     this.espDomainUser = espDomainUser;
     return this;
@@ -252,6 +282,24 @@ public class EmailCampaign {
 
   public void setEspFriendlyName(String espFriendlyName) {
     this.espFriendlyName = espFriendlyName;
+  }
+
+  public EmailCampaign libraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+    return this;
+  }
+
+   /**
+   * If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+   * @return libraryItemOid
+  **/
+  @ApiModelProperty(value = "If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.")
+  public Integer getLibraryItemOid() {
+    return libraryItemOid;
+  }
+
+  public void setLibraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
   }
 
   public EmailCampaign memberships(List<EmailListSegmentMembership> memberships) {
@@ -370,6 +418,24 @@ public class EmailCampaign {
     this.revenueFormatted = revenueFormatted;
   }
 
+  public EmailCampaign revenuePerCustomerFormatted(String revenuePerCustomerFormatted) {
+    this.revenuePerCustomerFormatted = revenuePerCustomerFormatted;
+    return this;
+  }
+
+   /**
+   * Revenue per customer associated with campaign
+   * @return revenuePerCustomerFormatted
+  **/
+  @ApiModelProperty(value = "Revenue per customer associated with campaign")
+  public String getRevenuePerCustomerFormatted() {
+    return revenuePerCustomerFormatted;
+  }
+
+  public void setRevenuePerCustomerFormatted(String revenuePerCustomerFormatted) {
+    this.revenuePerCustomerFormatted = revenuePerCustomerFormatted;
+  }
+
   public EmailCampaign scheduledDts(String scheduledDts) {
     this.scheduledDts = scheduledDts;
     return this;
@@ -386,6 +452,24 @@ public class EmailCampaign {
 
   public void setScheduledDts(String scheduledDts) {
     this.scheduledDts = scheduledDts;
+  }
+
+  public EmailCampaign screenshotLargeFullUrl(String screenshotLargeFullUrl) {
+    this.screenshotLargeFullUrl = screenshotLargeFullUrl;
+    return this;
+  }
+
+   /**
+   * URL to a large full length screenshot
+   * @return screenshotLargeFullUrl
+  **/
+  @ApiModelProperty(value = "URL to a large full length screenshot")
+  public String getScreenshotLargeFullUrl() {
+    return screenshotLargeFullUrl;
+  }
+
+  public void setScreenshotLargeFullUrl(String screenshotLargeFullUrl) {
+    this.screenshotLargeFullUrl = screenshotLargeFullUrl;
   }
 
   public EmailCampaign status(String status) {
@@ -458,16 +542,20 @@ public class EmailCampaign {
         Objects.equals(this.emailCampaignUuid, emailCampaign.emailCampaignUuid) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailCampaign.emailCommunicationSequenceUuid) &&
         Objects.equals(this.endOnceCustomerPurchases, emailCampaign.endOnceCustomerPurchases) &&
+        Objects.equals(this.espCampaignFolderUuid, emailCampaign.espCampaignFolderUuid) &&
         Objects.equals(this.espDomainUser, emailCampaign.espDomainUser) &&
         Objects.equals(this.espDomainUuid, emailCampaign.espDomainUuid) &&
         Objects.equals(this.espFriendlyName, emailCampaign.espFriendlyName) &&
+        Objects.equals(this.libraryItemOid, emailCampaign.libraryItemOid) &&
         Objects.equals(this.memberships, emailCampaign.memberships) &&
         Objects.equals(this.merchantId, emailCampaign.merchantId) &&
         Objects.equals(this.name, emailCampaign.name) &&
         Objects.equals(this.openRateFormatted, emailCampaign.openRateFormatted) &&
         Objects.equals(this.preventSendingDueToSpam, emailCampaign.preventSendingDueToSpam) &&
         Objects.equals(this.revenueFormatted, emailCampaign.revenueFormatted) &&
+        Objects.equals(this.revenuePerCustomerFormatted, emailCampaign.revenuePerCustomerFormatted) &&
         Objects.equals(this.scheduledDts, emailCampaign.scheduledDts) &&
+        Objects.equals(this.screenshotLargeFullUrl, emailCampaign.screenshotLargeFullUrl) &&
         Objects.equals(this.status, emailCampaign.status) &&
         Objects.equals(this.statusDts, emailCampaign.statusDts) &&
         Objects.equals(this.storefrontOid, emailCampaign.storefrontOid);
@@ -475,7 +563,7 @@ public class EmailCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, espDomainUser, espDomainUuid, espFriendlyName, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, scheduledDts, status, statusDts, storefrontOid);
+    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, status, statusDts, storefrontOid);
   }
 
 
@@ -490,16 +578,20 @@ public class EmailCampaign {
     sb.append("    emailCampaignUuid: ").append(toIndentedString(emailCampaignUuid)).append("\n");
     sb.append("    emailCommunicationSequenceUuid: ").append(toIndentedString(emailCommunicationSequenceUuid)).append("\n");
     sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
+    sb.append("    espCampaignFolderUuid: ").append(toIndentedString(espCampaignFolderUuid)).append("\n");
     sb.append("    espDomainUser: ").append(toIndentedString(espDomainUser)).append("\n");
     sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");
     sb.append("    espFriendlyName: ").append(toIndentedString(espFriendlyName)).append("\n");
+    sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
     sb.append("    preventSendingDueToSpam: ").append(toIndentedString(preventSendingDueToSpam)).append("\n");
     sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
+    sb.append("    revenuePerCustomerFormatted: ").append(toIndentedString(revenuePerCustomerFormatted)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");
+    sb.append("    screenshotLargeFullUrl: ").append(toIndentedString(screenshotLargeFullUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");

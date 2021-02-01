@@ -48,6 +48,7 @@ import com.ultracart.admin.v2.models.CityStateZip;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.RegisterAffiliateClickRequest;
+import com.ultracart.admin.v2.models.RegisterAffiliateClickResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -932,6 +933,131 @@ public class CheckoutApi {
         return call;
     }
     /**
+     * Build call for getCartByReturnToken
+     * @param returnToken Return token provided by StoreFront Communications (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCartByReturnTokenCall(String returnToken, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/checkout/return_token";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (returnToken != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("return_token", returnToken));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCartByReturnTokenValidateBeforeCall(String returnToken, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getCartByReturnTokenCall(returnToken, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get cart (by return token)
+     * Get a cart specified by the encrypted return token parameter. 
+     * @param returnToken Return token provided by StoreFront Communications (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return CartResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CartResponse getCartByReturnToken(String returnToken, String expand) throws ApiException {
+        ApiResponse<CartResponse> resp = getCartByReturnTokenWithHttpInfo(returnToken, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Get cart (by return token)
+     * Get a cart specified by the encrypted return token parameter. 
+     * @param returnToken Return token provided by StoreFront Communications (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;CartResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CartResponse> getCartByReturnTokenWithHttpInfo(String returnToken, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getCartByReturnTokenValidateBeforeCall(returnToken, expand, null, null);
+        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get cart (by return token) (asynchronously)
+     * Get a cart specified by the encrypted return token parameter. 
+     * @param returnToken Return token provided by StoreFront Communications (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getCartByReturnTokenAsync(String returnToken, String expand, final ApiCallback<CartResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCartByReturnTokenValidateBeforeCall(returnToken, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CartResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getStateProvincesForCountry
      * @param countryCode Two letter ISO country code (required)
      * @param progressListener Progress listener
@@ -1122,7 +1248,7 @@ public class CheckoutApi {
 
     /**
      * Handoff cart
-     * Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+     * Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
      * @param handoffRequest Handoff request (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return CheckoutHandoffResponse
@@ -1135,7 +1261,7 @@ public class CheckoutApi {
 
     /**
      * Handoff cart
-     * Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+     * Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
      * @param handoffRequest Handoff request (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;CheckoutHandoffResponse&gt;
@@ -1149,7 +1275,7 @@ public class CheckoutApi {
 
     /**
      * Handoff cart (asynchronously)
-     * Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+     * Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
      * @param handoffRequest Handoff request (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -1637,11 +1763,11 @@ public class CheckoutApi {
      * Register an affiliate click.  Used by custom checkouts that are completely API based and do not perform checkout handoff. 
      * @param registerAffiliateClickRequest Register affiliate click request (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return CheckoutHandoffResponse
+     * @return RegisterAffiliateClickResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CheckoutHandoffResponse registerAffiliateClick(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand) throws ApiException {
-        ApiResponse<CheckoutHandoffResponse> resp = registerAffiliateClickWithHttpInfo(registerAffiliateClickRequest, expand);
+    public RegisterAffiliateClickResponse registerAffiliateClick(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand) throws ApiException {
+        ApiResponse<RegisterAffiliateClickResponse> resp = registerAffiliateClickWithHttpInfo(registerAffiliateClickRequest, expand);
         return resp.getData();
     }
 
@@ -1650,12 +1776,12 @@ public class CheckoutApi {
      * Register an affiliate click.  Used by custom checkouts that are completely API based and do not perform checkout handoff. 
      * @param registerAffiliateClickRequest Register affiliate click request (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return ApiResponse&lt;CheckoutHandoffResponse&gt;
+     * @return ApiResponse&lt;RegisterAffiliateClickResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CheckoutHandoffResponse> registerAffiliateClickWithHttpInfo(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand) throws ApiException {
+    public ApiResponse<RegisterAffiliateClickResponse> registerAffiliateClickWithHttpInfo(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand) throws ApiException {
         com.squareup.okhttp.Call call = registerAffiliateClickValidateBeforeCall(registerAffiliateClickRequest, expand, null, null);
-        Type localVarReturnType = new TypeToken<CheckoutHandoffResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RegisterAffiliateClickResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1668,7 +1794,7 @@ public class CheckoutApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call registerAffiliateClickAsync(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand, final ApiCallback<CheckoutHandoffResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call registerAffiliateClickAsync(RegisterAffiliateClickRequest registerAffiliateClickRequest, String expand, final ApiCallback<RegisterAffiliateClickResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1690,7 +1816,7 @@ public class CheckoutApi {
         }
 
         com.squareup.okhttp.Call call = registerAffiliateClickValidateBeforeCall(registerAffiliateClickRequest, expand, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CheckoutHandoffResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RegisterAffiliateClickResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

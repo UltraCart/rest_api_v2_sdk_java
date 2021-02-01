@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CouponFreeItemWithItemPurchase
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -39,6 +39,9 @@ public class CouponFreeItemWithItemPurchase {
 
   @SerializedName("limit")
   private Integer limit = null;
+
+  @SerializedName("match_required_purchase_item_to_free_item")
+  private Boolean matchRequiredPurchaseItemToFreeItem = null;
 
   @SerializedName("required_purchase_items")
   private List<String> requiredPurchaseItems = null;
@@ -87,6 +90,24 @@ public class CouponFreeItemWithItemPurchase {
     this.limit = limit;
   }
 
+  public CouponFreeItemWithItemPurchase matchRequiredPurchaseItemToFreeItem(Boolean matchRequiredPurchaseItemToFreeItem) {
+    this.matchRequiredPurchaseItemToFreeItem = matchRequiredPurchaseItemToFreeItem;
+    return this;
+  }
+
+   /**
+   * If true then the free item is matched 1:1 with the free item in the list.
+   * @return matchRequiredPurchaseItemToFreeItem
+  **/
+  @ApiModelProperty(value = "If true then the free item is matched 1:1 with the free item in the list.")
+  public Boolean isMatchRequiredPurchaseItemToFreeItem() {
+    return matchRequiredPurchaseItemToFreeItem;
+  }
+
+  public void setMatchRequiredPurchaseItemToFreeItem(Boolean matchRequiredPurchaseItemToFreeItem) {
+    this.matchRequiredPurchaseItemToFreeItem = matchRequiredPurchaseItemToFreeItem;
+  }
+
   public CouponFreeItemWithItemPurchase requiredPurchaseItems(List<String> requiredPurchaseItems) {
     this.requiredPurchaseItems = requiredPurchaseItems;
     return this;
@@ -125,12 +146,13 @@ public class CouponFreeItemWithItemPurchase {
     CouponFreeItemWithItemPurchase couponFreeItemWithItemPurchase = (CouponFreeItemWithItemPurchase) o;
     return Objects.equals(this.items, couponFreeItemWithItemPurchase.items) &&
         Objects.equals(this.limit, couponFreeItemWithItemPurchase.limit) &&
+        Objects.equals(this.matchRequiredPurchaseItemToFreeItem, couponFreeItemWithItemPurchase.matchRequiredPurchaseItemToFreeItem) &&
         Objects.equals(this.requiredPurchaseItems, couponFreeItemWithItemPurchase.requiredPurchaseItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, limit, requiredPurchaseItems);
+    return Objects.hash(items, limit, matchRequiredPurchaseItemToFreeItem, requiredPurchaseItems);
   }
 
 
@@ -141,6 +163,7 @@ public class CouponFreeItemWithItemPurchase {
     
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    matchRequiredPurchaseItemToFreeItem: ").append(toIndentedString(matchRequiredPurchaseItemToFreeItem)).append("\n");
     sb.append("    requiredPurchaseItems: ").append(toIndentedString(requiredPurchaseItems)).append("\n");
     sb.append("}");
     return sb.toString();

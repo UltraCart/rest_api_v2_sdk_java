@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailPlan
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -43,6 +43,9 @@ public class EmailPlan {
 
   @SerializedName("allow_list_import")
   private Boolean allowListImport = null;
+
+  @SerializedName("allow_tracking_emails")
+  private Boolean allowTrackingEmails = null;
 
   @SerializedName("customer_tiers")
   private List<EmailPlanAdditional> customerTiers = null;
@@ -132,6 +135,24 @@ public class EmailPlan {
 
   public void setAllowListImport(Boolean allowListImport) {
     this.allowListImport = allowListImport;
+  }
+
+  public EmailPlan allowTrackingEmails(Boolean allowTrackingEmails) {
+    this.allowTrackingEmails = allowTrackingEmails;
+    return this;
+  }
+
+   /**
+   * Get allowTrackingEmails
+   * @return allowTrackingEmails
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAllowTrackingEmails() {
+    return allowTrackingEmails;
+  }
+
+  public void setAllowTrackingEmails(Boolean allowTrackingEmails) {
+    this.allowTrackingEmails = allowTrackingEmails;
   }
 
   public EmailPlan customerTiers(List<EmailPlanAdditional> customerTiers) {
@@ -371,6 +392,7 @@ public class EmailPlan {
     return Objects.equals(this.additionalCustomers, emailPlan.additionalCustomers) &&
         Objects.equals(this.additionalEmails, emailPlan.additionalEmails) &&
         Objects.equals(this.allowListImport, emailPlan.allowListImport) &&
+        Objects.equals(this.allowTrackingEmails, emailPlan.allowTrackingEmails) &&
         Objects.equals(this.customerTiers, emailPlan.customerTiers) &&
         Objects.equals(this.initialSendingLimits, emailPlan.initialSendingLimits) &&
         Objects.equals(this.planCustomers, emailPlan.planCustomers) &&
@@ -387,7 +409,7 @@ public class EmailPlan {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalCustomers, additionalEmails, allowListImport, customerTiers, initialSendingLimits, planCustomers, planEmails, planName, planNameFormatted, requireOrderWithinLastDays, revenuePercent, spamPercentLimit, totalCustomers, totalEmails, upgradeTo);
+    return Objects.hash(additionalCustomers, additionalEmails, allowListImport, allowTrackingEmails, customerTiers, initialSendingLimits, planCustomers, planEmails, planName, planNameFormatted, requireOrderWithinLastDays, revenuePercent, spamPercentLimit, totalCustomers, totalEmails, upgradeTo);
   }
 
 
@@ -399,6 +421,7 @@ public class EmailPlan {
     sb.append("    additionalCustomers: ").append(toIndentedString(additionalCustomers)).append("\n");
     sb.append("    additionalEmails: ").append(toIndentedString(additionalEmails)).append("\n");
     sb.append("    allowListImport: ").append(toIndentedString(allowListImport)).append("\n");
+    sb.append("    allowTrackingEmails: ").append(toIndentedString(allowTrackingEmails)).append("\n");
     sb.append("    customerTiers: ").append(toIndentedString(customerTiers)).append("\n");
     sb.append("    initialSendingLimits: ").append(toIndentedString(initialSendingLimits)).append("\n");
     sb.append("    planCustomers: ").append(toIndentedString(planCustomers)).append("\n");

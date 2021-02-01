@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  |  [optional]
 **stats** | [**List&lt;EmailStepStat&gt;**](EmailStepStat.md) |  |  [optional]
 **success** | **Boolean** | Indicates if API call was successful |  [optional]
+**warning** | [**Warning**](Warning.md) |  |  [optional]
 
 
 

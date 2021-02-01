@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailCommseqEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -59,6 +59,9 @@ public class EmailCommseqEmail {
   @SerializedName("individually_render")
   private Boolean individuallyRender = null;
 
+  @SerializedName("library_item_oid")
+  private Integer libraryItemOid = null;
+
   @SerializedName("merchant_id")
   private String merchantId = null;
 
@@ -73,6 +76,18 @@ public class EmailCommseqEmail {
 
   @SerializedName("requires_review")
   private Boolean requiresReview = null;
+
+  @SerializedName("screenshot_large_full_url")
+  private String screenshotLargeFullUrl = null;
+
+  @SerializedName("screenshot_large_viewport_url")
+  private String screenshotLargeViewportUrl = null;
+
+  @SerializedName("screenshot_small_full_url")
+  private String screenshotSmallFullUrl = null;
+
+  @SerializedName("screenshot_small_viewport_url")
+  private String screenshotSmallViewportUrl = null;
 
   @SerializedName("smart_sending")
   private Boolean smartSending = null;
@@ -251,6 +266,24 @@ public class EmailCommseqEmail {
     this.individuallyRender = individuallyRender;
   }
 
+  public EmailCommseqEmail libraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+    return this;
+  }
+
+   /**
+   * If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+   * @return libraryItemOid
+  **/
+  @ApiModelProperty(value = "If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.")
+  public Integer getLibraryItemOid() {
+    return libraryItemOid;
+  }
+
+  public void setLibraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+  }
+
   public EmailCommseqEmail merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
@@ -339,6 +372,78 @@ public class EmailCommseqEmail {
 
   public void setRequiresReview(Boolean requiresReview) {
     this.requiresReview = requiresReview;
+  }
+
+  public EmailCommseqEmail screenshotLargeFullUrl(String screenshotLargeFullUrl) {
+    this.screenshotLargeFullUrl = screenshotLargeFullUrl;
+    return this;
+  }
+
+   /**
+   * URL to screenshot in large form factor full page
+   * @return screenshotLargeFullUrl
+  **/
+  @ApiModelProperty(value = "URL to screenshot in large form factor full page")
+  public String getScreenshotLargeFullUrl() {
+    return screenshotLargeFullUrl;
+  }
+
+  public void setScreenshotLargeFullUrl(String screenshotLargeFullUrl) {
+    this.screenshotLargeFullUrl = screenshotLargeFullUrl;
+  }
+
+  public EmailCommseqEmail screenshotLargeViewportUrl(String screenshotLargeViewportUrl) {
+    this.screenshotLargeViewportUrl = screenshotLargeViewportUrl;
+    return this;
+  }
+
+   /**
+   * URL to screenshot in large form factor viewport
+   * @return screenshotLargeViewportUrl
+  **/
+  @ApiModelProperty(value = "URL to screenshot in large form factor viewport")
+  public String getScreenshotLargeViewportUrl() {
+    return screenshotLargeViewportUrl;
+  }
+
+  public void setScreenshotLargeViewportUrl(String screenshotLargeViewportUrl) {
+    this.screenshotLargeViewportUrl = screenshotLargeViewportUrl;
+  }
+
+  public EmailCommseqEmail screenshotSmallFullUrl(String screenshotSmallFullUrl) {
+    this.screenshotSmallFullUrl = screenshotSmallFullUrl;
+    return this;
+  }
+
+   /**
+   * URL to screenshot in small form factor full page
+   * @return screenshotSmallFullUrl
+  **/
+  @ApiModelProperty(value = "URL to screenshot in small form factor full page")
+  public String getScreenshotSmallFullUrl() {
+    return screenshotSmallFullUrl;
+  }
+
+  public void setScreenshotSmallFullUrl(String screenshotSmallFullUrl) {
+    this.screenshotSmallFullUrl = screenshotSmallFullUrl;
+  }
+
+  public EmailCommseqEmail screenshotSmallViewportUrl(String screenshotSmallViewportUrl) {
+    this.screenshotSmallViewportUrl = screenshotSmallViewportUrl;
+    return this;
+  }
+
+   /**
+   * URL to screenshot in small form factor viewport
+   * @return screenshotSmallViewportUrl
+  **/
+  @ApiModelProperty(value = "URL to screenshot in small form factor viewport")
+  public String getScreenshotSmallViewportUrl() {
+    return screenshotSmallViewportUrl;
+  }
+
+  public void setScreenshotSmallViewportUrl(String screenshotSmallViewportUrl) {
+    this.screenshotSmallViewportUrl = screenshotSmallViewportUrl;
   }
 
   public EmailCommseqEmail smartSending(Boolean smartSending) {
@@ -450,11 +555,16 @@ public class EmailCommseqEmail {
         Objects.equals(this.emailTemplateVmPath, emailCommseqEmail.emailTemplateVmPath) &&
         Objects.equals(this.filterProfileEquationJson, emailCommseqEmail.filterProfileEquationJson) &&
         Objects.equals(this.individuallyRender, emailCommseqEmail.individuallyRender) &&
+        Objects.equals(this.libraryItemOid, emailCommseqEmail.libraryItemOid) &&
         Objects.equals(this.merchantId, emailCommseqEmail.merchantId) &&
         Objects.equals(this.pendingReview, emailCommseqEmail.pendingReview) &&
         Objects.equals(this.previewText, emailCommseqEmail.previewText) &&
         Objects.equals(this.rejected, emailCommseqEmail.rejected) &&
         Objects.equals(this.requiresReview, emailCommseqEmail.requiresReview) &&
+        Objects.equals(this.screenshotLargeFullUrl, emailCommseqEmail.screenshotLargeFullUrl) &&
+        Objects.equals(this.screenshotLargeViewportUrl, emailCommseqEmail.screenshotLargeViewportUrl) &&
+        Objects.equals(this.screenshotSmallFullUrl, emailCommseqEmail.screenshotSmallFullUrl) &&
+        Objects.equals(this.screenshotSmallViewportUrl, emailCommseqEmail.screenshotSmallViewportUrl) &&
         Objects.equals(this.smartSending, emailCommseqEmail.smartSending) &&
         Objects.equals(this.storefrontOid, emailCommseqEmail.storefrontOid) &&
         Objects.equals(this.subject, emailCommseqEmail.subject) &&
@@ -464,7 +574,7 @@ public class EmailCommseqEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, merchantId, pendingReview, previewText, rejected, requiresReview, smartSending, storefrontOid, subject, transactionalEmail, version);
+    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, libraryItemOid, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, transactionalEmail, version);
   }
 
 
@@ -482,11 +592,16 @@ public class EmailCommseqEmail {
     sb.append("    emailTemplateVmPath: ").append(toIndentedString(emailTemplateVmPath)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    individuallyRender: ").append(toIndentedString(individuallyRender)).append("\n");
+    sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    pendingReview: ").append(toIndentedString(pendingReview)).append("\n");
     sb.append("    previewText: ").append(toIndentedString(previewText)).append("\n");
     sb.append("    rejected: ").append(toIndentedString(rejected)).append("\n");
     sb.append("    requiresReview: ").append(toIndentedString(requiresReview)).append("\n");
+    sb.append("    screenshotLargeFullUrl: ").append(toIndentedString(screenshotLargeFullUrl)).append("\n");
+    sb.append("    screenshotLargeViewportUrl: ").append(toIndentedString(screenshotLargeViewportUrl)).append("\n");
+    sb.append("    screenshotSmallFullUrl: ").append(toIndentedString(screenshotSmallFullUrl)).append("\n");
+    sb.append("    screenshotSmallViewportUrl: ").append(toIndentedString(screenshotSmallViewportUrl)).append("\n");
     sb.append("    smartSending: ").append(toIndentedString(smartSending)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");

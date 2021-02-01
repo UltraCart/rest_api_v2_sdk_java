@@ -52,7 +52,7 @@ Name | Type | Description | Notes
 **shipping** | [**List&lt;CustomerShipping&gt;**](CustomerShipping.md) | Shipping addresses for this customer |  [optional]
 **signupDts** | **String** | Signup date |  [optional]
 **softwareEntitlements** | [**List&lt;CustomerSoftwareEntitlement&gt;**](CustomerSoftwareEntitlement.md) | Software entitlements owned by this customer |  [optional]
-**suppressBuysafe** | **Boolean** | Suppress buySAFE |  [optional]
+**suppressBuysafe** | **Boolean** | Suppress buySAFE (deprecated) |  [optional]
 **tags** | [**List&lt;CustomerTag&gt;**](CustomerTag.md) | Tags for this customer |  [optional]
 **taxCodes** | [**CustomerTaxCodes**](CustomerTaxCodes.md) |  |  [optional]
 **taxExempt** | **Boolean** | True if the customer is tax exempt |  [optional]

@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2020-08-13T08:30:21.745-04:00
+  - Build date: 2021-02-01T07:06:34.041-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.0.11</version>
+  <version>3.0.74</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.0.11"
+compile "com.ultracart:rest-sdk:3.0.74"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.0.11.jar`
+* `target/rest-sdk-3.0.74.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -148,6 +148,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**getCart**](docs/CheckoutApi.md#getCart) | **GET** /checkout/cart | Get cart
 *CheckoutApi* | [**getCartByCartId**](docs/CheckoutApi.md#getCartByCartId) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
 *CheckoutApi* | [**getCartByReturnCode**](docs/CheckoutApi.md#getCartByReturnCode) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+*CheckoutApi* | [**getCartByReturnToken**](docs/CheckoutApi.md#getCartByReturnToken) | **GET** /checkout/return_token | Get cart (by return token)
 *CheckoutApi* | [**getStateProvincesForCountry**](docs/CheckoutApi.md#getStateProvincesForCountry) | **POST** /checkout/stateProvincesForCountry/{country_code} | Get state/province list for a country code
 *CheckoutApi* | [**handoffCart**](docs/CheckoutApi.md#handoffCart) | **POST** /checkout/cart/handoff | Handoff cart
 *CheckoutApi* | [**login**](docs/CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
@@ -160,15 +161,24 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**updateCart**](docs/CheckoutApi.md#updateCart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
 *CouponApi* | [**deleteCoupon**](docs/CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
+*CouponApi* | [**deleteCouponsByCode**](docs/CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
+*CouponApi* | [**deleteCouponsByOid**](docs/CouponApi.md#deleteCouponsByOid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
+*CouponApi* | [**doesCouponCodeExist**](docs/CouponApi.md#doesCouponCodeExist) | **GET** /coupon/coupons/merchant_code/{merchant_code}/exists | Determines if a coupon merchant code already exists
 *CouponApi* | [**generateCouponCodes**](docs/CouponApi.md#generateCouponCodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
 *CouponApi* | [**generateOneTimeCodesByMerchantCode**](docs/CouponApi.md#generateOneTimeCodesByMerchantCode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes by merchant code
+*CouponApi* | [**getAutoApply**](docs/CouponApi.md#getAutoApply) | **GET** /coupon/auto_apply | Retrieve auto apply rules and conditions
 *CouponApi* | [**getCoupon**](docs/CouponApi.md#getCoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
 *CouponApi* | [**getCouponByMerchantCode**](docs/CouponApi.md#getCouponByMerchantCode) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 *CouponApi* | [**getCoupons**](docs/CouponApi.md#getCoupons) | **GET** /coupon/coupons | Retrieve coupons
 *CouponApi* | [**getCouponsByQuery**](docs/CouponApi.md#getCouponsByQuery) | **GET** /coupon/coupons/query | Retrieve coupons by query
 *CouponApi* | [**getEditorValues**](docs/CouponApi.md#getEditorValues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
 *CouponApi* | [**insertCoupon**](docs/CouponApi.md#insertCoupon) | **POST** /coupon/coupons | Insert a coupon
+*CouponApi* | [**insertCoupons**](docs/CouponApi.md#insertCoupons) | **POST** /coupon/coupons/batch | Insert multiple coupons
+*CouponApi* | [**searchItems**](docs/CouponApi.md#searchItems) | **GET** /coupon/searchItems | Searches for items to display within a coupon editor and assign to coupons
+*CouponApi* | [**updateAutoApply**](docs/CouponApi.md#updateAutoApply) | **POST** /coupon/auto_apply | Update auto apply rules and conditions
 *CouponApi* | [**updateCoupon**](docs/CouponApi.md#updateCoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
+*CouponApi* | [**updateCoupons**](docs/CouponApi.md#updateCoupons) | **PUT** /coupon/coupons/batch | Update multiple coupons
+*CouponApi* | [**uploadCouponCodes**](docs/CouponApi.md#uploadCouponCodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
 *CustomerApi* | [**deleteCustomer**](docs/CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomers**](docs/CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
@@ -195,6 +205,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
+*OrderApi* | [**adjustOrderTotal**](docs/OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
 *OrderApi* | [**cancelOrder**](docs/OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**format**](docs/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
@@ -207,6 +218,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrdersBatch**](docs/OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders
 *OrderApi* | [**insertOrder**](docs/OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order
+*OrderApi* | [**processPayment**](docs/OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
 *OrderApi* | [**replacement**](docs/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
@@ -214,28 +226,35 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
 *StorefrontApi* | [**addToLibrary**](docs/StorefrontApi.md#addToLibrary) | **POST** /storefront/code_library | Add to library
-*StorefrontApi* | [**applyToStoreFront**](docs/StorefrontApi.md#applyToStoreFront) | **POST** /storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid} | Apply library item to storefront.
+*StorefrontApi* | [**applyToStoreFront**](docs/StorefrontApi.md#applyToStoreFront) | **POST** /storefront/code_library/apply | Apply library item to storefront.
 *StorefrontApi* | [**archiveEmailList**](docs/StorefrontApi.md#archiveEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
 *StorefrontApi* | [**archiveEmailSegment**](docs/StorefrontApi.md#archiveEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
 *StorefrontApi* | [**backPopulateEmailFlow**](docs/StorefrontApi.md#backPopulateEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/backfill | Back populate email flow
 *StorefrontApi* | [**checkDownloadEmailSegment**](docs/StorefrontApi.md#checkDownloadEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 *StorefrontApi* | [**cloneEmailCampaign**](docs/StorefrontApi.md#cloneEmailCampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/StorefrontApi.md#cloneEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
-*StorefrontApi* | [**cloneLibraryItem**](docs/StorefrontApi.md#cloneLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/clone | Clone public library item.
 *StorefrontApi* | [**createEmailSendingDomain**](docs/StorefrontApi.md#createEmailSendingDomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+*StorefrontApi* | [**deleteEmailCampaignFolder**](docs/StorefrontApi.md#deleteEmailCampaignFolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 *StorefrontApi* | [**deleteEmailCommseqStat**](docs/StorefrontApi.md#deleteEmailCommseqStat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 *StorefrontApi* | [**deleteEmailEmail**](docs/StorefrontApi.md#deleteEmailEmail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
+*StorefrontApi* | [**deleteEmailFlowFolder**](docs/StorefrontApi.md#deleteEmailFlowFolder) | **DELETE** /storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid} | Delete email flowFolder
 *StorefrontApi* | [**deleteEmailListCustomer**](docs/StorefrontApi.md#deleteEmailListCustomer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
 *StorefrontApi* | [**deleteEmailPostcard**](docs/StorefrontApi.md#deleteEmailPostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/StorefrontApi.md#deleteEmailSendingDomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/StorefrontApi.md#deleteExperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
 *StorefrontApi* | [**deleteLibraryItem**](docs/StorefrontApi.md#deleteLibraryItem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
+*StorefrontApi* | [**deleteLibraryItemPublishedVersions**](docs/StorefrontApi.md#deleteLibraryItemPublishedVersions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
+*StorefrontApi* | [**deleteScreenRecordingSegment**](docs/StorefrontApi.md#deleteScreenRecordingSegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
 *StorefrontApi* | [**duplicateLibraryItem**](docs/StorefrontApi.md#duplicateLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
+*StorefrontApi* | [**favoriteScreenRecording**](docs/StorefrontApi.md#favoriteScreenRecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 *StorefrontApi* | [**geocodeAddress**](docs/StorefrontApi.md#geocodeAddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
 *StorefrontApi* | [**getCountries**](docs/StorefrontApi.md#getCountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 *StorefrontApi* | [**getEditorToken**](docs/StorefrontApi.md#getEditorToken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 *StorefrontApi* | [**getEmailBaseTemplates**](docs/StorefrontApi.md#getEmailBaseTemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
 *StorefrontApi* | [**getEmailCampaign**](docs/StorefrontApi.md#getEmailCampaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
+*StorefrontApi* | [**getEmailCampaignFolder**](docs/StorefrontApi.md#getEmailCampaignFolder) | **GET** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Get email campaign folder
+*StorefrontApi* | [**getEmailCampaignFolders**](docs/StorefrontApi.md#getEmailCampaignFolders) | **GET** /storefront/{storefront_oid}/email/campaign_folders | Get email campaign folders
+*StorefrontApi* | [**getEmailCampaignScreenshots**](docs/StorefrontApi.md#getEmailCampaignScreenshots) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/screenshots | Get email campaign screenshots
 *StorefrontApi* | [**getEmailCampaigns**](docs/StorefrontApi.md#getEmailCampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 *StorefrontApi* | [**getEmailCampaignsWithStats**](docs/StorefrontApi.md#getEmailCampaignsWithStats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 *StorefrontApi* | [**getEmailCommseq**](docs/StorefrontApi.md#getEmailCommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
@@ -256,6 +275,9 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailEmails**](docs/StorefrontApi.md#getEmailEmails) | **GET** /storefront/{storefront_oid}/email/emails | Get email emails
 *StorefrontApi* | [**getEmailEmailsMultiple**](docs/StorefrontApi.md#getEmailEmailsMultiple) | **POST** /storefront/{storefront_oid}/email/emails/multiple | Get email emails multiple
 *StorefrontApi* | [**getEmailFlow**](docs/StorefrontApi.md#getEmailFlow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
+*StorefrontApi* | [**getEmailFlowFolder**](docs/StorefrontApi.md#getEmailFlowFolder) | **GET** /storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid} | Get email flow folder
+*StorefrontApi* | [**getEmailFlowFolders**](docs/StorefrontApi.md#getEmailFlowFolders) | **GET** /storefront/{storefront_oid}/email/flow_folders | Get email flow folders
+*StorefrontApi* | [**getEmailFlowScreenshots**](docs/StorefrontApi.md#getEmailFlowScreenshots) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/screenshots | Get email flow screenshots
 *StorefrontApi* | [**getEmailFlows**](docs/StorefrontApi.md#getEmailFlows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
 *StorefrontApi* | [**getEmailGlobalSettings**](docs/StorefrontApi.md#getEmailGlobalSettings) | **GET** /storefront/email/global_settings | Get email globalsettings
 *StorefrontApi* | [**getEmailList**](docs/StorefrontApi.md#getEmailList) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
@@ -283,33 +305,57 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getHistogramPropertyValues**](docs/StorefrontApi.md#getHistogramPropertyValues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
 *StorefrontApi* | [**getLibraryFilterValues**](docs/StorefrontApi.md#getLibraryFilterValues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
 *StorefrontApi* | [**getLibraryItem**](docs/StorefrontApi.md#getLibraryItem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
-*StorefrontApi* | [**getLibraryItemsByQuery**](docs/StorefrontApi.md#getLibraryItemsByQuery) | **POST** /storefront/code_library/query | Retrieve library items
+*StorefrontApi* | [**getLibraryItemPublishedVersions**](docs/StorefrontApi.md#getLibraryItemPublishedVersions) | **GET** /storefront/code_library/{library_item_oid}/published_versions | Get all published versions for a library item.
+*StorefrontApi* | [**getPricingTiers**](docs/StorefrontApi.md#getPricingTiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
+*StorefrontApi* | [**getScreenRecording**](docs/StorefrontApi.md#getScreenRecording) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid} | Get screen recording
+*StorefrontApi* | [**getScreenRecordingPageViewData**](docs/StorefrontApi.md#getScreenRecordingPageViewData) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/page_view_data/{screen_recording_page_view_uuid} | Get screen recording page view data
+*StorefrontApi* | [**getScreenRecordingSegment**](docs/StorefrontApi.md#getScreenRecordingSegment) | **GET** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Get screen recording segment
+*StorefrontApi* | [**getScreenRecordingSegments**](docs/StorefrontApi.md#getScreenRecordingSegments) | **GET** /storefront/{storefront_oid}/screen_recordings/segments | Get screen recording segments
+*StorefrontApi* | [**getScreenRecordingSettings**](docs/StorefrontApi.md#getScreenRecordingSettings) | **GET** /storefront/{storefront_oid}/screen_recordings/settings | Get screen recording settings
+*StorefrontApi* | [**getScreenRecordingTags**](docs/StorefrontApi.md#getScreenRecordingTags) | **POST** /storefront/{storefront_oid}/screen_recordings/tags | Get tags used by screen recording
+*StorefrontApi* | [**getScreenRecordingsByQuery**](docs/StorefrontApi.md#getScreenRecordingsByQuery) | **POST** /storefront/{storefront_oid}/screen_recordings/query | Query screen recordings
+*StorefrontApi* | [**getScreenRecordingsBySegment**](docs/StorefrontApi.md#getScreenRecordingsBySegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query | Get screen recordings by segment
+*StorefrontApi* | [**getThumbnailParameters**](docs/StorefrontApi.md#getThumbnailParameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 *StorefrontApi* | [**getTransactionEmail**](docs/StorefrontApi.md#getTransactionEmail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/StorefrontApi.md#getTransactionEmailList) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
+*StorefrontApi* | [**getTransactionEmailScreenshots**](docs/StorefrontApi.md#getTransactionEmailScreenshots) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots | Get transactional email screenshots
 *StorefrontApi* | [**globalUnsubscribe**](docs/StorefrontApi.md#globalUnsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
 *StorefrontApi* | [**importEmailThirdPartyProviderList**](docs/StorefrontApi.md#importEmailThirdPartyProviderList) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 *StorefrontApi* | [**insertEmailCampaign**](docs/StorefrontApi.md#insertEmailCampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
+*StorefrontApi* | [**insertEmailCampaignFolder**](docs/StorefrontApi.md#insertEmailCampaignFolder) | **POST** /storefront/{storefront_oid}/email/campaign_folders | Insert email campaign folder
 *StorefrontApi* | [**insertEmailCommseq**](docs/StorefrontApi.md#insertEmailCommseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
 *StorefrontApi* | [**insertEmailEmail**](docs/StorefrontApi.md#insertEmailEmail) | **POST** /storefront/{storefront_oid}/email/emails | Insert email email
 *StorefrontApi* | [**insertEmailFlow**](docs/StorefrontApi.md#insertEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
+*StorefrontApi* | [**insertEmailFlowFolder**](docs/StorefrontApi.md#insertEmailFlowFolder) | **POST** /storefront/{storefront_oid}/email/flow_folders | Insert email flow folder
 *StorefrontApi* | [**insertEmailList**](docs/StorefrontApi.md#insertEmailList) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
 *StorefrontApi* | [**insertEmailPostcard**](docs/StorefrontApi.md#insertEmailPostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 *StorefrontApi* | [**insertEmailSegment**](docs/StorefrontApi.md#insertEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
+*StorefrontApi* | [**insertScreenRecordingSegment**](docs/StorefrontApi.md#insertScreenRecordingSegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments | Insert screen recording segment
 *StorefrontApi* | [**prepareDownloadEmailSegment**](docs/StorefrontApi.md#prepareDownloadEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
+*StorefrontApi* | [**publishLibraryItem**](docs/StorefrontApi.md#publishLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/publish | Publish library item.
+*StorefrontApi* | [**purchaseLibraryItem**](docs/StorefrontApi.md#purchaseLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/purchase | Purchase public library item, which creates a copy of the item in your personal code library
 *StorefrontApi* | [**releaseEmailCommseqStepWaiting**](docs/StorefrontApi.md#releaseEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid} | Release email communication sequence customers waiting at the specified step
 *StorefrontApi* | [**review**](docs/StorefrontApi.md#review) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review | Request a review of an email
 *StorefrontApi* | [**search**](docs/StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
+*StorefrontApi* | [**search2**](docs/StorefrontApi.md#search2) | **POST** /storefront/search | Searches for all matching values (using POST)
 *StorefrontApi* | [**searchEmailListCustomers**](docs/StorefrontApi.md#searchEmailListCustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 *StorefrontApi* | [**searchEmailSegmentCustomers**](docs/StorefrontApi.md#searchEmailSegmentCustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
+*StorefrontApi* | [**searchLibraryItems**](docs/StorefrontApi.md#searchLibraryItems) | **POST** /storefront/code_library/search | Retrieve library items
+*StorefrontApi* | [**searchPublishedItems**](docs/StorefrontApi.md#searchPublishedItems) | **POST** /storefront/code_library/search_published | Retrieve library items
+*StorefrontApi* | [**searchReviewItems**](docs/StorefrontApi.md#searchReviewItems) | **POST** /storefront/code_library/search_review | Retrieve library items needing review or rejected
+*StorefrontApi* | [**searchSharedItems**](docs/StorefrontApi.md#searchSharedItems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 *StorefrontApi* | [**sendEmailTest**](docs/StorefrontApi.md#sendEmailTest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**sendPostcardTest**](docs/StorefrontApi.md#sendPostcardTest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 *StorefrontApi* | [**startEmailCampaign**](docs/StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/StorefrontApi.md#subscribeToEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
+*StorefrontApi* | [**unfavoriteScreenRecording**](docs/StorefrontApi.md#unfavoriteScreenRecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
 *StorefrontApi* | [**updateEmailCampaign**](docs/StorefrontApi.md#updateEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
+*StorefrontApi* | [**updateEmailCampaignFolder**](docs/StorefrontApi.md#updateEmailCampaignFolder) | **PUT** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Update email campaign folder
 *StorefrontApi* | [**updateEmailCommseq**](docs/StorefrontApi.md#updateEmailCommseq) | **PUT** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Update email commseq
 *StorefrontApi* | [**updateEmailCustomer**](docs/StorefrontApi.md#updateEmailCustomer) | **PUT** /storefront/{storefront_oid}/email/customers/{email_customer_uuid} | Update email customer
 *StorefrontApi* | [**updateEmailEmail**](docs/StorefrontApi.md#updateEmailEmail) | **PUT** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Update email email
 *StorefrontApi* | [**updateEmailFlow**](docs/StorefrontApi.md#updateEmailFlow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
+*StorefrontApi* | [**updateEmailFlowFolder**](docs/StorefrontApi.md#updateEmailFlowFolder) | **PUT** /storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid} | Update email flow folder
 *StorefrontApi* | [**updateEmailGlobalSettings**](docs/StorefrontApi.md#updateEmailGlobalSettings) | **POST** /storefront/email/global_settings | Update email global settings
 *StorefrontApi* | [**updateEmailList**](docs/StorefrontApi.md#updateEmailList) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
 *StorefrontApi* | [**updateEmailPlan**](docs/StorefrontApi.md#updateEmailPlan) | **POST** /storefront/{storefront_oid}/email/plan | Update email plan
@@ -318,6 +364,9 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailSettings**](docs/StorefrontApi.md#updateEmailSettings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 *StorefrontApi* | [**updateExperiment**](docs/StorefrontApi.md#updateExperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
 *StorefrontApi* | [**updateLibraryItem**](docs/StorefrontApi.md#updateLibraryItem) | **PUT** /storefront/code_library/{library_item_oid} | Update library item. Note that only certain fields may be updated via this method.
+*StorefrontApi* | [**updateScreenRecordingSegment**](docs/StorefrontApi.md#updateScreenRecordingSegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Update screen recording segment
+*StorefrontApi* | [**updateScreenRecordingSettings**](docs/StorefrontApi.md#updateScreenRecordingSettings) | **POST** /storefront/{storefront_oid}/screen_recordings/settings | Update screen recording settings
+*StorefrontApi* | [**updateScreenRecordingTags**](docs/StorefrontApi.md#updateScreenRecordingTags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 *StorefrontApi* | [**updateTransactionEmail**](docs/StorefrontApi.md#updateTransactionEmail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/TaxApi.md#deleteTaxProviderSelfCity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/TaxApi.md#deleteTaxProviderSelfCountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
@@ -347,6 +396,17 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**updateTaxProviderSovos**](docs/TaxApi.md#updateTaxProviderSovos) | **POST** /tax/providers/sovos | Update the Sovos tax provider
 *TaxApi* | [**updateTaxProviderTaxJar**](docs/TaxApi.md#updateTaxProviderTaxJar) | **POST** /tax/providers/taxjar | Update the TaxJar tax provider
 *TaxApi* | [**updateTaxProviderUltraCart**](docs/TaxApi.md#updateTaxProviderUltraCart) | **POST** /tax/providers/ultracart | Update the UltraCart tax provider
+*UserApi* | [**deleteGroup**](docs/UserApi.md#deleteGroup) | **DELETE** /user/groups/{group_oid} | Delete a group
+*UserApi* | [**deleteUser**](docs/UserApi.md#deleteUser) | **DELETE** /user/users/{user_id} | Delete a user
+*UserApi* | [**getGroup**](docs/UserApi.md#getGroup) | **GET** /user/groups/{group_oid} | Retrieve a group
+*UserApi* | [**getGroups**](docs/UserApi.md#getGroups) | **GET** /user/groups | Get groups
+*UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /user/users/{user_id} | Retrieve a user
+*UserApi* | [**getUserLogins**](docs/UserApi.md#getUserLogins) | **GET** /user/users/{user_id}/logins | Retrieve a user&#39;s login history
+*UserApi* | [**getUsers**](docs/UserApi.md#getUsers) | **GET** /user/users | Get users
+*UserApi* | [**insertGroup**](docs/UserApi.md#insertGroup) | **POST** /user/groups | Insert a group
+*UserApi* | [**insertUser**](docs/UserApi.md#insertUser) | **POST** /user/users | Insert a user
+*UserApi* | [**updateGroup**](docs/UserApi.md#updateGroup) | **PUT** /user/groups/{group_oid} | Update a group
+*UserApi* | [**updateUser**](docs/UserApi.md#updateUser) | **PUT** /user/users/{user_id} | Update a user
 *WebhookApi* | [**deleteWebhook**](docs/WebhookApi.md#deleteWebhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
 *WebhookApi* | [**deleteWebhookByUrl**](docs/WebhookApi.md#deleteWebhookByUrl) | **DELETE** /webhook/webhooks | Delete a webhook by URL
 *WebhookApi* | [**getWebhookLog**](docs/WebhookApi.md#getWebhookLog) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
@@ -376,6 +436,7 @@ Class | Method | HTTP request | Description
  - [AffiliateLedgersResponse](docs/AffiliateLedgersResponse.md)
  - [AffiliateLink](docs/AffiliateLink.md)
  - [ApiUserApplicationProfile](docs/ApiUserApplicationProfile.md)
+ - [ApplyLibraryItemRequest](docs/ApplyLibraryItemRequest.md)
  - [ApplyLibraryItemResponse](docs/ApplyLibraryItemResponse.md)
  - [AutoOrder](docs/AutoOrder.md)
  - [AutoOrderItem](docs/AutoOrderItem.md)
@@ -468,12 +529,17 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponAutoApplyCondition](docs/CouponAutoApplyCondition.md)
+ - [CouponAutoApplyConditions](docs/CouponAutoApplyConditions.md)
  - [CouponAutomaticallyApplyCouponCodes](docs/CouponAutomaticallyApplyCouponCodes.md)
+ - [CouponBuyOneGetOneLimit](docs/CouponBuyOneGetOneLimit.md)
  - [CouponCodesRequest](docs/CouponCodesRequest.md)
  - [CouponCodesResponse](docs/CouponCodesResponse.md)
+ - [CouponDeletesRequest](docs/CouponDeletesRequest.md)
  - [CouponDiscountItemWithItemPurchase](docs/CouponDiscountItemWithItemPurchase.md)
  - [CouponDiscountItems](docs/CouponDiscountItems.md)
  - [CouponEditorValues](docs/CouponEditorValues.md)
+ - [CouponExistsResponse](docs/CouponExistsResponse.md)
  - [CouponFreeItemAndShippingWithSubtotal](docs/CouponFreeItemAndShippingWithSubtotal.md)
  - [CouponFreeItemWithItemPurchase](docs/CouponFreeItemWithItemPurchase.md)
  - [CouponFreeItemWithSubtotal](docs/CouponFreeItemWithSubtotal.md)
@@ -483,6 +549,8 @@ Class | Method | HTTP request | Description
  - [CouponFreeShippingSpecificItems](docs/CouponFreeShippingSpecificItems.md)
  - [CouponFreeShippingWithItemsPurchase](docs/CouponFreeShippingWithItemsPurchase.md)
  - [CouponFreeShippingWithSubtotal](docs/CouponFreeShippingWithSubtotal.md)
+ - [CouponItemSearchResult](docs/CouponItemSearchResult.md)
+ - [CouponItemSearchResultsResponse](docs/CouponItemSearchResultsResponse.md)
  - [CouponMultipleAmountsOffItems](docs/CouponMultipleAmountsOffItems.md)
  - [CouponNoDiscount](docs/CouponNoDiscount.md)
  - [CouponPercentOffItemWithItemsQuantityPurchase](docs/CouponPercentOffItemWithItemsQuantityPurchase.md)
@@ -509,6 +577,8 @@ Class | Method | HTTP request | Description
  - [CouponTieredPercentOffItems](docs/CouponTieredPercentOffItems.md)
  - [CouponTieredPercentOffShipping](docs/CouponTieredPercentOffShipping.md)
  - [CouponTieredPercentOffSubtotal](docs/CouponTieredPercentOffSubtotal.md)
+ - [CouponType](docs/CouponType.md)
+ - [CouponsRequest](docs/CouponsRequest.md)
  - [CouponsResponse](docs/CouponsResponse.md)
  - [Currency](docs/Currency.md)
  - [Customer](docs/Customer.md)
@@ -541,6 +611,9 @@ Class | Method | HTTP request | Description
  - [DistributionCentersResponse](docs/DistributionCentersResponse.md)
  - [EmailBaseTemplateListResponse](docs/EmailBaseTemplateListResponse.md)
  - [EmailCampaign](docs/EmailCampaign.md)
+ - [EmailCampaignFolder](docs/EmailCampaignFolder.md)
+ - [EmailCampaignFolderResponse](docs/EmailCampaignFolderResponse.md)
+ - [EmailCampaignFoldersResponse](docs/EmailCampaignFoldersResponse.md)
  - [EmailCampaignResponse](docs/EmailCampaignResponse.md)
  - [EmailCampaignsResponse](docs/EmailCampaignsResponse.md)
  - [EmailClick](docs/EmailClick.md)
@@ -574,6 +647,9 @@ Class | Method | HTTP request | Description
  - [EmailFlow](docs/EmailFlow.md)
  - [EmailFlowBackPopulateRequest](docs/EmailFlowBackPopulateRequest.md)
  - [EmailFlowBackPopulateResponse](docs/EmailFlowBackPopulateResponse.md)
+ - [EmailFlowFolder](docs/EmailFlowFolder.md)
+ - [EmailFlowFolderResponse](docs/EmailFlowFolderResponse.md)
+ - [EmailFlowFoldersResponse](docs/EmailFlowFoldersResponse.md)
  - [EmailFlowResponse](docs/EmailFlowResponse.md)
  - [EmailFlowsResponse](docs/EmailFlowsResponse.md)
  - [EmailGlobalSettings](docs/EmailGlobalSettings.md)
@@ -637,8 +713,13 @@ Class | Method | HTTP request | Description
  - [ExperimentsResponse](docs/ExperimentsResponse.md)
  - [FulfillmentInventory](docs/FulfillmentInventory.md)
  - [FulfillmentShipment](docs/FulfillmentShipment.md)
+ - [GeoPoint](docs/GeoPoint.md)
  - [GeocodeRequest](docs/GeocodeRequest.md)
  - [GeocodeResponse](docs/GeocodeResponse.md)
+ - [Group](docs/Group.md)
+ - [GroupResponse](docs/GroupResponse.md)
+ - [GroupUserMembership](docs/GroupUserMembership.md)
+ - [GroupsResponse](docs/GroupsResponse.md)
  - [HTTPHeader](docs/HTTPHeader.md)
  - [Item](docs/Item.md)
  - [ItemAccounting](docs/ItemAccounting.md)
@@ -719,13 +800,20 @@ Class | Method | HTTP request | Description
  - [LibraryItem](docs/LibraryItem.md)
  - [LibraryItemAccount](docs/LibraryItemAccount.md)
  - [LibraryItemAsset](docs/LibraryItemAsset.md)
+ - [LibraryItemAttribute](docs/LibraryItemAttribute.md)
  - [LibraryItemEmail](docs/LibraryItemEmail.md)
+ - [LibraryItemPublishedMeta](docs/LibraryItemPublishedMeta.md)
+ - [LibraryItemPurchasedMeta](docs/LibraryItemPurchasedMeta.md)
  - [LibraryItemQuery](docs/LibraryItemQuery.md)
  - [LibraryItemResponse](docs/LibraryItemResponse.md)
+ - [LibraryItemScreenshot](docs/LibraryItemScreenshot.md)
  - [LibraryItemsResponse](docs/LibraryItemsResponse.md)
+ - [LinkedAccount](docs/LinkedAccount.md)
  - [ListSegmentMembership](docs/ListSegmentMembership.md)
+ - [LookupRequest](docs/LookupRequest.md)
  - [LookupResponse](docs/LookupResponse.md)
  - [Metric](docs/Metric.md)
+ - [Notification](docs/Notification.md)
  - [OauthRevokeSuccessResponse](docs/OauthRevokeSuccessResponse.md)
  - [OauthTokenResponse](docs/OauthTokenResponse.md)
  - [Order](docs/Order.md)
@@ -764,6 +852,8 @@ Class | Method | HTTP request | Description
  - [OrderPaymentPurchaseOrder](docs/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/OrderPaymentTransaction.md)
  - [OrderPaymentTransactionDetail](docs/OrderPaymentTransactionDetail.md)
+ - [OrderProcessPaymentRequest](docs/OrderProcessPaymentRequest.md)
+ - [OrderProcessPaymentResponse](docs/OrderProcessPaymentResponse.md)
  - [OrderProperty](docs/OrderProperty.md)
  - [OrderQuery](docs/OrderQuery.md)
  - [OrderQueryBatch](docs/OrderQueryBatch.md)
@@ -778,15 +868,58 @@ Class | Method | HTTP request | Description
  - [OrderTag](docs/OrderTag.md)
  - [OrderTaxes](docs/OrderTaxes.md)
  - [OrderTokenResponse](docs/OrderTokenResponse.md)
+ - [OrderTrackingNumberDetail](docs/OrderTrackingNumberDetail.md)
+ - [OrderTrackingNumberDetails](docs/OrderTrackingNumberDetails.md)
  - [OrdersResponse](docs/OrdersResponse.md)
+ - [Permission](docs/Permission.md)
  - [PricingTier](docs/PricingTier.md)
  - [PricingTierNotification](docs/PricingTierNotification.md)
  - [PricingTiersResponse](docs/PricingTiersResponse.md)
  - [Property](docs/Property.md)
+ - [PublishLibraryItemRequest](docs/PublishLibraryItemRequest.md)
  - [RegisterAffiliateClickRequest](docs/RegisterAffiliateClickRequest.md)
+ - [RegisterAffiliateClickResponse](docs/RegisterAffiliateClickResponse.md)
  - [ResponseMetadata](docs/ResponseMetadata.md)
  - [ResultSet](docs/ResultSet.md)
+ - [ScreenRecording](docs/ScreenRecording.md)
+ - [ScreenRecordingFilter](docs/ScreenRecordingFilter.md)
+ - [ScreenRecordingFilterGeoDistance](docs/ScreenRecordingFilterGeoDistance.md)
+ - [ScreenRecordingFilterIpSearch](docs/ScreenRecordingFilterIpSearch.md)
+ - [ScreenRecordingFilterPageView](docs/ScreenRecordingFilterPageView.md)
+ - [ScreenRecordingFilterPageViewEvent](docs/ScreenRecordingFilterPageViewEvent.md)
+ - [ScreenRecordingFilterPageViewEventParam](docs/ScreenRecordingFilterPageViewEventParam.md)
+ - [ScreenRecordingFilterPageViewParam](docs/ScreenRecordingFilterPageViewParam.md)
+ - [ScreenRecordingFilterPageViewReferrerParam](docs/ScreenRecordingFilterPageViewReferrerParam.md)
+ - [ScreenRecordingFilterRangeBigDecimal](docs/ScreenRecordingFilterRangeBigDecimal.md)
+ - [ScreenRecordingFilterRangeDate](docs/ScreenRecordingFilterRangeDate.md)
+ - [ScreenRecordingFilterRangeInteger](docs/ScreenRecordingFilterRangeInteger.md)
+ - [ScreenRecordingFilterStringSearch](docs/ScreenRecordingFilterStringSearch.md)
+ - [ScreenRecordingFilterValues](docs/ScreenRecordingFilterValues.md)
+ - [ScreenRecordingFilterValuesEvent](docs/ScreenRecordingFilterValuesEvent.md)
+ - [ScreenRecordingFilterValuesEventParams](docs/ScreenRecordingFilterValuesEventParams.md)
+ - [ScreenRecordingMultifield](docs/ScreenRecordingMultifield.md)
+ - [ScreenRecordingPageView](docs/ScreenRecordingPageView.md)
+ - [ScreenRecordingPageViewEvent](docs/ScreenRecordingPageViewEvent.md)
+ - [ScreenRecordingPageViewEventParameter](docs/ScreenRecordingPageViewEventParameter.md)
+ - [ScreenRecordingPageViewParameter](docs/ScreenRecordingPageViewParameter.md)
+ - [ScreenRecordingQueryRequest](docs/ScreenRecordingQueryRequest.md)
+ - [ScreenRecordingQueryResponse](docs/ScreenRecordingQueryResponse.md)
+ - [ScreenRecordingResponse](docs/ScreenRecordingResponse.md)
+ - [ScreenRecordingSegment](docs/ScreenRecordingSegment.md)
+ - [ScreenRecordingSegmentResponse](docs/ScreenRecordingSegmentResponse.md)
+ - [ScreenRecordingSegmentsResponse](docs/ScreenRecordingSegmentsResponse.md)
+ - [ScreenRecordingSettings](docs/ScreenRecordingSettings.md)
+ - [ScreenRecordingSettingsResponse](docs/ScreenRecordingSettingsResponse.md)
+ - [ScreenRecordingStoreFront](docs/ScreenRecordingStoreFront.md)
+ - [ScreenRecordingTagsRequest](docs/ScreenRecordingTagsRequest.md)
+ - [ScreenRecordingTagsResponse](docs/ScreenRecordingTagsResponse.md)
+ - [ScreenRecordingUserAgent](docs/ScreenRecordingUserAgent.md)
+ - [ScreenRecordingUserAgentDevice](docs/ScreenRecordingUserAgentDevice.md)
+ - [ScreenRecordingUserAgentOS](docs/ScreenRecordingUserAgentOS.md)
+ - [ScreenRecordingUserProperty](docs/ScreenRecordingUserProperty.md)
+ - [ScreenshotsResponse](docs/ScreenshotsResponse.md)
  - [SelfConfig](docs/SelfConfig.md)
+ - [SimpleValue](docs/SimpleValue.md)
  - [SovosConfig](docs/SovosConfig.md)
  - [StateProvince](docs/StateProvince.md)
  - [StepWaiting](docs/StepWaiting.md)
@@ -813,12 +946,23 @@ Class | Method | HTTP request | Description
  - [TaxStateCode](docs/TaxStateCode.md)
  - [TempMultimedia](docs/TempMultimedia.md)
  - [TempMultimediaResponse](docs/TempMultimediaResponse.md)
+ - [ThumbnailParametersRequest](docs/ThumbnailParametersRequest.md)
+ - [ThumbnailParametersResponse](docs/ThumbnailParametersResponse.md)
  - [TransactionEmail](docs/TransactionEmail.md)
  - [TransactionEmailListResponse](docs/TransactionEmailListResponse.md)
  - [TransactionEmailOption](docs/TransactionEmailOption.md)
  - [TransactionEmailResponse](docs/TransactionEmailResponse.md)
  - [UltraCartConfig](docs/UltraCartConfig.md)
+ - [UploadCouponCodesRequest](docs/UploadCouponCodesRequest.md)
+ - [UploadCouponCodesResponse](docs/UploadCouponCodesResponse.md)
+ - [User](docs/User.md)
+ - [UserGroupMembership](docs/UserGroupMembership.md)
+ - [UserLogin](docs/UserLogin.md)
+ - [UserLoginsResponse](docs/UserLoginsResponse.md)
+ - [UserResponse](docs/UserResponse.md)
+ - [UsersResponse](docs/UsersResponse.md)
  - [VerificationRecord](docs/VerificationRecord.md)
+ - [Warning](docs/Warning.md)
  - [Webhook](docs/Webhook.md)
  - [WebhookEventCategory](docs/WebhookEventCategory.md)
  - [WebhookEventSubscription](docs/WebhookEventSubscription.md)
@@ -874,6 +1018,8 @@ Authentication schemes defined for the API:
   - webhook_write: Allows you to write webhook information.
   - ultrabooks_read: 1 of 2 required to use UltraBooks
   - ultrabooks_write: 2 of 2 required to use UltraBooks
+  - user_read: Allows you to read user information.
+  - user_write: Allows you to write user information.
 
 ### ultraCartSimpleApiKey
 
@@ -894,9 +1040,50 @@ support@ultracart.com
 
 
 # CHANGE LOG
+Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.71 | 01/28/2021 | BugFix: PHP SDK retry logic NPE |
+| 3.0.70 | 01/26/2021 | Checkout return URL support |
+| 3.0.66 | 01/22/2021 | code library attributes (mostly internal dev) |
+| 3.0.65 | 01/22/2021 | Added folder support for email campaigns and flows |
+| 3.0.64 | 01/20/2021 | Bug fix on revenue per customer field incorrectly named. |
+| 3.0.63 | 01/20/2021 | CouponAPI: bug fixes and new method doesCouponCodeExist |
+| 3.0.62 | 01/19/2021 | Added retry ability when rate limit is triggered (PHP SDK only) only) Other sdk to follow. |
+| 3.0.60 | 01/14/2021 | Working with Ruby SDK |
+| 3.0.57 | 12/17/2020 | CouponAPI: Added Buy one get one free coupon |
+| 3.0.53 | 12/14/2020 | StoreFrontAPI: added a duplicate method to load the pricing tiers on the StoreFront |
+| 3.0.51 | 12/09/2020 | UserAPI: internal bug preventing proper usage of user group creation |
+| 3.0.45 | 12/03/2020 | CouponAPI: added partial searches to getCoupon params, added deleteCoupons method, fixed bugs |
+| 3.0.44 | 12/03/2020 | Code library updates, intended for internal use |
+| 3.0.43 | 12/02/2020 | Added fields to code library to handle versions of published items |
+| 3.0.42 | 12/02/2020 | Added display values to CouponApi.getEditorValues to make type dropdowns easy |
+| 3.0.41 | 11/17/2020 | New modify cart step option for StoreFront communications |
+| 3.0.39 | 11/12/2020 | Added Customer.tax_codes.taxjar_exemption_type |
+| 3.0.38 | 11/09/2020 | Added TaxProviderTaxJar.configuration.send_outside_nexus flag |
+| 3.0.37 | 11/06/2020 | Added transactional email screenshots for code library |
+| 3.0.36 | 11/03/2020 | Added missing constant for pre-order stage |
+| 3.0.34 | 10/26/2020 | UserAPI initial release |
+| 3.0.33 | 10/23/2020 | Added library_item_oid to StoreFront Communications email object for upcoming code library |
+| 3.0.32 | 10/21/2020 | Added new StoreFrontApi.search method that takes a POST instead of a GET |
+| 3.0.31 | 10/16/2020 | more dev work on code library (internal) |
+| 3.0.30 | 10/08/2020 | development work on code library (internal), first version of UserAPI.  The UserAPI is not live yet. |
+| 3.0.29 | 09/29/2020 | new boolean field on coupon: bug fix |
+| 3.0.28 | 09/29/2020 | new boolean field on coupon: free item with purchase of another item |
+| 3.0.27 | 09/29/2020 | Refactored the code library applyToStoreFront to provide support for marketing emails |
+| 3.0.26 | 09/25/2020 | Expose actual shipping and fulfillment costs in the order summary object |
+| 3.0.25 | 09/16/2020 | New method: OrderApi.adjustOrderTotal |
+| 3.0.24 | 09/10/2020 | Bugfix: incorrect response type on CheckoutAPI.registerAffiliateClick |
+| 3.0.23 | 09/02/2020 | Added flag to email plan object.  allow_tracking_emails |
+| 3.0.22 | 09/02/2020 | Order object - added tracking details |
+| 3.0.21 | 09/01/2020 | break fix in php sdk due to bad namespace |
+| 3.0.20 | 09/01/2020 | Added OrderApi.processPayment method |
+| 3.0.19 | 08/28/2020 | Code Library development: added kraken parameters for thumbnail image generation. |
+| 3.0.17 | 08/26/2020 | cont. development work on Code Library |
+| 3.0.14 | 08/19/2020 | development work on Code Library |
+| 3.0.13 | 08/18/2020 | development work on Code Library |
+| 3.0.12 | 08/13/2020 | screenshot urls for campaigns and flows (storefront communications) |
 | 3.0.11 | 08/12/2020 | Refactoring and development for Code Library (not released yet) |
 | 3.0.10 | 08/10/2020 | Method for registering an affliate click via the SDK, found within CheckoutAPI |
 | 3.0.8 | 08/05/2020 | stub for code library 'getLibraryFilterValues' for populating drop down lists |

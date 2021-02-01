@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **bounceCount** | **Integer** | Total bounce count for this variation |  [optional]
 **conversionRate** | [**BigDecimal**](BigDecimal.md) | Conversion rate for this variation |  [optional]
 **durationSecondsSum** | **Long** | Total number of seconds spent on the site for this variation |  [optional]
+**eventCount** | **Integer** | Total event ocunt for this variation |  [optional]
 **initiateCheckoutCount** | **Integer** | Total initiate checkout count for this variation |  [optional]
 **orderCount** | **Integer** | Total order count for this variation |  [optional]
 **originalTrafficPercentage** | [**BigDecimal**](BigDecimal.md) | Percentage of the traffic the variation originally started out with |  [optional]

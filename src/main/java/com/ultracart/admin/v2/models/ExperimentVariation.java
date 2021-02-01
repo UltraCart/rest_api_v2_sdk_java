@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ExperimentVariation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -53,6 +53,9 @@ public class ExperimentVariation {
 
   @SerializedName("duration_seconds_sum")
   private Long durationSecondsSum = null;
+
+  @SerializedName("event_count")
+  private Integer eventCount = null;
 
   @SerializedName("initiate_checkout_count")
   private Integer initiateCheckoutCount = null;
@@ -211,6 +214,24 @@ public class ExperimentVariation {
 
   public void setDurationSecondsSum(Long durationSecondsSum) {
     this.durationSecondsSum = durationSecondsSum;
+  }
+
+  public ExperimentVariation eventCount(Integer eventCount) {
+    this.eventCount = eventCount;
+    return this;
+  }
+
+   /**
+   * Total event ocunt for this variation
+   * @return eventCount
+  **/
+  @ApiModelProperty(value = "Total event ocunt for this variation")
+  public Integer getEventCount() {
+    return eventCount;
+  }
+
+  public void setEventCount(Integer eventCount) {
+    this.eventCount = eventCount;
   }
 
   public ExperimentVariation initiateCheckoutCount(Integer initiateCheckoutCount) {
@@ -428,6 +449,7 @@ public class ExperimentVariation {
         Objects.equals(this.bounceCount, experimentVariation.bounceCount) &&
         Objects.equals(this.conversionRate, experimentVariation.conversionRate) &&
         Objects.equals(this.durationSecondsSum, experimentVariation.durationSecondsSum) &&
+        Objects.equals(this.eventCount, experimentVariation.eventCount) &&
         Objects.equals(this.initiateCheckoutCount, experimentVariation.initiateCheckoutCount) &&
         Objects.equals(this.orderCount, experimentVariation.orderCount) &&
         Objects.equals(this.originalTrafficPercentage, experimentVariation.originalTrafficPercentage) &&
@@ -443,7 +465,7 @@ public class ExperimentVariation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, durationSecondsSum, initiateCheckoutCount, orderCount, originalTrafficPercentage, pageViewCount, revenue, sessionCount, trafficPercentage, url, variationName, variationNumber, winner);
+    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, originalTrafficPercentage, pageViewCount, revenue, sessionCount, trafficPercentage, url, variationName, variationNumber, winner);
   }
 
 
@@ -459,6 +481,7 @@ public class ExperimentVariation {
     sb.append("    bounceCount: ").append(toIndentedString(bounceCount)).append("\n");
     sb.append("    conversionRate: ").append(toIndentedString(conversionRate)).append("\n");
     sb.append("    durationSecondsSum: ").append(toIndentedString(durationSecondsSum)).append("\n");
+    sb.append("    eventCount: ").append(toIndentedString(eventCount)).append("\n");
     sb.append("    initiateCheckoutCount: ").append(toIndentedString(initiateCheckoutCount)).append("\n");
     sb.append("    orderCount: ").append(toIndentedString(orderCount)).append("\n");
     sb.append("    originalTrafficPercentage: ").append(toIndentedString(originalTrafficPercentage)).append("\n");

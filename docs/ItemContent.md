@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **customThankYouUrl** | **String** | Custom Thank You URL |  [optional]
 **excludeFromSearch** | **Boolean** | Exclude from search |  [optional]
 **excludeFromTopSellers** | **Boolean** | Exclude from the top sellers list in the StoreFront |  [optional]
-**extendedDescription** | **String** | Extended description (max 2000 characters) |  [optional]
+**extendedDescription** | **String** | Extended description (max 10000 characters) |  [optional]
 **extendedDescriptionTranslatedTextInstanceOid** | **Integer** | Extneded description text translation instance identifier |  [optional]
 **multimedia** | [**List&lt;ItemContentMultimedia&gt;**](ItemContentMultimedia.md) | Multimedia |  [optional]
 **newItem** | **Boolean** | True if the item is new |  [optional]

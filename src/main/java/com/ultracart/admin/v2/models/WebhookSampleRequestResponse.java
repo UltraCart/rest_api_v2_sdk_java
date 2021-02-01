@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import com.ultracart.admin.v2.models.WebhookSampleRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +31,7 @@ import java.io.IOException;
 /**
  * WebhookSampleRequestResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -43,6 +44,9 @@ public class WebhookSampleRequestResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   @SerializedName("webhook_sample_request")
   private WebhookSampleRequest webhookSampleRequest = null;
@@ -101,6 +105,24 @@ public class WebhookSampleRequestResponse {
     this.success = success;
   }
 
+  public WebhookSampleRequestResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
   public WebhookSampleRequestResponse webhookSampleRequest(WebhookSampleRequest webhookSampleRequest) {
     this.webhookSampleRequest = webhookSampleRequest;
     return this;
@@ -132,12 +154,13 @@ public class WebhookSampleRequestResponse {
     return Objects.equals(this.error, webhookSampleRequestResponse.error) &&
         Objects.equals(this.metadata, webhookSampleRequestResponse.metadata) &&
         Objects.equals(this.success, webhookSampleRequestResponse.success) &&
+        Objects.equals(this.warning, webhookSampleRequestResponse.warning) &&
         Objects.equals(this.webhookSampleRequest, webhookSampleRequestResponse.webhookSampleRequest);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, success, webhookSampleRequest);
+    return Objects.hash(error, metadata, success, warning, webhookSampleRequest);
   }
 
 
@@ -149,6 +172,7 @@ public class WebhookSampleRequestResponse {
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("    webhookSampleRequest: ").append(toIndentedString(webhookSampleRequest)).append("\n");
     sb.append("}");
     return sb.toString();

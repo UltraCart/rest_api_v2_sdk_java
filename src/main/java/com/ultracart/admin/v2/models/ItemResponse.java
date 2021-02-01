@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.Item;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.io.IOException;
 /**
  * ItemResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-13T08:30:21.745-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:06:34.041-05:00")
 
 
 
@@ -46,6 +47,9 @@ public class ItemResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("warning")
+  private Warning warning = null;
 
   public ItemResponse error(Error error) {
     this.error = error;
@@ -119,6 +123,24 @@ public class ItemResponse {
     this.success = success;
   }
 
+  public ItemResponse warning(Warning warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @ApiModelProperty(value = "")
+  public Warning getWarning() {
+    return warning;
+  }
+
+  public void setWarning(Warning warning) {
+    this.warning = warning;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +154,13 @@ public class ItemResponse {
     return Objects.equals(this.error, itemResponse.error) &&
         Objects.equals(this.item, itemResponse.item) &&
         Objects.equals(this.metadata, itemResponse.metadata) &&
-        Objects.equals(this.success, itemResponse.success);
+        Objects.equals(this.success, itemResponse.success) &&
+        Objects.equals(this.warning, itemResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, item, metadata, success);
+    return Objects.hash(error, item, metadata, success, warning);
   }
 
 
@@ -150,6 +173,7 @@ public class ItemResponse {
     sb.append("    item: ").append(toIndentedString(item)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }
