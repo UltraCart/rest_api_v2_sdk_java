@@ -43,19 +43,10 @@ Adjusts an order total.  Adjusts individual items appropriately and considers ta
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to cancel.
 String desiredTotal = "desiredTotal_example"; // String | The desired total with no formatting. example 123.45
 try {
@@ -104,19 +95,10 @@ Cancel an order on the UltraCart account.  If the success flag is false, then co
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to cancel.
 try {
     BaseResponse result = apiInstance.cancelOrder(orderId);
@@ -163,19 +145,10 @@ Delete an order on the UltraCart account.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to delete.
 try {
     apiInstance.deleteOrder(orderId);
@@ -221,19 +194,10 @@ Format the order for display at text or html
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to format
 OrderFormat formatOptions = new OrderFormat(); // OrderFormat | Format options
 try {
@@ -282,19 +246,10 @@ Retrieves a single order token for a given order id.  The token can be used with
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to generate a token for.
 try {
     OrderTokenResponse result = apiInstance.generateOrderToken(orderId);
@@ -341,19 +296,10 @@ Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 try {
     AccountsReceivableRetryConfigResponse result = apiInstance.getAccountsReceivableRetryConfig();
     System.out.println(result);
@@ -396,19 +342,10 @@ Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is do
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String from = "from_example"; // String | 
 String to = "to_example"; // String | 
 try {
@@ -457,19 +394,10 @@ Retrieves a single order using the specified order id.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to retrieve.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -518,19 +446,10 @@ Retrieves a single order using the specified order token.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 OrderByTokenQuery orderByTokenQuery = new OrderByTokenQuery(); // OrderByTokenQuery | Order by token query
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -579,19 +498,10 @@ Retrieves a group of orders from the account.  If no parameters are specified, t
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | Order Id
 String paymentMethod = "paymentMethod_example"; // String | Payment Method
 String company = "company_example"; // String | Company
@@ -704,19 +614,10 @@ Retrieves a group of orders from the account based on an array of order ids.  If
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 OrderQueryBatch orderBatch = new OrderQueryBatch(); // OrderQueryBatch | Order batch
 String expand = "expand_example"; // String | The object expansion to perform on the result.
 try {
@@ -765,19 +666,10 @@ Retrieves a group of orders from the account based on a query object.  If no par
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 OrderQuery orderQuery = new OrderQuery(); // OrderQuery | Order query
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
@@ -832,19 +724,10 @@ Inserts a new order on the UltraCart account.  This is probably NOT the method y
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 Order order = new Order(); // Order | Order to insert
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -893,19 +776,10 @@ Process payment on order
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to process payment on
 OrderProcessPaymentRequest processPaymentRequest = new OrderProcessPaymentRequest(); // OrderProcessPaymentRequest | Process payment parameters
 try {
@@ -954,19 +828,10 @@ Perform a refund operation on an order and then update the order if successful
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 Order order = new Order(); // Order | Order to refund
 String orderId = "orderId_example"; // String | The order id to refund.
 Boolean rejectAfterRefund = false; // Boolean | Reject order after refund
@@ -1027,19 +892,10 @@ Create a replacement order based upon a previous order
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to generate a replacement for.
 OrderReplacement replacement = new OrderReplacement(); // OrderReplacement | Replacement order details
 try {
@@ -1088,19 +944,10 @@ Resend the receipt for an order on the UltraCart account.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to resend the receipt for.
 try {
     BaseResponse result = apiInstance.resendReceipt(orderId);
@@ -1147,19 +994,10 @@ Resend shipment confirmation for an order on the UltraCart account.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 String orderId = "orderId_example"; // String | The order id to resend the shipment notification for.
 try {
     BaseResponse result = apiInstance.resendShipmentConfirmation(orderId);
@@ -1206,19 +1044,10 @@ Update A/R Retry Configuration.  This is primarily an internal API call.  It is 
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 AccountsReceivableRetryConfig retryConfig = new AccountsReceivableRetryConfig(); // AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
 try {
     BaseResponse result = apiInstance.updateAccountsReceivableRetryConfig(retryConfig);
@@ -1265,19 +1094,10 @@ Update a new order on the UltraCart account.  This is probably NOT the method yo
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.OrderApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-OrderApi apiInstance = new OrderApi();
 Order order = new Order(); // Order | Order to update
 String orderId = "orderId_example"; // String | The order id to update.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples

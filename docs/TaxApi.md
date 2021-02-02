@@ -51,19 +51,10 @@ Deletes a Self tax provider city.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String city = "city_example"; // String | The city being deleted.
 TaxCity taxCity = new TaxCity(); // TaxCity | tax city to be deleted
 try {
@@ -111,19 +102,10 @@ Deletes a Self tax provider country.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String countryCode = "countryCode_example"; // String | The country code being deleted.
 TaxCountry taxCountry = new TaxCountry(); // TaxCountry | tax country to be deleted
 try {
@@ -171,19 +153,10 @@ Deletes a Self tax provider county.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String county = "county_example"; // String | The county being deleted.
 TaxCounty taxCounty = new TaxCounty(); // TaxCounty | tax county to be deleted
 try {
@@ -231,19 +204,10 @@ Deletes a Self tax provider postalCode.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String postalCode = "postalCode_example"; // String | The postal code being deleted.
 TaxPostalCode taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be deleted
 try {
@@ -291,19 +255,10 @@ Deletes a Self tax provider state.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String stateCode = "stateCode_example"; // String | The state code being deleted.
 TaxState taxState = new TaxState(); // TaxState | tax state to be deleted
 try {
@@ -351,19 +306,10 @@ Retrieves the Avalara tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderAvalara result = apiInstance.getTaxProviderAvalara();
     System.out.println(result);
@@ -406,19 +352,10 @@ Returns Avalara Tax companies configured by the merchant
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 TaxProviderAvalara taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
 try {
     TaxProviderAvalaraCompaniesResult result = apiInstance.getTaxProviderAvalaraCompanies(taxProviderAvalara);
@@ -465,19 +402,10 @@ Attempts to connect to Avalara and returns back the response.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderTestResult result = apiInstance.getTaxProviderAvalaraTest();
     System.out.println(result);
@@ -520,19 +448,10 @@ Retrieves the Self tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderSelf result = apiInstance.getTaxProviderSelf();
     System.out.println(result);
@@ -575,19 +494,10 @@ Retrieves the Self tax provider countries.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderSelfCountriesResponse result = apiInstance.getTaxProviderSelfCountries();
     System.out.println(result);
@@ -630,19 +540,10 @@ Retrieves the Self tax provider regions for a given country code.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String countryCode = "countryCode_example"; // String | The country code regions desired.
 try {
     TaxProviderSelfRegionsResponse result = apiInstance.getTaxProviderSelfRegionsByCountryCode(countryCode);
@@ -689,19 +590,10 @@ Retrieves the Sovos tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderSovos result = apiInstance.getTaxProviderSovos();
     System.out.println(result);
@@ -744,19 +636,10 @@ Attempts to connect to Sovos and returns back the response.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderTestResult result = apiInstance.getTaxProviderSovosTest();
     System.out.println(result);
@@ -799,19 +682,10 @@ Retrieves the TaxJar tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderTaxJar result = apiInstance.getTaxProviderTaxJar();
     System.out.println(result);
@@ -854,19 +728,10 @@ Attempts to connect to TaxJar and returns back the response.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderTestResult result = apiInstance.getTaxProviderTaxJarTest();
     System.out.println(result);
@@ -909,19 +774,10 @@ Retrieves the UltraCart tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 try {
     TaxProviderUltraCart result = apiInstance.getTaxProviderUltraCart();
     System.out.println(result);
@@ -964,19 +820,10 @@ Retrieves tax methods for this account.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
@@ -1027,19 +874,10 @@ Toggle a tax provider to active.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String providerName = "providerName_example"; // String | The tax provider to set active.
 try {
     TaxProviderActivateResult result = apiInstance.setActiveTaxProvider(providerName);
@@ -1086,19 +924,10 @@ Update the Avalara tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 TaxProviderAvalara taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
 try {
     TaxProviderAvalara result = apiInstance.updateTaxProviderAvalara(taxProviderAvalara);
@@ -1145,19 +974,10 @@ Update the Self tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 TaxProviderSelf taxProviderSelf = new TaxProviderSelf(); // TaxProviderSelf | TaxProviderSelf object
 try {
     TaxProviderSelf result = apiInstance.updateTaxProviderSelf(taxProviderSelf);
@@ -1204,19 +1024,10 @@ Updates a Self tax provider city.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String city = "city_example"; // String | The city being updated.
 TaxCity taxCity = new TaxCity(); // TaxCity | tax city to be updated
 try {
@@ -1265,19 +1076,10 @@ Updates a Self tax provider country.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String countryCode = "countryCode_example"; // String | The country code being updated.
 TaxCountry taxCountry = new TaxCountry(); // TaxCountry | tax country to be updated
 try {
@@ -1326,19 +1128,10 @@ Updates a Self tax provider county.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String county = "county_example"; // String | The county being updated.
 TaxCounty taxCounty = new TaxCounty(); // TaxCounty | tax county to be updated
 try {
@@ -1387,19 +1180,10 @@ Updates a Self tax provider postalCode.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String postalCode = "postalCode_example"; // String | The postal code being updated.
 TaxPostalCode taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be updated
 try {
@@ -1448,19 +1232,10 @@ Updates a Self tax provider state.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 String stateCode = "stateCode_example"; // String | The state code being updated.
 TaxState taxState = new TaxState(); // TaxState | tax state to be updated
 try {
@@ -1509,19 +1284,10 @@ Update the Sovos tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 TaxProviderSovos taxProviderSovos = new TaxProviderSovos(); // TaxProviderSovos | TaxProviderSovos object
 try {
     TaxProviderSovos result = apiInstance.updateTaxProviderSovos(taxProviderSovos);
@@ -1568,19 +1334,10 @@ Update the TaxJar tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 TaxProviderTaxJar taxProviderTaxJar = new TaxProviderTaxJar(); // TaxProviderTaxJar | TaxProviderTaxJar object
 try {
     TaxProviderTaxJar result = apiInstance.updateTaxProviderTaxJar(taxProviderTaxJar);
@@ -1627,19 +1384,10 @@ Update the UltraCart tax provider.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.TaxApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+TaxApi apiInstance = new TaxApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-TaxApi apiInstance = new TaxApi();
 TaxProviderUltraCart taxProviderUltracart = new TaxProviderUltraCart(); // TaxProviderUltraCart | TaxProviderUltraCart object
 try {
     TaxProviderUltraCart result = apiInstance.updateTaxProviderUltraCart(taxProviderUltracart);

@@ -67,6 +67,31 @@ public class CheckoutApi {
         this.apiClient = apiClient;
     }
 
+  public CheckoutApi(String apiKey){
+      ApiClient client = new ApiClient();
+
+      com.ultracart.admin.v2.swagger.auth.ApiKeyAuth ultraCartSimpleApiKey = (com.ultracart.admin.v2.swagger.auth.ApiKeyAuth) client.getAuthentication("ultraCartSimpleApiKey");
+      ultraCartSimpleApiKey.setApiKey(apiKey);
+
+      client.addDefaultHeader("X-UltraCart-Api-Version", "2017-03-01");
+      this.apiClient = client;
+  }
+
+
+  public CheckoutApi(String apiKey, boolean verifySsl, boolean debugging){
+      ApiClient client = new ApiClient();
+
+      com.ultracart.admin.v2.swagger.auth.ApiKeyAuth ultraCartSimpleApiKey = (com.ultracart.admin.v2.swagger.auth.ApiKeyAuth) client.getAuthentication("ultraCartSimpleApiKey");
+      ultraCartSimpleApiKey.setApiKey(apiKey);
+
+      client.addDefaultHeader("X-UltraCart-Api-Version", "2017-03-01");
+
+      client.setDebugging(debugging);
+      client.setVerifyingSsl(verifySsl);
+      this.apiClient = client;
+  }
+
+
     public ApiClient getApiClient() {
         return apiClient;
     }

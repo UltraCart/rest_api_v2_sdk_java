@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * EmailPlanAdditional
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:55:46.727-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-02T10:03:38.886-05:00")
 
 
 
@@ -41,6 +41,12 @@ public class EmailPlanAdditional {
 
   @SerializedName("cost")
   private BigDecimal cost = null;
+
+  @SerializedName("cost_change")
+  private BigDecimal costChange = null;
+
+  @SerializedName("cost_change_formatted")
+  private String costChangeFormatted = null;
 
   @SerializedName("cost_formatted")
   private String costFormatted = null;
@@ -103,6 +109,42 @@ public class EmailPlanAdditional {
 
   public void setCost(BigDecimal cost) {
     this.cost = cost;
+  }
+
+  public EmailPlanAdditional costChange(BigDecimal costChange) {
+    this.costChange = costChange;
+    return this;
+  }
+
+   /**
+   * Get costChange
+   * @return costChange
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getCostChange() {
+    return costChange;
+  }
+
+  public void setCostChange(BigDecimal costChange) {
+    this.costChange = costChange;
+  }
+
+  public EmailPlanAdditional costChangeFormatted(String costChangeFormatted) {
+    this.costChangeFormatted = costChangeFormatted;
+    return this;
+  }
+
+   /**
+   * Get costChangeFormatted
+   * @return costChangeFormatted
+  **/
+  @ApiModelProperty(value = "")
+  public String getCostChangeFormatted() {
+    return costChangeFormatted;
+  }
+
+  public void setCostChangeFormatted(String costChangeFormatted) {
+    this.costChangeFormatted = costChangeFormatted;
   }
 
   public EmailPlanAdditional costFormatted(String costFormatted) {
@@ -172,6 +214,8 @@ public class EmailPlanAdditional {
     return Objects.equals(this.canDowngrade, emailPlanAdditional.canDowngrade) &&
         Objects.equals(this.canUpgrade, emailPlanAdditional.canUpgrade) &&
         Objects.equals(this.cost, emailPlanAdditional.cost) &&
+        Objects.equals(this.costChange, emailPlanAdditional.costChange) &&
+        Objects.equals(this.costChangeFormatted, emailPlanAdditional.costChangeFormatted) &&
         Objects.equals(this.costFormatted, emailPlanAdditional.costFormatted) &&
         Objects.equals(this.customers, emailPlanAdditional.customers) &&
         Objects.equals(this.emails, emailPlanAdditional.emails);
@@ -179,7 +223,7 @@ public class EmailPlanAdditional {
 
   @Override
   public int hashCode() {
-    return Objects.hash(canDowngrade, canUpgrade, cost, costFormatted, customers, emails);
+    return Objects.hash(canDowngrade, canUpgrade, cost, costChange, costChangeFormatted, costFormatted, customers, emails);
   }
 
 
@@ -191,6 +235,8 @@ public class EmailPlanAdditional {
     sb.append("    canDowngrade: ").append(toIndentedString(canDowngrade)).append("\n");
     sb.append("    canUpgrade: ").append(toIndentedString(canUpgrade)).append("\n");
     sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
+    sb.append("    costChange: ").append(toIndentedString(costChange)).append("\n");
+    sb.append("    costChangeFormatted: ").append(toIndentedString(costChangeFormatted)).append("\n");
     sb.append("    costFormatted: ").append(toIndentedString(costFormatted)).append("\n");
     sb.append("    customers: ").append(toIndentedString(customers)).append("\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");

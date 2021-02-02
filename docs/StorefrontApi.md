@@ -164,25 +164,10 @@ Add to library
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 AddLibraryItemRequest addLibraryRequest = new AddLibraryItemRequest(); // AddLibraryItemRequest | New library item request
 try {
     LibraryItemResponse result = apiInstance.addToLibrary(addLibraryRequest);
@@ -227,25 +212,10 @@ Apply library item to storefront.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 ApplyLibraryItemRequest applyLibraryRequest = new ApplyLibraryItemRequest(); // ApplyLibraryItemRequest | New library item
 try {
     ApplyLibraryItemResponse result = apiInstance.applyToStoreFront(applyLibraryRequest);
@@ -290,25 +260,10 @@ Archive email list
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailListUuid = "emailListUuid_example"; // String | 
 try {
@@ -355,25 +310,10 @@ Archive email segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
 try {
@@ -420,25 +360,10 @@ Back populate email flow
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailFlowUuid = "emailFlowUuid_example"; // String | 
 EmailFlowBackPopulateRequest backPopulateRequest = new EmailFlowBackPopulateRequest(); // EmailFlowBackPopulateRequest | The request to back populate
@@ -487,25 +412,10 @@ Check download of email segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
 String emailSegmentRebuildUuid = "emailSegmentRebuildUuid_example"; // String | 
@@ -554,25 +464,10 @@ Clone email campaign
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
 Integer targetStorefrontOid = 56; // Integer | 
@@ -621,25 +516,10 @@ Clone email flow
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailFlowUuid = "emailFlowUuid_example"; // String | 
 Integer targetStorefrontOid = 56; // Integer | 
@@ -688,25 +568,10 @@ Create email campaign
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 String domain = "domain_example"; // String | 
 try {
     EmailSendingDomainResponse result = apiInstance.createEmailSendingDomain(domain);
@@ -751,25 +616,10 @@ Delete email campaignFolder
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCampaignFolderUuid = "emailCampaignFolderUuid_example"; // String | 
 try {
@@ -816,25 +666,10 @@ Delete communication sequence stats
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 try {
@@ -880,25 +715,10 @@ Delete email email
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
 try {
@@ -945,25 +765,10 @@ Delete email flowFolder
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailFlowFolderUuid = "emailFlowFolderUuid_example"; // String | 
 try {
@@ -1010,25 +815,10 @@ Delete email list customer
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailListUuid = "emailListUuid_example"; // String | 
 String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
@@ -1077,25 +867,10 @@ Delete email postcard
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
 try {
@@ -1142,25 +917,10 @@ delete email campaign
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 String domain = "domain_example"; // String | 
 try {
     BaseResponse result = apiInstance.deleteEmailSendingDomain(domain);
@@ -1205,25 +965,10 @@ Delete experiment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer storefrontExperimentOid = 56; // Integer | 
 try {
@@ -1269,25 +1014,10 @@ Delete library item
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer libraryItemOid = 56; // Integer | 
 try {
     apiInstance.deleteLibraryItem(libraryItemOid);
@@ -1331,25 +1061,10 @@ Delete all published versions for a library item, including anything in review.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer libraryItemOid = 56; // Integer | 
 try {
     apiInstance.deleteLibraryItemPublishedVersions(libraryItemOid);
@@ -1393,25 +1108,10 @@ Delete screen recording segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer screenRecordingSegmentOid = 56; // Integer | 
 try {
@@ -1458,25 +1158,10 @@ Duplicate library item.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer libraryItemOid = 56; // Integer | 
 try {
     LibraryItemResponse result = apiInstance.duplicateLibraryItem(libraryItemOid);
@@ -1523,19 +1208,10 @@ Update favorite flag on screen recording
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
 try {
@@ -1581,25 +1257,10 @@ Obtain lat/long for an address
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 GeocodeRequest geocodeRequest = new GeocodeRequest(); // GeocodeRequest | geocode request
 try {
@@ -1648,25 +1309,10 @@ Obtain a list of all the countries
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     CountriesResponse result = apiInstance.getCountries(storefrontOid);
@@ -1713,25 +1359,10 @@ Fetches a temporary authentication token for the editor
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailEditorTokenResponse result = apiInstance.getEditorToken(storefrontOid);
@@ -1776,25 +1407,10 @@ Get email communication base templates
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailBaseTemplateListResponse result = apiInstance.getEmailBaseTemplates(storefrontOid);
@@ -1839,25 +1455,10 @@ Get email campaign
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
 try {
@@ -1904,25 +1505,10 @@ Get email campaign folder
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCampaignFolderUuid = "emailCampaignFolderUuid_example"; // String | 
 try {
@@ -1969,25 +1555,10 @@ Get email campaign folders
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailCampaignFoldersResponse result = apiInstance.getEmailCampaignFolders(storefrontOid);
@@ -2032,25 +1603,10 @@ Get email campaign screenshots
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
 try {
@@ -2097,25 +1653,10 @@ Get email campaigns
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailCampaignsResponse result = apiInstance.getEmailCampaigns(storefrontOid);
@@ -2160,25 +1701,10 @@ Get email campaigns with stats
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String statDays = "statDays_example"; // String | 
 try {
@@ -2225,25 +1751,10 @@ Get email commseq
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 try {
@@ -2290,25 +1801,10 @@ Get email communication sequence emails stats
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 EmailStatSummaryRequest statsRequest = new EmailStatSummaryRequest(); // EmailStatSummaryRequest | StatsRequest
@@ -2357,25 +1853,10 @@ Get email communication sequence postcard stats
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 EmailStatPostcardSummaryRequest statsRequest = new EmailStatPostcardSummaryRequest(); // EmailStatPostcardSummaryRequest | StatsRequest
@@ -2424,25 +1905,10 @@ Get communication sequence stats overall
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 try {
@@ -2489,25 +1955,10 @@ Get email communication sequence step stats
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 EmailStepStatRequest statsRequest = new EmailStepStatRequest(); // EmailStepStatRequest | StatsRequest
@@ -2556,25 +2007,10 @@ Get email communication sequence customers waiting at each requested step
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 EmailStepWaitingRequest waitingRequest = new EmailStepWaitingRequest(); // EmailStepWaitingRequest | WaitingRequest
@@ -2623,25 +2059,10 @@ Get email commseqs
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailCommseqsResponse result = apiInstance.getEmailCommseqs(storefrontOid);
@@ -2686,25 +2107,10 @@ Get customers editor URL
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
 try {
@@ -2751,25 +2157,10 @@ Get email customers
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer pageNumber = 56; // Integer | 
 Integer pageSize = 56; // Integer | 
@@ -2820,25 +2211,10 @@ Get email dashboard activity
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer lastRecords = 56; // Integer | 
 try {
@@ -2885,25 +2261,10 @@ Get dashboard stats
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer days = 56; // Integer | 
 try {
@@ -2950,25 +2311,10 @@ Get email email
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
 try {
@@ -3015,25 +2361,10 @@ Get email email clicks
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 String commseqStepUuid = "commseqStepUuid_example"; // String | 
@@ -3086,25 +2417,10 @@ Get email order customer editor url
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
 String orderId = "orderId_example"; // String | 
@@ -3153,25 +2469,10 @@ Get email email orders
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 String commseqStepUuid = "commseqStepUuid_example"; // String | 
@@ -3224,25 +2525,10 @@ Get email emails
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailCommseqEmailsResponse result = apiInstance.getEmailEmails(storefrontOid);
@@ -3287,25 +2573,10 @@ Get email emails multiple
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailCommseqEmailsRequest emailCommseqEmailsRequest = new EmailCommseqEmailsRequest(); // EmailCommseqEmailsRequest | Request of email uuids
 try {
@@ -3352,25 +2623,10 @@ Get email flow
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailFlowUuid = "emailFlowUuid_example"; // String | 
 try {
@@ -3417,25 +2673,10 @@ Get email flow folder
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailFlowFolderUuid = "emailFlowFolderUuid_example"; // String | 
 try {
@@ -3482,25 +2723,10 @@ Get email flow folders
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailFlowFoldersResponse result = apiInstance.getEmailFlowFolders(storefrontOid);
@@ -3545,25 +2771,10 @@ Get email flow screenshots
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailFlowUuid = "emailFlowUuid_example"; // String | 
 try {
@@ -3610,25 +2821,10 @@ Get email flows
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailFlowsResponse result = apiInstance.getEmailFlows(storefrontOid);
@@ -3673,25 +2869,10 @@ Get email globalsettings
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 try {
     EmailGlobalSettingsResponse result = apiInstance.getEmailGlobalSettings();
     System.out.println(result);
@@ -3732,25 +2913,10 @@ Get email list
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailListUuid = "emailListUuid_example"; // String | 
 try {
@@ -3797,25 +2963,10 @@ Get email list customer editor url
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailListUuid = "emailListUuid_example"; // String | 
 String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
@@ -3864,25 +3015,10 @@ Get email list customers
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailListUuid = "emailListUuid_example"; // String | 
 Integer pageNumber = 56; // Integer | 
@@ -3933,25 +3069,10 @@ Get email lists
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailListsResponse result = apiInstance.getEmailLists(storefrontOid);
@@ -3996,25 +3117,10 @@ Get email performance
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailPerformanceResponse result = apiInstance.getEmailPerformance(storefrontOid);
@@ -4059,25 +3165,10 @@ Get email plan
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailPlanResponse result = apiInstance.getEmailPlan(storefrontOid);
@@ -4122,25 +3213,10 @@ Get email postcard
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
 try {
@@ -4187,25 +3263,10 @@ Get email postcards
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailCommseqPostcardsResponse result = apiInstance.getEmailPostcards(storefrontOid);
@@ -4250,25 +3311,10 @@ Get email postcards multiple
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailCommseqPostcardsRequest emailCommseqPostcardsRequest = new EmailCommseqPostcardsRequest(); // EmailCommseqPostcardsRequest | Request of postcard uuids
 try {
@@ -4315,25 +3361,10 @@ Get email segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
 try {
@@ -4380,25 +3411,10 @@ Get email segment customers editor URL
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
 String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
@@ -4447,25 +3463,10 @@ Get email segment customers
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
 Integer pageNumber = 56; // Integer | 
@@ -4516,25 +3517,10 @@ Get email segments
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailSegmentsResponse result = apiInstance.getEmailSegments(storefrontOid);
@@ -4579,25 +3565,10 @@ Get email sending domain
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 String domain = "domain_example"; // String | 
 try {
     EmailSendingDomainResponse result = apiInstance.getEmailSendingDomain(domain);
@@ -4642,25 +3613,10 @@ Get email sending domain status
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 String domain = "domain_example"; // String | 
 try {
     EmailSendingDomainResponse result = apiInstance.getEmailSendingDomainStatus(domain);
@@ -4705,25 +3661,10 @@ Get email sending domains
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 try {
     EmailSendingDomainsResponse result = apiInstance.getEmailSendingDomains();
     System.out.println(result);
@@ -4764,25 +3705,10 @@ Get email settings
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailSettingsResponse result = apiInstance.getEmailSettings(storefrontOid);
@@ -4827,25 +3753,10 @@ Get email template
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer emailTemplateOid = 56; // Integer | 
 try {
@@ -4892,25 +3803,10 @@ Get email templates
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String triggerType = "triggerType_example"; // String | 
 try {
@@ -4957,25 +3853,10 @@ Get a list of third party email providers
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     EmailThirdPartyProvidersResponse result = apiInstance.getEmailThirdPartyProviders(storefrontOid);
@@ -5020,25 +3901,10 @@ Get experiments
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     ExperimentsResponse result = apiInstance.getExperiments(storefrontOid);
@@ -5085,25 +3951,10 @@ Obtain a list of property names for a given property type
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String propertyType = "propertyType_example"; // String | 
 try {
@@ -5152,25 +4003,10 @@ Obtain a list of property values for a given property name and type
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String propertyName = "propertyName_example"; // String | 
 String propertyType = "propertyType_example"; // String | 
@@ -5221,25 +4057,10 @@ Get library values used to populate drop down boxes for filtering.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 try {
     LibraryFilterValuesResponse result = apiInstance.getLibraryFilterValues();
     System.out.println(result);
@@ -5280,25 +4101,10 @@ Get library item.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer libraryItemOid = 56; // Integer | 
 try {
     LibraryItemResponse result = apiInstance.getLibraryItem(libraryItemOid);
@@ -5343,25 +4149,10 @@ Get all published versions for a library item.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer libraryItemOid = 56; // Integer | 
 try {
     LibraryItemsResponse result = apiInstance.getLibraryItemPublishedVersions(libraryItemOid);
@@ -5408,19 +4199,10 @@ Retrieves the pricing tiers
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
     PricingTiersResponse result = apiInstance.getPricingTiers(expand);
@@ -5467,19 +4249,10 @@ Get screen recording
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
 try {
@@ -5528,19 +4301,10 @@ Get screen recording page view data
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
 String screenRecordingPageViewUuid = "screenRecordingPageViewUuid_example"; // String | 
@@ -5589,25 +4353,10 @@ Get screen recording segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer screenRecordingSegmentOid = 56; // Integer | 
 try {
@@ -5654,25 +4403,10 @@ Get screen recording segments
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     ScreenRecordingSegmentsResponse result = apiInstance.getScreenRecordingSegments(storefrontOid);
@@ -5717,25 +4451,10 @@ Get screen recording settings
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     ScreenRecordingSettingsResponse result = apiInstance.getScreenRecordingSettings(storefrontOid);
@@ -5782,19 +4501,10 @@ Get tags used by screen recording
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     ScreenRecordingTagsResponse result = apiInstance.getScreenRecordingTags(storefrontOid);
@@ -5841,19 +4551,10 @@ Query screen recordings
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 ScreenRecordingQueryRequest query = new ScreenRecordingQueryRequest(); // ScreenRecordingQueryRequest | Query
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 500)
@@ -5908,19 +4609,10 @@ Get screen recordings by segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer screenRecordingSegmentOid = 56; // Integer | 
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 500)
@@ -5973,25 +4665,10 @@ Get thumbnail parameters
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 ThumbnailParametersRequest thumbnailParameters = new ThumbnailParametersRequest(); // ThumbnailParametersRequest | Thumbnail Parameters
 try {
     ThumbnailParametersResponse result = apiInstance.getThumbnailParameters(thumbnailParameters);
@@ -6038,25 +4715,10 @@ Fetch a transactional email
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailId = "emailId_example"; // String | 
 try {
@@ -6105,25 +4767,10 @@ Obtain a list of all transactional emails and return back just their names
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 try {
     TransactionEmailListResponse result = apiInstance.getTransactionEmailList(storefrontOid);
@@ -6168,25 +4815,10 @@ Get transactional email screenshots
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailId = "emailId_example"; // String | 
 try {
@@ -6233,25 +4865,10 @@ Globally unsubscribe a customer
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailGlobalUnsubscribeRequest unsubscribe = new EmailGlobalUnsubscribeRequest(); // EmailGlobalUnsubscribeRequest | Unsubscribe
 try {
@@ -6298,25 +4915,10 @@ Import a third party provider list
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailThirdPartyListImportRequest importRequest = new EmailThirdPartyListImportRequest(); // EmailThirdPartyListImportRequest | lists to import
 try {
@@ -6362,25 +4964,10 @@ Insert email campaign
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailCampaign emailCampaign = new EmailCampaign(); // EmailCampaign | Email campaign
 try {
@@ -6427,25 +5014,10 @@ Insert email campaign folder
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailCampaignFolder emailCampaignFolder = new EmailCampaignFolder(); // EmailCampaignFolder | Email campaign folder
 try {
@@ -6492,25 +5064,10 @@ Insert email commseq
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailCommseq emailCommseq = new EmailCommseq(); // EmailCommseq | Email commseq
 try {
@@ -6557,25 +5114,10 @@ Insert email email
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailCommseqEmail emailCommseqEmail = new EmailCommseqEmail(); // EmailCommseqEmail | Email email
 try {
@@ -6622,25 +5164,10 @@ Insert email flow
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailFlow emailFlow = new EmailFlow(); // EmailFlow | Email flow
 try {
@@ -6687,25 +5214,10 @@ Insert email flow folder
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailFlowFolder emailFlowFolder = new EmailFlowFolder(); // EmailFlowFolder | Email flow folder
 try {
@@ -6752,25 +5264,10 @@ Insert email list
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailList emailList = new EmailList(); // EmailList | Email list
 try {
@@ -6817,25 +5314,10 @@ Insert email postcard
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailCommseqPostcard emailCommseqPostcard = new EmailCommseqPostcard(); // EmailCommseqPostcard | Email postcard
 try {
@@ -6882,25 +5364,10 @@ Insert email segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailSegment emailSegment = new EmailSegment(); // EmailSegment | Email segment
 try {
@@ -6947,25 +5414,10 @@ Insert screen recording segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 ScreenRecordingSegment segment = new ScreenRecordingSegment(); // ScreenRecordingSegment | Segment
 try {
@@ -7012,25 +5464,10 @@ Prepare download of email segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
 try {
@@ -7077,25 +5514,10 @@ Publish library item.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer libraryItemOid = 56; // Integer | 
 PublishLibraryItemRequest publishLibraryRequest = new PublishLibraryItemRequest(); // PublishLibraryItemRequest | Publish library item request
 try {
@@ -7142,25 +5564,10 @@ Purchase public library item, which creates a copy of the item in your personal 
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer libraryItemOid = 56; // Integer | 
 Integer storefrontOid = 56; // Integer | 
 try {
@@ -7207,25 +5614,10 @@ Release email communication sequence customers waiting at the specified step
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 String commseqStepUuid = "commseqStepUuid_example"; // String | 
@@ -7273,25 +5665,10 @@ Request a review of an email
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
 EmailCommseqEmailSendTestRequest emailCommseqEmailReviewRequest = new EmailCommseqEmailSendTestRequest(); // EmailCommseqEmailSendTestRequest | Email commseq email review request
@@ -7340,25 +5717,10 @@ Searches for all matching values
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 String category = "category_example"; // String | 
 String matches = "matches_example"; // String | 
 String storefrontOid = "storefrontOid_example"; // String | 
@@ -7411,25 +5773,10 @@ Searches for all matching values (using POST)
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 LookupRequest lookupRequest = new LookupRequest(); // LookupRequest | LookupRequest
 try {
     LookupResponse result = apiInstance.search2(lookupRequest);
@@ -7474,25 +5821,10 @@ Search email list customers
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailListUuid = "emailListUuid_example"; // String | 
 String startsWith = "startsWith_example"; // String | 
@@ -7541,25 +5873,10 @@ Search email segment customers
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
 String startsWith = "startsWith_example"; // String | 
@@ -7610,19 +5927,10 @@ Retrieves a library items based on a query object.  If no parameters are specifi
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 LibraryItemQuery itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
 Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
@@ -7675,19 +5983,10 @@ Retrieves a library items based on a query object.  If no parameters are specifi
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 LibraryItemQuery itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
 Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
@@ -7740,19 +6039,10 @@ Retrieves a library items based on a query object.  If no parameters are specifi
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 LibraryItemQuery itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
 Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
@@ -7805,19 +6095,10 @@ Retrieves a library items based on a query object.  If no parameters are specifi
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 LibraryItemQuery itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
 Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
@@ -7868,25 +6149,10 @@ Send email test
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
 EmailCommseqEmailSendTestRequest emailCommseqEmailTestRequest = new EmailCommseqEmailSendTestRequest(); // EmailCommseqEmailSendTestRequest | Email commseq email test request
@@ -7935,25 +6201,10 @@ Send postcard test
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
 EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest = new EmailCommseqPostcardSendTestRequest(); // EmailCommseqPostcardSendTestRequest | Email commseq email test request
@@ -8002,25 +6253,10 @@ Start email campaign
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
 try {
@@ -8067,25 +6303,10 @@ Subscribe customers to email list
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailListUuid = "emailListUuid_example"; // String | 
 List<EmailCustomer> customers = Arrays.asList(new EmailCustomer()); // List<EmailCustomer> | Customers
@@ -8136,19 +6357,10 @@ Remove favorite flag on screen recording
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
 try {
@@ -8194,25 +6406,10 @@ Update email campaign
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
 EmailCampaign emailCampaign = new EmailCampaign(); // EmailCampaign | Email campaign
@@ -8261,25 +6458,10 @@ Update email campaign folder
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCampaignFolderUuid = "emailCampaignFolderUuid_example"; // String | 
 EmailCampaignFolder emailCampaignFolder = new EmailCampaignFolder(); // EmailCampaignFolder | Email campaign folder
@@ -8328,25 +6510,10 @@ Update email commseq
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqUuid = "commseqUuid_example"; // String | 
 EmailCommseq emailCommseq = new EmailCommseq(); // EmailCommseq | Email commseq
@@ -8395,25 +6562,10 @@ Update email customer
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
 EmailCustomer emailCustomer = new EmailCustomer(); // EmailCustomer | Email customer
@@ -8461,25 +6613,10 @@ Update email email
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
 EmailCommseqEmail emailCommseqEmail = new EmailCommseqEmail(); // EmailCommseqEmail | Email commseq email
@@ -8528,25 +6665,10 @@ Update email flow
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailFlowUuid = "emailFlowUuid_example"; // String | 
 EmailFlow emailFlow = new EmailFlow(); // EmailFlow | Email flow
@@ -8595,25 +6717,10 @@ Update email flow folder
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailFlowFolderUuid = "emailFlowFolderUuid_example"; // String | 
 EmailFlowFolder emailFlowFolder = new EmailFlowFolder(); // EmailFlowFolder | Email flow folder
@@ -8662,25 +6769,10 @@ Update email global settings
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 EmailGlobalSettings globalSettings = new EmailGlobalSettings(); // EmailGlobalSettings | global settings request
 try {
     EmailGlobalSettingsResponse result = apiInstance.updateEmailGlobalSettings(globalSettings);
@@ -8725,25 +6817,10 @@ Update email list
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailListUuid = "emailListUuid_example"; // String | 
 EmailList emailList = new EmailList(); // EmailList | Email list
@@ -8792,25 +6869,10 @@ Update email plan
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailPlan settings = new EmailPlan(); // EmailPlan | plan request
 try {
@@ -8857,25 +6919,10 @@ Update email postcard
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
 EmailCommseqPostcard emailCommseqPostcard = new EmailCommseqPostcard(); // EmailCommseqPostcard | Email commseq postcard
@@ -8924,25 +6971,10 @@ Update email segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
 EmailSegment emailSegment = new EmailSegment(); // EmailSegment | Email segment
@@ -8991,25 +7023,10 @@ Update email settings
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 EmailSettings settings = new EmailSettings(); // EmailSettings | settings request
 try {
@@ -9056,25 +7073,10 @@ Update experiment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer storefrontExperimentOid = 56; // Integer | 
 Experiment experiment = new Experiment(); // Experiment | Experiment
@@ -9123,25 +7125,10 @@ Update library item. Note that only certain fields may be updated via this metho
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer libraryItemOid = 56; // Integer | 
 LibraryItem libraryItem = new LibraryItem(); // LibraryItem | Library item
 try {
@@ -9188,25 +7175,10 @@ Update screen recording segment
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 Integer screenRecordingSegmentOid = 56; // Integer | 
 ScreenRecordingSegment segment = new ScreenRecordingSegment(); // ScreenRecordingSegment | Segment
@@ -9255,25 +7227,10 @@ Update screen recording settings
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 ScreenRecordingSettings settings = new ScreenRecordingSettings(); // ScreenRecordingSettings | Settings
 try {
@@ -9322,19 +7279,10 @@ Update tags on a screen recording
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
 ScreenRecordingTagsRequest tags = new ScreenRecordingTagsRequest(); // ScreenRecordingTagsRequest | Tags
@@ -9384,25 +7332,10 @@ Updates a transactional email
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.StorefrontApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-StorefrontApi apiInstance = new StorefrontApi();
 Integer storefrontOid = 56; // Integer | 
 String emailId = "emailId_example"; // String | 
 TransactionEmail transactionEmail = new TransactionEmail(); // TransactionEmail | TransactionEmail

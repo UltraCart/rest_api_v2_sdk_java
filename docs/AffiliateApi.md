@@ -25,19 +25,10 @@ Retrieves a group of clicks from the account based on a query object.  If no par
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.AffiliateApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+AffiliateApi apiInstance = new AffiliateApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-AffiliateApi apiInstance = new AffiliateApi();
 AffiliateClickQuery clickQuery = new AffiliateClickQuery(); // AffiliateClickQuery | Click query
 Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
@@ -90,19 +81,10 @@ Retrieves a group of ledger entries from the account based on a query object.  I
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.AffiliateApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+AffiliateApi apiInstance = new AffiliateApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-AffiliateApi apiInstance = new AffiliateApi();
 AffiliateLedgerQuery ledgerQuery = new AffiliateLedgerQuery(); // AffiliateLedgerQuery | Ledger query
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.

@@ -42,25 +42,10 @@ Look up the city and state for the shipping zip code.  Useful for building an au
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 Cart cart = new Cart(); // Cart | Cart
 try {
     CityStateZip result = apiInstance.cityState(cart);
@@ -107,19 +92,10 @@ Finalize the cart into an order.  This method can not be called with browser key
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 CartFinalizeOrderRequest finalizeRequest = new CartFinalizeOrderRequest(); // CartFinalizeOrderRequest | Finalize request
 try {
     CartFinalizeOrderResponse result = apiInstance.finalizeOrder(finalizeRequest);
@@ -166,25 +142,10 @@ Get a Affirm checkout object for the specified cart_id parameter.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 String cartId = "cartId_example"; // String | Cart ID to retrieve
 try {
     CartAffirmCheckoutResponse result = apiInstance.getAffirmCheckout(cartId);
@@ -231,25 +192,10 @@ Lookup the allowed countries for this merchant id
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 try {
     CheckoutAllowedCountriesResponse result = apiInstance.getAllowedCountries();
     System.out.println(result);
@@ -292,25 +238,10 @@ If the cookie is set on the browser making the request then it will return their
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
     CartResponse result = apiInstance.getCart(expand);
@@ -357,25 +288,10 @@ Get a cart specified by the cart_id parameter.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 String cartId = "cartId_example"; // String | Cart ID to retrieve
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -424,25 +340,10 @@ Get a cart specified by the return code parameter.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 String returnCode = "returnCode_example"; // String | Return code to lookup cart ID by
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -491,25 +392,10 @@ Get a cart specified by the encrypted return token parameter.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 String returnToken = "returnToken_example"; // String | Return token provided by StoreFront Communications
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -558,25 +444,10 @@ Lookup a state/province list for a given country code
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 String countryCode = "countryCode_example"; // String | Two letter ISO country code
 try {
     CheckoutStateProvinceResponse result = apiInstance.getStateProvincesForCountry(countryCode);
@@ -623,25 +494,10 @@ Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 CheckoutHandoffRequest handoffRequest = new CheckoutHandoffRequest(); // CheckoutHandoffRequest | Handoff request
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -690,25 +546,10 @@ Login in to the customer profile specified by cart.billing.email and password
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 CartProfileLoginRequest loginRequest = new CartProfileLoginRequest(); // CartProfileLoginRequest | Login request
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -757,25 +598,10 @@ Log the cart out of the current profile.  No error will occur if they are not lo
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 Cart cart = new Cart(); // Cart | Cart
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -824,25 +650,10 @@ Register a new customer profile.  Requires the cart.billing object to be populat
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 CartProfileRegisterRequest registerRequest = new CartProfileRegisterRequest(); // CartProfileRegisterRequest | Register request
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -891,25 +702,10 @@ Register an affiliate click.  Used by custom checkouts that are completely API b
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 RegisterAffiliateClickRequest registerAffiliateClickRequest = new RegisterAffiliateClickRequest(); // RegisterAffiliateClickRequest | Register affiliate click request
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -958,25 +754,10 @@ Retrieve all the related items for the cart contents.  Expansion is limited to c
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 Cart cart = new Cart(); // Cart | Cart
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See item resource documentation for examples
 try {
@@ -1025,25 +806,10 @@ Retrieve all the related items for the cart contents.  Expansion is limited to c
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 String itemId = "itemId_example"; // String | Item ID to retrieve related items for
 Cart cart = new Cart(); // Cart | Cart
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See item resource documentation for examples
@@ -1094,19 +860,10 @@ Setup a browser key authenticated application with checkout permissions.  This R
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 CheckoutSetupBrowserKeyRequest browserKeyRequest = new CheckoutSetupBrowserKeyRequest(); // CheckoutSetupBrowserKeyRequest | Setup browser key request
 try {
     CheckoutSetupBrowserKeyResponse result = apiInstance.setupBrowserKey(browserKeyRequest);
@@ -1153,25 +910,10 @@ Update the cart.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 Cart cart = new Cart(); // Cart | Cart
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -1220,25 +962,10 @@ Validate the cart for errors.  Specific checks can be passed and multiple valida
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.CheckoutApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CheckoutApi apiInstance = new CheckoutApi(apiKey);
 
-// Configure API key authorization: ultraCartBrowserApiKey
-ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartBrowserApiKey.setApiKeyPrefix("Token");
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-CheckoutApi apiInstance = new CheckoutApi();
 CartValidationRequest validationRequest = new CartValidationRequest(); // CartValidationRequest | Validation request
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {

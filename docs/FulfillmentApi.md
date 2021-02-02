@@ -28,19 +28,10 @@ Acknowledge receipt of orders so that they are removed from the fulfillment queu
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.FulfillmentApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+FulfillmentApi apiInstance = new FulfillmentApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-FulfillmentApi apiInstance = new FulfillmentApi();
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 List<String> orderIds = Arrays.asList(new List<String>()); // List<String> | Orders to acknowledge receipt of (limit 100)
 try {
@@ -88,19 +79,10 @@ Retrieves up to 100 orders that are queued up in this distribution center.  You 
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.FulfillmentApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+FulfillmentApi apiInstance = new FulfillmentApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-FulfillmentApi apiInstance = new FulfillmentApi();
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 try {
     OrdersResponse result = apiInstance.getDistributionCenterOrders(distributionCenterCode);
@@ -147,19 +129,10 @@ Retrieves the distribution centers that this user has access to.
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.FulfillmentApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+FulfillmentApi apiInstance = new FulfillmentApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-FulfillmentApi apiInstance = new FulfillmentApi();
 try {
     DistributionCentersResponse result = apiInstance.getDistributionCenters();
     System.out.println(result);
@@ -202,19 +175,10 @@ Store the tracking information and mark the order shipped for this distribution 
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.FulfillmentApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+FulfillmentApi apiInstance = new FulfillmentApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-FulfillmentApi apiInstance = new FulfillmentApi();
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 List<FulfillmentShipment> shipments = Arrays.asList(new FulfillmentShipment()); // List<FulfillmentShipment> | Orders to mark shipped
 try {
@@ -262,19 +226,10 @@ Update the inventory for items associated with this distribution center
 //import com.ultracart.admin.v2.swagger.auth.*;
 //import com.ultracart.admin.v2.FulfillmentApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+FulfillmentApi apiInstance = new FulfillmentApi(apiKey);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure API key authorization: ultraCartSimpleApiKey
-ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-FulfillmentApi apiInstance = new FulfillmentApi();
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 List<FulfillmentInventory> inventories = Arrays.asList(new FulfillmentInventory()); // List<FulfillmentInventory> | Inventory updates (limit 500)
 try {

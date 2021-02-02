@@ -24,13 +24,14 @@ import com.ultracart.admin.v2.models.EmailPlanAdditional;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * EmailPlan
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-01T07:55:46.727-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-02T10:03:38.886-05:00")
 
 
 
@@ -40,6 +41,9 @@ public class EmailPlan {
 
   @SerializedName("additional_emails")
   private Integer additionalEmails = null;
+
+  @SerializedName("additional_fee")
+  private BigDecimal additionalFee = null;
 
   @SerializedName("allow_list_import")
   private Boolean allowListImport = null;
@@ -117,6 +121,24 @@ public class EmailPlan {
 
   public void setAdditionalEmails(Integer additionalEmails) {
     this.additionalEmails = additionalEmails;
+  }
+
+  public EmailPlan additionalFee(BigDecimal additionalFee) {
+    this.additionalFee = additionalFee;
+    return this;
+  }
+
+   /**
+   * Get additionalFee
+   * @return additionalFee
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getAdditionalFee() {
+    return additionalFee;
+  }
+
+  public void setAdditionalFee(BigDecimal additionalFee) {
+    this.additionalFee = additionalFee;
   }
 
   public EmailPlan allowListImport(Boolean allowListImport) {
@@ -391,6 +413,7 @@ public class EmailPlan {
     EmailPlan emailPlan = (EmailPlan) o;
     return Objects.equals(this.additionalCustomers, emailPlan.additionalCustomers) &&
         Objects.equals(this.additionalEmails, emailPlan.additionalEmails) &&
+        Objects.equals(this.additionalFee, emailPlan.additionalFee) &&
         Objects.equals(this.allowListImport, emailPlan.allowListImport) &&
         Objects.equals(this.allowTrackingEmails, emailPlan.allowTrackingEmails) &&
         Objects.equals(this.customerTiers, emailPlan.customerTiers) &&
@@ -409,7 +432,7 @@ public class EmailPlan {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalCustomers, additionalEmails, allowListImport, allowTrackingEmails, customerTiers, initialSendingLimits, planCustomers, planEmails, planName, planNameFormatted, requireOrderWithinLastDays, revenuePercent, spamPercentLimit, totalCustomers, totalEmails, upgradeTo);
+    return Objects.hash(additionalCustomers, additionalEmails, additionalFee, allowListImport, allowTrackingEmails, customerTiers, initialSendingLimits, planCustomers, planEmails, planName, planNameFormatted, requireOrderWithinLastDays, revenuePercent, spamPercentLimit, totalCustomers, totalEmails, upgradeTo);
   }
 
 
@@ -420,6 +443,7 @@ public class EmailPlan {
     
     sb.append("    additionalCustomers: ").append(toIndentedString(additionalCustomers)).append("\n");
     sb.append("    additionalEmails: ").append(toIndentedString(additionalEmails)).append("\n");
+    sb.append("    additionalFee: ").append(toIndentedString(additionalFee)).append("\n");
     sb.append("    allowListImport: ").append(toIndentedString(allowListImport)).append("\n");
     sb.append("    allowTrackingEmails: ").append(toIndentedString(allowTrackingEmails)).append("\n");
     sb.append("    customerTiers: ").append(toIndentedString(customerTiers)).append("\n");

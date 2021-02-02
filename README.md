@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-02-01T07:55:46.727-05:00
+  - Build date: 2021-02-02T10:03:38.886-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.0.74</version>
+  <version>3.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.0.74"
+compile "com.ultracart:rest-sdk:3.1.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.0.74.jar`
+* `target/rest-sdk-3.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -75,33 +75,19 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.ultracart.admin.v2.FulfillmentApi;
 import com.ultracart.admin.v2.models.Order;
 import com.ultracart.admin.v2.models.OrdersResponse;
-import com.ultracart.admin.v2.swagger.ApiClient;
 import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.ApiKeyAuth;
 
 import java.util.List;
 
 public class FulfillmentSample {
 
-  private static final String API_KEY = "4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100";
-
-  private static void initClient(){
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey(API_KEY);
-
-    defaultClient.addDefaultHeader("X-UltraCart-Api-Version", "2017-03-01");
-
-    defaultClient.setDebugging(true);
-    defaultClient.setVerifyingSsl(false);
-  }
-
+  // Query the default shipping department and pull all the orders currently in shipping stage.
+  // You would probably use these orders to ship product, etc.
   public static void main(String ... args) {
-    initClient();
 
-    FulfillmentApi api = new FulfillmentApi();
+    // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+    final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+    FulfillmentApi api = new FulfillmentApi(apiKey);
     String distributionCenterCode = "DFLT";
 
     try {
@@ -1044,6 +1030,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.75 | 02/01/2021 | StoreFront Communication plan revision (internal use) |
 | 3.0.71 | 01/28/2021 | BugFix: PHP SDK retry logic NPE |
 | 3.0.70 | 01/26/2021 | Checkout return URL support |
 | 3.0.66 | 01/22/2021 | code library attributes (mostly internal dev) |
