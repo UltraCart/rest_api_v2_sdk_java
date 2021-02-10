@@ -153,7 +153,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order
+     * Retrieve an auto order by oid
      * Retrieves a single auto order using the specified auto order oid. 
      * @param autoOrderOid The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -166,7 +166,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order
+     * Retrieve an auto order by oid
      * Retrieves a single auto order using the specified auto order oid. 
      * @param autoOrderOid The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -180,7 +180,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order (asynchronously)
+     * Retrieve an auto order by oid (asynchronously)
      * Retrieves a single auto order using the specified auto order oid. 
      * @param autoOrderOid The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -282,7 +282,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order
+     * Retrieve an auto order by code
      * Retrieves a single auto order using the specified reference (original) order id. 
      * @param autoOrderCode The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -295,7 +295,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order
+     * Retrieve an auto order by code
      * Retrieves a single auto order using the specified reference (original) order id. 
      * @param autoOrderCode The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -309,7 +309,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order (asynchronously)
+     * Retrieve an auto order by code (asynchronously)
      * Retrieves a single auto order using the specified reference (original) order id. 
      * @param autoOrderCode The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -411,7 +411,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order
+     * Retrieve an auto order by order id
      * Retrieves a single auto order using the specified reference (original) order id. 
      * @param referenceOrderId The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -424,7 +424,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order
+     * Retrieve an auto order by order id
      * Retrieves a single auto order using the specified reference (original) order id. 
      * @param referenceOrderId The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -438,7 +438,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve an auto order (asynchronously)
+     * Retrieve an auto order by order id (asynchronously)
      * Retrieves a single auto order using the specified reference (original) order id. 
      * @param referenceOrderId The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -927,7 +927,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve auto orders
+     * Retrieve auto orders by query
      * Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
      * @param autoOrderQuery Auto order query (required)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -943,7 +943,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve auto orders
+     * Retrieve auto orders by query
      * Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
      * @param autoOrderQuery Auto order query (required)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -960,7 +960,7 @@ public class AutoOrderApi {
     }
 
     /**
-     * Retrieve auto orders (asynchronously)
+     * Retrieve auto orders by query (asynchronously)
      * Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
      * @param autoOrderQuery Auto order query (required)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)

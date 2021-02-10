@@ -28,11 +28,14 @@ import java.math.BigDecimal;
 /**
  * EmailPlanAdditional
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-02T10:03:38.886-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-10T16:28:40.187-05:00")
 
 
 
 public class EmailPlanAdditional {
+  @SerializedName("active")
+  private Boolean active = null;
+
   @SerializedName("can_downgrade")
   private Boolean canDowngrade = null;
 
@@ -56,6 +59,24 @@ public class EmailPlanAdditional {
 
   @SerializedName("emails")
   private Integer emails = null;
+
+  public EmailPlanAdditional active(Boolean active) {
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * Get active
+   * @return active
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isActive() {
+    return active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
 
   public EmailPlanAdditional canDowngrade(Boolean canDowngrade) {
     this.canDowngrade = canDowngrade;
@@ -211,7 +232,8 @@ public class EmailPlanAdditional {
       return false;
     }
     EmailPlanAdditional emailPlanAdditional = (EmailPlanAdditional) o;
-    return Objects.equals(this.canDowngrade, emailPlanAdditional.canDowngrade) &&
+    return Objects.equals(this.active, emailPlanAdditional.active) &&
+        Objects.equals(this.canDowngrade, emailPlanAdditional.canDowngrade) &&
         Objects.equals(this.canUpgrade, emailPlanAdditional.canUpgrade) &&
         Objects.equals(this.cost, emailPlanAdditional.cost) &&
         Objects.equals(this.costChange, emailPlanAdditional.costChange) &&
@@ -223,7 +245,7 @@ public class EmailPlanAdditional {
 
   @Override
   public int hashCode() {
-    return Objects.hash(canDowngrade, canUpgrade, cost, costChange, costChangeFormatted, costFormatted, customers, emails);
+    return Objects.hash(active, canDowngrade, canUpgrade, cost, costChange, costChangeFormatted, costFormatted, customers, emails);
   }
 
 
@@ -232,6 +254,7 @@ public class EmailPlanAdditional {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailPlanAdditional {\n");
     
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    canDowngrade: ").append(toIndentedString(canDowngrade)).append("\n");
     sb.append("    canUpgrade: ").append(toIndentedString(canUpgrade)).append("\n");
     sb.append("    cost: ").append(toIndentedString(cost)).append("\n");

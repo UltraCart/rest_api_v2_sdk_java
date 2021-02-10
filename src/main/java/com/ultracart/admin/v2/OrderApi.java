@@ -1743,7 +1743,7 @@ public class OrderApi {
     }
 
     /**
-     * Retrieve orders
+     * Retrieve orders by query
      * Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
      * @param orderQuery Order query (required)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -1759,7 +1759,7 @@ public class OrderApi {
     }
 
     /**
-     * Retrieve orders
+     * Retrieve orders by query
      * Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
      * @param orderQuery Order query (required)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -1776,7 +1776,7 @@ public class OrderApi {
     }
 
     /**
-     * Retrieve orders (asynchronously)
+     * Retrieve orders by query (asynchronously)
      * Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
      * @param orderQuery Order query (required)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)

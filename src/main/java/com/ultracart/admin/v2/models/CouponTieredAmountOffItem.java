@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CouponTieredAmountOffItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-02T10:03:38.886-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-10T16:28:40.187-05:00")
 
 
 
@@ -69,10 +69,10 @@ public class CouponTieredAmountOffItem {
   }
 
    /**
-   * The maximum amount of total discount by this coupon.
+   * The maximum number of discounted items.
    * @return limit
   **/
-  @ApiModelProperty(value = "The maximum amount of total discount by this coupon.")
+  @ApiModelProperty(value = "The maximum number of discounted items.")
   public BigDecimal getLimit() {
     return limit;
   }
