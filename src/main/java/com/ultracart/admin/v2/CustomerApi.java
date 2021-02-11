@@ -35,6 +35,9 @@ import com.ultracart.admin.v2.models.CustomerResponse;
 import com.ultracart.admin.v2.models.CustomersResponse;
 import com.ultracart.admin.v2.models.DataTablesServerSideResponse;
 import com.ultracart.admin.v2.models.EmailListsResponse;
+import com.ultracart.admin.v2.models.EmailVerifyTokenRequest;
+import com.ultracart.admin.v2.models.EmailVerifyTokenResponse;
+import com.ultracart.admin.v2.models.EmailVerifyTokenValidateRequest;
 import com.ultracart.admin.v2.models.ErrorResponse;
 
 import java.lang.reflect.Type;
@@ -1271,6 +1274,128 @@ public class CustomerApi {
         return call;
     }
     /**
+     * Build call for getEmailVerificationToken
+     * @param tokenRequest Token request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailVerificationTokenCall(EmailVerifyTokenRequest tokenRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = tokenRequest;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/email_verify/get_token";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailVerificationTokenValidateBeforeCall(EmailVerifyTokenRequest tokenRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'tokenRequest' is set
+        if (tokenRequest == null) {
+            throw new ApiException("Missing the required parameter 'tokenRequest' when calling getEmailVerificationToken(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailVerificationTokenCall(tokenRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create a token that can be used to verify a customer email address
+     * Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+     * @param tokenRequest Token request (required)
+     * @return EmailVerifyTokenResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailVerifyTokenResponse getEmailVerificationToken(EmailVerifyTokenRequest tokenRequest) throws ApiException {
+        ApiResponse<EmailVerifyTokenResponse> resp = getEmailVerificationTokenWithHttpInfo(tokenRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Create a token that can be used to verify a customer email address
+     * Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+     * @param tokenRequest Token request (required)
+     * @return ApiResponse&lt;EmailVerifyTokenResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailVerifyTokenResponse> getEmailVerificationTokenWithHttpInfo(EmailVerifyTokenRequest tokenRequest) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailVerificationTokenValidateBeforeCall(tokenRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailVerifyTokenResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a token that can be used to verify a customer email address (asynchronously)
+     * Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+     * @param tokenRequest Token request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailVerificationTokenAsync(EmailVerifyTokenRequest tokenRequest, final ApiCallback<EmailVerifyTokenResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailVerificationTokenValidateBeforeCall(tokenRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailVerifyTokenResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for insertCustomer
      * @param customer Customer to insert (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1665,6 +1790,128 @@ public class CustomerApi {
 
         com.squareup.okhttp.Call call = updateCustomerEmailListsValidateBeforeCall(customerProfileOid, listChanges, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomerEmailListChanges>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for validateEmailVerificationToken
+     * @param validationRequest Token validation request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call validateEmailVerificationTokenCall(EmailVerifyTokenValidateRequest validationRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = validationRequest;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/email_verify/validate_token";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call validateEmailVerificationTokenValidateBeforeCall(EmailVerifyTokenValidateRequest validationRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'validationRequest' is set
+        if (validationRequest == null) {
+            throw new ApiException("Missing the required parameter 'validationRequest' when calling validateEmailVerificationToken(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = validateEmailVerificationTokenCall(validationRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Validate a token that can be used to verify a customer email address
+     * Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+     * @param validationRequest Token validation request (required)
+     * @return EmailVerifyTokenResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailVerifyTokenResponse validateEmailVerificationToken(EmailVerifyTokenValidateRequest validationRequest) throws ApiException {
+        ApiResponse<EmailVerifyTokenResponse> resp = validateEmailVerificationTokenWithHttpInfo(validationRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Validate a token that can be used to verify a customer email address
+     * Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+     * @param validationRequest Token validation request (required)
+     * @return ApiResponse&lt;EmailVerifyTokenResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailVerifyTokenResponse> validateEmailVerificationTokenWithHttpInfo(EmailVerifyTokenValidateRequest validationRequest) throws ApiException {
+        com.squareup.okhttp.Call call = validateEmailVerificationTokenValidateBeforeCall(validationRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailVerifyTokenResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Validate a token that can be used to verify a customer email address (asynchronously)
+     * Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+     * @param validationRequest Token validation request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call validateEmailVerificationTokenAsync(EmailVerifyTokenValidateRequest validationRequest, final ApiCallback<EmailVerifyTokenResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = validateEmailVerificationTokenValidateBeforeCall(validationRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailVerifyTokenResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

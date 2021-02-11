@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-10T16:28:40.187-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-11T14:54:16.321-05:00")
 
 
 
@@ -62,6 +62,9 @@ public class ScreenRecording {
 
   @SerializedName("events_json_key")
   private String eventsJsonKey = null;
+
+  @SerializedName("favorite")
+  private Boolean favorite = null;
 
   @SerializedName("favorites")
   private List<Integer> favorites = null;
@@ -279,6 +282,24 @@ public class ScreenRecording {
     this.eventsJsonKey = eventsJsonKey;
   }
 
+  public ScreenRecording favorite(Boolean favorite) {
+    this.favorite = favorite;
+    return this;
+  }
+
+   /**
+   * True if the user calling the API has favorited this particular screen recording.
+   * @return favorite
+  **/
+  @ApiModelProperty(value = "True if the user calling the API has favorited this particular screen recording.")
+  public Boolean isFavorite() {
+    return favorite;
+  }
+
+  public void setFavorite(Boolean favorite) {
+    this.favorite = favorite;
+  }
+
   public ScreenRecording favorites(List<Integer> favorites) {
     this.favorites = favorites;
     return this;
@@ -293,10 +314,10 @@ public class ScreenRecording {
   }
 
    /**
-   * Get favorites
+   * Array of user ids that favorited this particular screen recording.
    * @return favorites
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of user ids that favorited this particular screen recording.")
   public List<Integer> getFavorites() {
     return favorites;
   }
@@ -777,6 +798,7 @@ public class ScreenRecording {
         Objects.equals(this.espCustomerUuid, screenRecording.espCustomerUuid) &&
         Objects.equals(this.eventsGzSize, screenRecording.eventsGzSize) &&
         Objects.equals(this.eventsJsonKey, screenRecording.eventsJsonKey) &&
+        Objects.equals(this.favorite, screenRecording.favorite) &&
         Objects.equals(this.favorites, screenRecording.favorites) &&
         Objects.equals(this.geolocation, screenRecording.geolocation) &&
         Objects.equals(this.geolocationCountry, screenRecording.geolocationCountry) &&
@@ -805,7 +827,7 @@ public class ScreenRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorites, geolocation, geolocationCountry, geolocationState, merchantId, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, watched, windowHeight, windowWidth);
+    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, watched, windowHeight, windowWidth);
   }
 
 
@@ -822,6 +844,7 @@ public class ScreenRecording {
     sb.append("    espCustomerUuid: ").append(toIndentedString(espCustomerUuid)).append("\n");
     sb.append("    eventsGzSize: ").append(toIndentedString(eventsGzSize)).append("\n");
     sb.append("    eventsJsonKey: ").append(toIndentedString(eventsJsonKey)).append("\n");
+    sb.append("    favorite: ").append(toIndentedString(favorite)).append("\n");
     sb.append("    favorites: ").append(toIndentedString(favorites)).append("\n");
     sb.append("    geolocation: ").append(toIndentedString(geolocation)).append("\n");
     sb.append("    geolocationCountry: ").append(toIndentedString(geolocationCountry)).append("\n");
