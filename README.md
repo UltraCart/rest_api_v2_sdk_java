@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-02-11T14:54:16.321-05:00
+  - Build date: 2021-02-11T15:39:11.861-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.2</version>
+  <version>3.1.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.2"
+compile "com.ultracart:rest-sdk:3.1.3"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.2.jar`
+* `target/rest-sdk-3.1.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -697,6 +697,7 @@ Class | Method | HTTP request | Description
  - [EmailVerifyTokenRequest](docs/EmailVerifyTokenRequest.md)
  - [EmailVerifyTokenResponse](docs/EmailVerifyTokenResponse.md)
  - [EmailVerifyTokenValidateRequest](docs/EmailVerifyTokenValidateRequest.md)
+ - [EmailVerifyTokenValidateResponse](docs/EmailVerifyTokenValidateResponse.md)
  - [Error](docs/Error.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [Experiment](docs/Experiment.md)
@@ -1036,6 +1037,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.3 | 02/11/2021 | Bug Fix: wrong return type on CustomerApi.validateEmailVerificationToken |
 | 3.1.2 | 02/11/2021 | CustomerApi.getEmailVerificationToken, CustomerApi.validateEmailVerificationToken added to allow for custom email verification.  Also added favorite flag to screen recording object |
 | 3.1.1 | 02/10/2021 | CustomerApi.getCustomerByEmail() method added |
 | 3.1.0 | 02/10/2021 | Minor revision jump.  Added new convenience methods for simple_key use to all api calls.  Updated docs |

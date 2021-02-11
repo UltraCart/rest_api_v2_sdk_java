@@ -38,6 +38,7 @@ import com.ultracart.admin.v2.models.EmailListsResponse;
 import com.ultracart.admin.v2.models.EmailVerifyTokenRequest;
 import com.ultracart.admin.v2.models.EmailVerifyTokenResponse;
 import com.ultracart.admin.v2.models.EmailVerifyTokenValidateRequest;
+import com.ultracart.admin.v2.models.EmailVerifyTokenValidateResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 
 import java.lang.reflect.Type;
@@ -1860,11 +1861,11 @@ public class CustomerApi {
      * Validate a token that can be used to verify a customer email address
      * Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
      * @param validationRequest Token validation request (required)
-     * @return EmailVerifyTokenResponse
+     * @return EmailVerifyTokenValidateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailVerifyTokenResponse validateEmailVerificationToken(EmailVerifyTokenValidateRequest validationRequest) throws ApiException {
-        ApiResponse<EmailVerifyTokenResponse> resp = validateEmailVerificationTokenWithHttpInfo(validationRequest);
+    public EmailVerifyTokenValidateResponse validateEmailVerificationToken(EmailVerifyTokenValidateRequest validationRequest) throws ApiException {
+        ApiResponse<EmailVerifyTokenValidateResponse> resp = validateEmailVerificationTokenWithHttpInfo(validationRequest);
         return resp.getData();
     }
 
@@ -1872,12 +1873,12 @@ public class CustomerApi {
      * Validate a token that can be used to verify a customer email address
      * Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
      * @param validationRequest Token validation request (required)
-     * @return ApiResponse&lt;EmailVerifyTokenResponse&gt;
+     * @return ApiResponse&lt;EmailVerifyTokenValidateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailVerifyTokenResponse> validateEmailVerificationTokenWithHttpInfo(EmailVerifyTokenValidateRequest validationRequest) throws ApiException {
+    public ApiResponse<EmailVerifyTokenValidateResponse> validateEmailVerificationTokenWithHttpInfo(EmailVerifyTokenValidateRequest validationRequest) throws ApiException {
         com.squareup.okhttp.Call call = validateEmailVerificationTokenValidateBeforeCall(validationRequest, null, null);
-        Type localVarReturnType = new TypeToken<EmailVerifyTokenResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailVerifyTokenValidateResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1889,7 +1890,7 @@ public class CustomerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call validateEmailVerificationTokenAsync(EmailVerifyTokenValidateRequest validationRequest, final ApiCallback<EmailVerifyTokenResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call validateEmailVerificationTokenAsync(EmailVerifyTokenValidateRequest validationRequest, final ApiCallback<EmailVerifyTokenValidateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1911,7 +1912,7 @@ public class CustomerApi {
         }
 
         com.squareup.okhttp.Call call = validateEmailVerificationTokenValidateBeforeCall(validationRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<EmailVerifyTokenResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailVerifyTokenValidateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -697,7 +697,7 @@ Name | Type | Description  | Notes
 
 <a name="validateEmailVerificationToken"></a>
 # **validateEmailVerificationToken**
-> EmailVerifyTokenResponse validateEmailVerificationToken(validationRequest)
+> EmailVerifyTokenValidateResponse validateEmailVerificationToken(validationRequest)
 
 Validate a token that can be used to verify a customer email address
 
@@ -718,7 +718,7 @@ CustomerApi apiInstance = new CustomerApi(apiKey);
 
 EmailVerifyTokenValidateRequest validationRequest = new EmailVerifyTokenValidateRequest(); // EmailVerifyTokenValidateRequest | Token validation request
 try {
-    EmailVerifyTokenResponse result = apiInstance.validateEmailVerificationToken(validationRequest);
+    EmailVerifyTokenValidateResponse result = apiInstance.validateEmailVerificationToken(validationRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#validateEmailVerificationToken");
@@ -734,7 +734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EmailVerifyTokenResponse**](EmailVerifyTokenResponse.md)
+[**EmailVerifyTokenValidateResponse**](EmailVerifyTokenValidateResponse.md)
 
 ### Authorization
 
