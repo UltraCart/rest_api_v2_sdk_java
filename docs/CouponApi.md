@@ -936,7 +936,7 @@ Update multiple coupon on the UltraCart account.
 final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
 CouponApi apiInstance = new CouponApi(apiKey);
 
-CouponsRequest couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to update (synchronous maximum 20 / asynchronous maximum 100)
+CouponsRequest couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to update (synchronous maximum 50 / asynchronous maximum 100)
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 Boolean async = true; // Boolean | True if the operation should be run async.  No result returned
@@ -953,7 +953,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **couponsRequest** | [**CouponsRequest**](CouponsRequest.md)| Coupons to update (synchronous maximum 20 / asynchronous maximum 100) |
+ **couponsRequest** | [**CouponsRequest**](CouponsRequest.md)| Coupons to update (synchronous maximum 50 / asynchronous maximum 100) |
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
  **async** | **Boolean**| True if the operation should be run async.  No result returned | [optional]

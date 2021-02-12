@@ -2301,7 +2301,7 @@ public class CouponApi {
     }
     /**
      * Build call for updateCoupons
-     * @param couponsRequest Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param couponsRequest Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param async True if the operation should be run async.  No result returned (optional)
@@ -2374,7 +2374,7 @@ public class CouponApi {
     /**
      * Update multiple coupons
      * Update multiple coupon on the UltraCart account. 
-     * @param couponsRequest Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param couponsRequest Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param async True if the operation should be run async.  No result returned (optional)
@@ -2389,7 +2389,7 @@ public class CouponApi {
     /**
      * Update multiple coupons
      * Update multiple coupon on the UltraCart account. 
-     * @param couponsRequest Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param couponsRequest Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param async True if the operation should be run async.  No result returned (optional)
@@ -2405,7 +2405,7 @@ public class CouponApi {
     /**
      * Update multiple coupons (asynchronously)
      * Update multiple coupon on the UltraCart account. 
-     * @param couponsRequest Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param couponsRequest Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param async True if the operation should be run async.  No result returned (optional)
