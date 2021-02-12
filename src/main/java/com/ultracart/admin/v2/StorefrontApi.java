@@ -123,6 +123,7 @@ import com.ultracart.admin.v2.models.LookupRequest;
 import com.ultracart.admin.v2.models.LookupResponse;
 import com.ultracart.admin.v2.models.PricingTiersResponse;
 import com.ultracart.admin.v2.models.PublishLibraryItemRequest;
+import com.ultracart.admin.v2.models.ScreenRecordingPageViewDataResponse;
 import com.ultracart.admin.v2.models.ScreenRecordingQueryRequest;
 import com.ultracart.admin.v2.models.ScreenRecordingQueryResponse;
 import com.ultracart.admin.v2.models.ScreenRecordingResponse;
@@ -11117,11 +11118,11 @@ public class StorefrontApi {
      * @param storefrontOid  (required)
      * @param screenRecordingUuid  (required)
      * @param screenRecordingPageViewUuid  (required)
-     * @return ScreenRecordingResponse
+     * @return ScreenRecordingPageViewDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ScreenRecordingResponse getScreenRecordingPageViewData(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid) throws ApiException {
-        ApiResponse<ScreenRecordingResponse> resp = getScreenRecordingPageViewDataWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+    public ScreenRecordingPageViewDataResponse getScreenRecordingPageViewData(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid) throws ApiException {
+        ApiResponse<ScreenRecordingPageViewDataResponse> resp = getScreenRecordingPageViewDataWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
         return resp.getData();
     }
 
@@ -11131,12 +11132,12 @@ public class StorefrontApi {
      * @param storefrontOid  (required)
      * @param screenRecordingUuid  (required)
      * @param screenRecordingPageViewUuid  (required)
-     * @return ApiResponse&lt;ScreenRecordingResponse&gt;
+     * @return ApiResponse&lt;ScreenRecordingPageViewDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ScreenRecordingResponse> getScreenRecordingPageViewDataWithHttpInfo(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid) throws ApiException {
+    public ApiResponse<ScreenRecordingPageViewDataResponse> getScreenRecordingPageViewDataWithHttpInfo(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid) throws ApiException {
         com.squareup.okhttp.Call call = getScreenRecordingPageViewDataValidateBeforeCall(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid, null, null);
-        Type localVarReturnType = new TypeToken<ScreenRecordingResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ScreenRecordingPageViewDataResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -11150,7 +11151,7 @@ public class StorefrontApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getScreenRecordingPageViewDataAsync(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid, final ApiCallback<ScreenRecordingResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getScreenRecordingPageViewDataAsync(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid, final ApiCallback<ScreenRecordingPageViewDataResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11172,7 +11173,7 @@ public class StorefrontApi {
         }
 
         com.squareup.okhttp.Call call = getScreenRecordingPageViewDataValidateBeforeCall(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ScreenRecordingResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ScreenRecordingPageViewDataResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

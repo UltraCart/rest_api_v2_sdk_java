@@ -4286,7 +4286,7 @@ Name | Type | Description  | Notes
 
 <a name="getScreenRecordingPageViewData"></a>
 # **getScreenRecordingPageViewData**
-> ScreenRecordingResponse getScreenRecordingPageViewData(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid)
+> ScreenRecordingPageViewDataResponse getScreenRecordingPageViewData(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid)
 
 Get screen recording page view data
 
@@ -4309,7 +4309,7 @@ Integer storefrontOid = 56; // Integer |
 String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
 String screenRecordingPageViewUuid = "screenRecordingPageViewUuid_example"; // String | 
 try {
-    ScreenRecordingResponse result = apiInstance.getScreenRecordingPageViewData(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+    ScreenRecordingPageViewDataResponse result = apiInstance.getScreenRecordingPageViewData(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorefrontApi#getScreenRecordingPageViewData");
@@ -4327,7 +4327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScreenRecordingResponse**](ScreenRecordingResponse.md)
+[**ScreenRecordingPageViewDataResponse**](ScreenRecordingPageViewDataResponse.md)
 
 ### Authorization
 
