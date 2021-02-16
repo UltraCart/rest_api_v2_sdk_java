@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **amountOffSubtotalAndShipping** | [**CouponAmountOffSubtotalAndShipping**](CouponAmountOffSubtotalAndShipping.md) |  |  [optional]
 **amountOffSubtotalWithBlockPurchase** | [**CouponAmountOffSubtotalWithBlockPurchase**](CouponAmountOffSubtotalWithBlockPurchase.md) |  |  [optional]
 **amountOffSubtotalWithItemsPurchase** | [**CouponAmountOffSubtotalWithItemsPurchase**](CouponAmountOffSubtotalWithItemsPurchase.md) |  |  [optional]
+**amountOffSubtotalWithPurchase** | [**CouponAmountOffSubtotalWithPurchase**](CouponAmountOffSubtotalWithPurchase.md) |  |  [optional]
 **automaticallyApplyCouponCodes** | [**CouponAutomaticallyApplyCouponCodes**](CouponAutomaticallyApplyCouponCodes.md) |  |  [optional]
 **buyOneGetOne** | [**CouponBuyOneGetOneLimit**](CouponBuyOneGetOneLimit.md) |  |  [optional]
 **calculatedDescription** | **String** | Calculated description displayed to the customer if no description is specified. |  [optional]

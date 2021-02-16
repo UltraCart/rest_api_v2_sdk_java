@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-02-12T15:38:12.628-05:00
+  - Build date: 2021-02-16T12:46:35.800-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.6</version>
+  <version>3.1.7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.6"
+compile "com.ultracart:rest-sdk:3.1.7"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.6.jar`
+* `target/rest-sdk-3.1.7.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -518,6 +518,7 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponAmountOffSubtotalWithPurchase](docs/CouponAmountOffSubtotalWithPurchase.md)
  - [CouponAutoApplyCondition](docs/CouponAutoApplyCondition.md)
  - [CouponAutoApplyConditions](docs/CouponAutoApplyConditions.md)
  - [CouponAutomaticallyApplyCouponCodes](docs/CouponAutomaticallyApplyCouponCodes.md)

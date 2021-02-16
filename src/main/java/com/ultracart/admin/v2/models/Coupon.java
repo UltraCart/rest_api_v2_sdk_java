@@ -28,6 +28,7 @@ import com.ultracart.admin.v2.models.CouponAmountOffSubtotalAndShipping;
 import com.ultracart.admin.v2.models.CouponAmountOffSubtotalFreeShippingWithPurchase;
 import com.ultracart.admin.v2.models.CouponAmountOffSubtotalWithBlockPurchase;
 import com.ultracart.admin.v2.models.CouponAmountOffSubtotalWithItemsPurchase;
+import com.ultracart.admin.v2.models.CouponAmountOffSubtotalWithPurchase;
 import com.ultracart.admin.v2.models.CouponAutomaticallyApplyCouponCodes;
 import com.ultracart.admin.v2.models.CouponBuyOneGetOneLimit;
 import com.ultracart.admin.v2.models.CouponDiscountItemWithItemPurchase;
@@ -69,7 +70,7 @@ import java.util.List;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-12T15:38:12.628-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-16T12:46:35.800-05:00")
 
 
 
@@ -103,6 +104,9 @@ public class Coupon {
 
   @SerializedName("amount_off_subtotal_with_items_purchase")
   private CouponAmountOffSubtotalWithItemsPurchase amountOffSubtotalWithItemsPurchase = null;
+
+  @SerializedName("amount_off_subtotal_with_purchase")
+  private CouponAmountOffSubtotalWithPurchase amountOffSubtotalWithPurchase = null;
 
   @SerializedName("automatically_apply_coupon_codes")
   private CouponAutomaticallyApplyCouponCodes automaticallyApplyCouponCodes = null;
@@ -420,6 +424,24 @@ public class Coupon {
 
   public void setAmountOffSubtotalWithItemsPurchase(CouponAmountOffSubtotalWithItemsPurchase amountOffSubtotalWithItemsPurchase) {
     this.amountOffSubtotalWithItemsPurchase = amountOffSubtotalWithItemsPurchase;
+  }
+
+  public Coupon amountOffSubtotalWithPurchase(CouponAmountOffSubtotalWithPurchase amountOffSubtotalWithPurchase) {
+    this.amountOffSubtotalWithPurchase = amountOffSubtotalWithPurchase;
+    return this;
+  }
+
+   /**
+   * Get amountOffSubtotalWithPurchase
+   * @return amountOffSubtotalWithPurchase
+  **/
+  @ApiModelProperty(value = "")
+  public CouponAmountOffSubtotalWithPurchase getAmountOffSubtotalWithPurchase() {
+    return amountOffSubtotalWithPurchase;
+  }
+
+  public void setAmountOffSubtotalWithPurchase(CouponAmountOffSubtotalWithPurchase amountOffSubtotalWithPurchase) {
+    this.amountOffSubtotalWithPurchase = amountOffSubtotalWithPurchase;
   }
 
   public Coupon automaticallyApplyCouponCodes(CouponAutomaticallyApplyCouponCodes automaticallyApplyCouponCodes) {
@@ -1294,6 +1316,7 @@ public class Coupon {
         Objects.equals(this.amountOffSubtotalAndShipping, coupon.amountOffSubtotalAndShipping) &&
         Objects.equals(this.amountOffSubtotalWithBlockPurchase, coupon.amountOffSubtotalWithBlockPurchase) &&
         Objects.equals(this.amountOffSubtotalWithItemsPurchase, coupon.amountOffSubtotalWithItemsPurchase) &&
+        Objects.equals(this.amountOffSubtotalWithPurchase, coupon.amountOffSubtotalWithPurchase) &&
         Objects.equals(this.automaticallyApplyCouponCodes, coupon.automaticallyApplyCouponCodes) &&
         Objects.equals(this.buyOneGetOne, coupon.buyOneGetOne) &&
         Objects.equals(this.calculatedDescription, coupon.calculatedDescription) &&
@@ -1344,7 +1367,7 @@ public class Coupon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItem, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItem, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
   }
 
 
@@ -1363,6 +1386,7 @@ public class Coupon {
     sb.append("    amountOffSubtotalAndShipping: ").append(toIndentedString(amountOffSubtotalAndShipping)).append("\n");
     sb.append("    amountOffSubtotalWithBlockPurchase: ").append(toIndentedString(amountOffSubtotalWithBlockPurchase)).append("\n");
     sb.append("    amountOffSubtotalWithItemsPurchase: ").append(toIndentedString(amountOffSubtotalWithItemsPurchase)).append("\n");
+    sb.append("    amountOffSubtotalWithPurchase: ").append(toIndentedString(amountOffSubtotalWithPurchase)).append("\n");
     sb.append("    automaticallyApplyCouponCodes: ").append(toIndentedString(automaticallyApplyCouponCodes)).append("\n");
     sb.append("    buyOneGetOne: ").append(toIndentedString(buyOneGetOne)).append("\n");
     sb.append("    calculatedDescription: ").append(toIndentedString(calculatedDescription)).append("\n");
