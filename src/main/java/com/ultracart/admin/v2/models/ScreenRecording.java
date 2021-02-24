@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T10:27:35.609-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T13:55:48.545-05:00")
 
 
 
@@ -80,6 +80,9 @@ public class ScreenRecording {
 
   @SerializedName("merchant_id")
   private String merchantId = null;
+
+  @SerializedName("merchant_notes")
+  private String merchantNotes = null;
 
   @SerializedName("order_id")
   private String orderId = null;
@@ -396,6 +399,24 @@ public class ScreenRecording {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+  }
+
+  public ScreenRecording merchantNotes(String merchantNotes) {
+    this.merchantNotes = merchantNotes;
+    return this;
+  }
+
+   /**
+   * Get merchantNotes
+   * @return merchantNotes
+  **/
+  @ApiModelProperty(value = "")
+  public String getMerchantNotes() {
+    return merchantNotes;
+  }
+
+  public void setMerchantNotes(String merchantNotes) {
+    this.merchantNotes = merchantNotes;
   }
 
   public ScreenRecording orderId(String orderId) {
@@ -804,6 +825,7 @@ public class ScreenRecording {
         Objects.equals(this.geolocationCountry, screenRecording.geolocationCountry) &&
         Objects.equals(this.geolocationState, screenRecording.geolocationState) &&
         Objects.equals(this.merchantId, screenRecording.merchantId) &&
+        Objects.equals(this.merchantNotes, screenRecording.merchantNotes) &&
         Objects.equals(this.orderId, screenRecording.orderId) &&
         Objects.equals(this.pageViewCount, screenRecording.pageViewCount) &&
         Objects.equals(this.pageViews, screenRecording.pageViews) &&
@@ -827,7 +849,7 @@ public class ScreenRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, watched, windowHeight, windowWidth);
+    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, watched, windowHeight, windowWidth);
   }
 
 
@@ -850,6 +872,7 @@ public class ScreenRecording {
     sb.append("    geolocationCountry: ").append(toIndentedString(geolocationCountry)).append("\n");
     sb.append("    geolocationState: ").append(toIndentedString(geolocationState)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    merchantNotes: ").append(toIndentedString(merchantNotes)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    pageViews: ").append(toIndentedString(pageViews)).append("\n");

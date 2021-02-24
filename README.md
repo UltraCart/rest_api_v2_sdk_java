@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-02-24T10:27:35.609-05:00
+  - Build date: 2021-02-24T13:55:48.545-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.9</version>
+  <version>3.1.10</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.9"
+compile "com.ultracart:rest-sdk:3.1.10"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.9.jar`
+* `target/rest-sdk-3.1.10.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -353,6 +353,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailSettings**](docs/StorefrontApi.md#updateEmailSettings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 *StorefrontApi* | [**updateExperiment**](docs/StorefrontApi.md#updateExperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
 *StorefrontApi* | [**updateLibraryItem**](docs/StorefrontApi.md#updateLibraryItem) | **PUT** /storefront/code_library/{library_item_oid} | Update library item. Note that only certain fields may be updated via this method.
+*StorefrontApi* | [**updateScreenRecordingMerchantNotes**](docs/StorefrontApi.md#updateScreenRecordingMerchantNotes) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/merchant_notes | Update merchant notes on a screen recording
 *StorefrontApi* | [**updateScreenRecordingSegment**](docs/StorefrontApi.md#updateScreenRecordingSegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Update screen recording segment
 *StorefrontApi* | [**updateScreenRecordingSettings**](docs/StorefrontApi.md#updateScreenRecordingSettings) | **POST** /storefront/{storefront_oid}/screen_recordings/settings | Update screen recording settings
 *StorefrontApi* | [**updateScreenRecordingTags**](docs/StorefrontApi.md#updateScreenRecordingTags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
@@ -891,6 +892,7 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValues](docs/ScreenRecordingFilterValues.md)
  - [ScreenRecordingFilterValuesEvent](docs/ScreenRecordingFilterValuesEvent.md)
  - [ScreenRecordingFilterValuesEventParams](docs/ScreenRecordingFilterValuesEventParams.md)
+ - [ScreenRecordingMerchantNotesRequest](docs/ScreenRecordingMerchantNotesRequest.md)
  - [ScreenRecordingMultifield](docs/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/ScreenRecordingPageView.md)
  - [ScreenRecordingPageViewDataResponse](docs/ScreenRecordingPageViewDataResponse.md)
@@ -1039,6 +1041,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.10 | 02/24/2021 | Added Screen recording merchant notes |
 | 3.1.9 | 02/24/2021 | Allow coupons to be configured as unique with expiration on cart step within StoreFront Communications |
 | 3.1.8 | 02/24/2021 | Add flag: screen recording missing event boolean |
 | 3.1.5 | 02/12/2021 | Bug Fix: PHP retry logic missing a closing brace. Also screen recording page view data response refactor |

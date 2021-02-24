@@ -123,6 +123,7 @@ import com.ultracart.admin.v2.models.LookupRequest;
 import com.ultracart.admin.v2.models.LookupResponse;
 import com.ultracart.admin.v2.models.PricingTiersResponse;
 import com.ultracart.admin.v2.models.PublishLibraryItemRequest;
+import com.ultracart.admin.v2.models.ScreenRecordingMerchantNotesRequest;
 import com.ultracart.admin.v2.models.ScreenRecordingPageViewDataResponse;
 import com.ultracart.admin.v2.models.ScreenRecordingQueryRequest;
 import com.ultracart.admin.v2.models.ScreenRecordingQueryResponse;
@@ -18611,6 +18612,144 @@ public class StorefrontApi {
         com.squareup.okhttp.Call call = updateLibraryItemValidateBeforeCall(libraryItemOid, libraryItem, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<LibraryItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateScreenRecordingMerchantNotes
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param merchantNotesRequest Merchant Notes (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateScreenRecordingMerchantNotesCall(Integer storefrontOid, String screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = merchantNotesRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/merchant_notes"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "screen_recording_uuid" + "\\}", apiClient.escapeString(screenRecordingUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateScreenRecordingMerchantNotesValidateBeforeCall(Integer storefrontOid, String screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateScreenRecordingMerchantNotes(Async)");
+        }
+        
+        // verify the required parameter 'screenRecordingUuid' is set
+        if (screenRecordingUuid == null) {
+            throw new ApiException("Missing the required parameter 'screenRecordingUuid' when calling updateScreenRecordingMerchantNotes(Async)");
+        }
+        
+        // verify the required parameter 'merchantNotesRequest' is set
+        if (merchantNotesRequest == null) {
+            throw new ApiException("Missing the required parameter 'merchantNotesRequest' when calling updateScreenRecordingMerchantNotes(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateScreenRecordingMerchantNotesCall(storefrontOid, screenRecordingUuid, merchantNotesRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update merchant notes on a screen recording
+     * Update merchant notes on a screen recording 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param merchantNotesRequest Merchant Notes (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void updateScreenRecordingMerchantNotes(Integer storefrontOid, String screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest) throws ApiException {
+        updateScreenRecordingMerchantNotesWithHttpInfo(storefrontOid, screenRecordingUuid, merchantNotesRequest);
+    }
+
+    /**
+     * Update merchant notes on a screen recording
+     * Update merchant notes on a screen recording 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param merchantNotesRequest Merchant Notes (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> updateScreenRecordingMerchantNotesWithHttpInfo(Integer storefrontOid, String screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest) throws ApiException {
+        com.squareup.okhttp.Call call = updateScreenRecordingMerchantNotesValidateBeforeCall(storefrontOid, screenRecordingUuid, merchantNotesRequest, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Update merchant notes on a screen recording (asynchronously)
+     * Update merchant notes on a screen recording 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param merchantNotesRequest Merchant Notes (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateScreenRecordingMerchantNotesAsync(Integer storefrontOid, String screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateScreenRecordingMerchantNotesValidateBeforeCall(storefrontOid, screenRecordingUuid, merchantNotesRequest, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
