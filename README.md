@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-02-24T10:04:38.452-05:00
+  - Build date: 2021-02-24T10:27:35.609-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.8</version>
+  <version>3.1.9</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.8"
+compile "com.ultracart:rest-sdk:3.1.9"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.8.jar`
+* `target/rest-sdk-3.1.9.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1039,6 +1039,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.9 | 02/24/2021 | Allow coupons to be configured as unique with expiration on cart step within StoreFront Communications |
 | 3.1.8 | 02/24/2021 | Add flag: screen recording missing event boolean |
 | 3.1.5 | 02/12/2021 | Bug Fix: PHP retry logic missing a closing brace. Also screen recording page view data response refactor |
 | 3.1.3 | 02/11/2021 | Bug Fix: wrong return type on CustomerApi.validateEmailVerificationToken |
