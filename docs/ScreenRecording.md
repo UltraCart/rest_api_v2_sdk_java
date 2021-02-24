@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **userAgentRaw** | **String** |  |  [optional]
 **userIp** | **String** |  |  [optional]
 **userProperties** | [**List&lt;ScreenRecordingUserProperty&gt;**](ScreenRecordingUserProperty.md) |  |  [optional]
+**visitorNumber** | **Integer** |  |  [optional]
 **watched** | **Boolean** |  |  [optional]
 **windowHeight** | **Integer** |  |  [optional]
 **windowWidth** | **Integer** |  |  [optional]

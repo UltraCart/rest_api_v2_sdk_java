@@ -13,7 +13,7 @@
 
 package com.ultracart.admin.v2.swagger;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T13:55:48.545-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T16:10:52.357-05:00")
 public class Pair {
     private String name = "";
     private String value = "";
