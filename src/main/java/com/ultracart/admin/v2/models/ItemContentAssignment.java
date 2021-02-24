@@ -27,11 +27,14 @@ import java.io.IOException;
 /**
  * ItemContentAssignment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-16T12:46:35.800-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T10:04:38.452-05:00")
 
 
 
 public class ItemContentAssignment {
+  @SerializedName("default_assignment")
+  private Boolean defaultAssignment = null;
+
   @SerializedName("group_oid")
   private Integer groupOid = null;
 
@@ -46,6 +49,24 @@ public class ItemContentAssignment {
 
   @SerializedName("url_part")
   private String urlPart = null;
+
+  public ItemContentAssignment defaultAssignment(Boolean defaultAssignment) {
+    this.defaultAssignment = defaultAssignment;
+    return this;
+  }
+
+   /**
+   * True if this group is the default assignment for this item
+   * @return defaultAssignment
+  **/
+  @ApiModelProperty(value = "True if this group is the default assignment for this item")
+  public Boolean isDefaultAssignment() {
+    return defaultAssignment;
+  }
+
+  public void setDefaultAssignment(Boolean defaultAssignment) {
+    this.defaultAssignment = defaultAssignment;
+  }
 
   public ItemContentAssignment groupOid(Integer groupOid) {
     this.groupOid = groupOid;
@@ -147,7 +168,8 @@ public class ItemContentAssignment {
       return false;
     }
     ItemContentAssignment itemContentAssignment = (ItemContentAssignment) o;
-    return Objects.equals(this.groupOid, itemContentAssignment.groupOid) &&
+    return Objects.equals(this.defaultAssignment, itemContentAssignment.defaultAssignment) &&
+        Objects.equals(this.groupOid, itemContentAssignment.groupOid) &&
         Objects.equals(this.groupPath, itemContentAssignment.groupPath) &&
         Objects.equals(this.host, itemContentAssignment.host) &&
         Objects.equals(this.sortOrder, itemContentAssignment.sortOrder) &&
@@ -156,7 +178,7 @@ public class ItemContentAssignment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupOid, groupPath, host, sortOrder, urlPart);
+    return Objects.hash(defaultAssignment, groupOid, groupPath, host, sortOrder, urlPart);
   }
 
 
@@ -165,6 +187,7 @@ public class ItemContentAssignment {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemContentAssignment {\n");
     
+    sb.append("    defaultAssignment: ").append(toIndentedString(defaultAssignment)).append("\n");
     sb.append("    groupOid: ").append(toIndentedString(groupOid)).append("\n");
     sb.append("    groupPath: ").append(toIndentedString(groupPath)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");

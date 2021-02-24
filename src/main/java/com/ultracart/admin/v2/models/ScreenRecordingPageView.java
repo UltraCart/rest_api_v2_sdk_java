@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ScreenRecordingPageView
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-16T12:46:35.800-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T10:04:38.452-05:00")
 
 
 
@@ -47,6 +47,9 @@ public class ScreenRecordingPageView {
 
   @SerializedName("last_event_timestamp")
   private String lastEventTimestamp = null;
+
+  @SerializedName("missing_events")
+  private Boolean missingEvents = null;
 
   @SerializedName("params")
   private List<ScreenRecordingPageViewParameter> params = null;
@@ -159,6 +162,24 @@ public class ScreenRecordingPageView {
 
   public void setLastEventTimestamp(String lastEventTimestamp) {
     this.lastEventTimestamp = lastEventTimestamp;
+  }
+
+  public ScreenRecordingPageView missingEvents(Boolean missingEvents) {
+    this.missingEvents = missingEvents;
+    return this;
+  }
+
+   /**
+   * Get missingEvents
+   * @return missingEvents
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isMissingEvents() {
+    return missingEvents;
+  }
+
+  public void setMissingEvents(Boolean missingEvents) {
+    this.missingEvents = missingEvents;
   }
 
   public ScreenRecordingPageView params(List<ScreenRecordingPageViewParameter> params) {
@@ -389,6 +410,7 @@ public class ScreenRecordingPageView {
         Objects.equals(this.firstEventTimestamp, screenRecordingPageView.firstEventTimestamp) &&
         Objects.equals(this.httpPost, screenRecordingPageView.httpPost) &&
         Objects.equals(this.lastEventTimestamp, screenRecordingPageView.lastEventTimestamp) &&
+        Objects.equals(this.missingEvents, screenRecordingPageView.missingEvents) &&
         Objects.equals(this.params, screenRecordingPageView.params) &&
         Objects.equals(this.rangeEnd, screenRecordingPageView.rangeEnd) &&
         Objects.equals(this.rangeStart, screenRecordingPageView.rangeStart) &&
@@ -404,7 +426,7 @@ public class ScreenRecordingPageView {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, firstEventTimestamp, httpPost, lastEventTimestamp, params, rangeEnd, rangeStart, referrer, referrerParams, referrerRaw, screenRecordingPageViewUuid, timeOnPage, truncatedEvents, ucapv, url);
+    return Objects.hash(events, firstEventTimestamp, httpPost, lastEventTimestamp, missingEvents, params, rangeEnd, rangeStart, referrer, referrerParams, referrerRaw, screenRecordingPageViewUuid, timeOnPage, truncatedEvents, ucapv, url);
   }
 
 
@@ -417,6 +439,7 @@ public class ScreenRecordingPageView {
     sb.append("    firstEventTimestamp: ").append(toIndentedString(firstEventTimestamp)).append("\n");
     sb.append("    httpPost: ").append(toIndentedString(httpPost)).append("\n");
     sb.append("    lastEventTimestamp: ").append(toIndentedString(lastEventTimestamp)).append("\n");
+    sb.append("    missingEvents: ").append(toIndentedString(missingEvents)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
     sb.append("    rangeStart: ").append(toIndentedString(rangeStart)).append("\n");
