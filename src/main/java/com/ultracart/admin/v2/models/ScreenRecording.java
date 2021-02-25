@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T16:10:52.357-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-25T12:13:29.249-05:00")
 
 
 
@@ -131,6 +131,9 @@ public class ScreenRecording {
 
   @SerializedName("user_properties")
   private List<ScreenRecordingUserProperty> userProperties = null;
+
+  @SerializedName("visitor_first_seen")
+  private String visitorFirstSeen = null;
 
   @SerializedName("visitor_number")
   private Integer visitorNumber = null;
@@ -750,6 +753,24 @@ public class ScreenRecording {
     this.userProperties = userProperties;
   }
 
+  public ScreenRecording visitorFirstSeen(String visitorFirstSeen) {
+    this.visitorFirstSeen = visitorFirstSeen;
+    return this;
+  }
+
+   /**
+   * Timestamp this visitor was first seen
+   * @return visitorFirstSeen
+  **/
+  @ApiModelProperty(value = "Timestamp this visitor was first seen")
+  public String getVisitorFirstSeen() {
+    return visitorFirstSeen;
+  }
+
+  public void setVisitorFirstSeen(String visitorFirstSeen) {
+    this.visitorFirstSeen = visitorFirstSeen;
+  }
+
   public ScreenRecording visitorNumber(Integer visitorNumber) {
     this.visitorNumber = visitorNumber;
     return this;
@@ -863,6 +884,7 @@ public class ScreenRecording {
         Objects.equals(this.userAgentRaw, screenRecording.userAgentRaw) &&
         Objects.equals(this.userIp, screenRecording.userIp) &&
         Objects.equals(this.userProperties, screenRecording.userProperties) &&
+        Objects.equals(this.visitorFirstSeen, screenRecording.visitorFirstSeen) &&
         Objects.equals(this.visitorNumber, screenRecording.visitorNumber) &&
         Objects.equals(this.watched, screenRecording.watched) &&
         Objects.equals(this.windowHeight, screenRecording.windowHeight) &&
@@ -871,7 +893,7 @@ public class ScreenRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, visitorNumber, watched, windowHeight, windowWidth);
+    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
   }
 
 
@@ -911,6 +933,7 @@ public class ScreenRecording {
     sb.append("    userAgentRaw: ").append(toIndentedString(userAgentRaw)).append("\n");
     sb.append("    userIp: ").append(toIndentedString(userIp)).append("\n");
     sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
+    sb.append("    visitorFirstSeen: ").append(toIndentedString(visitorFirstSeen)).append("\n");
     sb.append("    visitorNumber: ").append(toIndentedString(visitorNumber)).append("\n");
     sb.append("    watched: ").append(toIndentedString(watched)).append("\n");
     sb.append("    windowHeight: ").append(toIndentedString(windowHeight)).append("\n");

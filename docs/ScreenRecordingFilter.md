@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **userAgentOsName** | **String** |  |  [optional]
 **userAgentOsVersion** | **String** |  |  [optional]
 **userIp** | [**ScreenRecordingFilterIpSearch**](ScreenRecordingFilterIpSearch.md) |  |  [optional]
+**visitorNumber** | **Integer** |  |  [optional]
 **watched** | **Boolean** |  |  [optional]
 
 

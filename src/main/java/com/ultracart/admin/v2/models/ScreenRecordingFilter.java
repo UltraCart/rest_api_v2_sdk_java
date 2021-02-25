@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T16:10:52.357-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-25T12:13:29.249-05:00")
 
 
 
@@ -117,6 +117,9 @@ public class ScreenRecordingFilter {
 
   @SerializedName("user_ip")
   private ScreenRecordingFilterIpSearch userIp = null;
+
+  @SerializedName("visitor_number")
+  private Integer visitorNumber = null;
 
   @SerializedName("watched")
   private Boolean watched = null;
@@ -621,6 +624,24 @@ public class ScreenRecordingFilter {
     this.userIp = userIp;
   }
 
+  public ScreenRecordingFilter visitorNumber(Integer visitorNumber) {
+    this.visitorNumber = visitorNumber;
+    return this;
+  }
+
+   /**
+   * Get visitorNumber
+   * @return visitorNumber
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getVisitorNumber() {
+    return visitorNumber;
+  }
+
+  public void setVisitorNumber(Integer visitorNumber) {
+    this.visitorNumber = visitorNumber;
+  }
+
   public ScreenRecordingFilter watched(Boolean watched) {
     this.watched = watched;
     return this;
@@ -675,12 +696,13 @@ public class ScreenRecordingFilter {
         Objects.equals(this.userAgentOsName, screenRecordingFilter.userAgentOsName) &&
         Objects.equals(this.userAgentOsVersion, screenRecordingFilter.userAgentOsVersion) &&
         Objects.equals(this.userIp, screenRecordingFilter.userIp) &&
+        Objects.equals(this.visitorNumber, screenRecordingFilter.visitorNumber) &&
         Objects.equals(this.watched, screenRecordingFilter.watched);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, watched);
+    return Objects.hash(email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, visitorNumber, watched);
   }
 
 
@@ -715,6 +737,7 @@ public class ScreenRecordingFilter {
     sb.append("    userAgentOsName: ").append(toIndentedString(userAgentOsName)).append("\n");
     sb.append("    userAgentOsVersion: ").append(toIndentedString(userAgentOsVersion)).append("\n");
     sb.append("    userIp: ").append(toIndentedString(userIp)).append("\n");
+    sb.append("    visitorNumber: ").append(toIndentedString(visitorNumber)).append("\n");
     sb.append("    watched: ").append(toIndentedString(watched)).append("\n");
     sb.append("}");
     return sb.toString();

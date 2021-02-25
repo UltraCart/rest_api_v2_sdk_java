@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemRevguard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-24T16:10:52.357-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-25T12:13:29.249-05:00")
 
 
 
