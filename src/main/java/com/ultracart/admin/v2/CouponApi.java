@@ -1786,7 +1786,7 @@ public class CouponApi {
     }
     /**
      * Build call for insertCoupons
-     * @param couponsRequest Coupons to insert (maximum 20) (required)
+     * @param couponsRequest Coupons to insert (maximum 50) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param progressListener Progress listener
@@ -1856,7 +1856,7 @@ public class CouponApi {
     /**
      * Insert multiple coupons
      * Insert multiple coupon on the UltraCart account. 
-     * @param couponsRequest Coupons to insert (maximum 20) (required)
+     * @param couponsRequest Coupons to insert (maximum 50) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return CouponsResponse
@@ -1870,7 +1870,7 @@ public class CouponApi {
     /**
      * Insert multiple coupons
      * Insert multiple coupon on the UltraCart account. 
-     * @param couponsRequest Coupons to insert (maximum 20) (required)
+     * @param couponsRequest Coupons to insert (maximum 50) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;CouponsResponse&gt;
@@ -1885,7 +1885,7 @@ public class CouponApi {
     /**
      * Insert multiple coupons (asynchronously)
      * Insert multiple coupon on the UltraCart account. 
-     * @param couponsRequest Coupons to insert (maximum 20) (required)
+     * @param couponsRequest Coupons to insert (maximum 50) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
