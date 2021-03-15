@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailCommseqEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-02T16:33:24.445-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-15T10:54:30.449-04:00")
 
 
 
@@ -97,6 +97,9 @@ public class EmailCommseqEmail {
 
   @SerializedName("subject")
   private String subject = null;
+
+  @SerializedName("suspended_for_spam")
+  private Boolean suspendedForSpam = null;
 
   @SerializedName("transactional_email")
   private Boolean transactionalEmail = null;
@@ -500,6 +503,24 @@ public class EmailCommseqEmail {
     this.subject = subject;
   }
 
+  public EmailCommseqEmail suspendedForSpam(Boolean suspendedForSpam) {
+    this.suspendedForSpam = suspendedForSpam;
+    return this;
+  }
+
+   /**
+   * True if the email was suspended for too high of a spam rate.
+   * @return suspendedForSpam
+  **/
+  @ApiModelProperty(value = "True if the email was suspended for too high of a spam rate.")
+  public Boolean isSuspendedForSpam() {
+    return suspendedForSpam;
+  }
+
+  public void setSuspendedForSpam(Boolean suspendedForSpam) {
+    this.suspendedForSpam = suspendedForSpam;
+  }
+
   public EmailCommseqEmail transactionalEmail(Boolean transactionalEmail) {
     this.transactionalEmail = transactionalEmail;
     return this;
@@ -568,13 +589,14 @@ public class EmailCommseqEmail {
         Objects.equals(this.smartSending, emailCommseqEmail.smartSending) &&
         Objects.equals(this.storefrontOid, emailCommseqEmail.storefrontOid) &&
         Objects.equals(this.subject, emailCommseqEmail.subject) &&
+        Objects.equals(this.suspendedForSpam, emailCommseqEmail.suspendedForSpam) &&
         Objects.equals(this.transactionalEmail, emailCommseqEmail.transactionalEmail) &&
         Objects.equals(this.version, emailCommseqEmail.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, libraryItemOid, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, transactionalEmail, version);
+    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, libraryItemOid, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
   }
 
 
@@ -605,6 +627,7 @@ public class EmailCommseqEmail {
     sb.append("    smartSending: ").append(toIndentedString(smartSending)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    suspendedForSpam: ").append(toIndentedString(suspendedForSpam)).append("\n");
     sb.append("    transactionalEmail: ").append(toIndentedString(transactionalEmail)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-02T16:33:24.445-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-15T10:54:30.449-04:00")
 
 
 
@@ -122,6 +122,27 @@ public class OrderQuery {
 
   @SerializedName("current_stage")
   private CurrentStageEnum currentStage = null;
+
+  @SerializedName("custom_field_1")
+  private String customField1 = null;
+
+  @SerializedName("custom_field_2")
+  private String customField2 = null;
+
+  @SerializedName("custom_field_3")
+  private String customField3 = null;
+
+  @SerializedName("custom_field_4")
+  private String customField4 = null;
+
+  @SerializedName("custom_field_5")
+  private String customField5 = null;
+
+  @SerializedName("custom_field_6")
+  private String customField6 = null;
+
+  @SerializedName("custom_field_7")
+  private String customField7 = null;
 
   @SerializedName("customer_profile_oid")
   private Integer customerProfileOid = null;
@@ -419,6 +440,132 @@ public class OrderQuery {
 
   public void setCurrentStage(CurrentStageEnum currentStage) {
     this.currentStage = currentStage;
+  }
+
+  public OrderQuery customField1(String customField1) {
+    this.customField1 = customField1;
+    return this;
+  }
+
+   /**
+   * Custom field 1
+   * @return customField1
+  **/
+  @ApiModelProperty(value = "Custom field 1")
+  public String getCustomField1() {
+    return customField1;
+  }
+
+  public void setCustomField1(String customField1) {
+    this.customField1 = customField1;
+  }
+
+  public OrderQuery customField2(String customField2) {
+    this.customField2 = customField2;
+    return this;
+  }
+
+   /**
+   * Custom field 2
+   * @return customField2
+  **/
+  @ApiModelProperty(value = "Custom field 2")
+  public String getCustomField2() {
+    return customField2;
+  }
+
+  public void setCustomField2(String customField2) {
+    this.customField2 = customField2;
+  }
+
+  public OrderQuery customField3(String customField3) {
+    this.customField3 = customField3;
+    return this;
+  }
+
+   /**
+   * Custom field 3
+   * @return customField3
+  **/
+  @ApiModelProperty(value = "Custom field 3")
+  public String getCustomField3() {
+    return customField3;
+  }
+
+  public void setCustomField3(String customField3) {
+    this.customField3 = customField3;
+  }
+
+  public OrderQuery customField4(String customField4) {
+    this.customField4 = customField4;
+    return this;
+  }
+
+   /**
+   * Custom field 4
+   * @return customField4
+  **/
+  @ApiModelProperty(value = "Custom field 4")
+  public String getCustomField4() {
+    return customField4;
+  }
+
+  public void setCustomField4(String customField4) {
+    this.customField4 = customField4;
+  }
+
+  public OrderQuery customField5(String customField5) {
+    this.customField5 = customField5;
+    return this;
+  }
+
+   /**
+   * Custom field 5
+   * @return customField5
+  **/
+  @ApiModelProperty(value = "Custom field 5")
+  public String getCustomField5() {
+    return customField5;
+  }
+
+  public void setCustomField5(String customField5) {
+    this.customField5 = customField5;
+  }
+
+  public OrderQuery customField6(String customField6) {
+    this.customField6 = customField6;
+    return this;
+  }
+
+   /**
+   * Custom field 6
+   * @return customField6
+  **/
+  @ApiModelProperty(value = "Custom field 6")
+  public String getCustomField6() {
+    return customField6;
+  }
+
+  public void setCustomField6(String customField6) {
+    this.customField6 = customField6;
+  }
+
+  public OrderQuery customField7(String customField7) {
+    this.customField7 = customField7;
+    return this;
+  }
+
+   /**
+   * Custom field 7
+   * @return customField7
+  **/
+  @ApiModelProperty(value = "Custom field 7")
+  public String getCustomField7() {
+    return customField7;
+  }
+
+  public void setCustomField7(String customField7) {
+    this.customField7 = customField7;
   }
 
   public OrderQuery customerProfileOid(Integer customerProfileOid) {
@@ -818,6 +965,13 @@ public class OrderQuery {
         Objects.equals(this.creationDateBegin, orderQuery.creationDateBegin) &&
         Objects.equals(this.creationDateEnd, orderQuery.creationDateEnd) &&
         Objects.equals(this.currentStage, orderQuery.currentStage) &&
+        Objects.equals(this.customField1, orderQuery.customField1) &&
+        Objects.equals(this.customField2, orderQuery.customField2) &&
+        Objects.equals(this.customField3, orderQuery.customField3) &&
+        Objects.equals(this.customField4, orderQuery.customField4) &&
+        Objects.equals(this.customField5, orderQuery.customField5) &&
+        Objects.equals(this.customField6, orderQuery.customField6) &&
+        Objects.equals(this.customField7, orderQuery.customField7) &&
         Objects.equals(this.customerProfileOid, orderQuery.customerProfileOid) &&
         Objects.equals(this.email, orderQuery.email) &&
         Objects.equals(this.firstName, orderQuery.firstName) &&
@@ -843,7 +997,7 @@ public class OrderQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, stateRegion, storefrontHostName, total);
+    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, stateRegion, storefrontHostName, total);
   }
 
 
@@ -861,6 +1015,13 @@ public class OrderQuery {
     sb.append("    creationDateBegin: ").append(toIndentedString(creationDateBegin)).append("\n");
     sb.append("    creationDateEnd: ").append(toIndentedString(creationDateEnd)).append("\n");
     sb.append("    currentStage: ").append(toIndentedString(currentStage)).append("\n");
+    sb.append("    customField1: ").append(toIndentedString(customField1)).append("\n");
+    sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");
+    sb.append("    customField3: ").append(toIndentedString(customField3)).append("\n");
+    sb.append("    customField4: ").append(toIndentedString(customField4)).append("\n");
+    sb.append("    customField5: ").append(toIndentedString(customField5)).append("\n");
+    sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
+    sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
