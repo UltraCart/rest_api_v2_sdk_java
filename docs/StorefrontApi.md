@@ -1096,7 +1096,7 @@ null (empty response body)
 
 <a name="deleteScreenRecordingSegment"></a>
 # **deleteScreenRecordingSegment**
-> ScreenRecordingSegmentResponse deleteScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid)
+> deleteScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid)
 
 Delete screen recording segment
 
@@ -1116,8 +1116,7 @@ StorefrontApi apiInstance = new StorefrontApi(apiKey);
 Integer storefrontOid = 56; // Integer | 
 Integer screenRecordingSegmentOid = 56; // Integer | 
 try {
-    ScreenRecordingSegmentResponse result = apiInstance.deleteScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid);
-    System.out.println(result);
+    apiInstance.deleteScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorefrontApi#deleteScreenRecordingSegment");
     e.printStackTrace();
@@ -1133,7 +1132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScreenRecordingSegmentResponse**](ScreenRecordingSegmentResponse.md)
+null (empty response body)
 
 ### Authorization
 

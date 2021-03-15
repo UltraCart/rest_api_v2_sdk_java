@@ -2758,12 +2758,10 @@ public class StorefrontApi {
      * 
      * @param storefrontOid  (required)
      * @param screenRecordingSegmentOid  (required)
-     * @return ScreenRecordingSegmentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ScreenRecordingSegmentResponse deleteScreenRecordingSegment(Integer storefrontOid, Integer screenRecordingSegmentOid) throws ApiException {
-        ApiResponse<ScreenRecordingSegmentResponse> resp = deleteScreenRecordingSegmentWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
-        return resp.getData();
+    public void deleteScreenRecordingSegment(Integer storefrontOid, Integer screenRecordingSegmentOid) throws ApiException {
+        deleteScreenRecordingSegmentWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
     }
 
     /**
@@ -2771,13 +2769,12 @@ public class StorefrontApi {
      * 
      * @param storefrontOid  (required)
      * @param screenRecordingSegmentOid  (required)
-     * @return ApiResponse&lt;ScreenRecordingSegmentResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ScreenRecordingSegmentResponse> deleteScreenRecordingSegmentWithHttpInfo(Integer storefrontOid, Integer screenRecordingSegmentOid) throws ApiException {
+    public ApiResponse<Void> deleteScreenRecordingSegmentWithHttpInfo(Integer storefrontOid, Integer screenRecordingSegmentOid) throws ApiException {
         com.squareup.okhttp.Call call = deleteScreenRecordingSegmentValidateBeforeCall(storefrontOid, screenRecordingSegmentOid, null, null);
-        Type localVarReturnType = new TypeToken<ScreenRecordingSegmentResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -2789,7 +2786,7 @@ public class StorefrontApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteScreenRecordingSegmentAsync(Integer storefrontOid, Integer screenRecordingSegmentOid, final ApiCallback<ScreenRecordingSegmentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteScreenRecordingSegmentAsync(Integer storefrontOid, Integer screenRecordingSegmentOid, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2811,8 +2808,7 @@ public class StorefrontApi {
         }
 
         com.squareup.okhttp.Call call = deleteScreenRecordingSegmentValidateBeforeCall(storefrontOid, screenRecordingSegmentOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ScreenRecordingSegmentResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
