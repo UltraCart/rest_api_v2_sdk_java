@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ScreenRecordingFilterValuesEvent;
+import com.ultracart.admin.v2.models.ScreenRecordingFilterValuesPageParam;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-15T15:57:34.650-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-16T11:46:26.206-04:00")
 
 
 
@@ -46,6 +47,9 @@ public class ScreenRecordingFilterValues {
 
   @SerializedName("max_values")
   private Integer maxValues = null;
+
+  @SerializedName("page_params")
+  private List<ScreenRecordingFilterValuesPageParam> pageParams = null;
 
   @SerializedName("urls")
   private List<String> urls = null;
@@ -159,6 +163,32 @@ public class ScreenRecordingFilterValues {
 
   public void setMaxValues(Integer maxValues) {
     this.maxValues = maxValues;
+  }
+
+  public ScreenRecordingFilterValues pageParams(List<ScreenRecordingFilterValuesPageParam> pageParams) {
+    this.pageParams = pageParams;
+    return this;
+  }
+
+  public ScreenRecordingFilterValues addPageParamsItem(ScreenRecordingFilterValuesPageParam pageParamsItem) {
+    if (this.pageParams == null) {
+      this.pageParams = new ArrayList<ScreenRecordingFilterValuesPageParam>();
+    }
+    this.pageParams.add(pageParamsItem);
+    return this;
+  }
+
+   /**
+   * Get pageParams
+   * @return pageParams
+  **/
+  @ApiModelProperty(value = "")
+  public List<ScreenRecordingFilterValuesPageParam> getPageParams() {
+    return pageParams;
+  }
+
+  public void setPageParams(List<ScreenRecordingFilterValuesPageParam> pageParams) {
+    this.pageParams = pageParams;
   }
 
   public ScreenRecordingFilterValues urls(List<String> urls) {
@@ -331,6 +361,7 @@ public class ScreenRecordingFilterValues {
         Objects.equals(this.geolocationCountries, screenRecordingFilterValues.geolocationCountries) &&
         Objects.equals(this.geolocationStates, screenRecordingFilterValues.geolocationStates) &&
         Objects.equals(this.maxValues, screenRecordingFilterValues.maxValues) &&
+        Objects.equals(this.pageParams, screenRecordingFilterValues.pageParams) &&
         Objects.equals(this.urls, screenRecordingFilterValues.urls) &&
         Objects.equals(this.userAgentDeviceNames, screenRecordingFilterValues.userAgentDeviceNames) &&
         Objects.equals(this.userAgentDeviceOsNames, screenRecordingFilterValues.userAgentDeviceOsNames) &&
@@ -341,7 +372,7 @@ public class ScreenRecordingFilterValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, geolocationCountries, geolocationStates, maxValues, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
+    return Objects.hash(events, geolocationCountries, geolocationStates, maxValues, pageParams, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
   }
 
 
@@ -354,6 +385,7 @@ public class ScreenRecordingFilterValues {
     sb.append("    geolocationCountries: ").append(toIndentedString(geolocationCountries)).append("\n");
     sb.append("    geolocationStates: ").append(toIndentedString(geolocationStates)).append("\n");
     sb.append("    maxValues: ").append(toIndentedString(maxValues)).append("\n");
+    sb.append("    pageParams: ").append(toIndentedString(pageParams)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("    userAgentDeviceNames: ").append(toIndentedString(userAgentDeviceNames)).append("\n");
     sb.append("    userAgentDeviceOsNames: ").append(toIndentedString(userAgentDeviceOsNames)).append("\n");

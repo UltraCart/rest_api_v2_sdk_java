@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-03-15T15:57:34.650-04:00
+  - Build date: 2021-03-16T11:46:26.206-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.15</version>
+  <version>3.1.16</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.15"
+compile "com.ultracart:rest-sdk:3.1.16"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.15.jar`
+* `target/rest-sdk-3.1.16.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -892,6 +892,7 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValues](docs/ScreenRecordingFilterValues.md)
  - [ScreenRecordingFilterValuesEvent](docs/ScreenRecordingFilterValuesEvent.md)
  - [ScreenRecordingFilterValuesEventParams](docs/ScreenRecordingFilterValuesEventParams.md)
+ - [ScreenRecordingFilterValuesPageParam](docs/ScreenRecordingFilterValuesPageParam.md)
  - [ScreenRecordingMerchantNotesRequest](docs/ScreenRecordingMerchantNotesRequest.md)
  - [ScreenRecordingMultifield](docs/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/ScreenRecordingPageView.md)
@@ -1041,6 +1042,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.16 | 03/16/2021 | screen recording filter page parameter names |
 | 3.1.15 | 03/15/2021 | fix response from deleteScreenRecordingSegment that should have been void |
 | 3.1.14 | 03/15/2021 | sort screen recordings by favorite flag |
 | 3.1.13 | 03/02/2021 | new webhook order_payment_failed |

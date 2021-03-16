@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **geolocationCountries** | **List&lt;String&gt;** |  |  [optional]
 **geolocationStates** | **List&lt;String&gt;** |  |  [optional]
 **maxValues** | **Integer** |  |  [optional]
+**pageParams** | [**List&lt;ScreenRecordingFilterValuesPageParam&gt;**](ScreenRecordingFilterValuesPageParam.md) |  |  [optional]
 **urls** | **List&lt;String&gt;** |  |  [optional]
 **userAgentDeviceNames** | **List&lt;String&gt;** |  |  [optional]
 **userAgentDeviceOsNames** | **List&lt;String&gt;** |  |  [optional]
