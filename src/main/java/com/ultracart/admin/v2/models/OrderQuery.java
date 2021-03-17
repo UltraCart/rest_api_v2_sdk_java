@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-17T12:29:23.227-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-17T16:09:46.887-04:00")
 
 
 
@@ -270,6 +270,12 @@ public class OrderQuery {
 
   @SerializedName("shipment_date_end")
   private String shipmentDateEnd = null;
+
+  @SerializedName("shipped_on_date_begin")
+  private String shippedOnDateBegin = null;
+
+  @SerializedName("shipped_on_date_end")
+  private String shippedOnDateEnd = null;
 
   @SerializedName("state_region")
   private String stateRegion = null;
@@ -862,10 +868,10 @@ public class OrderQuery {
   }
 
    /**
-   * Date/time that the order was shipping
+   * Date/time that the order was shipped
    * @return shipmentDateBegin
   **/
-  @ApiModelProperty(value = "Date/time that the order was shipping")
+  @ApiModelProperty(value = "Date/time that the order was shipped")
   public String getShipmentDateBegin() {
     return shipmentDateBegin;
   }
@@ -890,6 +896,42 @@ public class OrderQuery {
 
   public void setShipmentDateEnd(String shipmentDateEnd) {
     this.shipmentDateEnd = shipmentDateEnd;
+  }
+
+  public OrderQuery shippedOnDateBegin(String shippedOnDateBegin) {
+    this.shippedOnDateBegin = shippedOnDateBegin;
+    return this;
+  }
+
+   /**
+   * Date/time that the order should ship on
+   * @return shippedOnDateBegin
+  **/
+  @ApiModelProperty(value = "Date/time that the order should ship on")
+  public String getShippedOnDateBegin() {
+    return shippedOnDateBegin;
+  }
+
+  public void setShippedOnDateBegin(String shippedOnDateBegin) {
+    this.shippedOnDateBegin = shippedOnDateBegin;
+  }
+
+  public OrderQuery shippedOnDateEnd(String shippedOnDateEnd) {
+    this.shippedOnDateEnd = shippedOnDateEnd;
+    return this;
+  }
+
+   /**
+   * Date/time that the order should ship on
+   * @return shippedOnDateEnd
+  **/
+  @ApiModelProperty(value = "Date/time that the order should ship on")
+  public String getShippedOnDateEnd() {
+    return shippedOnDateEnd;
+  }
+
+  public void setShippedOnDateEnd(String shippedOnDateEnd) {
+    this.shippedOnDateEnd = shippedOnDateEnd;
   }
 
   public OrderQuery stateRegion(String stateRegion) {
@@ -990,6 +1032,8 @@ public class OrderQuery {
         Objects.equals(this.screenBrandingThemeCode, orderQuery.screenBrandingThemeCode) &&
         Objects.equals(this.shipmentDateBegin, orderQuery.shipmentDateBegin) &&
         Objects.equals(this.shipmentDateEnd, orderQuery.shipmentDateEnd) &&
+        Objects.equals(this.shippedOnDateBegin, orderQuery.shippedOnDateBegin) &&
+        Objects.equals(this.shippedOnDateEnd, orderQuery.shippedOnDateEnd) &&
         Objects.equals(this.stateRegion, orderQuery.stateRegion) &&
         Objects.equals(this.storefrontHostName, orderQuery.storefrontHostName) &&
         Objects.equals(this.total, orderQuery.total);
@@ -997,7 +1041,7 @@ public class OrderQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, stateRegion, storefrontHostName, total);
+    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
   }
 
 
@@ -1040,6 +1084,8 @@ public class OrderQuery {
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
     sb.append("    shipmentDateBegin: ").append(toIndentedString(shipmentDateBegin)).append("\n");
     sb.append("    shipmentDateEnd: ").append(toIndentedString(shipmentDateEnd)).append("\n");
+    sb.append("    shippedOnDateBegin: ").append(toIndentedString(shippedOnDateBegin)).append("\n");
+    sb.append("    shippedOnDateEnd: ").append(toIndentedString(shippedOnDateEnd)).append("\n");
     sb.append("    stateRegion: ").append(toIndentedString(stateRegion)).append("\n");
     sb.append("    storefrontHostName: ").append(toIndentedString(storefrontHostName)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");

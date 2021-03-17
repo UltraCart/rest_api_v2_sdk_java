@@ -1261,6 +1261,8 @@ public class OrderApi {
      * @param customField5  (optional)
      * @param customField6  (optional)
      * @param customField7  (optional)
+     * @param shipOnDateBegin  (optional)
+     * @param shipOnDateEnd  (optional)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1270,7 +1272,7 @@ public class OrderApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getOrdersCall(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getOrdersCall(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, String shipOnDateBegin, String shipOnDateEnd, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1352,6 +1354,10 @@ public class OrderApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("Custom Field 6", customField6));
         if (customField7 != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("Custom Field 7", customField7));
+        if (shipOnDateBegin != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("ship_on_date_begin", shipOnDateBegin));
+        if (shipOnDateEnd != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("ship_on_date_end", shipOnDateEnd));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
         if (offset != null)
@@ -1394,10 +1400,10 @@ public class OrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getOrdersValidateBeforeCall(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOrdersValidateBeforeCall(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, String shipOnDateBegin, String shipOnDateEnd, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getOrdersCall(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, limit, offset, sort, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getOrdersCall(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, shipOnDateBegin, shipOnDateEnd, limit, offset, sort, expand, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1442,6 +1448,8 @@ public class OrderApi {
      * @param customField5  (optional)
      * @param customField6  (optional)
      * @param customField7  (optional)
+     * @param shipOnDateBegin  (optional)
+     * @param shipOnDateEnd  (optional)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1449,8 +1457,8 @@ public class OrderApi {
      * @return OrdersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrdersResponse getOrders(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, Integer limit, Integer offset, String sort, String expand) throws ApiException {
-        ApiResponse<OrdersResponse> resp = getOrdersWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, limit, offset, sort, expand);
+    public OrdersResponse getOrders(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, String shipOnDateBegin, String shipOnDateEnd, Integer limit, Integer offset, String sort, String expand) throws ApiException {
+        ApiResponse<OrdersResponse> resp = getOrdersWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, shipOnDateBegin, shipOnDateEnd, limit, offset, sort, expand);
         return resp.getData();
     }
 
@@ -1494,6 +1502,8 @@ public class OrderApi {
      * @param customField5  (optional)
      * @param customField6  (optional)
      * @param customField7  (optional)
+     * @param shipOnDateBegin  (optional)
+     * @param shipOnDateEnd  (optional)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1501,8 +1511,8 @@ public class OrderApi {
      * @return ApiResponse&lt;OrdersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrdersResponse> getOrdersWithHttpInfo(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, Integer limit, Integer offset, String sort, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = getOrdersValidateBeforeCall(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, limit, offset, sort, expand, null, null);
+    public ApiResponse<OrdersResponse> getOrdersWithHttpInfo(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, String shipOnDateBegin, String shipOnDateEnd, Integer limit, Integer offset, String sort, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getOrdersValidateBeforeCall(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, shipOnDateBegin, shipOnDateEnd, limit, offset, sort, expand, null, null);
         Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1547,6 +1557,8 @@ public class OrderApi {
      * @param customField5  (optional)
      * @param customField6  (optional)
      * @param customField7  (optional)
+     * @param shipOnDateBegin  (optional)
+     * @param shipOnDateEnd  (optional)
      * @param limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1555,7 +1567,7 @@ public class OrderApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getOrdersAsync(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, Integer limit, Integer offset, String sort, String expand, final ApiCallback<OrdersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getOrdersAsync(String orderId, String paymentMethod, String company, String firstName, String lastName, String city, String stateRegion, String postalCode, String countryCode, String phone, String email, String ccEmail, BigDecimal total, String screenBrandingThemeCode, String storefrontHostName, String creationDateBegin, String creationDateEnd, String paymentDateBegin, String paymentDateEnd, String shipmentDateBegin, String shipmentDateEnd, String rma, String purchaseOrderNumber, String itemId, String currentStage, String channelPartnerCode, String channelPartnerOrderId, Integer customerProfileOid, String refundDateBegin, String refundDateEnd, String customField1, String customField2, String customField3, String customField4, String customField5, String customField6, String customField7, String shipOnDateBegin, String shipOnDateEnd, Integer limit, Integer offset, String sort, String expand, final ApiCallback<OrdersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1576,7 +1588,7 @@ public class OrderApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getOrdersValidateBeforeCall(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, limit, offset, sort, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getOrdersValidateBeforeCall(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, shipOnDateBegin, shipOnDateEnd, limit, offset, sort, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

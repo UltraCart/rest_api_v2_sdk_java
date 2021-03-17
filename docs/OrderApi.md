@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 <a name="getOrders"></a>
 # **getOrders**
-> OrdersResponse getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, limit, offset, sort, expand)
+> OrdersResponse getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, shipOnDateBegin, shipOnDateEnd, limit, offset, sort, expand)
 
 Retrieve orders
 
@@ -539,12 +539,14 @@ String customField4 = "customField4_example"; // String |
 String customField5 = "customField5_example"; // String | 
 String customField6 = "customField6_example"; // String | 
 String customField7 = "customField7_example"; // String | 
+String shipOnDateBegin = "shipOnDateBegin_example"; // String | 
+String shipOnDateEnd = "shipOnDateEnd_example"; // String | 
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
 String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 String expand = "expand_example"; // String | The object expansion to perform on the result.
 try {
-    OrdersResponse result = apiInstance.getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, limit, offset, sort, expand);
+    OrdersResponse result = apiInstance.getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, refundDateBegin, refundDateEnd, customField1, customField2, customField3, customField4, customField5, customField6, customField7, shipOnDateBegin, shipOnDateEnd, limit, offset, sort, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#getOrders");
@@ -593,6 +595,8 @@ Name | Type | Description  | Notes
  **customField5** | **String**|  | [optional]
  **customField6** | **String**|  | [optional]
  **customField7** | **String**|  | [optional]
+ **shipOnDateBegin** | **String**|  | [optional]
+ **shipOnDateEnd** | **String**|  | [optional]
  **limit** | **Integer**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **sort** | **String**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]

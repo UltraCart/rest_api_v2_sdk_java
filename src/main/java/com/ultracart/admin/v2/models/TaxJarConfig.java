@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TaxJarConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-17T12:29:23.227-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-17T16:09:46.887-04:00")
 
 
 
@@ -46,6 +46,9 @@ public class TaxJarConfig {
 
   @SerializedName("send_test_orders")
   private Boolean sendTestOrders = null;
+
+  @SerializedName("skip_channel_orders")
+  private Boolean skipChannelOrders = null;
 
   @SerializedName("use_distribution_center_from")
   private Boolean useDistributionCenterFrom = null;
@@ -140,6 +143,24 @@ public class TaxJarConfig {
     this.sendTestOrders = sendTestOrders;
   }
 
+  public TaxJarConfig skipChannelOrders(Boolean skipChannelOrders) {
+    this.skipChannelOrders = skipChannelOrders;
+    return this;
+  }
+
+   /**
+   * Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.
+   * @return skipChannelOrders
+  **/
+  @ApiModelProperty(value = "Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.")
+  public Boolean isSkipChannelOrders() {
+    return skipChannelOrders;
+  }
+
+  public void setSkipChannelOrders(Boolean skipChannelOrders) {
+    this.skipChannelOrders = skipChannelOrders;
+  }
+
   public TaxJarConfig useDistributionCenterFrom(Boolean useDistributionCenterFrom) {
     this.useDistributionCenterFrom = useDistributionCenterFrom;
     return this;
@@ -173,12 +194,13 @@ public class TaxJarConfig {
         Objects.equals(this.estimateOnly, taxJarConfig.estimateOnly) &&
         Objects.equals(this.sendOutsideNexus, taxJarConfig.sendOutsideNexus) &&
         Objects.equals(this.sendTestOrders, taxJarConfig.sendTestOrders) &&
+        Objects.equals(this.skipChannelOrders, taxJarConfig.skipChannelOrders) &&
         Objects.equals(this.useDistributionCenterFrom, taxJarConfig.useDistributionCenterFrom);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, apiKey, estimateOnly, sendOutsideNexus, sendTestOrders, useDistributionCenterFrom);
+    return Objects.hash(active, apiKey, estimateOnly, sendOutsideNexus, sendTestOrders, skipChannelOrders, useDistributionCenterFrom);
   }
 
 
@@ -192,6 +214,7 @@ public class TaxJarConfig {
     sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
     sb.append("    sendOutsideNexus: ").append(toIndentedString(sendOutsideNexus)).append("\n");
     sb.append("    sendTestOrders: ").append(toIndentedString(sendTestOrders)).append("\n");
+    sb.append("    skipChannelOrders: ").append(toIndentedString(skipChannelOrders)).append("\n");
     sb.append("    useDistributionCenterFrom: ").append(toIndentedString(useDistributionCenterFrom)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-03-17T12:29:23.227-04:00
+  - Build date: 2021-03-17T16:09:46.887-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.17</version>
+  <version>3.1.18</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.17"
+compile "com.ultracart:rest-sdk:3.1.18"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.17.jar`
+* `target/rest-sdk-3.1.18.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1043,6 +1043,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.18 | 03/17/2021 | Added order query by ship on date |
 | 3.1.17 | 03/17/2021 | New coupon - percent off MSRP item |
 | 3.1.16 | 03/16/2021 | screen recording filter page parameter names |
 | 3.1.15 | 03/15/2021 | fix response from deleteScreenRecordingSegment that should have been void |
