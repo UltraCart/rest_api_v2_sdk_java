@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AvalaraConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-16T11:46:26.206-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-17T12:29:23.227-04:00")
 
 
 
