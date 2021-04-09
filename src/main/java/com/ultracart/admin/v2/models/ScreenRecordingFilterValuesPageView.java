@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValuesPageView
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T13:20:39.887-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T14:40:11.077-04:00")
 
 
 
@@ -41,6 +41,12 @@ public class ScreenRecordingFilterValuesPageView {
 
   @SerializedName("page_params")
   private List<ScreenRecordingFilterValuesPageParam> pageParams = null;
+
+  @SerializedName("time_on_page_max")
+  private Integer timeOnPageMax = null;
+
+  @SerializedName("time_on_page_min")
+  private Integer timeOnPageMin = null;
 
   @SerializedName("urls")
   private List<String> urls = null;
@@ -97,6 +103,42 @@ public class ScreenRecordingFilterValuesPageView {
     this.pageParams = pageParams;
   }
 
+  public ScreenRecordingFilterValuesPageView timeOnPageMax(Integer timeOnPageMax) {
+    this.timeOnPageMax = timeOnPageMax;
+    return this;
+  }
+
+   /**
+   * Get timeOnPageMax
+   * @return timeOnPageMax
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getTimeOnPageMax() {
+    return timeOnPageMax;
+  }
+
+  public void setTimeOnPageMax(Integer timeOnPageMax) {
+    this.timeOnPageMax = timeOnPageMax;
+  }
+
+  public ScreenRecordingFilterValuesPageView timeOnPageMin(Integer timeOnPageMin) {
+    this.timeOnPageMin = timeOnPageMin;
+    return this;
+  }
+
+   /**
+   * Get timeOnPageMin
+   * @return timeOnPageMin
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getTimeOnPageMin() {
+    return timeOnPageMin;
+  }
+
+  public void setTimeOnPageMin(Integer timeOnPageMin) {
+    this.timeOnPageMin = timeOnPageMin;
+  }
+
   public ScreenRecordingFilterValuesPageView urls(List<String> urls) {
     this.urls = urls;
     return this;
@@ -135,12 +177,14 @@ public class ScreenRecordingFilterValuesPageView {
     ScreenRecordingFilterValuesPageView screenRecordingFilterValuesPageView = (ScreenRecordingFilterValuesPageView) o;
     return Objects.equals(this.events, screenRecordingFilterValuesPageView.events) &&
         Objects.equals(this.pageParams, screenRecordingFilterValuesPageView.pageParams) &&
+        Objects.equals(this.timeOnPageMax, screenRecordingFilterValuesPageView.timeOnPageMax) &&
+        Objects.equals(this.timeOnPageMin, screenRecordingFilterValuesPageView.timeOnPageMin) &&
         Objects.equals(this.urls, screenRecordingFilterValuesPageView.urls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, pageParams, urls);
+    return Objects.hash(events, pageParams, timeOnPageMax, timeOnPageMin, urls);
   }
 
 
@@ -151,6 +195,8 @@ public class ScreenRecordingFilterValuesPageView {
     
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    pageParams: ").append(toIndentedString(pageParams)).append("\n");
+    sb.append("    timeOnPageMax: ").append(toIndentedString(timeOnPageMax)).append("\n");
+    sb.append("    timeOnPageMin: ").append(toIndentedString(timeOnPageMin)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("}");
     return sb.toString();

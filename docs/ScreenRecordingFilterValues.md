@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **geolocationStates** | **List&lt;String&gt;** |  |  [optional]
 **maxValues** | **Integer** |  |  [optional]
 **pageViews** | [**List&lt;ScreenRecordingFilterValuesPageView&gt;**](ScreenRecordingFilterValuesPageView.md) |  |  [optional]
+**timeOnSiteMax** | **Integer** |  |  [optional]
+**timeOnSiteMin** | **Integer** |  |  [optional]
 **urls** | **List&lt;String&gt;** |  |  [optional]
 **userAgentDeviceNames** | **List&lt;String&gt;** |  |  [optional]
 **userAgentDeviceOsNames** | **List&lt;String&gt;** |  |  [optional]

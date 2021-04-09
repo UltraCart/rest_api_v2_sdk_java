@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T13:20:39.887-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T14:40:11.077-04:00")
 
 
 
@@ -46,6 +46,12 @@ public class ScreenRecordingFilterValues {
 
   @SerializedName("page_views")
   private List<ScreenRecordingFilterValuesPageView> pageViews = null;
+
+  @SerializedName("time_on_site_max")
+  private Integer timeOnSiteMax = null;
+
+  @SerializedName("time_on_site_min")
+  private Integer timeOnSiteMin = null;
 
   @SerializedName("urls")
   private List<String> urls = null;
@@ -159,6 +165,42 @@ public class ScreenRecordingFilterValues {
 
   public void setPageViews(List<ScreenRecordingFilterValuesPageView> pageViews) {
     this.pageViews = pageViews;
+  }
+
+  public ScreenRecordingFilterValues timeOnSiteMax(Integer timeOnSiteMax) {
+    this.timeOnSiteMax = timeOnSiteMax;
+    return this;
+  }
+
+   /**
+   * Get timeOnSiteMax
+   * @return timeOnSiteMax
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getTimeOnSiteMax() {
+    return timeOnSiteMax;
+  }
+
+  public void setTimeOnSiteMax(Integer timeOnSiteMax) {
+    this.timeOnSiteMax = timeOnSiteMax;
+  }
+
+  public ScreenRecordingFilterValues timeOnSiteMin(Integer timeOnSiteMin) {
+    this.timeOnSiteMin = timeOnSiteMin;
+    return this;
+  }
+
+   /**
+   * Get timeOnSiteMin
+   * @return timeOnSiteMin
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getTimeOnSiteMin() {
+    return timeOnSiteMin;
+  }
+
+  public void setTimeOnSiteMin(Integer timeOnSiteMin) {
+    this.timeOnSiteMin = timeOnSiteMin;
   }
 
   public ScreenRecordingFilterValues urls(List<String> urls) {
@@ -331,6 +373,8 @@ public class ScreenRecordingFilterValues {
         Objects.equals(this.geolocationStates, screenRecordingFilterValues.geolocationStates) &&
         Objects.equals(this.maxValues, screenRecordingFilterValues.maxValues) &&
         Objects.equals(this.pageViews, screenRecordingFilterValues.pageViews) &&
+        Objects.equals(this.timeOnSiteMax, screenRecordingFilterValues.timeOnSiteMax) &&
+        Objects.equals(this.timeOnSiteMin, screenRecordingFilterValues.timeOnSiteMin) &&
         Objects.equals(this.urls, screenRecordingFilterValues.urls) &&
         Objects.equals(this.userAgentDeviceNames, screenRecordingFilterValues.userAgentDeviceNames) &&
         Objects.equals(this.userAgentDeviceOsNames, screenRecordingFilterValues.userAgentDeviceOsNames) &&
@@ -341,7 +385,7 @@ public class ScreenRecordingFilterValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(geolocationCountries, geolocationStates, maxValues, pageViews, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
+    return Objects.hash(geolocationCountries, geolocationStates, maxValues, pageViews, timeOnSiteMax, timeOnSiteMin, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
   }
 
 
@@ -354,6 +398,8 @@ public class ScreenRecordingFilterValues {
     sb.append("    geolocationStates: ").append(toIndentedString(geolocationStates)).append("\n");
     sb.append("    maxValues: ").append(toIndentedString(maxValues)).append("\n");
     sb.append("    pageViews: ").append(toIndentedString(pageViews)).append("\n");
+    sb.append("    timeOnSiteMax: ").append(toIndentedString(timeOnSiteMax)).append("\n");
+    sb.append("    timeOnSiteMin: ").append(toIndentedString(timeOnSiteMin)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("    userAgentDeviceNames: ").append(toIndentedString(userAgentDeviceNames)).append("\n");
     sb.append("    userAgentDeviceOsNames: ").append(toIndentedString(userAgentDeviceOsNames)).append("\n");
