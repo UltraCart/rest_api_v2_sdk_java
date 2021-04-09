@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-03-17T16:09:46.887-04:00
+  - Build date: 2021-04-09T13:20:39.887-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.18</version>
+  <version>3.1.22</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.18"
+compile "com.ultracart:rest-sdk:3.1.22"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.18.jar`
+* `target/rest-sdk-3.1.22.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -894,6 +894,7 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValuesEvent](docs/ScreenRecordingFilterValuesEvent.md)
  - [ScreenRecordingFilterValuesEventParams](docs/ScreenRecordingFilterValuesEventParams.md)
  - [ScreenRecordingFilterValuesPageParam](docs/ScreenRecordingFilterValuesPageParam.md)
+ - [ScreenRecordingFilterValuesPageView](docs/ScreenRecordingFilterValuesPageView.md)
  - [ScreenRecordingMerchantNotesRequest](docs/ScreenRecordingMerchantNotesRequest.md)
  - [ScreenRecordingMultifield](docs/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/ScreenRecordingPageView.md)
@@ -1043,6 +1044,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.22 | 04/09/2021 | Move URL filter values into page level view for screen recordings |
 | 3.1.18 | 03/17/2021 | Added order query by ship on date |
 | 3.1.17 | 03/17/2021 | New coupon - percent off MSRP item |
 | 3.1.16 | 03/16/2021 | screen recording filter page parameter names |

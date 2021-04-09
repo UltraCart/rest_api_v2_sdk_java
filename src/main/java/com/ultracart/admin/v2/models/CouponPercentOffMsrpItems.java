@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CouponPercentOffMsrpItems
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-17T16:09:46.887-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T13:20:39.887-04:00")
 
 
 
@@ -105,10 +105,10 @@ public class CouponPercentOffMsrpItems {
   }
 
    /**
-   * An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.
+   * An list of items which will receive a discount.
    * @return items
   **/
-  @ApiModelProperty(value = "An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.")
+  @ApiModelProperty(value = "An list of items which will receive a discount.")
   public List<String> getItems() {
     return items;
   }

@@ -20,8 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ultracart.admin.v2.models.ScreenRecordingFilterValuesEvent;
-import com.ultracart.admin.v2.models.ScreenRecordingFilterValuesPageParam;
+import com.ultracart.admin.v2.models.ScreenRecordingFilterValuesPageView;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,14 +30,11 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-17T16:09:46.887-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T13:20:39.887-04:00")
 
 
 
 public class ScreenRecordingFilterValues {
-  @SerializedName("events")
-  private List<ScreenRecordingFilterValuesEvent> events = null;
-
   @SerializedName("geolocation_countries")
   private List<String> geolocationCountries = null;
 
@@ -48,8 +44,8 @@ public class ScreenRecordingFilterValues {
   @SerializedName("max_values")
   private Integer maxValues = null;
 
-  @SerializedName("page_params")
-  private List<ScreenRecordingFilterValuesPageParam> pageParams = null;
+  @SerializedName("page_views")
+  private List<ScreenRecordingFilterValuesPageView> pageViews = null;
 
   @SerializedName("urls")
   private List<String> urls = null;
@@ -68,32 +64,6 @@ public class ScreenRecordingFilterValues {
 
   @SerializedName("user_agent_originals")
   private List<String> userAgentOriginals = null;
-
-  public ScreenRecordingFilterValues events(List<ScreenRecordingFilterValuesEvent> events) {
-    this.events = events;
-    return this;
-  }
-
-  public ScreenRecordingFilterValues addEventsItem(ScreenRecordingFilterValuesEvent eventsItem) {
-    if (this.events == null) {
-      this.events = new ArrayList<ScreenRecordingFilterValuesEvent>();
-    }
-    this.events.add(eventsItem);
-    return this;
-  }
-
-   /**
-   * Get events
-   * @return events
-  **/
-  @ApiModelProperty(value = "")
-  public List<ScreenRecordingFilterValuesEvent> getEvents() {
-    return events;
-  }
-
-  public void setEvents(List<ScreenRecordingFilterValuesEvent> events) {
-    this.events = events;
-  }
 
   public ScreenRecordingFilterValues geolocationCountries(List<String> geolocationCountries) {
     this.geolocationCountries = geolocationCountries;
@@ -165,30 +135,30 @@ public class ScreenRecordingFilterValues {
     this.maxValues = maxValues;
   }
 
-  public ScreenRecordingFilterValues pageParams(List<ScreenRecordingFilterValuesPageParam> pageParams) {
-    this.pageParams = pageParams;
+  public ScreenRecordingFilterValues pageViews(List<ScreenRecordingFilterValuesPageView> pageViews) {
+    this.pageViews = pageViews;
     return this;
   }
 
-  public ScreenRecordingFilterValues addPageParamsItem(ScreenRecordingFilterValuesPageParam pageParamsItem) {
-    if (this.pageParams == null) {
-      this.pageParams = new ArrayList<ScreenRecordingFilterValuesPageParam>();
+  public ScreenRecordingFilterValues addPageViewsItem(ScreenRecordingFilterValuesPageView pageViewsItem) {
+    if (this.pageViews == null) {
+      this.pageViews = new ArrayList<ScreenRecordingFilterValuesPageView>();
     }
-    this.pageParams.add(pageParamsItem);
+    this.pageViews.add(pageViewsItem);
     return this;
   }
 
    /**
-   * Get pageParams
-   * @return pageParams
+   * Get pageViews
+   * @return pageViews
   **/
   @ApiModelProperty(value = "")
-  public List<ScreenRecordingFilterValuesPageParam> getPageParams() {
-    return pageParams;
+  public List<ScreenRecordingFilterValuesPageView> getPageViews() {
+    return pageViews;
   }
 
-  public void setPageParams(List<ScreenRecordingFilterValuesPageParam> pageParams) {
-    this.pageParams = pageParams;
+  public void setPageViews(List<ScreenRecordingFilterValuesPageView> pageViews) {
+    this.pageViews = pageViews;
   }
 
   public ScreenRecordingFilterValues urls(List<String> urls) {
@@ -357,11 +327,10 @@ public class ScreenRecordingFilterValues {
       return false;
     }
     ScreenRecordingFilterValues screenRecordingFilterValues = (ScreenRecordingFilterValues) o;
-    return Objects.equals(this.events, screenRecordingFilterValues.events) &&
-        Objects.equals(this.geolocationCountries, screenRecordingFilterValues.geolocationCountries) &&
+    return Objects.equals(this.geolocationCountries, screenRecordingFilterValues.geolocationCountries) &&
         Objects.equals(this.geolocationStates, screenRecordingFilterValues.geolocationStates) &&
         Objects.equals(this.maxValues, screenRecordingFilterValues.maxValues) &&
-        Objects.equals(this.pageParams, screenRecordingFilterValues.pageParams) &&
+        Objects.equals(this.pageViews, screenRecordingFilterValues.pageViews) &&
         Objects.equals(this.urls, screenRecordingFilterValues.urls) &&
         Objects.equals(this.userAgentDeviceNames, screenRecordingFilterValues.userAgentDeviceNames) &&
         Objects.equals(this.userAgentDeviceOsNames, screenRecordingFilterValues.userAgentDeviceOsNames) &&
@@ -372,7 +341,7 @@ public class ScreenRecordingFilterValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, geolocationCountries, geolocationStates, maxValues, pageParams, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
+    return Objects.hash(geolocationCountries, geolocationStates, maxValues, pageViews, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
   }
 
 
@@ -381,11 +350,10 @@ public class ScreenRecordingFilterValues {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingFilterValues {\n");
     
-    sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    geolocationCountries: ").append(toIndentedString(geolocationCountries)).append("\n");
     sb.append("    geolocationStates: ").append(toIndentedString(geolocationStates)).append("\n");
     sb.append("    maxValues: ").append(toIndentedString(maxValues)).append("\n");
-    sb.append("    pageParams: ").append(toIndentedString(pageParams)).append("\n");
+    sb.append("    pageViews: ").append(toIndentedString(pageViews)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("    userAgentDeviceNames: ").append(toIndentedString(userAgentDeviceNames)).append("\n");
     sb.append("    userAgentDeviceOsNames: ").append(toIndentedString(userAgentDeviceOsNames)).append("\n");
