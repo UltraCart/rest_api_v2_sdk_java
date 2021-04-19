@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:39:38.789-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:45:42.948-04:00")
 
 
 
@@ -149,6 +149,12 @@ public class ScreenRecording {
 
   @SerializedName("user_properties")
   private List<ScreenRecordingUserProperty> userProperties = null;
+
+  @SerializedName("utm_campaign")
+  private String utmCampaign = null;
+
+  @SerializedName("utm_source")
+  private String utmSource = null;
 
   @SerializedName("visitor_first_seen")
   private String visitorFirstSeen = null;
@@ -879,6 +885,42 @@ public class ScreenRecording {
     this.userProperties = userProperties;
   }
 
+  public ScreenRecording utmCampaign(String utmCampaign) {
+    this.utmCampaign = utmCampaign;
+    return this;
+  }
+
+   /**
+   * UTM Campaign
+   * @return utmCampaign
+  **/
+  @ApiModelProperty(value = "UTM Campaign")
+  public String getUtmCampaign() {
+    return utmCampaign;
+  }
+
+  public void setUtmCampaign(String utmCampaign) {
+    this.utmCampaign = utmCampaign;
+  }
+
+  public ScreenRecording utmSource(String utmSource) {
+    this.utmSource = utmSource;
+    return this;
+  }
+
+   /**
+   * UTM Source
+   * @return utmSource
+  **/
+  @ApiModelProperty(value = "UTM Source")
+  public String getUtmSource() {
+    return utmSource;
+  }
+
+  public void setUtmSource(String utmSource) {
+    this.utmSource = utmSource;
+  }
+
   public ScreenRecording visitorFirstSeen(String visitorFirstSeen) {
     this.visitorFirstSeen = visitorFirstSeen;
     return this;
@@ -1016,6 +1058,8 @@ public class ScreenRecording {
         Objects.equals(this.userAgentRaw, screenRecording.userAgentRaw) &&
         Objects.equals(this.userIp, screenRecording.userIp) &&
         Objects.equals(this.userProperties, screenRecording.userProperties) &&
+        Objects.equals(this.utmCampaign, screenRecording.utmCampaign) &&
+        Objects.equals(this.utmSource, screenRecording.utmSource) &&
         Objects.equals(this.visitorFirstSeen, screenRecording.visitorFirstSeen) &&
         Objects.equals(this.visitorNumber, screenRecording.visitorNumber) &&
         Objects.equals(this.watched, screenRecording.watched) &&
@@ -1025,7 +1069,7 @@ public class ScreenRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
+    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, utmCampaign, utmSource, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
   }
 
 
@@ -1071,6 +1115,8 @@ public class ScreenRecording {
     sb.append("    userAgentRaw: ").append(toIndentedString(userAgentRaw)).append("\n");
     sb.append("    userIp: ").append(toIndentedString(userIp)).append("\n");
     sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
+    sb.append("    utmCampaign: ").append(toIndentedString(utmCampaign)).append("\n");
+    sb.append("    utmSource: ").append(toIndentedString(utmSource)).append("\n");
     sb.append("    visitorFirstSeen: ").append(toIndentedString(visitorFirstSeen)).append("\n");
     sb.append("    visitorNumber: ").append(toIndentedString(visitorNumber)).append("\n");
     sb.append("    watched: ").append(toIndentedString(watched)).append("\n");

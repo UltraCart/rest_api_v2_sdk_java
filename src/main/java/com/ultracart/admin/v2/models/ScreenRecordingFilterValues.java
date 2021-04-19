@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:39:38.789-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:45:42.948-04:00")
 
 
 
@@ -79,6 +79,12 @@ public class ScreenRecordingFilterValues {
 
   @SerializedName("user_agent_originals")
   private List<String> userAgentOriginals = null;
+
+  @SerializedName("utm_campaigns")
+  private List<String> utmCampaigns = null;
+
+  @SerializedName("utm_sources")
+  private List<String> utmSources = null;
 
   public ScreenRecordingFilterValues communicationsCampaignNames(List<String> communicationsCampaignNames) {
     this.communicationsCampaignNames = communicationsCampaignNames;
@@ -446,6 +452,58 @@ public class ScreenRecordingFilterValues {
     this.userAgentOriginals = userAgentOriginals;
   }
 
+  public ScreenRecordingFilterValues utmCampaigns(List<String> utmCampaigns) {
+    this.utmCampaigns = utmCampaigns;
+    return this;
+  }
+
+  public ScreenRecordingFilterValues addUtmCampaignsItem(String utmCampaignsItem) {
+    if (this.utmCampaigns == null) {
+      this.utmCampaigns = new ArrayList<String>();
+    }
+    this.utmCampaigns.add(utmCampaignsItem);
+    return this;
+  }
+
+   /**
+   * Get utmCampaigns
+   * @return utmCampaigns
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getUtmCampaigns() {
+    return utmCampaigns;
+  }
+
+  public void setUtmCampaigns(List<String> utmCampaigns) {
+    this.utmCampaigns = utmCampaigns;
+  }
+
+  public ScreenRecordingFilterValues utmSources(List<String> utmSources) {
+    this.utmSources = utmSources;
+    return this;
+  }
+
+  public ScreenRecordingFilterValues addUtmSourcesItem(String utmSourcesItem) {
+    if (this.utmSources == null) {
+      this.utmSources = new ArrayList<String>();
+    }
+    this.utmSources.add(utmSourcesItem);
+    return this;
+  }
+
+   /**
+   * Get utmSources
+   * @return utmSources
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getUtmSources() {
+    return utmSources;
+  }
+
+  public void setUtmSources(List<String> utmSources) {
+    this.utmSources = utmSources;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -470,12 +528,14 @@ public class ScreenRecordingFilterValues {
         Objects.equals(this.userAgentDeviceOsNames, screenRecordingFilterValues.userAgentDeviceOsNames) &&
         Objects.equals(this.userAgentDeviceOsVersions, screenRecordingFilterValues.userAgentDeviceOsVersions) &&
         Objects.equals(this.userAgentNames, screenRecordingFilterValues.userAgentNames) &&
-        Objects.equals(this.userAgentOriginals, screenRecordingFilterValues.userAgentOriginals);
+        Objects.equals(this.userAgentOriginals, screenRecordingFilterValues.userAgentOriginals) &&
+        Objects.equals(this.utmCampaigns, screenRecordingFilterValues.utmCampaigns) &&
+        Objects.equals(this.utmSources, screenRecordingFilterValues.utmSources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(communicationsCampaignNames, communicationsEmailSubjects, communicationsFlowNames, geolocationCountries, geolocationStates, maxValues, pageViews, timeOnSiteMax, timeOnSiteMin, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
+    return Objects.hash(communicationsCampaignNames, communicationsEmailSubjects, communicationsFlowNames, geolocationCountries, geolocationStates, maxValues, pageViews, timeOnSiteMax, timeOnSiteMin, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals, utmCampaigns, utmSources);
   }
 
 
@@ -499,6 +559,8 @@ public class ScreenRecordingFilterValues {
     sb.append("    userAgentDeviceOsVersions: ").append(toIndentedString(userAgentDeviceOsVersions)).append("\n");
     sb.append("    userAgentNames: ").append(toIndentedString(userAgentNames)).append("\n");
     sb.append("    userAgentOriginals: ").append(toIndentedString(userAgentOriginals)).append("\n");
+    sb.append("    utmCampaigns: ").append(toIndentedString(utmCampaigns)).append("\n");
+    sb.append("    utmSources: ").append(toIndentedString(utmSources)).append("\n");
     sb.append("}");
     return sb.toString();
   }

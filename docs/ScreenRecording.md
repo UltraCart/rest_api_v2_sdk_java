@@ -41,6 +41,8 @@ Name | Type | Description | Notes
 **userAgentRaw** | **String** |  |  [optional]
 **userIp** | **String** |  |  [optional]
 **userProperties** | [**List&lt;ScreenRecordingUserProperty&gt;**](ScreenRecordingUserProperty.md) |  |  [optional]
+**utmCampaign** | **String** | UTM Campaign |  [optional]
+**utmSource** | **String** | UTM Source |  [optional]
 **visitorFirstSeen** | **String** | Timestamp this visitor was first seen |  [optional]
 **visitorNumber** | **Integer** |  |  [optional]
 **watched** | **Boolean** |  |  [optional]

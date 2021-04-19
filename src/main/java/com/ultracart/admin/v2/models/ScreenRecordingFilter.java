@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:39:38.789-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:45:42.948-04:00")
 
 
 
@@ -126,6 +126,12 @@ public class ScreenRecordingFilter {
 
   @SerializedName("user_ip")
   private ScreenRecordingFilterIpSearch userIp = null;
+
+  @SerializedName("utm_campaign")
+  private String utmCampaign = null;
+
+  @SerializedName("utm_source")
+  private String utmSource = null;
 
   @SerializedName("visitor_number")
   private Integer visitorNumber = null;
@@ -687,6 +693,42 @@ public class ScreenRecordingFilter {
     this.userIp = userIp;
   }
 
+  public ScreenRecordingFilter utmCampaign(String utmCampaign) {
+    this.utmCampaign = utmCampaign;
+    return this;
+  }
+
+   /**
+   * Get utmCampaign
+   * @return utmCampaign
+  **/
+  @ApiModelProperty(value = "")
+  public String getUtmCampaign() {
+    return utmCampaign;
+  }
+
+  public void setUtmCampaign(String utmCampaign) {
+    this.utmCampaign = utmCampaign;
+  }
+
+  public ScreenRecordingFilter utmSource(String utmSource) {
+    this.utmSource = utmSource;
+    return this;
+  }
+
+   /**
+   * Get utmSource
+   * @return utmSource
+  **/
+  @ApiModelProperty(value = "")
+  public String getUtmSource() {
+    return utmSource;
+  }
+
+  public void setUtmSource(String utmSource) {
+    this.utmSource = utmSource;
+  }
+
   public ScreenRecordingFilter visitorNumber(Integer visitorNumber) {
     this.visitorNumber = visitorNumber;
     return this;
@@ -762,13 +804,15 @@ public class ScreenRecordingFilter {
         Objects.equals(this.userAgentOsName, screenRecordingFilter.userAgentOsName) &&
         Objects.equals(this.userAgentOsVersion, screenRecordingFilter.userAgentOsVersion) &&
         Objects.equals(this.userIp, screenRecordingFilter.userIp) &&
+        Objects.equals(this.utmCampaign, screenRecordingFilter.utmCampaign) &&
+        Objects.equals(this.utmSource, screenRecordingFilter.utmSource) &&
         Objects.equals(this.visitorNumber, screenRecordingFilter.visitorNumber) &&
         Objects.equals(this.watched, screenRecordingFilter.watched);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, visitorNumber, watched);
+    return Objects.hash(communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, utmCampaign, utmSource, visitorNumber, watched);
   }
 
 
@@ -806,6 +850,8 @@ public class ScreenRecordingFilter {
     sb.append("    userAgentOsName: ").append(toIndentedString(userAgentOsName)).append("\n");
     sb.append("    userAgentOsVersion: ").append(toIndentedString(userAgentOsVersion)).append("\n");
     sb.append("    userIp: ").append(toIndentedString(userIp)).append("\n");
+    sb.append("    utmCampaign: ").append(toIndentedString(utmCampaign)).append("\n");
+    sb.append("    utmSource: ").append(toIndentedString(utmSource)).append("\n");
     sb.append("    visitorNumber: ").append(toIndentedString(visitorNumber)).append("\n");
     sb.append("    watched: ").append(toIndentedString(watched)).append("\n");
     sb.append("}");

@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **userAgentDeviceOsVersions** | **List&lt;String&gt;** |  |  [optional]
 **userAgentNames** | **List&lt;String&gt;** |  |  [optional]
 **userAgentOriginals** | **List&lt;String&gt;** |  |  [optional]
+**utmCampaigns** | **List&lt;String&gt;** |  |  [optional]
+**utmSources** | **List&lt;String&gt;** |  |  [optional]
 
 
 

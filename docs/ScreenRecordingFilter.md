@@ -33,6 +33,8 @@ Name | Type | Description | Notes
 **userAgentOsName** | **String** |  |  [optional]
 **userAgentOsVersion** | **String** |  |  [optional]
 **userIp** | [**ScreenRecordingFilterIpSearch**](ScreenRecordingFilterIpSearch.md) |  |  [optional]
+**utmCampaign** | **String** |  |  [optional]
+**utmSource** | **String** |  |  [optional]
 **visitorNumber** | **Integer** |  |  [optional]
 **watched** | **Boolean** |  |  [optional]
 
