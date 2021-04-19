@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T14:40:11.077-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:39:38.789-04:00")
 
 
 
@@ -47,6 +47,24 @@ public class ScreenRecording {
 
   @SerializedName("analytics_session_oid")
   private Long analyticsSessionOid = null;
+
+  @SerializedName("communications_campaign_name")
+  private String communicationsCampaignName = null;
+
+  @SerializedName("communications_campaign_uuid")
+  private String communicationsCampaignUuid = null;
+
+  @SerializedName("communications_email_subject")
+  private String communicationsEmailSubject = null;
+
+  @SerializedName("communications_email_uuid")
+  private String communicationsEmailUuid = null;
+
+  @SerializedName("communications_flow_name")
+  private String communicationsFlowName = null;
+
+  @SerializedName("communications_flow_uuid")
+  private String communicationsFlowUuid = null;
 
   @SerializedName("email")
   private String email = null;
@@ -199,6 +217,114 @@ public class ScreenRecording {
 
   public void setAnalyticsSessionOid(Long analyticsSessionOid) {
     this.analyticsSessionOid = analyticsSessionOid;
+  }
+
+  public ScreenRecording communicationsCampaignName(String communicationsCampaignName) {
+    this.communicationsCampaignName = communicationsCampaignName;
+    return this;
+  }
+
+   /**
+   * Campaign Name
+   * @return communicationsCampaignName
+  **/
+  @ApiModelProperty(value = "Campaign Name")
+  public String getCommunicationsCampaignName() {
+    return communicationsCampaignName;
+  }
+
+  public void setCommunicationsCampaignName(String communicationsCampaignName) {
+    this.communicationsCampaignName = communicationsCampaignName;
+  }
+
+  public ScreenRecording communicationsCampaignUuid(String communicationsCampaignUuid) {
+    this.communicationsCampaignUuid = communicationsCampaignUuid;
+    return this;
+  }
+
+   /**
+   * Campaign UUID
+   * @return communicationsCampaignUuid
+  **/
+  @ApiModelProperty(value = "Campaign UUID")
+  public String getCommunicationsCampaignUuid() {
+    return communicationsCampaignUuid;
+  }
+
+  public void setCommunicationsCampaignUuid(String communicationsCampaignUuid) {
+    this.communicationsCampaignUuid = communicationsCampaignUuid;
+  }
+
+  public ScreenRecording communicationsEmailSubject(String communicationsEmailSubject) {
+    this.communicationsEmailSubject = communicationsEmailSubject;
+    return this;
+  }
+
+   /**
+   * Email subject
+   * @return communicationsEmailSubject
+  **/
+  @ApiModelProperty(value = "Email subject")
+  public String getCommunicationsEmailSubject() {
+    return communicationsEmailSubject;
+  }
+
+  public void setCommunicationsEmailSubject(String communicationsEmailSubject) {
+    this.communicationsEmailSubject = communicationsEmailSubject;
+  }
+
+  public ScreenRecording communicationsEmailUuid(String communicationsEmailUuid) {
+    this.communicationsEmailUuid = communicationsEmailUuid;
+    return this;
+  }
+
+   /**
+   * Email UUID
+   * @return communicationsEmailUuid
+  **/
+  @ApiModelProperty(value = "Email UUID")
+  public String getCommunicationsEmailUuid() {
+    return communicationsEmailUuid;
+  }
+
+  public void setCommunicationsEmailUuid(String communicationsEmailUuid) {
+    this.communicationsEmailUuid = communicationsEmailUuid;
+  }
+
+  public ScreenRecording communicationsFlowName(String communicationsFlowName) {
+    this.communicationsFlowName = communicationsFlowName;
+    return this;
+  }
+
+   /**
+   * Flow Name
+   * @return communicationsFlowName
+  **/
+  @ApiModelProperty(value = "Flow Name")
+  public String getCommunicationsFlowName() {
+    return communicationsFlowName;
+  }
+
+  public void setCommunicationsFlowName(String communicationsFlowName) {
+    this.communicationsFlowName = communicationsFlowName;
+  }
+
+  public ScreenRecording communicationsFlowUuid(String communicationsFlowUuid) {
+    this.communicationsFlowUuid = communicationsFlowUuid;
+    return this;
+  }
+
+   /**
+   * Flow UUID
+   * @return communicationsFlowUuid
+  **/
+  @ApiModelProperty(value = "Flow UUID")
+  public String getCommunicationsFlowUuid() {
+    return communicationsFlowUuid;
+  }
+
+  public void setCommunicationsFlowUuid(String communicationsFlowUuid) {
+    this.communicationsFlowUuid = communicationsFlowUuid;
   }
 
   public ScreenRecording email(String email) {
@@ -856,6 +982,12 @@ public class ScreenRecording {
     return Objects.equals(this.analyticsClientOid, screenRecording.analyticsClientOid) &&
         Objects.equals(this.analyticsSessionDts, screenRecording.analyticsSessionDts) &&
         Objects.equals(this.analyticsSessionOid, screenRecording.analyticsSessionOid) &&
+        Objects.equals(this.communicationsCampaignName, screenRecording.communicationsCampaignName) &&
+        Objects.equals(this.communicationsCampaignUuid, screenRecording.communicationsCampaignUuid) &&
+        Objects.equals(this.communicationsEmailSubject, screenRecording.communicationsEmailSubject) &&
+        Objects.equals(this.communicationsEmailUuid, screenRecording.communicationsEmailUuid) &&
+        Objects.equals(this.communicationsFlowName, screenRecording.communicationsFlowName) &&
+        Objects.equals(this.communicationsFlowUuid, screenRecording.communicationsFlowUuid) &&
         Objects.equals(this.email, screenRecording.email) &&
         Objects.equals(this.endTimestamp, screenRecording.endTimestamp) &&
         Objects.equals(this.espCustomerUuid, screenRecording.espCustomerUuid) &&
@@ -893,7 +1025,7 @@ public class ScreenRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
+    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
   }
 
 
@@ -905,6 +1037,12 @@ public class ScreenRecording {
     sb.append("    analyticsClientOid: ").append(toIndentedString(analyticsClientOid)).append("\n");
     sb.append("    analyticsSessionDts: ").append(toIndentedString(analyticsSessionDts)).append("\n");
     sb.append("    analyticsSessionOid: ").append(toIndentedString(analyticsSessionOid)).append("\n");
+    sb.append("    communicationsCampaignName: ").append(toIndentedString(communicationsCampaignName)).append("\n");
+    sb.append("    communicationsCampaignUuid: ").append(toIndentedString(communicationsCampaignUuid)).append("\n");
+    sb.append("    communicationsEmailSubject: ").append(toIndentedString(communicationsEmailSubject)).append("\n");
+    sb.append("    communicationsEmailUuid: ").append(toIndentedString(communicationsEmailUuid)).append("\n");
+    sb.append("    communicationsFlowName: ").append(toIndentedString(communicationsFlowName)).append("\n");
+    sb.append("    communicationsFlowUuid: ").append(toIndentedString(communicationsFlowUuid)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    endTimestamp: ").append(toIndentedString(endTimestamp)).append("\n");
     sb.append("    espCustomerUuid: ").append(toIndentedString(espCustomerUuid)).append("\n");

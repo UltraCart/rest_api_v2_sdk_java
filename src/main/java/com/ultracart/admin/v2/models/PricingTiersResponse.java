@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * PricingTiersResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T14:40:11.077-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:39:38.789-04:00")
 
 
 

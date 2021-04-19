@@ -30,11 +30,20 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T14:40:11.077-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:39:38.789-04:00")
 
 
 
 public class ScreenRecordingFilterValues {
+  @SerializedName("communications_campaign_names")
+  private List<String> communicationsCampaignNames = null;
+
+  @SerializedName("communications_email_subjects")
+  private List<String> communicationsEmailSubjects = null;
+
+  @SerializedName("communications_flow_names")
+  private List<String> communicationsFlowNames = null;
+
   @SerializedName("geolocation_countries")
   private List<String> geolocationCountries = null;
 
@@ -70,6 +79,84 @@ public class ScreenRecordingFilterValues {
 
   @SerializedName("user_agent_originals")
   private List<String> userAgentOriginals = null;
+
+  public ScreenRecordingFilterValues communicationsCampaignNames(List<String> communicationsCampaignNames) {
+    this.communicationsCampaignNames = communicationsCampaignNames;
+    return this;
+  }
+
+  public ScreenRecordingFilterValues addCommunicationsCampaignNamesItem(String communicationsCampaignNamesItem) {
+    if (this.communicationsCampaignNames == null) {
+      this.communicationsCampaignNames = new ArrayList<String>();
+    }
+    this.communicationsCampaignNames.add(communicationsCampaignNamesItem);
+    return this;
+  }
+
+   /**
+   * Get communicationsCampaignNames
+   * @return communicationsCampaignNames
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getCommunicationsCampaignNames() {
+    return communicationsCampaignNames;
+  }
+
+  public void setCommunicationsCampaignNames(List<String> communicationsCampaignNames) {
+    this.communicationsCampaignNames = communicationsCampaignNames;
+  }
+
+  public ScreenRecordingFilterValues communicationsEmailSubjects(List<String> communicationsEmailSubjects) {
+    this.communicationsEmailSubjects = communicationsEmailSubjects;
+    return this;
+  }
+
+  public ScreenRecordingFilterValues addCommunicationsEmailSubjectsItem(String communicationsEmailSubjectsItem) {
+    if (this.communicationsEmailSubjects == null) {
+      this.communicationsEmailSubjects = new ArrayList<String>();
+    }
+    this.communicationsEmailSubjects.add(communicationsEmailSubjectsItem);
+    return this;
+  }
+
+   /**
+   * Get communicationsEmailSubjects
+   * @return communicationsEmailSubjects
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getCommunicationsEmailSubjects() {
+    return communicationsEmailSubjects;
+  }
+
+  public void setCommunicationsEmailSubjects(List<String> communicationsEmailSubjects) {
+    this.communicationsEmailSubjects = communicationsEmailSubjects;
+  }
+
+  public ScreenRecordingFilterValues communicationsFlowNames(List<String> communicationsFlowNames) {
+    this.communicationsFlowNames = communicationsFlowNames;
+    return this;
+  }
+
+  public ScreenRecordingFilterValues addCommunicationsFlowNamesItem(String communicationsFlowNamesItem) {
+    if (this.communicationsFlowNames == null) {
+      this.communicationsFlowNames = new ArrayList<String>();
+    }
+    this.communicationsFlowNames.add(communicationsFlowNamesItem);
+    return this;
+  }
+
+   /**
+   * Get communicationsFlowNames
+   * @return communicationsFlowNames
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getCommunicationsFlowNames() {
+    return communicationsFlowNames;
+  }
+
+  public void setCommunicationsFlowNames(List<String> communicationsFlowNames) {
+    this.communicationsFlowNames = communicationsFlowNames;
+  }
 
   public ScreenRecordingFilterValues geolocationCountries(List<String> geolocationCountries) {
     this.geolocationCountries = geolocationCountries;
@@ -369,7 +456,10 @@ public class ScreenRecordingFilterValues {
       return false;
     }
     ScreenRecordingFilterValues screenRecordingFilterValues = (ScreenRecordingFilterValues) o;
-    return Objects.equals(this.geolocationCountries, screenRecordingFilterValues.geolocationCountries) &&
+    return Objects.equals(this.communicationsCampaignNames, screenRecordingFilterValues.communicationsCampaignNames) &&
+        Objects.equals(this.communicationsEmailSubjects, screenRecordingFilterValues.communicationsEmailSubjects) &&
+        Objects.equals(this.communicationsFlowNames, screenRecordingFilterValues.communicationsFlowNames) &&
+        Objects.equals(this.geolocationCountries, screenRecordingFilterValues.geolocationCountries) &&
         Objects.equals(this.geolocationStates, screenRecordingFilterValues.geolocationStates) &&
         Objects.equals(this.maxValues, screenRecordingFilterValues.maxValues) &&
         Objects.equals(this.pageViews, screenRecordingFilterValues.pageViews) &&
@@ -385,7 +475,7 @@ public class ScreenRecordingFilterValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(geolocationCountries, geolocationStates, maxValues, pageViews, timeOnSiteMax, timeOnSiteMin, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
+    return Objects.hash(communicationsCampaignNames, communicationsEmailSubjects, communicationsFlowNames, geolocationCountries, geolocationStates, maxValues, pageViews, timeOnSiteMax, timeOnSiteMin, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals);
   }
 
 
@@ -394,6 +484,9 @@ public class ScreenRecordingFilterValues {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingFilterValues {\n");
     
+    sb.append("    communicationsCampaignNames: ").append(toIndentedString(communicationsCampaignNames)).append("\n");
+    sb.append("    communicationsEmailSubjects: ").append(toIndentedString(communicationsEmailSubjects)).append("\n");
+    sb.append("    communicationsFlowNames: ").append(toIndentedString(communicationsFlowNames)).append("\n");
     sb.append("    geolocationCountries: ").append(toIndentedString(geolocationCountries)).append("\n");
     sb.append("    geolocationStates: ").append(toIndentedString(geolocationStates)).append("\n");
     sb.append("    maxValues: ").append(toIndentedString(maxValues)).append("\n");

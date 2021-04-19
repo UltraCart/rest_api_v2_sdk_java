@@ -35,11 +35,20 @@ import java.util.List;
 /**
  * ScreenRecordingFilter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-09T14:40:11.077-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:39:38.789-04:00")
 
 
 
 public class ScreenRecordingFilter {
+  @SerializedName("communications_campaign_name")
+  private String communicationsCampaignName = null;
+
+  @SerializedName("communications_email_subject")
+  private String communicationsEmailSubject = null;
+
+  @SerializedName("communications_flow_name")
+  private String communicationsFlowName = null;
+
   @SerializedName("email")
   private ScreenRecordingFilterStringSearch email = null;
 
@@ -123,6 +132,60 @@ public class ScreenRecordingFilter {
 
   @SerializedName("watched")
   private Boolean watched = null;
+
+  public ScreenRecordingFilter communicationsCampaignName(String communicationsCampaignName) {
+    this.communicationsCampaignName = communicationsCampaignName;
+    return this;
+  }
+
+   /**
+   * Get communicationsCampaignName
+   * @return communicationsCampaignName
+  **/
+  @ApiModelProperty(value = "")
+  public String getCommunicationsCampaignName() {
+    return communicationsCampaignName;
+  }
+
+  public void setCommunicationsCampaignName(String communicationsCampaignName) {
+    this.communicationsCampaignName = communicationsCampaignName;
+  }
+
+  public ScreenRecordingFilter communicationsEmailSubject(String communicationsEmailSubject) {
+    this.communicationsEmailSubject = communicationsEmailSubject;
+    return this;
+  }
+
+   /**
+   * Get communicationsEmailSubject
+   * @return communicationsEmailSubject
+  **/
+  @ApiModelProperty(value = "")
+  public String getCommunicationsEmailSubject() {
+    return communicationsEmailSubject;
+  }
+
+  public void setCommunicationsEmailSubject(String communicationsEmailSubject) {
+    this.communicationsEmailSubject = communicationsEmailSubject;
+  }
+
+  public ScreenRecordingFilter communicationsFlowName(String communicationsFlowName) {
+    this.communicationsFlowName = communicationsFlowName;
+    return this;
+  }
+
+   /**
+   * Get communicationsFlowName
+   * @return communicationsFlowName
+  **/
+  @ApiModelProperty(value = "")
+  public String getCommunicationsFlowName() {
+    return communicationsFlowName;
+  }
+
+  public void setCommunicationsFlowName(String communicationsFlowName) {
+    this.communicationsFlowName = communicationsFlowName;
+  }
 
   public ScreenRecordingFilter email(ScreenRecordingFilterStringSearch email) {
     this.email = email;
@@ -670,7 +733,10 @@ public class ScreenRecordingFilter {
       return false;
     }
     ScreenRecordingFilter screenRecordingFilter = (ScreenRecordingFilter) o;
-    return Objects.equals(this.email, screenRecordingFilter.email) &&
+    return Objects.equals(this.communicationsCampaignName, screenRecordingFilter.communicationsCampaignName) &&
+        Objects.equals(this.communicationsEmailSubject, screenRecordingFilter.communicationsEmailSubject) &&
+        Objects.equals(this.communicationsFlowName, screenRecordingFilter.communicationsFlowName) &&
+        Objects.equals(this.email, screenRecordingFilter.email) &&
         Objects.equals(this.emailIdentified, screenRecordingFilter.emailIdentified) &&
         Objects.equals(this.endTimestamp, screenRecordingFilter.endTimestamp) &&
         Objects.equals(this.espCustomerUuid, screenRecordingFilter.espCustomerUuid) &&
@@ -702,7 +768,7 @@ public class ScreenRecordingFilter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, visitorNumber, watched);
+    return Objects.hash(communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, visitorNumber, watched);
   }
 
 
@@ -711,6 +777,9 @@ public class ScreenRecordingFilter {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingFilter {\n");
     
+    sb.append("    communicationsCampaignName: ").append(toIndentedString(communicationsCampaignName)).append("\n");
+    sb.append("    communicationsEmailSubject: ").append(toIndentedString(communicationsEmailSubject)).append("\n");
+    sb.append("    communicationsFlowName: ").append(toIndentedString(communicationsFlowName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    emailIdentified: ").append(toIndentedString(emailIdentified)).append("\n");
     sb.append("    endTimestamp: ").append(toIndentedString(endTimestamp)).append("\n");

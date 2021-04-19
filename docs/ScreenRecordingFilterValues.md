@@ -4,6 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**communicationsCampaignNames** | **List&lt;String&gt;** |  |  [optional]
+**communicationsEmailSubjects** | **List&lt;String&gt;** |  |  [optional]
+**communicationsFlowNames** | **List&lt;String&gt;** |  |  [optional]
 **geolocationCountries** | **List&lt;String&gt;** |  |  [optional]
 **geolocationStates** | **List&lt;String&gt;** |  |  [optional]
 **maxValues** | **Integer** |  |  [optional]

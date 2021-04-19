@@ -4,6 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**communicationsCampaignName** | **String** |  |  [optional]
+**communicationsEmailSubject** | **String** |  |  [optional]
+**communicationsFlowName** | **String** |  |  [optional]
 **email** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
 **emailIdentified** | **Boolean** |  |  [optional]
 **endTimestamp** | [**ScreenRecordingFilterRangeDate**](ScreenRecordingFilterRangeDate.md) |  |  [optional]
