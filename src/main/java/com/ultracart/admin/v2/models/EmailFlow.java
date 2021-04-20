@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailFlow
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-19T09:45:42.948-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-20T13:11:15.051-04:00")
 
 
 
@@ -55,6 +55,9 @@ public class EmailFlow {
 
   @SerializedName("end_once_customer_purchases")
   private Boolean endOnceCustomerPurchases = null;
+
+  @SerializedName("end_once_customer_purchases_anywhere")
+  private Boolean endOnceCustomerPurchasesAnywhere = null;
 
   @SerializedName("enrolled_customers")
   private Integer enrolledCustomers = null;
@@ -245,16 +248,34 @@ public class EmailFlow {
   }
 
    /**
-   * True if the customer should end the flow once they purchase
+   * True if the customer should end the flow once they purchase from an email on this flow
    * @return endOnceCustomerPurchases
   **/
-  @ApiModelProperty(value = "True if the customer should end the flow once they purchase")
+  @ApiModelProperty(value = "True if the customer should end the flow once they purchase from an email on this flow")
   public Boolean isEndOnceCustomerPurchases() {
     return endOnceCustomerPurchases;
   }
 
   public void setEndOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
     this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+  }
+
+  public EmailFlow endOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
+    this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+    return this;
+  }
+
+   /**
+   * True if the customer should end the flow once they purchase from any source
+   * @return endOnceCustomerPurchasesAnywhere
+  **/
+  @ApiModelProperty(value = "True if the customer should end the flow once they purchase from any source")
+  public Boolean isEndOnceCustomerPurchasesAnywhere() {
+    return endOnceCustomerPurchasesAnywhere;
+  }
+
+  public void setEndOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
+    this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
   }
 
   public EmailFlow enrolledCustomers(Integer enrolledCustomers) {
@@ -617,6 +638,7 @@ public class EmailFlow {
         Objects.equals(this.emailCommunicationSequenceUuid, emailFlow.emailCommunicationSequenceUuid) &&
         Objects.equals(this.emailFlowUuid, emailFlow.emailFlowUuid) &&
         Objects.equals(this.endOnceCustomerPurchases, emailFlow.endOnceCustomerPurchases) &&
+        Objects.equals(this.endOnceCustomerPurchasesAnywhere, emailFlow.endOnceCustomerPurchasesAnywhere) &&
         Objects.equals(this.enrolledCustomers, emailFlow.enrolledCustomers) &&
         Objects.equals(this.espDomainUser, emailFlow.espDomainUser) &&
         Objects.equals(this.espDomainUuid, emailFlow.espDomainUuid) &&
@@ -640,7 +662,7 @@ public class EmailFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, merchantId, name, openRateFormatted, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, merchantId, name, openRateFormatted, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
   }
 
 
@@ -657,6 +679,7 @@ public class EmailFlow {
     sb.append("    emailCommunicationSequenceUuid: ").append(toIndentedString(emailCommunicationSequenceUuid)).append("\n");
     sb.append("    emailFlowUuid: ").append(toIndentedString(emailFlowUuid)).append("\n");
     sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
+    sb.append("    endOnceCustomerPurchasesAnywhere: ").append(toIndentedString(endOnceCustomerPurchasesAnywhere)).append("\n");
     sb.append("    enrolledCustomers: ").append(toIndentedString(enrolledCustomers)).append("\n");
     sb.append("    espDomainUser: ").append(toIndentedString(espDomainUser)).append("\n");
     sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");

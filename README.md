@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-04-19T09:45:42.948-04:00
+  - Build date: 2021-04-20T13:11:15.051-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.25</version>
+  <version>3.1.26</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.25"
+compile "com.ultracart:rest-sdk:3.1.26"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.25.jar`
+* `target/rest-sdk-3.1.26.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1044,6 +1044,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.26 | 04/20/2021 | StoreFront Connumications - flag to end campaign or flow once purchase happens anywhere |
 | 3.1.25 | 04/19/2021 | Screen recording UTM campaign and source fields |
 | 3.1.24 | 04/16/2021 | Screen recording aggregations on communications campaign/flows |
 | 3.1.22 | 04/09/2021 | Move URL filter values into page level view for screen recordings |
