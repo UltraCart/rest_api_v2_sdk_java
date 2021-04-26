@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-20T13:16:30.437-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
 
 
 
@@ -49,6 +49,9 @@ public class ScreenRecordingFilterValues {
 
   @SerializedName("geolocation_states")
   private List<String> geolocationStates = null;
+
+  @SerializedName("language_iso_codes")
+  private List<String> languageIsoCodes = null;
 
   @SerializedName("max_values")
   private Integer maxValues = null;
@@ -214,6 +217,32 @@ public class ScreenRecordingFilterValues {
 
   public void setGeolocationStates(List<String> geolocationStates) {
     this.geolocationStates = geolocationStates;
+  }
+
+  public ScreenRecordingFilterValues languageIsoCodes(List<String> languageIsoCodes) {
+    this.languageIsoCodes = languageIsoCodes;
+    return this;
+  }
+
+  public ScreenRecordingFilterValues addLanguageIsoCodesItem(String languageIsoCodesItem) {
+    if (this.languageIsoCodes == null) {
+      this.languageIsoCodes = new ArrayList<String>();
+    }
+    this.languageIsoCodes.add(languageIsoCodesItem);
+    return this;
+  }
+
+   /**
+   * Get languageIsoCodes
+   * @return languageIsoCodes
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getLanguageIsoCodes() {
+    return languageIsoCodes;
+  }
+
+  public void setLanguageIsoCodes(List<String> languageIsoCodes) {
+    this.languageIsoCodes = languageIsoCodes;
   }
 
   public ScreenRecordingFilterValues maxValues(Integer maxValues) {
@@ -519,6 +548,7 @@ public class ScreenRecordingFilterValues {
         Objects.equals(this.communicationsFlowNames, screenRecordingFilterValues.communicationsFlowNames) &&
         Objects.equals(this.geolocationCountries, screenRecordingFilterValues.geolocationCountries) &&
         Objects.equals(this.geolocationStates, screenRecordingFilterValues.geolocationStates) &&
+        Objects.equals(this.languageIsoCodes, screenRecordingFilterValues.languageIsoCodes) &&
         Objects.equals(this.maxValues, screenRecordingFilterValues.maxValues) &&
         Objects.equals(this.pageViews, screenRecordingFilterValues.pageViews) &&
         Objects.equals(this.timeOnSiteMax, screenRecordingFilterValues.timeOnSiteMax) &&
@@ -535,7 +565,7 @@ public class ScreenRecordingFilterValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(communicationsCampaignNames, communicationsEmailSubjects, communicationsFlowNames, geolocationCountries, geolocationStates, maxValues, pageViews, timeOnSiteMax, timeOnSiteMin, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals, utmCampaigns, utmSources);
+    return Objects.hash(communicationsCampaignNames, communicationsEmailSubjects, communicationsFlowNames, geolocationCountries, geolocationStates, languageIsoCodes, maxValues, pageViews, timeOnSiteMax, timeOnSiteMin, urls, userAgentDeviceNames, userAgentDeviceOsNames, userAgentDeviceOsVersions, userAgentNames, userAgentOriginals, utmCampaigns, utmSources);
   }
 
 
@@ -549,6 +579,7 @@ public class ScreenRecordingFilterValues {
     sb.append("    communicationsFlowNames: ").append(toIndentedString(communicationsFlowNames)).append("\n");
     sb.append("    geolocationCountries: ").append(toIndentedString(geolocationCountries)).append("\n");
     sb.append("    geolocationStates: ").append(toIndentedString(geolocationStates)).append("\n");
+    sb.append("    languageIsoCodes: ").append(toIndentedString(languageIsoCodes)).append("\n");
     sb.append("    maxValues: ").append(toIndentedString(maxValues)).append("\n");
     sb.append("    pageViews: ").append(toIndentedString(pageViews)).append("\n");
     sb.append("    timeOnSiteMax: ").append(toIndentedString(timeOnSiteMax)).append("\n");

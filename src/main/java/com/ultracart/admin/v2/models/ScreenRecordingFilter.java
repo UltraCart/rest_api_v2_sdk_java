@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-20T13:16:30.437-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
 
 
 
@@ -72,6 +72,9 @@ public class ScreenRecordingFilter {
 
   @SerializedName("geolocation_state")
   private ScreenRecordingFilterStringSearch geolocationState = null;
+
+  @SerializedName("language_iso_code")
+  private ScreenRecordingFilterStringSearch languageIsoCode = null;
 
   @SerializedName("max_filter_values")
   private Integer maxFilterValues = null;
@@ -335,6 +338,24 @@ public class ScreenRecordingFilter {
 
   public void setGeolocationState(ScreenRecordingFilterStringSearch geolocationState) {
     this.geolocationState = geolocationState;
+  }
+
+  public ScreenRecordingFilter languageIsoCode(ScreenRecordingFilterStringSearch languageIsoCode) {
+    this.languageIsoCode = languageIsoCode;
+    return this;
+  }
+
+   /**
+   * Get languageIsoCode
+   * @return languageIsoCode
+  **/
+  @ApiModelProperty(value = "")
+  public ScreenRecordingFilterStringSearch getLanguageIsoCode() {
+    return languageIsoCode;
+  }
+
+  public void setLanguageIsoCode(ScreenRecordingFilterStringSearch languageIsoCode) {
+    this.languageIsoCode = languageIsoCode;
   }
 
   public ScreenRecordingFilter maxFilterValues(Integer maxFilterValues) {
@@ -786,6 +807,7 @@ public class ScreenRecordingFilter {
         Objects.equals(this.geolocation, screenRecordingFilter.geolocation) &&
         Objects.equals(this.geolocationCountry, screenRecordingFilter.geolocationCountry) &&
         Objects.equals(this.geolocationState, screenRecordingFilter.geolocationState) &&
+        Objects.equals(this.languageIsoCode, screenRecordingFilter.languageIsoCode) &&
         Objects.equals(this.maxFilterValues, screenRecordingFilter.maxFilterValues) &&
         Objects.equals(this.orderId, screenRecordingFilter.orderId) &&
         Objects.equals(this.pageViewCount, screenRecordingFilter.pageViewCount) &&
@@ -812,7 +834,7 @@ public class ScreenRecordingFilter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, utmCampaign, utmSource, visitorNumber, watched);
+    return Objects.hash(communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, languageIsoCode, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, utmCampaign, utmSource, visitorNumber, watched);
   }
 
 
@@ -832,6 +854,7 @@ public class ScreenRecordingFilter {
     sb.append("    geolocation: ").append(toIndentedString(geolocation)).append("\n");
     sb.append("    geolocationCountry: ").append(toIndentedString(geolocationCountry)).append("\n");
     sb.append("    geolocationState: ").append(toIndentedString(geolocationState)).append("\n");
+    sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    maxFilterValues: ").append(toIndentedString(maxFilterValues)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");

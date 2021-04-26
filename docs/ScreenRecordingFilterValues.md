@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **communicationsFlowNames** | **List&lt;String&gt;** |  |  [optional]
 **geolocationCountries** | **List&lt;String&gt;** |  |  [optional]
 **geolocationStates** | **List&lt;String&gt;** |  |  [optional]
+**languageIsoCodes** | **List&lt;String&gt;** |  |  [optional]
 **maxValues** | **Integer** |  |  [optional]
 **pageViews** | [**List&lt;ScreenRecordingFilterValuesPageView&gt;**](ScreenRecordingFilterValuesPageView.md) |  |  [optional]
 **timeOnSiteMax** | **Integer** |  |  [optional]

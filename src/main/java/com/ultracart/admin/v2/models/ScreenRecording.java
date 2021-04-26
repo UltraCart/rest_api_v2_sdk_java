@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-20T13:16:30.437-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
 
 
 
@@ -95,6 +95,9 @@ public class ScreenRecording {
 
   @SerializedName("geolocation_state")
   private String geolocationState = null;
+
+  @SerializedName("language_iso_code")
+  private String languageIsoCode = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
@@ -519,6 +522,24 @@ public class ScreenRecording {
 
   public void setGeolocationState(String geolocationState) {
     this.geolocationState = geolocationState;
+  }
+
+  public ScreenRecording languageIsoCode(String languageIsoCode) {
+    this.languageIsoCode = languageIsoCode;
+    return this;
+  }
+
+   /**
+   * Language ISO code
+   * @return languageIsoCode
+  **/
+  @ApiModelProperty(value = "Language ISO code")
+  public String getLanguageIsoCode() {
+    return languageIsoCode;
+  }
+
+  public void setLanguageIsoCode(String languageIsoCode) {
+    this.languageIsoCode = languageIsoCode;
   }
 
   public ScreenRecording merchantId(String merchantId) {
@@ -1040,6 +1061,7 @@ public class ScreenRecording {
         Objects.equals(this.geolocation, screenRecording.geolocation) &&
         Objects.equals(this.geolocationCountry, screenRecording.geolocationCountry) &&
         Objects.equals(this.geolocationState, screenRecording.geolocationState) &&
+        Objects.equals(this.languageIsoCode, screenRecording.languageIsoCode) &&
         Objects.equals(this.merchantId, screenRecording.merchantId) &&
         Objects.equals(this.merchantNotes, screenRecording.merchantNotes) &&
         Objects.equals(this.orderId, screenRecording.orderId) &&
@@ -1069,7 +1091,7 @@ public class ScreenRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, utmCampaign, utmSource, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
+    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, languageIsoCode, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, utmCampaign, utmSource, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
   }
 
 
@@ -1097,6 +1119,7 @@ public class ScreenRecording {
     sb.append("    geolocation: ").append(toIndentedString(geolocation)).append("\n");
     sb.append("    geolocationCountry: ").append(toIndentedString(geolocationCountry)).append("\n");
     sb.append("    geolocationState: ").append(toIndentedString(geolocationState)).append("\n");
+    sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    merchantNotes: ").append(toIndentedString(merchantNotes)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");

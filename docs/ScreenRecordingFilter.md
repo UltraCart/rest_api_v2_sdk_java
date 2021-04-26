@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **geolocation** | [**ScreenRecordingFilterGeoDistance**](ScreenRecordingFilterGeoDistance.md) |  |  [optional]
 **geolocationCountry** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
 **geolocationState** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
+**languageIsoCode** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
 **maxFilterValues** | **Integer** |  |  [optional]
 **orderId** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
 **pageViewCount** | [**ScreenRecordingFilterRangeInteger**](ScreenRecordingFilterRangeInteger.md) |  |  [optional]

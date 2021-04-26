@@ -27,13 +27,28 @@ import java.io.IOException;
 /**
  * ScreenRecordingSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-20T13:16:30.437-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
 
 
 
 public class ScreenRecordingSettings {
   @SerializedName("enabled")
   private Boolean enabled = null;
+
+  @SerializedName("sessions_current_billing_period")
+  private Integer sessionsCurrentBillingPeriod = null;
+
+  @SerializedName("sessions_last_billing_period")
+  private Integer sessionsLastBillingPeriod = null;
+
+  @SerializedName("sessions_trial_billing_period")
+  private Integer sessionsTrialBillingPeriod = null;
+
+  @SerializedName("trial_expiration")
+  private String trialExpiration = null;
+
+  @SerializedName("trial_expired")
+  private Boolean trialExpired = null;
 
   public ScreenRecordingSettings enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -53,6 +68,96 @@ public class ScreenRecordingSettings {
     this.enabled = enabled;
   }
 
+  public ScreenRecordingSettings sessionsCurrentBillingPeriod(Integer sessionsCurrentBillingPeriod) {
+    this.sessionsCurrentBillingPeriod = sessionsCurrentBillingPeriod;
+    return this;
+  }
+
+   /**
+   * Get sessionsCurrentBillingPeriod
+   * @return sessionsCurrentBillingPeriod
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getSessionsCurrentBillingPeriod() {
+    return sessionsCurrentBillingPeriod;
+  }
+
+  public void setSessionsCurrentBillingPeriod(Integer sessionsCurrentBillingPeriod) {
+    this.sessionsCurrentBillingPeriod = sessionsCurrentBillingPeriod;
+  }
+
+  public ScreenRecordingSettings sessionsLastBillingPeriod(Integer sessionsLastBillingPeriod) {
+    this.sessionsLastBillingPeriod = sessionsLastBillingPeriod;
+    return this;
+  }
+
+   /**
+   * Get sessionsLastBillingPeriod
+   * @return sessionsLastBillingPeriod
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getSessionsLastBillingPeriod() {
+    return sessionsLastBillingPeriod;
+  }
+
+  public void setSessionsLastBillingPeriod(Integer sessionsLastBillingPeriod) {
+    this.sessionsLastBillingPeriod = sessionsLastBillingPeriod;
+  }
+
+  public ScreenRecordingSettings sessionsTrialBillingPeriod(Integer sessionsTrialBillingPeriod) {
+    this.sessionsTrialBillingPeriod = sessionsTrialBillingPeriod;
+    return this;
+  }
+
+   /**
+   * Get sessionsTrialBillingPeriod
+   * @return sessionsTrialBillingPeriod
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getSessionsTrialBillingPeriod() {
+    return sessionsTrialBillingPeriod;
+  }
+
+  public void setSessionsTrialBillingPeriod(Integer sessionsTrialBillingPeriod) {
+    this.sessionsTrialBillingPeriod = sessionsTrialBillingPeriod;
+  }
+
+  public ScreenRecordingSettings trialExpiration(String trialExpiration) {
+    this.trialExpiration = trialExpiration;
+    return this;
+  }
+
+   /**
+   * Get trialExpiration
+   * @return trialExpiration
+  **/
+  @ApiModelProperty(value = "")
+  public String getTrialExpiration() {
+    return trialExpiration;
+  }
+
+  public void setTrialExpiration(String trialExpiration) {
+    this.trialExpiration = trialExpiration;
+  }
+
+  public ScreenRecordingSettings trialExpired(Boolean trialExpired) {
+    this.trialExpired = trialExpired;
+    return this;
+  }
+
+   /**
+   * Get trialExpired
+   * @return trialExpired
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isTrialExpired() {
+    return trialExpired;
+  }
+
+  public void setTrialExpired(Boolean trialExpired) {
+    this.trialExpired = trialExpired;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -63,12 +168,17 @@ public class ScreenRecordingSettings {
       return false;
     }
     ScreenRecordingSettings screenRecordingSettings = (ScreenRecordingSettings) o;
-    return Objects.equals(this.enabled, screenRecordingSettings.enabled);
+    return Objects.equals(this.enabled, screenRecordingSettings.enabled) &&
+        Objects.equals(this.sessionsCurrentBillingPeriod, screenRecordingSettings.sessionsCurrentBillingPeriod) &&
+        Objects.equals(this.sessionsLastBillingPeriod, screenRecordingSettings.sessionsLastBillingPeriod) &&
+        Objects.equals(this.sessionsTrialBillingPeriod, screenRecordingSettings.sessionsTrialBillingPeriod) &&
+        Objects.equals(this.trialExpiration, screenRecordingSettings.trialExpiration) &&
+        Objects.equals(this.trialExpired, screenRecordingSettings.trialExpired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled);
+    return Objects.hash(enabled, sessionsCurrentBillingPeriod, sessionsLastBillingPeriod, sessionsTrialBillingPeriod, trialExpiration, trialExpired);
   }
 
 
@@ -78,6 +188,11 @@ public class ScreenRecordingSettings {
     sb.append("class ScreenRecordingSettings {\n");
     
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    sessionsCurrentBillingPeriod: ").append(toIndentedString(sessionsCurrentBillingPeriod)).append("\n");
+    sb.append("    sessionsLastBillingPeriod: ").append(toIndentedString(sessionsLastBillingPeriod)).append("\n");
+    sb.append("    sessionsTrialBillingPeriod: ").append(toIndentedString(sessionsTrialBillingPeriod)).append("\n");
+    sb.append("    trialExpiration: ").append(toIndentedString(trialExpiration)).append("\n");
+    sb.append("    trialExpired: ").append(toIndentedString(trialExpired)).append("\n");
     sb.append("}");
     return sb.toString();
   }
