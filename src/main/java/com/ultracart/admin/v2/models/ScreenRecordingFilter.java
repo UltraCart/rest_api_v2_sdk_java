@@ -35,11 +35,17 @@ import java.util.List;
 /**
  * ScreenRecordingFilter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
 
 
 
 public class ScreenRecordingFilter {
+  @SerializedName("affiliate_email")
+  private String affiliateEmail = null;
+
+  @SerializedName("affiliate_id")
+  private Integer affiliateId = null;
+
   @SerializedName("communications_campaign_name")
   private String communicationsCampaignName = null;
 
@@ -51,6 +57,9 @@ public class ScreenRecordingFilter {
 
   @SerializedName("email")
   private ScreenRecordingFilterStringSearch email = null;
+
+  @SerializedName("email_domain")
+  private String emailDomain = null;
 
   @SerializedName("email_identified")
   private Boolean emailIdentified = null;
@@ -76,6 +85,9 @@ public class ScreenRecordingFilter {
   @SerializedName("language_iso_code")
   private ScreenRecordingFilterStringSearch languageIsoCode = null;
 
+  @SerializedName("last_x_days")
+  private Integer lastXDays = null;
+
   @SerializedName("max_filter_values")
   private Integer maxFilterValues = null;
 
@@ -90,6 +102,12 @@ public class ScreenRecordingFilter {
 
   @SerializedName("placed_order")
   private Boolean placedOrder = null;
+
+  @SerializedName("preferred_language")
+  private ScreenRecordingFilterStringSearch preferredLanguage = null;
+
+  @SerializedName("referrer_domain")
+  private String referrerDomain = null;
 
   @SerializedName("screen_recording_uuids")
   private List<String> screenRecordingUuids = null;
@@ -141,6 +159,42 @@ public class ScreenRecordingFilter {
 
   @SerializedName("watched")
   private Boolean watched = null;
+
+  public ScreenRecordingFilter affiliateEmail(String affiliateEmail) {
+    this.affiliateEmail = affiliateEmail;
+    return this;
+  }
+
+   /**
+   * Get affiliateEmail
+   * @return affiliateEmail
+  **/
+  @ApiModelProperty(value = "")
+  public String getAffiliateEmail() {
+    return affiliateEmail;
+  }
+
+  public void setAffiliateEmail(String affiliateEmail) {
+    this.affiliateEmail = affiliateEmail;
+  }
+
+  public ScreenRecordingFilter affiliateId(Integer affiliateId) {
+    this.affiliateId = affiliateId;
+    return this;
+  }
+
+   /**
+   * Get affiliateId
+   * @return affiliateId
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getAffiliateId() {
+    return affiliateId;
+  }
+
+  public void setAffiliateId(Integer affiliateId) {
+    this.affiliateId = affiliateId;
+  }
 
   public ScreenRecordingFilter communicationsCampaignName(String communicationsCampaignName) {
     this.communicationsCampaignName = communicationsCampaignName;
@@ -212,6 +266,24 @@ public class ScreenRecordingFilter {
 
   public void setEmail(ScreenRecordingFilterStringSearch email) {
     this.email = email;
+  }
+
+  public ScreenRecordingFilter emailDomain(String emailDomain) {
+    this.emailDomain = emailDomain;
+    return this;
+  }
+
+   /**
+   * Get emailDomain
+   * @return emailDomain
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmailDomain() {
+    return emailDomain;
+  }
+
+  public void setEmailDomain(String emailDomain) {
+    this.emailDomain = emailDomain;
   }
 
   public ScreenRecordingFilter emailIdentified(Boolean emailIdentified) {
@@ -358,6 +430,24 @@ public class ScreenRecordingFilter {
     this.languageIsoCode = languageIsoCode;
   }
 
+  public ScreenRecordingFilter lastXDays(Integer lastXDays) {
+    this.lastXDays = lastXDays;
+    return this;
+  }
+
+   /**
+   * Get lastXDays
+   * @return lastXDays
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getLastXDays() {
+    return lastXDays;
+  }
+
+  public void setLastXDays(Integer lastXDays) {
+    this.lastXDays = lastXDays;
+  }
+
   public ScreenRecordingFilter maxFilterValues(Integer maxFilterValues) {
     this.maxFilterValues = maxFilterValues;
     return this;
@@ -454,6 +544,42 @@ public class ScreenRecordingFilter {
 
   public void setPlacedOrder(Boolean placedOrder) {
     this.placedOrder = placedOrder;
+  }
+
+  public ScreenRecordingFilter preferredLanguage(ScreenRecordingFilterStringSearch preferredLanguage) {
+    this.preferredLanguage = preferredLanguage;
+    return this;
+  }
+
+   /**
+   * Get preferredLanguage
+   * @return preferredLanguage
+  **/
+  @ApiModelProperty(value = "")
+  public ScreenRecordingFilterStringSearch getPreferredLanguage() {
+    return preferredLanguage;
+  }
+
+  public void setPreferredLanguage(ScreenRecordingFilterStringSearch preferredLanguage) {
+    this.preferredLanguage = preferredLanguage;
+  }
+
+  public ScreenRecordingFilter referrerDomain(String referrerDomain) {
+    this.referrerDomain = referrerDomain;
+    return this;
+  }
+
+   /**
+   * Get referrerDomain
+   * @return referrerDomain
+  **/
+  @ApiModelProperty(value = "")
+  public String getReferrerDomain() {
+    return referrerDomain;
+  }
+
+  public void setReferrerDomain(String referrerDomain) {
+    this.referrerDomain = referrerDomain;
   }
 
   public ScreenRecordingFilter screenRecordingUuids(List<String> screenRecordingUuids) {
@@ -796,10 +922,13 @@ public class ScreenRecordingFilter {
       return false;
     }
     ScreenRecordingFilter screenRecordingFilter = (ScreenRecordingFilter) o;
-    return Objects.equals(this.communicationsCampaignName, screenRecordingFilter.communicationsCampaignName) &&
+    return Objects.equals(this.affiliateEmail, screenRecordingFilter.affiliateEmail) &&
+        Objects.equals(this.affiliateId, screenRecordingFilter.affiliateId) &&
+        Objects.equals(this.communicationsCampaignName, screenRecordingFilter.communicationsCampaignName) &&
         Objects.equals(this.communicationsEmailSubject, screenRecordingFilter.communicationsEmailSubject) &&
         Objects.equals(this.communicationsFlowName, screenRecordingFilter.communicationsFlowName) &&
         Objects.equals(this.email, screenRecordingFilter.email) &&
+        Objects.equals(this.emailDomain, screenRecordingFilter.emailDomain) &&
         Objects.equals(this.emailIdentified, screenRecordingFilter.emailIdentified) &&
         Objects.equals(this.endTimestamp, screenRecordingFilter.endTimestamp) &&
         Objects.equals(this.espCustomerUuid, screenRecordingFilter.espCustomerUuid) &&
@@ -808,11 +937,14 @@ public class ScreenRecordingFilter {
         Objects.equals(this.geolocationCountry, screenRecordingFilter.geolocationCountry) &&
         Objects.equals(this.geolocationState, screenRecordingFilter.geolocationState) &&
         Objects.equals(this.languageIsoCode, screenRecordingFilter.languageIsoCode) &&
+        Objects.equals(this.lastXDays, screenRecordingFilter.lastXDays) &&
         Objects.equals(this.maxFilterValues, screenRecordingFilter.maxFilterValues) &&
         Objects.equals(this.orderId, screenRecordingFilter.orderId) &&
         Objects.equals(this.pageViewCount, screenRecordingFilter.pageViewCount) &&
         Objects.equals(this.pageViews, screenRecordingFilter.pageViews) &&
         Objects.equals(this.placedOrder, screenRecordingFilter.placedOrder) &&
+        Objects.equals(this.preferredLanguage, screenRecordingFilter.preferredLanguage) &&
+        Objects.equals(this.referrerDomain, screenRecordingFilter.referrerDomain) &&
         Objects.equals(this.screenRecordingUuids, screenRecordingFilter.screenRecordingUuids) &&
         Objects.equals(this.screenSizes, screenRecordingFilter.screenSizes) &&
         Objects.equals(this.skipFilterValues, screenRecordingFilter.skipFilterValues) &&
@@ -834,7 +966,7 @@ public class ScreenRecordingFilter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, languageIsoCode, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, utmCampaign, utmSource, visitorNumber, watched);
+    return Objects.hash(affiliateEmail, affiliateId, communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailDomain, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, languageIsoCode, lastXDays, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, preferredLanguage, referrerDomain, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, utmCampaign, utmSource, visitorNumber, watched);
   }
 
 
@@ -843,10 +975,13 @@ public class ScreenRecordingFilter {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingFilter {\n");
     
+    sb.append("    affiliateEmail: ").append(toIndentedString(affiliateEmail)).append("\n");
+    sb.append("    affiliateId: ").append(toIndentedString(affiliateId)).append("\n");
     sb.append("    communicationsCampaignName: ").append(toIndentedString(communicationsCampaignName)).append("\n");
     sb.append("    communicationsEmailSubject: ").append(toIndentedString(communicationsEmailSubject)).append("\n");
     sb.append("    communicationsFlowName: ").append(toIndentedString(communicationsFlowName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    emailDomain: ").append(toIndentedString(emailDomain)).append("\n");
     sb.append("    emailIdentified: ").append(toIndentedString(emailIdentified)).append("\n");
     sb.append("    endTimestamp: ").append(toIndentedString(endTimestamp)).append("\n");
     sb.append("    espCustomerUuid: ").append(toIndentedString(espCustomerUuid)).append("\n");
@@ -855,11 +990,14 @@ public class ScreenRecordingFilter {
     sb.append("    geolocationCountry: ").append(toIndentedString(geolocationCountry)).append("\n");
     sb.append("    geolocationState: ").append(toIndentedString(geolocationState)).append("\n");
     sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
+    sb.append("    lastXDays: ").append(toIndentedString(lastXDays)).append("\n");
     sb.append("    maxFilterValues: ").append(toIndentedString(maxFilterValues)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    pageViews: ").append(toIndentedString(pageViews)).append("\n");
     sb.append("    placedOrder: ").append(toIndentedString(placedOrder)).append("\n");
+    sb.append("    preferredLanguage: ").append(toIndentedString(preferredLanguage)).append("\n");
+    sb.append("    referrerDomain: ").append(toIndentedString(referrerDomain)).append("\n");
     sb.append("    screenRecordingUuids: ").append(toIndentedString(screenRecordingUuids)).append("\n");
     sb.append("    screenSizes: ").append(toIndentedString(screenSizes)).append("\n");
     sb.append("    skipFilterValues: ").append(toIndentedString(skipFilterValues)).append("\n");

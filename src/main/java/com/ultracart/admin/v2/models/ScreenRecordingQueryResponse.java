@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * ScreenRecordingQueryResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
 
 
 
@@ -48,6 +48,15 @@ public class ScreenRecordingQueryResponse {
 
   @SerializedName("filter_values")
   private ScreenRecordingFilterValues filterValues = null;
+
+  @SerializedName("histogram_data")
+  private List<Integer> histogramData = null;
+
+  @SerializedName("histogram_interval")
+  private String histogramInterval = null;
+
+  @SerializedName("histogram_start_dts")
+  private String histogramStartDts = null;
 
   @SerializedName("metadata")
   private ResponseMetadata metadata = null;
@@ -113,6 +122,68 @@ public class ScreenRecordingQueryResponse {
 
   public void setFilterValues(ScreenRecordingFilterValues filterValues) {
     this.filterValues = filterValues;
+  }
+
+  public ScreenRecordingQueryResponse histogramData(List<Integer> histogramData) {
+    this.histogramData = histogramData;
+    return this;
+  }
+
+  public ScreenRecordingQueryResponse addHistogramDataItem(Integer histogramDataItem) {
+    if (this.histogramData == null) {
+      this.histogramData = new ArrayList<Integer>();
+    }
+    this.histogramData.add(histogramDataItem);
+    return this;
+  }
+
+   /**
+   * Get histogramData
+   * @return histogramData
+  **/
+  @ApiModelProperty(value = "")
+  public List<Integer> getHistogramData() {
+    return histogramData;
+  }
+
+  public void setHistogramData(List<Integer> histogramData) {
+    this.histogramData = histogramData;
+  }
+
+  public ScreenRecordingQueryResponse histogramInterval(String histogramInterval) {
+    this.histogramInterval = histogramInterval;
+    return this;
+  }
+
+   /**
+   * Get histogramInterval
+   * @return histogramInterval
+  **/
+  @ApiModelProperty(value = "")
+  public String getHistogramInterval() {
+    return histogramInterval;
+  }
+
+  public void setHistogramInterval(String histogramInterval) {
+    this.histogramInterval = histogramInterval;
+  }
+
+  public ScreenRecordingQueryResponse histogramStartDts(String histogramStartDts) {
+    this.histogramStartDts = histogramStartDts;
+    return this;
+  }
+
+   /**
+   * Get histogramStartDts
+   * @return histogramStartDts
+  **/
+  @ApiModelProperty(value = "")
+  public String getHistogramStartDts() {
+    return histogramStartDts;
+  }
+
+  public void setHistogramStartDts(String histogramStartDts) {
+    this.histogramStartDts = histogramStartDts;
   }
 
   public ScreenRecordingQueryResponse metadata(ResponseMetadata metadata) {
@@ -208,6 +279,9 @@ public class ScreenRecordingQueryResponse {
     return Objects.equals(this.error, screenRecordingQueryResponse.error) &&
         Objects.equals(this.filter, screenRecordingQueryResponse.filter) &&
         Objects.equals(this.filterValues, screenRecordingQueryResponse.filterValues) &&
+        Objects.equals(this.histogramData, screenRecordingQueryResponse.histogramData) &&
+        Objects.equals(this.histogramInterval, screenRecordingQueryResponse.histogramInterval) &&
+        Objects.equals(this.histogramStartDts, screenRecordingQueryResponse.histogramStartDts) &&
         Objects.equals(this.metadata, screenRecordingQueryResponse.metadata) &&
         Objects.equals(this.screenRecordings, screenRecordingQueryResponse.screenRecordings) &&
         Objects.equals(this.success, screenRecordingQueryResponse.success) &&
@@ -216,7 +290,7 @@ public class ScreenRecordingQueryResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, filter, filterValues, metadata, screenRecordings, success, warning);
+    return Objects.hash(error, filter, filterValues, histogramData, histogramInterval, histogramStartDts, metadata, screenRecordings, success, warning);
   }
 
 
@@ -228,6 +302,9 @@ public class ScreenRecordingQueryResponse {
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    filterValues: ").append(toIndentedString(filterValues)).append("\n");
+    sb.append("    histogramData: ").append(toIndentedString(histogramData)).append("\n");
+    sb.append("    histogramInterval: ").append(toIndentedString(histogramInterval)).append("\n");
+    sb.append("    histogramStartDts: ").append(toIndentedString(histogramStartDts)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    screenRecordings: ").append(toIndentedString(screenRecordings)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");

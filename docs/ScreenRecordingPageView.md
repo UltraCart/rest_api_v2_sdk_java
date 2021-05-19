@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **referrerRaw** | **String** |  |  [optional]
 **screenRecordingPageViewUuid** | **String** |  |  [optional]
 **timeOnPage** | **Integer** |  |  [optional]
+**timingDomContentLoaded** | **Integer** | Amount of time for DOMContentLoaded event to fire (milliseconds) |  [optional]
+**timingLoaded** | **Integer** | Amount of time for loaded event to fire (milliseconds) |  [optional]
 **truncatedEvents** | **Boolean** |  |  [optional]
 **ucapv** | **String** |  |  [optional]
 **url** | **String** |  |  [optional]

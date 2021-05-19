@@ -24,11 +24,13 @@ import com.ultracart.admin.v2.models.ScreenRecordingFilter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ScreenRecordingSegment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
 
 
 
@@ -41,6 +43,15 @@ public class ScreenRecordingSegment {
 
   @SerializedName("filter")
   private ScreenRecordingFilter filter = null;
+
+  @SerializedName("histogram_data")
+  private List<Integer> histogramData = null;
+
+  @SerializedName("histogram_interval")
+  private String histogramInterval = null;
+
+  @SerializedName("histogram_start_dts")
+  private String histogramStartDts = null;
 
   @SerializedName("name")
   private String name = null;
@@ -106,6 +117,68 @@ public class ScreenRecordingSegment {
 
   public void setFilter(ScreenRecordingFilter filter) {
     this.filter = filter;
+  }
+
+  public ScreenRecordingSegment histogramData(List<Integer> histogramData) {
+    this.histogramData = histogramData;
+    return this;
+  }
+
+  public ScreenRecordingSegment addHistogramDataItem(Integer histogramDataItem) {
+    if (this.histogramData == null) {
+      this.histogramData = new ArrayList<Integer>();
+    }
+    this.histogramData.add(histogramDataItem);
+    return this;
+  }
+
+   /**
+   * Get histogramData
+   * @return histogramData
+  **/
+  @ApiModelProperty(value = "")
+  public List<Integer> getHistogramData() {
+    return histogramData;
+  }
+
+  public void setHistogramData(List<Integer> histogramData) {
+    this.histogramData = histogramData;
+  }
+
+  public ScreenRecordingSegment histogramInterval(String histogramInterval) {
+    this.histogramInterval = histogramInterval;
+    return this;
+  }
+
+   /**
+   * Get histogramInterval
+   * @return histogramInterval
+  **/
+  @ApiModelProperty(value = "")
+  public String getHistogramInterval() {
+    return histogramInterval;
+  }
+
+  public void setHistogramInterval(String histogramInterval) {
+    this.histogramInterval = histogramInterval;
+  }
+
+  public ScreenRecordingSegment histogramStartDts(String histogramStartDts) {
+    this.histogramStartDts = histogramStartDts;
+    return this;
+  }
+
+   /**
+   * Get histogramStartDts
+   * @return histogramStartDts
+  **/
+  @ApiModelProperty(value = "")
+  public String getHistogramStartDts() {
+    return histogramStartDts;
+  }
+
+  public void setHistogramStartDts(String histogramStartDts) {
+    this.histogramStartDts = histogramStartDts;
   }
 
   public ScreenRecordingSegment name(String name) {
@@ -193,6 +266,9 @@ public class ScreenRecordingSegment {
     return Objects.equals(this.createDts, screenRecordingSegment.createDts) &&
         Objects.equals(this.description, screenRecordingSegment.description) &&
         Objects.equals(this.filter, screenRecordingSegment.filter) &&
+        Objects.equals(this.histogramData, screenRecordingSegment.histogramData) &&
+        Objects.equals(this.histogramInterval, screenRecordingSegment.histogramInterval) &&
+        Objects.equals(this.histogramStartDts, screenRecordingSegment.histogramStartDts) &&
         Objects.equals(this.name, screenRecordingSegment.name) &&
         Objects.equals(this.screenRecordingSegmentOid, screenRecordingSegment.screenRecordingSegmentOid) &&
         Objects.equals(this.sessionCount, screenRecordingSegment.sessionCount) &&
@@ -201,7 +277,7 @@ public class ScreenRecordingSegment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDts, description, filter, name, screenRecordingSegmentOid, sessionCount, sessionCountLastUpdateDts);
+    return Objects.hash(createDts, description, filter, histogramData, histogramInterval, histogramStartDts, name, screenRecordingSegmentOid, sessionCount, sessionCountLastUpdateDts);
   }
 
 
@@ -213,6 +289,9 @@ public class ScreenRecordingSegment {
     sb.append("    createDts: ").append(toIndentedString(createDts)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    histogramData: ").append(toIndentedString(histogramData)).append("\n");
+    sb.append("    histogramInterval: ").append(toIndentedString(histogramInterval)).append("\n");
+    sb.append("    histogramStartDts: ").append(toIndentedString(histogramStartDts)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    screenRecordingSegmentOid: ").append(toIndentedString(screenRecordingSegmentOid)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");

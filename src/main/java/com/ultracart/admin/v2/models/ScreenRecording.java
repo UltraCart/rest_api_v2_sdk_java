@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.GeoPoint;
+import com.ultracart.admin.v2.models.ScreenRecordingAdPlatform;
 import com.ultracart.admin.v2.models.ScreenRecordingPageView;
 import com.ultracart.admin.v2.models.ScreenRecordingStoreFront;
 import com.ultracart.admin.v2.models.ScreenRecordingUserAgent;
@@ -34,11 +35,14 @@ import java.util.List;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
 
 
 
 public class ScreenRecording {
+  @SerializedName("ad_platform")
+  private ScreenRecordingAdPlatform adPlatform = null;
+
   @SerializedName("analytics_client_oid")
   private Long analyticsClientOid = null;
 
@@ -68,6 +72,9 @@ public class ScreenRecording {
 
   @SerializedName("email")
   private String email = null;
+
+  @SerializedName("email_domain")
+  private String emailDomain = null;
 
   @SerializedName("end_timestamp")
   private String endTimestamp = null;
@@ -113,6 +120,12 @@ public class ScreenRecording {
 
   @SerializedName("page_views")
   private List<ScreenRecordingPageView> pageViews = null;
+
+  @SerializedName("preferred_language")
+  private String preferredLanguage = null;
+
+  @SerializedName("referrer_domain")
+  private String referrerDomain = null;
 
   @SerializedName("rrweb_version")
   private String rrwebVersion = null;
@@ -173,6 +186,24 @@ public class ScreenRecording {
 
   @SerializedName("window_width")
   private Integer windowWidth = null;
+
+  public ScreenRecording adPlatform(ScreenRecordingAdPlatform adPlatform) {
+    this.adPlatform = adPlatform;
+    return this;
+  }
+
+   /**
+   * Get adPlatform
+   * @return adPlatform
+  **/
+  @ApiModelProperty(value = "")
+  public ScreenRecordingAdPlatform getAdPlatform() {
+    return adPlatform;
+  }
+
+  public void setAdPlatform(ScreenRecordingAdPlatform adPlatform) {
+    this.adPlatform = adPlatform;
+  }
 
   public ScreenRecording analyticsClientOid(Long analyticsClientOid) {
     this.analyticsClientOid = analyticsClientOid;
@@ -352,6 +383,24 @@ public class ScreenRecording {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public ScreenRecording emailDomain(String emailDomain) {
+    this.emailDomain = emailDomain;
+    return this;
+  }
+
+   /**
+   * Get emailDomain
+   * @return emailDomain
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmailDomain() {
+    return emailDomain;
+  }
+
+  public void setEmailDomain(String emailDomain) {
+    this.emailDomain = emailDomain;
   }
 
   public ScreenRecording endTimestamp(String endTimestamp) {
@@ -638,6 +687,42 @@ public class ScreenRecording {
 
   public void setPageViews(List<ScreenRecordingPageView> pageViews) {
     this.pageViews = pageViews;
+  }
+
+  public ScreenRecording preferredLanguage(String preferredLanguage) {
+    this.preferredLanguage = preferredLanguage;
+    return this;
+  }
+
+   /**
+   * ISO 3 Letter language code that the customer would prefer
+   * @return preferredLanguage
+  **/
+  @ApiModelProperty(value = "ISO 3 Letter language code that the customer would prefer")
+  public String getPreferredLanguage() {
+    return preferredLanguage;
+  }
+
+  public void setPreferredLanguage(String preferredLanguage) {
+    this.preferredLanguage = preferredLanguage;
+  }
+
+  public ScreenRecording referrerDomain(String referrerDomain) {
+    this.referrerDomain = referrerDomain;
+    return this;
+  }
+
+   /**
+   * Get referrerDomain
+   * @return referrerDomain
+  **/
+  @ApiModelProperty(value = "")
+  public String getReferrerDomain() {
+    return referrerDomain;
+  }
+
+  public void setReferrerDomain(String referrerDomain) {
+    this.referrerDomain = referrerDomain;
   }
 
   public ScreenRecording rrwebVersion(String rrwebVersion) {
@@ -1042,7 +1127,8 @@ public class ScreenRecording {
       return false;
     }
     ScreenRecording screenRecording = (ScreenRecording) o;
-    return Objects.equals(this.analyticsClientOid, screenRecording.analyticsClientOid) &&
+    return Objects.equals(this.adPlatform, screenRecording.adPlatform) &&
+        Objects.equals(this.analyticsClientOid, screenRecording.analyticsClientOid) &&
         Objects.equals(this.analyticsSessionDts, screenRecording.analyticsSessionDts) &&
         Objects.equals(this.analyticsSessionOid, screenRecording.analyticsSessionOid) &&
         Objects.equals(this.communicationsCampaignName, screenRecording.communicationsCampaignName) &&
@@ -1052,6 +1138,7 @@ public class ScreenRecording {
         Objects.equals(this.communicationsFlowName, screenRecording.communicationsFlowName) &&
         Objects.equals(this.communicationsFlowUuid, screenRecording.communicationsFlowUuid) &&
         Objects.equals(this.email, screenRecording.email) &&
+        Objects.equals(this.emailDomain, screenRecording.emailDomain) &&
         Objects.equals(this.endTimestamp, screenRecording.endTimestamp) &&
         Objects.equals(this.espCustomerUuid, screenRecording.espCustomerUuid) &&
         Objects.equals(this.eventsGzSize, screenRecording.eventsGzSize) &&
@@ -1067,6 +1154,8 @@ public class ScreenRecording {
         Objects.equals(this.orderId, screenRecording.orderId) &&
         Objects.equals(this.pageViewCount, screenRecording.pageViewCount) &&
         Objects.equals(this.pageViews, screenRecording.pageViews) &&
+        Objects.equals(this.preferredLanguage, screenRecording.preferredLanguage) &&
+        Objects.equals(this.referrerDomain, screenRecording.referrerDomain) &&
         Objects.equals(this.rrwebVersion, screenRecording.rrwebVersion) &&
         Objects.equals(this.screenRecordingUuid, screenRecording.screenRecordingUuid) &&
         Objects.equals(this.signedDownloadUrl, screenRecording.signedDownloadUrl) &&
@@ -1091,7 +1180,7 @@ public class ScreenRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, languageIsoCode, merchantId, merchantNotes, orderId, pageViewCount, pageViews, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, utmCampaign, utmSource, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
+    return Objects.hash(adPlatform, analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, emailDomain, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, languageIsoCode, merchantId, merchantNotes, orderId, pageViewCount, pageViews, preferredLanguage, referrerDomain, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, utmCampaign, utmSource, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
   }
 
 
@@ -1100,6 +1189,7 @@ public class ScreenRecording {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecording {\n");
     
+    sb.append("    adPlatform: ").append(toIndentedString(adPlatform)).append("\n");
     sb.append("    analyticsClientOid: ").append(toIndentedString(analyticsClientOid)).append("\n");
     sb.append("    analyticsSessionDts: ").append(toIndentedString(analyticsSessionDts)).append("\n");
     sb.append("    analyticsSessionOid: ").append(toIndentedString(analyticsSessionOid)).append("\n");
@@ -1110,6 +1200,7 @@ public class ScreenRecording {
     sb.append("    communicationsFlowName: ").append(toIndentedString(communicationsFlowName)).append("\n");
     sb.append("    communicationsFlowUuid: ").append(toIndentedString(communicationsFlowUuid)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    emailDomain: ").append(toIndentedString(emailDomain)).append("\n");
     sb.append("    endTimestamp: ").append(toIndentedString(endTimestamp)).append("\n");
     sb.append("    espCustomerUuid: ").append(toIndentedString(espCustomerUuid)).append("\n");
     sb.append("    eventsGzSize: ").append(toIndentedString(eventsGzSize)).append("\n");
@@ -1125,6 +1216,8 @@ public class ScreenRecording {
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    pageViews: ").append(toIndentedString(pageViews)).append("\n");
+    sb.append("    preferredLanguage: ").append(toIndentedString(preferredLanguage)).append("\n");
+    sb.append("    referrerDomain: ").append(toIndentedString(referrerDomain)).append("\n");
     sb.append("    rrwebVersion: ").append(toIndentedString(rrwebVersion)).append("\n");
     sb.append("    screenRecordingUuid: ").append(toIndentedString(screenRecordingUuid)).append("\n");
     sb.append("    signedDownloadUrl: ").append(toIndentedString(signedDownloadUrl)).append("\n");

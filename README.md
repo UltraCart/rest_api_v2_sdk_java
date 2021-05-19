@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-04-26T16:32:31.290-04:00
+  - Build date: 2021-05-18T22:03:06.916-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.28</version>
+  <version>3.1.37</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.28"
+compile "com.ultracart:rest-sdk:3.1.37"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.28.jar`
+* `target/rest-sdk-3.1.37.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -878,6 +878,7 @@ Class | Method | HTTP request | Description
  - [ResponseMetadata](docs/ResponseMetadata.md)
  - [ResultSet](docs/ResultSet.md)
  - [ScreenRecording](docs/ScreenRecording.md)
+ - [ScreenRecordingAdPlatform](docs/ScreenRecordingAdPlatform.md)
  - [ScreenRecordingFilter](docs/ScreenRecordingFilter.md)
  - [ScreenRecordingFilterGeoDistance](docs/ScreenRecordingFilterGeoDistance.md)
  - [ScreenRecordingFilterIpSearch](docs/ScreenRecordingFilterIpSearch.md)
@@ -1044,6 +1045,14 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.37 | 05/18/2021 | removed php sdk dependency on ext-mbstring by generating sdk with polyfill requirement.  sdk is more portable now. | 
+| 3.1.35 | 05/14/2021 | screen recording histogram data  | 
+| 3.1.34 | 05/12/2021 | screen recording preferred language, last x days filter, referrer domain | 
+| 3.1.33 | 05/11/2021 | creen recording filter for affiliate id and email | 
+| 3.1.32 | 05/06/2021 | customer profile pending loyalty points  | 
+| 3.1.31 | 05/06/2021 | Added email domian field to screen recordings for filtering  | 
+| 3.1.30 | 04/27/2021 | OrderApi.processPayment now allows a specific amount to be billed  | 
+| 3.1.29 | 04/26/2021 | screen recording language iso code | 
 | 3.1.28 | 04/26/2021 | screen recording statistics on the setting object | 
 | 3.1.27 | 04/20/2021 | bug fix - annotation misspell on new email campaign property |
 | 3.1.26 | 04/20/2021 | StoreFront Connumications - flag to end campaign or flow once purchase happens anywhere |

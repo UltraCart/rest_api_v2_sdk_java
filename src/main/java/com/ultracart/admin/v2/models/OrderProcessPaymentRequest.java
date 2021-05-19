@@ -23,17 +23,39 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * OrderProcessPaymentRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
 
 
 
 public class OrderProcessPaymentRequest {
+  @SerializedName("amount")
+  private BigDecimal amount = null;
+
   @SerializedName("card_verification_number_token")
   private String cardVerificationNumberToken = null;
+
+  public OrderProcessPaymentRequest amount(BigDecimal amount) {
+    this.amount = amount;
+    return this;
+  }
+
+   /**
+   * Specific amount to bill (optional).  If not specified the total of the order is billed.
+   * @return amount
+  **/
+  @ApiModelProperty(value = "Specific amount to bill (optional).  If not specified the total of the order is billed.")
+  public BigDecimal getAmount() {
+    return amount;
+  }
+
+  public void setAmount(BigDecimal amount) {
+    this.amount = amount;
+  }
 
   public OrderProcessPaymentRequest cardVerificationNumberToken(String cardVerificationNumberToken) {
     this.cardVerificationNumberToken = cardVerificationNumberToken;
@@ -63,12 +85,13 @@ public class OrderProcessPaymentRequest {
       return false;
     }
     OrderProcessPaymentRequest orderProcessPaymentRequest = (OrderProcessPaymentRequest) o;
-    return Objects.equals(this.cardVerificationNumberToken, orderProcessPaymentRequest.cardVerificationNumberToken);
+    return Objects.equals(this.amount, orderProcessPaymentRequest.amount) &&
+        Objects.equals(this.cardVerificationNumberToken, orderProcessPaymentRequest.cardVerificationNumberToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardVerificationNumberToken);
+    return Objects.hash(amount, cardVerificationNumberToken);
   }
 
 
@@ -77,6 +100,7 @@ public class OrderProcessPaymentRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderProcessPaymentRequest {\n");
     
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    cardVerificationNumberToken: ").append(toIndentedString(cardVerificationNumberToken)).append("\n");
     sb.append("}");
     return sb.toString();

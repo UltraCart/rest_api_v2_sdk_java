@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ScreenRecordingPageViewEvent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
 
 
 
@@ -40,6 +40,9 @@ public class ScreenRecordingPageViewEvent {
 
   @SerializedName("params")
   private List<ScreenRecordingPageViewEventParameter> params = null;
+
+  @SerializedName("prior_page_view")
+  private Boolean priorPageView = null;
 
   @SerializedName("timestamp")
   private String timestamp = null;
@@ -91,6 +94,24 @@ public class ScreenRecordingPageViewEvent {
     this.params = params;
   }
 
+  public ScreenRecordingPageViewEvent priorPageView(Boolean priorPageView) {
+    this.priorPageView = priorPageView;
+    return this;
+  }
+
+   /**
+   * Get priorPageView
+   * @return priorPageView
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPriorPageView() {
+    return priorPageView;
+  }
+
+  public void setPriorPageView(Boolean priorPageView) {
+    this.priorPageView = priorPageView;
+  }
+
   public ScreenRecordingPageViewEvent timestamp(String timestamp) {
     this.timestamp = timestamp;
     return this;
@@ -139,13 +160,14 @@ public class ScreenRecordingPageViewEvent {
     ScreenRecordingPageViewEvent screenRecordingPageViewEvent = (ScreenRecordingPageViewEvent) o;
     return Objects.equals(this.name, screenRecordingPageViewEvent.name) &&
         Objects.equals(this.params, screenRecordingPageViewEvent.params) &&
+        Objects.equals(this.priorPageView, screenRecordingPageViewEvent.priorPageView) &&
         Objects.equals(this.timestamp, screenRecordingPageViewEvent.timestamp) &&
         Objects.equals(this.ts, screenRecordingPageViewEvent.ts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, params, timestamp, ts);
+    return Objects.hash(name, params, priorPageView, timestamp, ts);
   }
 
 
@@ -156,6 +178,7 @@ public class ScreenRecordingPageViewEvent {
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
+    sb.append("    priorPageView: ").append(toIndentedString(priorPageView)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    ts: ").append(toIndentedString(ts)).append("\n");
     sb.append("}");

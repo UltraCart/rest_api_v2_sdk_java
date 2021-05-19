@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CustomerLoyalty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
 
 
 
@@ -41,6 +41,9 @@ public class CustomerLoyalty {
 
   @SerializedName("ledger_entries")
   private List<CustomerLoyaltyLedger> ledgerEntries = null;
+
+  @SerializedName("pending_points")
+  private Integer pendingPoints = null;
 
   @SerializedName("redemptions")
   private List<CustomerLoyaltyRedemption> redemptions = null;
@@ -89,6 +92,24 @@ public class CustomerLoyalty {
     this.ledgerEntries = ledgerEntries;
   }
 
+  public CustomerLoyalty pendingPoints(Integer pendingPoints) {
+    this.pendingPoints = pendingPoints;
+    return this;
+  }
+
+   /**
+   * Pending Points
+   * @return pendingPoints
+  **/
+  @ApiModelProperty(value = "Pending Points")
+  public Integer getPendingPoints() {
+    return pendingPoints;
+  }
+
+  public void setPendingPoints(Integer pendingPoints) {
+    this.pendingPoints = pendingPoints;
+  }
+
   public CustomerLoyalty redemptions(List<CustomerLoyaltyRedemption> redemptions) {
     this.redemptions = redemptions;
     return this;
@@ -127,12 +148,13 @@ public class CustomerLoyalty {
     CustomerLoyalty customerLoyalty = (CustomerLoyalty) o;
     return Objects.equals(this.currentPoints, customerLoyalty.currentPoints) &&
         Objects.equals(this.ledgerEntries, customerLoyalty.ledgerEntries) &&
+        Objects.equals(this.pendingPoints, customerLoyalty.pendingPoints) &&
         Objects.equals(this.redemptions, customerLoyalty.redemptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPoints, ledgerEntries, redemptions);
+    return Objects.hash(currentPoints, ledgerEntries, pendingPoints, redemptions);
   }
 
 
@@ -143,6 +165,7 @@ public class CustomerLoyalty {
     
     sb.append("    currentPoints: ").append(toIndentedString(currentPoints)).append("\n");
     sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
+    sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ScreenRecordingPageView
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T16:32:31.290-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
 
 
 
@@ -74,6 +74,12 @@ public class ScreenRecordingPageView {
 
   @SerializedName("time_on_page")
   private Integer timeOnPage = null;
+
+  @SerializedName("timing_dom_content_loaded")
+  private Integer timingDomContentLoaded = null;
+
+  @SerializedName("timing_loaded")
+  private Integer timingLoaded = null;
 
   @SerializedName("truncated_events")
   private Boolean truncatedEvents = null;
@@ -342,6 +348,42 @@ public class ScreenRecordingPageView {
     this.timeOnPage = timeOnPage;
   }
 
+  public ScreenRecordingPageView timingDomContentLoaded(Integer timingDomContentLoaded) {
+    this.timingDomContentLoaded = timingDomContentLoaded;
+    return this;
+  }
+
+   /**
+   * Amount of time for DOMContentLoaded event to fire (milliseconds)
+   * @return timingDomContentLoaded
+  **/
+  @ApiModelProperty(value = "Amount of time for DOMContentLoaded event to fire (milliseconds)")
+  public Integer getTimingDomContentLoaded() {
+    return timingDomContentLoaded;
+  }
+
+  public void setTimingDomContentLoaded(Integer timingDomContentLoaded) {
+    this.timingDomContentLoaded = timingDomContentLoaded;
+  }
+
+  public ScreenRecordingPageView timingLoaded(Integer timingLoaded) {
+    this.timingLoaded = timingLoaded;
+    return this;
+  }
+
+   /**
+   * Amount of time for loaded event to fire (milliseconds)
+   * @return timingLoaded
+  **/
+  @ApiModelProperty(value = "Amount of time for loaded event to fire (milliseconds)")
+  public Integer getTimingLoaded() {
+    return timingLoaded;
+  }
+
+  public void setTimingLoaded(Integer timingLoaded) {
+    this.timingLoaded = timingLoaded;
+  }
+
   public ScreenRecordingPageView truncatedEvents(Boolean truncatedEvents) {
     this.truncatedEvents = truncatedEvents;
     return this;
@@ -419,6 +461,8 @@ public class ScreenRecordingPageView {
         Objects.equals(this.referrerRaw, screenRecordingPageView.referrerRaw) &&
         Objects.equals(this.screenRecordingPageViewUuid, screenRecordingPageView.screenRecordingPageViewUuid) &&
         Objects.equals(this.timeOnPage, screenRecordingPageView.timeOnPage) &&
+        Objects.equals(this.timingDomContentLoaded, screenRecordingPageView.timingDomContentLoaded) &&
+        Objects.equals(this.timingLoaded, screenRecordingPageView.timingLoaded) &&
         Objects.equals(this.truncatedEvents, screenRecordingPageView.truncatedEvents) &&
         Objects.equals(this.ucapv, screenRecordingPageView.ucapv) &&
         Objects.equals(this.url, screenRecordingPageView.url);
@@ -426,7 +470,7 @@ public class ScreenRecordingPageView {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, firstEventTimestamp, httpPost, lastEventTimestamp, missingEvents, params, rangeEnd, rangeStart, referrer, referrerParams, referrerRaw, screenRecordingPageViewUuid, timeOnPage, truncatedEvents, ucapv, url);
+    return Objects.hash(events, firstEventTimestamp, httpPost, lastEventTimestamp, missingEvents, params, rangeEnd, rangeStart, referrer, referrerParams, referrerRaw, screenRecordingPageViewUuid, timeOnPage, timingDomContentLoaded, timingLoaded, truncatedEvents, ucapv, url);
   }
 
 
@@ -448,6 +492,8 @@ public class ScreenRecordingPageView {
     sb.append("    referrerRaw: ").append(toIndentedString(referrerRaw)).append("\n");
     sb.append("    screenRecordingPageViewUuid: ").append(toIndentedString(screenRecordingPageViewUuid)).append("\n");
     sb.append("    timeOnPage: ").append(toIndentedString(timeOnPage)).append("\n");
+    sb.append("    timingDomContentLoaded: ").append(toIndentedString(timingDomContentLoaded)).append("\n");
+    sb.append("    timingLoaded: ").append(toIndentedString(timingLoaded)).append("\n");
     sb.append("    truncatedEvents: ").append(toIndentedString(truncatedEvents)).append("\n");
     sb.append("    ucapv: ").append(toIndentedString(ucapv)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
