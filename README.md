@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-05-18T23:11:13.401-04:00
+  - Build date: 2021-05-19T09:39:24.456-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.38</version>
+  <version>3.1.39</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.38"
+compile "com.ultracart:rest-sdk:3.1.39"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.38.jar`
+* `target/rest-sdk-3.1.39.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1045,6 +1045,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.39 | 05/19/2021 | full deployment to ensure all language SDKs are up to date | 
 | 3.1.37 | 05/18/2021 | removed php sdk dependency on ext-mbstring by generating sdk with polyfill requirement.  sdk is more portable now. | 
 | 3.1.35 | 05/14/2021 | screen recording histogram data  | 
 | 3.1.34 | 05/12/2021 | screen recording preferred language, last x days filter, referrer domain | 
