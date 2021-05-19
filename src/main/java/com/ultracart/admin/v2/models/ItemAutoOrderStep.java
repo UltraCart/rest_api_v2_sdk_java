@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ItemAutoOrderStep
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T22:03:06.916-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-18T23:07:15.581-04:00")
 
 
 
