@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-05-20T10:06:40.848-04:00
+  - Build date: 2021-05-21T14:23:11.423-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.40</version>
+  <version>3.1.41</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.40"
+compile "com.ultracart:rest-sdk:3.1.41"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.40.jar`
+* `target/rest-sdk-3.1.41.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -231,6 +231,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteEmailPostcard**](docs/StorefrontApi.md#deleteEmailPostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/StorefrontApi.md#deleteEmailSendingDomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/StorefrontApi.md#deleteExperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+*StorefrontApi* | [**deleteHeatmap**](docs/StorefrontApi.md#deleteHeatmap) | **DELETE** /storefront/{storefront_oid}/screen_recordings/heatmap | Delete screen recording heatmap
 *StorefrontApi* | [**deleteLibraryItem**](docs/StorefrontApi.md#deleteLibraryItem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 *StorefrontApi* | [**deleteLibraryItemPublishedVersions**](docs/StorefrontApi.md#deleteLibraryItemPublishedVersions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
 *StorefrontApi* | [**deleteScreenRecordingSegment**](docs/StorefrontApi.md#deleteScreenRecordingSegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
@@ -290,6 +291,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailTemplates**](docs/StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/StorefrontApi.md#getEmailThirdPartyProviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 *StorefrontApi* | [**getExperiments**](docs/StorefrontApi.md#getExperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+*StorefrontApi* | [**getHeatmap**](docs/StorefrontApi.md#getHeatmap) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap | Get screen recording heatmap
+*StorefrontApi* | [**getHeatmapIndex**](docs/StorefrontApi.md#getHeatmapIndex) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap/index | Get screen recording heatmap index
 *StorefrontApi* | [**getHistogramPropertyNames**](docs/StorefrontApi.md#getHistogramPropertyNames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 *StorefrontApi* | [**getHistogramPropertyValues**](docs/StorefrontApi.md#getHistogramPropertyValues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
 *StorefrontApi* | [**getLibraryFilterValues**](docs/StorefrontApi.md#getLibraryFilterValues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
@@ -896,6 +899,12 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValuesEventParams](docs/ScreenRecordingFilterValuesEventParams.md)
  - [ScreenRecordingFilterValuesPageParam](docs/ScreenRecordingFilterValuesPageParam.md)
  - [ScreenRecordingFilterValuesPageView](docs/ScreenRecordingFilterValuesPageView.md)
+ - [ScreenRecordingHeatmap](docs/ScreenRecordingHeatmap.md)
+ - [ScreenRecordingHeatmapIndexResponse](docs/ScreenRecordingHeatmapIndexResponse.md)
+ - [ScreenRecordingHeatmapRequest](docs/ScreenRecordingHeatmapRequest.md)
+ - [ScreenRecordingHeatmapReset](docs/ScreenRecordingHeatmapReset.md)
+ - [ScreenRecordingHeatmapResponse](docs/ScreenRecordingHeatmapResponse.md)
+ - [ScreenRecordingHeatmapUrl](docs/ScreenRecordingHeatmapUrl.md)
  - [ScreenRecordingMerchantNotesRequest](docs/ScreenRecordingMerchantNotesRequest.md)
  - [ScreenRecordingMultifield](docs/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/ScreenRecordingPageView.md)
@@ -1045,6 +1054,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.41 | 05/21/2021 | screen recording heatmap methods | 
 | 3.1.40 | 05/20/2021 | Order.summary.actual_payment_processing field added | 
 | 3.1.39 | 05/19/2021 | full deployment to ensure all language SDKs are up to date | 
 | 3.1.37 | 05/18/2021 | removed php sdk dependency on ext-mbstring by generating sdk with polyfill requirement.  sdk is more portable now. | 

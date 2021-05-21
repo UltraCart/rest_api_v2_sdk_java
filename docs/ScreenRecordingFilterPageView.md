@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**domain** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
 **events** | [**List&lt;ScreenRecordingFilterPageViewEvent&gt;**](ScreenRecordingFilterPageViewEvent.md) |  |  [optional]
 **params** | [**List&lt;ScreenRecordingFilterPageViewParam&gt;**](ScreenRecordingFilterPageViewParam.md) |  |  [optional]
 **referrer** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]

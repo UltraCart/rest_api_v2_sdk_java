@@ -34,11 +34,14 @@ import java.util.List;
 /**
  * ScreenRecordingFilterPageView
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-20T10:06:40.848-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-21T14:23:11.423-04:00")
 
 
 
 public class ScreenRecordingFilterPageView {
+  @SerializedName("domain")
+  private ScreenRecordingFilterStringSearch domain = null;
+
   @SerializedName("events")
   private List<ScreenRecordingFilterPageViewEvent> events = null;
 
@@ -59,6 +62,24 @@ public class ScreenRecordingFilterPageView {
 
   @SerializedName("url")
   private ScreenRecordingFilterStringSearch url = null;
+
+  public ScreenRecordingFilterPageView domain(ScreenRecordingFilterStringSearch domain) {
+    this.domain = domain;
+    return this;
+  }
+
+   /**
+   * Get domain
+   * @return domain
+  **/
+  @ApiModelProperty(value = "")
+  public ScreenRecordingFilterStringSearch getDomain() {
+    return domain;
+  }
+
+  public void setDomain(ScreenRecordingFilterStringSearch domain) {
+    this.domain = domain;
+  }
 
   public ScreenRecordingFilterPageView events(List<ScreenRecordingFilterPageViewEvent> events) {
     this.events = events;
@@ -220,7 +241,8 @@ public class ScreenRecordingFilterPageView {
       return false;
     }
     ScreenRecordingFilterPageView screenRecordingFilterPageView = (ScreenRecordingFilterPageView) o;
-    return Objects.equals(this.events, screenRecordingFilterPageView.events) &&
+    return Objects.equals(this.domain, screenRecordingFilterPageView.domain) &&
+        Objects.equals(this.events, screenRecordingFilterPageView.events) &&
         Objects.equals(this.params, screenRecordingFilterPageView.params) &&
         Objects.equals(this.referrer, screenRecordingFilterPageView.referrer) &&
         Objects.equals(this.referrerParams, screenRecordingFilterPageView.referrerParams) &&
@@ -231,7 +253,7 @@ public class ScreenRecordingFilterPageView {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, params, referrer, referrerParams, referrerRaw, timeOnPage, url);
+    return Objects.hash(domain, events, params, referrer, referrerParams, referrerRaw, timeOnPage, url);
   }
 
 
@@ -240,6 +262,7 @@ public class ScreenRecordingFilterPageView {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingFilterPageView {\n");
     
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");

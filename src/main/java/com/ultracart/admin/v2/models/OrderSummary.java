@@ -28,13 +28,16 @@ import java.io.IOException;
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-20T10:06:40.848-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-21T14:23:11.423-04:00")
 
 
 
 public class OrderSummary {
   @SerializedName("actual_fulfillment")
   private Currency actualFulfillment = null;
+
+  @SerializedName("actual_payment_processing")
+  private Currency actualPaymentProcessing = null;
 
   @SerializedName("actual_shipping")
   private Currency actualShipping = null;
@@ -100,6 +103,24 @@ public class OrderSummary {
 
   public void setActualFulfillment(Currency actualFulfillment) {
     this.actualFulfillment = actualFulfillment;
+  }
+
+  public OrderSummary actualPaymentProcessing(Currency actualPaymentProcessing) {
+    this.actualPaymentProcessing = actualPaymentProcessing;
+    return this;
+  }
+
+   /**
+   * Get actualPaymentProcessing
+   * @return actualPaymentProcessing
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getActualPaymentProcessing() {
+    return actualPaymentProcessing;
+  }
+
+  public void setActualPaymentProcessing(Currency actualPaymentProcessing) {
+    this.actualPaymentProcessing = actualPaymentProcessing;
   }
 
   public OrderSummary actualShipping(Currency actualShipping) {
@@ -401,6 +422,7 @@ public class OrderSummary {
     }
     OrderSummary orderSummary = (OrderSummary) o;
     return Objects.equals(this.actualFulfillment, orderSummary.actualFulfillment) &&
+        Objects.equals(this.actualPaymentProcessing, orderSummary.actualPaymentProcessing) &&
         Objects.equals(this.actualShipping, orderSummary.actualShipping) &&
         Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
         Objects.equals(this.otherRefunded, orderSummary.otherRefunded) &&
@@ -421,7 +443,7 @@ public class OrderSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualFulfillment, actualShipping, arbitraryShippingHandlingTotal, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
+    return Objects.hash(actualFulfillment, actualPaymentProcessing, actualShipping, arbitraryShippingHandlingTotal, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
   }
 
 
@@ -431,6 +453,7 @@ public class OrderSummary {
     sb.append("class OrderSummary {\n");
     
     sb.append("    actualFulfillment: ").append(toIndentedString(actualFulfillment)).append("\n");
+    sb.append("    actualPaymentProcessing: ").append(toIndentedString(actualPaymentProcessing)).append("\n");
     sb.append("    actualShipping: ").append(toIndentedString(actualShipping)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
     sb.append("    otherRefunded: ").append(toIndentedString(otherRefunded)).append("\n");

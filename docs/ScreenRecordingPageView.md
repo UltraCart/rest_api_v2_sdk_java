@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**domain** | **String** |  |  [optional]
 **events** | [**List&lt;ScreenRecordingPageViewEvent&gt;**](ScreenRecordingPageViewEvent.md) |  |  [optional]
 **firstEventTimestamp** | **String** | First event timestamp |  [optional]
 **httpPost** | **Boolean** |  |  [optional]

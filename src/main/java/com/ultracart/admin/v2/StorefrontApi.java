@@ -123,6 +123,10 @@ import com.ultracart.admin.v2.models.LookupRequest;
 import com.ultracart.admin.v2.models.LookupResponse;
 import com.ultracart.admin.v2.models.PricingTiersResponse;
 import com.ultracart.admin.v2.models.PublishLibraryItemRequest;
+import com.ultracart.admin.v2.models.ScreenRecordingHeatmapIndexResponse;
+import com.ultracart.admin.v2.models.ScreenRecordingHeatmapRequest;
+import com.ultracart.admin.v2.models.ScreenRecordingHeatmapReset;
+import com.ultracart.admin.v2.models.ScreenRecordingHeatmapResponse;
 import com.ultracart.admin.v2.models.ScreenRecordingMerchantNotesRequest;
 import com.ultracart.admin.v2.models.ScreenRecordingPageViewDataResponse;
 import com.ultracart.admin.v2.models.ScreenRecordingQueryRequest;
@@ -2441,6 +2445,134 @@ public class StorefrontApi {
         }
 
         com.squareup.okhttp.Call call = deleteExperimentValidateBeforeCall(storefrontOid, storefrontExperimentOid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteHeatmap
+     * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteHeatmapCall(Integer storefrontOid, ScreenRecordingHeatmapReset query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = query;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteHeatmapValidateBeforeCall(Integer storefrontOid, ScreenRecordingHeatmapReset query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling deleteHeatmap(Async)");
+        }
+        
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling deleteHeatmap(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteHeatmapCall(storefrontOid, query, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete screen recording heatmap
+     * Delete screen recording heatmap 
+     * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteHeatmap(Integer storefrontOid, ScreenRecordingHeatmapReset query) throws ApiException {
+        deleteHeatmapWithHttpInfo(storefrontOid, query);
+    }
+
+    /**
+     * Delete screen recording heatmap
+     * Delete screen recording heatmap 
+     * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteHeatmapWithHttpInfo(Integer storefrontOid, ScreenRecordingHeatmapReset query) throws ApiException {
+        com.squareup.okhttp.Call call = deleteHeatmapValidateBeforeCall(storefrontOid, query, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete screen recording heatmap (asynchronously)
+     * Delete screen recording heatmap 
+     * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteHeatmapAsync(Integer storefrontOid, ScreenRecordingHeatmapReset query, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteHeatmapValidateBeforeCall(storefrontOid, query, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -10147,6 +10279,261 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = getExperimentsValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ExperimentsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getHeatmap
+     * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getHeatmapCall(Integer storefrontOid, ScreenRecordingHeatmapRequest query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = query;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getHeatmapValidateBeforeCall(Integer storefrontOid, ScreenRecordingHeatmapRequest query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getHeatmap(Async)");
+        }
+        
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling getHeatmap(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getHeatmapCall(storefrontOid, query, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get screen recording heatmap
+     * Get screen recording heatmap 
+     * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @return ScreenRecordingHeatmapResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ScreenRecordingHeatmapResponse getHeatmap(Integer storefrontOid, ScreenRecordingHeatmapRequest query) throws ApiException {
+        ApiResponse<ScreenRecordingHeatmapResponse> resp = getHeatmapWithHttpInfo(storefrontOid, query);
+        return resp.getData();
+    }
+
+    /**
+     * Get screen recording heatmap
+     * Get screen recording heatmap 
+     * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @return ApiResponse&lt;ScreenRecordingHeatmapResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ScreenRecordingHeatmapResponse> getHeatmapWithHttpInfo(Integer storefrontOid, ScreenRecordingHeatmapRequest query) throws ApiException {
+        com.squareup.okhttp.Call call = getHeatmapValidateBeforeCall(storefrontOid, query, null, null);
+        Type localVarReturnType = new TypeToken<ScreenRecordingHeatmapResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get screen recording heatmap (asynchronously)
+     * Get screen recording heatmap 
+     * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getHeatmapAsync(Integer storefrontOid, ScreenRecordingHeatmapRequest query, final ApiCallback<ScreenRecordingHeatmapResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getHeatmapValidateBeforeCall(storefrontOid, query, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ScreenRecordingHeatmapResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getHeatmapIndex
+     * @param storefrontOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getHeatmapIndexCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap/index"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getHeatmapIndexValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getHeatmapIndex(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getHeatmapIndexCall(storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get screen recording heatmap index
+     * Get screen recording heatmap index 
+     * @param storefrontOid  (required)
+     * @return ScreenRecordingHeatmapIndexResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ScreenRecordingHeatmapIndexResponse getHeatmapIndex(Integer storefrontOid) throws ApiException {
+        ApiResponse<ScreenRecordingHeatmapIndexResponse> resp = getHeatmapIndexWithHttpInfo(storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get screen recording heatmap index
+     * Get screen recording heatmap index 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;ScreenRecordingHeatmapIndexResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ScreenRecordingHeatmapIndexResponse> getHeatmapIndexWithHttpInfo(Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = getHeatmapIndexValidateBeforeCall(storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<ScreenRecordingHeatmapIndexResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get screen recording heatmap index (asynchronously)
+     * Get screen recording heatmap index 
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getHeatmapIndexAsync(Integer storefrontOid, final ApiCallback<ScreenRecordingHeatmapIndexResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getHeatmapIndexValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ScreenRecordingHeatmapIndexResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

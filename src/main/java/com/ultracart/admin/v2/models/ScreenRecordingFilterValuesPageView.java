@@ -31,11 +31,14 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValuesPageView
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-20T10:06:40.848-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-21T14:23:11.423-04:00")
 
 
 
 public class ScreenRecordingFilterValuesPageView {
+  @SerializedName("domains")
+  private List<String> domains = null;
+
   @SerializedName("events")
   private List<ScreenRecordingFilterValuesEvent> events = null;
 
@@ -50,6 +53,32 @@ public class ScreenRecordingFilterValuesPageView {
 
   @SerializedName("urls")
   private List<String> urls = null;
+
+  public ScreenRecordingFilterValuesPageView domains(List<String> domains) {
+    this.domains = domains;
+    return this;
+  }
+
+  public ScreenRecordingFilterValuesPageView addDomainsItem(String domainsItem) {
+    if (this.domains == null) {
+      this.domains = new ArrayList<String>();
+    }
+    this.domains.add(domainsItem);
+    return this;
+  }
+
+   /**
+   * Get domains
+   * @return domains
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getDomains() {
+    return domains;
+  }
+
+  public void setDomains(List<String> domains) {
+    this.domains = domains;
+  }
 
   public ScreenRecordingFilterValuesPageView events(List<ScreenRecordingFilterValuesEvent> events) {
     this.events = events;
@@ -175,7 +204,8 @@ public class ScreenRecordingFilterValuesPageView {
       return false;
     }
     ScreenRecordingFilterValuesPageView screenRecordingFilterValuesPageView = (ScreenRecordingFilterValuesPageView) o;
-    return Objects.equals(this.events, screenRecordingFilterValuesPageView.events) &&
+    return Objects.equals(this.domains, screenRecordingFilterValuesPageView.domains) &&
+        Objects.equals(this.events, screenRecordingFilterValuesPageView.events) &&
         Objects.equals(this.pageParams, screenRecordingFilterValuesPageView.pageParams) &&
         Objects.equals(this.timeOnPageMax, screenRecordingFilterValuesPageView.timeOnPageMax) &&
         Objects.equals(this.timeOnPageMin, screenRecordingFilterValuesPageView.timeOnPageMin) &&
@@ -184,7 +214,7 @@ public class ScreenRecordingFilterValuesPageView {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, pageParams, timeOnPageMax, timeOnPageMin, urls);
+    return Objects.hash(domains, events, pageParams, timeOnPageMax, timeOnPageMin, urls);
   }
 
 
@@ -193,6 +223,7 @@ public class ScreenRecordingFilterValuesPageView {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingFilterValuesPageView {\n");
     
+    sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    pageParams: ").append(toIndentedString(pageParams)).append("\n");
     sb.append("    timeOnPageMax: ").append(toIndentedString(timeOnPageMax)).append("\n");

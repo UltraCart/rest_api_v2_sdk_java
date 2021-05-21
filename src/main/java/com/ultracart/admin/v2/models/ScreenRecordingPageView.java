@@ -31,11 +31,14 @@ import java.util.List;
 /**
  * ScreenRecordingPageView
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-20T10:06:40.848-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-21T14:23:11.423-04:00")
 
 
 
 public class ScreenRecordingPageView {
+  @SerializedName("domain")
+  private String domain = null;
+
   @SerializedName("events")
   private List<ScreenRecordingPageViewEvent> events = null;
 
@@ -89,6 +92,24 @@ public class ScreenRecordingPageView {
 
   @SerializedName("url")
   private String url = null;
+
+  public ScreenRecordingPageView domain(String domain) {
+    this.domain = domain;
+    return this;
+  }
+
+   /**
+   * Get domain
+   * @return domain
+  **/
+  @ApiModelProperty(value = "")
+  public String getDomain() {
+    return domain;
+  }
+
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
 
   public ScreenRecordingPageView events(List<ScreenRecordingPageViewEvent> events) {
     this.events = events;
@@ -448,7 +469,8 @@ public class ScreenRecordingPageView {
       return false;
     }
     ScreenRecordingPageView screenRecordingPageView = (ScreenRecordingPageView) o;
-    return Objects.equals(this.events, screenRecordingPageView.events) &&
+    return Objects.equals(this.domain, screenRecordingPageView.domain) &&
+        Objects.equals(this.events, screenRecordingPageView.events) &&
         Objects.equals(this.firstEventTimestamp, screenRecordingPageView.firstEventTimestamp) &&
         Objects.equals(this.httpPost, screenRecordingPageView.httpPost) &&
         Objects.equals(this.lastEventTimestamp, screenRecordingPageView.lastEventTimestamp) &&
@@ -470,7 +492,7 @@ public class ScreenRecordingPageView {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, firstEventTimestamp, httpPost, lastEventTimestamp, missingEvents, params, rangeEnd, rangeStart, referrer, referrerParams, referrerRaw, screenRecordingPageViewUuid, timeOnPage, timingDomContentLoaded, timingLoaded, truncatedEvents, ucapv, url);
+    return Objects.hash(domain, events, firstEventTimestamp, httpPost, lastEventTimestamp, missingEvents, params, rangeEnd, rangeStart, referrer, referrerParams, referrerRaw, screenRecordingPageViewUuid, timeOnPage, timingDomContentLoaded, timingLoaded, truncatedEvents, ucapv, url);
   }
 
 
@@ -479,6 +501,7 @@ public class ScreenRecordingPageView {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingPageView {\n");
     
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    firstEventTimestamp: ").append(toIndentedString(firstEventTimestamp)).append("\n");
     sb.append("    httpPost: ").append(toIndentedString(httpPost)).append("\n");
