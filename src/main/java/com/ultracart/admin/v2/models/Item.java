@@ -66,7 +66,7 @@ import java.util.List;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T10:15:42.787-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T16:02:35.046-04:00")
 
 
 
@@ -83,8 +83,8 @@ public class Item {
   @SerializedName("ccbill")
   private ItemCCBill ccbill = null;
 
-  @SerializedName("channelPartnerMappings")
-  private List<ItemChannelPartnerMapping> channelPartnerMappings = null;
+  @SerializedName("channel_partner_item_mappings")
+  private List<ItemChannelPartnerMapping> channelPartnerItemMappings = null;
 
   @SerializedName("chargeback")
   private ItemChargeback chargeback = null;
@@ -293,30 +293,30 @@ public class Item {
     this.ccbill = ccbill;
   }
 
-  public Item channelPartnerMappings(List<ItemChannelPartnerMapping> channelPartnerMappings) {
-    this.channelPartnerMappings = channelPartnerMappings;
+  public Item channelPartnerItemMappings(List<ItemChannelPartnerMapping> channelPartnerItemMappings) {
+    this.channelPartnerItemMappings = channelPartnerItemMappings;
     return this;
   }
 
-  public Item addChannelPartnerMappingsItem(ItemChannelPartnerMapping channelPartnerMappingsItem) {
-    if (this.channelPartnerMappings == null) {
-      this.channelPartnerMappings = new ArrayList<ItemChannelPartnerMapping>();
+  public Item addChannelPartnerItemMappingsItem(ItemChannelPartnerMapping channelPartnerItemMappingsItem) {
+    if (this.channelPartnerItemMappings == null) {
+      this.channelPartnerItemMappings = new ArrayList<ItemChannelPartnerMapping>();
     }
-    this.channelPartnerMappings.add(channelPartnerMappingsItem);
+    this.channelPartnerItemMappings.add(channelPartnerItemMappingsItem);
     return this;
   }
 
    /**
    * Channel Partner Item Mapping
-   * @return channelPartnerMappings
+   * @return channelPartnerItemMappings
   **/
   @ApiModelProperty(value = "Channel Partner Item Mapping")
-  public List<ItemChannelPartnerMapping> getChannelPartnerMappings() {
-    return channelPartnerMappings;
+  public List<ItemChannelPartnerMapping> getChannelPartnerItemMappings() {
+    return channelPartnerItemMappings;
   }
 
-  public void setChannelPartnerMappings(List<ItemChannelPartnerMapping> channelPartnerMappings) {
-    this.channelPartnerMappings = channelPartnerMappings;
+  public void setChannelPartnerItemMappings(List<ItemChannelPartnerMapping> channelPartnerItemMappings) {
+    this.channelPartnerItemMappings = channelPartnerItemMappings;
   }
 
   public Item chargeback(ItemChargeback chargeback) {
@@ -1183,7 +1183,7 @@ public class Item {
         Objects.equals(this.amember, item.amember) &&
         Objects.equals(this.autoOrder, item.autoOrder) &&
         Objects.equals(this.ccbill, item.ccbill) &&
-        Objects.equals(this.channelPartnerMappings, item.channelPartnerMappings) &&
+        Objects.equals(this.channelPartnerItemMappings, item.channelPartnerItemMappings) &&
         Objects.equals(this.chargeback, item.chargeback) &&
         Objects.equals(this.checkout, item.checkout) &&
         Objects.equals(this.content, item.content) &&
@@ -1233,7 +1233,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitComponentOnly, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, recommendReplenishmentDays, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
+    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerItemMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitComponentOnly, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, recommendReplenishmentDays, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
   }
 
 
@@ -1246,7 +1246,7 @@ public class Item {
     sb.append("    amember: ").append(toIndentedString(amember)).append("\n");
     sb.append("    autoOrder: ").append(toIndentedString(autoOrder)).append("\n");
     sb.append("    ccbill: ").append(toIndentedString(ccbill)).append("\n");
-    sb.append("    channelPartnerMappings: ").append(toIndentedString(channelPartnerMappings)).append("\n");
+    sb.append("    channelPartnerItemMappings: ").append(toIndentedString(channelPartnerItemMappings)).append("\n");
     sb.append("    chargeback: ").append(toIndentedString(chargeback)).append("\n");
     sb.append("    checkout: ").append(toIndentedString(checkout)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");

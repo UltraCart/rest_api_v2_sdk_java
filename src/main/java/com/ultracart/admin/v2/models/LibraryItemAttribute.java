@@ -27,16 +27,37 @@ import java.io.IOException;
 /**
  * LibraryItemAttribute
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T10:15:42.787-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T16:02:35.046-04:00")
 
 
 
 public class LibraryItemAttribute {
+  @SerializedName("libraryItemOid")
+  private Integer libraryItemOid = null;
+
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("value")
   private String value = null;
+
+  public LibraryItemAttribute libraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+    return this;
+  }
+
+   /**
+   * Get libraryItemOid
+   * @return libraryItemOid
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getLibraryItemOid() {
+    return libraryItemOid;
+  }
+
+  public void setLibraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+  }
 
   public LibraryItemAttribute name(String name) {
     this.name = name;
@@ -84,13 +105,14 @@ public class LibraryItemAttribute {
       return false;
     }
     LibraryItemAttribute libraryItemAttribute = (LibraryItemAttribute) o;
-    return Objects.equals(this.name, libraryItemAttribute.name) &&
+    return Objects.equals(this.libraryItemOid, libraryItemAttribute.libraryItemOid) &&
+        Objects.equals(this.name, libraryItemAttribute.name) &&
         Objects.equals(this.value, libraryItemAttribute.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(libraryItemOid, name, value);
   }
 
 
@@ -99,6 +121,7 @@ public class LibraryItemAttribute {
     StringBuilder sb = new StringBuilder();
     sb.append("class LibraryItemAttribute {\n");
     
+    sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
