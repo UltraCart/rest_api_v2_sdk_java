@@ -30,16 +30,37 @@ import java.util.List;
 /**
  * CouponTieredPercentOffShipping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-21T14:23:11.423-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T10:15:42.787-04:00")
 
 
 
 public class CouponTieredPercentOffShipping {
+  @SerializedName("quickbooks_code")
+  private String quickbooksCode = null;
+
   @SerializedName("shipping_methods")
   private List<String> shippingMethods = null;
 
   @SerializedName("tiers")
   private List<CouponTierPercent> tiers = null;
+
+  public CouponTieredPercentOffShipping quickbooksCode(String quickbooksCode) {
+    this.quickbooksCode = quickbooksCode;
+    return this;
+  }
+
+   /**
+   * Quickbooks accounting code.
+   * @return quickbooksCode
+  **/
+  @ApiModelProperty(value = "Quickbooks accounting code.")
+  public String getQuickbooksCode() {
+    return quickbooksCode;
+  }
+
+  public void setQuickbooksCode(String quickbooksCode) {
+    this.quickbooksCode = quickbooksCode;
+  }
 
   public CouponTieredPercentOffShipping shippingMethods(List<String> shippingMethods) {
     this.shippingMethods = shippingMethods;
@@ -103,13 +124,14 @@ public class CouponTieredPercentOffShipping {
       return false;
     }
     CouponTieredPercentOffShipping couponTieredPercentOffShipping = (CouponTieredPercentOffShipping) o;
-    return Objects.equals(this.shippingMethods, couponTieredPercentOffShipping.shippingMethods) &&
+    return Objects.equals(this.quickbooksCode, couponTieredPercentOffShipping.quickbooksCode) &&
+        Objects.equals(this.shippingMethods, couponTieredPercentOffShipping.shippingMethods) &&
         Objects.equals(this.tiers, couponTieredPercentOffShipping.tiers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shippingMethods, tiers);
+    return Objects.hash(quickbooksCode, shippingMethods, tiers);
   }
 
 
@@ -118,6 +140,7 @@ public class CouponTieredPercentOffShipping {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponTieredPercentOffShipping {\n");
     
+    sb.append("    quickbooksCode: ").append(toIndentedString(quickbooksCode)).append("\n");
     sb.append("    shippingMethods: ").append(toIndentedString(shippingMethods)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
     sb.append("}");

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * WebhookLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-21T14:23:11.423-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T10:15:42.787-04:00")
 
 
 
@@ -40,6 +40,9 @@ public class WebhookLog {
 
   @SerializedName("duration")
   private Integer duration = null;
+
+  @SerializedName("queue_delay")
+  private Long queueDelay = null;
 
   @SerializedName("request")
   private String request = null;
@@ -99,6 +102,24 @@ public class WebhookLog {
 
   public void setDuration(Integer duration) {
     this.duration = duration;
+  }
+
+  public WebhookLog queueDelay(Long queueDelay) {
+    this.queueDelay = queueDelay;
+    return this;
+  }
+
+   /**
+   * Number of milliseconds of delay caused by queuing
+   * @return queueDelay
+  **/
+  @ApiModelProperty(value = "Number of milliseconds of delay caused by queuing")
+  public Long getQueueDelay() {
+    return queueDelay;
+  }
+
+  public void setQueueDelay(Long queueDelay) {
+    this.queueDelay = queueDelay;
   }
 
   public WebhookLog request(String request) {
@@ -273,6 +294,7 @@ public class WebhookLog {
     WebhookLog webhookLog = (WebhookLog) o;
     return Objects.equals(this.deliveryDts, webhookLog.deliveryDts) &&
         Objects.equals(this.duration, webhookLog.duration) &&
+        Objects.equals(this.queueDelay, webhookLog.queueDelay) &&
         Objects.equals(this.request, webhookLog.request) &&
         Objects.equals(this.requestHeaders, webhookLog.requestHeaders) &&
         Objects.equals(this.requestId, webhookLog.requestId) &&
@@ -285,7 +307,7 @@ public class WebhookLog {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryDts, duration, request, requestHeaders, requestId, response, responseHeaders, statusCode, success, uri);
+    return Objects.hash(deliveryDts, duration, queueDelay, request, requestHeaders, requestId, response, responseHeaders, statusCode, success, uri);
   }
 
 
@@ -296,6 +318,7 @@ public class WebhookLog {
     
     sb.append("    deliveryDts: ").append(toIndentedString(deliveryDts)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    queueDelay: ").append(toIndentedString(queueDelay)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("    requestHeaders: ").append(toIndentedString(requestHeaders)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

@@ -28,13 +28,16 @@ import java.math.BigDecimal;
 /**
  * CouponTierPercent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-21T14:23:11.423-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T10:15:42.787-04:00")
 
 
 
 public class CouponTierPercent {
   @SerializedName("discount_percent")
   private BigDecimal discountPercent = null;
+
+  @SerializedName("quickbooks_code")
+  private String quickbooksCode = null;
 
   @SerializedName("subtotal_amount")
   private BigDecimal subtotalAmount = null;
@@ -55,6 +58,24 @@ public class CouponTierPercent {
 
   public void setDiscountPercent(BigDecimal discountPercent) {
     this.discountPercent = discountPercent;
+  }
+
+  public CouponTierPercent quickbooksCode(String quickbooksCode) {
+    this.quickbooksCode = quickbooksCode;
+    return this;
+  }
+
+   /**
+   * Quickbooks accounting code.
+   * @return quickbooksCode
+  **/
+  @ApiModelProperty(value = "Quickbooks accounting code.")
+  public String getQuickbooksCode() {
+    return quickbooksCode;
+  }
+
+  public void setQuickbooksCode(String quickbooksCode) {
+    this.quickbooksCode = quickbooksCode;
   }
 
   public CouponTierPercent subtotalAmount(BigDecimal subtotalAmount) {
@@ -86,12 +107,13 @@ public class CouponTierPercent {
     }
     CouponTierPercent couponTierPercent = (CouponTierPercent) o;
     return Objects.equals(this.discountPercent, couponTierPercent.discountPercent) &&
+        Objects.equals(this.quickbooksCode, couponTierPercent.quickbooksCode) &&
         Objects.equals(this.subtotalAmount, couponTierPercent.subtotalAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, subtotalAmount);
+    return Objects.hash(discountPercent, quickbooksCode, subtotalAmount);
   }
 
 
@@ -101,6 +123,7 @@ public class CouponTierPercent {
     sb.append("class CouponTierPercent {\n");
     
     sb.append("    discountPercent: ").append(toIndentedString(discountPercent)).append("\n");
+    sb.append("    quickbooksCode: ").append(toIndentedString(quickbooksCode)).append("\n");
     sb.append("    subtotalAmount: ").append(toIndentedString(subtotalAmount)).append("\n");
     sb.append("}");
     return sb.toString();

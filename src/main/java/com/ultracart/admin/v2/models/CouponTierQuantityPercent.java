@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * CouponTierQuantityPercent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-21T14:23:11.423-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T10:15:42.787-04:00")
 
 
 
@@ -38,6 +38,9 @@ public class CouponTierQuantityPercent {
 
   @SerializedName("item_quantity")
   private Integer itemQuantity = null;
+
+  @SerializedName("quickbooks_code")
+  private String quickbooksCode = null;
 
   public CouponTierQuantityPercent discountPercent(BigDecimal discountPercent) {
     this.discountPercent = discountPercent;
@@ -75,6 +78,24 @@ public class CouponTierQuantityPercent {
     this.itemQuantity = itemQuantity;
   }
 
+  public CouponTierQuantityPercent quickbooksCode(String quickbooksCode) {
+    this.quickbooksCode = quickbooksCode;
+    return this;
+  }
+
+   /**
+   * Quickbooks accounting code.
+   * @return quickbooksCode
+  **/
+  @ApiModelProperty(value = "Quickbooks accounting code.")
+  public String getQuickbooksCode() {
+    return quickbooksCode;
+  }
+
+  public void setQuickbooksCode(String quickbooksCode) {
+    this.quickbooksCode = quickbooksCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -86,12 +107,13 @@ public class CouponTierQuantityPercent {
     }
     CouponTierQuantityPercent couponTierQuantityPercent = (CouponTierQuantityPercent) o;
     return Objects.equals(this.discountPercent, couponTierQuantityPercent.discountPercent) &&
-        Objects.equals(this.itemQuantity, couponTierQuantityPercent.itemQuantity);
+        Objects.equals(this.itemQuantity, couponTierQuantityPercent.itemQuantity) &&
+        Objects.equals(this.quickbooksCode, couponTierQuantityPercent.quickbooksCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, itemQuantity);
+    return Objects.hash(discountPercent, itemQuantity, quickbooksCode);
   }
 
 
@@ -102,6 +124,7 @@ public class CouponTierQuantityPercent {
     
     sb.append("    discountPercent: ").append(toIndentedString(discountPercent)).append("\n");
     sb.append("    itemQuantity: ").append(toIndentedString(itemQuantity)).append("\n");
+    sb.append("    quickbooksCode: ").append(toIndentedString(quickbooksCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
