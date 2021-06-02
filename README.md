@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-06-01T16:02:35.046-04:00
+  - Build date: 2021-06-02T13:35:48.807-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.43</version>
+  <version>3.1.44</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.43"
+compile "com.ultracart:rest-sdk:3.1.44"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.43.jar`
+* `target/rest-sdk-3.1.44.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1054,6 +1054,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.44 | 06/02/2021 | new boolean flag on items object to allow sharing of reviews between items   | 
 | 3.1.43 | 06/01/2021 | one of us cannot spell, not saying who  | 
 | 3.1.42 | 06/01/2021 | added quickbooks accounting codes at the tiered level for tiered coupons  | 
 | 3.1.41 | 05/21/2021 | screen recording heatmap methods | 

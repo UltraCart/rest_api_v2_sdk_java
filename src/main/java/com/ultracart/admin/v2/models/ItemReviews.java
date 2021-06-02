@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemReviews
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-01T16:02:35.046-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-02T13:35:48.807-04:00")
 
 
 
@@ -53,6 +53,12 @@ public class ItemReviews {
 
   @SerializedName("reviewable")
   private Boolean reviewable = null;
+
+  @SerializedName("share_reviews_with_merchant_item_id")
+  private String shareReviewsWithMerchantItemId = null;
+
+  @SerializedName("share_reviews_with_merchant_item_oid")
+  private Integer shareReviewsWithMerchantItemOid = null;
 
   public ItemReviews hasApprovedReview(Boolean hasApprovedReview) {
     this.hasApprovedReview = hasApprovedReview;
@@ -180,6 +186,42 @@ public class ItemReviews {
     this.reviewable = reviewable;
   }
 
+  public ItemReviews shareReviewsWithMerchantItemId(String shareReviewsWithMerchantItemId) {
+    this.shareReviewsWithMerchantItemId = shareReviewsWithMerchantItemId;
+    return this;
+  }
+
+   /**
+   * Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field.
+   * @return shareReviewsWithMerchantItemId
+  **/
+  @ApiModelProperty(value = "Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field.")
+  public String getShareReviewsWithMerchantItemId() {
+    return shareReviewsWithMerchantItemId;
+  }
+
+  public void setShareReviewsWithMerchantItemId(String shareReviewsWithMerchantItemId) {
+    this.shareReviewsWithMerchantItemId = shareReviewsWithMerchantItemId;
+  }
+
+  public ItemReviews shareReviewsWithMerchantItemOid(Integer shareReviewsWithMerchantItemOid) {
+    this.shareReviewsWithMerchantItemOid = shareReviewsWithMerchantItemOid;
+    return this;
+  }
+
+   /**
+   * Share reviews with item oid.  To null out this field, set teh value to zero.
+   * @return shareReviewsWithMerchantItemOid
+  **/
+  @ApiModelProperty(value = "Share reviews with item oid.  To null out this field, set teh value to zero.")
+  public Integer getShareReviewsWithMerchantItemOid() {
+    return shareReviewsWithMerchantItemOid;
+  }
+
+  public void setShareReviewsWithMerchantItemOid(Integer shareReviewsWithMerchantItemOid) {
+    this.shareReviewsWithMerchantItemOid = shareReviewsWithMerchantItemOid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -196,12 +238,14 @@ public class ItemReviews {
         Objects.equals(this.reviewOverall, itemReviews.reviewOverall) &&
         Objects.equals(this.reviewTemplateName, itemReviews.reviewTemplateName) &&
         Objects.equals(this.reviewTemplateOid, itemReviews.reviewTemplateOid) &&
-        Objects.equals(this.reviewable, itemReviews.reviewable);
+        Objects.equals(this.reviewable, itemReviews.reviewable) &&
+        Objects.equals(this.shareReviewsWithMerchantItemId, itemReviews.shareReviewsWithMerchantItemId) &&
+        Objects.equals(this.shareReviewsWithMerchantItemOid, itemReviews.shareReviewsWithMerchantItemOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hasApprovedReview, hasReview, reviewCount, reviewOverall, reviewTemplateName, reviewTemplateOid, reviewable);
+    return Objects.hash(hasApprovedReview, hasReview, reviewCount, reviewOverall, reviewTemplateName, reviewTemplateOid, reviewable, shareReviewsWithMerchantItemId, shareReviewsWithMerchantItemOid);
   }
 
 
@@ -217,6 +261,8 @@ public class ItemReviews {
     sb.append("    reviewTemplateName: ").append(toIndentedString(reviewTemplateName)).append("\n");
     sb.append("    reviewTemplateOid: ").append(toIndentedString(reviewTemplateOid)).append("\n");
     sb.append("    reviewable: ").append(toIndentedString(reviewable)).append("\n");
+    sb.append("    shareReviewsWithMerchantItemId: ").append(toIndentedString(shareReviewsWithMerchantItemId)).append("\n");
+    sb.append("    shareReviewsWithMerchantItemOid: ").append(toIndentedString(shareReviewsWithMerchantItemOid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
