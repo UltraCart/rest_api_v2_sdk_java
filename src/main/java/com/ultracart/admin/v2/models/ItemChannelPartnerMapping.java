@@ -23,11 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * ItemChannelPartnerMapping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-03T16:05:29.941-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-14T09:33:20.354-04:00")
 
 
 
@@ -58,6 +59,9 @@ public class ItemChannelPartnerMapping {
 
   @SerializedName("channel_partner_oid")
   private Integer channelPartnerOid = null;
+
+  @SerializedName("cost")
+  private BigDecimal cost = null;
 
   @SerializedName("from_item_id")
   private String fromItemId = null;
@@ -248,6 +252,24 @@ public class ItemChannelPartnerMapping {
     this.channelPartnerOid = channelPartnerOid;
   }
 
+  public ItemChannelPartnerMapping cost(BigDecimal cost) {
+    this.cost = cost;
+    return this;
+  }
+
+   /**
+   * Cost given to this channel partner
+   * @return cost
+  **/
+  @ApiModelProperty(value = "Cost given to this channel partner")
+  public BigDecimal getCost() {
+    return cost;
+  }
+
+  public void setCost(BigDecimal cost) {
+    this.cost = cost;
+  }
+
   public ItemChannelPartnerMapping fromItemId(String fromItemId) {
     this.fromItemId = fromItemId;
     return this;
@@ -429,6 +451,7 @@ public class ItemChannelPartnerMapping {
         Objects.equals(this.buyerItemNumber, itemChannelPartnerMapping.buyerItemNumber) &&
         Objects.equals(this.channelPartnerCode, itemChannelPartnerMapping.channelPartnerCode) &&
         Objects.equals(this.channelPartnerOid, itemChannelPartnerMapping.channelPartnerOid) &&
+        Objects.equals(this.cost, itemChannelPartnerMapping.cost) &&
         Objects.equals(this.fromItemId, itemChannelPartnerMapping.fromItemId) &&
         Objects.equals(this.fromSku, itemChannelPartnerMapping.fromSku) &&
         Objects.equals(this.mutuallyDefinedNumber, itemChannelPartnerMapping.mutuallyDefinedNumber) &&
@@ -442,7 +465,7 @@ public class ItemChannelPartnerMapping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcodeUa, barcodeUc, barcodeUi, barcodeUk, buyerCatalogNumber, buyerDpci, buyerItemNumber, channelPartnerCode, channelPartnerOid, fromItemId, fromSku, mutuallyDefinedNumber, quantityRatioCp, quantityRatioUc, sku, unitOfMeasure, vendorNumber, vendorStyleNumber);
+    return Objects.hash(barcodeUa, barcodeUc, barcodeUi, barcodeUk, buyerCatalogNumber, buyerDpci, buyerItemNumber, channelPartnerCode, channelPartnerOid, cost, fromItemId, fromSku, mutuallyDefinedNumber, quantityRatioCp, quantityRatioUc, sku, unitOfMeasure, vendorNumber, vendorStyleNumber);
   }
 
 
@@ -460,6 +483,7 @@ public class ItemChannelPartnerMapping {
     sb.append("    buyerItemNumber: ").append(toIndentedString(buyerItemNumber)).append("\n");
     sb.append("    channelPartnerCode: ").append(toIndentedString(channelPartnerCode)).append("\n");
     sb.append("    channelPartnerOid: ").append(toIndentedString(channelPartnerOid)).append("\n");
+    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
     sb.append("    fromItemId: ").append(toIndentedString(fromItemId)).append("\n");
     sb.append("    fromSku: ").append(toIndentedString(fromSku)).append("\n");
     sb.append("    mutuallyDefinedNumber: ").append(toIndentedString(mutuallyDefinedNumber)).append("\n");

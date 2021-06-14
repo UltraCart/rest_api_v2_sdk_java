@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ScreenRecordingHeatmapUrl
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-03T16:05:29.941-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-14T09:33:20.354-04:00")
 
 
 
@@ -42,6 +42,9 @@ public class ScreenRecordingHeatmapUrl {
 
   @SerializedName("histogram_start_dts")
   private String histogramStartDts = null;
+
+  @SerializedName("page_rank")
+  private Integer pageRank = null;
 
   @SerializedName("session_count")
   private Integer sessionCount = null;
@@ -111,6 +114,24 @@ public class ScreenRecordingHeatmapUrl {
     this.histogramStartDts = histogramStartDts;
   }
 
+  public ScreenRecordingHeatmapUrl pageRank(Integer pageRank) {
+    this.pageRank = pageRank;
+    return this;
+  }
+
+   /**
+   * Get pageRank
+   * @return pageRank
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getPageRank() {
+    return pageRank;
+  }
+
+  public void setPageRank(Integer pageRank) {
+    this.pageRank = pageRank;
+  }
+
   public ScreenRecordingHeatmapUrl sessionCount(Integer sessionCount) {
     this.sessionCount = sessionCount;
     return this;
@@ -160,13 +181,14 @@ public class ScreenRecordingHeatmapUrl {
     return Objects.equals(this.histogramData, screenRecordingHeatmapUrl.histogramData) &&
         Objects.equals(this.histogramInterval, screenRecordingHeatmapUrl.histogramInterval) &&
         Objects.equals(this.histogramStartDts, screenRecordingHeatmapUrl.histogramStartDts) &&
+        Objects.equals(this.pageRank, screenRecordingHeatmapUrl.pageRank) &&
         Objects.equals(this.sessionCount, screenRecordingHeatmapUrl.sessionCount) &&
         Objects.equals(this.url, screenRecordingHeatmapUrl.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(histogramData, histogramInterval, histogramStartDts, sessionCount, url);
+    return Objects.hash(histogramData, histogramInterval, histogramStartDts, pageRank, sessionCount, url);
   }
 
 
@@ -178,6 +200,7 @@ public class ScreenRecordingHeatmapUrl {
     sb.append("    histogramData: ").append(toIndentedString(histogramData)).append("\n");
     sb.append("    histogramInterval: ").append(toIndentedString(histogramInterval)).append("\n");
     sb.append("    histogramStartDts: ").append(toIndentedString(histogramStartDts)).append("\n");
+    sb.append("    pageRank: ").append(toIndentedString(pageRank)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

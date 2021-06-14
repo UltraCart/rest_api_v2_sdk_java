@@ -4042,7 +4042,7 @@ Name | Type | Description  | Notes
 
 <a name="getHeatmapIndex"></a>
 # **getHeatmapIndex**
-> ScreenRecordingHeatmapIndexResponse getHeatmapIndex(storefrontOid)
+> ScreenRecordingHeatmapIndexResponse getHeatmapIndex(storefrontOid, query, limit, offset, sort)
 
 Get screen recording heatmap index
 
@@ -4062,8 +4062,12 @@ final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12
 StorefrontApi apiInstance = new StorefrontApi(apiKey);
 
 Integer storefrontOid = 56; // Integer | 
+ScreenRecordingHeatmapIndexRequest query = new ScreenRecordingHeatmapIndexRequest(); // ScreenRecordingHeatmapIndexRequest | Query
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 500)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 try {
-    ScreenRecordingHeatmapIndexResponse result = apiInstance.getHeatmapIndex(storefrontOid);
+    ScreenRecordingHeatmapIndexResponse result = apiInstance.getHeatmapIndex(storefrontOid, query, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorefrontApi#getHeatmapIndex");
@@ -4076,6 +4080,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefrontOid** | **Integer**|  |
+ **query** | [**ScreenRecordingHeatmapIndexRequest**](ScreenRecordingHeatmapIndexRequest.md)| Query |
+ **limit** | **Integer**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] [default to 100]
+ **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **String**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
 
 ### Return type
 

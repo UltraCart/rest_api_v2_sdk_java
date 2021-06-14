@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Error
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-03T16:05:29.941-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-14T09:33:20.354-04:00")
 
 
 
@@ -40,6 +40,9 @@ public class Error {
 
   @SerializedName("more_info")
   private String moreInfo = null;
+
+  @SerializedName("object_id")
+  private String objectId = null;
 
   @SerializedName("user_message")
   private String userMessage = null;
@@ -98,6 +101,24 @@ public class Error {
     this.moreInfo = moreInfo;
   }
 
+  public Error objectId(String objectId) {
+    this.objectId = objectId;
+    return this;
+  }
+
+   /**
+   * Object id that the error is associated with
+   * @return objectId
+  **/
+  @ApiModelProperty(value = "Object id that the error is associated with")
+  public String getObjectId() {
+    return objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
   public Error userMessage(String userMessage) {
     this.userMessage = userMessage;
     return this;
@@ -129,12 +150,13 @@ public class Error {
     return Objects.equals(this.developerMessage, error.developerMessage) &&
         Objects.equals(this.errorCode, error.errorCode) &&
         Objects.equals(this.moreInfo, error.moreInfo) &&
+        Objects.equals(this.objectId, error.objectId) &&
         Objects.equals(this.userMessage, error.userMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(developerMessage, errorCode, moreInfo, userMessage);
+    return Objects.hash(developerMessage, errorCode, moreInfo, objectId, userMessage);
   }
 
 
@@ -146,6 +168,7 @@ public class Error {
     sb.append("    developerMessage: ").append(toIndentedString(developerMessage)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    moreInfo: ").append(toIndentedString(moreInfo)).append("\n");
+    sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
     sb.append("    userMessage: ").append(toIndentedString(userMessage)).append("\n");
     sb.append("}");
     return sb.toString();

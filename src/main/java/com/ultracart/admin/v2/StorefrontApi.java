@@ -123,6 +123,7 @@ import com.ultracart.admin.v2.models.LookupRequest;
 import com.ultracart.admin.v2.models.LookupResponse;
 import com.ultracart.admin.v2.models.PricingTiersResponse;
 import com.ultracart.admin.v2.models.PublishLibraryItemRequest;
+import com.ultracart.admin.v2.models.ScreenRecordingHeatmapIndexRequest;
 import com.ultracart.admin.v2.models.ScreenRecordingHeatmapIndexResponse;
 import com.ultracart.admin.v2.models.ScreenRecordingHeatmapRequest;
 import com.ultracart.admin.v2.models.ScreenRecordingHeatmapReset;
@@ -10417,13 +10418,17 @@ public class StorefrontApi {
     /**
      * Build call for getHeatmapIndex
      * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getHeatmapIndexCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call getHeatmapIndexCall(Integer storefrontOid, ScreenRecordingHeatmapIndexRequest query, Integer limit, Integer offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = query;
 
         // create path and map variables
         String localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap/index"
@@ -10431,6 +10436,12 @@ public class StorefrontApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10465,15 +10476,20 @@ public class StorefrontApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getHeatmapIndexValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHeatmapIndexValidateBeforeCall(Integer storefrontOid, ScreenRecordingHeatmapIndexRequest query, Integer limit, Integer offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getHeatmapIndex(Async)");
         }
         
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling getHeatmapIndex(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = getHeatmapIndexCall(storefrontOid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getHeatmapIndexCall(storefrontOid, query, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -10482,11 +10498,15 @@ public class StorefrontApi {
      * Get screen recording heatmap index
      * Get screen recording heatmap index 
      * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @return ScreenRecordingHeatmapIndexResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ScreenRecordingHeatmapIndexResponse getHeatmapIndex(Integer storefrontOid) throws ApiException {
-        ApiResponse<ScreenRecordingHeatmapIndexResponse> resp = getHeatmapIndexWithHttpInfo(storefrontOid);
+    public ScreenRecordingHeatmapIndexResponse getHeatmapIndex(Integer storefrontOid, ScreenRecordingHeatmapIndexRequest query, Integer limit, Integer offset, String sort) throws ApiException {
+        ApiResponse<ScreenRecordingHeatmapIndexResponse> resp = getHeatmapIndexWithHttpInfo(storefrontOid, query, limit, offset, sort);
         return resp.getData();
     }
 
@@ -10494,11 +10514,15 @@ public class StorefrontApi {
      * Get screen recording heatmap index
      * Get screen recording heatmap index 
      * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @return ApiResponse&lt;ScreenRecordingHeatmapIndexResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ScreenRecordingHeatmapIndexResponse> getHeatmapIndexWithHttpInfo(Integer storefrontOid) throws ApiException {
-        com.squareup.okhttp.Call call = getHeatmapIndexValidateBeforeCall(storefrontOid, null, null);
+    public ApiResponse<ScreenRecordingHeatmapIndexResponse> getHeatmapIndexWithHttpInfo(Integer storefrontOid, ScreenRecordingHeatmapIndexRequest query, Integer limit, Integer offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getHeatmapIndexValidateBeforeCall(storefrontOid, query, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<ScreenRecordingHeatmapIndexResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -10507,11 +10531,15 @@ public class StorefrontApi {
      * Get screen recording heatmap index (asynchronously)
      * Get screen recording heatmap index 
      * @param storefrontOid  (required)
+     * @param query Query (required)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getHeatmapIndexAsync(Integer storefrontOid, final ApiCallback<ScreenRecordingHeatmapIndexResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getHeatmapIndexAsync(Integer storefrontOid, ScreenRecordingHeatmapIndexRequest query, Integer limit, Integer offset, String sort, final ApiCallback<ScreenRecordingHeatmapIndexResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10532,7 +10560,7 @@ public class StorefrontApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getHeatmapIndexValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getHeatmapIndexValidateBeforeCall(storefrontOid, query, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ScreenRecordingHeatmapIndexResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
