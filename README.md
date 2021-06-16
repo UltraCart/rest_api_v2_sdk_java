@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-06-16T12:57:58.126-04:00
+  - Build date: 2021-06-16T13:33:46.198-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.47</version>
+  <version>3.1.48</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.47"
+compile "com.ultracart:rest-sdk:3.1.48"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.47.jar`
+* `target/rest-sdk-3.1.48.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -183,6 +183,8 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**getDistributionCenters**](docs/FulfillmentApi.md#getDistributionCenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
 *FulfillmentApi* | [**shipOrders**](docs/FulfillmentApi.md#shipOrders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
 *FulfillmentApi* | [**updateInventory**](docs/FulfillmentApi.md#updateInventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
+*IntegrationLogApi* | [**getIntegrationLog**](docs/IntegrationLogApi.md#getIntegrationLog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
+*IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteItem**](docs/ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**getItem**](docs/ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
@@ -720,6 +722,12 @@ Class | Method | HTTP request | Description
  - [GroupUserMembership](docs/GroupUserMembership.md)
  - [GroupsResponse](docs/GroupsResponse.md)
  - [HTTPHeader](docs/HTTPHeader.md)
+ - [IntegrationLog](docs/IntegrationLog.md)
+ - [IntegrationLogFile](docs/IntegrationLogFile.md)
+ - [IntegrationLogLog](docs/IntegrationLogLog.md)
+ - [IntegrationLogQueryFilterValues](docs/IntegrationLogQueryFilterValues.md)
+ - [IntegrationLogQueryRequest](docs/IntegrationLogQueryRequest.md)
+ - [IntegrationLogQueryResponse](docs/IntegrationLogQueryResponse.md)
  - [Item](docs/Item.md)
  - [ItemAccounting](docs/ItemAccounting.md)
  - [ItemAmember](docs/ItemAmember.md)
