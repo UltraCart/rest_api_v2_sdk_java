@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getIntegrationLog"></a>
 # **getIntegrationLog**
-> IntegrationLog getIntegrationLog(pk, sk)
+> IntegrationLogResponse getIntegrationLog(pk, sk)
 
 Retrieve an integration log
 
@@ -32,7 +32,7 @@ IntegrationLogApi apiInstance = new IntegrationLogApi(apiKey);
 String pk = "pk_example"; // String | 
 String sk = "sk_example"; // String | 
 try {
-    IntegrationLog result = apiInstance.getIntegrationLog(pk, sk);
+    IntegrationLogResponse result = apiInstance.getIntegrationLog(pk, sk);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IntegrationLogApi#getIntegrationLog");
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IntegrationLog**](IntegrationLog.md)
+[**IntegrationLogResponse**](IntegrationLogResponse.md)
 
 ### Authorization
 

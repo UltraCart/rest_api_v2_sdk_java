@@ -30,7 +30,7 @@ import java.io.IOException;
 /**
  * ScreenRecordingPageViewDataResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-16T13:33:46.198-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-17T16:12:48.896-04:00")
 
 
 

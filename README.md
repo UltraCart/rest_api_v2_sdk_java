@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-06-16T13:33:46.198-04:00
+  - Build date: 2021-06-17T16:12:48.896-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.1.48</version>
+  <version>3.1.49</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.1.48"
+compile "com.ultracart:rest-sdk:3.1.49"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.1.48.jar`
+* `target/rest-sdk-3.1.49.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -728,6 +728,7 @@ Class | Method | HTTP request | Description
  - [IntegrationLogQueryFilterValues](docs/IntegrationLogQueryFilterValues.md)
  - [IntegrationLogQueryRequest](docs/IntegrationLogQueryRequest.md)
  - [IntegrationLogQueryResponse](docs/IntegrationLogQueryResponse.md)
+ - [IntegrationLogResponse](docs/IntegrationLogResponse.md)
  - [Item](docs/Item.md)
  - [ItemAccounting](docs/ItemAccounting.md)
  - [ItemAmember](docs/ItemAmember.md)
@@ -1063,6 +1064,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.49 | 06/17/2021 | Integrated Logging: standardize the response object from getIntegrationLog method  | 
 | 3.1.47 | 06/16/2021 | Integrated Logging Rest API  | 
 | 3.1.46 | 06/14/2021 | Screen recording: server side paginated heat map index with url contains filters, Item: channel partner item mapping unit cost override  | 
 | 3.1.44 | 06/02/2021 | new boolean flag on items object to allow sharing of reviews between items   | 

@@ -24,17 +24,22 @@ import com.ultracart.admin.v2.models.ScreenRecordingFilterRangeDate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ScreenRecordingHeatmapRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-16T13:33:46.198-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-17T16:12:48.896-04:00")
 
 
 
 public class ScreenRecordingHeatmapRequest {
   @SerializedName("range")
   private ScreenRecordingFilterRangeDate range = null;
+
+  @SerializedName("screen_sizes")
+  private List<String> screenSizes = null;
 
   @SerializedName("url")
   private String url = null;
@@ -55,6 +60,32 @@ public class ScreenRecordingHeatmapRequest {
 
   public void setRange(ScreenRecordingFilterRangeDate range) {
     this.range = range;
+  }
+
+  public ScreenRecordingHeatmapRequest screenSizes(List<String> screenSizes) {
+    this.screenSizes = screenSizes;
+    return this;
+  }
+
+  public ScreenRecordingHeatmapRequest addScreenSizesItem(String screenSizesItem) {
+    if (this.screenSizes == null) {
+      this.screenSizes = new ArrayList<String>();
+    }
+    this.screenSizes.add(screenSizesItem);
+    return this;
+  }
+
+   /**
+   * Get screenSizes
+   * @return screenSizes
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getScreenSizes() {
+    return screenSizes;
+  }
+
+  public void setScreenSizes(List<String> screenSizes) {
+    this.screenSizes = screenSizes;
   }
 
   public ScreenRecordingHeatmapRequest url(String url) {
@@ -86,12 +117,13 @@ public class ScreenRecordingHeatmapRequest {
     }
     ScreenRecordingHeatmapRequest screenRecordingHeatmapRequest = (ScreenRecordingHeatmapRequest) o;
     return Objects.equals(this.range, screenRecordingHeatmapRequest.range) &&
+        Objects.equals(this.screenSizes, screenRecordingHeatmapRequest.screenSizes) &&
         Objects.equals(this.url, screenRecordingHeatmapRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(range, url);
+    return Objects.hash(range, screenSizes, url);
   }
 
 
@@ -101,6 +133,7 @@ public class ScreenRecordingHeatmapRequest {
     sb.append("class ScreenRecordingHeatmapRequest {\n");
     
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
+    sb.append("    screenSizes: ").append(toIndentedString(screenSizes)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

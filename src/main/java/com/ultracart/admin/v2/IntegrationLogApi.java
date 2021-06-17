@@ -28,9 +28,9 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.IntegrationLog;
 import com.ultracart.admin.v2.models.IntegrationLogQueryRequest;
 import com.ultracart.admin.v2.models.IntegrationLogQueryResponse;
+import com.ultracart.admin.v2.models.IntegrationLogResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -158,11 +158,11 @@ public class IntegrationLogApi {
      * Retrieve an integration logs from the account based identifiers 
      * @param pk  (required)
      * @param sk  (required)
-     * @return IntegrationLog
+     * @return IntegrationLogResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public IntegrationLog getIntegrationLog(String pk, String sk) throws ApiException {
-        ApiResponse<IntegrationLog> resp = getIntegrationLogWithHttpInfo(pk, sk);
+    public IntegrationLogResponse getIntegrationLog(String pk, String sk) throws ApiException {
+        ApiResponse<IntegrationLogResponse> resp = getIntegrationLogWithHttpInfo(pk, sk);
         return resp.getData();
     }
 
@@ -171,12 +171,12 @@ public class IntegrationLogApi {
      * Retrieve an integration logs from the account based identifiers 
      * @param pk  (required)
      * @param sk  (required)
-     * @return ApiResponse&lt;IntegrationLog&gt;
+     * @return ApiResponse&lt;IntegrationLogResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<IntegrationLog> getIntegrationLogWithHttpInfo(String pk, String sk) throws ApiException {
+    public ApiResponse<IntegrationLogResponse> getIntegrationLogWithHttpInfo(String pk, String sk) throws ApiException {
         com.squareup.okhttp.Call call = getIntegrationLogValidateBeforeCall(pk, sk, null, null);
-        Type localVarReturnType = new TypeToken<IntegrationLog>(){}.getType();
+        Type localVarReturnType = new TypeToken<IntegrationLogResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -189,7 +189,7 @@ public class IntegrationLogApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getIntegrationLogAsync(String pk, String sk, final ApiCallback<IntegrationLog> callback) throws ApiException {
+    public com.squareup.okhttp.Call getIntegrationLogAsync(String pk, String sk, final ApiCallback<IntegrationLogResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -211,7 +211,7 @@ public class IntegrationLogApi {
         }
 
         com.squareup.okhttp.Call call = getIntegrationLogValidateBeforeCall(pk, sk, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<IntegrationLog>(){}.getType();
+        Type localVarReturnType = new TypeToken<IntegrationLogResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

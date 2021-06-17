@@ -27,46 +27,100 @@ import java.io.IOException;
 /**
  * ScreenRecordingHeatmap
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-16T13:33:46.198-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-17T16:12:48.896-04:00")
 
 
 
 public class ScreenRecordingHeatmap {
+  @SerializedName("large_click_thumbnail_url")
+  private String largeClickThumbnailUrl = null;
+
   @SerializedName("large_click_url")
   private String largeClickUrl = null;
+
+  @SerializedName("large_movement_thumbnail_url")
+  private String largeMovementThumbnailUrl = null;
 
   @SerializedName("large_movement_url")
   private String largeMovementUrl = null;
 
+  @SerializedName("large_regular_thumbnail_url")
+  private String largeRegularThumbnailUrl = null;
+
   @SerializedName("large_regular_url")
   private String largeRegularUrl = null;
+
+  @SerializedName("large_scroll_thumbnail_url")
+  private String largeScrollThumbnailUrl = null;
 
   @SerializedName("large_scroll_url")
   private String largeScrollUrl = null;
 
+  @SerializedName("medium_click_thumbnail_url")
+  private String mediumClickThumbnailUrl = null;
+
   @SerializedName("medium_click_url")
   private String mediumClickUrl = null;
+
+  @SerializedName("medium_movement_thumbnail_url")
+  private String mediumMovementThumbnailUrl = null;
 
   @SerializedName("medium_movement_url")
   private String mediumMovementUrl = null;
 
+  @SerializedName("medium_regular_thumbnail_url")
+  private String mediumRegularThumbnailUrl = null;
+
   @SerializedName("medium_regular_url")
   private String mediumRegularUrl = null;
+
+  @SerializedName("medium_scroll_thumbnail_url")
+  private String mediumScrollThumbnailUrl = null;
 
   @SerializedName("medium_scroll_url")
   private String mediumScrollUrl = null;
 
+  @SerializedName("small_click_thumbnail_url")
+  private String smallClickThumbnailUrl = null;
+
   @SerializedName("small_click_url")
   private String smallClickUrl = null;
+
+  @SerializedName("small_movement_thumbnail_url")
+  private String smallMovementThumbnailUrl = null;
 
   @SerializedName("small_movement_url")
   private String smallMovementUrl = null;
 
+  @SerializedName("small_regular_thumbnail_url")
+  private String smallRegularThumbnailUrl = null;
+
   @SerializedName("small_regular_url")
   private String smallRegularUrl = null;
 
+  @SerializedName("small_scroll_thumbnail_url")
+  private String smallScrollThumbnailUrl = null;
+
   @SerializedName("small_scroll_url")
   private String smallScrollUrl = null;
+
+  public ScreenRecordingHeatmap largeClickThumbnailUrl(String largeClickThumbnailUrl) {
+    this.largeClickThumbnailUrl = largeClickThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get largeClickThumbnailUrl
+   * @return largeClickThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getLargeClickThumbnailUrl() {
+    return largeClickThumbnailUrl;
+  }
+
+  public void setLargeClickThumbnailUrl(String largeClickThumbnailUrl) {
+    this.largeClickThumbnailUrl = largeClickThumbnailUrl;
+  }
 
   public ScreenRecordingHeatmap largeClickUrl(String largeClickUrl) {
     this.largeClickUrl = largeClickUrl;
@@ -84,6 +138,24 @@ public class ScreenRecordingHeatmap {
 
   public void setLargeClickUrl(String largeClickUrl) {
     this.largeClickUrl = largeClickUrl;
+  }
+
+  public ScreenRecordingHeatmap largeMovementThumbnailUrl(String largeMovementThumbnailUrl) {
+    this.largeMovementThumbnailUrl = largeMovementThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get largeMovementThumbnailUrl
+   * @return largeMovementThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getLargeMovementThumbnailUrl() {
+    return largeMovementThumbnailUrl;
+  }
+
+  public void setLargeMovementThumbnailUrl(String largeMovementThumbnailUrl) {
+    this.largeMovementThumbnailUrl = largeMovementThumbnailUrl;
   }
 
   public ScreenRecordingHeatmap largeMovementUrl(String largeMovementUrl) {
@@ -104,6 +176,24 @@ public class ScreenRecordingHeatmap {
     this.largeMovementUrl = largeMovementUrl;
   }
 
+  public ScreenRecordingHeatmap largeRegularThumbnailUrl(String largeRegularThumbnailUrl) {
+    this.largeRegularThumbnailUrl = largeRegularThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get largeRegularThumbnailUrl
+   * @return largeRegularThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getLargeRegularThumbnailUrl() {
+    return largeRegularThumbnailUrl;
+  }
+
+  public void setLargeRegularThumbnailUrl(String largeRegularThumbnailUrl) {
+    this.largeRegularThumbnailUrl = largeRegularThumbnailUrl;
+  }
+
   public ScreenRecordingHeatmap largeRegularUrl(String largeRegularUrl) {
     this.largeRegularUrl = largeRegularUrl;
     return this;
@@ -120,6 +210,24 @@ public class ScreenRecordingHeatmap {
 
   public void setLargeRegularUrl(String largeRegularUrl) {
     this.largeRegularUrl = largeRegularUrl;
+  }
+
+  public ScreenRecordingHeatmap largeScrollThumbnailUrl(String largeScrollThumbnailUrl) {
+    this.largeScrollThumbnailUrl = largeScrollThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get largeScrollThumbnailUrl
+   * @return largeScrollThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getLargeScrollThumbnailUrl() {
+    return largeScrollThumbnailUrl;
+  }
+
+  public void setLargeScrollThumbnailUrl(String largeScrollThumbnailUrl) {
+    this.largeScrollThumbnailUrl = largeScrollThumbnailUrl;
   }
 
   public ScreenRecordingHeatmap largeScrollUrl(String largeScrollUrl) {
@@ -140,6 +248,24 @@ public class ScreenRecordingHeatmap {
     this.largeScrollUrl = largeScrollUrl;
   }
 
+  public ScreenRecordingHeatmap mediumClickThumbnailUrl(String mediumClickThumbnailUrl) {
+    this.mediumClickThumbnailUrl = mediumClickThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get mediumClickThumbnailUrl
+   * @return mediumClickThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getMediumClickThumbnailUrl() {
+    return mediumClickThumbnailUrl;
+  }
+
+  public void setMediumClickThumbnailUrl(String mediumClickThumbnailUrl) {
+    this.mediumClickThumbnailUrl = mediumClickThumbnailUrl;
+  }
+
   public ScreenRecordingHeatmap mediumClickUrl(String mediumClickUrl) {
     this.mediumClickUrl = mediumClickUrl;
     return this;
@@ -156,6 +282,24 @@ public class ScreenRecordingHeatmap {
 
   public void setMediumClickUrl(String mediumClickUrl) {
     this.mediumClickUrl = mediumClickUrl;
+  }
+
+  public ScreenRecordingHeatmap mediumMovementThumbnailUrl(String mediumMovementThumbnailUrl) {
+    this.mediumMovementThumbnailUrl = mediumMovementThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get mediumMovementThumbnailUrl
+   * @return mediumMovementThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getMediumMovementThumbnailUrl() {
+    return mediumMovementThumbnailUrl;
+  }
+
+  public void setMediumMovementThumbnailUrl(String mediumMovementThumbnailUrl) {
+    this.mediumMovementThumbnailUrl = mediumMovementThumbnailUrl;
   }
 
   public ScreenRecordingHeatmap mediumMovementUrl(String mediumMovementUrl) {
@@ -176,6 +320,24 @@ public class ScreenRecordingHeatmap {
     this.mediumMovementUrl = mediumMovementUrl;
   }
 
+  public ScreenRecordingHeatmap mediumRegularThumbnailUrl(String mediumRegularThumbnailUrl) {
+    this.mediumRegularThumbnailUrl = mediumRegularThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get mediumRegularThumbnailUrl
+   * @return mediumRegularThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getMediumRegularThumbnailUrl() {
+    return mediumRegularThumbnailUrl;
+  }
+
+  public void setMediumRegularThumbnailUrl(String mediumRegularThumbnailUrl) {
+    this.mediumRegularThumbnailUrl = mediumRegularThumbnailUrl;
+  }
+
   public ScreenRecordingHeatmap mediumRegularUrl(String mediumRegularUrl) {
     this.mediumRegularUrl = mediumRegularUrl;
     return this;
@@ -192,6 +354,24 @@ public class ScreenRecordingHeatmap {
 
   public void setMediumRegularUrl(String mediumRegularUrl) {
     this.mediumRegularUrl = mediumRegularUrl;
+  }
+
+  public ScreenRecordingHeatmap mediumScrollThumbnailUrl(String mediumScrollThumbnailUrl) {
+    this.mediumScrollThumbnailUrl = mediumScrollThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get mediumScrollThumbnailUrl
+   * @return mediumScrollThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getMediumScrollThumbnailUrl() {
+    return mediumScrollThumbnailUrl;
+  }
+
+  public void setMediumScrollThumbnailUrl(String mediumScrollThumbnailUrl) {
+    this.mediumScrollThumbnailUrl = mediumScrollThumbnailUrl;
   }
 
   public ScreenRecordingHeatmap mediumScrollUrl(String mediumScrollUrl) {
@@ -212,6 +392,24 @@ public class ScreenRecordingHeatmap {
     this.mediumScrollUrl = mediumScrollUrl;
   }
 
+  public ScreenRecordingHeatmap smallClickThumbnailUrl(String smallClickThumbnailUrl) {
+    this.smallClickThumbnailUrl = smallClickThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get smallClickThumbnailUrl
+   * @return smallClickThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSmallClickThumbnailUrl() {
+    return smallClickThumbnailUrl;
+  }
+
+  public void setSmallClickThumbnailUrl(String smallClickThumbnailUrl) {
+    this.smallClickThumbnailUrl = smallClickThumbnailUrl;
+  }
+
   public ScreenRecordingHeatmap smallClickUrl(String smallClickUrl) {
     this.smallClickUrl = smallClickUrl;
     return this;
@@ -228,6 +426,24 @@ public class ScreenRecordingHeatmap {
 
   public void setSmallClickUrl(String smallClickUrl) {
     this.smallClickUrl = smallClickUrl;
+  }
+
+  public ScreenRecordingHeatmap smallMovementThumbnailUrl(String smallMovementThumbnailUrl) {
+    this.smallMovementThumbnailUrl = smallMovementThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get smallMovementThumbnailUrl
+   * @return smallMovementThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSmallMovementThumbnailUrl() {
+    return smallMovementThumbnailUrl;
+  }
+
+  public void setSmallMovementThumbnailUrl(String smallMovementThumbnailUrl) {
+    this.smallMovementThumbnailUrl = smallMovementThumbnailUrl;
   }
 
   public ScreenRecordingHeatmap smallMovementUrl(String smallMovementUrl) {
@@ -248,6 +464,24 @@ public class ScreenRecordingHeatmap {
     this.smallMovementUrl = smallMovementUrl;
   }
 
+  public ScreenRecordingHeatmap smallRegularThumbnailUrl(String smallRegularThumbnailUrl) {
+    this.smallRegularThumbnailUrl = smallRegularThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get smallRegularThumbnailUrl
+   * @return smallRegularThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSmallRegularThumbnailUrl() {
+    return smallRegularThumbnailUrl;
+  }
+
+  public void setSmallRegularThumbnailUrl(String smallRegularThumbnailUrl) {
+    this.smallRegularThumbnailUrl = smallRegularThumbnailUrl;
+  }
+
   public ScreenRecordingHeatmap smallRegularUrl(String smallRegularUrl) {
     this.smallRegularUrl = smallRegularUrl;
     return this;
@@ -264,6 +498,24 @@ public class ScreenRecordingHeatmap {
 
   public void setSmallRegularUrl(String smallRegularUrl) {
     this.smallRegularUrl = smallRegularUrl;
+  }
+
+  public ScreenRecordingHeatmap smallScrollThumbnailUrl(String smallScrollThumbnailUrl) {
+    this.smallScrollThumbnailUrl = smallScrollThumbnailUrl;
+    return this;
+  }
+
+   /**
+   * Get smallScrollThumbnailUrl
+   * @return smallScrollThumbnailUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSmallScrollThumbnailUrl() {
+    return smallScrollThumbnailUrl;
+  }
+
+  public void setSmallScrollThumbnailUrl(String smallScrollThumbnailUrl) {
+    this.smallScrollThumbnailUrl = smallScrollThumbnailUrl;
   }
 
   public ScreenRecordingHeatmap smallScrollUrl(String smallScrollUrl) {
@@ -294,23 +546,35 @@ public class ScreenRecordingHeatmap {
       return false;
     }
     ScreenRecordingHeatmap screenRecordingHeatmap = (ScreenRecordingHeatmap) o;
-    return Objects.equals(this.largeClickUrl, screenRecordingHeatmap.largeClickUrl) &&
+    return Objects.equals(this.largeClickThumbnailUrl, screenRecordingHeatmap.largeClickThumbnailUrl) &&
+        Objects.equals(this.largeClickUrl, screenRecordingHeatmap.largeClickUrl) &&
+        Objects.equals(this.largeMovementThumbnailUrl, screenRecordingHeatmap.largeMovementThumbnailUrl) &&
         Objects.equals(this.largeMovementUrl, screenRecordingHeatmap.largeMovementUrl) &&
+        Objects.equals(this.largeRegularThumbnailUrl, screenRecordingHeatmap.largeRegularThumbnailUrl) &&
         Objects.equals(this.largeRegularUrl, screenRecordingHeatmap.largeRegularUrl) &&
+        Objects.equals(this.largeScrollThumbnailUrl, screenRecordingHeatmap.largeScrollThumbnailUrl) &&
         Objects.equals(this.largeScrollUrl, screenRecordingHeatmap.largeScrollUrl) &&
+        Objects.equals(this.mediumClickThumbnailUrl, screenRecordingHeatmap.mediumClickThumbnailUrl) &&
         Objects.equals(this.mediumClickUrl, screenRecordingHeatmap.mediumClickUrl) &&
+        Objects.equals(this.mediumMovementThumbnailUrl, screenRecordingHeatmap.mediumMovementThumbnailUrl) &&
         Objects.equals(this.mediumMovementUrl, screenRecordingHeatmap.mediumMovementUrl) &&
+        Objects.equals(this.mediumRegularThumbnailUrl, screenRecordingHeatmap.mediumRegularThumbnailUrl) &&
         Objects.equals(this.mediumRegularUrl, screenRecordingHeatmap.mediumRegularUrl) &&
+        Objects.equals(this.mediumScrollThumbnailUrl, screenRecordingHeatmap.mediumScrollThumbnailUrl) &&
         Objects.equals(this.mediumScrollUrl, screenRecordingHeatmap.mediumScrollUrl) &&
+        Objects.equals(this.smallClickThumbnailUrl, screenRecordingHeatmap.smallClickThumbnailUrl) &&
         Objects.equals(this.smallClickUrl, screenRecordingHeatmap.smallClickUrl) &&
+        Objects.equals(this.smallMovementThumbnailUrl, screenRecordingHeatmap.smallMovementThumbnailUrl) &&
         Objects.equals(this.smallMovementUrl, screenRecordingHeatmap.smallMovementUrl) &&
+        Objects.equals(this.smallRegularThumbnailUrl, screenRecordingHeatmap.smallRegularThumbnailUrl) &&
         Objects.equals(this.smallRegularUrl, screenRecordingHeatmap.smallRegularUrl) &&
+        Objects.equals(this.smallScrollThumbnailUrl, screenRecordingHeatmap.smallScrollThumbnailUrl) &&
         Objects.equals(this.smallScrollUrl, screenRecordingHeatmap.smallScrollUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(largeClickUrl, largeMovementUrl, largeRegularUrl, largeScrollUrl, mediumClickUrl, mediumMovementUrl, mediumRegularUrl, mediumScrollUrl, smallClickUrl, smallMovementUrl, smallRegularUrl, smallScrollUrl);
+    return Objects.hash(largeClickThumbnailUrl, largeClickUrl, largeMovementThumbnailUrl, largeMovementUrl, largeRegularThumbnailUrl, largeRegularUrl, largeScrollThumbnailUrl, largeScrollUrl, mediumClickThumbnailUrl, mediumClickUrl, mediumMovementThumbnailUrl, mediumMovementUrl, mediumRegularThumbnailUrl, mediumRegularUrl, mediumScrollThumbnailUrl, mediumScrollUrl, smallClickThumbnailUrl, smallClickUrl, smallMovementThumbnailUrl, smallMovementUrl, smallRegularThumbnailUrl, smallRegularUrl, smallScrollThumbnailUrl, smallScrollUrl);
   }
 
 
@@ -319,17 +583,29 @@ public class ScreenRecordingHeatmap {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingHeatmap {\n");
     
+    sb.append("    largeClickThumbnailUrl: ").append(toIndentedString(largeClickThumbnailUrl)).append("\n");
     sb.append("    largeClickUrl: ").append(toIndentedString(largeClickUrl)).append("\n");
+    sb.append("    largeMovementThumbnailUrl: ").append(toIndentedString(largeMovementThumbnailUrl)).append("\n");
     sb.append("    largeMovementUrl: ").append(toIndentedString(largeMovementUrl)).append("\n");
+    sb.append("    largeRegularThumbnailUrl: ").append(toIndentedString(largeRegularThumbnailUrl)).append("\n");
     sb.append("    largeRegularUrl: ").append(toIndentedString(largeRegularUrl)).append("\n");
+    sb.append("    largeScrollThumbnailUrl: ").append(toIndentedString(largeScrollThumbnailUrl)).append("\n");
     sb.append("    largeScrollUrl: ").append(toIndentedString(largeScrollUrl)).append("\n");
+    sb.append("    mediumClickThumbnailUrl: ").append(toIndentedString(mediumClickThumbnailUrl)).append("\n");
     sb.append("    mediumClickUrl: ").append(toIndentedString(mediumClickUrl)).append("\n");
+    sb.append("    mediumMovementThumbnailUrl: ").append(toIndentedString(mediumMovementThumbnailUrl)).append("\n");
     sb.append("    mediumMovementUrl: ").append(toIndentedString(mediumMovementUrl)).append("\n");
+    sb.append("    mediumRegularThumbnailUrl: ").append(toIndentedString(mediumRegularThumbnailUrl)).append("\n");
     sb.append("    mediumRegularUrl: ").append(toIndentedString(mediumRegularUrl)).append("\n");
+    sb.append("    mediumScrollThumbnailUrl: ").append(toIndentedString(mediumScrollThumbnailUrl)).append("\n");
     sb.append("    mediumScrollUrl: ").append(toIndentedString(mediumScrollUrl)).append("\n");
+    sb.append("    smallClickThumbnailUrl: ").append(toIndentedString(smallClickThumbnailUrl)).append("\n");
     sb.append("    smallClickUrl: ").append(toIndentedString(smallClickUrl)).append("\n");
+    sb.append("    smallMovementThumbnailUrl: ").append(toIndentedString(smallMovementThumbnailUrl)).append("\n");
     sb.append("    smallMovementUrl: ").append(toIndentedString(smallMovementUrl)).append("\n");
+    sb.append("    smallRegularThumbnailUrl: ").append(toIndentedString(smallRegularThumbnailUrl)).append("\n");
     sb.append("    smallRegularUrl: ").append(toIndentedString(smallRegularUrl)).append("\n");
+    sb.append("    smallScrollThumbnailUrl: ").append(toIndentedString(smallScrollThumbnailUrl)).append("\n");
     sb.append("    smallScrollUrl: ").append(toIndentedString(smallScrollUrl)).append("\n");
     sb.append("}");
     return sb.toString();
