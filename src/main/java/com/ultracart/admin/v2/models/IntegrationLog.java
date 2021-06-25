@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * IntegrationLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T13:39:42.457-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T14:38:50.368-04:00")
 
 
 
@@ -65,6 +65,9 @@ public class IntegrationLog {
 
   @SerializedName("logger_id")
   private String loggerId = null;
+
+  @SerializedName("logger_name")
+  private String loggerName = null;
 
   @SerializedName("logs")
   private List<IntegrationLogLog> logs = null;
@@ -269,6 +272,24 @@ public class IntegrationLog {
     this.loggerId = loggerId;
   }
 
+  public IntegrationLog loggerName(String loggerName) {
+    this.loggerName = loggerName;
+    return this;
+  }
+
+   /**
+   * Get loggerName
+   * @return loggerName
+  **/
+  @ApiModelProperty(value = "")
+  public String getLoggerName() {
+    return loggerName;
+  }
+
+  public void setLoggerName(String loggerName) {
+    this.loggerName = loggerName;
+  }
+
   public IntegrationLog logs(List<IntegrationLogLog> logs) {
     this.logs = logs;
     return this;
@@ -395,6 +416,7 @@ public class IntegrationLog {
         Objects.equals(this.logDts, integrationLog.logDts) &&
         Objects.equals(this.logType, integrationLog.logType) &&
         Objects.equals(this.loggerId, integrationLog.loggerId) &&
+        Objects.equals(this.loggerName, integrationLog.loggerName) &&
         Objects.equals(this.logs, integrationLog.logs) &&
         Objects.equals(this.orderIds, integrationLog.orderIds) &&
         Objects.equals(this.pk, integrationLog.pk) &&
@@ -404,7 +426,7 @@ public class IntegrationLog {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, direction, email, files, integrationLogOid, itemId, itemIpnOid, logDts, logType, loggerId, logs, orderIds, pk, sk, status);
+    return Objects.hash(action, direction, email, files, integrationLogOid, itemId, itemIpnOid, logDts, logType, loggerId, loggerName, logs, orderIds, pk, sk, status);
   }
 
 
@@ -423,6 +445,7 @@ public class IntegrationLog {
     sb.append("    logDts: ").append(toIndentedString(logDts)).append("\n");
     sb.append("    logType: ").append(toIndentedString(logType)).append("\n");
     sb.append("    loggerId: ").append(toIndentedString(loggerId)).append("\n");
+    sb.append("    loggerName: ").append(toIndentedString(loggerName)).append("\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    pk: ").append(toIndentedString(pk)).append("\n");

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **itemIds** | **List&lt;String&gt;** |  |  [optional]
 **itemIpnOids** | **List&lt;Integer&gt;** |  |  [optional]
 **logTypes** | **List&lt;String&gt;** |  |  [optional]
+**loggerNames** | **List&lt;String&gt;** |  |  [optional]
 **orderIds** | **List&lt;String&gt;** |  |  [optional]
 **statuses** | **List&lt;String&gt;** |  |  [optional]
 

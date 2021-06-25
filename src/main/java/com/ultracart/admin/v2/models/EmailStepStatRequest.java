@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * EmailStepStatRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T13:39:42.457-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T14:38:50.368-04:00")
 
 
 

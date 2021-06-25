@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * IntegrationLogQueryRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T13:39:42.457-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T14:38:50.368-04:00")
 
 
 
@@ -63,6 +63,9 @@ public class IntegrationLogQueryRequest {
 
   @SerializedName("logger_id")
   private String loggerId = null;
+
+  @SerializedName("logger_name")
+  private String loggerName = null;
 
   @SerializedName("order_ids")
   private List<String> orderIds = null;
@@ -258,6 +261,24 @@ public class IntegrationLogQueryRequest {
     this.loggerId = loggerId;
   }
 
+  public IntegrationLogQueryRequest loggerName(String loggerName) {
+    this.loggerName = loggerName;
+    return this;
+  }
+
+   /**
+   * Get loggerName
+   * @return loggerName
+  **/
+  @ApiModelProperty(value = "")
+  public String getLoggerName() {
+    return loggerName;
+  }
+
+  public void setLoggerName(String loggerName) {
+    this.loggerName = loggerName;
+  }
+
   public IntegrationLogQueryRequest orderIds(List<String> orderIds) {
     this.orderIds = orderIds;
     return this;
@@ -322,13 +343,14 @@ public class IntegrationLogQueryRequest {
         Objects.equals(this.logDtsEnd, integrationLogQueryRequest.logDtsEnd) &&
         Objects.equals(this.logType, integrationLogQueryRequest.logType) &&
         Objects.equals(this.loggerId, integrationLogQueryRequest.loggerId) &&
+        Objects.equals(this.loggerName, integrationLogQueryRequest.loggerName) &&
         Objects.equals(this.orderIds, integrationLogQueryRequest.orderIds) &&
         Objects.equals(this.status, integrationLogQueryRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, direction, email, fileNames, itemId, itemIpnOid, logDtsBegin, logDtsEnd, logType, loggerId, orderIds, status);
+    return Objects.hash(action, direction, email, fileNames, itemId, itemIpnOid, logDtsBegin, logDtsEnd, logType, loggerId, loggerName, orderIds, status);
   }
 
 
@@ -347,6 +369,7 @@ public class IntegrationLogQueryRequest {
     sb.append("    logDtsEnd: ").append(toIndentedString(logDtsEnd)).append("\n");
     sb.append("    logType: ").append(toIndentedString(logType)).append("\n");
     sb.append("    loggerId: ").append(toIndentedString(loggerId)).append("\n");
+    sb.append("    loggerName: ").append(toIndentedString(loggerName)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

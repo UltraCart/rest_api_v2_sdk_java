@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **logDtsEnd** | **String** | Log date/time end |  [optional]
 **logType** | **String** |  |  [optional]
 **loggerId** | **String** |  |  [optional]
+**loggerName** | **String** |  |  [optional]
 **orderIds** | **List&lt;String&gt;** |  |  [optional]
 **status** | **String** |  |  [optional]
 

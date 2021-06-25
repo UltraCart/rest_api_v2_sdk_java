@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * IntegrationLogQueryFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T13:39:42.457-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T14:38:50.368-04:00")
 
 
 
@@ -54,6 +54,9 @@ public class IntegrationLogQueryFilterValues {
 
   @SerializedName("log_types")
   private List<String> logTypes = null;
+
+  @SerializedName("logger_names")
+  private List<String> loggerNames = null;
 
   @SerializedName("order_ids")
   private List<String> orderIds = null;
@@ -243,6 +246,32 @@ public class IntegrationLogQueryFilterValues {
     this.logTypes = logTypes;
   }
 
+  public IntegrationLogQueryFilterValues loggerNames(List<String> loggerNames) {
+    this.loggerNames = loggerNames;
+    return this;
+  }
+
+  public IntegrationLogQueryFilterValues addLoggerNamesItem(String loggerNamesItem) {
+    if (this.loggerNames == null) {
+      this.loggerNames = new ArrayList<String>();
+    }
+    this.loggerNames.add(loggerNamesItem);
+    return this;
+  }
+
+   /**
+   * Get loggerNames
+   * @return loggerNames
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getLoggerNames() {
+    return loggerNames;
+  }
+
+  public void setLoggerNames(List<String> loggerNames) {
+    this.loggerNames = loggerNames;
+  }
+
   public IntegrationLogQueryFilterValues orderIds(List<String> orderIds) {
     this.orderIds = orderIds;
     return this;
@@ -312,13 +341,14 @@ public class IntegrationLogQueryFilterValues {
         Objects.equals(this.itemIds, integrationLogQueryFilterValues.itemIds) &&
         Objects.equals(this.itemIpnOids, integrationLogQueryFilterValues.itemIpnOids) &&
         Objects.equals(this.logTypes, integrationLogQueryFilterValues.logTypes) &&
+        Objects.equals(this.loggerNames, integrationLogQueryFilterValues.loggerNames) &&
         Objects.equals(this.orderIds, integrationLogQueryFilterValues.orderIds) &&
         Objects.equals(this.statuses, integrationLogQueryFilterValues.statuses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actions, directions, emails, fileNames, itemIds, itemIpnOids, logTypes, orderIds, statuses);
+    return Objects.hash(actions, directions, emails, fileNames, itemIds, itemIpnOids, logTypes, loggerNames, orderIds, statuses);
   }
 
 
@@ -334,6 +364,7 @@ public class IntegrationLogQueryFilterValues {
     sb.append("    itemIds: ").append(toIndentedString(itemIds)).append("\n");
     sb.append("    itemIpnOids: ").append(toIndentedString(itemIpnOids)).append("\n");
     sb.append("    logTypes: ").append(toIndentedString(logTypes)).append("\n");
+    sb.append("    loggerNames: ").append(toIndentedString(loggerNames)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("}");

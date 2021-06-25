@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **logDts** | **String** |  |  [optional]
 **logType** | **String** |  |  [optional]
 **loggerId** | **String** |  |  [optional]
+**loggerName** | **String** |  |  [optional]
 **logs** | [**List&lt;IntegrationLogLog&gt;**](IntegrationLogLog.md) |  |  [optional]
 **orderIds** | **List&lt;String&gt;** |  |  [optional]
 **pk** | **String** |  |  [optional]
