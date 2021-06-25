@@ -27,11 +27,14 @@ import java.io.IOException;
 /**
  * IntegrationLogFile
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-17T16:12:48.896-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T13:39:42.457-04:00")
 
 
 
 public class IntegrationLogFile {
+  @SerializedName("mime_type")
+  private String mimeType = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -40,6 +43,24 @@ public class IntegrationLogFile {
 
   @SerializedName("uuid")
   private String uuid = null;
+
+  public IntegrationLogFile mimeType(String mimeType) {
+    this.mimeType = mimeType;
+    return this;
+  }
+
+   /**
+   * Get mimeType
+   * @return mimeType
+  **/
+  @ApiModelProperty(value = "")
+  public String getMimeType() {
+    return mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
 
   public IntegrationLogFile name(String name) {
     this.name = name;
@@ -105,14 +126,15 @@ public class IntegrationLogFile {
       return false;
     }
     IntegrationLogFile integrationLogFile = (IntegrationLogFile) o;
-    return Objects.equals(this.name, integrationLogFile.name) &&
+    return Objects.equals(this.mimeType, integrationLogFile.mimeType) &&
+        Objects.equals(this.name, integrationLogFile.name) &&
         Objects.equals(this.size, integrationLogFile.size) &&
         Objects.equals(this.uuid, integrationLogFile.uuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, size, uuid);
+    return Objects.hash(mimeType, name, size, uuid);
   }
 
 
@@ -121,6 +143,7 @@ public class IntegrationLogFile {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationLogFile {\n");
     
+    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
