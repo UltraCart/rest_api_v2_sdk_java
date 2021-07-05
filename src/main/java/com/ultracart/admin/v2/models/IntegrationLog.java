@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * IntegrationLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T14:38:50.368-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-05T08:36:27.320-04:00")
 
 
 
@@ -72,6 +72,9 @@ public class IntegrationLog {
   @SerializedName("logs")
   private List<IntegrationLogLog> logs = null;
 
+  @SerializedName("omit_log_map")
+  private Boolean omitLogMap = null;
+
   @SerializedName("order_ids")
   private List<String> orderIds = null;
 
@@ -83,6 +86,9 @@ public class IntegrationLog {
 
   @SerializedName("status")
   private String status = null;
+
+  @SerializedName("status_code")
+  private Integer statusCode = null;
 
   public IntegrationLog action(String action) {
     this.action = action;
@@ -316,6 +322,24 @@ public class IntegrationLog {
     this.logs = logs;
   }
 
+  public IntegrationLog omitLogMap(Boolean omitLogMap) {
+    this.omitLogMap = omitLogMap;
+    return this;
+  }
+
+   /**
+   * Get omitLogMap
+   * @return omitLogMap
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isOmitLogMap() {
+    return omitLogMap;
+  }
+
+  public void setOmitLogMap(Boolean omitLogMap) {
+    this.omitLogMap = omitLogMap;
+  }
+
   public IntegrationLog orderIds(List<String> orderIds) {
     this.orderIds = orderIds;
     return this;
@@ -396,6 +420,24 @@ public class IntegrationLog {
     this.status = status;
   }
 
+  public IntegrationLog statusCode(Integer statusCode) {
+    this.statusCode = statusCode;
+    return this;
+  }
+
+   /**
+   * Get statusCode
+   * @return statusCode
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getStatusCode() {
+    return statusCode;
+  }
+
+  public void setStatusCode(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -418,15 +460,17 @@ public class IntegrationLog {
         Objects.equals(this.loggerId, integrationLog.loggerId) &&
         Objects.equals(this.loggerName, integrationLog.loggerName) &&
         Objects.equals(this.logs, integrationLog.logs) &&
+        Objects.equals(this.omitLogMap, integrationLog.omitLogMap) &&
         Objects.equals(this.orderIds, integrationLog.orderIds) &&
         Objects.equals(this.pk, integrationLog.pk) &&
         Objects.equals(this.sk, integrationLog.sk) &&
-        Objects.equals(this.status, integrationLog.status);
+        Objects.equals(this.status, integrationLog.status) &&
+        Objects.equals(this.statusCode, integrationLog.statusCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, direction, email, files, integrationLogOid, itemId, itemIpnOid, logDts, logType, loggerId, loggerName, logs, orderIds, pk, sk, status);
+    return Objects.hash(action, direction, email, files, integrationLogOid, itemId, itemIpnOid, logDts, logType, loggerId, loggerName, logs, omitLogMap, orderIds, pk, sk, status, statusCode);
   }
 
 
@@ -447,10 +491,12 @@ public class IntegrationLog {
     sb.append("    loggerId: ").append(toIndentedString(loggerId)).append("\n");
     sb.append("    loggerName: ").append(toIndentedString(loggerName)).append("\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
+    sb.append("    omitLogMap: ").append(toIndentedString(omitLogMap)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    pk: ").append(toIndentedString(pk)).append("\n");
     sb.append("    sk: ").append(toIndentedString(sk)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

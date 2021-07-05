@@ -16,10 +16,12 @@ Name | Type | Description | Notes
 **loggerId** | **String** |  |  [optional]
 **loggerName** | **String** |  |  [optional]
 **logs** | [**List&lt;IntegrationLogLog&gt;**](IntegrationLogLog.md) |  |  [optional]
+**omitLogMap** | **Boolean** |  |  [optional]
 **orderIds** | **List&lt;String&gt;** |  |  [optional]
 **pk** | **String** |  |  [optional]
 **sk** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
+**statusCode** | **Integer** |  |  [optional]
 
 
 

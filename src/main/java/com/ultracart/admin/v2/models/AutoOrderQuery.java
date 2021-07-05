@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AutoOrderQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-25T14:38:50.368-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-05T08:36:27.320-04:00")
 
 
 
@@ -62,11 +62,17 @@ public class AutoOrderQuery {
   @SerializedName("last_name")
   private String lastName = null;
 
+  @SerializedName("next_item_id")
+  private String nextItemId = null;
+
   @SerializedName("next_shipment_date_begin")
   private String nextShipmentDateBegin = null;
 
   @SerializedName("next_shipment_date_end")
   private String nextShipmentDateEnd = null;
+
+  @SerializedName("original_item_id")
+  private String originalItemId = null;
 
   @SerializedName("original_order_date_begin")
   private String originalOrderDateBegin = null;
@@ -239,10 +245,10 @@ public class AutoOrderQuery {
   }
 
    /**
-   * Item ID
+   * Item ID.  Deprecated query field.  This incorrectly meant the original order contained this item id.
    * @return itemId
   **/
-  @ApiModelProperty(value = "Item ID")
+  @ApiModelProperty(value = "Item ID.  Deprecated query field.  This incorrectly meant the original order contained this item id.")
   public String getItemId() {
     return itemId;
   }
@@ -267,6 +273,24 @@ public class AutoOrderQuery {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+  }
+
+  public AutoOrderQuery nextItemId(String nextItemId) {
+    this.nextItemId = nextItemId;
+    return this;
+  }
+
+   /**
+   * Next Item ID that is supposed to ship.  This is calculated based upon the schedule associated with the original item id.
+   * @return nextItemId
+  **/
+  @ApiModelProperty(value = "Next Item ID that is supposed to ship.  This is calculated based upon the schedule associated with the original item id.")
+  public String getNextItemId() {
+    return nextItemId;
+  }
+
+  public void setNextItemId(String nextItemId) {
+    this.nextItemId = nextItemId;
   }
 
   public AutoOrderQuery nextShipmentDateBegin(String nextShipmentDateBegin) {
@@ -303,6 +327,24 @@ public class AutoOrderQuery {
 
   public void setNextShipmentDateEnd(String nextShipmentDateEnd) {
     this.nextShipmentDateEnd = nextShipmentDateEnd;
+  }
+
+  public AutoOrderQuery originalItemId(String originalItemId) {
+    this.originalItemId = originalItemId;
+    return this;
+  }
+
+   /**
+   * Original Item ID purchased on auto order.
+   * @return originalItemId
+  **/
+  @ApiModelProperty(value = "Original Item ID purchased on auto order.")
+  public String getOriginalItemId() {
+    return originalItemId;
+  }
+
+  public void setOriginalItemId(String originalItemId) {
+    this.originalItemId = originalItemId;
   }
 
   public AutoOrderQuery originalOrderDateBegin(String originalOrderDateBegin) {
@@ -451,8 +493,10 @@ public class AutoOrderQuery {
         Objects.equals(this.firstName, autoOrderQuery.firstName) &&
         Objects.equals(this.itemId, autoOrderQuery.itemId) &&
         Objects.equals(this.lastName, autoOrderQuery.lastName) &&
+        Objects.equals(this.nextItemId, autoOrderQuery.nextItemId) &&
         Objects.equals(this.nextShipmentDateBegin, autoOrderQuery.nextShipmentDateBegin) &&
         Objects.equals(this.nextShipmentDateEnd, autoOrderQuery.nextShipmentDateEnd) &&
+        Objects.equals(this.originalItemId, autoOrderQuery.originalItemId) &&
         Objects.equals(this.originalOrderDateBegin, autoOrderQuery.originalOrderDateBegin) &&
         Objects.equals(this.originalOrderDateEnd, autoOrderQuery.originalOrderDateEnd) &&
         Objects.equals(this.originalOrderId, autoOrderQuery.originalOrderId) &&
@@ -464,7 +508,7 @@ public class AutoOrderQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderCode, cardType, city, company, countryCode, customerProfileOid, email, firstName, itemId, lastName, nextShipmentDateBegin, nextShipmentDateEnd, originalOrderDateBegin, originalOrderDateEnd, originalOrderId, phone, postalCode, state, status);
+    return Objects.hash(autoOrderCode, cardType, city, company, countryCode, customerProfileOid, email, firstName, itemId, lastName, nextItemId, nextShipmentDateBegin, nextShipmentDateEnd, originalItemId, originalOrderDateBegin, originalOrderDateEnd, originalOrderId, phone, postalCode, state, status);
   }
 
 
@@ -483,8 +527,10 @@ public class AutoOrderQuery {
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    nextItemId: ").append(toIndentedString(nextItemId)).append("\n");
     sb.append("    nextShipmentDateBegin: ").append(toIndentedString(nextShipmentDateBegin)).append("\n");
     sb.append("    nextShipmentDateEnd: ").append(toIndentedString(nextShipmentDateEnd)).append("\n");
+    sb.append("    originalItemId: ").append(toIndentedString(originalItemId)).append("\n");
     sb.append("    originalOrderDateBegin: ").append(toIndentedString(originalOrderDateBegin)).append("\n");
     sb.append("    originalOrderDateEnd: ").append(toIndentedString(originalOrderDateEnd)).append("\n");
     sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");
