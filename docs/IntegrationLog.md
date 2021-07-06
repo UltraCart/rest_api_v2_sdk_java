@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **integrationLogOid** | **Integer** |  |  [optional]
 **itemId** | **String** |  |  [optional]
 **itemIpnOid** | **Integer** |  |  [optional]
-**logDts** | **String** |  |  [optional]
+**logDts** | **String** | Date/time the integration log was created |  [optional]
 **logType** | **String** |  |  [optional]
 **loggerId** | **String** |  |  [optional]
 **loggerName** | **String** |  |  [optional]

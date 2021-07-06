@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-05T08:36:27.320-04:00
+  - Build date: 2021-07-06T11:55:53.923-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.2.7</version>
+  <version>3.2.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.2.7"
+compile "com.ultracart:rest-sdk:3.2.8"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.2.7.jar`
+* `target/rest-sdk-3.2.8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1067,6 +1067,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.8 | 07/06/2021 | intgeration logs - min max log date/time retured in filter values | 
 | 3.2.7 | 07/05/2021 | integration logger bug fixes | 
 | 3.2.6 | 06/25/2021 | integration log: added logger name | 
 | 3.2.2 | 06/24/2021 | integration log file mime type added | 

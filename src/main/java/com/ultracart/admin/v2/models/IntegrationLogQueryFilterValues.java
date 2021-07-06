@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * IntegrationLogQueryFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-05T08:36:27.320-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-06T11:55:53.923-04:00")
 
 
 
@@ -51,6 +51,12 @@ public class IntegrationLogQueryFilterValues {
 
   @SerializedName("item_ipn_oids")
   private List<Integer> itemIpnOids = null;
+
+  @SerializedName("log_dts_max")
+  private String logDtsMax = null;
+
+  @SerializedName("log_dts_min")
+  private String logDtsMin = null;
 
   @SerializedName("log_types")
   private List<String> logTypes = null;
@@ -220,6 +226,42 @@ public class IntegrationLogQueryFilterValues {
     this.itemIpnOids = itemIpnOids;
   }
 
+  public IntegrationLogQueryFilterValues logDtsMax(String logDtsMax) {
+    this.logDtsMax = logDtsMax;
+    return this;
+  }
+
+   /**
+   * Maximum date/time log date/time
+   * @return logDtsMax
+  **/
+  @ApiModelProperty(value = "Maximum date/time log date/time")
+  public String getLogDtsMax() {
+    return logDtsMax;
+  }
+
+  public void setLogDtsMax(String logDtsMax) {
+    this.logDtsMax = logDtsMax;
+  }
+
+  public IntegrationLogQueryFilterValues logDtsMin(String logDtsMin) {
+    this.logDtsMin = logDtsMin;
+    return this;
+  }
+
+   /**
+   * Minimum date/time log date/time
+   * @return logDtsMin
+  **/
+  @ApiModelProperty(value = "Minimum date/time log date/time")
+  public String getLogDtsMin() {
+    return logDtsMin;
+  }
+
+  public void setLogDtsMin(String logDtsMin) {
+    this.logDtsMin = logDtsMin;
+  }
+
   public IntegrationLogQueryFilterValues logTypes(List<String> logTypes) {
     this.logTypes = logTypes;
     return this;
@@ -340,6 +382,8 @@ public class IntegrationLogQueryFilterValues {
         Objects.equals(this.fileNames, integrationLogQueryFilterValues.fileNames) &&
         Objects.equals(this.itemIds, integrationLogQueryFilterValues.itemIds) &&
         Objects.equals(this.itemIpnOids, integrationLogQueryFilterValues.itemIpnOids) &&
+        Objects.equals(this.logDtsMax, integrationLogQueryFilterValues.logDtsMax) &&
+        Objects.equals(this.logDtsMin, integrationLogQueryFilterValues.logDtsMin) &&
         Objects.equals(this.logTypes, integrationLogQueryFilterValues.logTypes) &&
         Objects.equals(this.loggerNames, integrationLogQueryFilterValues.loggerNames) &&
         Objects.equals(this.orderIds, integrationLogQueryFilterValues.orderIds) &&
@@ -348,7 +392,7 @@ public class IntegrationLogQueryFilterValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actions, directions, emails, fileNames, itemIds, itemIpnOids, logTypes, loggerNames, orderIds, statuses);
+    return Objects.hash(actions, directions, emails, fileNames, itemIds, itemIpnOids, logDtsMax, logDtsMin, logTypes, loggerNames, orderIds, statuses);
   }
 
 
@@ -363,6 +407,8 @@ public class IntegrationLogQueryFilterValues {
     sb.append("    fileNames: ").append(toIndentedString(fileNames)).append("\n");
     sb.append("    itemIds: ").append(toIndentedString(itemIds)).append("\n");
     sb.append("    itemIpnOids: ").append(toIndentedString(itemIpnOids)).append("\n");
+    sb.append("    logDtsMax: ").append(toIndentedString(logDtsMax)).append("\n");
+    sb.append("    logDtsMin: ").append(toIndentedString(logDtsMin)).append("\n");
     sb.append("    logTypes: ").append(toIndentedString(logTypes)).append("\n");
     sb.append("    loggerNames: ").append(toIndentedString(loggerNames)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");

@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * IntegrationLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-05T08:36:27.320-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-06T11:55:53.923-04:00")
 
 
 
@@ -230,10 +230,10 @@ public class IntegrationLog {
   }
 
    /**
-   * Get logDts
+   * Date/time the integration log was created
    * @return logDts
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Date/time the integration log was created")
   public String getLogDts() {
     return logDts;
   }
