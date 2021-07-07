@@ -23,17 +23,24 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * ScreenRecordingSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-06T11:55:53.923-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-07T10:22:06.234-04:00")
 
 
 
 public class ScreenRecordingSettings {
+  @SerializedName("cost_per_thousand")
+  private BigDecimal costPerThousand = null;
+
   @SerializedName("enabled")
   private Boolean enabled = null;
+
+  @SerializedName("retention_interval")
+  private String retentionInterval = null;
 
   @SerializedName("sessions_current_billing_period")
   private Integer sessionsCurrentBillingPeriod = null;
@@ -49,6 +56,24 @@ public class ScreenRecordingSettings {
 
   @SerializedName("trial_expired")
   private Boolean trialExpired = null;
+
+  public ScreenRecordingSettings costPerThousand(BigDecimal costPerThousand) {
+    this.costPerThousand = costPerThousand;
+    return this;
+  }
+
+   /**
+   * Cost per one thousand sessions
+   * @return costPerThousand
+  **/
+  @ApiModelProperty(value = "Cost per one thousand sessions")
+  public BigDecimal getCostPerThousand() {
+    return costPerThousand;
+  }
+
+  public void setCostPerThousand(BigDecimal costPerThousand) {
+    this.costPerThousand = costPerThousand;
+  }
 
   public ScreenRecordingSettings enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -66,6 +91,24 @@ public class ScreenRecordingSettings {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public ScreenRecordingSettings retentionInterval(String retentionInterval) {
+    this.retentionInterval = retentionInterval;
+    return this;
+  }
+
+   /**
+   * How long screen recording data is retained
+   * @return retentionInterval
+  **/
+  @ApiModelProperty(value = "How long screen recording data is retained")
+  public String getRetentionInterval() {
+    return retentionInterval;
+  }
+
+  public void setRetentionInterval(String retentionInterval) {
+    this.retentionInterval = retentionInterval;
   }
 
   public ScreenRecordingSettings sessionsCurrentBillingPeriod(Integer sessionsCurrentBillingPeriod) {
@@ -168,7 +211,9 @@ public class ScreenRecordingSettings {
       return false;
     }
     ScreenRecordingSettings screenRecordingSettings = (ScreenRecordingSettings) o;
-    return Objects.equals(this.enabled, screenRecordingSettings.enabled) &&
+    return Objects.equals(this.costPerThousand, screenRecordingSettings.costPerThousand) &&
+        Objects.equals(this.enabled, screenRecordingSettings.enabled) &&
+        Objects.equals(this.retentionInterval, screenRecordingSettings.retentionInterval) &&
         Objects.equals(this.sessionsCurrentBillingPeriod, screenRecordingSettings.sessionsCurrentBillingPeriod) &&
         Objects.equals(this.sessionsLastBillingPeriod, screenRecordingSettings.sessionsLastBillingPeriod) &&
         Objects.equals(this.sessionsTrialBillingPeriod, screenRecordingSettings.sessionsTrialBillingPeriod) &&
@@ -178,7 +223,7 @@ public class ScreenRecordingSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, sessionsCurrentBillingPeriod, sessionsLastBillingPeriod, sessionsTrialBillingPeriod, trialExpiration, trialExpired);
+    return Objects.hash(costPerThousand, enabled, retentionInterval, sessionsCurrentBillingPeriod, sessionsLastBillingPeriod, sessionsTrialBillingPeriod, trialExpiration, trialExpired);
   }
 
 
@@ -187,7 +232,9 @@ public class ScreenRecordingSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingSettings {\n");
     
+    sb.append("    costPerThousand: ").append(toIndentedString(costPerThousand)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    retentionInterval: ").append(toIndentedString(retentionInterval)).append("\n");
     sb.append("    sessionsCurrentBillingPeriod: ").append(toIndentedString(sessionsCurrentBillingPeriod)).append("\n");
     sb.append("    sessionsLastBillingPeriod: ").append(toIndentedString(sessionsLastBillingPeriod)).append("\n");
     sb.append("    sessionsTrialBillingPeriod: ").append(toIndentedString(sessionsTrialBillingPeriod)).append("\n");
