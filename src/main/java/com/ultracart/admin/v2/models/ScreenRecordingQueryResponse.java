@@ -35,11 +35,14 @@ import java.util.List;
 /**
  * ScreenRecordingQueryResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-08T12:47:10.747-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-08T14:27:27.314-04:00")
 
 
 
 public class ScreenRecordingQueryResponse {
+  @SerializedName("checkout_only")
+  private Boolean checkoutOnly = null;
+
   @SerializedName("error")
   private Error error = null;
 
@@ -69,6 +72,24 @@ public class ScreenRecordingQueryResponse {
 
   @SerializedName("warning")
   private Warning warning = null;
+
+  public ScreenRecordingQueryResponse checkoutOnly(Boolean checkoutOnly) {
+    this.checkoutOnly = checkoutOnly;
+    return this;
+  }
+
+   /**
+   * Get checkoutOnly
+   * @return checkoutOnly
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isCheckoutOnly() {
+    return checkoutOnly;
+  }
+
+  public void setCheckoutOnly(Boolean checkoutOnly) {
+    this.checkoutOnly = checkoutOnly;
+  }
 
   public ScreenRecordingQueryResponse error(Error error) {
     this.error = error;
@@ -276,7 +297,8 @@ public class ScreenRecordingQueryResponse {
       return false;
     }
     ScreenRecordingQueryResponse screenRecordingQueryResponse = (ScreenRecordingQueryResponse) o;
-    return Objects.equals(this.error, screenRecordingQueryResponse.error) &&
+    return Objects.equals(this.checkoutOnly, screenRecordingQueryResponse.checkoutOnly) &&
+        Objects.equals(this.error, screenRecordingQueryResponse.error) &&
         Objects.equals(this.filter, screenRecordingQueryResponse.filter) &&
         Objects.equals(this.filterValues, screenRecordingQueryResponse.filterValues) &&
         Objects.equals(this.histogramData, screenRecordingQueryResponse.histogramData) &&
@@ -290,7 +312,7 @@ public class ScreenRecordingQueryResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, filter, filterValues, histogramData, histogramInterval, histogramStartDts, metadata, screenRecordings, success, warning);
+    return Objects.hash(checkoutOnly, error, filter, filterValues, histogramData, histogramInterval, histogramStartDts, metadata, screenRecordings, success, warning);
   }
 
 
@@ -299,6 +321,7 @@ public class ScreenRecordingQueryResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingQueryResponse {\n");
     
+    sb.append("    checkoutOnly: ").append(toIndentedString(checkoutOnly)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    filterValues: ").append(toIndentedString(filterValues)).append("\n");

@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-08T12:47:10.747-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-08T14:27:27.314-04:00")
 
 
 
@@ -111,6 +111,9 @@ public class ScreenRecording {
 
   @SerializedName("merchant_notes")
   private String merchantNotes = null;
+
+  @SerializedName("missing_external_tracking")
+  private Boolean missingExternalTracking = null;
 
   @SerializedName("order_id")
   private String orderId = null;
@@ -625,6 +628,24 @@ public class ScreenRecording {
 
   public void setMerchantNotes(String merchantNotes) {
     this.merchantNotes = merchantNotes;
+  }
+
+  public ScreenRecording missingExternalTracking(Boolean missingExternalTracking) {
+    this.missingExternalTracking = missingExternalTracking;
+    return this;
+  }
+
+   /**
+   * True if external page view was not tracked
+   * @return missingExternalTracking
+  **/
+  @ApiModelProperty(value = "True if external page view was not tracked")
+  public Boolean isMissingExternalTracking() {
+    return missingExternalTracking;
+  }
+
+  public void setMissingExternalTracking(Boolean missingExternalTracking) {
+    this.missingExternalTracking = missingExternalTracking;
   }
 
   public ScreenRecording orderId(String orderId) {
@@ -1151,6 +1172,7 @@ public class ScreenRecording {
         Objects.equals(this.languageIsoCode, screenRecording.languageIsoCode) &&
         Objects.equals(this.merchantId, screenRecording.merchantId) &&
         Objects.equals(this.merchantNotes, screenRecording.merchantNotes) &&
+        Objects.equals(this.missingExternalTracking, screenRecording.missingExternalTracking) &&
         Objects.equals(this.orderId, screenRecording.orderId) &&
         Objects.equals(this.pageViewCount, screenRecording.pageViewCount) &&
         Objects.equals(this.pageViews, screenRecording.pageViews) &&
@@ -1180,7 +1202,7 @@ public class ScreenRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adPlatform, analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, emailDomain, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, languageIsoCode, merchantId, merchantNotes, orderId, pageViewCount, pageViews, preferredLanguage, referrerDomain, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, utmCampaign, utmSource, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
+    return Objects.hash(adPlatform, analyticsClientOid, analyticsSessionDts, analyticsSessionOid, communicationsCampaignName, communicationsCampaignUuid, communicationsEmailSubject, communicationsEmailUuid, communicationsFlowName, communicationsFlowUuid, email, emailDomain, endTimestamp, espCustomerUuid, eventsGzSize, eventsJsonKey, favorite, favorites, geolocation, geolocationCountry, geolocationState, languageIsoCode, merchantId, merchantNotes, missingExternalTracking, orderId, pageViewCount, pageViews, preferredLanguage, referrerDomain, rrwebVersion, screenRecordingUuid, signedDownloadUrl, startTimestamp, storefrontOids, storefronts, tags, timeOnSite, ucacid, userAgent, userAgentRaw, userIp, userProperties, utmCampaign, utmSource, visitorFirstSeen, visitorNumber, watched, windowHeight, windowWidth);
   }
 
 
@@ -1213,6 +1235,7 @@ public class ScreenRecording {
     sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    merchantNotes: ").append(toIndentedString(merchantNotes)).append("\n");
+    sb.append("    missingExternalTracking: ").append(toIndentedString(missingExternalTracking)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    pageViews: ").append(toIndentedString(pageViews)).append("\n");

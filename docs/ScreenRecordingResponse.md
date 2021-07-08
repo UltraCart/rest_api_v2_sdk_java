@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**checkoutOnly** | **Boolean** |  |  [optional]
 **error** | [**Error**](Error.md) |  |  [optional]
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  |  [optional]
 **screenRecording** | [**ScreenRecording**](ScreenRecording.md) |  |  [optional]

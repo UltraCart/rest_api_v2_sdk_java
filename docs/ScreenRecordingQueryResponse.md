@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**checkoutOnly** | **Boolean** |  |  [optional]
 **error** | [**Error**](Error.md) |  |  [optional]
 **filter** | [**ScreenRecordingFilter**](ScreenRecordingFilter.md) |  |  [optional]
 **filterValues** | [**ScreenRecordingFilterValues**](ScreenRecordingFilterValues.md) |  |  [optional]

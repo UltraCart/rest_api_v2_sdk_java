@@ -31,11 +31,14 @@ import java.io.IOException;
 /**
  * ScreenRecordingResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-08T12:47:10.747-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-08T14:27:27.314-04:00")
 
 
 
 public class ScreenRecordingResponse {
+  @SerializedName("checkout_only")
+  private Boolean checkoutOnly = null;
+
   @SerializedName("error")
   private Error error = null;
 
@@ -50,6 +53,24 @@ public class ScreenRecordingResponse {
 
   @SerializedName("warning")
   private Warning warning = null;
+
+  public ScreenRecordingResponse checkoutOnly(Boolean checkoutOnly) {
+    this.checkoutOnly = checkoutOnly;
+    return this;
+  }
+
+   /**
+   * Get checkoutOnly
+   * @return checkoutOnly
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isCheckoutOnly() {
+    return checkoutOnly;
+  }
+
+  public void setCheckoutOnly(Boolean checkoutOnly) {
+    this.checkoutOnly = checkoutOnly;
+  }
 
   public ScreenRecordingResponse error(Error error) {
     this.error = error;
@@ -151,7 +172,8 @@ public class ScreenRecordingResponse {
       return false;
     }
     ScreenRecordingResponse screenRecordingResponse = (ScreenRecordingResponse) o;
-    return Objects.equals(this.error, screenRecordingResponse.error) &&
+    return Objects.equals(this.checkoutOnly, screenRecordingResponse.checkoutOnly) &&
+        Objects.equals(this.error, screenRecordingResponse.error) &&
         Objects.equals(this.metadata, screenRecordingResponse.metadata) &&
         Objects.equals(this.screenRecording, screenRecordingResponse.screenRecording) &&
         Objects.equals(this.success, screenRecordingResponse.success) &&
@@ -160,7 +182,7 @@ public class ScreenRecordingResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, screenRecording, success, warning);
+    return Objects.hash(checkoutOnly, error, metadata, screenRecording, success, warning);
   }
 
 
@@ -169,6 +191,7 @@ public class ScreenRecordingResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenRecordingResponse {\n");
     
+    sb.append("    checkoutOnly: ").append(toIndentedString(checkoutOnly)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    screenRecording: ").append(toIndentedString(screenRecording)).append("\n");

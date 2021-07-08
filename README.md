@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-08T12:47:10.747-04:00
+  - Build date: 2021-07-08T14:27:27.314-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.2.10</version>
+  <version>3.2.11</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.2.10"
+compile "com.ultracart:rest-sdk:3.2.11"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.2.10.jar`
+* `target/rest-sdk-3.2.11.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1067,6 +1067,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.11 | 07/08/2021 | screen recording - missing external tracking flag added | 
 | 3.2.10 | 07/08/2021 | customer profile - allow drop shipping options | 
 | 3.2.9 | 07/07/2021 | screen recording - provide cost per thousand and retention interval | 
 | 3.2.8 | 07/06/2021 | intgeration logs - min max log date/time retured in filter values | 
