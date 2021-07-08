@@ -46,7 +46,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-07T10:22:06.234-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-08T12:47:10.747-04:00")
 
 
 
@@ -62,6 +62,9 @@ public class Customer {
 
   @SerializedName("allow_cod")
   private Boolean allowCod = null;
+
+  @SerializedName("allow_drop_shipping")
+  private Boolean allowDropShipping = null;
 
   @SerializedName("allow_purchase_order")
   private Boolean allowPurchaseOrder = null;
@@ -295,6 +298,24 @@ public class Customer {
 
   public void setAllowCod(Boolean allowCod) {
     this.allowCod = allowCod;
+  }
+
+  public Customer allowDropShipping(Boolean allowDropShipping) {
+    this.allowDropShipping = allowDropShipping;
+    return this;
+  }
+
+   /**
+   * Allow Drop Shipping
+   * @return allowDropShipping
+  **/
+  @ApiModelProperty(value = "Allow Drop Shipping")
+  public Boolean isAllowDropShipping() {
+    return allowDropShipping;
+  }
+
+  public void setAllowDropShipping(Boolean allowDropShipping) {
+    this.allowDropShipping = allowDropShipping;
   }
 
   public Customer allowPurchaseOrder(Boolean allowPurchaseOrder) {
@@ -1363,6 +1384,7 @@ public class Customer {
         Objects.equals(this.affiliateOid, customer.affiliateOid) &&
         Objects.equals(this.allow3rdPartyBilling, customer.allow3rdPartyBilling) &&
         Objects.equals(this.allowCod, customer.allowCod) &&
+        Objects.equals(this.allowDropShipping, customer.allowDropShipping) &&
         Objects.equals(this.allowPurchaseOrder, customer.allowPurchaseOrder) &&
         Objects.equals(this.allowQuoteRequest, customer.allowQuoteRequest) &&
         Objects.equals(this.allowSelectionOfAddressType, customer.allowSelectionOfAddressType) &&
@@ -1421,7 +1443,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1434,6 +1456,7 @@ public class Customer {
     sb.append("    affiliateOid: ").append(toIndentedString(affiliateOid)).append("\n");
     sb.append("    allow3rdPartyBilling: ").append(toIndentedString(allow3rdPartyBilling)).append("\n");
     sb.append("    allowCod: ").append(toIndentedString(allowCod)).append("\n");
+    sb.append("    allowDropShipping: ").append(toIndentedString(allowDropShipping)).append("\n");
     sb.append("    allowPurchaseOrder: ").append(toIndentedString(allowPurchaseOrder)).append("\n");
     sb.append("    allowQuoteRequest: ").append(toIndentedString(allowQuoteRequest)).append("\n");
     sb.append("    allowSelectionOfAddressType: ").append(toIndentedString(allowSelectionOfAddressType)).append("\n");
