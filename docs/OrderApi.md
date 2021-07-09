@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 [**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 [**generateOrderToken**](OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
+[**generatePackingSlipAllDC**](OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order for the given distribution center.
+[**generatePackingSlipSpecificDC**](OrderApi.md#generatePackingSlipSpecificDC) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
 [**getAccountsReceivableRetryConfig**](OrderApi.md#getAccountsReceivableRetryConfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 [**getAccountsReceivableRetryStats**](OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 [**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
@@ -269,6 +271,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrderTokenResponse**](OrderTokenResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="generatePackingSlipAllDC"></a>
+# **generatePackingSlipAllDC**
+> OrdersResponse generatePackingSlipAllDC(orderId)
+
+Generate a packing slip for this order for the given distribution center.
+
+The packing slip PDF that is returned is base 64 encoded 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
+
+String orderId = "orderId_example"; // String | Order ID
+try {
+    OrdersResponse result = apiInstance.generatePackingSlipAllDC(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#generatePackingSlipAllDC");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| Order ID |
+
+### Return type
+
+[**OrdersResponse**](OrdersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="generatePackingSlipSpecificDC"></a>
+# **generatePackingSlipSpecificDC**
+> OrdersResponse generatePackingSlipSpecificDC(distributionCenterCode, orderId)
+
+Generate a packing slip for this order for the given distribution center.
+
+The packing slip PDF that is returned is base 64 encoded 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
+
+String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+String orderId = "orderId_example"; // String | Order ID
+try {
+    OrdersResponse result = apiInstance.generatePackingSlipSpecificDC(distributionCenterCode, orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#generatePackingSlipSpecificDC");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **distributionCenterCode** | **String**| Distribution center code |
+ **orderId** | **String**| Order ID |
+
+### Return type
+
+[**OrdersResponse**](OrdersResponse.md)
 
 ### Authorization
 

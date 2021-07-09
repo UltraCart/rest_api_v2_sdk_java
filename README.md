@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-08T14:27:27.314-04:00
+  - Build date: 2021-07-09T15:58:01.465-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.2.11</version>
+  <version>3.2.12</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.2.11"
+compile "com.ultracart:rest-sdk:3.2.12"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.2.11.jar`
+* `target/rest-sdk-3.2.12.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -179,6 +179,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**validateEmailVerificationToken**](docs/CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 *FulfillmentApi* | [**acknowledgeOrders**](docs/FulfillmentApi.md#acknowledgeOrders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
+*FulfillmentApi* | [**generatePackingSlip**](docs/FulfillmentApi.md#generatePackingSlip) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders/{order_id} | Generate a packing slip for this order for the given distribution center.
 *FulfillmentApi* | [**getDistributionCenterOrders**](docs/FulfillmentApi.md#getDistributionCenterOrders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
 *FulfillmentApi* | [**getDistributionCenters**](docs/FulfillmentApi.md#getDistributionCenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
 *FulfillmentApi* | [**shipOrders**](docs/FulfillmentApi.md#shipOrders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
@@ -202,6 +203,8 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**deleteOrder**](docs/OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**format**](docs/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 *OrderApi* | [**generateOrderToken**](docs/OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
+*OrderApi* | [**generatePackingSlipAllDC**](docs/OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order for the given distribution center.
+*OrderApi* | [**generatePackingSlipSpecificDC**](docs/OrderApi.md#generatePackingSlipSpecificDC) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
 *OrderApi* | [**getAccountsReceivableRetryConfig**](docs/OrderApi.md#getAccountsReceivableRetryConfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
@@ -1067,6 +1070,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.12 | 07/09/2021 | new fulfillment and order methods for generation of packing slips | 
 | 3.2.11 | 07/08/2021 | screen recording - missing external tracking flag added | 
 | 3.2.10 | 07/08/2021 | customer profile - allow drop shipping options | 
 | 3.2.9 | 07/07/2021 | screen recording - provide cost per thousand and retention interval | 
