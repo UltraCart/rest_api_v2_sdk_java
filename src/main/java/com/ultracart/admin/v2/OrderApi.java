@@ -792,7 +792,7 @@ public class OrderApi {
     }
 
     /**
-     * Generate a packing slip for this order for the given distribution center.
+     * Generate a packing slip for this order across all distribution centers.
      * The packing slip PDF that is returned is base 64 encoded 
      * @param orderId Order ID (required)
      * @return OrdersResponse
@@ -804,7 +804,7 @@ public class OrderApi {
     }
 
     /**
-     * Generate a packing slip for this order for the given distribution center.
+     * Generate a packing slip for this order across all distribution centers.
      * The packing slip PDF that is returned is base 64 encoded 
      * @param orderId Order ID (required)
      * @return ApiResponse&lt;OrdersResponse&gt;
@@ -817,7 +817,7 @@ public class OrderApi {
     }
 
     /**
-     * Generate a packing slip for this order for the given distribution center. (asynchronously)
+     * Generate a packing slip for this order across all distribution centers. (asynchronously)
      * The packing slip PDF that is returned is base 64 encoded 
      * @param orderId Order ID (required)
      * @param callback The callback to be executed when the API call finishes

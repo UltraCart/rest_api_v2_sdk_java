@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-12T11:19:07.727-04:00
+  - Build date: 2021-07-12T11:40:20.137-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.2.13</version>
+  <version>3.2.14</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.2.13"
+compile "com.ultracart:rest-sdk:3.2.14"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.2.13.jar`
+* `target/rest-sdk-3.2.14.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -203,7 +203,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**deleteOrder**](docs/OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**format**](docs/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 *OrderApi* | [**generateOrderToken**](docs/OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
-*OrderApi* | [**generatePackingSlipAllDC**](docs/OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order for the given distribution center.
+*OrderApi* | [**generatePackingSlipAllDC**](docs/OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
 *OrderApi* | [**generatePackingSlipSpecificDC**](docs/OrderApi.md#generatePackingSlipSpecificDC) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
 *OrderApi* | [**getAccountsReceivableRetryConfig**](docs/OrderApi.md#getAccountsReceivableRetryConfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
@@ -1070,7 +1070,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
-| 3.2.12 | 07/09/2021 | coupon api - added hideFromCustomer flag | 
+| 3.2.14 | 07/12/2021 | fix documentation bug on packing slip methods for order api | 
+| 3.2.13 | 07/12/2021 | coupon api - added hideFromCustomer flag | 
 | 3.2.12 | 07/09/2021 | new fulfillment and order methods for generation of packing slips | 
 | 3.2.11 | 07/08/2021 | screen recording - missing external tracking flag added | 
 | 3.2.10 | 07/08/2021 | customer profile - allow drop shipping options | 

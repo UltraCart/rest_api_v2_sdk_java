@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderCoupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-12T11:19:07.727-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-12T11:40:20.137-04:00")
 
 
 
@@ -43,6 +43,9 @@ public class OrderCoupon {
 
   @SerializedName("coupon_code")
   private String couponCode = null;
+
+  @SerializedName("hdie_from_customer")
+  private Boolean hdieFromCustomer = null;
 
   public OrderCoupon accountingCode(String accountingCode) {
     this.accountingCode = accountingCode;
@@ -116,6 +119,24 @@ public class OrderCoupon {
     this.couponCode = couponCode;
   }
 
+  public OrderCoupon hdieFromCustomer(Boolean hdieFromCustomer) {
+    this.hdieFromCustomer = hdieFromCustomer;
+    return this;
+  }
+
+   /**
+   * True if this coupon is hidde from the customer
+   * @return hdieFromCustomer
+  **/
+  @ApiModelProperty(value = "True if this coupon is hidde from the customer")
+  public Boolean isHdieFromCustomer() {
+    return hdieFromCustomer;
+  }
+
+  public void setHdieFromCustomer(Boolean hdieFromCustomer) {
+    this.hdieFromCustomer = hdieFromCustomer;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +150,13 @@ public class OrderCoupon {
     return Objects.equals(this.accountingCode, orderCoupon.accountingCode) &&
         Objects.equals(this.automaticallyApplied, orderCoupon.automaticallyApplied) &&
         Objects.equals(this.baseCouponCode, orderCoupon.baseCouponCode) &&
-        Objects.equals(this.couponCode, orderCoupon.couponCode);
+        Objects.equals(this.couponCode, orderCoupon.couponCode) &&
+        Objects.equals(this.hdieFromCustomer, orderCoupon.hdieFromCustomer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, automaticallyApplied, baseCouponCode, couponCode);
+    return Objects.hash(accountingCode, automaticallyApplied, baseCouponCode, couponCode, hdieFromCustomer);
   }
 
 
@@ -147,6 +169,7 @@ public class OrderCoupon {
     sb.append("    automaticallyApplied: ").append(toIndentedString(automaticallyApplied)).append("\n");
     sb.append("    baseCouponCode: ").append(toIndentedString(baseCouponCode)).append("\n");
     sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
+    sb.append("    hdieFromCustomer: ").append(toIndentedString(hdieFromCustomer)).append("\n");
     sb.append("}");
     return sb.toString();
   }
