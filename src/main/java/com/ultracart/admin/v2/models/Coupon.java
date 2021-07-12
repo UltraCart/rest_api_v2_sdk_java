@@ -71,7 +71,7 @@ import java.util.List;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-09T15:58:01.465-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-12T11:19:07.727-04:00")
 
 
 
@@ -165,6 +165,9 @@ public class Coupon {
 
   @SerializedName("free_shipping_with_subtotal")
   private CouponFreeShippingWithSubtotal freeShippingWithSubtotal = null;
+
+  @SerializedName("hide_from_customer")
+  private Boolean hideFromCustomer = null;
 
   @SerializedName("merchant_code")
   private String merchantCode = null;
@@ -790,6 +793,24 @@ public class Coupon {
     this.freeShippingWithSubtotal = freeShippingWithSubtotal;
   }
 
+  public Coupon hideFromCustomer(Boolean hideFromCustomer) {
+    this.hideFromCustomer = hideFromCustomer;
+    return this;
+  }
+
+   /**
+   * Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms.
+   * @return hideFromCustomer
+  **/
+  @ApiModelProperty(value = "Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms.")
+  public Boolean isHideFromCustomer() {
+    return hideFromCustomer;
+  }
+
+  public void setHideFromCustomer(Boolean hideFromCustomer) {
+    this.hideFromCustomer = hideFromCustomer;
+  }
+
   public Coupon merchantCode(String merchantCode) {
     this.merchantCode = merchantCode;
     return this;
@@ -1358,6 +1379,7 @@ public class Coupon {
         Objects.equals(this.freeShippingSpecificItems, coupon.freeShippingSpecificItems) &&
         Objects.equals(this.freeShippingWithItemsPurchase, coupon.freeShippingWithItemsPurchase) &&
         Objects.equals(this.freeShippingWithSubtotal, coupon.freeShippingWithSubtotal) &&
+        Objects.equals(this.hideFromCustomer, coupon.hideFromCustomer) &&
         Objects.equals(this.merchantCode, coupon.merchantCode) &&
         Objects.equals(this.merchantNotes, coupon.merchantNotes) &&
         Objects.equals(this.multipleAmountsOffItems, coupon.multipleAmountsOffItems) &&
@@ -1390,7 +1412,7 @@ public class Coupon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItem, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItem, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
   }
 
 
@@ -1429,6 +1451,7 @@ public class Coupon {
     sb.append("    freeShippingSpecificItems: ").append(toIndentedString(freeShippingSpecificItems)).append("\n");
     sb.append("    freeShippingWithItemsPurchase: ").append(toIndentedString(freeShippingWithItemsPurchase)).append("\n");
     sb.append("    freeShippingWithSubtotal: ").append(toIndentedString(freeShippingWithSubtotal)).append("\n");
+    sb.append("    hideFromCustomer: ").append(toIndentedString(hideFromCustomer)).append("\n");
     sb.append("    merchantCode: ").append(toIndentedString(merchantCode)).append("\n");
     sb.append("    merchantNotes: ").append(toIndentedString(merchantNotes)).append("\n");
     sb.append("    multipleAmountsOffItems: ").append(toIndentedString(multipleAmountsOffItems)).append("\n");

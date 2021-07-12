@@ -19,7 +19,7 @@ import java.util.Arrays;
 /**
  * CouponNoDiscount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-09T15:58:01.465-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-12T11:19:07.727-04:00")
 
 
 

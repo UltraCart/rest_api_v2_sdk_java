@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **freeShippingSpecificItems** | [**CouponFreeShippingSpecificItems**](CouponFreeShippingSpecificItems.md) |  |  [optional]
 **freeShippingWithItemsPurchase** | [**CouponFreeShippingWithItemsPurchase**](CouponFreeShippingWithItemsPurchase.md) |  |  [optional]
 **freeShippingWithSubtotal** | [**CouponFreeShippingWithSubtotal**](CouponFreeShippingWithSubtotal.md) |  |  [optional]
+**hideFromCustomer** | **Boolean** | Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms. |  [optional]
 **merchantCode** | **String** | Merchant code of coupon up to 20 characters. |  [optional]
 **merchantNotes** | **String** | Internal notes about this coupon.  These are not visible to customer. |  [optional]
 **multipleAmountsOffItems** | [**CouponMultipleAmountsOffItems**](CouponMultipleAmountsOffItems.md) |  |  [optional]
