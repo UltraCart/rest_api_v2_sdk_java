@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-12T11:40:20.137-04:00
+  - Build date: 2021-07-13T10:52:10.135-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.2.14</version>
+  <version>3.2.15</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.2.14"
+compile "com.ultracart:rest-sdk:3.2.15"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.2.14.jar`
+* `target/rest-sdk-3.2.15.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -264,6 +264,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCustomers**](docs/StorefrontApi.md#getEmailCustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
 *StorefrontApi* | [**getEmailDashboardActivity**](docs/StorefrontApi.md#getEmailDashboardActivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 *StorefrontApi* | [**getEmailDashboardStats**](docs/StorefrontApi.md#getEmailDashboardStats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
+*StorefrontApi* | [**getEmailDispatchLogs**](docs/StorefrontApi.md#getEmailDispatchLogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/logs | Get email dispatch logs
 *StorefrontApi* | [**getEmailEmail**](docs/StorefrontApi.md#getEmailEmail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
 *StorefrontApi* | [**getEmailEmailClicks**](docs/StorefrontApi.md#getEmailEmailClicks) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks | Get email email clicks
 *StorefrontApi* | [**getEmailEmailCustomerEditorUrl**](docs/StorefrontApi.md#getEmailEmailCustomerEditorUrl) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/orders/{order_id}/editor_url | Get email order customer editor url
@@ -636,6 +637,8 @@ Class | Method | HTTP request | Description
  - [EmailCommseqStat](docs/EmailCommseqStat.md)
  - [EmailCommseqStatResponse](docs/EmailCommseqStatResponse.md)
  - [EmailCommseqStep](docs/EmailCommseqStep.md)
+ - [EmailCommseqStepLog](docs/EmailCommseqStepLog.md)
+ - [EmailCommseqStepLogsResponse](docs/EmailCommseqStepLogsResponse.md)
  - [EmailCommseqsResponse](docs/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/EmailCustomer.md)
  - [EmailCustomerEditorUrlResponse](docs/EmailCustomerEditorUrlResponse.md)
@@ -1070,6 +1073,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.15 | 07/13/2021 | storefront communications - added methods to retrieve step dispatch logs | 
 | 3.2.14 | 07/12/2021 | fix documentation bug on packing slip methods for order api | 
 | 3.2.13 | 07/12/2021 | coupon api - added hideFromCustomer flag | 
 | 3.2.12 | 07/09/2021 | new fulfillment and order methods for generation of packing slips | 
