@@ -28,9 +28,10 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.ErrorResponse;
-import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.SingleSignOnAuthorizeRequest;
+import com.ultracart.admin.v2.models.SingleSignOnAuthorizeResponse;
 import com.ultracart.admin.v2.models.SingleSignOnTokenRequest;
+import com.ultracart.admin.v2.models.SingleSignOnTokenResponse;
 import com.ultracart.admin.v2.models.User;
 
 import java.lang.reflect.Type;
@@ -263,11 +264,11 @@ public class SsoApi {
      * Authorize a single sign on session
      * Starts the process of authorizing a single sign on session. 
      * @param authorizationRequest Authorization request (required)
-     * @return ItemsResponse
+     * @return SingleSignOnAuthorizeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse ssoAuthorize(SingleSignOnAuthorizeRequest authorizationRequest) throws ApiException {
-        ApiResponse<ItemsResponse> resp = ssoAuthorizeWithHttpInfo(authorizationRequest);
+    public SingleSignOnAuthorizeResponse ssoAuthorize(SingleSignOnAuthorizeRequest authorizationRequest) throws ApiException {
+        ApiResponse<SingleSignOnAuthorizeResponse> resp = ssoAuthorizeWithHttpInfo(authorizationRequest);
         return resp.getData();
     }
 
@@ -275,12 +276,12 @@ public class SsoApi {
      * Authorize a single sign on session
      * Starts the process of authorizing a single sign on session. 
      * @param authorizationRequest Authorization request (required)
-     * @return ApiResponse&lt;ItemsResponse&gt;
+     * @return ApiResponse&lt;SingleSignOnAuthorizeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> ssoAuthorizeWithHttpInfo(SingleSignOnAuthorizeRequest authorizationRequest) throws ApiException {
+    public ApiResponse<SingleSignOnAuthorizeResponse> ssoAuthorizeWithHttpInfo(SingleSignOnAuthorizeRequest authorizationRequest) throws ApiException {
         com.squareup.okhttp.Call call = ssoAuthorizeValidateBeforeCall(authorizationRequest, null, null);
-        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<SingleSignOnAuthorizeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -292,7 +293,7 @@ public class SsoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ssoAuthorizeAsync(SingleSignOnAuthorizeRequest authorizationRequest, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ssoAuthorizeAsync(SingleSignOnAuthorizeRequest authorizationRequest, final ApiCallback<SingleSignOnAuthorizeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -314,7 +315,7 @@ public class SsoApi {
         }
 
         com.squareup.okhttp.Call call = ssoAuthorizeValidateBeforeCall(authorizationRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<SingleSignOnAuthorizeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -494,11 +495,11 @@ public class SsoApi {
      * Exchange a single sign on code for a simple key token
      * Called by your application after receiving the code back on the redirect URI to obtain a simple key token to make API calls with 
      * @param tokenRequest Token request (required)
-     * @return ItemsResponse
+     * @return SingleSignOnTokenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemsResponse ssoToken(SingleSignOnTokenRequest tokenRequest) throws ApiException {
-        ApiResponse<ItemsResponse> resp = ssoTokenWithHttpInfo(tokenRequest);
+    public SingleSignOnTokenResponse ssoToken(SingleSignOnTokenRequest tokenRequest) throws ApiException {
+        ApiResponse<SingleSignOnTokenResponse> resp = ssoTokenWithHttpInfo(tokenRequest);
         return resp.getData();
     }
 
@@ -506,12 +507,12 @@ public class SsoApi {
      * Exchange a single sign on code for a simple key token
      * Called by your application after receiving the code back on the redirect URI to obtain a simple key token to make API calls with 
      * @param tokenRequest Token request (required)
-     * @return ApiResponse&lt;ItemsResponse&gt;
+     * @return ApiResponse&lt;SingleSignOnTokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemsResponse> ssoTokenWithHttpInfo(SingleSignOnTokenRequest tokenRequest) throws ApiException {
+    public ApiResponse<SingleSignOnTokenResponse> ssoTokenWithHttpInfo(SingleSignOnTokenRequest tokenRequest) throws ApiException {
         com.squareup.okhttp.Call call = ssoTokenValidateBeforeCall(tokenRequest, null, null);
-        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<SingleSignOnTokenResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -523,7 +524,7 @@ public class SsoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ssoTokenAsync(SingleSignOnTokenRequest tokenRequest, final ApiCallback<ItemsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ssoTokenAsync(SingleSignOnTokenRequest tokenRequest, final ApiCallback<SingleSignOnTokenResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -545,7 +546,7 @@ public class SsoApi {
         }
 
         com.squareup.okhttp.Call call = ssoTokenValidateBeforeCall(tokenRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<SingleSignOnTokenResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

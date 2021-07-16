@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 <a name="ssoAuthorize"></a>
 # **ssoAuthorize**
-> ItemsResponse ssoAuthorize(authorizationRequest)
+> SingleSignOnAuthorizeResponse ssoAuthorize(authorizationRequest)
 
 Authorize a single sign on session
 
@@ -79,7 +79,7 @@ SsoApi apiInstance = new SsoApi(apiKey);
 
 SingleSignOnAuthorizeRequest authorizationRequest = new SingleSignOnAuthorizeRequest(); // SingleSignOnAuthorizeRequest | Authorization request
 try {
-    ItemsResponse result = apiInstance.ssoAuthorize(authorizationRequest);
+    SingleSignOnAuthorizeResponse result = apiInstance.ssoAuthorize(authorizationRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SsoApi#ssoAuthorize");
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**SingleSignOnAuthorizeResponse**](SingleSignOnAuthorizeResponse.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ null (empty response body)
 
 <a name="ssoToken"></a>
 # **ssoToken**
-> ItemsResponse ssoToken(tokenRequest)
+> SingleSignOnTokenResponse ssoToken(tokenRequest)
 
 Exchange a single sign on code for a simple key token
 
@@ -174,7 +174,7 @@ SsoApi apiInstance = new SsoApi(apiKey);
 
 SingleSignOnTokenRequest tokenRequest = new SingleSignOnTokenRequest(); // SingleSignOnTokenRequest | Token request
 try {
-    ItemsResponse result = apiInstance.ssoToken(tokenRequest);
+    SingleSignOnTokenResponse result = apiInstance.ssoToken(tokenRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SsoApi#ssoToken");
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**SingleSignOnTokenResponse**](SingleSignOnTokenResponse.md)
 
 ### Authorization
 

@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-16T13:36:26.512-04:00
+  - Build date: 2021-07-16T14:19:28.854-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.3.1</version>
+  <version>3.3.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.3.1"
+compile "com.ultracart:rest-sdk:3.3.2"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.3.1.jar`
+* `target/rest-sdk-3.3.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -952,7 +952,9 @@ Class | Method | HTTP request | Description
  - [SelfConfig](docs/SelfConfig.md)
  - [SimpleValue](docs/SimpleValue.md)
  - [SingleSignOnAuthorizeRequest](docs/SingleSignOnAuthorizeRequest.md)
+ - [SingleSignOnAuthorizeResponse](docs/SingleSignOnAuthorizeResponse.md)
  - [SingleSignOnTokenRequest](docs/SingleSignOnTokenRequest.md)
+ - [SingleSignOnTokenResponse](docs/SingleSignOnTokenResponse.md)
  - [SovosConfig](docs/SovosConfig.md)
  - [StateProvince](docs/StateProvince.md)
  - [StepWaiting](docs/StepWaiting.md)
@@ -1079,6 +1081,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.3.2 | 07/16/2021 | sso bug fixes | 
 | 3.3.1 | 07/16/2021 | screen recording - event sub text used for assisting in UX rendering | 
 | 3.3.0 | 07/16/2021 | new endpoint SingleSignOn | 
 | 3.2.15 | 07/13/2021 | storefront communications - added methods to retrieve step dispatch logs | 
