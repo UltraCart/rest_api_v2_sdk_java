@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-13T10:52:10.135-04:00
+  - Build date: 2021-07-16T09:30:38.743-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.2.15</version>
+  <version>3.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.2.15"
+compile "com.ultracart:rest-sdk:3.3.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.2.15.jar`
+* `target/rest-sdk-3.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -220,6 +220,10 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**resendShipmentConfirmation**](docs/OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
+*SsoApi* | [**getSsoSessionUser**](docs/SsoApi.md#getSsoSessionUser) | **GET** /sso/session/user | Get single sign on session user
+*SsoApi* | [**ssoAuthorize**](docs/SsoApi.md#ssoAuthorize) | **PUT** /sso/authorize | Authorize a single sign on session
+*SsoApi* | [**ssoSessionRevoke**](docs/SsoApi.md#ssoSessionRevoke) | **DELETE** /sso/session/revoke | Revoke single sign on session
+*SsoApi* | [**ssoToken**](docs/SsoApi.md#ssoToken) | **PUT** /sso/token | Exchange a single sign on code for a simple key token
 *StorefrontApi* | [**addToLibrary**](docs/StorefrontApi.md#addToLibrary) | **POST** /storefront/code_library | Add to library
 *StorefrontApi* | [**applyToStoreFront**](docs/StorefrontApi.md#applyToStoreFront) | **POST** /storefront/code_library/apply | Apply library item to storefront.
 *StorefrontApi* | [**archiveEmailList**](docs/StorefrontApi.md#archiveEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
@@ -947,6 +951,8 @@ Class | Method | HTTP request | Description
  - [ScreenshotsResponse](docs/ScreenshotsResponse.md)
  - [SelfConfig](docs/SelfConfig.md)
  - [SimpleValue](docs/SimpleValue.md)
+ - [SingleSignOnAuthorizeRequest](docs/SingleSignOnAuthorizeRequest.md)
+ - [SingleSignOnTokenRequest](docs/SingleSignOnTokenRequest.md)
  - [SovosConfig](docs/SovosConfig.md)
  - [StateProvince](docs/StateProvince.md)
  - [StepWaiting](docs/StepWaiting.md)
@@ -1073,6 +1079,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.3.0 | 07/16/2021 | new endpoint SingleSignOn | 
 | 3.2.15 | 07/13/2021 | storefront communications - added methods to retrieve step dispatch logs | 
 | 3.2.14 | 07/12/2021 | fix documentation bug on packing slip methods for order api | 
 | 3.2.13 | 07/12/2021 | coupon api - added hideFromCustomer flag | 
