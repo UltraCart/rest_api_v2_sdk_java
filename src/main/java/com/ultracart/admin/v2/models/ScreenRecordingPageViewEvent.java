@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ScreenRecordingPageViewEvent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-16T09:30:38.743-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-16T13:36:26.512-04:00")
 
 
 
@@ -43,6 +43,9 @@ public class ScreenRecordingPageViewEvent {
 
   @SerializedName("prior_page_view")
   private Boolean priorPageView = null;
+
+  @SerializedName("sub_text")
+  private String subText = null;
 
   @SerializedName("timestamp")
   private String timestamp = null;
@@ -112,6 +115,24 @@ public class ScreenRecordingPageViewEvent {
     this.priorPageView = priorPageView;
   }
 
+  public ScreenRecordingPageViewEvent subText(String subText) {
+    this.subText = subText;
+    return this;
+  }
+
+   /**
+   * Get subText
+   * @return subText
+  **/
+  @ApiModelProperty(value = "")
+  public String getSubText() {
+    return subText;
+  }
+
+  public void setSubText(String subText) {
+    this.subText = subText;
+  }
+
   public ScreenRecordingPageViewEvent timestamp(String timestamp) {
     this.timestamp = timestamp;
     return this;
@@ -161,13 +182,14 @@ public class ScreenRecordingPageViewEvent {
     return Objects.equals(this.name, screenRecordingPageViewEvent.name) &&
         Objects.equals(this.params, screenRecordingPageViewEvent.params) &&
         Objects.equals(this.priorPageView, screenRecordingPageViewEvent.priorPageView) &&
+        Objects.equals(this.subText, screenRecordingPageViewEvent.subText) &&
         Objects.equals(this.timestamp, screenRecordingPageViewEvent.timestamp) &&
         Objects.equals(this.ts, screenRecordingPageViewEvent.ts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, params, priorPageView, timestamp, ts);
+    return Objects.hash(name, params, priorPageView, subText, timestamp, ts);
   }
 
 
@@ -179,6 +201,7 @@ public class ScreenRecordingPageViewEvent {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    priorPageView: ").append(toIndentedString(priorPageView)).append("\n");
+    sb.append("    subText: ").append(toIndentedString(subText)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    ts: ").append(toIndentedString(ts)).append("\n");
     sb.append("}");
