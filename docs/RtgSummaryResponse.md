@@ -1,5 +1,5 @@
 
-# RtgSummary
+# RtgSummaryResponse
 
 ## Properties
 Name | Type | Description | Notes

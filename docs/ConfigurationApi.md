@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 <a name="getPaymentsConfiguration"></a>
 # **getPaymentsConfiguration**
-> PaymentsConfiguration getPaymentsConfiguration()
+> PaymentsConfigurationResponse getPaymentsConfiguration()
 
 Retrieve payments configuration
 
@@ -143,7 +143,7 @@ final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12
 ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 
 try {
-    PaymentsConfiguration result = apiInstance.getPaymentsConfiguration();
+    PaymentsConfigurationResponse result = apiInstance.getPaymentsConfiguration();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#getPaymentsConfiguration");
@@ -156,7 +156,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**PaymentsConfiguration**](PaymentsConfiguration.md)
+[**PaymentsConfigurationResponse**](PaymentsConfigurationResponse.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ This endpoint does not need any parameter.
 
 <a name="getPaymentsRotatingGateway"></a>
 # **getPaymentsRotatingGateway**
-> RotatingTransactionGateway getPaymentsRotatingGateway(rtgOid)
+> RotatingTransactionGatewayResponse getPaymentsRotatingGateway(rtgOid)
 
 Retrieve a rotating transaction gateway
 
@@ -190,7 +190,7 @@ ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 
 Integer rtgOid = 56; // Integer | The rtg_oid for the desired record.
 try {
-    RotatingTransactionGateway result = apiInstance.getPaymentsRotatingGateway(rtgOid);
+    RotatingTransactionGatewayResponse result = apiInstance.getPaymentsRotatingGateway(rtgOid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#getPaymentsRotatingGateway");
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 <a name="getPaymentsRotatingGatewayByCode"></a>
 # **getPaymentsRotatingGatewayByCode**
-> RotatingTransactionGateway getPaymentsRotatingGatewayByCode(code)
+> RotatingTransactionGatewayResponse getPaymentsRotatingGatewayByCode(code)
 
 Retrieve a rotating transaction gateway by code
 
@@ -240,7 +240,7 @@ ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 
 String code = "code_example"; // String | The code for the desired rotating transaction gateway.
 try {
-    RotatingTransactionGateway result = apiInstance.getPaymentsRotatingGatewayByCode(code);
+    RotatingTransactionGatewayResponse result = apiInstance.getPaymentsRotatingGatewayByCode(code);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#getPaymentsRotatingGatewayByCode");
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -315,7 +315,7 @@ This endpoint does not need any parameter.
 
 <a name="getPaymentsRtgSummaries"></a>
 # **getPaymentsRtgSummaries**
-> RtgSummary getPaymentsRtgSummaries()
+> RtgSummaryResponse getPaymentsRtgSummaries()
 
 Retrieve a summary of rotating transaction gateways
 
@@ -335,7 +335,7 @@ final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12
 ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 
 try {
-    RtgSummary result = apiInstance.getPaymentsRtgSummaries();
+    RtgSummaryResponse result = apiInstance.getPaymentsRtgSummaries();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#getPaymentsRtgSummaries");
@@ -348,7 +348,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RtgSummary**](RtgSummary.md)
+[**RtgSummaryResponse**](RtgSummaryResponse.md)
 
 ### Authorization
 
@@ -407,7 +407,7 @@ This endpoint does not need any parameter.
 
 <a name="insertRotatingTransactionGateway"></a>
 # **insertRotatingTransactionGateway**
-> RotatingTransactionGateway insertRotatingTransactionGateway(rotatingTransactionGateway)
+> RotatingTransactionGatewayResponse insertRotatingTransactionGateway(rotatingTransactionGateway)
 
 Insert a rotating transaction gateway
 
@@ -428,7 +428,7 @@ ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 
 RotatingTransactionGateway rotatingTransactionGateway = new RotatingTransactionGateway(); // RotatingTransactionGateway | Rotating transaction gateway
 try {
-    RotatingTransactionGateway result = apiInstance.insertRotatingTransactionGateway(rotatingTransactionGateway);
+    RotatingTransactionGatewayResponse result = apiInstance.insertRotatingTransactionGateway(rotatingTransactionGateway);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#insertRotatingTransactionGateway");
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 
 <a name="migrateToRotatingTransactionGateway"></a>
 # **migrateToRotatingTransactionGateway**
-> RotatingTransactionGateway migrateToRotatingTransactionGateway(code)
+> RotatingTransactionGatewayResponse migrateToRotatingTransactionGateway(code)
 
 Migrate a normal transaction gateway to a rotating transaction gateway
 
@@ -478,7 +478,7 @@ ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 
 String code = "code_example"; // String | The short code for the new rotating transaction gateway
 try {
-    RotatingTransactionGateway result = apiInstance.migrateToRotatingTransactionGateway(code);
+    RotatingTransactionGatewayResponse result = apiInstance.migrateToRotatingTransactionGateway(code);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#migrateToRotatingTransactionGateway");
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 

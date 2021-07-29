@@ -28,13 +28,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * RtgSummary
+ * RtgSummaryResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-29T15:09:50.559-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-29T15:46:00.238-04:00")
 
 
 
-public class RtgSummary {
+public class RtgSummaryResponse {
   @SerializedName("gateways")
   private List<RtgSummaryGateway> gateways = null;
 
@@ -56,12 +56,12 @@ public class RtgSummary {
   @SerializedName("warning")
   private String warning = null;
 
-  public RtgSummary gateways(List<RtgSummaryGateway> gateways) {
+  public RtgSummaryResponse gateways(List<RtgSummaryGateway> gateways) {
     this.gateways = gateways;
     return this;
   }
 
-  public RtgSummary addGatewaysItem(RtgSummaryGateway gatewaysItem) {
+  public RtgSummaryResponse addGatewaysItem(RtgSummaryGateway gatewaysItem) {
     if (this.gateways == null) {
       this.gateways = new ArrayList<RtgSummaryGateway>();
     }
@@ -82,7 +82,7 @@ public class RtgSummary {
     this.gateways = gateways;
   }
 
-  public RtgSummary infoMessage(String infoMessage) {
+  public RtgSummaryResponse infoMessage(String infoMessage) {
     this.infoMessage = infoMessage;
     return this;
   }
@@ -100,7 +100,7 @@ public class RtgSummary {
     this.infoMessage = infoMessage;
   }
 
-  public RtgSummary migrationRtgCode(String migrationRtgCode) {
+  public RtgSummaryResponse migrationRtgCode(String migrationRtgCode) {
     this.migrationRtgCode = migrationRtgCode;
     return this;
   }
@@ -118,7 +118,7 @@ public class RtgSummary {
     this.migrationRtgCode = migrationRtgCode;
   }
 
-  public RtgSummary migrationSingleGatewayName(String migrationSingleGatewayName) {
+  public RtgSummaryResponse migrationSingleGatewayName(String migrationSingleGatewayName) {
     this.migrationSingleGatewayName = migrationSingleGatewayName;
     return this;
   }
@@ -136,7 +136,7 @@ public class RtgSummary {
     this.migrationSingleGatewayName = migrationSingleGatewayName;
   }
 
-  public RtgSummary showDelayAutoOrders(Boolean showDelayAutoOrders) {
+  public RtgSummaryResponse showDelayAutoOrders(Boolean showDelayAutoOrders) {
     this.showDelayAutoOrders = showDelayAutoOrders;
     return this;
   }
@@ -154,7 +154,7 @@ public class RtgSummary {
     this.showDelayAutoOrders = showDelayAutoOrders;
   }
 
-  public RtgSummary showMigration(Boolean showMigration) {
+  public RtgSummaryResponse showMigration(Boolean showMigration) {
     this.showMigration = showMigration;
     return this;
   }
@@ -172,7 +172,7 @@ public class RtgSummary {
     this.showMigration = showMigration;
   }
 
-  public RtgSummary warning(String warning) {
+  public RtgSummaryResponse warning(String warning) {
     this.warning = warning;
     return this;
   }
@@ -199,14 +199,14 @@ public class RtgSummary {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RtgSummary rtgSummary = (RtgSummary) o;
-    return Objects.equals(this.gateways, rtgSummary.gateways) &&
-        Objects.equals(this.infoMessage, rtgSummary.infoMessage) &&
-        Objects.equals(this.migrationRtgCode, rtgSummary.migrationRtgCode) &&
-        Objects.equals(this.migrationSingleGatewayName, rtgSummary.migrationSingleGatewayName) &&
-        Objects.equals(this.showDelayAutoOrders, rtgSummary.showDelayAutoOrders) &&
-        Objects.equals(this.showMigration, rtgSummary.showMigration) &&
-        Objects.equals(this.warning, rtgSummary.warning);
+    RtgSummaryResponse rtgSummaryResponse = (RtgSummaryResponse) o;
+    return Objects.equals(this.gateways, rtgSummaryResponse.gateways) &&
+        Objects.equals(this.infoMessage, rtgSummaryResponse.infoMessage) &&
+        Objects.equals(this.migrationRtgCode, rtgSummaryResponse.migrationRtgCode) &&
+        Objects.equals(this.migrationSingleGatewayName, rtgSummaryResponse.migrationSingleGatewayName) &&
+        Objects.equals(this.showDelayAutoOrders, rtgSummaryResponse.showDelayAutoOrders) &&
+        Objects.equals(this.showMigration, rtgSummaryResponse.showMigration) &&
+        Objects.equals(this.warning, rtgSummaryResponse.warning);
   }
 
   @Override
@@ -218,7 +218,7 @@ public class RtgSummary {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RtgSummary {\n");
+    sb.append("class RtgSummaryResponse {\n");
     
     sb.append("    gateways: ").append(toIndentedString(gateways)).append("\n");
     sb.append("    infoMessage: ").append(toIndentedString(infoMessage)).append("\n");

@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * CustomerLoyaltyRedemption
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-29T15:09:50.559-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-29T15:46:00.238-04:00")
 
 
 
