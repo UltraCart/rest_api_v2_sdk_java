@@ -31,7 +31,7 @@ import java.io.IOException;
 /**
  * EmailPlanResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-29T10:39:55.223-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-29T15:09:50.559-04:00")
 
 
 

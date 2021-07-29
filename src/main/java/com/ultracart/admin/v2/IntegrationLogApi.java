@@ -32,6 +32,8 @@ import java.io.File;
 import com.ultracart.admin.v2.models.IntegrationLogQueryRequest;
 import com.ultracart.admin.v2.models.IntegrationLogQueryResponse;
 import com.ultracart.admin.v2.models.IntegrationLogResponse;
+import com.ultracart.admin.v2.models.IntegrationLogSummaryQueryRequest;
+import com.ultracart.admin.v2.models.IntegrationLogSummaryQueryResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -356,6 +358,128 @@ public class IntegrationLogApi {
 
         com.squareup.okhttp.Call call = getIntegrationLogFileValidateBeforeCall(pk, sk, uuid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getIntegrationLogSummariesQuery
+     * @param integrationLogSummariesQuery Integration log summaries query (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getIntegrationLogSummariesQueryCall(IntegrationLogSummaryQueryRequest integrationLogSummariesQuery, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = integrationLogSummariesQuery;
+
+        // create path and map variables
+        String localVarPath = "/integration_log/summary/query";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getIntegrationLogSummariesQueryValidateBeforeCall(IntegrationLogSummaryQueryRequest integrationLogSummariesQuery, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'integrationLogSummariesQuery' is set
+        if (integrationLogSummariesQuery == null) {
+            throw new ApiException("Missing the required parameter 'integrationLogSummariesQuery' when calling getIntegrationLogSummariesQuery(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getIntegrationLogSummariesQueryCall(integrationLogSummariesQuery, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve integration log summaries
+     * Retrieves a set of integration log summaries from the account based on a query object. 
+     * @param integrationLogSummariesQuery Integration log summaries query (required)
+     * @return IntegrationLogSummaryQueryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public IntegrationLogSummaryQueryResponse getIntegrationLogSummariesQuery(IntegrationLogSummaryQueryRequest integrationLogSummariesQuery) throws ApiException {
+        ApiResponse<IntegrationLogSummaryQueryResponse> resp = getIntegrationLogSummariesQueryWithHttpInfo(integrationLogSummariesQuery);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve integration log summaries
+     * Retrieves a set of integration log summaries from the account based on a query object. 
+     * @param integrationLogSummariesQuery Integration log summaries query (required)
+     * @return ApiResponse&lt;IntegrationLogSummaryQueryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<IntegrationLogSummaryQueryResponse> getIntegrationLogSummariesQueryWithHttpInfo(IntegrationLogSummaryQueryRequest integrationLogSummariesQuery) throws ApiException {
+        com.squareup.okhttp.Call call = getIntegrationLogSummariesQueryValidateBeforeCall(integrationLogSummariesQuery, null, null);
+        Type localVarReturnType = new TypeToken<IntegrationLogSummaryQueryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve integration log summaries (asynchronously)
+     * Retrieves a set of integration log summaries from the account based on a query object. 
+     * @param integrationLogSummariesQuery Integration log summaries query (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getIntegrationLogSummariesQueryAsync(IntegrationLogSummaryQueryRequest integrationLogSummariesQuery, final ApiCallback<IntegrationLogSummaryQueryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getIntegrationLogSummariesQueryValidateBeforeCall(integrationLogSummariesQuery, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<IntegrationLogSummaryQueryResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 <a name="getPaymentsRotatingTransactionGateways"></a>
 # **getPaymentsRotatingTransactionGateways**
-> RotatingTransactionGateway getPaymentsRotatingTransactionGateways()
+> RotatingTransactionGatewaysResponse getPaymentsRotatingTransactionGateways()
 
 Retrieve a list of rotating transaction gateways
 
@@ -289,7 +289,7 @@ final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12
 ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 
 try {
-    RotatingTransactionGateway result = apiInstance.getPaymentsRotatingTransactionGateways();
+    RotatingTransactionGatewaysResponse result = apiInstance.getPaymentsRotatingTransactionGateways();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#getPaymentsRotatingTransactionGateways");
@@ -302,7 +302,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewaysResponse**](RotatingTransactionGatewaysResponse.md)
 
 ### Authorization
 
@@ -315,7 +315,7 @@ This endpoint does not need any parameter.
 
 <a name="getPaymentsRtgSummaries"></a>
 # **getPaymentsRtgSummaries**
-> RotatingTransactionGateway getPaymentsRtgSummaries()
+> RtgSummary getPaymentsRtgSummaries()
 
 Retrieve a summary of rotating transaction gateways
 
@@ -335,7 +335,7 @@ final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12
 ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 
 try {
-    RotatingTransactionGateway result = apiInstance.getPaymentsRtgSummaries();
+    RtgSummary result = apiInstance.getPaymentsRtgSummaries();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#getPaymentsRtgSummaries");
@@ -348,7 +348,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RtgSummary**](RtgSummary.md)
 
 ### Authorization
 

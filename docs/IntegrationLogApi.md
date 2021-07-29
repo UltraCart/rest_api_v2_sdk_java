@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIntegrationLog**](IntegrationLogApi.md#getIntegrationLog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
 [**getIntegrationLogFile**](IntegrationLogApi.md#getIntegrationLogFile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
+[**getIntegrationLogSummariesQuery**](IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
 [**getIntegrationLogsQuery**](IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
 
 
@@ -114,6 +115,56 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/octet-stream
+
+<a name="getIntegrationLogSummariesQuery"></a>
+# **getIntegrationLogSummariesQuery**
+> IntegrationLogSummaryQueryResponse getIntegrationLogSummariesQuery(integrationLogSummariesQuery)
+
+Retrieve integration log summaries
+
+Retrieves a set of integration log summaries from the account based on a query object. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.IntegrationLogApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+IntegrationLogApi apiInstance = new IntegrationLogApi(apiKey);
+
+IntegrationLogSummaryQueryRequest integrationLogSummariesQuery = new IntegrationLogSummaryQueryRequest(); // IntegrationLogSummaryQueryRequest | Integration log summaries query
+try {
+    IntegrationLogSummaryQueryResponse result = apiInstance.getIntegrationLogSummariesQuery(integrationLogSummariesQuery);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling IntegrationLogApi#getIntegrationLogSummariesQuery");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationLogSummariesQuery** | [**IntegrationLogSummaryQueryRequest**](IntegrationLogSummaryQueryRequest.md)| Integration log summaries query |
+
+### Return type
+
+[**IntegrationLogSummaryQueryResponse**](IntegrationLogSummaryQueryResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="getIntegrationLogsQuery"></a>
 # **getIntegrationLogsQuery**

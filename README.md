@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-29T10:39:55.223-04:00
+  - Build date: 2021-07-29T15:09:50.559-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.4.0</version>
+  <version>3.4.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.4.0"
+compile "com.ultracart:rest-sdk:3.4.1"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.4.0.jar`
+* `target/rest-sdk-3.4.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -201,6 +201,7 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**updateInventory**](docs/FulfillmentApi.md#updateInventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
 *IntegrationLogApi* | [**getIntegrationLog**](docs/IntegrationLogApi.md#getIntegrationLog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
 *IntegrationLogApi* | [**getIntegrationLogFile**](docs/IntegrationLogApi.md#getIntegrationLogFile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
+*IntegrationLogApi* | [**getIntegrationLogSummariesQuery**](docs/IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteItem**](docs/ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**getItem**](docs/ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
@@ -756,6 +757,9 @@ Class | Method | HTTP request | Description
  - [IntegrationLogQueryRequest](docs/IntegrationLogQueryRequest.md)
  - [IntegrationLogQueryResponse](docs/IntegrationLogQueryResponse.md)
  - [IntegrationLogResponse](docs/IntegrationLogResponse.md)
+ - [IntegrationLogSummary](docs/IntegrationLogSummary.md)
+ - [IntegrationLogSummaryQueryRequest](docs/IntegrationLogSummaryQueryRequest.md)
+ - [IntegrationLogSummaryQueryResponse](docs/IntegrationLogSummaryQueryResponse.md)
  - [Item](docs/Item.md)
  - [ItemAccounting](docs/ItemAccounting.md)
  - [ItemAmember](docs/ItemAmember.md)
@@ -935,9 +939,12 @@ Class | Method | HTTP request | Description
  - [ResponseMetadata](docs/ResponseMetadata.md)
  - [ResultSet](docs/ResultSet.md)
  - [RotatingTransactionGateway](docs/RotatingTransactionGateway.md)
+ - [RotatingTransactionGatewaysResponse](docs/RotatingTransactionGatewaysResponse.md)
  - [RtgCurrency](docs/RtgCurrency.md)
  - [RtgDayOfMonthRestriction](docs/RtgDayOfMonthRestriction.md)
  - [RtgDayOfWeekRestriction](docs/RtgDayOfWeekRestriction.md)
+ - [RtgSummary](docs/RtgSummary.md)
+ - [RtgSummaryGateway](docs/RtgSummaryGateway.md)
  - [RtgThemeRestriction](docs/RtgThemeRestriction.md)
  - [ScreenRecording](docs/ScreenRecording.md)
  - [ScreenRecordingAdPlatform](docs/ScreenRecordingAdPlatform.md)
@@ -1126,6 +1133,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.1 | 07/29/2021 | bug fixes for new configuration api | 
 | 3.4.0 | 07/29/2021 | added new configuration api (not live yet. sdk only works against development presently) | 
 | 3.3.2 | 07/16/2021 | sso bug fixes | 
 | 3.3.1 | 07/16/2021 | screen recording - event sub text used for assisting in UX rendering | 

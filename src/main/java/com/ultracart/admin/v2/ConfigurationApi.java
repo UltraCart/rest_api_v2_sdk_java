@@ -34,6 +34,8 @@ import com.ultracart.admin.v2.models.PaymentsConfiguration;
 import com.ultracart.admin.v2.models.PaymentsConfigurationResponse;
 import com.ultracart.admin.v2.models.PaymentsWepayEnroll;
 import com.ultracart.admin.v2.models.RotatingTransactionGateway;
+import com.ultracart.admin.v2.models.RotatingTransactionGatewaysResponse;
+import com.ultracart.admin.v2.models.RtgSummary;
 import com.ultracart.admin.v2.models.StripeConnectResponse;
 import com.ultracart.admin.v2.models.TransactionGatewaysRequest;
 import com.ultracart.admin.v2.models.TransactionGatewaysResponse;
@@ -753,23 +755,23 @@ public class ConfigurationApi {
     /**
      * Retrieve a list of rotating transaction gateways
      * Retrieve a list of rotating transaction gateways 
-     * @return RotatingTransactionGateway
+     * @return RotatingTransactionGatewaysResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RotatingTransactionGateway getPaymentsRotatingTransactionGateways() throws ApiException {
-        ApiResponse<RotatingTransactionGateway> resp = getPaymentsRotatingTransactionGatewaysWithHttpInfo();
+    public RotatingTransactionGatewaysResponse getPaymentsRotatingTransactionGateways() throws ApiException {
+        ApiResponse<RotatingTransactionGatewaysResponse> resp = getPaymentsRotatingTransactionGatewaysWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Retrieve a list of rotating transaction gateways
      * Retrieve a list of rotating transaction gateways 
-     * @return ApiResponse&lt;RotatingTransactionGateway&gt;
+     * @return ApiResponse&lt;RotatingTransactionGatewaysResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RotatingTransactionGateway> getPaymentsRotatingTransactionGatewaysWithHttpInfo() throws ApiException {
+    public ApiResponse<RotatingTransactionGatewaysResponse> getPaymentsRotatingTransactionGatewaysWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getPaymentsRotatingTransactionGatewaysValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<RotatingTransactionGateway>(){}.getType();
+        Type localVarReturnType = new TypeToken<RotatingTransactionGatewaysResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -780,7 +782,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getPaymentsRotatingTransactionGatewaysAsync(final ApiCallback<RotatingTransactionGateway> callback) throws ApiException {
+    public com.squareup.okhttp.Call getPaymentsRotatingTransactionGatewaysAsync(final ApiCallback<RotatingTransactionGatewaysResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -802,7 +804,7 @@ public class ConfigurationApi {
         }
 
         com.squareup.okhttp.Call call = getPaymentsRotatingTransactionGatewaysValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RotatingTransactionGateway>(){}.getType();
+        Type localVarReturnType = new TypeToken<RotatingTransactionGatewaysResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -866,23 +868,23 @@ public class ConfigurationApi {
     /**
      * Retrieve a summary of rotating transaction gateways
      * Retrieve a summary of rotating transaction gateways 
-     * @return RotatingTransactionGateway
+     * @return RtgSummary
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RotatingTransactionGateway getPaymentsRtgSummaries() throws ApiException {
-        ApiResponse<RotatingTransactionGateway> resp = getPaymentsRtgSummariesWithHttpInfo();
+    public RtgSummary getPaymentsRtgSummaries() throws ApiException {
+        ApiResponse<RtgSummary> resp = getPaymentsRtgSummariesWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Retrieve a summary of rotating transaction gateways
      * Retrieve a summary of rotating transaction gateways 
-     * @return ApiResponse&lt;RotatingTransactionGateway&gt;
+     * @return ApiResponse&lt;RtgSummary&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RotatingTransactionGateway> getPaymentsRtgSummariesWithHttpInfo() throws ApiException {
+    public ApiResponse<RtgSummary> getPaymentsRtgSummariesWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getPaymentsRtgSummariesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<RotatingTransactionGateway>(){}.getType();
+        Type localVarReturnType = new TypeToken<RtgSummary>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -893,7 +895,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getPaymentsRtgSummariesAsync(final ApiCallback<RotatingTransactionGateway> callback) throws ApiException {
+    public com.squareup.okhttp.Call getPaymentsRtgSummariesAsync(final ApiCallback<RtgSummary> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -915,7 +917,7 @@ public class ConfigurationApi {
         }
 
         com.squareup.okhttp.Call call = getPaymentsRtgSummariesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RotatingTransactionGateway>(){}.getType();
+        Type localVarReturnType = new TypeToken<RtgSummary>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
