@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderTrackingNumberDetail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T09:27:16.618-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T09:36:19.564-04:00")
 
 
 
@@ -35,11 +35,17 @@ public class OrderTrackingNumberDetail {
   @SerializedName("city")
   private String city = null;
 
+  @SerializedName("event_dts")
+  private String eventDts = null;
+
   @SerializedName("event_local_date")
   private String eventLocalDate = null;
 
   @SerializedName("event_local_time")
   private String eventLocalTime = null;
+
+  @SerializedName("event_timezone_id")
+  private String eventTimezoneId = null;
 
   @SerializedName("state")
   private String state = null;
@@ -80,6 +86,24 @@ public class OrderTrackingNumberDetail {
     this.city = city;
   }
 
+  public OrderTrackingNumberDetail eventDts(String eventDts) {
+    this.eventDts = eventDts;
+    return this;
+  }
+
+   /**
+   * ISO 8601 timestamp that the event occurred
+   * @return eventDts
+  **/
+  @ApiModelProperty(value = "ISO 8601 timestamp that the event occurred")
+  public String getEventDts() {
+    return eventDts;
+  }
+
+  public void setEventDts(String eventDts) {
+    this.eventDts = eventDts;
+  }
+
   public OrderTrackingNumberDetail eventLocalDate(String eventLocalDate) {
     this.eventLocalDate = eventLocalDate;
     return this;
@@ -114,6 +138,24 @@ public class OrderTrackingNumberDetail {
 
   public void setEventLocalTime(String eventLocalTime) {
     this.eventLocalTime = eventLocalTime;
+  }
+
+  public OrderTrackingNumberDetail eventTimezoneId(String eventTimezoneId) {
+    this.eventTimezoneId = eventTimezoneId;
+    return this;
+  }
+
+   /**
+   * Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.
+   * @return eventTimezoneId
+  **/
+  @ApiModelProperty(value = "Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.")
+  public String getEventTimezoneId() {
+    return eventTimezoneId;
+  }
+
+  public void setEventTimezoneId(String eventTimezoneId) {
+    this.eventTimezoneId = eventTimezoneId;
   }
 
   public OrderTrackingNumberDetail state(String state) {
@@ -253,8 +295,10 @@ public class OrderTrackingNumberDetail {
     }
     OrderTrackingNumberDetail orderTrackingNumberDetail = (OrderTrackingNumberDetail) o;
     return Objects.equals(this.city, orderTrackingNumberDetail.city) &&
+        Objects.equals(this.eventDts, orderTrackingNumberDetail.eventDts) &&
         Objects.equals(this.eventLocalDate, orderTrackingNumberDetail.eventLocalDate) &&
         Objects.equals(this.eventLocalTime, orderTrackingNumberDetail.eventLocalTime) &&
+        Objects.equals(this.eventTimezoneId, orderTrackingNumberDetail.eventTimezoneId) &&
         Objects.equals(this.state, orderTrackingNumberDetail.state) &&
         Objects.equals(this.subtag, orderTrackingNumberDetail.subtag) &&
         Objects.equals(this.subtagMessage, orderTrackingNumberDetail.subtagMessage) &&
@@ -266,7 +310,7 @@ public class OrderTrackingNumberDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, eventLocalDate, eventLocalTime, state, subtag, subtagMessage, tag, tagDescription, tagIcon, zip);
+    return Objects.hash(city, eventDts, eventLocalDate, eventLocalTime, eventTimezoneId, state, subtag, subtagMessage, tag, tagDescription, tagIcon, zip);
   }
 
 
@@ -276,8 +320,10 @@ public class OrderTrackingNumberDetail {
     sb.append("class OrderTrackingNumberDetail {\n");
     
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    eventDts: ").append(toIndentedString(eventDts)).append("\n");
     sb.append("    eventLocalDate: ").append(toIndentedString(eventLocalDate)).append("\n");
     sb.append("    eventLocalTime: ").append(toIndentedString(eventLocalTime)).append("\n");
+    sb.append("    eventTimezoneId: ").append(toIndentedString(eventTimezoneId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    subtag: ").append(toIndentedString(subtag)).append("\n");
     sb.append("    subtagMessage: ").append(toIndentedString(subtagMessage)).append("\n");
