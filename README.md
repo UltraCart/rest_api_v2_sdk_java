@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-07-29T15:46:00.238-04:00
+  - Build date: 2021-08-03T09:27:16.618-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.4.2</version>
+  <version>3.4.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.4.2"
+compile "com.ultracart:rest-sdk:3.4.3"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.4.2.jar`
+* `target/rest-sdk-3.4.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1134,6 +1134,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.3 | 08/03/2021 | package tracking - add event_iso_date and event_timezone_id | 
 | 3.4.2 | 07/29/2021 | bug fixes for new configuration api | 
 | 3.4.1 | 07/29/2021 | bug fixes for new configuration api | 
 | 3.4.0 | 07/29/2021 | added new configuration api (not live yet. sdk only works against development presently) | 

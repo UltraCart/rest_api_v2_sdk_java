@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * EmailCommseqEmailsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-29T15:46:00.238-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T09:27:16.618-04:00")
 
 
 

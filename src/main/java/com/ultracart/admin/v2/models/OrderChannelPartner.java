@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderChannelPartner
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-29T15:46:00.238-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T09:27:16.618-04:00")
 
 
 
@@ -46,6 +46,9 @@ public class OrderChannelPartner {
 
   @SerializedName("channel_partner_order_id")
   private String channelPartnerOrderId = null;
+
+  @SerializedName("ignore_invalid_shipping_method")
+  private Boolean ignoreInvalidShippingMethod = null;
 
   @SerializedName("no_realtime_payment_processing")
   private Boolean noRealtimePaymentProcessing = null;
@@ -150,6 +153,24 @@ public class OrderChannelPartner {
 
   public void setChannelPartnerOrderId(String channelPartnerOrderId) {
     this.channelPartnerOrderId = channelPartnerOrderId;
+  }
+
+  public OrderChannelPartner ignoreInvalidShippingMethod(Boolean ignoreInvalidShippingMethod) {
+    this.ignoreInvalidShippingMethod = ignoreInvalidShippingMethod;
+    return this;
+  }
+
+   /**
+   * Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders.
+   * @return ignoreInvalidShippingMethod
+  **/
+  @ApiModelProperty(value = "Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders.")
+  public Boolean isIgnoreInvalidShippingMethod() {
+    return ignoreInvalidShippingMethod;
+  }
+
+  public void setIgnoreInvalidShippingMethod(Boolean ignoreInvalidShippingMethod) {
+    this.ignoreInvalidShippingMethod = ignoreInvalidShippingMethod;
   }
 
   public OrderChannelPartner noRealtimePaymentProcessing(Boolean noRealtimePaymentProcessing) {
@@ -257,6 +278,7 @@ public class OrderChannelPartner {
         Objects.equals(this.channelPartnerData, orderChannelPartner.channelPartnerData) &&
         Objects.equals(this.channelPartnerOid, orderChannelPartner.channelPartnerOid) &&
         Objects.equals(this.channelPartnerOrderId, orderChannelPartner.channelPartnerOrderId) &&
+        Objects.equals(this.ignoreInvalidShippingMethod, orderChannelPartner.ignoreInvalidShippingMethod) &&
         Objects.equals(this.noRealtimePaymentProcessing, orderChannelPartner.noRealtimePaymentProcessing) &&
         Objects.equals(this.skipPaymentProcessing, orderChannelPartner.skipPaymentProcessing) &&
         Objects.equals(this.storeCompleted, orderChannelPartner.storeCompleted) &&
@@ -266,7 +288,7 @@ public class OrderChannelPartner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoApprovePurchaseOrder, channelPartnerCode, channelPartnerData, channelPartnerOid, channelPartnerOrderId, noRealtimePaymentProcessing, skipPaymentProcessing, storeCompleted, storeIfPaymentDeclines, treatWarningsAsErrors);
+    return Objects.hash(autoApprovePurchaseOrder, channelPartnerCode, channelPartnerData, channelPartnerOid, channelPartnerOrderId, ignoreInvalidShippingMethod, noRealtimePaymentProcessing, skipPaymentProcessing, storeCompleted, storeIfPaymentDeclines, treatWarningsAsErrors);
   }
 
 
@@ -280,6 +302,7 @@ public class OrderChannelPartner {
     sb.append("    channelPartnerData: ").append(toIndentedString(channelPartnerData)).append("\n");
     sb.append("    channelPartnerOid: ").append(toIndentedString(channelPartnerOid)).append("\n");
     sb.append("    channelPartnerOrderId: ").append(toIndentedString(channelPartnerOrderId)).append("\n");
+    sb.append("    ignoreInvalidShippingMethod: ").append(toIndentedString(ignoreInvalidShippingMethod)).append("\n");
     sb.append("    noRealtimePaymentProcessing: ").append(toIndentedString(noRealtimePaymentProcessing)).append("\n");
     sb.append("    skipPaymentProcessing: ").append(toIndentedString(skipPaymentProcessing)).append("\n");
     sb.append("    storeCompleted: ").append(toIndentedString(storeCompleted)).append("\n");
