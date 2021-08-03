@@ -44,9 +44,10 @@ Name | Type | Description | Notes
 **status** | [**StatusEnum**](#StatusEnum) | A field used to take a gateway offline without removing/deleting the configuration. Inactive marks the gateway as completely unusable.  Standby takes the gateway offline and will not be used unless all other active gateways fail. |  [optional]
 **themeRestrictions** | [**List&lt;RtgThemeRestriction&gt;**](RtgThemeRestriction.md) | Optional restrictions by theme/storefront |  [optional]
 **trafficPercentage** | [**BigDecimal**](BigDecimal.md) | Required field between 0 and 1 that dictates the percentage of traffic that should flow through this gateway |  [optional]
-**trialDailyAmount** | **Integer** | If specified, limits the total daily dollar amount of trial orders |  [optional]
-**trialDailyLimit** | **Integer** | If specified, limits the total month count of trial orders |  [optional]
-**trialMonthlyLimit** | **Integer** | If specified, limits the total month dollar amount of trial orders |  [optional]
+**trialDailyAmount** | **Integer** | If specified, limits the total daily count of trial orders |  [optional]
+**trialDailyLimit** | **Integer** | If specified, limits the total daily dollar amount of trial orders |  [optional]
+**trialMonthlyAmount** | **Integer** | If specified, limits the total month dollar amount of trial orders |  [optional]
+**trialMonthlyLimit** | **Integer** | If specified, limits the total month count of trial orders |  [optional]
 
 
 <a name="OrderTotalComparisonEnum"></a>

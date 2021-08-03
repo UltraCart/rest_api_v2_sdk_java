@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * RotatingTransactionGateway
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T11:51:41.208-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T15:38:04.107-04:00")
 
 
 
@@ -267,6 +267,9 @@ public class RotatingTransactionGateway {
 
   @SerializedName("trial_daily_limit")
   private Integer trialDailyLimit = null;
+
+  @SerializedName("trial_monthly_amount")
+  private Integer trialMonthlyAmount = null;
 
   @SerializedName("trial_monthly_limit")
   private Integer trialMonthlyLimit = null;
@@ -1053,10 +1056,10 @@ public class RotatingTransactionGateway {
   }
 
    /**
-   * If specified, limits the total daily dollar amount of trial orders
+   * If specified, limits the total daily count of trial orders
    * @return trialDailyAmount
   **/
-  @ApiModelProperty(value = "If specified, limits the total daily dollar amount of trial orders")
+  @ApiModelProperty(value = "If specified, limits the total daily count of trial orders")
   public Integer getTrialDailyAmount() {
     return trialDailyAmount;
   }
@@ -1071,10 +1074,10 @@ public class RotatingTransactionGateway {
   }
 
    /**
-   * If specified, limits the total month count of trial orders
+   * If specified, limits the total daily dollar amount of trial orders
    * @return trialDailyLimit
   **/
-  @ApiModelProperty(value = "If specified, limits the total month count of trial orders")
+  @ApiModelProperty(value = "If specified, limits the total daily dollar amount of trial orders")
   public Integer getTrialDailyLimit() {
     return trialDailyLimit;
   }
@@ -1083,16 +1086,34 @@ public class RotatingTransactionGateway {
     this.trialDailyLimit = trialDailyLimit;
   }
 
+  public RotatingTransactionGateway trialMonthlyAmount(Integer trialMonthlyAmount) {
+    this.trialMonthlyAmount = trialMonthlyAmount;
+    return this;
+  }
+
+   /**
+   * If specified, limits the total month dollar amount of trial orders
+   * @return trialMonthlyAmount
+  **/
+  @ApiModelProperty(value = "If specified, limits the total month dollar amount of trial orders")
+  public Integer getTrialMonthlyAmount() {
+    return trialMonthlyAmount;
+  }
+
+  public void setTrialMonthlyAmount(Integer trialMonthlyAmount) {
+    this.trialMonthlyAmount = trialMonthlyAmount;
+  }
+
   public RotatingTransactionGateway trialMonthlyLimit(Integer trialMonthlyLimit) {
     this.trialMonthlyLimit = trialMonthlyLimit;
     return this;
   }
 
    /**
-   * If specified, limits the total month dollar amount of trial orders
+   * If specified, limits the total month count of trial orders
    * @return trialMonthlyLimit
   **/
-  @ApiModelProperty(value = "If specified, limits the total month dollar amount of trial orders")
+  @ApiModelProperty(value = "If specified, limits the total month count of trial orders")
   public Integer getTrialMonthlyLimit() {
     return trialMonthlyLimit;
   }
@@ -1153,12 +1174,13 @@ public class RotatingTransactionGateway {
         Objects.equals(this.trafficPercentage, rotatingTransactionGateway.trafficPercentage) &&
         Objects.equals(this.trialDailyAmount, rotatingTransactionGateway.trialDailyAmount) &&
         Objects.equals(this.trialDailyLimit, rotatingTransactionGateway.trialDailyLimit) &&
+        Objects.equals(this.trialMonthlyAmount, rotatingTransactionGateway.trialMonthlyAmount) &&
         Objects.equals(this.trialMonthlyLimit, rotatingTransactionGateway.trialMonthlyLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalNativeCurrencyCodes, autoOrderCancelUnlessResponseName, autoOrderCancelUnlessResponseValues, baseCurrencyCode, cascadeCode, cascadeCodes, cascadeDailyAutoOrderCode, chargeAppearsOnStatementAs, code, currentDaily, currentDailyAutoOrder, currentMonthly, customerServiceEmail, customerServicePhone, dayOfMonthRestrictions, dayOfWeekRestrictions, deactivateAfterFailures, endDate, gateways, maximumDaily, maximumDailyAutoOrder, maximumMonthly, nextDailyAutoOrderReset, nextDailyReset, nextMonthlyReset, orderTotal, orderTotalComparison, rebillAutoOrdersAgainstThisRtgCode, reserveDays, reservePercentage, reserveRefunded, reservesReleasedThrough, rotatingTransactionGatewayOid, selectedGatewayName, showCascadeCodes, showMerchantAccountProfiles, startDate, status, themeRestrictions, trafficPercentage, trialDailyAmount, trialDailyLimit, trialMonthlyLimit);
+    return Objects.hash(additionalNativeCurrencyCodes, autoOrderCancelUnlessResponseName, autoOrderCancelUnlessResponseValues, baseCurrencyCode, cascadeCode, cascadeCodes, cascadeDailyAutoOrderCode, chargeAppearsOnStatementAs, code, currentDaily, currentDailyAutoOrder, currentMonthly, customerServiceEmail, customerServicePhone, dayOfMonthRestrictions, dayOfWeekRestrictions, deactivateAfterFailures, endDate, gateways, maximumDaily, maximumDailyAutoOrder, maximumMonthly, nextDailyAutoOrderReset, nextDailyReset, nextMonthlyReset, orderTotal, orderTotalComparison, rebillAutoOrdersAgainstThisRtgCode, reserveDays, reservePercentage, reserveRefunded, reservesReleasedThrough, rotatingTransactionGatewayOid, selectedGatewayName, showCascadeCodes, showMerchantAccountProfiles, startDate, status, themeRestrictions, trafficPercentage, trialDailyAmount, trialDailyLimit, trialMonthlyAmount, trialMonthlyLimit);
   }
 
 
@@ -1209,6 +1231,7 @@ public class RotatingTransactionGateway {
     sb.append("    trafficPercentage: ").append(toIndentedString(trafficPercentage)).append("\n");
     sb.append("    trialDailyAmount: ").append(toIndentedString(trialDailyAmount)).append("\n");
     sb.append("    trialDailyLimit: ").append(toIndentedString(trialDailyLimit)).append("\n");
+    sb.append("    trialMonthlyAmount: ").append(toIndentedString(trialMonthlyAmount)).append("\n");
     sb.append("    trialMonthlyLimit: ").append(toIndentedString(trialMonthlyLimit)).append("\n");
     sb.append("}");
     return sb.toString();
