@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 
 <a name="updateRotatingTransactionGateway"></a>
 # **updateRotatingTransactionGateway**
-> RotatingTransactionGateway updateRotatingTransactionGateway(rtgOid, rotatingTransactionGateway)
+> RotatingTransactionGatewayResponse updateRotatingTransactionGateway(rtgOid, rotatingTransactionGateway)
 
 Update a rotating transaction gateway
 
@@ -679,7 +679,7 @@ ConfigurationApi apiInstance = new ConfigurationApi(apiKey);
 Integer rtgOid = 56; // Integer | The rtg_oid to update.
 RotatingTransactionGateway rotatingTransactionGateway = new RotatingTransactionGateway(); // RotatingTransactionGateway | Rotating transaction gateway
 try {
-    RotatingTransactionGateway result = apiInstance.updateRotatingTransactionGateway(rtgOid, rotatingTransactionGateway);
+    RotatingTransactionGatewayResponse result = apiInstance.updateRotatingTransactionGateway(rtgOid, rotatingTransactionGateway);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConfigurationApi#updateRotatingTransactionGateway");
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 

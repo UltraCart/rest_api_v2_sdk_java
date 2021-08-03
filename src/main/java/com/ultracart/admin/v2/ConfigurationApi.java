@@ -1722,11 +1722,11 @@ public class ConfigurationApi {
      * Update a rotating transaction gateway 
      * @param rtgOid The rtg_oid to update. (required)
      * @param rotatingTransactionGateway Rotating transaction gateway (required)
-     * @return RotatingTransactionGateway
+     * @return RotatingTransactionGatewayResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RotatingTransactionGateway updateRotatingTransactionGateway(Integer rtgOid, RotatingTransactionGateway rotatingTransactionGateway) throws ApiException {
-        ApiResponse<RotatingTransactionGateway> resp = updateRotatingTransactionGatewayWithHttpInfo(rtgOid, rotatingTransactionGateway);
+    public RotatingTransactionGatewayResponse updateRotatingTransactionGateway(Integer rtgOid, RotatingTransactionGateway rotatingTransactionGateway) throws ApiException {
+        ApiResponse<RotatingTransactionGatewayResponse> resp = updateRotatingTransactionGatewayWithHttpInfo(rtgOid, rotatingTransactionGateway);
         return resp.getData();
     }
 
@@ -1735,12 +1735,12 @@ public class ConfigurationApi {
      * Update a rotating transaction gateway 
      * @param rtgOid The rtg_oid to update. (required)
      * @param rotatingTransactionGateway Rotating transaction gateway (required)
-     * @return ApiResponse&lt;RotatingTransactionGateway&gt;
+     * @return ApiResponse&lt;RotatingTransactionGatewayResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RotatingTransactionGateway> updateRotatingTransactionGatewayWithHttpInfo(Integer rtgOid, RotatingTransactionGateway rotatingTransactionGateway) throws ApiException {
+    public ApiResponse<RotatingTransactionGatewayResponse> updateRotatingTransactionGatewayWithHttpInfo(Integer rtgOid, RotatingTransactionGateway rotatingTransactionGateway) throws ApiException {
         com.squareup.okhttp.Call call = updateRotatingTransactionGatewayValidateBeforeCall(rtgOid, rotatingTransactionGateway, null, null);
-        Type localVarReturnType = new TypeToken<RotatingTransactionGateway>(){}.getType();
+        Type localVarReturnType = new TypeToken<RotatingTransactionGatewayResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1753,7 +1753,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateRotatingTransactionGatewayAsync(Integer rtgOid, RotatingTransactionGateway rotatingTransactionGateway, final ApiCallback<RotatingTransactionGateway> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateRotatingTransactionGatewayAsync(Integer rtgOid, RotatingTransactionGateway rotatingTransactionGateway, final ApiCallback<RotatingTransactionGatewayResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1775,7 +1775,7 @@ public class ConfigurationApi {
         }
 
         com.squareup.okhttp.Call call = updateRotatingTransactionGatewayValidateBeforeCall(rtgOid, rotatingTransactionGateway, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RotatingTransactionGateway>(){}.getType();
+        Type localVarReturnType = new TypeToken<RotatingTransactionGatewayResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
