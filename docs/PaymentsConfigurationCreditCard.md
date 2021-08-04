@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **configuredGatewaysDetails** | **String** |  |  [optional]
 **failedAttempts** | **String** |  |  [optional]
 **hideConnectSingleGateway** | **Boolean** |  |  [optional]
-**immediateFinalizeDomains** | **String** |  |  [optional]
 **sendCustomerBillingUpdateOnDecline** | **Boolean** |  |  [optional]
 
 

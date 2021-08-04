@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailSegment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T15:38:04.107-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:24:34.638-04:00")
 
 
 
@@ -49,6 +49,9 @@ public class EmailSegment {
 
   @SerializedName("email_segment_uuid")
   private String emailSegmentUuid = null;
+
+  @SerializedName("esp_list_segment_folder_uuid")
+  private String espListSegmentFolderUuid = null;
 
   @SerializedName("facebook_custom_audience")
   private Boolean facebookCustomAudience = null;
@@ -165,6 +168,24 @@ public class EmailSegment {
 
   public void setEmailSegmentUuid(String emailSegmentUuid) {
     this.emailSegmentUuid = emailSegmentUuid;
+  }
+
+  public EmailSegment espListSegmentFolderUuid(String espListSegmentFolderUuid) {
+    this.espListSegmentFolderUuid = espListSegmentFolderUuid;
+    return this;
+  }
+
+   /**
+   * List/Segment folder UUID
+   * @return espListSegmentFolderUuid
+  **/
+  @ApiModelProperty(value = "List/Segment folder UUID")
+  public String getEspListSegmentFolderUuid() {
+    return espListSegmentFolderUuid;
+  }
+
+  public void setEspListSegmentFolderUuid(String espListSegmentFolderUuid) {
+    this.espListSegmentFolderUuid = espListSegmentFolderUuid;
   }
 
   public EmailSegment facebookCustomAudience(Boolean facebookCustomAudience) {
@@ -352,6 +373,7 @@ public class EmailSegment {
         Objects.equals(this.createdDts, emailSegment.createdDts) &&
         Objects.equals(this.deleted, emailSegment.deleted) &&
         Objects.equals(this.emailSegmentUuid, emailSegment.emailSegmentUuid) &&
+        Objects.equals(this.espListSegmentFolderUuid, emailSegment.espListSegmentFolderUuid) &&
         Objects.equals(this.facebookCustomAudience, emailSegment.facebookCustomAudience) &&
         Objects.equals(this.filterProfileEquationJson, emailSegment.filterProfileEquationJson) &&
         Objects.equals(this.memberCount, emailSegment.memberCount) &&
@@ -365,7 +387,7 @@ public class EmailSegment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, usedBy);
+    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, usedBy);
   }
 
 
@@ -379,6 +401,7 @@ public class EmailSegment {
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailSegmentUuid: ").append(toIndentedString(emailSegmentUuid)).append("\n");
+    sb.append("    espListSegmentFolderUuid: ").append(toIndentedString(espListSegmentFolderUuid)).append("\n");
     sb.append("    facebookCustomAudience: ").append(toIndentedString(facebookCustomAudience)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    memberCount: ").append(toIndentedString(memberCount)).append("\n");

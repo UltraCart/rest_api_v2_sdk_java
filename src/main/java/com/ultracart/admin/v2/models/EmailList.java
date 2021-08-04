@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T15:38:04.107-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:24:34.638-04:00")
 
 
 
@@ -46,6 +46,9 @@ public class EmailList {
 
   @SerializedName("email_list_uuid")
   private String emailListUuid = null;
+
+  @SerializedName("esp_list_segment_folder_uuid")
+  private String espListSegmentFolderUuid = null;
 
   @SerializedName("member_count")
   private Integer memberCount = null;
@@ -138,6 +141,24 @@ public class EmailList {
 
   public void setEmailListUuid(String emailListUuid) {
     this.emailListUuid = emailListUuid;
+  }
+
+  public EmailList espListSegmentFolderUuid(String espListSegmentFolderUuid) {
+    this.espListSegmentFolderUuid = espListSegmentFolderUuid;
+    return this;
+  }
+
+   /**
+   * List/Segment folder UUID
+   * @return espListSegmentFolderUuid
+  **/
+  @ApiModelProperty(value = "List/Segment folder UUID")
+  public String getEspListSegmentFolderUuid() {
+    return espListSegmentFolderUuid;
+  }
+
+  public void setEspListSegmentFolderUuid(String espListSegmentFolderUuid) {
+    this.espListSegmentFolderUuid = espListSegmentFolderUuid;
   }
 
   public EmailList memberCount(Integer memberCount) {
@@ -288,6 +309,7 @@ public class EmailList {
         Objects.equals(this.createdDts, emailList.createdDts) &&
         Objects.equals(this.deleted, emailList.deleted) &&
         Objects.equals(this.emailListUuid, emailList.emailListUuid) &&
+        Objects.equals(this.espListSegmentFolderUuid, emailList.espListSegmentFolderUuid) &&
         Objects.equals(this.memberCount, emailList.memberCount) &&
         Objects.equals(this.merchantId, emailList.merchantId) &&
         Objects.equals(this.name, emailList.name) &&
@@ -299,7 +321,7 @@ public class EmailList {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowCsvDownload, createdDts, deleted, emailListUuid, memberCount, merchantId, name, publicDescription, publicList, storefrontOid, usedBy);
+    return Objects.hash(allowCsvDownload, createdDts, deleted, emailListUuid, espListSegmentFolderUuid, memberCount, merchantId, name, publicDescription, publicList, storefrontOid, usedBy);
   }
 
 
@@ -312,6 +334,7 @@ public class EmailList {
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emailListUuid: ").append(toIndentedString(emailListUuid)).append("\n");
+    sb.append("    espListSegmentFolderUuid: ").append(toIndentedString(espListSegmentFolderUuid)).append("\n");
     sb.append("    memberCount: ").append(toIndentedString(memberCount)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

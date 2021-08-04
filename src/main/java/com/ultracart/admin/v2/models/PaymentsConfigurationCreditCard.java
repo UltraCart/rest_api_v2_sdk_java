@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-03T15:38:04.107-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:24:34.638-04:00")
 
 
 
@@ -52,9 +52,6 @@ public class PaymentsConfigurationCreditCard {
 
   @SerializedName("hideConnectSingleGateway")
   private Boolean hideConnectSingleGateway = null;
-
-  @SerializedName("immediateFinalizeDomains")
-  private String immediateFinalizeDomains = null;
 
   @SerializedName("sendCustomerBillingUpdateOnDecline")
   private Boolean sendCustomerBillingUpdateOnDecline = null;
@@ -185,24 +182,6 @@ public class PaymentsConfigurationCreditCard {
     this.hideConnectSingleGateway = hideConnectSingleGateway;
   }
 
-  public PaymentsConfigurationCreditCard immediateFinalizeDomains(String immediateFinalizeDomains) {
-    this.immediateFinalizeDomains = immediateFinalizeDomains;
-    return this;
-  }
-
-   /**
-   * Get immediateFinalizeDomains
-   * @return immediateFinalizeDomains
-  **/
-  @ApiModelProperty(value = "")
-  public String getImmediateFinalizeDomains() {
-    return immediateFinalizeDomains;
-  }
-
-  public void setImmediateFinalizeDomains(String immediateFinalizeDomains) {
-    this.immediateFinalizeDomains = immediateFinalizeDomains;
-  }
-
   public PaymentsConfigurationCreditCard sendCustomerBillingUpdateOnDecline(Boolean sendCustomerBillingUpdateOnDecline) {
     this.sendCustomerBillingUpdateOnDecline = sendCustomerBillingUpdateOnDecline;
     return this;
@@ -238,13 +217,12 @@ public class PaymentsConfigurationCreditCard {
         Objects.equals(this.configuredGatewaysDetails, paymentsConfigurationCreditCard.configuredGatewaysDetails) &&
         Objects.equals(this.failedAttempts, paymentsConfigurationCreditCard.failedAttempts) &&
         Objects.equals(this.hideConnectSingleGateway, paymentsConfigurationCreditCard.hideConnectSingleGateway) &&
-        Objects.equals(this.immediateFinalizeDomains, paymentsConfigurationCreditCard.immediateFinalizeDomains) &&
         Objects.equals(this.sendCustomerBillingUpdateOnDecline, paymentsConfigurationCreditCard.sendCustomerBillingUpdateOnDecline);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptCreditCards, billedBy, chargeDuringCheckout, collectCvv2, configuredGatewaysDetails, failedAttempts, hideConnectSingleGateway, immediateFinalizeDomains, sendCustomerBillingUpdateOnDecline);
+    return Objects.hash(acceptCreditCards, billedBy, chargeDuringCheckout, collectCvv2, configuredGatewaysDetails, failedAttempts, hideConnectSingleGateway, sendCustomerBillingUpdateOnDecline);
   }
 
 
@@ -260,7 +238,6 @@ public class PaymentsConfigurationCreditCard {
     sb.append("    configuredGatewaysDetails: ").append(toIndentedString(configuredGatewaysDetails)).append("\n");
     sb.append("    failedAttempts: ").append(toIndentedString(failedAttempts)).append("\n");
     sb.append("    hideConnectSingleGateway: ").append(toIndentedString(hideConnectSingleGateway)).append("\n");
-    sb.append("    immediateFinalizeDomains: ").append(toIndentedString(immediateFinalizeDomains)).append("\n");
     sb.append("    sendCustomerBillingUpdateOnDecline: ").append(toIndentedString(sendCustomerBillingUpdateOnDecline)).append("\n");
     sb.append("}");
     return sb.toString();

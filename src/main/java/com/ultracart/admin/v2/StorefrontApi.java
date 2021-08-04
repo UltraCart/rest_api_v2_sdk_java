@@ -81,6 +81,9 @@ import com.ultracart.admin.v2.models.EmailList;
 import com.ultracart.admin.v2.models.EmailListArchiveResponse;
 import com.ultracart.admin.v2.models.EmailListCustomersResponse;
 import com.ultracart.admin.v2.models.EmailListResponse;
+import com.ultracart.admin.v2.models.EmailListSegmentFolder;
+import com.ultracart.admin.v2.models.EmailListSegmentFolderResponse;
+import com.ultracart.admin.v2.models.EmailListSegmentFoldersResponse;
 import com.ultracart.admin.v2.models.EmailListSubscribeResponse;
 import com.ultracart.admin.v2.models.EmailListsResponse;
 import com.ultracart.admin.v2.models.EmailOrdersResponse;
@@ -2061,6 +2064,139 @@ public class StorefrontApi {
         }
 
         com.squareup.okhttp.Call call = deleteEmailListCustomerValidateBeforeCall(storefrontOid, emailListUuid, emailCustomerUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteEmailListSegmentFolder
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteEmailListSegmentFolderCall(Integer storefrontOid, String emailListSegmentFolderUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_list_segment_folder_uuid" + "\\}", apiClient.escapeString(emailListSegmentFolderUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteEmailListSegmentFolderValidateBeforeCall(Integer storefrontOid, String emailListSegmentFolderUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling deleteEmailListSegmentFolder(Async)");
+        }
+        
+        // verify the required parameter 'emailListSegmentFolderUuid' is set
+        if (emailListSegmentFolderUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailListSegmentFolderUuid' when calling deleteEmailListSegmentFolder(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteEmailListSegmentFolderCall(storefrontOid, emailListSegmentFolderUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete email ListSegmentFolder
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @return BaseResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BaseResponse deleteEmailListSegmentFolder(Integer storefrontOid, String emailListSegmentFolderUuid) throws ApiException {
+        ApiResponse<BaseResponse> resp = deleteEmailListSegmentFolderWithHttpInfo(storefrontOid, emailListSegmentFolderUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Delete email ListSegmentFolder
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @return ApiResponse&lt;BaseResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<BaseResponse> deleteEmailListSegmentFolderWithHttpInfo(Integer storefrontOid, String emailListSegmentFolderUuid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteEmailListSegmentFolderValidateBeforeCall(storefrontOid, emailListSegmentFolderUuid, null, null);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete email ListSegmentFolder (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteEmailListSegmentFolderAsync(Integer storefrontOid, String emailListSegmentFolderUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteEmailListSegmentFolderValidateBeforeCall(storefrontOid, emailListSegmentFolderUuid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -8133,6 +8269,262 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = getEmailListCustomersValidateBeforeCall(storefrontOid, emailListUuid, pageNumber, pageSize, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmailListCustomersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailListSegmentFolder
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailListSegmentFolderCall(Integer storefrontOid, String emailListSegmentFolderUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_list_segment_folder_uuid" + "\\}", apiClient.escapeString(emailListSegmentFolderUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailListSegmentFolderValidateBeforeCall(Integer storefrontOid, String emailListSegmentFolderUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailListSegmentFolder(Async)");
+        }
+        
+        // verify the required parameter 'emailListSegmentFolderUuid' is set
+        if (emailListSegmentFolderUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailListSegmentFolderUuid' when calling getEmailListSegmentFolder(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailListSegmentFolderCall(storefrontOid, emailListSegmentFolderUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email campaign folder
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @return EmailListSegmentFolderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailListSegmentFolderResponse getEmailListSegmentFolder(Integer storefrontOid, String emailListSegmentFolderUuid) throws ApiException {
+        ApiResponse<EmailListSegmentFolderResponse> resp = getEmailListSegmentFolderWithHttpInfo(storefrontOid, emailListSegmentFolderUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get email campaign folder
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @return ApiResponse&lt;EmailListSegmentFolderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailListSegmentFolderResponse> getEmailListSegmentFolderWithHttpInfo(Integer storefrontOid, String emailListSegmentFolderUuid) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailListSegmentFolderValidateBeforeCall(storefrontOid, emailListSegmentFolderUuid, null, null);
+        Type localVarReturnType = new TypeToken<EmailListSegmentFolderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email campaign folder (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailListSegmentFolderAsync(Integer storefrontOid, String emailListSegmentFolderUuid, final ApiCallback<EmailListSegmentFolderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailListSegmentFolderValidateBeforeCall(storefrontOid, emailListSegmentFolderUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailListSegmentFolderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getEmailListSegmentFolders
+     * @param storefrontOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEmailListSegmentFoldersCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getEmailListSegmentFoldersValidateBeforeCall(Integer storefrontOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailListSegmentFolders(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getEmailListSegmentFoldersCall(storefrontOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get email campaign folders
+     * 
+     * @param storefrontOid  (required)
+     * @return EmailListSegmentFoldersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailListSegmentFoldersResponse getEmailListSegmentFolders(Integer storefrontOid) throws ApiException {
+        ApiResponse<EmailListSegmentFoldersResponse> resp = getEmailListSegmentFoldersWithHttpInfo(storefrontOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get email campaign folders
+     * 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;EmailListSegmentFoldersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailListSegmentFoldersResponse> getEmailListSegmentFoldersWithHttpInfo(Integer storefrontOid) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailListSegmentFoldersValidateBeforeCall(storefrontOid, null, null);
+        Type localVarReturnType = new TypeToken<EmailListSegmentFoldersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get email campaign folders (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEmailListSegmentFoldersAsync(Integer storefrontOid, final ApiCallback<EmailListSegmentFoldersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEmailListSegmentFoldersValidateBeforeCall(storefrontOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailListSegmentFoldersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -14232,6 +14624,138 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for insertEmailListSegmentFolder
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolder Email campaign folder (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertEmailListSegmentFolderCall(Integer storefrontOid, EmailListSegmentFolder emailListSegmentFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailListSegmentFolder;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertEmailListSegmentFolderValidateBeforeCall(Integer storefrontOid, EmailListSegmentFolder emailListSegmentFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling insertEmailListSegmentFolder(Async)");
+        }
+        
+        // verify the required parameter 'emailListSegmentFolder' is set
+        if (emailListSegmentFolder == null) {
+            throw new ApiException("Missing the required parameter 'emailListSegmentFolder' when calling insertEmailListSegmentFolder(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertEmailListSegmentFolderCall(storefrontOid, emailListSegmentFolder, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert email campaign folder
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolder Email campaign folder (required)
+     * @return EmailListSegmentFolderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailListSegmentFolderResponse insertEmailListSegmentFolder(Integer storefrontOid, EmailListSegmentFolder emailListSegmentFolder) throws ApiException {
+        ApiResponse<EmailListSegmentFolderResponse> resp = insertEmailListSegmentFolderWithHttpInfo(storefrontOid, emailListSegmentFolder);
+        return resp.getData();
+    }
+
+    /**
+     * Insert email campaign folder
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolder Email campaign folder (required)
+     * @return ApiResponse&lt;EmailListSegmentFolderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailListSegmentFolderResponse> insertEmailListSegmentFolderWithHttpInfo(Integer storefrontOid, EmailListSegmentFolder emailListSegmentFolder) throws ApiException {
+        com.squareup.okhttp.Call call = insertEmailListSegmentFolderValidateBeforeCall(storefrontOid, emailListSegmentFolder, null, null);
+        Type localVarReturnType = new TypeToken<EmailListSegmentFolderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert email campaign folder (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolder Email campaign folder (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertEmailListSegmentFolderAsync(Integer storefrontOid, EmailListSegmentFolder emailListSegmentFolder, final ApiCallback<EmailListSegmentFolderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertEmailListSegmentFolderValidateBeforeCall(storefrontOid, emailListSegmentFolder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailListSegmentFolderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for insertEmailPostcard
      * @param storefrontOid  (required)
      * @param emailCommseqPostcard Email postcard (required)
@@ -18344,6 +18868,148 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = updateEmailListValidateBeforeCall(storefrontOid, emailListUuid, emailList, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmailListResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateEmailListSegmentFolder
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @param emailListSegmentFolder Email campaign folder (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailListSegmentFolderCall(Integer storefrontOid, String emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailListSegmentFolder;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_list_segment_folder_uuid" + "\\}", apiClient.escapeString(emailListSegmentFolderUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateEmailListSegmentFolderValidateBeforeCall(Integer storefrontOid, String emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateEmailListSegmentFolder(Async)");
+        }
+        
+        // verify the required parameter 'emailListSegmentFolderUuid' is set
+        if (emailListSegmentFolderUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailListSegmentFolderUuid' when calling updateEmailListSegmentFolder(Async)");
+        }
+        
+        // verify the required parameter 'emailListSegmentFolder' is set
+        if (emailListSegmentFolder == null) {
+            throw new ApiException("Missing the required parameter 'emailListSegmentFolder' when calling updateEmailListSegmentFolder(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateEmailListSegmentFolderCall(storefrontOid, emailListSegmentFolderUuid, emailListSegmentFolder, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update email campaign folder
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @param emailListSegmentFolder Email campaign folder (required)
+     * @return EmailListSegmentFolderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailListSegmentFolderResponse updateEmailListSegmentFolder(Integer storefrontOid, String emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder) throws ApiException {
+        ApiResponse<EmailListSegmentFolderResponse> resp = updateEmailListSegmentFolderWithHttpInfo(storefrontOid, emailListSegmentFolderUuid, emailListSegmentFolder);
+        return resp.getData();
+    }
+
+    /**
+     * Update email campaign folder
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @param emailListSegmentFolder Email campaign folder (required)
+     * @return ApiResponse&lt;EmailListSegmentFolderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailListSegmentFolderResponse> updateEmailListSegmentFolderWithHttpInfo(Integer storefrontOid, String emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder) throws ApiException {
+        com.squareup.okhttp.Call call = updateEmailListSegmentFolderValidateBeforeCall(storefrontOid, emailListSegmentFolderUuid, emailListSegmentFolder, null, null);
+        Type localVarReturnType = new TypeToken<EmailListSegmentFolderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update email campaign folder (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailListSegmentFolderUuid  (required)
+     * @param emailListSegmentFolder Email campaign folder (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateEmailListSegmentFolderAsync(Integer storefrontOid, String emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder, final ApiCallback<EmailListSegmentFolderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateEmailListSegmentFolderValidateBeforeCall(storefrontOid, emailListSegmentFolderUuid, emailListSegmentFolder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailListSegmentFolderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
