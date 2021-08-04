@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-08-04T16:24:34.638-04:00
+  - Build date: 2021-08-04T16:51:30.221-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.4.7</version>
+  <version>3.4.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.4.7"
+compile "com.ultracart:rest-sdk:3.4.8"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.4.7.jar`
+* `target/rest-sdk-3.4.8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -925,7 +925,9 @@ Class | Method | HTTP request | Description
  - [PaymentsConfigurationCash](docs/PaymentsConfigurationCash.md)
  - [PaymentsConfigurationCheck](docs/PaymentsConfigurationCheck.md)
  - [PaymentsConfigurationCreditCard](docs/PaymentsConfigurationCreditCard.md)
+ - [PaymentsConfigurationEcheck](docs/PaymentsConfigurationEcheck.md)
  - [PaymentsConfigurationLoanHero](docs/PaymentsConfigurationLoanHero.md)
+ - [PaymentsConfigurationMoneyOrder](docs/PaymentsConfigurationMoneyOrder.md)
  - [PaymentsConfigurationPayPal](docs/PaymentsConfigurationPayPal.md)
  - [PaymentsConfigurationPurchaseOrder](docs/PaymentsConfigurationPurchaseOrder.md)
  - [PaymentsConfigurationQuoteRequest](docs/PaymentsConfigurationQuoteRequest.md)
@@ -1142,6 +1144,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.8 | 08/04/2021 | configuration api - payments config refactoring | 
 | 3.4.7 | 08/04/2021 | esp folders for lists/segments | 
 | 3.4.5 | 08/03/2021 | configuration api bug fix for a bad response object on updateRotatingTransactionGateway | 
 | 3.4.3 | 08/03/2021 | package tracking - add event_iso_date and event_timezone_id | 

@@ -26,7 +26,9 @@ import com.ultracart.admin.v2.models.PaymentsConfigurationCOD;
 import com.ultracart.admin.v2.models.PaymentsConfigurationCash;
 import com.ultracart.admin.v2.models.PaymentsConfigurationCheck;
 import com.ultracart.admin.v2.models.PaymentsConfigurationCreditCard;
+import com.ultracart.admin.v2.models.PaymentsConfigurationEcheck;
 import com.ultracart.admin.v2.models.PaymentsConfigurationLoanHero;
+import com.ultracart.admin.v2.models.PaymentsConfigurationMoneyOrder;
 import com.ultracart.admin.v2.models.PaymentsConfigurationPayPal;
 import com.ultracart.admin.v2.models.PaymentsConfigurationPurchaseOrder;
 import com.ultracart.admin.v2.models.PaymentsConfigurationQuoteRequest;
@@ -40,7 +42,7 @@ import java.io.IOException;
 /**
  * PaymentsConfiguration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:24:34.638-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
 
 
 
@@ -63,8 +65,14 @@ public class PaymentsConfiguration {
   @SerializedName("creditCard")
   private PaymentsConfigurationCreditCard creditCard = null;
 
+  @SerializedName("eCheck")
+  private PaymentsConfigurationEcheck eCheck = null;
+
   @SerializedName("loanHero")
   private PaymentsConfigurationLoanHero loanHero = null;
+
+  @SerializedName("moneyOrder")
+  private PaymentsConfigurationMoneyOrder moneyOrder = null;
 
   @SerializedName("payPal")
   private PaymentsConfigurationPayPal payPal = null;
@@ -201,6 +209,24 @@ public class PaymentsConfiguration {
     this.creditCard = creditCard;
   }
 
+  public PaymentsConfiguration eCheck(PaymentsConfigurationEcheck eCheck) {
+    this.eCheck = eCheck;
+    return this;
+  }
+
+   /**
+   * Get eCheck
+   * @return eCheck
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentsConfigurationEcheck getECheck() {
+    return eCheck;
+  }
+
+  public void setECheck(PaymentsConfigurationEcheck eCheck) {
+    this.eCheck = eCheck;
+  }
+
   public PaymentsConfiguration loanHero(PaymentsConfigurationLoanHero loanHero) {
     this.loanHero = loanHero;
     return this;
@@ -217,6 +243,24 @@ public class PaymentsConfiguration {
 
   public void setLoanHero(PaymentsConfigurationLoanHero loanHero) {
     this.loanHero = loanHero;
+  }
+
+  public PaymentsConfiguration moneyOrder(PaymentsConfigurationMoneyOrder moneyOrder) {
+    this.moneyOrder = moneyOrder;
+    return this;
+  }
+
+   /**
+   * Get moneyOrder
+   * @return moneyOrder
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentsConfigurationMoneyOrder getMoneyOrder() {
+    return moneyOrder;
+  }
+
+  public void setMoneyOrder(PaymentsConfigurationMoneyOrder moneyOrder) {
+    this.moneyOrder = moneyOrder;
   }
 
   public PaymentsConfiguration payPal(PaymentsConfigurationPayPal payPal) {
@@ -397,7 +441,9 @@ public class PaymentsConfiguration {
         Objects.equals(this.check, paymentsConfiguration.check) &&
         Objects.equals(this.cod, paymentsConfiguration.cod) &&
         Objects.equals(this.creditCard, paymentsConfiguration.creditCard) &&
+        Objects.equals(this.eCheck, paymentsConfiguration.eCheck) &&
         Objects.equals(this.loanHero, paymentsConfiguration.loanHero) &&
+        Objects.equals(this.moneyOrder, paymentsConfiguration.moneyOrder) &&
         Objects.equals(this.payPal, paymentsConfiguration.payPal) &&
         Objects.equals(this.purchaseOrder, paymentsConfiguration.purchaseOrder) &&
         Objects.equals(this.quoteRequest, paymentsConfiguration.quoteRequest) &&
@@ -411,7 +457,7 @@ public class PaymentsConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affirm, amazon, cash, check, cod, creditCard, loanHero, payPal, purchaseOrder, quoteRequest, sezzle, showAccountingCode, switchToSubTab, switchToTab, wePay, wireTransfer);
+    return Objects.hash(affirm, amazon, cash, check, cod, creditCard, eCheck, loanHero, moneyOrder, payPal, purchaseOrder, quoteRequest, sezzle, showAccountingCode, switchToSubTab, switchToTab, wePay, wireTransfer);
   }
 
 
@@ -426,7 +472,9 @@ public class PaymentsConfiguration {
     sb.append("    check: ").append(toIndentedString(check)).append("\n");
     sb.append("    cod: ").append(toIndentedString(cod)).append("\n");
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
+    sb.append("    eCheck: ").append(toIndentedString(eCheck)).append("\n");
     sb.append("    loanHero: ").append(toIndentedString(loanHero)).append("\n");
+    sb.append("    moneyOrder: ").append(toIndentedString(moneyOrder)).append("\n");
     sb.append("    payPal: ").append(toIndentedString(payPal)).append("\n");
     sb.append("    purchaseOrder: ").append(toIndentedString(purchaseOrder)).append("\n");
     sb.append("    quoteRequest: ").append(toIndentedString(quoteRequest)).append("\n");

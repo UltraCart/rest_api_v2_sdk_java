@@ -28,19 +28,13 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationCheck
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:24:34.638-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
 
 
 
 public class PaymentsConfigurationCheck {
   @SerializedName("acceptCheckOrders")
   private Boolean acceptCheckOrders = null;
-
-  @SerializedName("acceptECheck")
-  private Boolean acceptECheck = null;
-
-  @SerializedName("acceptMoneyOrders")
-  private Boolean acceptMoneyOrders = null;
 
   @SerializedName("checkAccountingCode")
   private String checkAccountingCode = null;
@@ -50,12 +44,6 @@ public class PaymentsConfigurationCheck {
 
   @SerializedName("checksPayableTo")
   private String checksPayableTo = null;
-
-  @SerializedName("eCheckAccountingCode")
-  private String eCheckAccountingCode = null;
-
-  @SerializedName("eCheckDepositToAccount")
-  private String eCheckDepositToAccount = null;
 
   @SerializedName("mailToAddress1")
   private String mailToAddress1 = null;
@@ -103,42 +91,6 @@ public class PaymentsConfigurationCheck {
 
   public void setAcceptCheckOrders(Boolean acceptCheckOrders) {
     this.acceptCheckOrders = acceptCheckOrders;
-  }
-
-  public PaymentsConfigurationCheck acceptECheck(Boolean acceptECheck) {
-    this.acceptECheck = acceptECheck;
-    return this;
-  }
-
-   /**
-   * Get acceptECheck
-   * @return acceptECheck
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isAcceptECheck() {
-    return acceptECheck;
-  }
-
-  public void setAcceptECheck(Boolean acceptECheck) {
-    this.acceptECheck = acceptECheck;
-  }
-
-  public PaymentsConfigurationCheck acceptMoneyOrders(Boolean acceptMoneyOrders) {
-    this.acceptMoneyOrders = acceptMoneyOrders;
-    return this;
-  }
-
-   /**
-   * Get acceptMoneyOrders
-   * @return acceptMoneyOrders
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isAcceptMoneyOrders() {
-    return acceptMoneyOrders;
-  }
-
-  public void setAcceptMoneyOrders(Boolean acceptMoneyOrders) {
-    this.acceptMoneyOrders = acceptMoneyOrders;
   }
 
   public PaymentsConfigurationCheck checkAccountingCode(String checkAccountingCode) {
@@ -193,42 +145,6 @@ public class PaymentsConfigurationCheck {
 
   public void setChecksPayableTo(String checksPayableTo) {
     this.checksPayableTo = checksPayableTo;
-  }
-
-  public PaymentsConfigurationCheck eCheckAccountingCode(String eCheckAccountingCode) {
-    this.eCheckAccountingCode = eCheckAccountingCode;
-    return this;
-  }
-
-   /**
-   * Get eCheckAccountingCode
-   * @return eCheckAccountingCode
-  **/
-  @ApiModelProperty(value = "")
-  public String getECheckAccountingCode() {
-    return eCheckAccountingCode;
-  }
-
-  public void setECheckAccountingCode(String eCheckAccountingCode) {
-    this.eCheckAccountingCode = eCheckAccountingCode;
-  }
-
-  public PaymentsConfigurationCheck eCheckDepositToAccount(String eCheckDepositToAccount) {
-    this.eCheckDepositToAccount = eCheckDepositToAccount;
-    return this;
-  }
-
-   /**
-   * Get eCheckDepositToAccount
-   * @return eCheckDepositToAccount
-  **/
-  @ApiModelProperty(value = "")
-  public String getECheckDepositToAccount() {
-    return eCheckDepositToAccount;
-  }
-
-  public void setECheckDepositToAccount(String eCheckDepositToAccount) {
-    this.eCheckDepositToAccount = eCheckDepositToAccount;
   }
 
   public PaymentsConfigurationCheck mailToAddress1(String mailToAddress1) {
@@ -422,13 +338,9 @@ public class PaymentsConfigurationCheck {
     }
     PaymentsConfigurationCheck paymentsConfigurationCheck = (PaymentsConfigurationCheck) o;
     return Objects.equals(this.acceptCheckOrders, paymentsConfigurationCheck.acceptCheckOrders) &&
-        Objects.equals(this.acceptECheck, paymentsConfigurationCheck.acceptECheck) &&
-        Objects.equals(this.acceptMoneyOrders, paymentsConfigurationCheck.acceptMoneyOrders) &&
         Objects.equals(this.checkAccountingCode, paymentsConfigurationCheck.checkAccountingCode) &&
         Objects.equals(this.checkDepositToAccount, paymentsConfigurationCheck.checkDepositToAccount) &&
         Objects.equals(this.checksPayableTo, paymentsConfigurationCheck.checksPayableTo) &&
-        Objects.equals(this.eCheckAccountingCode, paymentsConfigurationCheck.eCheckAccountingCode) &&
-        Objects.equals(this.eCheckDepositToAccount, paymentsConfigurationCheck.eCheckDepositToAccount) &&
         Objects.equals(this.mailToAddress1, paymentsConfigurationCheck.mailToAddress1) &&
         Objects.equals(this.mailToAddress2, paymentsConfigurationCheck.mailToAddress2) &&
         Objects.equals(this.mailToCity, paymentsConfigurationCheck.mailToCity) &&
@@ -443,7 +355,7 @@ public class PaymentsConfigurationCheck {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptCheckOrders, acceptECheck, acceptMoneyOrders, checkAccountingCode, checkDepositToAccount, checksPayableTo, eCheckAccountingCode, eCheckDepositToAccount, mailToAddress1, mailToAddress2, mailToCity, mailToCountry, mailToName, mailToState, mailToZip, moneyOrderAccountingCode, moneyOrderDepositToAccount, restrictions);
+    return Objects.hash(acceptCheckOrders, checkAccountingCode, checkDepositToAccount, checksPayableTo, mailToAddress1, mailToAddress2, mailToCity, mailToCountry, mailToName, mailToState, mailToZip, moneyOrderAccountingCode, moneyOrderDepositToAccount, restrictions);
   }
 
 
@@ -453,13 +365,9 @@ public class PaymentsConfigurationCheck {
     sb.append("class PaymentsConfigurationCheck {\n");
     
     sb.append("    acceptCheckOrders: ").append(toIndentedString(acceptCheckOrders)).append("\n");
-    sb.append("    acceptECheck: ").append(toIndentedString(acceptECheck)).append("\n");
-    sb.append("    acceptMoneyOrders: ").append(toIndentedString(acceptMoneyOrders)).append("\n");
     sb.append("    checkAccountingCode: ").append(toIndentedString(checkAccountingCode)).append("\n");
     sb.append("    checkDepositToAccount: ").append(toIndentedString(checkDepositToAccount)).append("\n");
     sb.append("    checksPayableTo: ").append(toIndentedString(checksPayableTo)).append("\n");
-    sb.append("    eCheckAccountingCode: ").append(toIndentedString(eCheckAccountingCode)).append("\n");
-    sb.append("    eCheckDepositToAccount: ").append(toIndentedString(eCheckDepositToAccount)).append("\n");
     sb.append("    mailToAddress1: ").append(toIndentedString(mailToAddress1)).append("\n");
     sb.append("    mailToAddress2: ").append(toIndentedString(mailToAddress2)).append("\n");
     sb.append("    mailToCity: ").append(toIndentedString(mailToCity)).append("\n");
