@@ -21,14 +21,17 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
+import com.ultracart.admin.v2.models.PaymentsConfigurationTestMethod;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PaymentsConfigurationCheck
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T16:34:28.233-04:00")
 
 
 
@@ -70,7 +73,7 @@ public class PaymentsConfigurationCheck {
   private PaymentsConfigurationRestrictions restrictions = null;
 
   @SerializedName("test_methods")
-  private Object testMethods = null;
+  private List<PaymentsConfigurationTestMethod> testMethods = null;
 
   public PaymentsConfigurationCheck acceptCheckOrders(Boolean acceptCheckOrders) {
     this.acceptCheckOrders = acceptCheckOrders;
@@ -288,8 +291,16 @@ public class PaymentsConfigurationCheck {
     this.restrictions = restrictions;
   }
 
-  public PaymentsConfigurationCheck testMethods(Object testMethods) {
+  public PaymentsConfigurationCheck testMethods(List<PaymentsConfigurationTestMethod> testMethods) {
     this.testMethods = testMethods;
+    return this;
+  }
+
+  public PaymentsConfigurationCheck addTestMethodsItem(PaymentsConfigurationTestMethod testMethodsItem) {
+    if (this.testMethods == null) {
+      this.testMethods = new ArrayList<PaymentsConfigurationTestMethod>();
+    }
+    this.testMethods.add(testMethodsItem);
     return this;
   }
 
@@ -298,11 +309,11 @@ public class PaymentsConfigurationCheck {
    * @return testMethods
   **/
   @ApiModelProperty(value = "Test methods for this payment method")
-  public Object getTestMethods() {
+  public List<PaymentsConfigurationTestMethod> getTestMethods() {
     return testMethods;
   }
 
-  public void setTestMethods(Object testMethods) {
+  public void setTestMethods(List<PaymentsConfigurationTestMethod> testMethods) {
     this.testMethods = testMethods;
   }
 

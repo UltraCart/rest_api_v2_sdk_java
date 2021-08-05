@@ -24,11 +24,13 @@ import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PaymentsConfigurationSezzle
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T16:34:28.233-04:00")
 
 
 
@@ -96,7 +98,7 @@ public class PaymentsConfigurationSezzle {
   private EnvironmentEnum environment = null;
 
   @SerializedName("environments")
-  private Object environments = null;
+  private List<String> environments = null;
 
   @SerializedName("private_api_key")
   private String privateApiKey = null;
@@ -197,8 +199,16 @@ public class PaymentsConfigurationSezzle {
     this.environment = environment;
   }
 
-  public PaymentsConfigurationSezzle environments(Object environments) {
+  public PaymentsConfigurationSezzle environments(List<String> environments) {
     this.environments = environments;
+    return this;
+  }
+
+  public PaymentsConfigurationSezzle addEnvironmentsItem(String environmentsItem) {
+    if (this.environments == null) {
+      this.environments = new ArrayList<String>();
+    }
+    this.environments.add(environmentsItem);
     return this;
   }
 
@@ -207,11 +217,11 @@ public class PaymentsConfigurationSezzle {
    * @return environments
   **/
   @ApiModelProperty(value = "List of environments possible")
-  public Object getEnvironments() {
+  public List<String> getEnvironments() {
     return environments;
   }
 
-  public void setEnvironments(Object environments) {
+  public void setEnvironments(List<String> environments) {
     this.environments = environments;
   }
 

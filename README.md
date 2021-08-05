@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-08-05T15:00:57.384-04:00
+  - Build date: 2021-08-05T16:34:28.233-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.4.9</version>
+  <version>3.4.10</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.4.9"
+compile "com.ultracart:rest-sdk:3.4.10"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.4.9.jar`
+* `target/rest-sdk-3.4.10.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -925,6 +925,7 @@ Class | Method | HTTP request | Description
  - [PaymentsConfigurationCash](docs/PaymentsConfigurationCash.md)
  - [PaymentsConfigurationCheck](docs/PaymentsConfigurationCheck.md)
  - [PaymentsConfigurationCreditCard](docs/PaymentsConfigurationCreditCard.md)
+ - [PaymentsConfigurationCreditCardType](docs/PaymentsConfigurationCreditCardType.md)
  - [PaymentsConfigurationEcheck](docs/PaymentsConfigurationEcheck.md)
  - [PaymentsConfigurationLoanHero](docs/PaymentsConfigurationLoanHero.md)
  - [PaymentsConfigurationMoneyOrder](docs/PaymentsConfigurationMoneyOrder.md)
@@ -933,7 +934,9 @@ Class | Method | HTTP request | Description
  - [PaymentsConfigurationQuoteRequest](docs/PaymentsConfigurationQuoteRequest.md)
  - [PaymentsConfigurationResponse](docs/PaymentsConfigurationResponse.md)
  - [PaymentsConfigurationRestrictions](docs/PaymentsConfigurationRestrictions.md)
+ - [PaymentsConfigurationRestrictionsTheme](docs/PaymentsConfigurationRestrictionsTheme.md)
  - [PaymentsConfigurationSezzle](docs/PaymentsConfigurationSezzle.md)
+ - [PaymentsConfigurationTestMethod](docs/PaymentsConfigurationTestMethod.md)
  - [PaymentsConfigurationWePay](docs/PaymentsConfigurationWePay.md)
  - [PaymentsConfigurationWireTransfer](docs/PaymentsConfigurationWireTransfer.md)
  - [PaymentsThemeTransactionType](docs/PaymentsThemeTransactionType.md)

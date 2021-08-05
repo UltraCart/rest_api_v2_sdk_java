@@ -20,14 +20,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.PaymentsConfigurationCreditCardType;
+import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
+import com.ultracart.admin.v2.models.PaymentsConfigurationTestMethod;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PaymentsConfigurationCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T16:34:28.233-04:00")
 
 
 
@@ -54,16 +59,16 @@ public class PaymentsConfigurationCreditCard {
   private Boolean hideConnectSingleGateway = null;
 
   @SerializedName("restrictions")
-  private Object restrictions = null;
+  private List<PaymentsConfigurationRestrictions> restrictions = null;
 
   @SerializedName("send_customer_billing_update_on_decline")
   private Boolean sendCustomerBillingUpdateOnDecline = null;
 
   @SerializedName("supported_cards")
-  private Object supportedCards = null;
+  private List<PaymentsConfigurationCreditCardType> supportedCards = null;
 
   @SerializedName("test_methods")
-  private Object testMethods = null;
+  private List<PaymentsConfigurationTestMethod> testMethods = null;
 
   public PaymentsConfigurationCreditCard acceptCreditCard(Boolean acceptCreditCard) {
     this.acceptCreditCard = acceptCreditCard;
@@ -191,8 +196,16 @@ public class PaymentsConfigurationCreditCard {
     this.hideConnectSingleGateway = hideConnectSingleGateway;
   }
 
-  public PaymentsConfigurationCreditCard restrictions(Object restrictions) {
+  public PaymentsConfigurationCreditCard restrictions(List<PaymentsConfigurationRestrictions> restrictions) {
     this.restrictions = restrictions;
+    return this;
+  }
+
+  public PaymentsConfigurationCreditCard addRestrictionsItem(PaymentsConfigurationRestrictions restrictionsItem) {
+    if (this.restrictions == null) {
+      this.restrictions = new ArrayList<PaymentsConfigurationRestrictions>();
+    }
+    this.restrictions.add(restrictionsItem);
     return this;
   }
 
@@ -201,11 +214,11 @@ public class PaymentsConfigurationCreditCard {
    * @return restrictions
   **/
   @ApiModelProperty(value = "Restrictions for this payment method")
-  public Object getRestrictions() {
+  public List<PaymentsConfigurationRestrictions> getRestrictions() {
     return restrictions;
   }
 
-  public void setRestrictions(Object restrictions) {
+  public void setRestrictions(List<PaymentsConfigurationRestrictions> restrictions) {
     this.restrictions = restrictions;
   }
 
@@ -227,8 +240,16 @@ public class PaymentsConfigurationCreditCard {
     this.sendCustomerBillingUpdateOnDecline = sendCustomerBillingUpdateOnDecline;
   }
 
-  public PaymentsConfigurationCreditCard supportedCards(Object supportedCards) {
+  public PaymentsConfigurationCreditCard supportedCards(List<PaymentsConfigurationCreditCardType> supportedCards) {
     this.supportedCards = supportedCards;
+    return this;
+  }
+
+  public PaymentsConfigurationCreditCard addSupportedCardsItem(PaymentsConfigurationCreditCardType supportedCardsItem) {
+    if (this.supportedCards == null) {
+      this.supportedCards = new ArrayList<PaymentsConfigurationCreditCardType>();
+    }
+    this.supportedCards.add(supportedCardsItem);
     return this;
   }
 
@@ -237,16 +258,24 @@ public class PaymentsConfigurationCreditCard {
    * @return supportedCards
   **/
   @ApiModelProperty(value = "A list of credit cards the merchant wishes to accept.")
-  public Object getSupportedCards() {
+  public List<PaymentsConfigurationCreditCardType> getSupportedCards() {
     return supportedCards;
   }
 
-  public void setSupportedCards(Object supportedCards) {
+  public void setSupportedCards(List<PaymentsConfigurationCreditCardType> supportedCards) {
     this.supportedCards = supportedCards;
   }
 
-  public PaymentsConfigurationCreditCard testMethods(Object testMethods) {
+  public PaymentsConfigurationCreditCard testMethods(List<PaymentsConfigurationTestMethod> testMethods) {
     this.testMethods = testMethods;
+    return this;
+  }
+
+  public PaymentsConfigurationCreditCard addTestMethodsItem(PaymentsConfigurationTestMethod testMethodsItem) {
+    if (this.testMethods == null) {
+      this.testMethods = new ArrayList<PaymentsConfigurationTestMethod>();
+    }
+    this.testMethods.add(testMethodsItem);
     return this;
   }
 
@@ -255,11 +284,11 @@ public class PaymentsConfigurationCreditCard {
    * @return testMethods
   **/
   @ApiModelProperty(value = "An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders")
-  public Object getTestMethods() {
+  public List<PaymentsConfigurationTestMethod> getTestMethods() {
     return testMethods;
   }
 
-  public void setTestMethods(Object testMethods) {
+  public void setTestMethods(List<PaymentsConfigurationTestMethod> testMethods) {
     this.testMethods = testMethods;
   }
 

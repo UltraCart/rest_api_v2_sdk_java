@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **businessId** | **String** | Business ID |  [optional]
 **depositToAccount** | **String** | Optional Quickbooks Deposit to Account value |  [optional]
 **environment** | [**EnvironmentEnum**](#EnvironmentEnum) | Sezzle environment |  [optional]
-**environments** | **Object** | List of environments possible |  [optional]
+**environments** | **List&lt;String&gt;** | List of environments possible |  [optional]
 **privateApiKey** | **String** | Private API key |  [optional]
 **publicApiKey** | **String** | Public API key |  [optional]
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  |  [optional]

@@ -20,18 +20,24 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictionsTheme;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PaymentsConfigurationRestrictions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T16:34:28.233-04:00")
 
 
 
 public class PaymentsConfigurationRestrictions {
+  @SerializedName("descriptions")
+  private List<String> descriptions = null;
+
   @SerializedName("maximum_subtotal")
   private String maximumSubtotal = null;
 
@@ -67,6 +73,35 @@ public class PaymentsConfigurationRestrictions {
 
   @SerializedName("restriction_us_territories")
   private String restrictionUsTerritories = null;
+
+  @SerializedName("themes")
+  private List<PaymentsConfigurationRestrictionsTheme> themes = null;
+
+  public PaymentsConfigurationRestrictions descriptions(List<String> descriptions) {
+    this.descriptions = descriptions;
+    return this;
+  }
+
+  public PaymentsConfigurationRestrictions addDescriptionsItem(String descriptionsItem) {
+    if (this.descriptions == null) {
+      this.descriptions = new ArrayList<String>();
+    }
+    this.descriptions.add(descriptionsItem);
+    return this;
+  }
+
+   /**
+   * Get descriptions
+   * @return descriptions
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getDescriptions() {
+    return descriptions;
+  }
+
+  public void setDescriptions(List<String> descriptions) {
+    this.descriptions = descriptions;
+  }
 
   public PaymentsConfigurationRestrictions maximumSubtotal(String maximumSubtotal) {
     this.maximumSubtotal = maximumSubtotal;
@@ -284,6 +319,32 @@ public class PaymentsConfigurationRestrictions {
     this.restrictionUsTerritories = restrictionUsTerritories;
   }
 
+  public PaymentsConfigurationRestrictions themes(List<PaymentsConfigurationRestrictionsTheme> themes) {
+    this.themes = themes;
+    return this;
+  }
+
+  public PaymentsConfigurationRestrictions addThemesItem(PaymentsConfigurationRestrictionsTheme themesItem) {
+    if (this.themes == null) {
+      this.themes = new ArrayList<PaymentsConfigurationRestrictionsTheme>();
+    }
+    this.themes.add(themesItem);
+    return this;
+  }
+
+   /**
+   * Get themes
+   * @return themes
+  **/
+  @ApiModelProperty(value = "")
+  public List<PaymentsConfigurationRestrictionsTheme> getThemes() {
+    return themes;
+  }
+
+  public void setThemes(List<PaymentsConfigurationRestrictionsTheme> themes) {
+    this.themes = themes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -294,7 +355,8 @@ public class PaymentsConfigurationRestrictions {
       return false;
     }
     PaymentsConfigurationRestrictions paymentsConfigurationRestrictions = (PaymentsConfigurationRestrictions) o;
-    return Objects.equals(this.maximumSubtotal, paymentsConfigurationRestrictions.maximumSubtotal) &&
+    return Objects.equals(this.descriptions, paymentsConfigurationRestrictions.descriptions) &&
+        Objects.equals(this.maximumSubtotal, paymentsConfigurationRestrictions.maximumSubtotal) &&
         Objects.equals(this.minimumSubtotal, paymentsConfigurationRestrictions.minimumSubtotal) &&
         Objects.equals(this.paymentMethod, paymentsConfigurationRestrictions.paymentMethod) &&
         Objects.equals(this.restrictionAlaskaHawaii, paymentsConfigurationRestrictions.restrictionAlaskaHawaii) &&
@@ -305,12 +367,13 @@ public class PaymentsConfigurationRestrictions {
         Objects.equals(this.restrictionInternationalOnly, paymentsConfigurationRestrictions.restrictionInternationalOnly) &&
         Objects.equals(this.restrictionPoBox, paymentsConfigurationRestrictions.restrictionPoBox) &&
         Objects.equals(this.restrictionPuertoRico, paymentsConfigurationRestrictions.restrictionPuertoRico) &&
-        Objects.equals(this.restrictionUsTerritories, paymentsConfigurationRestrictions.restrictionUsTerritories);
+        Objects.equals(this.restrictionUsTerritories, paymentsConfigurationRestrictions.restrictionUsTerritories) &&
+        Objects.equals(this.themes, paymentsConfigurationRestrictions.themes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maximumSubtotal, minimumSubtotal, paymentMethod, restrictionAlaskaHawaii, restrictionApoFpo, restrictionCanada, restrictionContinentalUs, restrictionDomesticOnly, restrictionInternationalOnly, restrictionPoBox, restrictionPuertoRico, restrictionUsTerritories);
+    return Objects.hash(descriptions, maximumSubtotal, minimumSubtotal, paymentMethod, restrictionAlaskaHawaii, restrictionApoFpo, restrictionCanada, restrictionContinentalUs, restrictionDomesticOnly, restrictionInternationalOnly, restrictionPoBox, restrictionPuertoRico, restrictionUsTerritories, themes);
   }
 
 
@@ -319,6 +382,7 @@ public class PaymentsConfigurationRestrictions {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentsConfigurationRestrictions {\n");
     
+    sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
     sb.append("    maximumSubtotal: ").append(toIndentedString(maximumSubtotal)).append("\n");
     sb.append("    minimumSubtotal: ").append(toIndentedString(minimumSubtotal)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
@@ -331,6 +395,7 @@ public class PaymentsConfigurationRestrictions {
     sb.append("    restrictionPoBox: ").append(toIndentedString(restrictionPoBox)).append("\n");
     sb.append("    restrictionPuertoRico: ").append(toIndentedString(restrictionPuertoRico)).append("\n");
     sb.append("    restrictionUsTerritories: ").append(toIndentedString(restrictionUsTerritories)).append("\n");
+    sb.append("    themes: ").append(toIndentedString(themes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

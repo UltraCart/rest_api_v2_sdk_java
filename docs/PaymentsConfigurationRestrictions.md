@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**descriptions** | **List&lt;String&gt;** |  |  [optional]
 **maximumSubtotal** | **String** | Maximum subtotal |  [optional]
 **minimumSubtotal** | **String** | Minimum subtotal |  [optional]
 **paymentMethod** | **String** | Payment method |  [optional]
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **restrictionPoBox** | **String** | PO Box restriction |  [optional]
 **restrictionPuertoRico** | **String** | Puerto Rico restriction |  [optional]
 **restrictionUsTerritories** | **String** | US Territories restriction |  [optional]
+**themes** | [**List&lt;PaymentsConfigurationRestrictionsTheme&gt;**](PaymentsConfigurationRestrictionsTheme.md) |  |  [optional]
 
 
 
