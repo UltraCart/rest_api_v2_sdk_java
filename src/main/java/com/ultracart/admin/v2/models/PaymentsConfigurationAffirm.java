@@ -28,31 +28,78 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationAffirm
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationAffirm {
-  @SerializedName("acceptAffirm")
+  @SerializedName("accept_affirm")
   private Boolean acceptAffirm = null;
 
-  @SerializedName("affirmAccountingCode")
-  private String affirmAccountingCode = null;
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
 
-  @SerializedName("affirmDepositToAccount")
-  private String affirmDepositToAccount = null;
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
 
-  @SerializedName("affirmEnvironment")
-  private String affirmEnvironment = null;
+  /**
+   * Environment
+   */
+  @JsonAdapter(EnvironmentEnum.Adapter.class)
+  public enum EnvironmentEnum {
+    LIVE("Live"),
+    
+    SANDBOX("Sandbox");
 
-  @SerializedName("affirmFinancialProductKey")
-  private String affirmFinancialProductKey = null;
+    private String value;
 
-  @SerializedName("affirmPrivateApiKey")
-  private String affirmPrivateApiKey = null;
+    EnvironmentEnum(String value) {
+      this.value = value;
+    }
 
-  @SerializedName("affirmPublicApiKey")
-  private String affirmPublicApiKey = null;
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EnvironmentEnum fromValue(String text) {
+      for (EnvironmentEnum b : EnvironmentEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EnvironmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EnvironmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EnvironmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EnvironmentEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("environment")
+  private EnvironmentEnum environment = null;
+
+  @SerializedName("financial_product_key")
+  private String financialProductKey = null;
+
+  @SerializedName("private_api_key")
+  private String privateApiKey = null;
+
+  @SerializedName("public_api_key")
+  private String publicApiKey = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
@@ -63,10 +110,10 @@ public class PaymentsConfigurationAffirm {
   }
 
    /**
-   * Get acceptAffirm
+   * Master flag indicating this merchant accepts Affirm payments
    * @return acceptAffirm
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts Affirm payments")
   public Boolean isAcceptAffirm() {
     return acceptAffirm;
   }
@@ -75,112 +122,112 @@ public class PaymentsConfigurationAffirm {
     this.acceptAffirm = acceptAffirm;
   }
 
-  public PaymentsConfigurationAffirm affirmAccountingCode(String affirmAccountingCode) {
-    this.affirmAccountingCode = affirmAccountingCode;
+  public PaymentsConfigurationAffirm accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
     return this;
   }
 
    /**
-   * Get affirmAccountingCode
-   * @return affirmAccountingCode
+   * Optional Quickbooks code for this payment method
+   * @return accountingCode
   **/
-  @ApiModelProperty(value = "")
-  public String getAffirmAccountingCode() {
-    return affirmAccountingCode;
+  @ApiModelProperty(value = "Optional Quickbooks code for this payment method")
+  public String getAccountingCode() {
+    return accountingCode;
   }
 
-  public void setAffirmAccountingCode(String affirmAccountingCode) {
-    this.affirmAccountingCode = affirmAccountingCode;
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
   }
 
-  public PaymentsConfigurationAffirm affirmDepositToAccount(String affirmDepositToAccount) {
-    this.affirmDepositToAccount = affirmDepositToAccount;
+  public PaymentsConfigurationAffirm depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
     return this;
   }
 
    /**
-   * Get affirmDepositToAccount
-   * @return affirmDepositToAccount
+   * Optional Quickbooks Deposit to Account value
+   * @return depositToAccount
   **/
-  @ApiModelProperty(value = "")
-  public String getAffirmDepositToAccount() {
-    return affirmDepositToAccount;
+  @ApiModelProperty(value = "Optional Quickbooks Deposit to Account value")
+  public String getDepositToAccount() {
+    return depositToAccount;
   }
 
-  public void setAffirmDepositToAccount(String affirmDepositToAccount) {
-    this.affirmDepositToAccount = affirmDepositToAccount;
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
   }
 
-  public PaymentsConfigurationAffirm affirmEnvironment(String affirmEnvironment) {
-    this.affirmEnvironment = affirmEnvironment;
+  public PaymentsConfigurationAffirm environment(EnvironmentEnum environment) {
+    this.environment = environment;
     return this;
   }
 
    /**
-   * Get affirmEnvironment
-   * @return affirmEnvironment
+   * Environment
+   * @return environment
   **/
-  @ApiModelProperty(value = "")
-  public String getAffirmEnvironment() {
-    return affirmEnvironment;
+  @ApiModelProperty(value = "Environment")
+  public EnvironmentEnum getEnvironment() {
+    return environment;
   }
 
-  public void setAffirmEnvironment(String affirmEnvironment) {
-    this.affirmEnvironment = affirmEnvironment;
+  public void setEnvironment(EnvironmentEnum environment) {
+    this.environment = environment;
   }
 
-  public PaymentsConfigurationAffirm affirmFinancialProductKey(String affirmFinancialProductKey) {
-    this.affirmFinancialProductKey = affirmFinancialProductKey;
+  public PaymentsConfigurationAffirm financialProductKey(String financialProductKey) {
+    this.financialProductKey = financialProductKey;
     return this;
   }
 
    /**
-   * Get affirmFinancialProductKey
-   * @return affirmFinancialProductKey
+   * Financial product key
+   * @return financialProductKey
   **/
-  @ApiModelProperty(value = "")
-  public String getAffirmFinancialProductKey() {
-    return affirmFinancialProductKey;
+  @ApiModelProperty(value = "Financial product key")
+  public String getFinancialProductKey() {
+    return financialProductKey;
   }
 
-  public void setAffirmFinancialProductKey(String affirmFinancialProductKey) {
-    this.affirmFinancialProductKey = affirmFinancialProductKey;
+  public void setFinancialProductKey(String financialProductKey) {
+    this.financialProductKey = financialProductKey;
   }
 
-  public PaymentsConfigurationAffirm affirmPrivateApiKey(String affirmPrivateApiKey) {
-    this.affirmPrivateApiKey = affirmPrivateApiKey;
+  public PaymentsConfigurationAffirm privateApiKey(String privateApiKey) {
+    this.privateApiKey = privateApiKey;
     return this;
   }
 
    /**
-   * Get affirmPrivateApiKey
-   * @return affirmPrivateApiKey
+   * Private API key
+   * @return privateApiKey
   **/
-  @ApiModelProperty(value = "")
-  public String getAffirmPrivateApiKey() {
-    return affirmPrivateApiKey;
+  @ApiModelProperty(value = "Private API key")
+  public String getPrivateApiKey() {
+    return privateApiKey;
   }
 
-  public void setAffirmPrivateApiKey(String affirmPrivateApiKey) {
-    this.affirmPrivateApiKey = affirmPrivateApiKey;
+  public void setPrivateApiKey(String privateApiKey) {
+    this.privateApiKey = privateApiKey;
   }
 
-  public PaymentsConfigurationAffirm affirmPublicApiKey(String affirmPublicApiKey) {
-    this.affirmPublicApiKey = affirmPublicApiKey;
+  public PaymentsConfigurationAffirm publicApiKey(String publicApiKey) {
+    this.publicApiKey = publicApiKey;
     return this;
   }
 
    /**
-   * Get affirmPublicApiKey
-   * @return affirmPublicApiKey
+   * Public API key
+   * @return publicApiKey
   **/
-  @ApiModelProperty(value = "")
-  public String getAffirmPublicApiKey() {
-    return affirmPublicApiKey;
+  @ApiModelProperty(value = "Public API key")
+  public String getPublicApiKey() {
+    return publicApiKey;
   }
 
-  public void setAffirmPublicApiKey(String affirmPublicApiKey) {
-    this.affirmPublicApiKey = affirmPublicApiKey;
+  public void setPublicApiKey(String publicApiKey) {
+    this.publicApiKey = publicApiKey;
   }
 
   public PaymentsConfigurationAffirm restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -212,18 +259,18 @@ public class PaymentsConfigurationAffirm {
     }
     PaymentsConfigurationAffirm paymentsConfigurationAffirm = (PaymentsConfigurationAffirm) o;
     return Objects.equals(this.acceptAffirm, paymentsConfigurationAffirm.acceptAffirm) &&
-        Objects.equals(this.affirmAccountingCode, paymentsConfigurationAffirm.affirmAccountingCode) &&
-        Objects.equals(this.affirmDepositToAccount, paymentsConfigurationAffirm.affirmDepositToAccount) &&
-        Objects.equals(this.affirmEnvironment, paymentsConfigurationAffirm.affirmEnvironment) &&
-        Objects.equals(this.affirmFinancialProductKey, paymentsConfigurationAffirm.affirmFinancialProductKey) &&
-        Objects.equals(this.affirmPrivateApiKey, paymentsConfigurationAffirm.affirmPrivateApiKey) &&
-        Objects.equals(this.affirmPublicApiKey, paymentsConfigurationAffirm.affirmPublicApiKey) &&
+        Objects.equals(this.accountingCode, paymentsConfigurationAffirm.accountingCode) &&
+        Objects.equals(this.depositToAccount, paymentsConfigurationAffirm.depositToAccount) &&
+        Objects.equals(this.environment, paymentsConfigurationAffirm.environment) &&
+        Objects.equals(this.financialProductKey, paymentsConfigurationAffirm.financialProductKey) &&
+        Objects.equals(this.privateApiKey, paymentsConfigurationAffirm.privateApiKey) &&
+        Objects.equals(this.publicApiKey, paymentsConfigurationAffirm.publicApiKey) &&
         Objects.equals(this.restrictions, paymentsConfigurationAffirm.restrictions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptAffirm, affirmAccountingCode, affirmDepositToAccount, affirmEnvironment, affirmFinancialProductKey, affirmPrivateApiKey, affirmPublicApiKey, restrictions);
+    return Objects.hash(acceptAffirm, accountingCode, depositToAccount, environment, financialProductKey, privateApiKey, publicApiKey, restrictions);
   }
 
 
@@ -233,12 +280,12 @@ public class PaymentsConfigurationAffirm {
     sb.append("class PaymentsConfigurationAffirm {\n");
     
     sb.append("    acceptAffirm: ").append(toIndentedString(acceptAffirm)).append("\n");
-    sb.append("    affirmAccountingCode: ").append(toIndentedString(affirmAccountingCode)).append("\n");
-    sb.append("    affirmDepositToAccount: ").append(toIndentedString(affirmDepositToAccount)).append("\n");
-    sb.append("    affirmEnvironment: ").append(toIndentedString(affirmEnvironment)).append("\n");
-    sb.append("    affirmFinancialProductKey: ").append(toIndentedString(affirmFinancialProductKey)).append("\n");
-    sb.append("    affirmPrivateApiKey: ").append(toIndentedString(affirmPrivateApiKey)).append("\n");
-    sb.append("    affirmPublicApiKey: ").append(toIndentedString(affirmPublicApiKey)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    financialProductKey: ").append(toIndentedString(financialProductKey)).append("\n");
+    sb.append("    privateApiKey: ").append(toIndentedString(privateApiKey)).append("\n");
+    sb.append("    publicApiKey: ").append(toIndentedString(publicApiKey)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("}");
     return sb.toString();

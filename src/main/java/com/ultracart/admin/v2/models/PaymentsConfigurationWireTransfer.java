@@ -28,43 +28,43 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationWireTransfer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationWireTransfer {
-  @SerializedName("acceptWireTransfer")
+  @SerializedName("accept_wire_transfer")
   private Boolean acceptWireTransfer = null;
+
+  @SerializedName("account_number")
+  private String accountNumber = null;
+
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
+
+  @SerializedName("bank_address")
+  private String bankAddress = null;
+
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
+
+  @SerializedName("intermediate_routing_number")
+  private String intermediateRoutingNumber = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
 
-  @SerializedName("wireTransferAccountingCode")
-  private String wireTransferAccountingCode = null;
+  @SerializedName("routing_number")
+  private String routingNumber = null;
 
-  @SerializedName("wireTransferAccountNumber")
-  private String wireTransferAccountNumber = null;
+  @SerializedName("surcharge_accounting_code")
+  private String surchargeAccountingCode = null;
 
-  @SerializedName("wireTransferBankAddress")
-  private String wireTransferBankAddress = null;
+  @SerializedName("surcharge_fee")
+  private String surchargeFee = null;
 
-  @SerializedName("wireTransferDepositToAccount")
-  private String wireTransferDepositToAccount = null;
-
-  @SerializedName("wireTransferIntermediateRoutingNumber")
-  private String wireTransferIntermediateRoutingNumber = null;
-
-  @SerializedName("wireTransferRoutingNumber")
-  private String wireTransferRoutingNumber = null;
-
-  @SerializedName("wireTransferSurchargeAccountingCode")
-  private String wireTransferSurchargeAccountingCode = null;
-
-  @SerializedName("wireTransferSurchargeFee")
-  private String wireTransferSurchargeFee = null;
-
-  @SerializedName("wireTransferSurchargePerc")
-  private String wireTransferSurchargePerc = null;
+  @SerializedName("surcharge_percentage")
+  private String surchargePercentage = null;
 
   public PaymentsConfigurationWireTransfer acceptWireTransfer(Boolean acceptWireTransfer) {
     this.acceptWireTransfer = acceptWireTransfer;
@@ -72,16 +72,106 @@ public class PaymentsConfigurationWireTransfer {
   }
 
    /**
-   * Get acceptWireTransfer
+   * Master flag indicating this merchant accepts wire transfers
    * @return acceptWireTransfer
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts wire transfers")
   public Boolean isAcceptWireTransfer() {
     return acceptWireTransfer;
   }
 
   public void setAcceptWireTransfer(Boolean acceptWireTransfer) {
     this.acceptWireTransfer = acceptWireTransfer;
+  }
+
+  public PaymentsConfigurationWireTransfer accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+   /**
+   * account_number
+   * @return accountNumber
+  **/
+  @ApiModelProperty(value = "account_number")
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+  public PaymentsConfigurationWireTransfer accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
+    return this;
+  }
+
+   /**
+   * Optional Quickbooks accounting code
+   * @return accountingCode
+  **/
+  @ApiModelProperty(value = "Optional Quickbooks accounting code")
+  public String getAccountingCode() {
+    return accountingCode;
+  }
+
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
+  }
+
+  public PaymentsConfigurationWireTransfer bankAddress(String bankAddress) {
+    this.bankAddress = bankAddress;
+    return this;
+  }
+
+   /**
+   * Bank address
+   * @return bankAddress
+  **/
+  @ApiModelProperty(value = "Bank address")
+  public String getBankAddress() {
+    return bankAddress;
+  }
+
+  public void setBankAddress(String bankAddress) {
+    this.bankAddress = bankAddress;
+  }
+
+  public PaymentsConfigurationWireTransfer depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
+    return this;
+  }
+
+   /**
+   * Optional Quickbooks deposit to account
+   * @return depositToAccount
+  **/
+  @ApiModelProperty(value = "Optional Quickbooks deposit to account")
+  public String getDepositToAccount() {
+    return depositToAccount;
+  }
+
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
+  }
+
+  public PaymentsConfigurationWireTransfer intermediateRoutingNumber(String intermediateRoutingNumber) {
+    this.intermediateRoutingNumber = intermediateRoutingNumber;
+    return this;
+  }
+
+   /**
+   * Intermediate routing number
+   * @return intermediateRoutingNumber
+  **/
+  @ApiModelProperty(value = "Intermediate routing number")
+  public String getIntermediateRoutingNumber() {
+    return intermediateRoutingNumber;
+  }
+
+  public void setIntermediateRoutingNumber(String intermediateRoutingNumber) {
+    this.intermediateRoutingNumber = intermediateRoutingNumber;
   }
 
   public PaymentsConfigurationWireTransfer restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -102,166 +192,76 @@ public class PaymentsConfigurationWireTransfer {
     this.restrictions = restrictions;
   }
 
-  public PaymentsConfigurationWireTransfer wireTransferAccountingCode(String wireTransferAccountingCode) {
-    this.wireTransferAccountingCode = wireTransferAccountingCode;
+  public PaymentsConfigurationWireTransfer routingNumber(String routingNumber) {
+    this.routingNumber = routingNumber;
     return this;
   }
 
    /**
-   * Get wireTransferAccountingCode
-   * @return wireTransferAccountingCode
+   * Routing number
+   * @return routingNumber
   **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferAccountingCode() {
-    return wireTransferAccountingCode;
+  @ApiModelProperty(value = "Routing number")
+  public String getRoutingNumber() {
+    return routingNumber;
   }
 
-  public void setWireTransferAccountingCode(String wireTransferAccountingCode) {
-    this.wireTransferAccountingCode = wireTransferAccountingCode;
+  public void setRoutingNumber(String routingNumber) {
+    this.routingNumber = routingNumber;
   }
 
-  public PaymentsConfigurationWireTransfer wireTransferAccountNumber(String wireTransferAccountNumber) {
-    this.wireTransferAccountNumber = wireTransferAccountNumber;
+  public PaymentsConfigurationWireTransfer surchargeAccountingCode(String surchargeAccountingCode) {
+    this.surchargeAccountingCode = surchargeAccountingCode;
     return this;
   }
 
    /**
-   * Get wireTransferAccountNumber
-   * @return wireTransferAccountNumber
+   * If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount
+   * @return surchargeAccountingCode
   **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferAccountNumber() {
-    return wireTransferAccountNumber;
+  @ApiModelProperty(value = "If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount")
+  public String getSurchargeAccountingCode() {
+    return surchargeAccountingCode;
   }
 
-  public void setWireTransferAccountNumber(String wireTransferAccountNumber) {
-    this.wireTransferAccountNumber = wireTransferAccountNumber;
+  public void setSurchargeAccountingCode(String surchargeAccountingCode) {
+    this.surchargeAccountingCode = surchargeAccountingCode;
   }
 
-  public PaymentsConfigurationWireTransfer wireTransferBankAddress(String wireTransferBankAddress) {
-    this.wireTransferBankAddress = wireTransferBankAddress;
+  public PaymentsConfigurationWireTransfer surchargeFee(String surchargeFee) {
+    this.surchargeFee = surchargeFee;
     return this;
   }
 
    /**
-   * Get wireTransferBankAddress
-   * @return wireTransferBankAddress
+   * surcharge_fee
+   * @return surchargeFee
   **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferBankAddress() {
-    return wireTransferBankAddress;
+  @ApiModelProperty(value = "surcharge_fee")
+  public String getSurchargeFee() {
+    return surchargeFee;
   }
 
-  public void setWireTransferBankAddress(String wireTransferBankAddress) {
-    this.wireTransferBankAddress = wireTransferBankAddress;
+  public void setSurchargeFee(String surchargeFee) {
+    this.surchargeFee = surchargeFee;
   }
 
-  public PaymentsConfigurationWireTransfer wireTransferDepositToAccount(String wireTransferDepositToAccount) {
-    this.wireTransferDepositToAccount = wireTransferDepositToAccount;
+  public PaymentsConfigurationWireTransfer surchargePercentage(String surchargePercentage) {
+    this.surchargePercentage = surchargePercentage;
     return this;
   }
 
    /**
-   * Get wireTransferDepositToAccount
-   * @return wireTransferDepositToAccount
+   * surcharge_percentage
+   * @return surchargePercentage
   **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferDepositToAccount() {
-    return wireTransferDepositToAccount;
+  @ApiModelProperty(value = "surcharge_percentage")
+  public String getSurchargePercentage() {
+    return surchargePercentage;
   }
 
-  public void setWireTransferDepositToAccount(String wireTransferDepositToAccount) {
-    this.wireTransferDepositToAccount = wireTransferDepositToAccount;
-  }
-
-  public PaymentsConfigurationWireTransfer wireTransferIntermediateRoutingNumber(String wireTransferIntermediateRoutingNumber) {
-    this.wireTransferIntermediateRoutingNumber = wireTransferIntermediateRoutingNumber;
-    return this;
-  }
-
-   /**
-   * Get wireTransferIntermediateRoutingNumber
-   * @return wireTransferIntermediateRoutingNumber
-  **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferIntermediateRoutingNumber() {
-    return wireTransferIntermediateRoutingNumber;
-  }
-
-  public void setWireTransferIntermediateRoutingNumber(String wireTransferIntermediateRoutingNumber) {
-    this.wireTransferIntermediateRoutingNumber = wireTransferIntermediateRoutingNumber;
-  }
-
-  public PaymentsConfigurationWireTransfer wireTransferRoutingNumber(String wireTransferRoutingNumber) {
-    this.wireTransferRoutingNumber = wireTransferRoutingNumber;
-    return this;
-  }
-
-   /**
-   * Get wireTransferRoutingNumber
-   * @return wireTransferRoutingNumber
-  **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferRoutingNumber() {
-    return wireTransferRoutingNumber;
-  }
-
-  public void setWireTransferRoutingNumber(String wireTransferRoutingNumber) {
-    this.wireTransferRoutingNumber = wireTransferRoutingNumber;
-  }
-
-  public PaymentsConfigurationWireTransfer wireTransferSurchargeAccountingCode(String wireTransferSurchargeAccountingCode) {
-    this.wireTransferSurchargeAccountingCode = wireTransferSurchargeAccountingCode;
-    return this;
-  }
-
-   /**
-   * Get wireTransferSurchargeAccountingCode
-   * @return wireTransferSurchargeAccountingCode
-  **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferSurchargeAccountingCode() {
-    return wireTransferSurchargeAccountingCode;
-  }
-
-  public void setWireTransferSurchargeAccountingCode(String wireTransferSurchargeAccountingCode) {
-    this.wireTransferSurchargeAccountingCode = wireTransferSurchargeAccountingCode;
-  }
-
-  public PaymentsConfigurationWireTransfer wireTransferSurchargeFee(String wireTransferSurchargeFee) {
-    this.wireTransferSurchargeFee = wireTransferSurchargeFee;
-    return this;
-  }
-
-   /**
-   * Get wireTransferSurchargeFee
-   * @return wireTransferSurchargeFee
-  **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferSurchargeFee() {
-    return wireTransferSurchargeFee;
-  }
-
-  public void setWireTransferSurchargeFee(String wireTransferSurchargeFee) {
-    this.wireTransferSurchargeFee = wireTransferSurchargeFee;
-  }
-
-  public PaymentsConfigurationWireTransfer wireTransferSurchargePerc(String wireTransferSurchargePerc) {
-    this.wireTransferSurchargePerc = wireTransferSurchargePerc;
-    return this;
-  }
-
-   /**
-   * Get wireTransferSurchargePerc
-   * @return wireTransferSurchargePerc
-  **/
-  @ApiModelProperty(value = "")
-  public String getWireTransferSurchargePerc() {
-    return wireTransferSurchargePerc;
-  }
-
-  public void setWireTransferSurchargePerc(String wireTransferSurchargePerc) {
-    this.wireTransferSurchargePerc = wireTransferSurchargePerc;
+  public void setSurchargePercentage(String surchargePercentage) {
+    this.surchargePercentage = surchargePercentage;
   }
 
 
@@ -275,21 +275,21 @@ public class PaymentsConfigurationWireTransfer {
     }
     PaymentsConfigurationWireTransfer paymentsConfigurationWireTransfer = (PaymentsConfigurationWireTransfer) o;
     return Objects.equals(this.acceptWireTransfer, paymentsConfigurationWireTransfer.acceptWireTransfer) &&
+        Objects.equals(this.accountNumber, paymentsConfigurationWireTransfer.accountNumber) &&
+        Objects.equals(this.accountingCode, paymentsConfigurationWireTransfer.accountingCode) &&
+        Objects.equals(this.bankAddress, paymentsConfigurationWireTransfer.bankAddress) &&
+        Objects.equals(this.depositToAccount, paymentsConfigurationWireTransfer.depositToAccount) &&
+        Objects.equals(this.intermediateRoutingNumber, paymentsConfigurationWireTransfer.intermediateRoutingNumber) &&
         Objects.equals(this.restrictions, paymentsConfigurationWireTransfer.restrictions) &&
-        Objects.equals(this.wireTransferAccountingCode, paymentsConfigurationWireTransfer.wireTransferAccountingCode) &&
-        Objects.equals(this.wireTransferAccountNumber, paymentsConfigurationWireTransfer.wireTransferAccountNumber) &&
-        Objects.equals(this.wireTransferBankAddress, paymentsConfigurationWireTransfer.wireTransferBankAddress) &&
-        Objects.equals(this.wireTransferDepositToAccount, paymentsConfigurationWireTransfer.wireTransferDepositToAccount) &&
-        Objects.equals(this.wireTransferIntermediateRoutingNumber, paymentsConfigurationWireTransfer.wireTransferIntermediateRoutingNumber) &&
-        Objects.equals(this.wireTransferRoutingNumber, paymentsConfigurationWireTransfer.wireTransferRoutingNumber) &&
-        Objects.equals(this.wireTransferSurchargeAccountingCode, paymentsConfigurationWireTransfer.wireTransferSurchargeAccountingCode) &&
-        Objects.equals(this.wireTransferSurchargeFee, paymentsConfigurationWireTransfer.wireTransferSurchargeFee) &&
-        Objects.equals(this.wireTransferSurchargePerc, paymentsConfigurationWireTransfer.wireTransferSurchargePerc);
+        Objects.equals(this.routingNumber, paymentsConfigurationWireTransfer.routingNumber) &&
+        Objects.equals(this.surchargeAccountingCode, paymentsConfigurationWireTransfer.surchargeAccountingCode) &&
+        Objects.equals(this.surchargeFee, paymentsConfigurationWireTransfer.surchargeFee) &&
+        Objects.equals(this.surchargePercentage, paymentsConfigurationWireTransfer.surchargePercentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptWireTransfer, restrictions, wireTransferAccountingCode, wireTransferAccountNumber, wireTransferBankAddress, wireTransferDepositToAccount, wireTransferIntermediateRoutingNumber, wireTransferRoutingNumber, wireTransferSurchargeAccountingCode, wireTransferSurchargeFee, wireTransferSurchargePerc);
+    return Objects.hash(acceptWireTransfer, accountNumber, accountingCode, bankAddress, depositToAccount, intermediateRoutingNumber, restrictions, routingNumber, surchargeAccountingCode, surchargeFee, surchargePercentage);
   }
 
 
@@ -299,16 +299,16 @@ public class PaymentsConfigurationWireTransfer {
     sb.append("class PaymentsConfigurationWireTransfer {\n");
     
     sb.append("    acceptWireTransfer: ").append(toIndentedString(acceptWireTransfer)).append("\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
+    sb.append("    bankAddress: ").append(toIndentedString(bankAddress)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
+    sb.append("    intermediateRoutingNumber: ").append(toIndentedString(intermediateRoutingNumber)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
-    sb.append("    wireTransferAccountingCode: ").append(toIndentedString(wireTransferAccountingCode)).append("\n");
-    sb.append("    wireTransferAccountNumber: ").append(toIndentedString(wireTransferAccountNumber)).append("\n");
-    sb.append("    wireTransferBankAddress: ").append(toIndentedString(wireTransferBankAddress)).append("\n");
-    sb.append("    wireTransferDepositToAccount: ").append(toIndentedString(wireTransferDepositToAccount)).append("\n");
-    sb.append("    wireTransferIntermediateRoutingNumber: ").append(toIndentedString(wireTransferIntermediateRoutingNumber)).append("\n");
-    sb.append("    wireTransferRoutingNumber: ").append(toIndentedString(wireTransferRoutingNumber)).append("\n");
-    sb.append("    wireTransferSurchargeAccountingCode: ").append(toIndentedString(wireTransferSurchargeAccountingCode)).append("\n");
-    sb.append("    wireTransferSurchargeFee: ").append(toIndentedString(wireTransferSurchargeFee)).append("\n");
-    sb.append("    wireTransferSurchargePerc: ").append(toIndentedString(wireTransferSurchargePerc)).append("\n");
+    sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
+    sb.append("    surchargeAccountingCode: ").append(toIndentedString(surchargeAccountingCode)).append("\n");
+    sb.append("    surchargeFee: ").append(toIndentedString(surchargeFee)).append("\n");
+    sb.append("    surchargePercentage: ").append(toIndentedString(surchargePercentage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,34 +28,34 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationAmazon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationAmazon {
-  @SerializedName("acceptAmazon")
+  @SerializedName("accept_amazon")
   private Boolean acceptAmazon = null;
 
-  @SerializedName("amazonAccessKeyId")
-  private String amazonAccessKeyId = null;
+  @SerializedName("access_key_id")
+  private String accessKeyId = null;
 
-  @SerializedName("amazonAccountingCode")
-  private String amazonAccountingCode = null;
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
 
-  @SerializedName("amazonDepositToAccount")
-  private String amazonDepositToAccount = null;
-
-  @SerializedName("amazonMerchantId")
+  @SerializedName("amazon_merchant_id")
   private String amazonMerchantId = null;
 
-  @SerializedName("amazonSandbox")
-  private Boolean amazonSandbox = null;
-
-  @SerializedName("amazonSecretAccessKey")
-  private String amazonSecretAccessKey = null;
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
+
+  @SerializedName("sandbox")
+  private Boolean sandbox = null;
+
+  @SerializedName("secret_access_key")
+  private String secretAccessKey = null;
 
   public PaymentsConfigurationAmazon acceptAmazon(Boolean acceptAmazon) {
     this.acceptAmazon = acceptAmazon;
@@ -63,10 +63,10 @@ public class PaymentsConfigurationAmazon {
   }
 
    /**
-   * Get acceptAmazon
+   * Master flag to determine if this merchant accepts Pay by Amazon
    * @return acceptAmazon
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag to determine if this merchant accepts Pay by Amazon")
   public Boolean isAcceptAmazon() {
     return acceptAmazon;
   }
@@ -75,58 +75,40 @@ public class PaymentsConfigurationAmazon {
     this.acceptAmazon = acceptAmazon;
   }
 
-  public PaymentsConfigurationAmazon amazonAccessKeyId(String amazonAccessKeyId) {
-    this.amazonAccessKeyId = amazonAccessKeyId;
+  public PaymentsConfigurationAmazon accessKeyId(String accessKeyId) {
+    this.accessKeyId = accessKeyId;
     return this;
   }
 
    /**
-   * Get amazonAccessKeyId
-   * @return amazonAccessKeyId
+   * Amazon access key ID
+   * @return accessKeyId
   **/
-  @ApiModelProperty(value = "")
-  public String getAmazonAccessKeyId() {
-    return amazonAccessKeyId;
+  @ApiModelProperty(value = "Amazon access key ID")
+  public String getAccessKeyId() {
+    return accessKeyId;
   }
 
-  public void setAmazonAccessKeyId(String amazonAccessKeyId) {
-    this.amazonAccessKeyId = amazonAccessKeyId;
+  public void setAccessKeyId(String accessKeyId) {
+    this.accessKeyId = accessKeyId;
   }
 
-  public PaymentsConfigurationAmazon amazonAccountingCode(String amazonAccountingCode) {
-    this.amazonAccountingCode = amazonAccountingCode;
+  public PaymentsConfigurationAmazon accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
     return this;
   }
 
    /**
-   * Get amazonAccountingCode
-   * @return amazonAccountingCode
+   * Optional accounting code for use with Quickbooks integrations
+   * @return accountingCode
   **/
-  @ApiModelProperty(value = "")
-  public String getAmazonAccountingCode() {
-    return amazonAccountingCode;
+  @ApiModelProperty(value = "Optional accounting code for use with Quickbooks integrations")
+  public String getAccountingCode() {
+    return accountingCode;
   }
 
-  public void setAmazonAccountingCode(String amazonAccountingCode) {
-    this.amazonAccountingCode = amazonAccountingCode;
-  }
-
-  public PaymentsConfigurationAmazon amazonDepositToAccount(String amazonDepositToAccount) {
-    this.amazonDepositToAccount = amazonDepositToAccount;
-    return this;
-  }
-
-   /**
-   * Get amazonDepositToAccount
-   * @return amazonDepositToAccount
-  **/
-  @ApiModelProperty(value = "")
-  public String getAmazonDepositToAccount() {
-    return amazonDepositToAccount;
-  }
-
-  public void setAmazonDepositToAccount(String amazonDepositToAccount) {
-    this.amazonDepositToAccount = amazonDepositToAccount;
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
   }
 
   public PaymentsConfigurationAmazon amazonMerchantId(String amazonMerchantId) {
@@ -135,10 +117,10 @@ public class PaymentsConfigurationAmazon {
   }
 
    /**
-   * Get amazonMerchantId
+   * Amazon merchant ID
    * @return amazonMerchantId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Amazon merchant ID")
   public String getAmazonMerchantId() {
     return amazonMerchantId;
   }
@@ -147,40 +129,22 @@ public class PaymentsConfigurationAmazon {
     this.amazonMerchantId = amazonMerchantId;
   }
 
-  public PaymentsConfigurationAmazon amazonSandbox(Boolean amazonSandbox) {
-    this.amazonSandbox = amazonSandbox;
+  public PaymentsConfigurationAmazon depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
     return this;
   }
 
    /**
-   * Get amazonSandbox
-   * @return amazonSandbox
+   * Optional deposit to account field for use with Quickbooks integrations
+   * @return depositToAccount
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isAmazonSandbox() {
-    return amazonSandbox;
+  @ApiModelProperty(value = "Optional deposit to account field for use with Quickbooks integrations")
+  public String getDepositToAccount() {
+    return depositToAccount;
   }
 
-  public void setAmazonSandbox(Boolean amazonSandbox) {
-    this.amazonSandbox = amazonSandbox;
-  }
-
-  public PaymentsConfigurationAmazon amazonSecretAccessKey(String amazonSecretAccessKey) {
-    this.amazonSecretAccessKey = amazonSecretAccessKey;
-    return this;
-  }
-
-   /**
-   * Get amazonSecretAccessKey
-   * @return amazonSecretAccessKey
-  **/
-  @ApiModelProperty(value = "")
-  public String getAmazonSecretAccessKey() {
-    return amazonSecretAccessKey;
-  }
-
-  public void setAmazonSecretAccessKey(String amazonSecretAccessKey) {
-    this.amazonSecretAccessKey = amazonSecretAccessKey;
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
   }
 
   public PaymentsConfigurationAmazon restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -201,6 +165,42 @@ public class PaymentsConfigurationAmazon {
     this.restrictions = restrictions;
   }
 
+  public PaymentsConfigurationAmazon sandbox(Boolean sandbox) {
+    this.sandbox = sandbox;
+    return this;
+  }
+
+   /**
+   * True if transactions should run against the Amazon sandbox.  Useful for testing not configurations
+   * @return sandbox
+  **/
+  @ApiModelProperty(value = "True if transactions should run against the Amazon sandbox.  Useful for testing not configurations")
+  public Boolean isSandbox() {
+    return sandbox;
+  }
+
+  public void setSandbox(Boolean sandbox) {
+    this.sandbox = sandbox;
+  }
+
+  public PaymentsConfigurationAmazon secretAccessKey(String secretAccessKey) {
+    this.secretAccessKey = secretAccessKey;
+    return this;
+  }
+
+   /**
+   * Amazon secret access key
+   * @return secretAccessKey
+  **/
+  @ApiModelProperty(value = "Amazon secret access key")
+  public String getSecretAccessKey() {
+    return secretAccessKey;
+  }
+
+  public void setSecretAccessKey(String secretAccessKey) {
+    this.secretAccessKey = secretAccessKey;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -212,18 +212,18 @@ public class PaymentsConfigurationAmazon {
     }
     PaymentsConfigurationAmazon paymentsConfigurationAmazon = (PaymentsConfigurationAmazon) o;
     return Objects.equals(this.acceptAmazon, paymentsConfigurationAmazon.acceptAmazon) &&
-        Objects.equals(this.amazonAccessKeyId, paymentsConfigurationAmazon.amazonAccessKeyId) &&
-        Objects.equals(this.amazonAccountingCode, paymentsConfigurationAmazon.amazonAccountingCode) &&
-        Objects.equals(this.amazonDepositToAccount, paymentsConfigurationAmazon.amazonDepositToAccount) &&
+        Objects.equals(this.accessKeyId, paymentsConfigurationAmazon.accessKeyId) &&
+        Objects.equals(this.accountingCode, paymentsConfigurationAmazon.accountingCode) &&
         Objects.equals(this.amazonMerchantId, paymentsConfigurationAmazon.amazonMerchantId) &&
-        Objects.equals(this.amazonSandbox, paymentsConfigurationAmazon.amazonSandbox) &&
-        Objects.equals(this.amazonSecretAccessKey, paymentsConfigurationAmazon.amazonSecretAccessKey) &&
-        Objects.equals(this.restrictions, paymentsConfigurationAmazon.restrictions);
+        Objects.equals(this.depositToAccount, paymentsConfigurationAmazon.depositToAccount) &&
+        Objects.equals(this.restrictions, paymentsConfigurationAmazon.restrictions) &&
+        Objects.equals(this.sandbox, paymentsConfigurationAmazon.sandbox) &&
+        Objects.equals(this.secretAccessKey, paymentsConfigurationAmazon.secretAccessKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptAmazon, amazonAccessKeyId, amazonAccountingCode, amazonDepositToAccount, amazonMerchantId, amazonSandbox, amazonSecretAccessKey, restrictions);
+    return Objects.hash(acceptAmazon, accessKeyId, accountingCode, amazonMerchantId, depositToAccount, restrictions, sandbox, secretAccessKey);
   }
 
 
@@ -233,13 +233,13 @@ public class PaymentsConfigurationAmazon {
     sb.append("class PaymentsConfigurationAmazon {\n");
     
     sb.append("    acceptAmazon: ").append(toIndentedString(acceptAmazon)).append("\n");
-    sb.append("    amazonAccessKeyId: ").append(toIndentedString(amazonAccessKeyId)).append("\n");
-    sb.append("    amazonAccountingCode: ").append(toIndentedString(amazonAccountingCode)).append("\n");
-    sb.append("    amazonDepositToAccount: ").append(toIndentedString(amazonDepositToAccount)).append("\n");
+    sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
     sb.append("    amazonMerchantId: ").append(toIndentedString(amazonMerchantId)).append("\n");
-    sb.append("    amazonSandbox: ").append(toIndentedString(amazonSandbox)).append("\n");
-    sb.append("    amazonSecretAccessKey: ").append(toIndentedString(amazonSecretAccessKey)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
+    sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
+    sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,51 +27,60 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationCreditCard {
-  @SerializedName("acceptCreditCards")
-  private Boolean acceptCreditCards = null;
+  @SerializedName("accept_credit_card")
+  private Boolean acceptCreditCard = null;
 
-  @SerializedName("billedBy")
+  @SerializedName("billed_by")
   private String billedBy = null;
 
-  @SerializedName("chargeDuringCheckout")
+  @SerializedName("charge_during_checkout")
   private Boolean chargeDuringCheckout = null;
 
-  @SerializedName("collectCvv2")
+  @SerializedName("collect_cvv2")
   private Boolean collectCvv2 = null;
 
-  @SerializedName("configuredGatewaysDetails")
-  private String configuredGatewaysDetails = null;
+  @SerializedName("configured_gateway_details")
+  private String configuredGatewayDetails = null;
 
-  @SerializedName("failedAttempts")
+  @SerializedName("failed_attempts")
   private String failedAttempts = null;
 
-  @SerializedName("hideConnectSingleGateway")
+  @SerializedName("hide_connect_single_gateway")
   private Boolean hideConnectSingleGateway = null;
 
-  @SerializedName("sendCustomerBillingUpdateOnDecline")
+  @SerializedName("restrictions")
+  private Object restrictions = null;
+
+  @SerializedName("send_customer_billing_update_on_decline")
   private Boolean sendCustomerBillingUpdateOnDecline = null;
 
-  public PaymentsConfigurationCreditCard acceptCreditCards(Boolean acceptCreditCards) {
-    this.acceptCreditCards = acceptCreditCards;
+  @SerializedName("supported_cards")
+  private Object supportedCards = null;
+
+  @SerializedName("test_methods")
+  private Object testMethods = null;
+
+  public PaymentsConfigurationCreditCard acceptCreditCard(Boolean acceptCreditCard) {
+    this.acceptCreditCard = acceptCreditCard;
     return this;
   }
 
    /**
-   * Get acceptCreditCards
-   * @return acceptCreditCards
+   * Master flag indicating whether this merchant accepts credit card payments
+   * @return acceptCreditCard
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isAcceptCreditCards() {
-    return acceptCreditCards;
+  @ApiModelProperty(value = "Master flag indicating whether this merchant accepts credit card payments")
+  public Boolean isAcceptCreditCard() {
+    return acceptCreditCard;
   }
 
-  public void setAcceptCreditCards(Boolean acceptCreditCards) {
-    this.acceptCreditCards = acceptCreditCards;
+  public void setAcceptCreditCard(Boolean acceptCreditCard) {
+    this.acceptCreditCard = acceptCreditCard;
   }
 
   public PaymentsConfigurationCreditCard billedBy(String billedBy) {
@@ -80,10 +89,10 @@ public class PaymentsConfigurationCreditCard {
   }
 
    /**
-   * Get billedBy
+   * Description that appears on customer statements
    * @return billedBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Description that appears on customer statements")
   public String getBilledBy() {
     return billedBy;
   }
@@ -98,10 +107,10 @@ public class PaymentsConfigurationCreditCard {
   }
 
    /**
-   * Get chargeDuringCheckout
+   * If false, order will be accepted and placed into Accounts Receivable without charging card first
    * @return chargeDuringCheckout
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "If false, order will be accepted and placed into Accounts Receivable without charging card first")
   public Boolean isChargeDuringCheckout() {
     return chargeDuringCheckout;
   }
@@ -116,10 +125,10 @@ public class PaymentsConfigurationCreditCard {
   }
 
    /**
-   * Get collectCvv2
+   * UltraCart will require customer to enter cvv if this is true
    * @return collectCvv2
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "UltraCart will require customer to enter cvv if this is true")
   public Boolean isCollectCvv2() {
     return collectCvv2;
   }
@@ -128,22 +137,22 @@ public class PaymentsConfigurationCreditCard {
     this.collectCvv2 = collectCvv2;
   }
 
-  public PaymentsConfigurationCreditCard configuredGatewaysDetails(String configuredGatewaysDetails) {
-    this.configuredGatewaysDetails = configuredGatewaysDetails;
+  public PaymentsConfigurationCreditCard configuredGatewayDetails(String configuredGatewayDetails) {
+    this.configuredGatewayDetails = configuredGatewayDetails;
     return this;
   }
 
    /**
-   * Get configuredGatewaysDetails
-   * @return configuredGatewaysDetails
+   * Human readable description of the credit card gateway currently configured
+   * @return configuredGatewayDetails
   **/
-  @ApiModelProperty(value = "")
-  public String getConfiguredGatewaysDetails() {
-    return configuredGatewaysDetails;
+  @ApiModelProperty(value = "Human readable description of the credit card gateway currently configured")
+  public String getConfiguredGatewayDetails() {
+    return configuredGatewayDetails;
   }
 
-  public void setConfiguredGatewaysDetails(String configuredGatewaysDetails) {
-    this.configuredGatewaysDetails = configuredGatewaysDetails;
+  public void setConfiguredGatewayDetails(String configuredGatewayDetails) {
+    this.configuredGatewayDetails = configuredGatewayDetails;
   }
 
   public PaymentsConfigurationCreditCard failedAttempts(String failedAttempts) {
@@ -152,10 +161,10 @@ public class PaymentsConfigurationCreditCard {
   }
 
    /**
-   * Get failedAttempts
+   * The number of failed attempts before the order is placed into Accounts Receivable for manual intervention
    * @return failedAttempts
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of failed attempts before the order is placed into Accounts Receivable for manual intervention")
   public String getFailedAttempts() {
     return failedAttempts;
   }
@@ -170,10 +179,10 @@ public class PaymentsConfigurationCreditCard {
   }
 
    /**
-   * Get hideConnectSingleGateway
+   * This internal flag aids the UI in determining which buttons to show.
    * @return hideConnectSingleGateway
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "This internal flag aids the UI in determining which buttons to show.")
   public Boolean isHideConnectSingleGateway() {
     return hideConnectSingleGateway;
   }
@@ -182,22 +191,76 @@ public class PaymentsConfigurationCreditCard {
     this.hideConnectSingleGateway = hideConnectSingleGateway;
   }
 
+  public PaymentsConfigurationCreditCard restrictions(Object restrictions) {
+    this.restrictions = restrictions;
+    return this;
+  }
+
+   /**
+   * Restrictions for this payment method
+   * @return restrictions
+  **/
+  @ApiModelProperty(value = "Restrictions for this payment method")
+  public Object getRestrictions() {
+    return restrictions;
+  }
+
+  public void setRestrictions(Object restrictions) {
+    this.restrictions = restrictions;
+  }
+
   public PaymentsConfigurationCreditCard sendCustomerBillingUpdateOnDecline(Boolean sendCustomerBillingUpdateOnDecline) {
     this.sendCustomerBillingUpdateOnDecline = sendCustomerBillingUpdateOnDecline;
     return this;
   }
 
    /**
-   * Get sendCustomerBillingUpdateOnDecline
+   * UltraCart will send customers emails to update their credit card if the card is declined
    * @return sendCustomerBillingUpdateOnDecline
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "UltraCart will send customers emails to update their credit card if the card is declined")
   public Boolean isSendCustomerBillingUpdateOnDecline() {
     return sendCustomerBillingUpdateOnDecline;
   }
 
   public void setSendCustomerBillingUpdateOnDecline(Boolean sendCustomerBillingUpdateOnDecline) {
     this.sendCustomerBillingUpdateOnDecline = sendCustomerBillingUpdateOnDecline;
+  }
+
+  public PaymentsConfigurationCreditCard supportedCards(Object supportedCards) {
+    this.supportedCards = supportedCards;
+    return this;
+  }
+
+   /**
+   * A list of credit cards the merchant wishes to accept.
+   * @return supportedCards
+  **/
+  @ApiModelProperty(value = "A list of credit cards the merchant wishes to accept.")
+  public Object getSupportedCards() {
+    return supportedCards;
+  }
+
+  public void setSupportedCards(Object supportedCards) {
+    this.supportedCards = supportedCards;
+  }
+
+  public PaymentsConfigurationCreditCard testMethods(Object testMethods) {
+    this.testMethods = testMethods;
+    return this;
+  }
+
+   /**
+   * An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders
+   * @return testMethods
+  **/
+  @ApiModelProperty(value = "An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders")
+  public Object getTestMethods() {
+    return testMethods;
+  }
+
+  public void setTestMethods(Object testMethods) {
+    this.testMethods = testMethods;
   }
 
 
@@ -210,19 +273,22 @@ public class PaymentsConfigurationCreditCard {
       return false;
     }
     PaymentsConfigurationCreditCard paymentsConfigurationCreditCard = (PaymentsConfigurationCreditCard) o;
-    return Objects.equals(this.acceptCreditCards, paymentsConfigurationCreditCard.acceptCreditCards) &&
+    return Objects.equals(this.acceptCreditCard, paymentsConfigurationCreditCard.acceptCreditCard) &&
         Objects.equals(this.billedBy, paymentsConfigurationCreditCard.billedBy) &&
         Objects.equals(this.chargeDuringCheckout, paymentsConfigurationCreditCard.chargeDuringCheckout) &&
         Objects.equals(this.collectCvv2, paymentsConfigurationCreditCard.collectCvv2) &&
-        Objects.equals(this.configuredGatewaysDetails, paymentsConfigurationCreditCard.configuredGatewaysDetails) &&
+        Objects.equals(this.configuredGatewayDetails, paymentsConfigurationCreditCard.configuredGatewayDetails) &&
         Objects.equals(this.failedAttempts, paymentsConfigurationCreditCard.failedAttempts) &&
         Objects.equals(this.hideConnectSingleGateway, paymentsConfigurationCreditCard.hideConnectSingleGateway) &&
-        Objects.equals(this.sendCustomerBillingUpdateOnDecline, paymentsConfigurationCreditCard.sendCustomerBillingUpdateOnDecline);
+        Objects.equals(this.restrictions, paymentsConfigurationCreditCard.restrictions) &&
+        Objects.equals(this.sendCustomerBillingUpdateOnDecline, paymentsConfigurationCreditCard.sendCustomerBillingUpdateOnDecline) &&
+        Objects.equals(this.supportedCards, paymentsConfigurationCreditCard.supportedCards) &&
+        Objects.equals(this.testMethods, paymentsConfigurationCreditCard.testMethods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptCreditCards, billedBy, chargeDuringCheckout, collectCvv2, configuredGatewaysDetails, failedAttempts, hideConnectSingleGateway, sendCustomerBillingUpdateOnDecline);
+    return Objects.hash(acceptCreditCard, billedBy, chargeDuringCheckout, collectCvv2, configuredGatewayDetails, failedAttempts, hideConnectSingleGateway, restrictions, sendCustomerBillingUpdateOnDecline, supportedCards, testMethods);
   }
 
 
@@ -231,14 +297,17 @@ public class PaymentsConfigurationCreditCard {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentsConfigurationCreditCard {\n");
     
-    sb.append("    acceptCreditCards: ").append(toIndentedString(acceptCreditCards)).append("\n");
+    sb.append("    acceptCreditCard: ").append(toIndentedString(acceptCreditCard)).append("\n");
     sb.append("    billedBy: ").append(toIndentedString(billedBy)).append("\n");
     sb.append("    chargeDuringCheckout: ").append(toIndentedString(chargeDuringCheckout)).append("\n");
     sb.append("    collectCvv2: ").append(toIndentedString(collectCvv2)).append("\n");
-    sb.append("    configuredGatewaysDetails: ").append(toIndentedString(configuredGatewaysDetails)).append("\n");
+    sb.append("    configuredGatewayDetails: ").append(toIndentedString(configuredGatewayDetails)).append("\n");
     sb.append("    failedAttempts: ").append(toIndentedString(failedAttempts)).append("\n");
     sb.append("    hideConnectSingleGateway: ").append(toIndentedString(hideConnectSingleGateway)).append("\n");
+    sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("    sendCustomerBillingUpdateOnDecline: ").append(toIndentedString(sendCustomerBillingUpdateOnDecline)).append("\n");
+    sb.append("    supportedCards: ").append(toIndentedString(supportedCards)).append("\n");
+    sb.append("    testMethods: ").append(toIndentedString(testMethods)).append("\n");
     sb.append("}");
     return sb.toString();
   }

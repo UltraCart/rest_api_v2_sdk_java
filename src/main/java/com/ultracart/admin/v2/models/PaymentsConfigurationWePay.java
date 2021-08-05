@@ -28,19 +28,67 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationWePay
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationWePay {
-  @SerializedName("acceptWepay")
+  @SerializedName("accept_wepay")
   private Boolean acceptWepay = null;
 
-  @SerializedName("hideCreditCardsNonUltraCartPayments")
-  private Boolean hideCreditCardsNonUltraCartPayments = null;
+  @SerializedName("account_update_uri")
+  private String accountUpdateUri = null;
 
-  @SerializedName("hideSurchargeContent")
-  private Boolean hideSurchargeContent = null;
+  @SerializedName("address1")
+  private String address1 = null;
+
+  @SerializedName("address2")
+  private String address2 = null;
+
+  @SerializedName("canada_accept_debit_cards")
+  private Boolean canadaAcceptDebitCards = null;
+
+  @SerializedName("city")
+  private String city = null;
+
+  @SerializedName("company")
+  private String company = null;
+
+  @SerializedName("company_description")
+  private String companyDescription = null;
+
+  @SerializedName("console_hostname")
+  private String consoleHostname = null;
+
+  @SerializedName("country")
+  private String country = null;
+
+  @SerializedName("currency")
+  private String currency = null;
+
+  @SerializedName("expected_revenue")
+  private String expectedRevenue = null;
+
+  @SerializedName("hide_credit_card_non_ultracart_payments")
+  private Boolean hideCreditCardNonUltracartPayments = null;
+
+  @SerializedName("hide_surcharge_amount")
+  private Boolean hideSurchargeAmount = null;
+
+  @SerializedName("industry")
+  private String industry = null;
+
+  @SerializedName("owner_email")
+  private String ownerEmail = null;
+
+  @SerializedName("owner_name")
+  private String ownerName = null;
+
+  @SerializedName("owner_phone")
+  private String ownerPhone = null;
+
+  @SerializedName("postal_code")
+  private String postalCode = null;
 
   @SerializedName("removePayPalPro")
   private Boolean removePayPalPro = null;
@@ -48,74 +96,26 @@ public class PaymentsConfigurationWePay {
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
 
-  @SerializedName("shortPayPalMarketingText")
-  private Boolean shortPayPalMarketingText = null;
+  @SerializedName("short_paypal_marketing_text")
+  private Boolean shortPaypalMarketingText = null;
 
-  @SerializedName("showUltraCartPaymentsDisabled")
-  private Boolean showUltraCartPaymentsDisabled = null;
+  @SerializedName("show_ultracart_payments_disabled")
+  private Boolean showUltracartPaymentsDisabled = null;
 
-  @SerializedName("showUltraCartPaymentsIntro")
-  private Boolean showUltraCartPaymentsIntro = null;
+  @SerializedName("show_ultracart_payments_intro")
+  private Boolean showUltracartPaymentsIntro = null;
 
-  @SerializedName("showUltraCartPaymentsVerification")
-  private Boolean showUltraCartPaymentsVerification = null;
+  @SerializedName("show_ultracart_payments_verification")
+  private Boolean showUltracartPaymentsVerification = null;
 
-  @SerializedName("showUltraCartPaymentsVerified")
-  private Boolean showUltraCartPaymentsVerified = null;
+  @SerializedName("show_ultracart_payments_verified")
+  private Boolean showUltracartPaymentsVerified = null;
 
-  @SerializedName("wepayAccountUpdateUri")
-  private String wepayAccountUpdateUri = null;
+  @SerializedName("state")
+  private String state = null;
 
-  @SerializedName("wepayAddress1")
-  private String wepayAddress1 = null;
-
-  @SerializedName("wepayAddress2")
-  private String wepayAddress2 = null;
-
-  @SerializedName("wepayCanadaAcceptDebitCards")
-  private Boolean wepayCanadaAcceptDebitCards = null;
-
-  @SerializedName("wepayCity")
-  private String wepayCity = null;
-
-  @SerializedName("wepayCompany")
-  private String wepayCompany = null;
-
-  @SerializedName("wepayCompanyDescription")
-  private String wepayCompanyDescription = null;
-
-  @SerializedName("wepayConsoleHostname")
-  private String wepayConsoleHostname = null;
-
-  @SerializedName("wepayCountry")
-  private String wepayCountry = null;
-
-  @SerializedName("wepayCurrency")
-  private String wepayCurrency = null;
-
-  @SerializedName("wepayExpectedRevenue")
-  private String wepayExpectedRevenue = null;
-
-  @SerializedName("wepayIndustry")
-  private String wepayIndustry = null;
-
-  @SerializedName("wepayOwnerEmail")
-  private String wepayOwnerEmail = null;
-
-  @SerializedName("wepayOwnerName")
-  private String wepayOwnerName = null;
-
-  @SerializedName("wepayOwnerPhone")
-  private String wepayOwnerPhone = null;
-
-  @SerializedName("wepayState")
-  private String wepayState = null;
-
-  @SerializedName("wepayWebsiteUrl")
-  private String wepayWebsiteUrl = null;
-
-  @SerializedName("wepayZip")
-  private String wepayZip = null;
+  @SerializedName("website_url")
+  private String websiteUrl = null;
 
   public PaymentsConfigurationWePay acceptWepay(Boolean acceptWepay) {
     this.acceptWepay = acceptWepay;
@@ -123,10 +123,10 @@ public class PaymentsConfigurationWePay {
   }
 
    /**
-   * Get acceptWepay
+   * Master flag indicating this merchant accepts UltraCart Payments WePay
    * @return acceptWepay
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts UltraCart Payments WePay")
   public Boolean isAcceptWepay() {
     return acceptWepay;
   }
@@ -135,40 +135,328 @@ public class PaymentsConfigurationWePay {
     this.acceptWepay = acceptWepay;
   }
 
-  public PaymentsConfigurationWePay hideCreditCardsNonUltraCartPayments(Boolean hideCreditCardsNonUltraCartPayments) {
-    this.hideCreditCardsNonUltraCartPayments = hideCreditCardsNonUltraCartPayments;
+  public PaymentsConfigurationWePay accountUpdateUri(String accountUpdateUri) {
+    this.accountUpdateUri = accountUpdateUri;
     return this;
   }
 
    /**
-   * Get hideCreditCardsNonUltraCartPayments
-   * @return hideCreditCardsNonUltraCartPayments
+   * URI for updating the WePay account
+   * @return accountUpdateUri
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isHideCreditCardsNonUltraCartPayments() {
-    return hideCreditCardsNonUltraCartPayments;
+  @ApiModelProperty(value = "URI for updating the WePay account")
+  public String getAccountUpdateUri() {
+    return accountUpdateUri;
   }
 
-  public void setHideCreditCardsNonUltraCartPayments(Boolean hideCreditCardsNonUltraCartPayments) {
-    this.hideCreditCardsNonUltraCartPayments = hideCreditCardsNonUltraCartPayments;
+  public void setAccountUpdateUri(String accountUpdateUri) {
+    this.accountUpdateUri = accountUpdateUri;
   }
 
-  public PaymentsConfigurationWePay hideSurchargeContent(Boolean hideSurchargeContent) {
-    this.hideSurchargeContent = hideSurchargeContent;
+  public PaymentsConfigurationWePay address1(String address1) {
+    this.address1 = address1;
     return this;
   }
 
    /**
-   * Get hideSurchargeContent
-   * @return hideSurchargeContent
+   * Address line 1
+   * @return address1
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isHideSurchargeContent() {
-    return hideSurchargeContent;
+  @ApiModelProperty(value = "Address line 1")
+  public String getAddress1() {
+    return address1;
   }
 
-  public void setHideSurchargeContent(Boolean hideSurchargeContent) {
-    this.hideSurchargeContent = hideSurchargeContent;
+  public void setAddress1(String address1) {
+    this.address1 = address1;
+  }
+
+  public PaymentsConfigurationWePay address2(String address2) {
+    this.address2 = address2;
+    return this;
+  }
+
+   /**
+   * Address line 2
+   * @return address2
+  **/
+  @ApiModelProperty(value = "Address line 2")
+  public String getAddress2() {
+    return address2;
+  }
+
+  public void setAddress2(String address2) {
+    this.address2 = address2;
+  }
+
+  public PaymentsConfigurationWePay canadaAcceptDebitCards(Boolean canadaAcceptDebitCards) {
+    this.canadaAcceptDebitCards = canadaAcceptDebitCards;
+    return this;
+  }
+
+   /**
+   * For Canadian merchants, true if they wish to accept debit cards
+   * @return canadaAcceptDebitCards
+  **/
+  @ApiModelProperty(value = "For Canadian merchants, true if they wish to accept debit cards")
+  public Boolean isCanadaAcceptDebitCards() {
+    return canadaAcceptDebitCards;
+  }
+
+  public void setCanadaAcceptDebitCards(Boolean canadaAcceptDebitCards) {
+    this.canadaAcceptDebitCards = canadaAcceptDebitCards;
+  }
+
+  public PaymentsConfigurationWePay city(String city) {
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * City
+   * @return city
+  **/
+  @ApiModelProperty(value = "City")
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public PaymentsConfigurationWePay company(String company) {
+    this.company = company;
+    return this;
+  }
+
+   /**
+   * Company
+   * @return company
+  **/
+  @ApiModelProperty(value = "Company")
+  public String getCompany() {
+    return company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  public PaymentsConfigurationWePay companyDescription(String companyDescription) {
+    this.companyDescription = companyDescription;
+    return this;
+  }
+
+   /**
+   * Company description
+   * @return companyDescription
+  **/
+  @ApiModelProperty(value = "Company description")
+  public String getCompanyDescription() {
+    return companyDescription;
+  }
+
+  public void setCompanyDescription(String companyDescription) {
+    this.companyDescription = companyDescription;
+  }
+
+  public PaymentsConfigurationWePay consoleHostname(String consoleHostname) {
+    this.consoleHostname = consoleHostname;
+    return this;
+  }
+
+   /**
+   * Console hostname
+   * @return consoleHostname
+  **/
+  @ApiModelProperty(value = "Console hostname")
+  public String getConsoleHostname() {
+    return consoleHostname;
+  }
+
+  public void setConsoleHostname(String consoleHostname) {
+    this.consoleHostname = consoleHostname;
+  }
+
+  public PaymentsConfigurationWePay country(String country) {
+    this.country = country;
+    return this;
+  }
+
+   /**
+   * Country
+   * @return country
+  **/
+  @ApiModelProperty(value = "Country")
+  public String getCountry() {
+    return country;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
+  public PaymentsConfigurationWePay currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Base currency for transactions
+   * @return currency
+  **/
+  @ApiModelProperty(value = "Base currency for transactions")
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+  public PaymentsConfigurationWePay expectedRevenue(String expectedRevenue) {
+    this.expectedRevenue = expectedRevenue;
+    return this;
+  }
+
+   /**
+   * Expected Revenue
+   * @return expectedRevenue
+  **/
+  @ApiModelProperty(value = "Expected Revenue")
+  public String getExpectedRevenue() {
+    return expectedRevenue;
+  }
+
+  public void setExpectedRevenue(String expectedRevenue) {
+    this.expectedRevenue = expectedRevenue;
+  }
+
+  public PaymentsConfigurationWePay hideCreditCardNonUltracartPayments(Boolean hideCreditCardNonUltracartPayments) {
+    this.hideCreditCardNonUltracartPayments = hideCreditCardNonUltracartPayments;
+    return this;
+  }
+
+   /**
+   * Internal flag to aid UI
+   * @return hideCreditCardNonUltracartPayments
+  **/
+  @ApiModelProperty(value = "Internal flag to aid UI")
+  public Boolean isHideCreditCardNonUltracartPayments() {
+    return hideCreditCardNonUltracartPayments;
+  }
+
+  public void setHideCreditCardNonUltracartPayments(Boolean hideCreditCardNonUltracartPayments) {
+    this.hideCreditCardNonUltracartPayments = hideCreditCardNonUltracartPayments;
+  }
+
+  public PaymentsConfigurationWePay hideSurchargeAmount(Boolean hideSurchargeAmount) {
+    this.hideSurchargeAmount = hideSurchargeAmount;
+    return this;
+  }
+
+   /**
+   * Internal flag to aid UI
+   * @return hideSurchargeAmount
+  **/
+  @ApiModelProperty(value = "Internal flag to aid UI")
+  public Boolean isHideSurchargeAmount() {
+    return hideSurchargeAmount;
+  }
+
+  public void setHideSurchargeAmount(Boolean hideSurchargeAmount) {
+    this.hideSurchargeAmount = hideSurchargeAmount;
+  }
+
+  public PaymentsConfigurationWePay industry(String industry) {
+    this.industry = industry;
+    return this;
+  }
+
+   /**
+   * Industry
+   * @return industry
+  **/
+  @ApiModelProperty(value = "Industry")
+  public String getIndustry() {
+    return industry;
+  }
+
+  public void setIndustry(String industry) {
+    this.industry = industry;
+  }
+
+  public PaymentsConfigurationWePay ownerEmail(String ownerEmail) {
+    this.ownerEmail = ownerEmail;
+    return this;
+  }
+
+   /**
+   * Owner email
+   * @return ownerEmail
+  **/
+  @ApiModelProperty(value = "Owner email")
+  public String getOwnerEmail() {
+    return ownerEmail;
+  }
+
+  public void setOwnerEmail(String ownerEmail) {
+    this.ownerEmail = ownerEmail;
+  }
+
+  public PaymentsConfigurationWePay ownerName(String ownerName) {
+    this.ownerName = ownerName;
+    return this;
+  }
+
+   /**
+   * Owner name
+   * @return ownerName
+  **/
+  @ApiModelProperty(value = "Owner name")
+  public String getOwnerName() {
+    return ownerName;
+  }
+
+  public void setOwnerName(String ownerName) {
+    this.ownerName = ownerName;
+  }
+
+  public PaymentsConfigurationWePay ownerPhone(String ownerPhone) {
+    this.ownerPhone = ownerPhone;
+    return this;
+  }
+
+   /**
+   * Owner phone
+   * @return ownerPhone
+  **/
+  @ApiModelProperty(value = "Owner phone")
+  public String getOwnerPhone() {
+    return ownerPhone;
+  }
+
+  public void setOwnerPhone(String ownerPhone) {
+    this.ownerPhone = ownerPhone;
+  }
+
+  public PaymentsConfigurationWePay postalCode(String postalCode) {
+    this.postalCode = postalCode;
+    return this;
+  }
+
+   /**
+   * Postal code
+   * @return postalCode
+  **/
+  @ApiModelProperty(value = "Postal code")
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
   }
 
   public PaymentsConfigurationWePay removePayPalPro(Boolean removePayPalPro) {
@@ -207,418 +495,130 @@ public class PaymentsConfigurationWePay {
     this.restrictions = restrictions;
   }
 
-  public PaymentsConfigurationWePay shortPayPalMarketingText(Boolean shortPayPalMarketingText) {
-    this.shortPayPalMarketingText = shortPayPalMarketingText;
+  public PaymentsConfigurationWePay shortPaypalMarketingText(Boolean shortPaypalMarketingText) {
+    this.shortPaypalMarketingText = shortPaypalMarketingText;
     return this;
   }
 
    /**
-   * Get shortPayPalMarketingText
-   * @return shortPayPalMarketingText
+   * Internal UI aid
+   * @return shortPaypalMarketingText
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isShortPayPalMarketingText() {
-    return shortPayPalMarketingText;
+  @ApiModelProperty(value = "Internal UI aid")
+  public Boolean isShortPaypalMarketingText() {
+    return shortPaypalMarketingText;
   }
 
-  public void setShortPayPalMarketingText(Boolean shortPayPalMarketingText) {
-    this.shortPayPalMarketingText = shortPayPalMarketingText;
+  public void setShortPaypalMarketingText(Boolean shortPaypalMarketingText) {
+    this.shortPaypalMarketingText = shortPaypalMarketingText;
   }
 
-  public PaymentsConfigurationWePay showUltraCartPaymentsDisabled(Boolean showUltraCartPaymentsDisabled) {
-    this.showUltraCartPaymentsDisabled = showUltraCartPaymentsDisabled;
+  public PaymentsConfigurationWePay showUltracartPaymentsDisabled(Boolean showUltracartPaymentsDisabled) {
+    this.showUltracartPaymentsDisabled = showUltracartPaymentsDisabled;
     return this;
   }
 
    /**
-   * Get showUltraCartPaymentsDisabled
-   * @return showUltraCartPaymentsDisabled
+   * Internal flag to aid UI
+   * @return showUltracartPaymentsDisabled
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isShowUltraCartPaymentsDisabled() {
-    return showUltraCartPaymentsDisabled;
+  @ApiModelProperty(value = "Internal flag to aid UI")
+  public Boolean isShowUltracartPaymentsDisabled() {
+    return showUltracartPaymentsDisabled;
   }
 
-  public void setShowUltraCartPaymentsDisabled(Boolean showUltraCartPaymentsDisabled) {
-    this.showUltraCartPaymentsDisabled = showUltraCartPaymentsDisabled;
+  public void setShowUltracartPaymentsDisabled(Boolean showUltracartPaymentsDisabled) {
+    this.showUltracartPaymentsDisabled = showUltracartPaymentsDisabled;
   }
 
-  public PaymentsConfigurationWePay showUltraCartPaymentsIntro(Boolean showUltraCartPaymentsIntro) {
-    this.showUltraCartPaymentsIntro = showUltraCartPaymentsIntro;
+  public PaymentsConfigurationWePay showUltracartPaymentsIntro(Boolean showUltracartPaymentsIntro) {
+    this.showUltracartPaymentsIntro = showUltracartPaymentsIntro;
     return this;
   }
 
    /**
-   * Get showUltraCartPaymentsIntro
-   * @return showUltraCartPaymentsIntro
+   * Internal flag to aid UI
+   * @return showUltracartPaymentsIntro
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isShowUltraCartPaymentsIntro() {
-    return showUltraCartPaymentsIntro;
+  @ApiModelProperty(value = "Internal flag to aid UI")
+  public Boolean isShowUltracartPaymentsIntro() {
+    return showUltracartPaymentsIntro;
   }
 
-  public void setShowUltraCartPaymentsIntro(Boolean showUltraCartPaymentsIntro) {
-    this.showUltraCartPaymentsIntro = showUltraCartPaymentsIntro;
+  public void setShowUltracartPaymentsIntro(Boolean showUltracartPaymentsIntro) {
+    this.showUltracartPaymentsIntro = showUltracartPaymentsIntro;
   }
 
-  public PaymentsConfigurationWePay showUltraCartPaymentsVerification(Boolean showUltraCartPaymentsVerification) {
-    this.showUltraCartPaymentsVerification = showUltraCartPaymentsVerification;
+  public PaymentsConfigurationWePay showUltracartPaymentsVerification(Boolean showUltracartPaymentsVerification) {
+    this.showUltracartPaymentsVerification = showUltracartPaymentsVerification;
     return this;
   }
 
    /**
-   * Get showUltraCartPaymentsVerification
-   * @return showUltraCartPaymentsVerification
+   * Internal flag to aid UI
+   * @return showUltracartPaymentsVerification
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isShowUltraCartPaymentsVerification() {
-    return showUltraCartPaymentsVerification;
+  @ApiModelProperty(value = "Internal flag to aid UI")
+  public Boolean isShowUltracartPaymentsVerification() {
+    return showUltracartPaymentsVerification;
   }
 
-  public void setShowUltraCartPaymentsVerification(Boolean showUltraCartPaymentsVerification) {
-    this.showUltraCartPaymentsVerification = showUltraCartPaymentsVerification;
+  public void setShowUltracartPaymentsVerification(Boolean showUltracartPaymentsVerification) {
+    this.showUltracartPaymentsVerification = showUltracartPaymentsVerification;
   }
 
-  public PaymentsConfigurationWePay showUltraCartPaymentsVerified(Boolean showUltraCartPaymentsVerified) {
-    this.showUltraCartPaymentsVerified = showUltraCartPaymentsVerified;
+  public PaymentsConfigurationWePay showUltracartPaymentsVerified(Boolean showUltracartPaymentsVerified) {
+    this.showUltracartPaymentsVerified = showUltracartPaymentsVerified;
     return this;
   }
 
    /**
-   * Get showUltraCartPaymentsVerified
-   * @return showUltraCartPaymentsVerified
+   * Internal flag to aid UI
+   * @return showUltracartPaymentsVerified
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isShowUltraCartPaymentsVerified() {
-    return showUltraCartPaymentsVerified;
+  @ApiModelProperty(value = "Internal flag to aid UI")
+  public Boolean isShowUltracartPaymentsVerified() {
+    return showUltracartPaymentsVerified;
   }
 
-  public void setShowUltraCartPaymentsVerified(Boolean showUltraCartPaymentsVerified) {
-    this.showUltraCartPaymentsVerified = showUltraCartPaymentsVerified;
+  public void setShowUltracartPaymentsVerified(Boolean showUltracartPaymentsVerified) {
+    this.showUltracartPaymentsVerified = showUltracartPaymentsVerified;
   }
 
-  public PaymentsConfigurationWePay wepayAccountUpdateUri(String wepayAccountUpdateUri) {
-    this.wepayAccountUpdateUri = wepayAccountUpdateUri;
+  public PaymentsConfigurationWePay state(String state) {
+    this.state = state;
     return this;
   }
 
    /**
-   * Get wepayAccountUpdateUri
-   * @return wepayAccountUpdateUri
+   * State
+   * @return state
   **/
-  @ApiModelProperty(value = "")
-  public String getWepayAccountUpdateUri() {
-    return wepayAccountUpdateUri;
+  @ApiModelProperty(value = "State")
+  public String getState() {
+    return state;
   }
 
-  public void setWepayAccountUpdateUri(String wepayAccountUpdateUri) {
-    this.wepayAccountUpdateUri = wepayAccountUpdateUri;
+  public void setState(String state) {
+    this.state = state;
   }
 
-  public PaymentsConfigurationWePay wepayAddress1(String wepayAddress1) {
-    this.wepayAddress1 = wepayAddress1;
+  public PaymentsConfigurationWePay websiteUrl(String websiteUrl) {
+    this.websiteUrl = websiteUrl;
     return this;
   }
 
    /**
-   * Get wepayAddress1
-   * @return wepayAddress1
+   * Website URL
+   * @return websiteUrl
   **/
-  @ApiModelProperty(value = "")
-  public String getWepayAddress1() {
-    return wepayAddress1;
+  @ApiModelProperty(value = "Website URL")
+  public String getWebsiteUrl() {
+    return websiteUrl;
   }
 
-  public void setWepayAddress1(String wepayAddress1) {
-    this.wepayAddress1 = wepayAddress1;
-  }
-
-  public PaymentsConfigurationWePay wepayAddress2(String wepayAddress2) {
-    this.wepayAddress2 = wepayAddress2;
-    return this;
-  }
-
-   /**
-   * Get wepayAddress2
-   * @return wepayAddress2
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayAddress2() {
-    return wepayAddress2;
-  }
-
-  public void setWepayAddress2(String wepayAddress2) {
-    this.wepayAddress2 = wepayAddress2;
-  }
-
-  public PaymentsConfigurationWePay wepayCanadaAcceptDebitCards(Boolean wepayCanadaAcceptDebitCards) {
-    this.wepayCanadaAcceptDebitCards = wepayCanadaAcceptDebitCards;
-    return this;
-  }
-
-   /**
-   * Get wepayCanadaAcceptDebitCards
-   * @return wepayCanadaAcceptDebitCards
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isWepayCanadaAcceptDebitCards() {
-    return wepayCanadaAcceptDebitCards;
-  }
-
-  public void setWepayCanadaAcceptDebitCards(Boolean wepayCanadaAcceptDebitCards) {
-    this.wepayCanadaAcceptDebitCards = wepayCanadaAcceptDebitCards;
-  }
-
-  public PaymentsConfigurationWePay wepayCity(String wepayCity) {
-    this.wepayCity = wepayCity;
-    return this;
-  }
-
-   /**
-   * Get wepayCity
-   * @return wepayCity
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayCity() {
-    return wepayCity;
-  }
-
-  public void setWepayCity(String wepayCity) {
-    this.wepayCity = wepayCity;
-  }
-
-  public PaymentsConfigurationWePay wepayCompany(String wepayCompany) {
-    this.wepayCompany = wepayCompany;
-    return this;
-  }
-
-   /**
-   * Get wepayCompany
-   * @return wepayCompany
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayCompany() {
-    return wepayCompany;
-  }
-
-  public void setWepayCompany(String wepayCompany) {
-    this.wepayCompany = wepayCompany;
-  }
-
-  public PaymentsConfigurationWePay wepayCompanyDescription(String wepayCompanyDescription) {
-    this.wepayCompanyDescription = wepayCompanyDescription;
-    return this;
-  }
-
-   /**
-   * Get wepayCompanyDescription
-   * @return wepayCompanyDescription
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayCompanyDescription() {
-    return wepayCompanyDescription;
-  }
-
-  public void setWepayCompanyDescription(String wepayCompanyDescription) {
-    this.wepayCompanyDescription = wepayCompanyDescription;
-  }
-
-  public PaymentsConfigurationWePay wepayConsoleHostname(String wepayConsoleHostname) {
-    this.wepayConsoleHostname = wepayConsoleHostname;
-    return this;
-  }
-
-   /**
-   * Get wepayConsoleHostname
-   * @return wepayConsoleHostname
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayConsoleHostname() {
-    return wepayConsoleHostname;
-  }
-
-  public void setWepayConsoleHostname(String wepayConsoleHostname) {
-    this.wepayConsoleHostname = wepayConsoleHostname;
-  }
-
-  public PaymentsConfigurationWePay wepayCountry(String wepayCountry) {
-    this.wepayCountry = wepayCountry;
-    return this;
-  }
-
-   /**
-   * Get wepayCountry
-   * @return wepayCountry
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayCountry() {
-    return wepayCountry;
-  }
-
-  public void setWepayCountry(String wepayCountry) {
-    this.wepayCountry = wepayCountry;
-  }
-
-  public PaymentsConfigurationWePay wepayCurrency(String wepayCurrency) {
-    this.wepayCurrency = wepayCurrency;
-    return this;
-  }
-
-   /**
-   * Get wepayCurrency
-   * @return wepayCurrency
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayCurrency() {
-    return wepayCurrency;
-  }
-
-  public void setWepayCurrency(String wepayCurrency) {
-    this.wepayCurrency = wepayCurrency;
-  }
-
-  public PaymentsConfigurationWePay wepayExpectedRevenue(String wepayExpectedRevenue) {
-    this.wepayExpectedRevenue = wepayExpectedRevenue;
-    return this;
-  }
-
-   /**
-   * Get wepayExpectedRevenue
-   * @return wepayExpectedRevenue
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayExpectedRevenue() {
-    return wepayExpectedRevenue;
-  }
-
-  public void setWepayExpectedRevenue(String wepayExpectedRevenue) {
-    this.wepayExpectedRevenue = wepayExpectedRevenue;
-  }
-
-  public PaymentsConfigurationWePay wepayIndustry(String wepayIndustry) {
-    this.wepayIndustry = wepayIndustry;
-    return this;
-  }
-
-   /**
-   * Get wepayIndustry
-   * @return wepayIndustry
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayIndustry() {
-    return wepayIndustry;
-  }
-
-  public void setWepayIndustry(String wepayIndustry) {
-    this.wepayIndustry = wepayIndustry;
-  }
-
-  public PaymentsConfigurationWePay wepayOwnerEmail(String wepayOwnerEmail) {
-    this.wepayOwnerEmail = wepayOwnerEmail;
-    return this;
-  }
-
-   /**
-   * Get wepayOwnerEmail
-   * @return wepayOwnerEmail
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayOwnerEmail() {
-    return wepayOwnerEmail;
-  }
-
-  public void setWepayOwnerEmail(String wepayOwnerEmail) {
-    this.wepayOwnerEmail = wepayOwnerEmail;
-  }
-
-  public PaymentsConfigurationWePay wepayOwnerName(String wepayOwnerName) {
-    this.wepayOwnerName = wepayOwnerName;
-    return this;
-  }
-
-   /**
-   * Get wepayOwnerName
-   * @return wepayOwnerName
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayOwnerName() {
-    return wepayOwnerName;
-  }
-
-  public void setWepayOwnerName(String wepayOwnerName) {
-    this.wepayOwnerName = wepayOwnerName;
-  }
-
-  public PaymentsConfigurationWePay wepayOwnerPhone(String wepayOwnerPhone) {
-    this.wepayOwnerPhone = wepayOwnerPhone;
-    return this;
-  }
-
-   /**
-   * Get wepayOwnerPhone
-   * @return wepayOwnerPhone
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayOwnerPhone() {
-    return wepayOwnerPhone;
-  }
-
-  public void setWepayOwnerPhone(String wepayOwnerPhone) {
-    this.wepayOwnerPhone = wepayOwnerPhone;
-  }
-
-  public PaymentsConfigurationWePay wepayState(String wepayState) {
-    this.wepayState = wepayState;
-    return this;
-  }
-
-   /**
-   * Get wepayState
-   * @return wepayState
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayState() {
-    return wepayState;
-  }
-
-  public void setWepayState(String wepayState) {
-    this.wepayState = wepayState;
-  }
-
-  public PaymentsConfigurationWePay wepayWebsiteUrl(String wepayWebsiteUrl) {
-    this.wepayWebsiteUrl = wepayWebsiteUrl;
-    return this;
-  }
-
-   /**
-   * Get wepayWebsiteUrl
-   * @return wepayWebsiteUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayWebsiteUrl() {
-    return wepayWebsiteUrl;
-  }
-
-  public void setWepayWebsiteUrl(String wepayWebsiteUrl) {
-    this.wepayWebsiteUrl = wepayWebsiteUrl;
-  }
-
-  public PaymentsConfigurationWePay wepayZip(String wepayZip) {
-    this.wepayZip = wepayZip;
-    return this;
-  }
-
-   /**
-   * Get wepayZip
-   * @return wepayZip
-  **/
-  @ApiModelProperty(value = "")
-  public String getWepayZip() {
-    return wepayZip;
-  }
-
-  public void setWepayZip(String wepayZip) {
-    this.wepayZip = wepayZip;
+  public void setWebsiteUrl(String websiteUrl) {
+    this.websiteUrl = websiteUrl;
   }
 
 
@@ -632,38 +632,38 @@ public class PaymentsConfigurationWePay {
     }
     PaymentsConfigurationWePay paymentsConfigurationWePay = (PaymentsConfigurationWePay) o;
     return Objects.equals(this.acceptWepay, paymentsConfigurationWePay.acceptWepay) &&
-        Objects.equals(this.hideCreditCardsNonUltraCartPayments, paymentsConfigurationWePay.hideCreditCardsNonUltraCartPayments) &&
-        Objects.equals(this.hideSurchargeContent, paymentsConfigurationWePay.hideSurchargeContent) &&
+        Objects.equals(this.accountUpdateUri, paymentsConfigurationWePay.accountUpdateUri) &&
+        Objects.equals(this.address1, paymentsConfigurationWePay.address1) &&
+        Objects.equals(this.address2, paymentsConfigurationWePay.address2) &&
+        Objects.equals(this.canadaAcceptDebitCards, paymentsConfigurationWePay.canadaAcceptDebitCards) &&
+        Objects.equals(this.city, paymentsConfigurationWePay.city) &&
+        Objects.equals(this.company, paymentsConfigurationWePay.company) &&
+        Objects.equals(this.companyDescription, paymentsConfigurationWePay.companyDescription) &&
+        Objects.equals(this.consoleHostname, paymentsConfigurationWePay.consoleHostname) &&
+        Objects.equals(this.country, paymentsConfigurationWePay.country) &&
+        Objects.equals(this.currency, paymentsConfigurationWePay.currency) &&
+        Objects.equals(this.expectedRevenue, paymentsConfigurationWePay.expectedRevenue) &&
+        Objects.equals(this.hideCreditCardNonUltracartPayments, paymentsConfigurationWePay.hideCreditCardNonUltracartPayments) &&
+        Objects.equals(this.hideSurchargeAmount, paymentsConfigurationWePay.hideSurchargeAmount) &&
+        Objects.equals(this.industry, paymentsConfigurationWePay.industry) &&
+        Objects.equals(this.ownerEmail, paymentsConfigurationWePay.ownerEmail) &&
+        Objects.equals(this.ownerName, paymentsConfigurationWePay.ownerName) &&
+        Objects.equals(this.ownerPhone, paymentsConfigurationWePay.ownerPhone) &&
+        Objects.equals(this.postalCode, paymentsConfigurationWePay.postalCode) &&
         Objects.equals(this.removePayPalPro, paymentsConfigurationWePay.removePayPalPro) &&
         Objects.equals(this.restrictions, paymentsConfigurationWePay.restrictions) &&
-        Objects.equals(this.shortPayPalMarketingText, paymentsConfigurationWePay.shortPayPalMarketingText) &&
-        Objects.equals(this.showUltraCartPaymentsDisabled, paymentsConfigurationWePay.showUltraCartPaymentsDisabled) &&
-        Objects.equals(this.showUltraCartPaymentsIntro, paymentsConfigurationWePay.showUltraCartPaymentsIntro) &&
-        Objects.equals(this.showUltraCartPaymentsVerification, paymentsConfigurationWePay.showUltraCartPaymentsVerification) &&
-        Objects.equals(this.showUltraCartPaymentsVerified, paymentsConfigurationWePay.showUltraCartPaymentsVerified) &&
-        Objects.equals(this.wepayAccountUpdateUri, paymentsConfigurationWePay.wepayAccountUpdateUri) &&
-        Objects.equals(this.wepayAddress1, paymentsConfigurationWePay.wepayAddress1) &&
-        Objects.equals(this.wepayAddress2, paymentsConfigurationWePay.wepayAddress2) &&
-        Objects.equals(this.wepayCanadaAcceptDebitCards, paymentsConfigurationWePay.wepayCanadaAcceptDebitCards) &&
-        Objects.equals(this.wepayCity, paymentsConfigurationWePay.wepayCity) &&
-        Objects.equals(this.wepayCompany, paymentsConfigurationWePay.wepayCompany) &&
-        Objects.equals(this.wepayCompanyDescription, paymentsConfigurationWePay.wepayCompanyDescription) &&
-        Objects.equals(this.wepayConsoleHostname, paymentsConfigurationWePay.wepayConsoleHostname) &&
-        Objects.equals(this.wepayCountry, paymentsConfigurationWePay.wepayCountry) &&
-        Objects.equals(this.wepayCurrency, paymentsConfigurationWePay.wepayCurrency) &&
-        Objects.equals(this.wepayExpectedRevenue, paymentsConfigurationWePay.wepayExpectedRevenue) &&
-        Objects.equals(this.wepayIndustry, paymentsConfigurationWePay.wepayIndustry) &&
-        Objects.equals(this.wepayOwnerEmail, paymentsConfigurationWePay.wepayOwnerEmail) &&
-        Objects.equals(this.wepayOwnerName, paymentsConfigurationWePay.wepayOwnerName) &&
-        Objects.equals(this.wepayOwnerPhone, paymentsConfigurationWePay.wepayOwnerPhone) &&
-        Objects.equals(this.wepayState, paymentsConfigurationWePay.wepayState) &&
-        Objects.equals(this.wepayWebsiteUrl, paymentsConfigurationWePay.wepayWebsiteUrl) &&
-        Objects.equals(this.wepayZip, paymentsConfigurationWePay.wepayZip);
+        Objects.equals(this.shortPaypalMarketingText, paymentsConfigurationWePay.shortPaypalMarketingText) &&
+        Objects.equals(this.showUltracartPaymentsDisabled, paymentsConfigurationWePay.showUltracartPaymentsDisabled) &&
+        Objects.equals(this.showUltracartPaymentsIntro, paymentsConfigurationWePay.showUltracartPaymentsIntro) &&
+        Objects.equals(this.showUltracartPaymentsVerification, paymentsConfigurationWePay.showUltracartPaymentsVerification) &&
+        Objects.equals(this.showUltracartPaymentsVerified, paymentsConfigurationWePay.showUltracartPaymentsVerified) &&
+        Objects.equals(this.state, paymentsConfigurationWePay.state) &&
+        Objects.equals(this.websiteUrl, paymentsConfigurationWePay.websiteUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptWepay, hideCreditCardsNonUltraCartPayments, hideSurchargeContent, removePayPalPro, restrictions, shortPayPalMarketingText, showUltraCartPaymentsDisabled, showUltraCartPaymentsIntro, showUltraCartPaymentsVerification, showUltraCartPaymentsVerified, wepayAccountUpdateUri, wepayAddress1, wepayAddress2, wepayCanadaAcceptDebitCards, wepayCity, wepayCompany, wepayCompanyDescription, wepayConsoleHostname, wepayCountry, wepayCurrency, wepayExpectedRevenue, wepayIndustry, wepayOwnerEmail, wepayOwnerName, wepayOwnerPhone, wepayState, wepayWebsiteUrl, wepayZip);
+    return Objects.hash(acceptWepay, accountUpdateUri, address1, address2, canadaAcceptDebitCards, city, company, companyDescription, consoleHostname, country, currency, expectedRevenue, hideCreditCardNonUltracartPayments, hideSurchargeAmount, industry, ownerEmail, ownerName, ownerPhone, postalCode, removePayPalPro, restrictions, shortPaypalMarketingText, showUltracartPaymentsDisabled, showUltracartPaymentsIntro, showUltracartPaymentsVerification, showUltracartPaymentsVerified, state, websiteUrl);
   }
 
 
@@ -673,33 +673,33 @@ public class PaymentsConfigurationWePay {
     sb.append("class PaymentsConfigurationWePay {\n");
     
     sb.append("    acceptWepay: ").append(toIndentedString(acceptWepay)).append("\n");
-    sb.append("    hideCreditCardsNonUltraCartPayments: ").append(toIndentedString(hideCreditCardsNonUltraCartPayments)).append("\n");
-    sb.append("    hideSurchargeContent: ").append(toIndentedString(hideSurchargeContent)).append("\n");
+    sb.append("    accountUpdateUri: ").append(toIndentedString(accountUpdateUri)).append("\n");
+    sb.append("    address1: ").append(toIndentedString(address1)).append("\n");
+    sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
+    sb.append("    canadaAcceptDebitCards: ").append(toIndentedString(canadaAcceptDebitCards)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    companyDescription: ").append(toIndentedString(companyDescription)).append("\n");
+    sb.append("    consoleHostname: ").append(toIndentedString(consoleHostname)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    expectedRevenue: ").append(toIndentedString(expectedRevenue)).append("\n");
+    sb.append("    hideCreditCardNonUltracartPayments: ").append(toIndentedString(hideCreditCardNonUltracartPayments)).append("\n");
+    sb.append("    hideSurchargeAmount: ").append(toIndentedString(hideSurchargeAmount)).append("\n");
+    sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
+    sb.append("    ownerEmail: ").append(toIndentedString(ownerEmail)).append("\n");
+    sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+    sb.append("    ownerPhone: ").append(toIndentedString(ownerPhone)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    removePayPalPro: ").append(toIndentedString(removePayPalPro)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
-    sb.append("    shortPayPalMarketingText: ").append(toIndentedString(shortPayPalMarketingText)).append("\n");
-    sb.append("    showUltraCartPaymentsDisabled: ").append(toIndentedString(showUltraCartPaymentsDisabled)).append("\n");
-    sb.append("    showUltraCartPaymentsIntro: ").append(toIndentedString(showUltraCartPaymentsIntro)).append("\n");
-    sb.append("    showUltraCartPaymentsVerification: ").append(toIndentedString(showUltraCartPaymentsVerification)).append("\n");
-    sb.append("    showUltraCartPaymentsVerified: ").append(toIndentedString(showUltraCartPaymentsVerified)).append("\n");
-    sb.append("    wepayAccountUpdateUri: ").append(toIndentedString(wepayAccountUpdateUri)).append("\n");
-    sb.append("    wepayAddress1: ").append(toIndentedString(wepayAddress1)).append("\n");
-    sb.append("    wepayAddress2: ").append(toIndentedString(wepayAddress2)).append("\n");
-    sb.append("    wepayCanadaAcceptDebitCards: ").append(toIndentedString(wepayCanadaAcceptDebitCards)).append("\n");
-    sb.append("    wepayCity: ").append(toIndentedString(wepayCity)).append("\n");
-    sb.append("    wepayCompany: ").append(toIndentedString(wepayCompany)).append("\n");
-    sb.append("    wepayCompanyDescription: ").append(toIndentedString(wepayCompanyDescription)).append("\n");
-    sb.append("    wepayConsoleHostname: ").append(toIndentedString(wepayConsoleHostname)).append("\n");
-    sb.append("    wepayCountry: ").append(toIndentedString(wepayCountry)).append("\n");
-    sb.append("    wepayCurrency: ").append(toIndentedString(wepayCurrency)).append("\n");
-    sb.append("    wepayExpectedRevenue: ").append(toIndentedString(wepayExpectedRevenue)).append("\n");
-    sb.append("    wepayIndustry: ").append(toIndentedString(wepayIndustry)).append("\n");
-    sb.append("    wepayOwnerEmail: ").append(toIndentedString(wepayOwnerEmail)).append("\n");
-    sb.append("    wepayOwnerName: ").append(toIndentedString(wepayOwnerName)).append("\n");
-    sb.append("    wepayOwnerPhone: ").append(toIndentedString(wepayOwnerPhone)).append("\n");
-    sb.append("    wepayState: ").append(toIndentedString(wepayState)).append("\n");
-    sb.append("    wepayWebsiteUrl: ").append(toIndentedString(wepayWebsiteUrl)).append("\n");
-    sb.append("    wepayZip: ").append(toIndentedString(wepayZip)).append("\n");
+    sb.append("    shortPaypalMarketingText: ").append(toIndentedString(shortPaypalMarketingText)).append("\n");
+    sb.append("    showUltracartPaymentsDisabled: ").append(toIndentedString(showUltracartPaymentsDisabled)).append("\n");
+    sb.append("    showUltracartPaymentsIntro: ").append(toIndentedString(showUltracartPaymentsIntro)).append("\n");
+    sb.append("    showUltracartPaymentsVerification: ").append(toIndentedString(showUltracartPaymentsVerification)).append("\n");
+    sb.append("    showUltracartPaymentsVerified: ").append(toIndentedString(showUltracartPaymentsVerified)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    websiteUrl: ").append(toIndentedString(websiteUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,13 +28,19 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationMoneyOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationMoneyOrder {
-  @SerializedName("acceptMoneyOrders")
+  @SerializedName("accept_money_orders")
   private Boolean acceptMoneyOrders = null;
+
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
+
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
@@ -45,16 +51,52 @@ public class PaymentsConfigurationMoneyOrder {
   }
 
    /**
-   * Get acceptMoneyOrders
+   * Master flag for this merchant accepting money orders
    * @return acceptMoneyOrders
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag for this merchant accepting money orders")
   public Boolean isAcceptMoneyOrders() {
     return acceptMoneyOrders;
   }
 
   public void setAcceptMoneyOrders(Boolean acceptMoneyOrders) {
     this.acceptMoneyOrders = acceptMoneyOrders;
+  }
+
+  public PaymentsConfigurationMoneyOrder accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
+    return this;
+  }
+
+   /**
+   * Optional Quickbooks accounting code
+   * @return accountingCode
+  **/
+  @ApiModelProperty(value = "Optional Quickbooks accounting code")
+  public String getAccountingCode() {
+    return accountingCode;
+  }
+
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
+  }
+
+  public PaymentsConfigurationMoneyOrder depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
+    return this;
+  }
+
+   /**
+   * Optional Quickbooks deposit to account
+   * @return depositToAccount
+  **/
+  @ApiModelProperty(value = "Optional Quickbooks deposit to account")
+  public String getDepositToAccount() {
+    return depositToAccount;
+  }
+
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
   }
 
   public PaymentsConfigurationMoneyOrder restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -86,12 +128,14 @@ public class PaymentsConfigurationMoneyOrder {
     }
     PaymentsConfigurationMoneyOrder paymentsConfigurationMoneyOrder = (PaymentsConfigurationMoneyOrder) o;
     return Objects.equals(this.acceptMoneyOrders, paymentsConfigurationMoneyOrder.acceptMoneyOrders) &&
+        Objects.equals(this.accountingCode, paymentsConfigurationMoneyOrder.accountingCode) &&
+        Objects.equals(this.depositToAccount, paymentsConfigurationMoneyOrder.depositToAccount) &&
         Objects.equals(this.restrictions, paymentsConfigurationMoneyOrder.restrictions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptMoneyOrders, restrictions);
+    return Objects.hash(acceptMoneyOrders, accountingCode, depositToAccount, restrictions);
   }
 
 
@@ -101,6 +145,8 @@ public class PaymentsConfigurationMoneyOrder {
     sb.append("class PaymentsConfigurationMoneyOrder {\n");
     
     sb.append("    acceptMoneyOrders: ").append(toIndentedString(acceptMoneyOrders)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("}");
     return sb.toString();

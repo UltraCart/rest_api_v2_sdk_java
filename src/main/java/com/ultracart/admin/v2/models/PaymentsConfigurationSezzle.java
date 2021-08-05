@@ -28,34 +28,84 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationSezzle
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationSezzle {
-  @SerializedName("acceptSezzle")
+  @SerializedName("accept_sezzle")
   private Boolean acceptSezzle = null;
+
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
+
+  @SerializedName("business_id")
+  private String businessId = null;
+
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
+
+  /**
+   * Sezzle environment
+   */
+  @JsonAdapter(EnvironmentEnum.Adapter.class)
+  public enum EnvironmentEnum {
+    LIVE("Live"),
+    
+    SANDBOX("Sandbox");
+
+    private String value;
+
+    EnvironmentEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EnvironmentEnum fromValue(String text) {
+      for (EnvironmentEnum b : EnvironmentEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EnvironmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EnvironmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EnvironmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EnvironmentEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("environment")
+  private EnvironmentEnum environment = null;
+
+  @SerializedName("environments")
+  private Object environments = null;
+
+  @SerializedName("private_api_key")
+  private String privateApiKey = null;
+
+  @SerializedName("public_api_key")
+  private String publicApiKey = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
-
-  @SerializedName("sezzleAccountingCode")
-  private String sezzleAccountingCode = null;
-
-  @SerializedName("sezzleBusinessId")
-  private String sezzleBusinessId = null;
-
-  @SerializedName("sezzleDepositToAccount")
-  private String sezzleDepositToAccount = null;
-
-  @SerializedName("sezzleEnvironment")
-  private String sezzleEnvironment = null;
-
-  @SerializedName("sezzlePrivateApiKey")
-  private String sezzlePrivateApiKey = null;
-
-  @SerializedName("sezzlePublicApiKey")
-  private String sezzlePublicApiKey = null;
 
   public PaymentsConfigurationSezzle acceptSezzle(Boolean acceptSezzle) {
     this.acceptSezzle = acceptSezzle;
@@ -63,16 +113,142 @@ public class PaymentsConfigurationSezzle {
   }
 
    /**
-   * Get acceptSezzle
+   * Master flag for this merchant accepting Sezzle payments
    * @return acceptSezzle
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag for this merchant accepting Sezzle payments")
   public Boolean isAcceptSezzle() {
     return acceptSezzle;
   }
 
   public void setAcceptSezzle(Boolean acceptSezzle) {
     this.acceptSezzle = acceptSezzle;
+  }
+
+  public PaymentsConfigurationSezzle accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
+    return this;
+  }
+
+   /**
+   * Optional Quickbooks code for this payment method
+   * @return accountingCode
+  **/
+  @ApiModelProperty(value = "Optional Quickbooks code for this payment method")
+  public String getAccountingCode() {
+    return accountingCode;
+  }
+
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
+  }
+
+  public PaymentsConfigurationSezzle businessId(String businessId) {
+    this.businessId = businessId;
+    return this;
+  }
+
+   /**
+   * Business ID
+   * @return businessId
+  **/
+  @ApiModelProperty(value = "Business ID")
+  public String getBusinessId() {
+    return businessId;
+  }
+
+  public void setBusinessId(String businessId) {
+    this.businessId = businessId;
+  }
+
+  public PaymentsConfigurationSezzle depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
+    return this;
+  }
+
+   /**
+   * Optional Quickbooks Deposit to Account value
+   * @return depositToAccount
+  **/
+  @ApiModelProperty(value = "Optional Quickbooks Deposit to Account value")
+  public String getDepositToAccount() {
+    return depositToAccount;
+  }
+
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
+  }
+
+  public PaymentsConfigurationSezzle environment(EnvironmentEnum environment) {
+    this.environment = environment;
+    return this;
+  }
+
+   /**
+   * Sezzle environment
+   * @return environment
+  **/
+  @ApiModelProperty(value = "Sezzle environment")
+  public EnvironmentEnum getEnvironment() {
+    return environment;
+  }
+
+  public void setEnvironment(EnvironmentEnum environment) {
+    this.environment = environment;
+  }
+
+  public PaymentsConfigurationSezzle environments(Object environments) {
+    this.environments = environments;
+    return this;
+  }
+
+   /**
+   * List of environments possible
+   * @return environments
+  **/
+  @ApiModelProperty(value = "List of environments possible")
+  public Object getEnvironments() {
+    return environments;
+  }
+
+  public void setEnvironments(Object environments) {
+    this.environments = environments;
+  }
+
+  public PaymentsConfigurationSezzle privateApiKey(String privateApiKey) {
+    this.privateApiKey = privateApiKey;
+    return this;
+  }
+
+   /**
+   * Private API key
+   * @return privateApiKey
+  **/
+  @ApiModelProperty(value = "Private API key")
+  public String getPrivateApiKey() {
+    return privateApiKey;
+  }
+
+  public void setPrivateApiKey(String privateApiKey) {
+    this.privateApiKey = privateApiKey;
+  }
+
+  public PaymentsConfigurationSezzle publicApiKey(String publicApiKey) {
+    this.publicApiKey = publicApiKey;
+    return this;
+  }
+
+   /**
+   * Public API key
+   * @return publicApiKey
+  **/
+  @ApiModelProperty(value = "Public API key")
+  public String getPublicApiKey() {
+    return publicApiKey;
+  }
+
+  public void setPublicApiKey(String publicApiKey) {
+    this.publicApiKey = publicApiKey;
   }
 
   public PaymentsConfigurationSezzle restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -93,114 +269,6 @@ public class PaymentsConfigurationSezzle {
     this.restrictions = restrictions;
   }
 
-  public PaymentsConfigurationSezzle sezzleAccountingCode(String sezzleAccountingCode) {
-    this.sezzleAccountingCode = sezzleAccountingCode;
-    return this;
-  }
-
-   /**
-   * Get sezzleAccountingCode
-   * @return sezzleAccountingCode
-  **/
-  @ApiModelProperty(value = "")
-  public String getSezzleAccountingCode() {
-    return sezzleAccountingCode;
-  }
-
-  public void setSezzleAccountingCode(String sezzleAccountingCode) {
-    this.sezzleAccountingCode = sezzleAccountingCode;
-  }
-
-  public PaymentsConfigurationSezzle sezzleBusinessId(String sezzleBusinessId) {
-    this.sezzleBusinessId = sezzleBusinessId;
-    return this;
-  }
-
-   /**
-   * Get sezzleBusinessId
-   * @return sezzleBusinessId
-  **/
-  @ApiModelProperty(value = "")
-  public String getSezzleBusinessId() {
-    return sezzleBusinessId;
-  }
-
-  public void setSezzleBusinessId(String sezzleBusinessId) {
-    this.sezzleBusinessId = sezzleBusinessId;
-  }
-
-  public PaymentsConfigurationSezzle sezzleDepositToAccount(String sezzleDepositToAccount) {
-    this.sezzleDepositToAccount = sezzleDepositToAccount;
-    return this;
-  }
-
-   /**
-   * Get sezzleDepositToAccount
-   * @return sezzleDepositToAccount
-  **/
-  @ApiModelProperty(value = "")
-  public String getSezzleDepositToAccount() {
-    return sezzleDepositToAccount;
-  }
-
-  public void setSezzleDepositToAccount(String sezzleDepositToAccount) {
-    this.sezzleDepositToAccount = sezzleDepositToAccount;
-  }
-
-  public PaymentsConfigurationSezzle sezzleEnvironment(String sezzleEnvironment) {
-    this.sezzleEnvironment = sezzleEnvironment;
-    return this;
-  }
-
-   /**
-   * Get sezzleEnvironment
-   * @return sezzleEnvironment
-  **/
-  @ApiModelProperty(value = "")
-  public String getSezzleEnvironment() {
-    return sezzleEnvironment;
-  }
-
-  public void setSezzleEnvironment(String sezzleEnvironment) {
-    this.sezzleEnvironment = sezzleEnvironment;
-  }
-
-  public PaymentsConfigurationSezzle sezzlePrivateApiKey(String sezzlePrivateApiKey) {
-    this.sezzlePrivateApiKey = sezzlePrivateApiKey;
-    return this;
-  }
-
-   /**
-   * Get sezzlePrivateApiKey
-   * @return sezzlePrivateApiKey
-  **/
-  @ApiModelProperty(value = "")
-  public String getSezzlePrivateApiKey() {
-    return sezzlePrivateApiKey;
-  }
-
-  public void setSezzlePrivateApiKey(String sezzlePrivateApiKey) {
-    this.sezzlePrivateApiKey = sezzlePrivateApiKey;
-  }
-
-  public PaymentsConfigurationSezzle sezzlePublicApiKey(String sezzlePublicApiKey) {
-    this.sezzlePublicApiKey = sezzlePublicApiKey;
-    return this;
-  }
-
-   /**
-   * Get sezzlePublicApiKey
-   * @return sezzlePublicApiKey
-  **/
-  @ApiModelProperty(value = "")
-  public String getSezzlePublicApiKey() {
-    return sezzlePublicApiKey;
-  }
-
-  public void setSezzlePublicApiKey(String sezzlePublicApiKey) {
-    this.sezzlePublicApiKey = sezzlePublicApiKey;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -212,18 +280,19 @@ public class PaymentsConfigurationSezzle {
     }
     PaymentsConfigurationSezzle paymentsConfigurationSezzle = (PaymentsConfigurationSezzle) o;
     return Objects.equals(this.acceptSezzle, paymentsConfigurationSezzle.acceptSezzle) &&
-        Objects.equals(this.restrictions, paymentsConfigurationSezzle.restrictions) &&
-        Objects.equals(this.sezzleAccountingCode, paymentsConfigurationSezzle.sezzleAccountingCode) &&
-        Objects.equals(this.sezzleBusinessId, paymentsConfigurationSezzle.sezzleBusinessId) &&
-        Objects.equals(this.sezzleDepositToAccount, paymentsConfigurationSezzle.sezzleDepositToAccount) &&
-        Objects.equals(this.sezzleEnvironment, paymentsConfigurationSezzle.sezzleEnvironment) &&
-        Objects.equals(this.sezzlePrivateApiKey, paymentsConfigurationSezzle.sezzlePrivateApiKey) &&
-        Objects.equals(this.sezzlePublicApiKey, paymentsConfigurationSezzle.sezzlePublicApiKey);
+        Objects.equals(this.accountingCode, paymentsConfigurationSezzle.accountingCode) &&
+        Objects.equals(this.businessId, paymentsConfigurationSezzle.businessId) &&
+        Objects.equals(this.depositToAccount, paymentsConfigurationSezzle.depositToAccount) &&
+        Objects.equals(this.environment, paymentsConfigurationSezzle.environment) &&
+        Objects.equals(this.environments, paymentsConfigurationSezzle.environments) &&
+        Objects.equals(this.privateApiKey, paymentsConfigurationSezzle.privateApiKey) &&
+        Objects.equals(this.publicApiKey, paymentsConfigurationSezzle.publicApiKey) &&
+        Objects.equals(this.restrictions, paymentsConfigurationSezzle.restrictions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptSezzle, restrictions, sezzleAccountingCode, sezzleBusinessId, sezzleDepositToAccount, sezzleEnvironment, sezzlePrivateApiKey, sezzlePublicApiKey);
+    return Objects.hash(acceptSezzle, accountingCode, businessId, depositToAccount, environment, environments, privateApiKey, publicApiKey, restrictions);
   }
 
 
@@ -233,13 +302,14 @@ public class PaymentsConfigurationSezzle {
     sb.append("class PaymentsConfigurationSezzle {\n");
     
     sb.append("    acceptSezzle: ").append(toIndentedString(acceptSezzle)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
+    sb.append("    businessId: ").append(toIndentedString(businessId)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    environments: ").append(toIndentedString(environments)).append("\n");
+    sb.append("    privateApiKey: ").append(toIndentedString(privateApiKey)).append("\n");
+    sb.append("    publicApiKey: ").append(toIndentedString(publicApiKey)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
-    sb.append("    sezzleAccountingCode: ").append(toIndentedString(sezzleAccountingCode)).append("\n");
-    sb.append("    sezzleBusinessId: ").append(toIndentedString(sezzleBusinessId)).append("\n");
-    sb.append("    sezzleDepositToAccount: ").append(toIndentedString(sezzleDepositToAccount)).append("\n");
-    sb.append("    sezzleEnvironment: ").append(toIndentedString(sezzleEnvironment)).append("\n");
-    sb.append("    sezzlePrivateApiKey: ").append(toIndentedString(sezzlePrivateApiKey)).append("\n");
-    sb.append("    sezzlePublicApiKey: ").append(toIndentedString(sezzlePublicApiKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

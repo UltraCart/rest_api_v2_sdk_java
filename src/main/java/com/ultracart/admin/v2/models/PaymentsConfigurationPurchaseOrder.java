@@ -28,19 +28,19 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationPurchaseOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationPurchaseOrder {
-  @SerializedName("acceptPurchaseOrders")
+  @SerializedName("accept_purchase_orders")
   private Boolean acceptPurchaseOrders = null;
 
-  @SerializedName("purchaseOrderApprovedCustomersOnly")
-  private Boolean purchaseOrderApprovedCustomersOnly = null;
+  @SerializedName("approved_customers_only")
+  private Boolean approvedCustomersOnly = null;
 
-  @SerializedName("purchaseOrderPreventDuplicateNumber")
-  private Boolean purchaseOrderPreventDuplicateNumber = null;
+  @SerializedName("prevent_duplicate_number")
+  private Boolean preventDuplicateNumber = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
@@ -51,10 +51,10 @@ public class PaymentsConfigurationPurchaseOrder {
   }
 
    /**
-   * Get acceptPurchaseOrders
+   * Master flag indicating this merchant accepts purchase orders
    * @return acceptPurchaseOrders
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts purchase orders")
   public Boolean isAcceptPurchaseOrders() {
     return acceptPurchaseOrders;
   }
@@ -63,40 +63,40 @@ public class PaymentsConfigurationPurchaseOrder {
     this.acceptPurchaseOrders = acceptPurchaseOrders;
   }
 
-  public PaymentsConfigurationPurchaseOrder purchaseOrderApprovedCustomersOnly(Boolean purchaseOrderApprovedCustomersOnly) {
-    this.purchaseOrderApprovedCustomersOnly = purchaseOrderApprovedCustomersOnly;
+  public PaymentsConfigurationPurchaseOrder approvedCustomersOnly(Boolean approvedCustomersOnly) {
+    this.approvedCustomersOnly = approvedCustomersOnly;
     return this;
   }
 
    /**
-   * Get purchaseOrderApprovedCustomersOnly
-   * @return purchaseOrderApprovedCustomersOnly
+   * If true, only approved customers may pay with a purchase order
+   * @return approvedCustomersOnly
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPurchaseOrderApprovedCustomersOnly() {
-    return purchaseOrderApprovedCustomersOnly;
+  @ApiModelProperty(value = "If true, only approved customers may pay with a purchase order")
+  public Boolean isApprovedCustomersOnly() {
+    return approvedCustomersOnly;
   }
 
-  public void setPurchaseOrderApprovedCustomersOnly(Boolean purchaseOrderApprovedCustomersOnly) {
-    this.purchaseOrderApprovedCustomersOnly = purchaseOrderApprovedCustomersOnly;
+  public void setApprovedCustomersOnly(Boolean approvedCustomersOnly) {
+    this.approvedCustomersOnly = approvedCustomersOnly;
   }
 
-  public PaymentsConfigurationPurchaseOrder purchaseOrderPreventDuplicateNumber(Boolean purchaseOrderPreventDuplicateNumber) {
-    this.purchaseOrderPreventDuplicateNumber = purchaseOrderPreventDuplicateNumber;
+  public PaymentsConfigurationPurchaseOrder preventDuplicateNumber(Boolean preventDuplicateNumber) {
+    this.preventDuplicateNumber = preventDuplicateNumber;
     return this;
   }
 
    /**
-   * Get purchaseOrderPreventDuplicateNumber
-   * @return purchaseOrderPreventDuplicateNumber
+   * If true, customers may not use duplicate PO numbers for any order
+   * @return preventDuplicateNumber
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPurchaseOrderPreventDuplicateNumber() {
-    return purchaseOrderPreventDuplicateNumber;
+  @ApiModelProperty(value = "If true, customers may not use duplicate PO numbers for any order")
+  public Boolean isPreventDuplicateNumber() {
+    return preventDuplicateNumber;
   }
 
-  public void setPurchaseOrderPreventDuplicateNumber(Boolean purchaseOrderPreventDuplicateNumber) {
-    this.purchaseOrderPreventDuplicateNumber = purchaseOrderPreventDuplicateNumber;
+  public void setPreventDuplicateNumber(Boolean preventDuplicateNumber) {
+    this.preventDuplicateNumber = preventDuplicateNumber;
   }
 
   public PaymentsConfigurationPurchaseOrder restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -128,14 +128,14 @@ public class PaymentsConfigurationPurchaseOrder {
     }
     PaymentsConfigurationPurchaseOrder paymentsConfigurationPurchaseOrder = (PaymentsConfigurationPurchaseOrder) o;
     return Objects.equals(this.acceptPurchaseOrders, paymentsConfigurationPurchaseOrder.acceptPurchaseOrders) &&
-        Objects.equals(this.purchaseOrderApprovedCustomersOnly, paymentsConfigurationPurchaseOrder.purchaseOrderApprovedCustomersOnly) &&
-        Objects.equals(this.purchaseOrderPreventDuplicateNumber, paymentsConfigurationPurchaseOrder.purchaseOrderPreventDuplicateNumber) &&
+        Objects.equals(this.approvedCustomersOnly, paymentsConfigurationPurchaseOrder.approvedCustomersOnly) &&
+        Objects.equals(this.preventDuplicateNumber, paymentsConfigurationPurchaseOrder.preventDuplicateNumber) &&
         Objects.equals(this.restrictions, paymentsConfigurationPurchaseOrder.restrictions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptPurchaseOrders, purchaseOrderApprovedCustomersOnly, purchaseOrderPreventDuplicateNumber, restrictions);
+    return Objects.hash(acceptPurchaseOrders, approvedCustomersOnly, preventDuplicateNumber, restrictions);
   }
 
 
@@ -145,8 +145,8 @@ public class PaymentsConfigurationPurchaseOrder {
     sb.append("class PaymentsConfigurationPurchaseOrder {\n");
     
     sb.append("    acceptPurchaseOrders: ").append(toIndentedString(acceptPurchaseOrders)).append("\n");
-    sb.append("    purchaseOrderApprovedCustomersOnly: ").append(toIndentedString(purchaseOrderApprovedCustomersOnly)).append("\n");
-    sb.append("    purchaseOrderPreventDuplicateNumber: ").append(toIndentedString(purchaseOrderPreventDuplicateNumber)).append("\n");
+    sb.append("    approvedCustomersOnly: ").append(toIndentedString(approvedCustomersOnly)).append("\n");
+    sb.append("    preventDuplicateNumber: ").append(toIndentedString(preventDuplicateNumber)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("}");
     return sb.toString();

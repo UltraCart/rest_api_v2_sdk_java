@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**acceptQuoteRequests** | **Boolean** |  |  [optional]
-**quoteRequestApprovedCustomersOnly** | **Boolean** |  |  [optional]
+**acceptQuoteRequests** | **Boolean** | Master flag indicating this merchant accepts quote requests |  [optional]
+**approvedCustomersOnly** | **Boolean** | If true, only approved customers may use quote requests |  [optional]
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  |  [optional]
 
 

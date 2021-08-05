@@ -28,24 +28,24 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationLoanHero
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationLoanHero {
-  @SerializedName("acceptLoanHero")
+  @SerializedName("accept_loan_hero")
   private Boolean acceptLoanHero = null;
 
-  @SerializedName("loanHeroAccountingCode")
-  private String loanHeroAccountingCode = null;
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
 
-  @SerializedName("loanHeroDepositToAccount")
-  private String loanHeroDepositToAccount = null;
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
 
-  @SerializedName("showLoanHero")
+  @SerializedName("show_loan_hero")
   private Boolean showLoanHero = null;
 
   public PaymentsConfigurationLoanHero acceptLoanHero(Boolean acceptLoanHero) {
@@ -54,10 +54,10 @@ public class PaymentsConfigurationLoanHero {
   }
 
    /**
-   * Get acceptLoanHero
+   * Master flag indicating this merchant accepts Loan Hero
    * @return acceptLoanHero
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts Loan Hero")
   public Boolean isAcceptLoanHero() {
     return acceptLoanHero;
   }
@@ -66,40 +66,40 @@ public class PaymentsConfigurationLoanHero {
     this.acceptLoanHero = acceptLoanHero;
   }
 
-  public PaymentsConfigurationLoanHero loanHeroAccountingCode(String loanHeroAccountingCode) {
-    this.loanHeroAccountingCode = loanHeroAccountingCode;
+  public PaymentsConfigurationLoanHero accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
     return this;
   }
 
    /**
-   * Get loanHeroAccountingCode
-   * @return loanHeroAccountingCode
+   * Optional Quickbooks accounting code
+   * @return accountingCode
   **/
-  @ApiModelProperty(value = "")
-  public String getLoanHeroAccountingCode() {
-    return loanHeroAccountingCode;
+  @ApiModelProperty(value = "Optional Quickbooks accounting code")
+  public String getAccountingCode() {
+    return accountingCode;
   }
 
-  public void setLoanHeroAccountingCode(String loanHeroAccountingCode) {
-    this.loanHeroAccountingCode = loanHeroAccountingCode;
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
   }
 
-  public PaymentsConfigurationLoanHero loanHeroDepositToAccount(String loanHeroDepositToAccount) {
-    this.loanHeroDepositToAccount = loanHeroDepositToAccount;
+  public PaymentsConfigurationLoanHero depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
     return this;
   }
 
    /**
-   * Get loanHeroDepositToAccount
-   * @return loanHeroDepositToAccount
+   * Optional Quickbooks deposit to account
+   * @return depositToAccount
   **/
-  @ApiModelProperty(value = "")
-  public String getLoanHeroDepositToAccount() {
-    return loanHeroDepositToAccount;
+  @ApiModelProperty(value = "Optional Quickbooks deposit to account")
+  public String getDepositToAccount() {
+    return depositToAccount;
   }
 
-  public void setLoanHeroDepositToAccount(String loanHeroDepositToAccount) {
-    this.loanHeroDepositToAccount = loanHeroDepositToAccount;
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
   }
 
   public PaymentsConfigurationLoanHero restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -126,10 +126,10 @@ public class PaymentsConfigurationLoanHero {
   }
 
    /**
-   * Get showLoanHero
+   * Internal field to aid UI
    * @return showLoanHero
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Internal field to aid UI")
   public Boolean isShowLoanHero() {
     return showLoanHero;
   }
@@ -149,15 +149,15 @@ public class PaymentsConfigurationLoanHero {
     }
     PaymentsConfigurationLoanHero paymentsConfigurationLoanHero = (PaymentsConfigurationLoanHero) o;
     return Objects.equals(this.acceptLoanHero, paymentsConfigurationLoanHero.acceptLoanHero) &&
-        Objects.equals(this.loanHeroAccountingCode, paymentsConfigurationLoanHero.loanHeroAccountingCode) &&
-        Objects.equals(this.loanHeroDepositToAccount, paymentsConfigurationLoanHero.loanHeroDepositToAccount) &&
+        Objects.equals(this.accountingCode, paymentsConfigurationLoanHero.accountingCode) &&
+        Objects.equals(this.depositToAccount, paymentsConfigurationLoanHero.depositToAccount) &&
         Objects.equals(this.restrictions, paymentsConfigurationLoanHero.restrictions) &&
         Objects.equals(this.showLoanHero, paymentsConfigurationLoanHero.showLoanHero);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptLoanHero, loanHeroAccountingCode, loanHeroDepositToAccount, restrictions, showLoanHero);
+    return Objects.hash(acceptLoanHero, accountingCode, depositToAccount, restrictions, showLoanHero);
   }
 
 
@@ -167,8 +167,8 @@ public class PaymentsConfigurationLoanHero {
     sb.append("class PaymentsConfigurationLoanHero {\n");
     
     sb.append("    acceptLoanHero: ").append(toIndentedString(acceptLoanHero)).append("\n");
-    sb.append("    loanHeroAccountingCode: ").append(toIndentedString(loanHeroAccountingCode)).append("\n");
-    sb.append("    loanHeroDepositToAccount: ").append(toIndentedString(loanHeroDepositToAccount)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("    showLoanHero: ").append(toIndentedString(showLoanHero)).append("\n");
     sb.append("}");

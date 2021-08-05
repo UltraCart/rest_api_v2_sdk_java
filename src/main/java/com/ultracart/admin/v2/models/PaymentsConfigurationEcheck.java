@@ -28,75 +28,75 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationEcheck
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationEcheck {
-  @SerializedName("acceptECheck")
-  private Boolean acceptECheck = null;
+  @SerializedName("accept_echeck")
+  private Boolean acceptEcheck = null;
 
-  @SerializedName("eCheckAccountingCode")
-  private String eCheckAccountingCode = null;
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
 
-  @SerializedName("eCheckDepositToAccount")
-  private String eCheckDepositToAccount = null;
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
 
-  public PaymentsConfigurationEcheck acceptECheck(Boolean acceptECheck) {
-    this.acceptECheck = acceptECheck;
+  public PaymentsConfigurationEcheck acceptEcheck(Boolean acceptEcheck) {
+    this.acceptEcheck = acceptEcheck;
     return this;
   }
 
    /**
-   * Get acceptECheck
-   * @return acceptECheck
+   * Master flag indicating this merchant accepts eChecks
+   * @return acceptEcheck
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isAcceptECheck() {
-    return acceptECheck;
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts eChecks")
+  public Boolean isAcceptEcheck() {
+    return acceptEcheck;
   }
 
-  public void setAcceptECheck(Boolean acceptECheck) {
-    this.acceptECheck = acceptECheck;
+  public void setAcceptEcheck(Boolean acceptEcheck) {
+    this.acceptEcheck = acceptEcheck;
   }
 
-  public PaymentsConfigurationEcheck eCheckAccountingCode(String eCheckAccountingCode) {
-    this.eCheckAccountingCode = eCheckAccountingCode;
+  public PaymentsConfigurationEcheck accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
     return this;
   }
 
    /**
-   * Get eCheckAccountingCode
-   * @return eCheckAccountingCode
+   * Optional Quickbooks accounting code
+   * @return accountingCode
   **/
-  @ApiModelProperty(value = "")
-  public String getECheckAccountingCode() {
-    return eCheckAccountingCode;
+  @ApiModelProperty(value = "Optional Quickbooks accounting code")
+  public String getAccountingCode() {
+    return accountingCode;
   }
 
-  public void setECheckAccountingCode(String eCheckAccountingCode) {
-    this.eCheckAccountingCode = eCheckAccountingCode;
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
   }
 
-  public PaymentsConfigurationEcheck eCheckDepositToAccount(String eCheckDepositToAccount) {
-    this.eCheckDepositToAccount = eCheckDepositToAccount;
+  public PaymentsConfigurationEcheck depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
     return this;
   }
 
    /**
-   * Get eCheckDepositToAccount
-   * @return eCheckDepositToAccount
+   * Optional Quickbooks deposit to account
+   * @return depositToAccount
   **/
-  @ApiModelProperty(value = "")
-  public String getECheckDepositToAccount() {
-    return eCheckDepositToAccount;
+  @ApiModelProperty(value = "Optional Quickbooks deposit to account")
+  public String getDepositToAccount() {
+    return depositToAccount;
   }
 
-  public void setECheckDepositToAccount(String eCheckDepositToAccount) {
-    this.eCheckDepositToAccount = eCheckDepositToAccount;
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
   }
 
   public PaymentsConfigurationEcheck restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -127,15 +127,15 @@ public class PaymentsConfigurationEcheck {
       return false;
     }
     PaymentsConfigurationEcheck paymentsConfigurationEcheck = (PaymentsConfigurationEcheck) o;
-    return Objects.equals(this.acceptECheck, paymentsConfigurationEcheck.acceptECheck) &&
-        Objects.equals(this.eCheckAccountingCode, paymentsConfigurationEcheck.eCheckAccountingCode) &&
-        Objects.equals(this.eCheckDepositToAccount, paymentsConfigurationEcheck.eCheckDepositToAccount) &&
+    return Objects.equals(this.acceptEcheck, paymentsConfigurationEcheck.acceptEcheck) &&
+        Objects.equals(this.accountingCode, paymentsConfigurationEcheck.accountingCode) &&
+        Objects.equals(this.depositToAccount, paymentsConfigurationEcheck.depositToAccount) &&
         Objects.equals(this.restrictions, paymentsConfigurationEcheck.restrictions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptECheck, eCheckAccountingCode, eCheckDepositToAccount, restrictions);
+    return Objects.hash(acceptEcheck, accountingCode, depositToAccount, restrictions);
   }
 
 
@@ -144,9 +144,9 @@ public class PaymentsConfigurationEcheck {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentsConfigurationEcheck {\n");
     
-    sb.append("    acceptECheck: ").append(toIndentedString(acceptECheck)).append("\n");
-    sb.append("    eCheckAccountingCode: ").append(toIndentedString(eCheckAccountingCode)).append("\n");
-    sb.append("    eCheckDepositToAccount: ").append(toIndentedString(eCheckDepositToAccount)).append("\n");
+    sb.append("    acceptEcheck: ").append(toIndentedString(acceptEcheck)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("}");
     return sb.toString();

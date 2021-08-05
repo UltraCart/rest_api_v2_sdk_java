@@ -28,582 +28,626 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationPayPal
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationPayPal {
-  @SerializedName("acceptPayPal")
-  private Boolean acceptPayPal = null;
+  @SerializedName("accept_paypal")
+  private Boolean acceptPaypal = null;
 
-  @SerializedName("paypalAccountingCode")
-  private String paypalAccountingCode = null;
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
 
-  @SerializedName("paypalApiPassword")
-  private String paypalApiPassword = null;
+  @SerializedName("api_password")
+  private String apiPassword = null;
 
-  @SerializedName("paypalApiUserName")
-  private String paypalApiUserName = null;
+  @SerializedName("api_username")
+  private String apiUsername = null;
 
-  @SerializedName("paypalCertificateOnFile")
-  private Boolean paypalCertificateOnFile = null;
+  @SerializedName("certificate_on_file")
+  private Boolean certificateOnFile = null;
 
-  @SerializedName("paypalDepositToAccount")
-  private String paypalDepositToAccount = null;
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
 
-  @SerializedName("paypalEmail")
-  private String paypalEmail = null;
+  @SerializedName("email")
+  private String email = null;
 
-  @SerializedName("paypalEnvironment")
-  private String paypalEnvironment = null;
+  /**
+   * PayPal configuration, live or sandbox
+   */
+  @JsonAdapter(EnvironmentEnum.Adapter.class)
+  public enum EnvironmentEnum {
+    LIVE("Live"),
+    
+    SANDBOX("Sandbox");
 
-  @SerializedName("paypalHeaderImageUrl")
-  private String paypalHeaderImageUrl = null;
+    private String value;
 
-  @SerializedName("paypalHideBillMeLater")
-  private Boolean paypalHideBillMeLater = null;
+    EnvironmentEnum(String value) {
+      this.value = value;
+    }
 
-  @SerializedName("paypalHideExpressCheckoutOnViewCart")
-  private Boolean paypalHideExpressCheckoutOnViewCart = null;
+    public String getValue() {
+      return value;
+    }
 
-  @SerializedName("paypalHideForUnshippedOrders")
-  private Boolean paypalHideForUnshippedOrders = null;
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
 
-  @SerializedName("paypalHoldInAR")
-  private Boolean paypalHoldInAR = null;
+    public static EnvironmentEnum fromValue(String text) {
+      for (EnvironmentEnum b : EnvironmentEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
 
-  @SerializedName("paypalLandingPage")
-  private String paypalLandingPage = null;
+    public static class Adapter extends TypeAdapter<EnvironmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EnvironmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
 
-  @SerializedName("paypalMode")
-  private String paypalMode = null;
+      @Override
+      public EnvironmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EnvironmentEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
-  @SerializedName("paypalPrivateKeyPassword")
-  private String paypalPrivateKeyPassword = null;
+  @SerializedName("environment")
+  private EnvironmentEnum environment = null;
 
-  @SerializedName("paypalProcessingFee")
-  private String paypalProcessingFee = null;
+  @SerializedName("header_image_url")
+  private String headerImageUrl = null;
 
-  @SerializedName("paypalProcessingPerc")
-  private String paypalProcessingPerc = null;
+  @SerializedName("hide_bill_me_later")
+  private Boolean hideBillMeLater = null;
 
-  @SerializedName("paypalSendRecurring")
-  private String paypalSendRecurring = null;
+  @SerializedName("hide_express_checkout_on_view_cart")
+  private Boolean hideExpressCheckoutOnViewCart = null;
 
-  @SerializedName("paypalShowCardLogosNotDirectlySupported")
-  private Boolean paypalShowCardLogosNotDirectlySupported = null;
+  @SerializedName("hide_for_unshipped_orders")
+  private Boolean hideForUnshippedOrders = null;
 
-  @SerializedName("paypalShowSignature")
-  private Boolean paypalShowSignature = null;
+  @SerializedName("hold_in_ar")
+  private Boolean holdInAr = null;
 
-  @SerializedName("paypalSignature")
-  private String paypalSignature = null;
+  /**
+   * PayPal landing page
+   */
+  @JsonAdapter(LandingPageEnum.Adapter.class)
+  public enum LandingPageEnum {
+    BILLING("Billing"),
+    
+    LOGIN("Login");
 
-  @SerializedName("paypalSolutionType")
-  private String paypalSolutionType = null;
+    private String value;
 
-  @SerializedName("paypalSummaryEmail")
-  private String paypalSummaryEmail = null;
+    LandingPageEnum(String value) {
+      this.value = value;
+    }
 
-  @SerializedName("paypalSummaryMode")
-  private String paypalSummaryMode = null;
+    public String getValue() {
+      return value;
+    }
 
-  @SerializedName("paypalZeroDollarPenny")
-  private Boolean paypalZeroDollarPenny = null;
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
 
-  @SerializedName("pushPayPal")
-  private Boolean pushPayPal = null;
+    public static LandingPageEnum fromValue(String text) {
+      for (LandingPageEnum b : LandingPageEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<LandingPageEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LandingPageEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LandingPageEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LandingPageEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("landing_page")
+  private LandingPageEnum landingPage = null;
+
+  /**
+   * The PayPal mode
+   */
+  @JsonAdapter(ModeEnum.Adapter.class)
+  public enum ModeEnum {
+    WPPECO("WPPECO"),
+    
+    WPPECDP("WPPECDP");
+
+    private String value;
+
+    ModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ModeEnum fromValue(String text) {
+      for (ModeEnum b : ModeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ModeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("mode")
+  private ModeEnum mode = null;
+
+  @SerializedName("private_key_password")
+  private String privateKeyPassword = null;
+
+  @SerializedName("processing_fee")
+  private String processingFee = null;
+
+  @SerializedName("processing_percentage")
+  private String processingPercentage = null;
+
+  @SerializedName("push_paypal")
+  private Boolean pushPaypal = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
 
-  @SerializedName("shortPayPalMarketingText")
-  private Boolean shortPayPalMarketingText = null;
+  @SerializedName("send_recurring")
+  private Boolean sendRecurring = null;
 
-  public PaymentsConfigurationPayPal acceptPayPal(Boolean acceptPayPal) {
-    this.acceptPayPal = acceptPayPal;
+  @SerializedName("short_paypal_marketing_text")
+  private Boolean shortPaypalMarketingText = null;
+
+  @SerializedName("show_card_logos_not_directly_supported")
+  private Boolean showCardLogosNotDirectlySupported = null;
+
+  @SerializedName("show_signature")
+  private Boolean showSignature = null;
+
+  @SerializedName("signature")
+  private String signature = null;
+
+  /**
+   * PayPal solution type
+   */
+  @JsonAdapter(SolutionTypeEnum.Adapter.class)
+  public enum SolutionTypeEnum {
+    SOLE("Sole"),
+    
+    MARK("Mark");
+
+    private String value;
+
+    SolutionTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SolutionTypeEnum fromValue(String text) {
+      for (SolutionTypeEnum b : SolutionTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SolutionTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SolutionTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SolutionTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SolutionTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("solution_type")
+  private SolutionTypeEnum solutionType = null;
+
+  @SerializedName("summary_email")
+  private String summaryEmail = null;
+
+  @SerializedName("summary_mode")
+  private String summaryMode = null;
+
+  @SerializedName("zero_dollar_penny")
+  private Boolean zeroDollarPenny = null;
+
+  public PaymentsConfigurationPayPal acceptPaypal(Boolean acceptPaypal) {
+    this.acceptPaypal = acceptPaypal;
     return this;
   }
 
    /**
-   * Get acceptPayPal
-   * @return acceptPayPal
+   * Master flag that determine if PayPal is an active payment for this account
+   * @return acceptPaypal
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isAcceptPayPal() {
-    return acceptPayPal;
+  @ApiModelProperty(value = "Master flag that determine if PayPal is an active payment for this account")
+  public Boolean isAcceptPaypal() {
+    return acceptPaypal;
   }
 
-  public void setAcceptPayPal(Boolean acceptPayPal) {
-    this.acceptPayPal = acceptPayPal;
+  public void setAcceptPaypal(Boolean acceptPaypal) {
+    this.acceptPaypal = acceptPaypal;
   }
 
-  public PaymentsConfigurationPayPal paypalAccountingCode(String paypalAccountingCode) {
-    this.paypalAccountingCode = paypalAccountingCode;
+  public PaymentsConfigurationPayPal accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
     return this;
   }
 
    /**
-   * Get paypalAccountingCode
-   * @return paypalAccountingCode
+   * Optional accounting code that is set to Quickbooks when an order uses this payment method.
+   * @return accountingCode
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalAccountingCode() {
-    return paypalAccountingCode;
+  @ApiModelProperty(value = "Optional accounting code that is set to Quickbooks when an order uses this payment method.")
+  public String getAccountingCode() {
+    return accountingCode;
   }
 
-  public void setPaypalAccountingCode(String paypalAccountingCode) {
-    this.paypalAccountingCode = paypalAccountingCode;
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
   }
 
-  public PaymentsConfigurationPayPal paypalApiPassword(String paypalApiPassword) {
-    this.paypalApiPassword = paypalApiPassword;
+  public PaymentsConfigurationPayPal apiPassword(String apiPassword) {
+    this.apiPassword = apiPassword;
     return this;
   }
 
    /**
-   * Get paypalApiPassword
-   * @return paypalApiPassword
+   * PayPal API password
+   * @return apiPassword
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalApiPassword() {
-    return paypalApiPassword;
+  @ApiModelProperty(value = "PayPal API password")
+  public String getApiPassword() {
+    return apiPassword;
   }
 
-  public void setPaypalApiPassword(String paypalApiPassword) {
-    this.paypalApiPassword = paypalApiPassword;
+  public void setApiPassword(String apiPassword) {
+    this.apiPassword = apiPassword;
   }
 
-  public PaymentsConfigurationPayPal paypalApiUserName(String paypalApiUserName) {
-    this.paypalApiUserName = paypalApiUserName;
+  public PaymentsConfigurationPayPal apiUsername(String apiUsername) {
+    this.apiUsername = apiUsername;
     return this;
   }
 
    /**
-   * Get paypalApiUserName
-   * @return paypalApiUserName
+   * PayPal API username
+   * @return apiUsername
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalApiUserName() {
-    return paypalApiUserName;
+  @ApiModelProperty(value = "PayPal API username")
+  public String getApiUsername() {
+    return apiUsername;
   }
 
-  public void setPaypalApiUserName(String paypalApiUserName) {
-    this.paypalApiUserName = paypalApiUserName;
+  public void setApiUsername(String apiUsername) {
+    this.apiUsername = apiUsername;
   }
 
-  public PaymentsConfigurationPayPal paypalCertificateOnFile(Boolean paypalCertificateOnFile) {
-    this.paypalCertificateOnFile = paypalCertificateOnFile;
+  public PaymentsConfigurationPayPal certificateOnFile(Boolean certificateOnFile) {
+    this.certificateOnFile = certificateOnFile;
     return this;
   }
 
    /**
-   * Get paypalCertificateOnFile
-   * @return paypalCertificateOnFile
+   * (Legacy) true if there is a PayPal certificate already on file. Used to manage the internal UI
+   * @return certificateOnFile
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPaypalCertificateOnFile() {
-    return paypalCertificateOnFile;
+  @ApiModelProperty(value = "(Legacy) true if there is a PayPal certificate already on file. Used to manage the internal UI")
+  public Boolean isCertificateOnFile() {
+    return certificateOnFile;
   }
 
-  public void setPaypalCertificateOnFile(Boolean paypalCertificateOnFile) {
-    this.paypalCertificateOnFile = paypalCertificateOnFile;
+  public void setCertificateOnFile(Boolean certificateOnFile) {
+    this.certificateOnFile = certificateOnFile;
   }
 
-  public PaymentsConfigurationPayPal paypalDepositToAccount(String paypalDepositToAccount) {
-    this.paypalDepositToAccount = paypalDepositToAccount;
+  public PaymentsConfigurationPayPal depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
     return this;
   }
 
    /**
-   * Get paypalDepositToAccount
-   * @return paypalDepositToAccount
+   * The account to deposit funds
+   * @return depositToAccount
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalDepositToAccount() {
-    return paypalDepositToAccount;
+  @ApiModelProperty(value = "The account to deposit funds")
+  public String getDepositToAccount() {
+    return depositToAccount;
   }
 
-  public void setPaypalDepositToAccount(String paypalDepositToAccount) {
-    this.paypalDepositToAccount = paypalDepositToAccount;
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
   }
 
-  public PaymentsConfigurationPayPal paypalEmail(String paypalEmail) {
-    this.paypalEmail = paypalEmail;
+  public PaymentsConfigurationPayPal email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
-   * Get paypalEmail
-   * @return paypalEmail
+   * The main PayPal email address
+   * @return email
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalEmail() {
-    return paypalEmail;
+  @ApiModelProperty(value = "The main PayPal email address")
+  public String getEmail() {
+    return email;
   }
 
-  public void setPaypalEmail(String paypalEmail) {
-    this.paypalEmail = paypalEmail;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
-  public PaymentsConfigurationPayPal paypalEnvironment(String paypalEnvironment) {
-    this.paypalEnvironment = paypalEnvironment;
+  public PaymentsConfigurationPayPal environment(EnvironmentEnum environment) {
+    this.environment = environment;
     return this;
   }
 
    /**
-   * Get paypalEnvironment
-   * @return paypalEnvironment
+   * PayPal configuration, live or sandbox
+   * @return environment
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalEnvironment() {
-    return paypalEnvironment;
+  @ApiModelProperty(value = "PayPal configuration, live or sandbox")
+  public EnvironmentEnum getEnvironment() {
+    return environment;
   }
 
-  public void setPaypalEnvironment(String paypalEnvironment) {
-    this.paypalEnvironment = paypalEnvironment;
+  public void setEnvironment(EnvironmentEnum environment) {
+    this.environment = environment;
   }
 
-  public PaymentsConfigurationPayPal paypalHeaderImageUrl(String paypalHeaderImageUrl) {
-    this.paypalHeaderImageUrl = paypalHeaderImageUrl;
+  public PaymentsConfigurationPayPal headerImageUrl(String headerImageUrl) {
+    this.headerImageUrl = headerImageUrl;
     return this;
   }
 
    /**
-   * Get paypalHeaderImageUrl
-   * @return paypalHeaderImageUrl
+   * The URL for the PayPal header
+   * @return headerImageUrl
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalHeaderImageUrl() {
-    return paypalHeaderImageUrl;
+  @ApiModelProperty(value = "The URL for the PayPal header")
+  public String getHeaderImageUrl() {
+    return headerImageUrl;
   }
 
-  public void setPaypalHeaderImageUrl(String paypalHeaderImageUrl) {
-    this.paypalHeaderImageUrl = paypalHeaderImageUrl;
+  public void setHeaderImageUrl(String headerImageUrl) {
+    this.headerImageUrl = headerImageUrl;
   }
 
-  public PaymentsConfigurationPayPal paypalHideBillMeLater(Boolean paypalHideBillMeLater) {
-    this.paypalHideBillMeLater = paypalHideBillMeLater;
+  public PaymentsConfigurationPayPal hideBillMeLater(Boolean hideBillMeLater) {
+    this.hideBillMeLater = hideBillMeLater;
     return this;
   }
 
    /**
-   * Get paypalHideBillMeLater
-   * @return paypalHideBillMeLater
+   * True if the Bill Me Later button should be hidden during checkout
+   * @return hideBillMeLater
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPaypalHideBillMeLater() {
-    return paypalHideBillMeLater;
+  @ApiModelProperty(value = "True if the Bill Me Later button should be hidden during checkout")
+  public Boolean isHideBillMeLater() {
+    return hideBillMeLater;
   }
 
-  public void setPaypalHideBillMeLater(Boolean paypalHideBillMeLater) {
-    this.paypalHideBillMeLater = paypalHideBillMeLater;
+  public void setHideBillMeLater(Boolean hideBillMeLater) {
+    this.hideBillMeLater = hideBillMeLater;
   }
 
-  public PaymentsConfigurationPayPal paypalHideExpressCheckoutOnViewCart(Boolean paypalHideExpressCheckoutOnViewCart) {
-    this.paypalHideExpressCheckoutOnViewCart = paypalHideExpressCheckoutOnViewCart;
+  public PaymentsConfigurationPayPal hideExpressCheckoutOnViewCart(Boolean hideExpressCheckoutOnViewCart) {
+    this.hideExpressCheckoutOnViewCart = hideExpressCheckoutOnViewCart;
     return this;
   }
 
    /**
-   * Get paypalHideExpressCheckoutOnViewCart
-   * @return paypalHideExpressCheckoutOnViewCart
+   * True if the PayPal express checkout button should be hidden on the view cart page.  This will force the customer to enter address information before being able to checkout with PayPal
+   * @return hideExpressCheckoutOnViewCart
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPaypalHideExpressCheckoutOnViewCart() {
-    return paypalHideExpressCheckoutOnViewCart;
+  @ApiModelProperty(value = "True if the PayPal express checkout button should be hidden on the view cart page.  This will force the customer to enter address information before being able to checkout with PayPal")
+  public Boolean isHideExpressCheckoutOnViewCart() {
+    return hideExpressCheckoutOnViewCart;
   }
 
-  public void setPaypalHideExpressCheckoutOnViewCart(Boolean paypalHideExpressCheckoutOnViewCart) {
-    this.paypalHideExpressCheckoutOnViewCart = paypalHideExpressCheckoutOnViewCart;
+  public void setHideExpressCheckoutOnViewCart(Boolean hideExpressCheckoutOnViewCart) {
+    this.hideExpressCheckoutOnViewCart = hideExpressCheckoutOnViewCart;
   }
 
-  public PaymentsConfigurationPayPal paypalHideForUnshippedOrders(Boolean paypalHideForUnshippedOrders) {
-    this.paypalHideForUnshippedOrders = paypalHideForUnshippedOrders;
+  public PaymentsConfigurationPayPal hideForUnshippedOrders(Boolean hideForUnshippedOrders) {
+    this.hideForUnshippedOrders = hideForUnshippedOrders;
     return this;
   }
 
    /**
-   * Get paypalHideForUnshippedOrders
-   * @return paypalHideForUnshippedOrders
+   * True if PayPal should be hidden for orders with no shippable product, such as digital orders
+   * @return hideForUnshippedOrders
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPaypalHideForUnshippedOrders() {
-    return paypalHideForUnshippedOrders;
+  @ApiModelProperty(value = "True if PayPal should be hidden for orders with no shippable product, such as digital orders")
+  public Boolean isHideForUnshippedOrders() {
+    return hideForUnshippedOrders;
   }
 
-  public void setPaypalHideForUnshippedOrders(Boolean paypalHideForUnshippedOrders) {
-    this.paypalHideForUnshippedOrders = paypalHideForUnshippedOrders;
+  public void setHideForUnshippedOrders(Boolean hideForUnshippedOrders) {
+    this.hideForUnshippedOrders = hideForUnshippedOrders;
   }
 
-  public PaymentsConfigurationPayPal paypalHoldInAR(Boolean paypalHoldInAR) {
-    this.paypalHoldInAR = paypalHoldInAR;
+  public PaymentsConfigurationPayPal holdInAr(Boolean holdInAr) {
+    this.holdInAr = holdInAr;
     return this;
   }
 
    /**
-   * Get paypalHoldInAR
-   * @return paypalHoldInAR
+   * If true, PayPal orders are held in Accounts Receivable for review
+   * @return holdInAr
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPaypalHoldInAR() {
-    return paypalHoldInAR;
+  @ApiModelProperty(value = "If true, PayPal orders are held in Accounts Receivable for review")
+  public Boolean isHoldInAr() {
+    return holdInAr;
   }
 
-  public void setPaypalHoldInAR(Boolean paypalHoldInAR) {
-    this.paypalHoldInAR = paypalHoldInAR;
+  public void setHoldInAr(Boolean holdInAr) {
+    this.holdInAr = holdInAr;
   }
 
-  public PaymentsConfigurationPayPal paypalLandingPage(String paypalLandingPage) {
-    this.paypalLandingPage = paypalLandingPage;
+  public PaymentsConfigurationPayPal landingPage(LandingPageEnum landingPage) {
+    this.landingPage = landingPage;
     return this;
   }
 
    /**
-   * Get paypalLandingPage
-   * @return paypalLandingPage
+   * PayPal landing page
+   * @return landingPage
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalLandingPage() {
-    return paypalLandingPage;
+  @ApiModelProperty(value = "PayPal landing page")
+  public LandingPageEnum getLandingPage() {
+    return landingPage;
   }
 
-  public void setPaypalLandingPage(String paypalLandingPage) {
-    this.paypalLandingPage = paypalLandingPage;
+  public void setLandingPage(LandingPageEnum landingPage) {
+    this.landingPage = landingPage;
   }
 
-  public PaymentsConfigurationPayPal paypalMode(String paypalMode) {
-    this.paypalMode = paypalMode;
+  public PaymentsConfigurationPayPal mode(ModeEnum mode) {
+    this.mode = mode;
     return this;
   }
 
    /**
-   * Get paypalMode
-   * @return paypalMode
+   * The PayPal mode
+   * @return mode
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalMode() {
-    return paypalMode;
+  @ApiModelProperty(value = "The PayPal mode")
+  public ModeEnum getMode() {
+    return mode;
   }
 
-  public void setPaypalMode(String paypalMode) {
-    this.paypalMode = paypalMode;
+  public void setMode(ModeEnum mode) {
+    this.mode = mode;
   }
 
-  public PaymentsConfigurationPayPal paypalPrivateKeyPassword(String paypalPrivateKeyPassword) {
-    this.paypalPrivateKeyPassword = paypalPrivateKeyPassword;
+  public PaymentsConfigurationPayPal privateKeyPassword(String privateKeyPassword) {
+    this.privateKeyPassword = privateKeyPassword;
     return this;
   }
 
    /**
-   * Get paypalPrivateKeyPassword
-   * @return paypalPrivateKeyPassword
+   * PayPal API private key password
+   * @return privateKeyPassword
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalPrivateKeyPassword() {
-    return paypalPrivateKeyPassword;
+  @ApiModelProperty(value = "PayPal API private key password")
+  public String getPrivateKeyPassword() {
+    return privateKeyPassword;
   }
 
-  public void setPaypalPrivateKeyPassword(String paypalPrivateKeyPassword) {
-    this.paypalPrivateKeyPassword = paypalPrivateKeyPassword;
+  public void setPrivateKeyPassword(String privateKeyPassword) {
+    this.privateKeyPassword = privateKeyPassword;
   }
 
-  public PaymentsConfigurationPayPal paypalProcessingFee(String paypalProcessingFee) {
-    this.paypalProcessingFee = paypalProcessingFee;
+  public PaymentsConfigurationPayPal processingFee(String processingFee) {
+    this.processingFee = processingFee;
     return this;
   }
 
    /**
-   * Get paypalProcessingFee
-   * @return paypalProcessingFee
+   * Optional additional fee to charge if PayPal is used.  It is rare for this to be used.
+   * @return processingFee
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalProcessingFee() {
-    return paypalProcessingFee;
+  @ApiModelProperty(value = "Optional additional fee to charge if PayPal is used.  It is rare for this to be used.")
+  public String getProcessingFee() {
+    return processingFee;
   }
 
-  public void setPaypalProcessingFee(String paypalProcessingFee) {
-    this.paypalProcessingFee = paypalProcessingFee;
+  public void setProcessingFee(String processingFee) {
+    this.processingFee = processingFee;
   }
 
-  public PaymentsConfigurationPayPal paypalProcessingPerc(String paypalProcessingPerc) {
-    this.paypalProcessingPerc = paypalProcessingPerc;
+  public PaymentsConfigurationPayPal processingPercentage(String processingPercentage) {
+    this.processingPercentage = processingPercentage;
     return this;
   }
 
    /**
-   * Get paypalProcessingPerc
-   * @return paypalProcessingPerc
+   * The processing percentage charged by PayPal
+   * @return processingPercentage
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalProcessingPerc() {
-    return paypalProcessingPerc;
+  @ApiModelProperty(value = "The processing percentage charged by PayPal")
+  public String getProcessingPercentage() {
+    return processingPercentage;
   }
 
-  public void setPaypalProcessingPerc(String paypalProcessingPerc) {
-    this.paypalProcessingPerc = paypalProcessingPerc;
+  public void setProcessingPercentage(String processingPercentage) {
+    this.processingPercentage = processingPercentage;
   }
 
-  public PaymentsConfigurationPayPal paypalSendRecurring(String paypalSendRecurring) {
-    this.paypalSendRecurring = paypalSendRecurring;
+  public PaymentsConfigurationPayPal pushPaypal(Boolean pushPaypal) {
+    this.pushPaypal = pushPaypal;
     return this;
   }
 
    /**
-   * Get paypalSendRecurring
-   * @return paypalSendRecurring
+   * True if the internal UI should recommend opening a PayPal account
+   * @return pushPaypal
   **/
-  @ApiModelProperty(value = "")
-  public String getPaypalSendRecurring() {
-    return paypalSendRecurring;
+  @ApiModelProperty(value = "True if the internal UI should recommend opening a PayPal account")
+  public Boolean isPushPaypal() {
+    return pushPaypal;
   }
 
-  public void setPaypalSendRecurring(String paypalSendRecurring) {
-    this.paypalSendRecurring = paypalSendRecurring;
-  }
-
-  public PaymentsConfigurationPayPal paypalShowCardLogosNotDirectlySupported(Boolean paypalShowCardLogosNotDirectlySupported) {
-    this.paypalShowCardLogosNotDirectlySupported = paypalShowCardLogosNotDirectlySupported;
-    return this;
-  }
-
-   /**
-   * Get paypalShowCardLogosNotDirectlySupported
-   * @return paypalShowCardLogosNotDirectlySupported
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isPaypalShowCardLogosNotDirectlySupported() {
-    return paypalShowCardLogosNotDirectlySupported;
-  }
-
-  public void setPaypalShowCardLogosNotDirectlySupported(Boolean paypalShowCardLogosNotDirectlySupported) {
-    this.paypalShowCardLogosNotDirectlySupported = paypalShowCardLogosNotDirectlySupported;
-  }
-
-  public PaymentsConfigurationPayPal paypalShowSignature(Boolean paypalShowSignature) {
-    this.paypalShowSignature = paypalShowSignature;
-    return this;
-  }
-
-   /**
-   * Get paypalShowSignature
-   * @return paypalShowSignature
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isPaypalShowSignature() {
-    return paypalShowSignature;
-  }
-
-  public void setPaypalShowSignature(Boolean paypalShowSignature) {
-    this.paypalShowSignature = paypalShowSignature;
-  }
-
-  public PaymentsConfigurationPayPal paypalSignature(String paypalSignature) {
-    this.paypalSignature = paypalSignature;
-    return this;
-  }
-
-   /**
-   * Get paypalSignature
-   * @return paypalSignature
-  **/
-  @ApiModelProperty(value = "")
-  public String getPaypalSignature() {
-    return paypalSignature;
-  }
-
-  public void setPaypalSignature(String paypalSignature) {
-    this.paypalSignature = paypalSignature;
-  }
-
-  public PaymentsConfigurationPayPal paypalSolutionType(String paypalSolutionType) {
-    this.paypalSolutionType = paypalSolutionType;
-    return this;
-  }
-
-   /**
-   * Get paypalSolutionType
-   * @return paypalSolutionType
-  **/
-  @ApiModelProperty(value = "")
-  public String getPaypalSolutionType() {
-    return paypalSolutionType;
-  }
-
-  public void setPaypalSolutionType(String paypalSolutionType) {
-    this.paypalSolutionType = paypalSolutionType;
-  }
-
-  public PaymentsConfigurationPayPal paypalSummaryEmail(String paypalSummaryEmail) {
-    this.paypalSummaryEmail = paypalSummaryEmail;
-    return this;
-  }
-
-   /**
-   * Get paypalSummaryEmail
-   * @return paypalSummaryEmail
-  **/
-  @ApiModelProperty(value = "")
-  public String getPaypalSummaryEmail() {
-    return paypalSummaryEmail;
-  }
-
-  public void setPaypalSummaryEmail(String paypalSummaryEmail) {
-    this.paypalSummaryEmail = paypalSummaryEmail;
-  }
-
-  public PaymentsConfigurationPayPal paypalSummaryMode(String paypalSummaryMode) {
-    this.paypalSummaryMode = paypalSummaryMode;
-    return this;
-  }
-
-   /**
-   * Get paypalSummaryMode
-   * @return paypalSummaryMode
-  **/
-  @ApiModelProperty(value = "")
-  public String getPaypalSummaryMode() {
-    return paypalSummaryMode;
-  }
-
-  public void setPaypalSummaryMode(String paypalSummaryMode) {
-    this.paypalSummaryMode = paypalSummaryMode;
-  }
-
-  public PaymentsConfigurationPayPal paypalZeroDollarPenny(Boolean paypalZeroDollarPenny) {
-    this.paypalZeroDollarPenny = paypalZeroDollarPenny;
-    return this;
-  }
-
-   /**
-   * Get paypalZeroDollarPenny
-   * @return paypalZeroDollarPenny
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isPaypalZeroDollarPenny() {
-    return paypalZeroDollarPenny;
-  }
-
-  public void setPaypalZeroDollarPenny(Boolean paypalZeroDollarPenny) {
-    this.paypalZeroDollarPenny = paypalZeroDollarPenny;
-  }
-
-  public PaymentsConfigurationPayPal pushPayPal(Boolean pushPayPal) {
-    this.pushPayPal = pushPayPal;
-    return this;
-  }
-
-   /**
-   * Get pushPayPal
-   * @return pushPayPal
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isPushPayPal() {
-    return pushPayPal;
-  }
-
-  public void setPushPayPal(Boolean pushPayPal) {
-    this.pushPayPal = pushPayPal;
+  public void setPushPaypal(Boolean pushPaypal) {
+    this.pushPaypal = pushPaypal;
   }
 
   public PaymentsConfigurationPayPal restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -624,22 +668,166 @@ public class PaymentsConfigurationPayPal {
     this.restrictions = restrictions;
   }
 
-  public PaymentsConfigurationPayPal shortPayPalMarketingText(Boolean shortPayPalMarketingText) {
-    this.shortPayPalMarketingText = shortPayPalMarketingText;
+  public PaymentsConfigurationPayPal sendRecurring(Boolean sendRecurring) {
+    this.sendRecurring = sendRecurring;
     return this;
   }
 
    /**
-   * Get shortPayPalMarketingText
-   * @return shortPayPalMarketingText
+   * True if UltraCart should send recurring orders to PayPal.  There are restrictions to what PayPal will accept for recurring orders.  Be careful.
+   * @return sendRecurring
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isShortPayPalMarketingText() {
-    return shortPayPalMarketingText;
+  @ApiModelProperty(value = "True if UltraCart should send recurring orders to PayPal.  There are restrictions to what PayPal will accept for recurring orders.  Be careful.")
+  public Boolean isSendRecurring() {
+    return sendRecurring;
   }
 
-  public void setShortPayPalMarketingText(Boolean shortPayPalMarketingText) {
-    this.shortPayPalMarketingText = shortPayPalMarketingText;
+  public void setSendRecurring(Boolean sendRecurring) {
+    this.sendRecurring = sendRecurring;
+  }
+
+  public PaymentsConfigurationPayPal shortPaypalMarketingText(Boolean shortPaypalMarketingText) {
+    this.shortPaypalMarketingText = shortPaypalMarketingText;
+    return this;
+  }
+
+   /**
+   * Short marketing text
+   * @return shortPaypalMarketingText
+  **/
+  @ApiModelProperty(value = "Short marketing text")
+  public Boolean isShortPaypalMarketingText() {
+    return shortPaypalMarketingText;
+  }
+
+  public void setShortPaypalMarketingText(Boolean shortPaypalMarketingText) {
+    this.shortPaypalMarketingText = shortPaypalMarketingText;
+  }
+
+  public PaymentsConfigurationPayPal showCardLogosNotDirectlySupported(Boolean showCardLogosNotDirectlySupported) {
+    this.showCardLogosNotDirectlySupported = showCardLogosNotDirectlySupported;
+    return this;
+  }
+
+   /**
+   * internal ui flag
+   * @return showCardLogosNotDirectlySupported
+  **/
+  @ApiModelProperty(value = "internal ui flag")
+  public Boolean isShowCardLogosNotDirectlySupported() {
+    return showCardLogosNotDirectlySupported;
+  }
+
+  public void setShowCardLogosNotDirectlySupported(Boolean showCardLogosNotDirectlySupported) {
+    this.showCardLogosNotDirectlySupported = showCardLogosNotDirectlySupported;
+  }
+
+  public PaymentsConfigurationPayPal showSignature(Boolean showSignature) {
+    this.showSignature = showSignature;
+    return this;
+  }
+
+   /**
+   * Internal flag used to manage UI
+   * @return showSignature
+  **/
+  @ApiModelProperty(value = "Internal flag used to manage UI")
+  public Boolean isShowSignature() {
+    return showSignature;
+  }
+
+  public void setShowSignature(Boolean showSignature) {
+    this.showSignature = showSignature;
+  }
+
+  public PaymentsConfigurationPayPal signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+   /**
+   * PayPal signature
+   * @return signature
+  **/
+  @ApiModelProperty(value = "PayPal signature")
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
+  public PaymentsConfigurationPayPal solutionType(SolutionTypeEnum solutionType) {
+    this.solutionType = solutionType;
+    return this;
+  }
+
+   /**
+   * PayPal solution type
+   * @return solutionType
+  **/
+  @ApiModelProperty(value = "PayPal solution type")
+  public SolutionTypeEnum getSolutionType() {
+    return solutionType;
+  }
+
+  public void setSolutionType(SolutionTypeEnum solutionType) {
+    this.solutionType = solutionType;
+  }
+
+  public PaymentsConfigurationPayPal summaryEmail(String summaryEmail) {
+    this.summaryEmail = summaryEmail;
+    return this;
+  }
+
+   /**
+   * The email where PayPal summaries should be sent
+   * @return summaryEmail
+  **/
+  @ApiModelProperty(value = "The email where PayPal summaries should be sent")
+  public String getSummaryEmail() {
+    return summaryEmail;
+  }
+
+  public void setSummaryEmail(String summaryEmail) {
+    this.summaryEmail = summaryEmail;
+  }
+
+  public PaymentsConfigurationPayPal summaryMode(String summaryMode) {
+    this.summaryMode = summaryMode;
+    return this;
+  }
+
+   /**
+   * Description of what mode PayPal is operating
+   * @return summaryMode
+  **/
+  @ApiModelProperty(value = "Description of what mode PayPal is operating")
+  public String getSummaryMode() {
+    return summaryMode;
+  }
+
+  public void setSummaryMode(String summaryMode) {
+    this.summaryMode = summaryMode;
+  }
+
+  public PaymentsConfigurationPayPal zeroDollarPenny(Boolean zeroDollarPenny) {
+    this.zeroDollarPenny = zeroDollarPenny;
+    return this;
+  }
+
+   /**
+   * Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items.
+   * @return zeroDollarPenny
+  **/
+  @ApiModelProperty(value = "Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items.")
+  public Boolean isZeroDollarPenny() {
+    return zeroDollarPenny;
+  }
+
+  public void setZeroDollarPenny(Boolean zeroDollarPenny) {
+    this.zeroDollarPenny = zeroDollarPenny;
   }
 
 
@@ -652,40 +840,40 @@ public class PaymentsConfigurationPayPal {
       return false;
     }
     PaymentsConfigurationPayPal paymentsConfigurationPayPal = (PaymentsConfigurationPayPal) o;
-    return Objects.equals(this.acceptPayPal, paymentsConfigurationPayPal.acceptPayPal) &&
-        Objects.equals(this.paypalAccountingCode, paymentsConfigurationPayPal.paypalAccountingCode) &&
-        Objects.equals(this.paypalApiPassword, paymentsConfigurationPayPal.paypalApiPassword) &&
-        Objects.equals(this.paypalApiUserName, paymentsConfigurationPayPal.paypalApiUserName) &&
-        Objects.equals(this.paypalCertificateOnFile, paymentsConfigurationPayPal.paypalCertificateOnFile) &&
-        Objects.equals(this.paypalDepositToAccount, paymentsConfigurationPayPal.paypalDepositToAccount) &&
-        Objects.equals(this.paypalEmail, paymentsConfigurationPayPal.paypalEmail) &&
-        Objects.equals(this.paypalEnvironment, paymentsConfigurationPayPal.paypalEnvironment) &&
-        Objects.equals(this.paypalHeaderImageUrl, paymentsConfigurationPayPal.paypalHeaderImageUrl) &&
-        Objects.equals(this.paypalHideBillMeLater, paymentsConfigurationPayPal.paypalHideBillMeLater) &&
-        Objects.equals(this.paypalHideExpressCheckoutOnViewCart, paymentsConfigurationPayPal.paypalHideExpressCheckoutOnViewCart) &&
-        Objects.equals(this.paypalHideForUnshippedOrders, paymentsConfigurationPayPal.paypalHideForUnshippedOrders) &&
-        Objects.equals(this.paypalHoldInAR, paymentsConfigurationPayPal.paypalHoldInAR) &&
-        Objects.equals(this.paypalLandingPage, paymentsConfigurationPayPal.paypalLandingPage) &&
-        Objects.equals(this.paypalMode, paymentsConfigurationPayPal.paypalMode) &&
-        Objects.equals(this.paypalPrivateKeyPassword, paymentsConfigurationPayPal.paypalPrivateKeyPassword) &&
-        Objects.equals(this.paypalProcessingFee, paymentsConfigurationPayPal.paypalProcessingFee) &&
-        Objects.equals(this.paypalProcessingPerc, paymentsConfigurationPayPal.paypalProcessingPerc) &&
-        Objects.equals(this.paypalSendRecurring, paymentsConfigurationPayPal.paypalSendRecurring) &&
-        Objects.equals(this.paypalShowCardLogosNotDirectlySupported, paymentsConfigurationPayPal.paypalShowCardLogosNotDirectlySupported) &&
-        Objects.equals(this.paypalShowSignature, paymentsConfigurationPayPal.paypalShowSignature) &&
-        Objects.equals(this.paypalSignature, paymentsConfigurationPayPal.paypalSignature) &&
-        Objects.equals(this.paypalSolutionType, paymentsConfigurationPayPal.paypalSolutionType) &&
-        Objects.equals(this.paypalSummaryEmail, paymentsConfigurationPayPal.paypalSummaryEmail) &&
-        Objects.equals(this.paypalSummaryMode, paymentsConfigurationPayPal.paypalSummaryMode) &&
-        Objects.equals(this.paypalZeroDollarPenny, paymentsConfigurationPayPal.paypalZeroDollarPenny) &&
-        Objects.equals(this.pushPayPal, paymentsConfigurationPayPal.pushPayPal) &&
+    return Objects.equals(this.acceptPaypal, paymentsConfigurationPayPal.acceptPaypal) &&
+        Objects.equals(this.accountingCode, paymentsConfigurationPayPal.accountingCode) &&
+        Objects.equals(this.apiPassword, paymentsConfigurationPayPal.apiPassword) &&
+        Objects.equals(this.apiUsername, paymentsConfigurationPayPal.apiUsername) &&
+        Objects.equals(this.certificateOnFile, paymentsConfigurationPayPal.certificateOnFile) &&
+        Objects.equals(this.depositToAccount, paymentsConfigurationPayPal.depositToAccount) &&
+        Objects.equals(this.email, paymentsConfigurationPayPal.email) &&
+        Objects.equals(this.environment, paymentsConfigurationPayPal.environment) &&
+        Objects.equals(this.headerImageUrl, paymentsConfigurationPayPal.headerImageUrl) &&
+        Objects.equals(this.hideBillMeLater, paymentsConfigurationPayPal.hideBillMeLater) &&
+        Objects.equals(this.hideExpressCheckoutOnViewCart, paymentsConfigurationPayPal.hideExpressCheckoutOnViewCart) &&
+        Objects.equals(this.hideForUnshippedOrders, paymentsConfigurationPayPal.hideForUnshippedOrders) &&
+        Objects.equals(this.holdInAr, paymentsConfigurationPayPal.holdInAr) &&
+        Objects.equals(this.landingPage, paymentsConfigurationPayPal.landingPage) &&
+        Objects.equals(this.mode, paymentsConfigurationPayPal.mode) &&
+        Objects.equals(this.privateKeyPassword, paymentsConfigurationPayPal.privateKeyPassword) &&
+        Objects.equals(this.processingFee, paymentsConfigurationPayPal.processingFee) &&
+        Objects.equals(this.processingPercentage, paymentsConfigurationPayPal.processingPercentage) &&
+        Objects.equals(this.pushPaypal, paymentsConfigurationPayPal.pushPaypal) &&
         Objects.equals(this.restrictions, paymentsConfigurationPayPal.restrictions) &&
-        Objects.equals(this.shortPayPalMarketingText, paymentsConfigurationPayPal.shortPayPalMarketingText);
+        Objects.equals(this.sendRecurring, paymentsConfigurationPayPal.sendRecurring) &&
+        Objects.equals(this.shortPaypalMarketingText, paymentsConfigurationPayPal.shortPaypalMarketingText) &&
+        Objects.equals(this.showCardLogosNotDirectlySupported, paymentsConfigurationPayPal.showCardLogosNotDirectlySupported) &&
+        Objects.equals(this.showSignature, paymentsConfigurationPayPal.showSignature) &&
+        Objects.equals(this.signature, paymentsConfigurationPayPal.signature) &&
+        Objects.equals(this.solutionType, paymentsConfigurationPayPal.solutionType) &&
+        Objects.equals(this.summaryEmail, paymentsConfigurationPayPal.summaryEmail) &&
+        Objects.equals(this.summaryMode, paymentsConfigurationPayPal.summaryMode) &&
+        Objects.equals(this.zeroDollarPenny, paymentsConfigurationPayPal.zeroDollarPenny);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptPayPal, paypalAccountingCode, paypalApiPassword, paypalApiUserName, paypalCertificateOnFile, paypalDepositToAccount, paypalEmail, paypalEnvironment, paypalHeaderImageUrl, paypalHideBillMeLater, paypalHideExpressCheckoutOnViewCart, paypalHideForUnshippedOrders, paypalHoldInAR, paypalLandingPage, paypalMode, paypalPrivateKeyPassword, paypalProcessingFee, paypalProcessingPerc, paypalSendRecurring, paypalShowCardLogosNotDirectlySupported, paypalShowSignature, paypalSignature, paypalSolutionType, paypalSummaryEmail, paypalSummaryMode, paypalZeroDollarPenny, pushPayPal, restrictions, shortPayPalMarketingText);
+    return Objects.hash(acceptPaypal, accountingCode, apiPassword, apiUsername, certificateOnFile, depositToAccount, email, environment, headerImageUrl, hideBillMeLater, hideExpressCheckoutOnViewCart, hideForUnshippedOrders, holdInAr, landingPage, mode, privateKeyPassword, processingFee, processingPercentage, pushPaypal, restrictions, sendRecurring, shortPaypalMarketingText, showCardLogosNotDirectlySupported, showSignature, signature, solutionType, summaryEmail, summaryMode, zeroDollarPenny);
   }
 
 
@@ -694,35 +882,35 @@ public class PaymentsConfigurationPayPal {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentsConfigurationPayPal {\n");
     
-    sb.append("    acceptPayPal: ").append(toIndentedString(acceptPayPal)).append("\n");
-    sb.append("    paypalAccountingCode: ").append(toIndentedString(paypalAccountingCode)).append("\n");
-    sb.append("    paypalApiPassword: ").append(toIndentedString(paypalApiPassword)).append("\n");
-    sb.append("    paypalApiUserName: ").append(toIndentedString(paypalApiUserName)).append("\n");
-    sb.append("    paypalCertificateOnFile: ").append(toIndentedString(paypalCertificateOnFile)).append("\n");
-    sb.append("    paypalDepositToAccount: ").append(toIndentedString(paypalDepositToAccount)).append("\n");
-    sb.append("    paypalEmail: ").append(toIndentedString(paypalEmail)).append("\n");
-    sb.append("    paypalEnvironment: ").append(toIndentedString(paypalEnvironment)).append("\n");
-    sb.append("    paypalHeaderImageUrl: ").append(toIndentedString(paypalHeaderImageUrl)).append("\n");
-    sb.append("    paypalHideBillMeLater: ").append(toIndentedString(paypalHideBillMeLater)).append("\n");
-    sb.append("    paypalHideExpressCheckoutOnViewCart: ").append(toIndentedString(paypalHideExpressCheckoutOnViewCart)).append("\n");
-    sb.append("    paypalHideForUnshippedOrders: ").append(toIndentedString(paypalHideForUnshippedOrders)).append("\n");
-    sb.append("    paypalHoldInAR: ").append(toIndentedString(paypalHoldInAR)).append("\n");
-    sb.append("    paypalLandingPage: ").append(toIndentedString(paypalLandingPage)).append("\n");
-    sb.append("    paypalMode: ").append(toIndentedString(paypalMode)).append("\n");
-    sb.append("    paypalPrivateKeyPassword: ").append(toIndentedString(paypalPrivateKeyPassword)).append("\n");
-    sb.append("    paypalProcessingFee: ").append(toIndentedString(paypalProcessingFee)).append("\n");
-    sb.append("    paypalProcessingPerc: ").append(toIndentedString(paypalProcessingPerc)).append("\n");
-    sb.append("    paypalSendRecurring: ").append(toIndentedString(paypalSendRecurring)).append("\n");
-    sb.append("    paypalShowCardLogosNotDirectlySupported: ").append(toIndentedString(paypalShowCardLogosNotDirectlySupported)).append("\n");
-    sb.append("    paypalShowSignature: ").append(toIndentedString(paypalShowSignature)).append("\n");
-    sb.append("    paypalSignature: ").append(toIndentedString(paypalSignature)).append("\n");
-    sb.append("    paypalSolutionType: ").append(toIndentedString(paypalSolutionType)).append("\n");
-    sb.append("    paypalSummaryEmail: ").append(toIndentedString(paypalSummaryEmail)).append("\n");
-    sb.append("    paypalSummaryMode: ").append(toIndentedString(paypalSummaryMode)).append("\n");
-    sb.append("    paypalZeroDollarPenny: ").append(toIndentedString(paypalZeroDollarPenny)).append("\n");
-    sb.append("    pushPayPal: ").append(toIndentedString(pushPayPal)).append("\n");
+    sb.append("    acceptPaypal: ").append(toIndentedString(acceptPaypal)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
+    sb.append("    apiPassword: ").append(toIndentedString(apiPassword)).append("\n");
+    sb.append("    apiUsername: ").append(toIndentedString(apiUsername)).append("\n");
+    sb.append("    certificateOnFile: ").append(toIndentedString(certificateOnFile)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    headerImageUrl: ").append(toIndentedString(headerImageUrl)).append("\n");
+    sb.append("    hideBillMeLater: ").append(toIndentedString(hideBillMeLater)).append("\n");
+    sb.append("    hideExpressCheckoutOnViewCart: ").append(toIndentedString(hideExpressCheckoutOnViewCart)).append("\n");
+    sb.append("    hideForUnshippedOrders: ").append(toIndentedString(hideForUnshippedOrders)).append("\n");
+    sb.append("    holdInAr: ").append(toIndentedString(holdInAr)).append("\n");
+    sb.append("    landingPage: ").append(toIndentedString(landingPage)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
+    sb.append("    processingFee: ").append(toIndentedString(processingFee)).append("\n");
+    sb.append("    processingPercentage: ").append(toIndentedString(processingPercentage)).append("\n");
+    sb.append("    pushPaypal: ").append(toIndentedString(pushPaypal)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
-    sb.append("    shortPayPalMarketingText: ").append(toIndentedString(shortPayPalMarketingText)).append("\n");
+    sb.append("    sendRecurring: ").append(toIndentedString(sendRecurring)).append("\n");
+    sb.append("    shortPaypalMarketingText: ").append(toIndentedString(shortPaypalMarketingText)).append("\n");
+    sb.append("    showCardLogosNotDirectlySupported: ").append(toIndentedString(showCardLogosNotDirectlySupported)).append("\n");
+    sb.append("    showSignature: ").append(toIndentedString(showSignature)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    solutionType: ").append(toIndentedString(solutionType)).append("\n");
+    sb.append("    summaryEmail: ").append(toIndentedString(summaryEmail)).append("\n");
+    sb.append("    summaryMode: ").append(toIndentedString(summaryMode)).append("\n");
+    sb.append("    zeroDollarPenny: ").append(toIndentedString(zeroDollarPenny)).append("\n");
     sb.append("}");
     return sb.toString();
   }

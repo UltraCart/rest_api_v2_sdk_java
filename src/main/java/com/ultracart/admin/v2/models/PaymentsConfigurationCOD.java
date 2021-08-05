@@ -28,28 +28,28 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationCOD
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationCOD {
-  @SerializedName("acceptCod")
+  @SerializedName("accept_cod")
   private Boolean acceptCod = null;
 
-  @SerializedName("codApprovedCustomersOnly")
-  private Boolean codApprovedCustomersOnly = null;
-
-  @SerializedName("codSurchargeAccountingCode")
-  private String codSurchargeAccountingCode = null;
-
-  @SerializedName("codSurchargeFee")
-  private String codSurchargeFee = null;
-
-  @SerializedName("codSurchargePerc")
-  private String codSurchargePerc = null;
+  @SerializedName("approved_customers_only")
+  private Boolean approvedCustomersOnly = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
+
+  @SerializedName("surcharge_accounting_code")
+  private String surchargeAccountingCode = null;
+
+  @SerializedName("surcharge_fee")
+  private String surchargeFee = null;
+
+  @SerializedName("surcharge_percentage")
+  private String surchargePercentage = null;
 
   public PaymentsConfigurationCOD acceptCod(Boolean acceptCod) {
     this.acceptCod = acceptCod;
@@ -57,10 +57,10 @@ public class PaymentsConfigurationCOD {
   }
 
    /**
-   * Get acceptCod
+   * Master flag indicating this merchant accepts COD
    * @return acceptCod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts COD")
   public Boolean isAcceptCod() {
     return acceptCod;
   }
@@ -69,76 +69,22 @@ public class PaymentsConfigurationCOD {
     this.acceptCod = acceptCod;
   }
 
-  public PaymentsConfigurationCOD codApprovedCustomersOnly(Boolean codApprovedCustomersOnly) {
-    this.codApprovedCustomersOnly = codApprovedCustomersOnly;
+  public PaymentsConfigurationCOD approvedCustomersOnly(Boolean approvedCustomersOnly) {
+    this.approvedCustomersOnly = approvedCustomersOnly;
     return this;
   }
 
    /**
-   * Get codApprovedCustomersOnly
-   * @return codApprovedCustomersOnly
+   * If true, only approved customers may pay with COD
+   * @return approvedCustomersOnly
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isCodApprovedCustomersOnly() {
-    return codApprovedCustomersOnly;
+  @ApiModelProperty(value = "If true, only approved customers may pay with COD")
+  public Boolean isApprovedCustomersOnly() {
+    return approvedCustomersOnly;
   }
 
-  public void setCodApprovedCustomersOnly(Boolean codApprovedCustomersOnly) {
-    this.codApprovedCustomersOnly = codApprovedCustomersOnly;
-  }
-
-  public PaymentsConfigurationCOD codSurchargeAccountingCode(String codSurchargeAccountingCode) {
-    this.codSurchargeAccountingCode = codSurchargeAccountingCode;
-    return this;
-  }
-
-   /**
-   * Get codSurchargeAccountingCode
-   * @return codSurchargeAccountingCode
-  **/
-  @ApiModelProperty(value = "")
-  public String getCodSurchargeAccountingCode() {
-    return codSurchargeAccountingCode;
-  }
-
-  public void setCodSurchargeAccountingCode(String codSurchargeAccountingCode) {
-    this.codSurchargeAccountingCode = codSurchargeAccountingCode;
-  }
-
-  public PaymentsConfigurationCOD codSurchargeFee(String codSurchargeFee) {
-    this.codSurchargeFee = codSurchargeFee;
-    return this;
-  }
-
-   /**
-   * Get codSurchargeFee
-   * @return codSurchargeFee
-  **/
-  @ApiModelProperty(value = "")
-  public String getCodSurchargeFee() {
-    return codSurchargeFee;
-  }
-
-  public void setCodSurchargeFee(String codSurchargeFee) {
-    this.codSurchargeFee = codSurchargeFee;
-  }
-
-  public PaymentsConfigurationCOD codSurchargePerc(String codSurchargePerc) {
-    this.codSurchargePerc = codSurchargePerc;
-    return this;
-  }
-
-   /**
-   * Get codSurchargePerc
-   * @return codSurchargePerc
-  **/
-  @ApiModelProperty(value = "")
-  public String getCodSurchargePerc() {
-    return codSurchargePerc;
-  }
-
-  public void setCodSurchargePerc(String codSurchargePerc) {
-    this.codSurchargePerc = codSurchargePerc;
+  public void setApprovedCustomersOnly(Boolean approvedCustomersOnly) {
+    this.approvedCustomersOnly = approvedCustomersOnly;
   }
 
   public PaymentsConfigurationCOD restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -159,6 +105,60 @@ public class PaymentsConfigurationCOD {
     this.restrictions = restrictions;
   }
 
+  public PaymentsConfigurationCOD surchargeAccountingCode(String surchargeAccountingCode) {
+    this.surchargeAccountingCode = surchargeAccountingCode;
+    return this;
+  }
+
+   /**
+   * Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks
+   * @return surchargeAccountingCode
+  **/
+  @ApiModelProperty(value = "Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks")
+  public String getSurchargeAccountingCode() {
+    return surchargeAccountingCode;
+  }
+
+  public void setSurchargeAccountingCode(String surchargeAccountingCode) {
+    this.surchargeAccountingCode = surchargeAccountingCode;
+  }
+
+  public PaymentsConfigurationCOD surchargeFee(String surchargeFee) {
+    this.surchargeFee = surchargeFee;
+    return this;
+  }
+
+   /**
+   * Additional cost for using COD
+   * @return surchargeFee
+  **/
+  @ApiModelProperty(value = "Additional cost for using COD")
+  public String getSurchargeFee() {
+    return surchargeFee;
+  }
+
+  public void setSurchargeFee(String surchargeFee) {
+    this.surchargeFee = surchargeFee;
+  }
+
+  public PaymentsConfigurationCOD surchargePercentage(String surchargePercentage) {
+    this.surchargePercentage = surchargePercentage;
+    return this;
+  }
+
+   /**
+   * Additional percentage cost for using COD
+   * @return surchargePercentage
+  **/
+  @ApiModelProperty(value = "Additional percentage cost for using COD")
+  public String getSurchargePercentage() {
+    return surchargePercentage;
+  }
+
+  public void setSurchargePercentage(String surchargePercentage) {
+    this.surchargePercentage = surchargePercentage;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,16 +170,16 @@ public class PaymentsConfigurationCOD {
     }
     PaymentsConfigurationCOD paymentsConfigurationCOD = (PaymentsConfigurationCOD) o;
     return Objects.equals(this.acceptCod, paymentsConfigurationCOD.acceptCod) &&
-        Objects.equals(this.codApprovedCustomersOnly, paymentsConfigurationCOD.codApprovedCustomersOnly) &&
-        Objects.equals(this.codSurchargeAccountingCode, paymentsConfigurationCOD.codSurchargeAccountingCode) &&
-        Objects.equals(this.codSurchargeFee, paymentsConfigurationCOD.codSurchargeFee) &&
-        Objects.equals(this.codSurchargePerc, paymentsConfigurationCOD.codSurchargePerc) &&
-        Objects.equals(this.restrictions, paymentsConfigurationCOD.restrictions);
+        Objects.equals(this.approvedCustomersOnly, paymentsConfigurationCOD.approvedCustomersOnly) &&
+        Objects.equals(this.restrictions, paymentsConfigurationCOD.restrictions) &&
+        Objects.equals(this.surchargeAccountingCode, paymentsConfigurationCOD.surchargeAccountingCode) &&
+        Objects.equals(this.surchargeFee, paymentsConfigurationCOD.surchargeFee) &&
+        Objects.equals(this.surchargePercentage, paymentsConfigurationCOD.surchargePercentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptCod, codApprovedCustomersOnly, codSurchargeAccountingCode, codSurchargeFee, codSurchargePerc, restrictions);
+    return Objects.hash(acceptCod, approvedCustomersOnly, restrictions, surchargeAccountingCode, surchargeFee, surchargePercentage);
   }
 
 
@@ -189,11 +189,11 @@ public class PaymentsConfigurationCOD {
     sb.append("class PaymentsConfigurationCOD {\n");
     
     sb.append("    acceptCod: ").append(toIndentedString(acceptCod)).append("\n");
-    sb.append("    codApprovedCustomersOnly: ").append(toIndentedString(codApprovedCustomersOnly)).append("\n");
-    sb.append("    codSurchargeAccountingCode: ").append(toIndentedString(codSurchargeAccountingCode)).append("\n");
-    sb.append("    codSurchargeFee: ").append(toIndentedString(codSurchargeFee)).append("\n");
-    sb.append("    codSurchargePerc: ").append(toIndentedString(codSurchargePerc)).append("\n");
+    sb.append("    approvedCustomersOnly: ").append(toIndentedString(approvedCustomersOnly)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
+    sb.append("    surchargeAccountingCode: ").append(toIndentedString(surchargeAccountingCode)).append("\n");
+    sb.append("    surchargeFee: ").append(toIndentedString(surchargeFee)).append("\n");
+    sb.append("    surchargePercentage: ").append(toIndentedString(surchargePercentage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

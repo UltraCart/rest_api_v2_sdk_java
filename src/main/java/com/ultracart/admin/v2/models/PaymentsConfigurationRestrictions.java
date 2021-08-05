@@ -27,46 +27,46 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationRestrictions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationRestrictions {
-  @SerializedName("maximumSubtotal")
+  @SerializedName("maximum_subtotal")
   private String maximumSubtotal = null;
 
-  @SerializedName("minimumSubtotal")
+  @SerializedName("minimum_subtotal")
   private String minimumSubtotal = null;
 
-  @SerializedName("paymentMethod")
+  @SerializedName("payment_method")
   private String paymentMethod = null;
 
-  @SerializedName("restrictionAlaskaHawaii")
+  @SerializedName("restriction_alaska_hawaii")
   private String restrictionAlaskaHawaii = null;
 
-  @SerializedName("restrictionApoFpo")
+  @SerializedName("restriction_apo_fpo")
   private String restrictionApoFpo = null;
 
-  @SerializedName("restrictionCanada")
+  @SerializedName("restriction_canada")
   private String restrictionCanada = null;
 
-  @SerializedName("restrictionContinentalUS")
-  private String restrictionContinentalUS = null;
+  @SerializedName("restriction_continental_us")
+  private String restrictionContinentalUs = null;
 
-  @SerializedName("restrictionDomesticOnly")
+  @SerializedName("restriction_domestic_only")
   private String restrictionDomesticOnly = null;
 
-  @SerializedName("restrictionInternationalOnly")
+  @SerializedName("restriction_international_only")
   private String restrictionInternationalOnly = null;
 
-  @SerializedName("restrictionPoBox")
+  @SerializedName("restriction_po_box")
   private String restrictionPoBox = null;
 
-  @SerializedName("restrictionPuertoRico")
+  @SerializedName("restriction_puerto_rico")
   private String restrictionPuertoRico = null;
 
-  @SerializedName("restrictionUSTerritories")
-  private String restrictionUSTerritories = null;
+  @SerializedName("restriction_us_territories")
+  private String restrictionUsTerritories = null;
 
   public PaymentsConfigurationRestrictions maximumSubtotal(String maximumSubtotal) {
     this.maximumSubtotal = maximumSubtotal;
@@ -74,10 +74,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get maximumSubtotal
+   * Maximum subtotal
    * @return maximumSubtotal
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Maximum subtotal")
   public String getMaximumSubtotal() {
     return maximumSubtotal;
   }
@@ -92,10 +92,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get minimumSubtotal
+   * Minimum subtotal
    * @return minimumSubtotal
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Minimum subtotal")
   public String getMinimumSubtotal() {
     return minimumSubtotal;
   }
@@ -110,10 +110,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get paymentMethod
+   * Payment method
    * @return paymentMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Payment method")
   public String getPaymentMethod() {
     return paymentMethod;
   }
@@ -128,10 +128,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get restrictionAlaskaHawaii
+   * Alaska and Hawaii restriction
    * @return restrictionAlaskaHawaii
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Alaska and Hawaii restriction")
   public String getRestrictionAlaskaHawaii() {
     return restrictionAlaskaHawaii;
   }
@@ -146,10 +146,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get restrictionApoFpo
+   * APO/FPO restriction
    * @return restrictionApoFpo
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "APO/FPO restriction")
   public String getRestrictionApoFpo() {
     return restrictionApoFpo;
   }
@@ -164,10 +164,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get restrictionCanada
+   * Canada restriction
    * @return restrictionCanada
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Canada restriction")
   public String getRestrictionCanada() {
     return restrictionCanada;
   }
@@ -176,22 +176,22 @@ public class PaymentsConfigurationRestrictions {
     this.restrictionCanada = restrictionCanada;
   }
 
-  public PaymentsConfigurationRestrictions restrictionContinentalUS(String restrictionContinentalUS) {
-    this.restrictionContinentalUS = restrictionContinentalUS;
+  public PaymentsConfigurationRestrictions restrictionContinentalUs(String restrictionContinentalUs) {
+    this.restrictionContinentalUs = restrictionContinentalUs;
     return this;
   }
 
    /**
-   * Get restrictionContinentalUS
-   * @return restrictionContinentalUS
+   * Continental US restriction
+   * @return restrictionContinentalUs
   **/
-  @ApiModelProperty(value = "")
-  public String getRestrictionContinentalUS() {
-    return restrictionContinentalUS;
+  @ApiModelProperty(value = "Continental US restriction")
+  public String getRestrictionContinentalUs() {
+    return restrictionContinentalUs;
   }
 
-  public void setRestrictionContinentalUS(String restrictionContinentalUS) {
-    this.restrictionContinentalUS = restrictionContinentalUS;
+  public void setRestrictionContinentalUs(String restrictionContinentalUs) {
+    this.restrictionContinentalUs = restrictionContinentalUs;
   }
 
   public PaymentsConfigurationRestrictions restrictionDomesticOnly(String restrictionDomesticOnly) {
@@ -200,10 +200,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get restrictionDomesticOnly
+   * Domestic only restriction
    * @return restrictionDomesticOnly
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Domestic only restriction")
   public String getRestrictionDomesticOnly() {
     return restrictionDomesticOnly;
   }
@@ -218,10 +218,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get restrictionInternationalOnly
+   * International only restriction
    * @return restrictionInternationalOnly
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "International only restriction")
   public String getRestrictionInternationalOnly() {
     return restrictionInternationalOnly;
   }
@@ -236,10 +236,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get restrictionPoBox
+   * PO Box restriction
    * @return restrictionPoBox
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "PO Box restriction")
   public String getRestrictionPoBox() {
     return restrictionPoBox;
   }
@@ -254,10 +254,10 @@ public class PaymentsConfigurationRestrictions {
   }
 
    /**
-   * Get restrictionPuertoRico
+   * Puerto Rico restriction
    * @return restrictionPuertoRico
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Puerto Rico restriction")
   public String getRestrictionPuertoRico() {
     return restrictionPuertoRico;
   }
@@ -266,22 +266,22 @@ public class PaymentsConfigurationRestrictions {
     this.restrictionPuertoRico = restrictionPuertoRico;
   }
 
-  public PaymentsConfigurationRestrictions restrictionUSTerritories(String restrictionUSTerritories) {
-    this.restrictionUSTerritories = restrictionUSTerritories;
+  public PaymentsConfigurationRestrictions restrictionUsTerritories(String restrictionUsTerritories) {
+    this.restrictionUsTerritories = restrictionUsTerritories;
     return this;
   }
 
    /**
-   * Get restrictionUSTerritories
-   * @return restrictionUSTerritories
+   * US Territories restriction
+   * @return restrictionUsTerritories
   **/
-  @ApiModelProperty(value = "")
-  public String getRestrictionUSTerritories() {
-    return restrictionUSTerritories;
+  @ApiModelProperty(value = "US Territories restriction")
+  public String getRestrictionUsTerritories() {
+    return restrictionUsTerritories;
   }
 
-  public void setRestrictionUSTerritories(String restrictionUSTerritories) {
-    this.restrictionUSTerritories = restrictionUSTerritories;
+  public void setRestrictionUsTerritories(String restrictionUsTerritories) {
+    this.restrictionUsTerritories = restrictionUsTerritories;
   }
 
 
@@ -300,17 +300,17 @@ public class PaymentsConfigurationRestrictions {
         Objects.equals(this.restrictionAlaskaHawaii, paymentsConfigurationRestrictions.restrictionAlaskaHawaii) &&
         Objects.equals(this.restrictionApoFpo, paymentsConfigurationRestrictions.restrictionApoFpo) &&
         Objects.equals(this.restrictionCanada, paymentsConfigurationRestrictions.restrictionCanada) &&
-        Objects.equals(this.restrictionContinentalUS, paymentsConfigurationRestrictions.restrictionContinentalUS) &&
+        Objects.equals(this.restrictionContinentalUs, paymentsConfigurationRestrictions.restrictionContinentalUs) &&
         Objects.equals(this.restrictionDomesticOnly, paymentsConfigurationRestrictions.restrictionDomesticOnly) &&
         Objects.equals(this.restrictionInternationalOnly, paymentsConfigurationRestrictions.restrictionInternationalOnly) &&
         Objects.equals(this.restrictionPoBox, paymentsConfigurationRestrictions.restrictionPoBox) &&
         Objects.equals(this.restrictionPuertoRico, paymentsConfigurationRestrictions.restrictionPuertoRico) &&
-        Objects.equals(this.restrictionUSTerritories, paymentsConfigurationRestrictions.restrictionUSTerritories);
+        Objects.equals(this.restrictionUsTerritories, paymentsConfigurationRestrictions.restrictionUsTerritories);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maximumSubtotal, minimumSubtotal, paymentMethod, restrictionAlaskaHawaii, restrictionApoFpo, restrictionCanada, restrictionContinentalUS, restrictionDomesticOnly, restrictionInternationalOnly, restrictionPoBox, restrictionPuertoRico, restrictionUSTerritories);
+    return Objects.hash(maximumSubtotal, minimumSubtotal, paymentMethod, restrictionAlaskaHawaii, restrictionApoFpo, restrictionCanada, restrictionContinentalUs, restrictionDomesticOnly, restrictionInternationalOnly, restrictionPoBox, restrictionPuertoRico, restrictionUsTerritories);
   }
 
 
@@ -325,12 +325,12 @@ public class PaymentsConfigurationRestrictions {
     sb.append("    restrictionAlaskaHawaii: ").append(toIndentedString(restrictionAlaskaHawaii)).append("\n");
     sb.append("    restrictionApoFpo: ").append(toIndentedString(restrictionApoFpo)).append("\n");
     sb.append("    restrictionCanada: ").append(toIndentedString(restrictionCanada)).append("\n");
-    sb.append("    restrictionContinentalUS: ").append(toIndentedString(restrictionContinentalUS)).append("\n");
+    sb.append("    restrictionContinentalUs: ").append(toIndentedString(restrictionContinentalUs)).append("\n");
     sb.append("    restrictionDomesticOnly: ").append(toIndentedString(restrictionDomesticOnly)).append("\n");
     sb.append("    restrictionInternationalOnly: ").append(toIndentedString(restrictionInternationalOnly)).append("\n");
     sb.append("    restrictionPoBox: ").append(toIndentedString(restrictionPoBox)).append("\n");
     sb.append("    restrictionPuertoRico: ").append(toIndentedString(restrictionPuertoRico)).append("\n");
-    sb.append("    restrictionUSTerritories: ").append(toIndentedString(restrictionUSTerritories)).append("\n");
+    sb.append("    restrictionUsTerritories: ").append(toIndentedString(restrictionUsTerritories)).append("\n");
     sb.append("}");
     return sb.toString();
   }

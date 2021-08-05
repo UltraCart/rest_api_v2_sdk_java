@@ -28,12 +28,12 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationCash
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationCash {
-  @SerializedName("acceptCash")
+  @SerializedName("accept_cash")
   private Boolean acceptCash = null;
 
   @SerializedName("restrictions")
@@ -45,10 +45,10 @@ public class PaymentsConfigurationCash {
   }
 
    /**
-   * Get acceptCash
+   * Master flag indicating this merchant accepts cash
    * @return acceptCash
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts cash")
   public Boolean isAcceptCash() {
     return acceptCash;
   }

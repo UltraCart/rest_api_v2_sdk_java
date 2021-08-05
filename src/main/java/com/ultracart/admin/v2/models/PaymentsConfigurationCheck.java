@@ -28,52 +28,49 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationCheck
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationCheck {
-  @SerializedName("acceptCheckOrders")
+  @SerializedName("accept_check_orders")
   private Boolean acceptCheckOrders = null;
 
-  @SerializedName("checkAccountingCode")
-  private String checkAccountingCode = null;
+  @SerializedName("accounting_code")
+  private String accountingCode = null;
 
-  @SerializedName("checkDepositToAccount")
-  private String checkDepositToAccount = null;
-
-  @SerializedName("checksPayableTo")
+  @SerializedName("checks_payable_to")
   private String checksPayableTo = null;
 
-  @SerializedName("mailToAddress1")
+  @SerializedName("deposit_to_account")
+  private String depositToAccount = null;
+
+  @SerializedName("mail_to_address1")
   private String mailToAddress1 = null;
 
-  @SerializedName("mailToAddress2")
+  @SerializedName("mail_to_address2")
   private String mailToAddress2 = null;
 
-  @SerializedName("mailToCity")
+  @SerializedName("mail_to_city")
   private String mailToCity = null;
 
-  @SerializedName("mailToCountry")
+  @SerializedName("mail_to_country")
   private String mailToCountry = null;
 
-  @SerializedName("mailToName")
+  @SerializedName("mail_to_name")
   private String mailToName = null;
 
-  @SerializedName("mailToState")
-  private String mailToState = null;
+  @SerializedName("mail_to_postal_code")
+  private String mailToPostalCode = null;
 
-  @SerializedName("mailToZip")
-  private String mailToZip = null;
-
-  @SerializedName("moneyOrderAccountingCode")
-  private String moneyOrderAccountingCode = null;
-
-  @SerializedName("moneyOrderDepositToAccount")
-  private String moneyOrderDepositToAccount = null;
+  @SerializedName("mail_to_store")
+  private String mailToStore = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
+
+  @SerializedName("test_methods")
+  private Object testMethods = null;
 
   public PaymentsConfigurationCheck acceptCheckOrders(Boolean acceptCheckOrders) {
     this.acceptCheckOrders = acceptCheckOrders;
@@ -81,10 +78,10 @@ public class PaymentsConfigurationCheck {
   }
 
    /**
-   * Get acceptCheckOrders
+   * Master flag indicating this merchant accepts paper checks
    * @return acceptCheckOrders
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts paper checks")
   public Boolean isAcceptCheckOrders() {
     return acceptCheckOrders;
   }
@@ -93,40 +90,22 @@ public class PaymentsConfigurationCheck {
     this.acceptCheckOrders = acceptCheckOrders;
   }
 
-  public PaymentsConfigurationCheck checkAccountingCode(String checkAccountingCode) {
-    this.checkAccountingCode = checkAccountingCode;
+  public PaymentsConfigurationCheck accountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
     return this;
   }
 
    /**
-   * Get checkAccountingCode
-   * @return checkAccountingCode
+   * Optional Quickbooks accounting code
+   * @return accountingCode
   **/
-  @ApiModelProperty(value = "")
-  public String getCheckAccountingCode() {
-    return checkAccountingCode;
+  @ApiModelProperty(value = "Optional Quickbooks accounting code")
+  public String getAccountingCode() {
+    return accountingCode;
   }
 
-  public void setCheckAccountingCode(String checkAccountingCode) {
-    this.checkAccountingCode = checkAccountingCode;
-  }
-
-  public PaymentsConfigurationCheck checkDepositToAccount(String checkDepositToAccount) {
-    this.checkDepositToAccount = checkDepositToAccount;
-    return this;
-  }
-
-   /**
-   * Get checkDepositToAccount
-   * @return checkDepositToAccount
-  **/
-  @ApiModelProperty(value = "")
-  public String getCheckDepositToAccount() {
-    return checkDepositToAccount;
-  }
-
-  public void setCheckDepositToAccount(String checkDepositToAccount) {
-    this.checkDepositToAccount = checkDepositToAccount;
+  public void setAccountingCode(String accountingCode) {
+    this.accountingCode = accountingCode;
   }
 
   public PaymentsConfigurationCheck checksPayableTo(String checksPayableTo) {
@@ -135,10 +114,10 @@ public class PaymentsConfigurationCheck {
   }
 
    /**
-   * Get checksPayableTo
+   * This is who the customer makes the check out to
    * @return checksPayableTo
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "This is who the customer makes the check out to")
   public String getChecksPayableTo() {
     return checksPayableTo;
   }
@@ -147,16 +126,34 @@ public class PaymentsConfigurationCheck {
     this.checksPayableTo = checksPayableTo;
   }
 
+  public PaymentsConfigurationCheck depositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
+    return this;
+  }
+
+   /**
+   * Optional Quickbooks deposit to account
+   * @return depositToAccount
+  **/
+  @ApiModelProperty(value = "Optional Quickbooks deposit to account")
+  public String getDepositToAccount() {
+    return depositToAccount;
+  }
+
+  public void setDepositToAccount(String depositToAccount) {
+    this.depositToAccount = depositToAccount;
+  }
+
   public PaymentsConfigurationCheck mailToAddress1(String mailToAddress1) {
     this.mailToAddress1 = mailToAddress1;
     return this;
   }
 
    /**
-   * Get mailToAddress1
+   * MailTo address line 1
    * @return mailToAddress1
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "MailTo address line 1")
   public String getMailToAddress1() {
     return mailToAddress1;
   }
@@ -171,10 +168,10 @@ public class PaymentsConfigurationCheck {
   }
 
    /**
-   * Get mailToAddress2
+   * MailTo address line 2
    * @return mailToAddress2
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "MailTo address line 2")
   public String getMailToAddress2() {
     return mailToAddress2;
   }
@@ -189,10 +186,10 @@ public class PaymentsConfigurationCheck {
   }
 
    /**
-   * Get mailToCity
+   * MailTo city
    * @return mailToCity
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "MailTo city")
   public String getMailToCity() {
     return mailToCity;
   }
@@ -207,10 +204,10 @@ public class PaymentsConfigurationCheck {
   }
 
    /**
-   * Get mailToCountry
+   * MailTo country
    * @return mailToCountry
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "MailTo country")
   public String getMailToCountry() {
     return mailToCountry;
   }
@@ -225,10 +222,10 @@ public class PaymentsConfigurationCheck {
   }
 
    /**
-   * Get mailToName
+   * MailTo name
    * @return mailToName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "MailTo name")
   public String getMailToName() {
     return mailToName;
   }
@@ -237,76 +234,40 @@ public class PaymentsConfigurationCheck {
     this.mailToName = mailToName;
   }
 
-  public PaymentsConfigurationCheck mailToState(String mailToState) {
-    this.mailToState = mailToState;
+  public PaymentsConfigurationCheck mailToPostalCode(String mailToPostalCode) {
+    this.mailToPostalCode = mailToPostalCode;
     return this;
   }
 
    /**
-   * Get mailToState
-   * @return mailToState
+   * MailTo postal code
+   * @return mailToPostalCode
   **/
-  @ApiModelProperty(value = "")
-  public String getMailToState() {
-    return mailToState;
+  @ApiModelProperty(value = "MailTo postal code")
+  public String getMailToPostalCode() {
+    return mailToPostalCode;
   }
 
-  public void setMailToState(String mailToState) {
-    this.mailToState = mailToState;
+  public void setMailToPostalCode(String mailToPostalCode) {
+    this.mailToPostalCode = mailToPostalCode;
   }
 
-  public PaymentsConfigurationCheck mailToZip(String mailToZip) {
-    this.mailToZip = mailToZip;
+  public PaymentsConfigurationCheck mailToStore(String mailToStore) {
+    this.mailToStore = mailToStore;
     return this;
   }
 
    /**
-   * Get mailToZip
-   * @return mailToZip
+   * MailTo store
+   * @return mailToStore
   **/
-  @ApiModelProperty(value = "")
-  public String getMailToZip() {
-    return mailToZip;
+  @ApiModelProperty(value = "MailTo store")
+  public String getMailToStore() {
+    return mailToStore;
   }
 
-  public void setMailToZip(String mailToZip) {
-    this.mailToZip = mailToZip;
-  }
-
-  public PaymentsConfigurationCheck moneyOrderAccountingCode(String moneyOrderAccountingCode) {
-    this.moneyOrderAccountingCode = moneyOrderAccountingCode;
-    return this;
-  }
-
-   /**
-   * Get moneyOrderAccountingCode
-   * @return moneyOrderAccountingCode
-  **/
-  @ApiModelProperty(value = "")
-  public String getMoneyOrderAccountingCode() {
-    return moneyOrderAccountingCode;
-  }
-
-  public void setMoneyOrderAccountingCode(String moneyOrderAccountingCode) {
-    this.moneyOrderAccountingCode = moneyOrderAccountingCode;
-  }
-
-  public PaymentsConfigurationCheck moneyOrderDepositToAccount(String moneyOrderDepositToAccount) {
-    this.moneyOrderDepositToAccount = moneyOrderDepositToAccount;
-    return this;
-  }
-
-   /**
-   * Get moneyOrderDepositToAccount
-   * @return moneyOrderDepositToAccount
-  **/
-  @ApiModelProperty(value = "")
-  public String getMoneyOrderDepositToAccount() {
-    return moneyOrderDepositToAccount;
-  }
-
-  public void setMoneyOrderDepositToAccount(String moneyOrderDepositToAccount) {
-    this.moneyOrderDepositToAccount = moneyOrderDepositToAccount;
+  public void setMailToStore(String mailToStore) {
+    this.mailToStore = mailToStore;
   }
 
   public PaymentsConfigurationCheck restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -327,6 +288,24 @@ public class PaymentsConfigurationCheck {
     this.restrictions = restrictions;
   }
 
+  public PaymentsConfigurationCheck testMethods(Object testMethods) {
+    this.testMethods = testMethods;
+    return this;
+  }
+
+   /**
+   * Test methods for this payment method
+   * @return testMethods
+  **/
+  @ApiModelProperty(value = "Test methods for this payment method")
+  public Object getTestMethods() {
+    return testMethods;
+  }
+
+  public void setTestMethods(Object testMethods) {
+    this.testMethods = testMethods;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -338,24 +317,23 @@ public class PaymentsConfigurationCheck {
     }
     PaymentsConfigurationCheck paymentsConfigurationCheck = (PaymentsConfigurationCheck) o;
     return Objects.equals(this.acceptCheckOrders, paymentsConfigurationCheck.acceptCheckOrders) &&
-        Objects.equals(this.checkAccountingCode, paymentsConfigurationCheck.checkAccountingCode) &&
-        Objects.equals(this.checkDepositToAccount, paymentsConfigurationCheck.checkDepositToAccount) &&
+        Objects.equals(this.accountingCode, paymentsConfigurationCheck.accountingCode) &&
         Objects.equals(this.checksPayableTo, paymentsConfigurationCheck.checksPayableTo) &&
+        Objects.equals(this.depositToAccount, paymentsConfigurationCheck.depositToAccount) &&
         Objects.equals(this.mailToAddress1, paymentsConfigurationCheck.mailToAddress1) &&
         Objects.equals(this.mailToAddress2, paymentsConfigurationCheck.mailToAddress2) &&
         Objects.equals(this.mailToCity, paymentsConfigurationCheck.mailToCity) &&
         Objects.equals(this.mailToCountry, paymentsConfigurationCheck.mailToCountry) &&
         Objects.equals(this.mailToName, paymentsConfigurationCheck.mailToName) &&
-        Objects.equals(this.mailToState, paymentsConfigurationCheck.mailToState) &&
-        Objects.equals(this.mailToZip, paymentsConfigurationCheck.mailToZip) &&
-        Objects.equals(this.moneyOrderAccountingCode, paymentsConfigurationCheck.moneyOrderAccountingCode) &&
-        Objects.equals(this.moneyOrderDepositToAccount, paymentsConfigurationCheck.moneyOrderDepositToAccount) &&
-        Objects.equals(this.restrictions, paymentsConfigurationCheck.restrictions);
+        Objects.equals(this.mailToPostalCode, paymentsConfigurationCheck.mailToPostalCode) &&
+        Objects.equals(this.mailToStore, paymentsConfigurationCheck.mailToStore) &&
+        Objects.equals(this.restrictions, paymentsConfigurationCheck.restrictions) &&
+        Objects.equals(this.testMethods, paymentsConfigurationCheck.testMethods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptCheckOrders, checkAccountingCode, checkDepositToAccount, checksPayableTo, mailToAddress1, mailToAddress2, mailToCity, mailToCountry, mailToName, mailToState, mailToZip, moneyOrderAccountingCode, moneyOrderDepositToAccount, restrictions);
+    return Objects.hash(acceptCheckOrders, accountingCode, checksPayableTo, depositToAccount, mailToAddress1, mailToAddress2, mailToCity, mailToCountry, mailToName, mailToPostalCode, mailToStore, restrictions, testMethods);
   }
 
 
@@ -365,19 +343,18 @@ public class PaymentsConfigurationCheck {
     sb.append("class PaymentsConfigurationCheck {\n");
     
     sb.append("    acceptCheckOrders: ").append(toIndentedString(acceptCheckOrders)).append("\n");
-    sb.append("    checkAccountingCode: ").append(toIndentedString(checkAccountingCode)).append("\n");
-    sb.append("    checkDepositToAccount: ").append(toIndentedString(checkDepositToAccount)).append("\n");
+    sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
     sb.append("    checksPayableTo: ").append(toIndentedString(checksPayableTo)).append("\n");
+    sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
     sb.append("    mailToAddress1: ").append(toIndentedString(mailToAddress1)).append("\n");
     sb.append("    mailToAddress2: ").append(toIndentedString(mailToAddress2)).append("\n");
     sb.append("    mailToCity: ").append(toIndentedString(mailToCity)).append("\n");
     sb.append("    mailToCountry: ").append(toIndentedString(mailToCountry)).append("\n");
     sb.append("    mailToName: ").append(toIndentedString(mailToName)).append("\n");
-    sb.append("    mailToState: ").append(toIndentedString(mailToState)).append("\n");
-    sb.append("    mailToZip: ").append(toIndentedString(mailToZip)).append("\n");
-    sb.append("    moneyOrderAccountingCode: ").append(toIndentedString(moneyOrderAccountingCode)).append("\n");
-    sb.append("    moneyOrderDepositToAccount: ").append(toIndentedString(moneyOrderDepositToAccount)).append("\n");
+    sb.append("    mailToPostalCode: ").append(toIndentedString(mailToPostalCode)).append("\n");
+    sb.append("    mailToStore: ").append(toIndentedString(mailToStore)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
+    sb.append("    testMethods: ").append(toIndentedString(testMethods)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -42,7 +42,7 @@ import java.io.IOException;
 /**
  * PaymentsConfiguration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
@@ -62,31 +62,31 @@ public class PaymentsConfiguration {
   @SerializedName("cod")
   private PaymentsConfigurationCOD cod = null;
 
-  @SerializedName("creditCard")
+  @SerializedName("credit_card")
   private PaymentsConfigurationCreditCard creditCard = null;
 
-  @SerializedName("eCheck")
-  private PaymentsConfigurationEcheck eCheck = null;
+  @SerializedName("echeck")
+  private PaymentsConfigurationEcheck echeck = null;
 
-  @SerializedName("loanHero")
+  @SerializedName("loan_hero")
   private PaymentsConfigurationLoanHero loanHero = null;
 
-  @SerializedName("moneyOrder")
+  @SerializedName("money_order")
   private PaymentsConfigurationMoneyOrder moneyOrder = null;
 
-  @SerializedName("payPal")
-  private PaymentsConfigurationPayPal payPal = null;
+  @SerializedName("paypal")
+  private PaymentsConfigurationPayPal paypal = null;
 
-  @SerializedName("purchaseOrder")
+  @SerializedName("purchase_order")
   private PaymentsConfigurationPurchaseOrder purchaseOrder = null;
 
-  @SerializedName("quoteRequest")
+  @SerializedName("quote_request")
   private PaymentsConfigurationQuoteRequest quoteRequest = null;
 
   @SerializedName("sezzle")
   private PaymentsConfigurationSezzle sezzle = null;
 
-  @SerializedName("showAccountingCode")
+  @SerializedName("show_accounting_code")
   private Boolean showAccountingCode = null;
 
   @SerializedName("switchToSubTab")
@@ -95,10 +95,10 @@ public class PaymentsConfiguration {
   @SerializedName("switchToTab")
   private String switchToTab = null;
 
-  @SerializedName("wePay")
-  private PaymentsConfigurationWePay wePay = null;
+  @SerializedName("ultracart_payments_wepay")
+  private PaymentsConfigurationWePay ultracartPaymentsWepay = null;
 
-  @SerializedName("wireTransfer")
+  @SerializedName("wire_transfer")
   private PaymentsConfigurationWireTransfer wireTransfer = null;
 
   public PaymentsConfiguration affirm(PaymentsConfigurationAffirm affirm) {
@@ -209,22 +209,22 @@ public class PaymentsConfiguration {
     this.creditCard = creditCard;
   }
 
-  public PaymentsConfiguration eCheck(PaymentsConfigurationEcheck eCheck) {
-    this.eCheck = eCheck;
+  public PaymentsConfiguration echeck(PaymentsConfigurationEcheck echeck) {
+    this.echeck = echeck;
     return this;
   }
 
    /**
-   * Get eCheck
-   * @return eCheck
+   * Get echeck
+   * @return echeck
   **/
   @ApiModelProperty(value = "")
-  public PaymentsConfigurationEcheck getECheck() {
-    return eCheck;
+  public PaymentsConfigurationEcheck getEcheck() {
+    return echeck;
   }
 
-  public void setECheck(PaymentsConfigurationEcheck eCheck) {
-    this.eCheck = eCheck;
+  public void setEcheck(PaymentsConfigurationEcheck echeck) {
+    this.echeck = echeck;
   }
 
   public PaymentsConfiguration loanHero(PaymentsConfigurationLoanHero loanHero) {
@@ -263,22 +263,22 @@ public class PaymentsConfiguration {
     this.moneyOrder = moneyOrder;
   }
 
-  public PaymentsConfiguration payPal(PaymentsConfigurationPayPal payPal) {
-    this.payPal = payPal;
+  public PaymentsConfiguration paypal(PaymentsConfigurationPayPal paypal) {
+    this.paypal = paypal;
     return this;
   }
 
    /**
-   * Get payPal
-   * @return payPal
+   * Get paypal
+   * @return paypal
   **/
   @ApiModelProperty(value = "")
-  public PaymentsConfigurationPayPal getPayPal() {
-    return payPal;
+  public PaymentsConfigurationPayPal getPaypal() {
+    return paypal;
   }
 
-  public void setPayPal(PaymentsConfigurationPayPal payPal) {
-    this.payPal = payPal;
+  public void setPaypal(PaymentsConfigurationPayPal paypal) {
+    this.paypal = paypal;
   }
 
   public PaymentsConfiguration purchaseOrder(PaymentsConfigurationPurchaseOrder purchaseOrder) {
@@ -341,10 +341,10 @@ public class PaymentsConfiguration {
   }
 
    /**
-   * Get showAccountingCode
+   * Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured.
    * @return showAccountingCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured.")
   public Boolean isShowAccountingCode() {
     return showAccountingCode;
   }
@@ -389,22 +389,22 @@ public class PaymentsConfiguration {
     this.switchToTab = switchToTab;
   }
 
-  public PaymentsConfiguration wePay(PaymentsConfigurationWePay wePay) {
-    this.wePay = wePay;
+  public PaymentsConfiguration ultracartPaymentsWepay(PaymentsConfigurationWePay ultracartPaymentsWepay) {
+    this.ultracartPaymentsWepay = ultracartPaymentsWepay;
     return this;
   }
 
    /**
-   * Get wePay
-   * @return wePay
+   * Get ultracartPaymentsWepay
+   * @return ultracartPaymentsWepay
   **/
   @ApiModelProperty(value = "")
-  public PaymentsConfigurationWePay getWePay() {
-    return wePay;
+  public PaymentsConfigurationWePay getUltracartPaymentsWepay() {
+    return ultracartPaymentsWepay;
   }
 
-  public void setWePay(PaymentsConfigurationWePay wePay) {
-    this.wePay = wePay;
+  public void setUltracartPaymentsWepay(PaymentsConfigurationWePay ultracartPaymentsWepay) {
+    this.ultracartPaymentsWepay = ultracartPaymentsWepay;
   }
 
   public PaymentsConfiguration wireTransfer(PaymentsConfigurationWireTransfer wireTransfer) {
@@ -441,23 +441,23 @@ public class PaymentsConfiguration {
         Objects.equals(this.check, paymentsConfiguration.check) &&
         Objects.equals(this.cod, paymentsConfiguration.cod) &&
         Objects.equals(this.creditCard, paymentsConfiguration.creditCard) &&
-        Objects.equals(this.eCheck, paymentsConfiguration.eCheck) &&
+        Objects.equals(this.echeck, paymentsConfiguration.echeck) &&
         Objects.equals(this.loanHero, paymentsConfiguration.loanHero) &&
         Objects.equals(this.moneyOrder, paymentsConfiguration.moneyOrder) &&
-        Objects.equals(this.payPal, paymentsConfiguration.payPal) &&
+        Objects.equals(this.paypal, paymentsConfiguration.paypal) &&
         Objects.equals(this.purchaseOrder, paymentsConfiguration.purchaseOrder) &&
         Objects.equals(this.quoteRequest, paymentsConfiguration.quoteRequest) &&
         Objects.equals(this.sezzle, paymentsConfiguration.sezzle) &&
         Objects.equals(this.showAccountingCode, paymentsConfiguration.showAccountingCode) &&
         Objects.equals(this.switchToSubTab, paymentsConfiguration.switchToSubTab) &&
         Objects.equals(this.switchToTab, paymentsConfiguration.switchToTab) &&
-        Objects.equals(this.wePay, paymentsConfiguration.wePay) &&
+        Objects.equals(this.ultracartPaymentsWepay, paymentsConfiguration.ultracartPaymentsWepay) &&
         Objects.equals(this.wireTransfer, paymentsConfiguration.wireTransfer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affirm, amazon, cash, check, cod, creditCard, eCheck, loanHero, moneyOrder, payPal, purchaseOrder, quoteRequest, sezzle, showAccountingCode, switchToSubTab, switchToTab, wePay, wireTransfer);
+    return Objects.hash(affirm, amazon, cash, check, cod, creditCard, echeck, loanHero, moneyOrder, paypal, purchaseOrder, quoteRequest, sezzle, showAccountingCode, switchToSubTab, switchToTab, ultracartPaymentsWepay, wireTransfer);
   }
 
 
@@ -472,17 +472,17 @@ public class PaymentsConfiguration {
     sb.append("    check: ").append(toIndentedString(check)).append("\n");
     sb.append("    cod: ").append(toIndentedString(cod)).append("\n");
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
-    sb.append("    eCheck: ").append(toIndentedString(eCheck)).append("\n");
+    sb.append("    echeck: ").append(toIndentedString(echeck)).append("\n");
     sb.append("    loanHero: ").append(toIndentedString(loanHero)).append("\n");
     sb.append("    moneyOrder: ").append(toIndentedString(moneyOrder)).append("\n");
-    sb.append("    payPal: ").append(toIndentedString(payPal)).append("\n");
+    sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
     sb.append("    purchaseOrder: ").append(toIndentedString(purchaseOrder)).append("\n");
     sb.append("    quoteRequest: ").append(toIndentedString(quoteRequest)).append("\n");
     sb.append("    sezzle: ").append(toIndentedString(sezzle)).append("\n");
     sb.append("    showAccountingCode: ").append(toIndentedString(showAccountingCode)).append("\n");
     sb.append("    switchToSubTab: ").append(toIndentedString(switchToSubTab)).append("\n");
     sb.append("    switchToTab: ").append(toIndentedString(switchToTab)).append("\n");
-    sb.append("    wePay: ").append(toIndentedString(wePay)).append("\n");
+    sb.append("    ultracartPaymentsWepay: ").append(toIndentedString(ultracartPaymentsWepay)).append("\n");
     sb.append("    wireTransfer: ").append(toIndentedString(wireTransfer)).append("\n");
     sb.append("}");
     return sb.toString();

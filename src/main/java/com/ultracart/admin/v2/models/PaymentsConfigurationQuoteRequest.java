@@ -28,16 +28,16 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationQuoteRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-04T16:51:30.221-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T15:00:57.384-04:00")
 
 
 
 public class PaymentsConfigurationQuoteRequest {
-  @SerializedName("acceptQuoteRequests")
+  @SerializedName("accept_quote_requests")
   private Boolean acceptQuoteRequests = null;
 
-  @SerializedName("quoteRequestApprovedCustomersOnly")
-  private Boolean quoteRequestApprovedCustomersOnly = null;
+  @SerializedName("approved_customers_only")
+  private Boolean approvedCustomersOnly = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
@@ -48,10 +48,10 @@ public class PaymentsConfigurationQuoteRequest {
   }
 
    /**
-   * Get acceptQuoteRequests
+   * Master flag indicating this merchant accepts quote requests
    * @return acceptQuoteRequests
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Master flag indicating this merchant accepts quote requests")
   public Boolean isAcceptQuoteRequests() {
     return acceptQuoteRequests;
   }
@@ -60,22 +60,22 @@ public class PaymentsConfigurationQuoteRequest {
     this.acceptQuoteRequests = acceptQuoteRequests;
   }
 
-  public PaymentsConfigurationQuoteRequest quoteRequestApprovedCustomersOnly(Boolean quoteRequestApprovedCustomersOnly) {
-    this.quoteRequestApprovedCustomersOnly = quoteRequestApprovedCustomersOnly;
+  public PaymentsConfigurationQuoteRequest approvedCustomersOnly(Boolean approvedCustomersOnly) {
+    this.approvedCustomersOnly = approvedCustomersOnly;
     return this;
   }
 
    /**
-   * Get quoteRequestApprovedCustomersOnly
-   * @return quoteRequestApprovedCustomersOnly
+   * If true, only approved customers may use quote requests
+   * @return approvedCustomersOnly
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isQuoteRequestApprovedCustomersOnly() {
-    return quoteRequestApprovedCustomersOnly;
+  @ApiModelProperty(value = "If true, only approved customers may use quote requests")
+  public Boolean isApprovedCustomersOnly() {
+    return approvedCustomersOnly;
   }
 
-  public void setQuoteRequestApprovedCustomersOnly(Boolean quoteRequestApprovedCustomersOnly) {
-    this.quoteRequestApprovedCustomersOnly = quoteRequestApprovedCustomersOnly;
+  public void setApprovedCustomersOnly(Boolean approvedCustomersOnly) {
+    this.approvedCustomersOnly = approvedCustomersOnly;
   }
 
   public PaymentsConfigurationQuoteRequest restrictions(PaymentsConfigurationRestrictions restrictions) {
@@ -107,13 +107,13 @@ public class PaymentsConfigurationQuoteRequest {
     }
     PaymentsConfigurationQuoteRequest paymentsConfigurationQuoteRequest = (PaymentsConfigurationQuoteRequest) o;
     return Objects.equals(this.acceptQuoteRequests, paymentsConfigurationQuoteRequest.acceptQuoteRequests) &&
-        Objects.equals(this.quoteRequestApprovedCustomersOnly, paymentsConfigurationQuoteRequest.quoteRequestApprovedCustomersOnly) &&
+        Objects.equals(this.approvedCustomersOnly, paymentsConfigurationQuoteRequest.approvedCustomersOnly) &&
         Objects.equals(this.restrictions, paymentsConfigurationQuoteRequest.restrictions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptQuoteRequests, quoteRequestApprovedCustomersOnly, restrictions);
+    return Objects.hash(acceptQuoteRequests, approvedCustomersOnly, restrictions);
   }
 
 
@@ -123,7 +123,7 @@ public class PaymentsConfigurationQuoteRequest {
     sb.append("class PaymentsConfigurationQuoteRequest {\n");
     
     sb.append("    acceptQuoteRequests: ").append(toIndentedString(acceptQuoteRequests)).append("\n");
-    sb.append("    quoteRequestApprovedCustomersOnly: ").append(toIndentedString(quoteRequestApprovedCustomersOnly)).append("\n");
+    sb.append("    approvedCustomersOnly: ").append(toIndentedString(approvedCustomersOnly)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("}");
     return sb.toString();

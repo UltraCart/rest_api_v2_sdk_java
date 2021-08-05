@@ -4,17 +4,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**acceptWireTransfer** | **Boolean** |  |  [optional]
+**acceptWireTransfer** | **Boolean** | Master flag indicating this merchant accepts wire transfers |  [optional]
+**accountNumber** | **String** | account_number |  [optional]
+**accountingCode** | **String** | Optional Quickbooks accounting code |  [optional]
+**bankAddress** | **String** | Bank address |  [optional]
+**depositToAccount** | **String** | Optional Quickbooks deposit to account |  [optional]
+**intermediateRoutingNumber** | **String** | Intermediate routing number |  [optional]
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  |  [optional]
-**wireTransferAccountingCode** | **String** |  |  [optional]
-**wireTransferAccountNumber** | **String** |  |  [optional]
-**wireTransferBankAddress** | **String** |  |  [optional]
-**wireTransferDepositToAccount** | **String** |  |  [optional]
-**wireTransferIntermediateRoutingNumber** | **String** |  |  [optional]
-**wireTransferRoutingNumber** | **String** |  |  [optional]
-**wireTransferSurchargeAccountingCode** | **String** |  |  [optional]
-**wireTransferSurchargeFee** | **String** |  |  [optional]
-**wireTransferSurchargePerc** | **String** |  |  [optional]
+**routingNumber** | **String** | Routing number |  [optional]
+**surchargeAccountingCode** | **String** | If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount |  [optional]
+**surchargeFee** | **String** | surcharge_fee |  [optional]
+**surchargePercentage** | **String** | surcharge_percentage |  [optional]
 
 
 

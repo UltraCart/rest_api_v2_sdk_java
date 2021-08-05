@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-08-04T16:51:30.221-04:00
+  - Build date: 2021-08-05T15:00:57.384-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.4.8</version>
+  <version>3.4.9</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.4.8"
+compile "com.ultracart:rest-sdk:3.4.9"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.4.8.jar`
+* `target/rest-sdk-3.4.9.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1144,6 +1144,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.9 | 08/05/2021 | configuration api - updated annotations for method names | 
 | 3.4.8 | 08/04/2021 | configuration api - payments config refactoring | 
 | 3.4.7 | 08/04/2021 | esp folders for lists/segments | 
 | 3.4.5 | 08/03/2021 | configuration api bug fix for a bad response object on updateRotatingTransactionGateway | 
