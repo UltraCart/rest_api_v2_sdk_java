@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **descriptions** | **List&lt;String&gt;** |  |  [optional]
-**maximumSubtotal** | **String** | Maximum subtotal |  [optional]
-**minimumSubtotal** | **String** | Minimum subtotal |  [optional]
+**maximumSubtotal** | [**BigDecimal**](BigDecimal.md) | Maximum subtotal |  [optional]
+**minimumSubtotal** | [**BigDecimal**](BigDecimal.md) | Minimum subtotal |  [optional]
 **paymentMethod** | **String** | Payment method |  [optional]
 **restrictionAlaskaHawaii** | **String** | Alaska and Hawaii restriction |  [optional]
 **restrictionApoFpo** | **String** | APO/FPO restriction |  [optional]

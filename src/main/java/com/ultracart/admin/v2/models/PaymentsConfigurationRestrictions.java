@@ -24,13 +24,14 @@ import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictionsTheme;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * PaymentsConfigurationRestrictions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T16:34:28.233-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-09T16:22:10.185-04:00")
 
 
 
@@ -39,10 +40,10 @@ public class PaymentsConfigurationRestrictions {
   private List<String> descriptions = null;
 
   @SerializedName("maximum_subtotal")
-  private String maximumSubtotal = null;
+  private BigDecimal maximumSubtotal = null;
 
   @SerializedName("minimum_subtotal")
-  private String minimumSubtotal = null;
+  private BigDecimal minimumSubtotal = null;
 
   @SerializedName("payment_method")
   private String paymentMethod = null;
@@ -103,7 +104,7 @@ public class PaymentsConfigurationRestrictions {
     this.descriptions = descriptions;
   }
 
-  public PaymentsConfigurationRestrictions maximumSubtotal(String maximumSubtotal) {
+  public PaymentsConfigurationRestrictions maximumSubtotal(BigDecimal maximumSubtotal) {
     this.maximumSubtotal = maximumSubtotal;
     return this;
   }
@@ -113,15 +114,15 @@ public class PaymentsConfigurationRestrictions {
    * @return maximumSubtotal
   **/
   @ApiModelProperty(value = "Maximum subtotal")
-  public String getMaximumSubtotal() {
+  public BigDecimal getMaximumSubtotal() {
     return maximumSubtotal;
   }
 
-  public void setMaximumSubtotal(String maximumSubtotal) {
+  public void setMaximumSubtotal(BigDecimal maximumSubtotal) {
     this.maximumSubtotal = maximumSubtotal;
   }
 
-  public PaymentsConfigurationRestrictions minimumSubtotal(String minimumSubtotal) {
+  public PaymentsConfigurationRestrictions minimumSubtotal(BigDecimal minimumSubtotal) {
     this.minimumSubtotal = minimumSubtotal;
     return this;
   }
@@ -131,11 +132,11 @@ public class PaymentsConfigurationRestrictions {
    * @return minimumSubtotal
   **/
   @ApiModelProperty(value = "Minimum subtotal")
-  public String getMinimumSubtotal() {
+  public BigDecimal getMinimumSubtotal() {
     return minimumSubtotal;
   }
 
-  public void setMinimumSubtotal(String minimumSubtotal) {
+  public void setMinimumSubtotal(BigDecimal minimumSubtotal) {
     this.minimumSubtotal = minimumSubtotal;
   }
 

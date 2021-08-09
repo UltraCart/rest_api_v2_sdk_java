@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ScreenRecordingHeatmapReset
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T16:34:28.233-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-09T16:22:10.185-04:00")
 
 
 

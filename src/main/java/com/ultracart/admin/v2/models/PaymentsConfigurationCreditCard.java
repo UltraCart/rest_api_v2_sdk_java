@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * PaymentsConfigurationCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-05T16:34:28.233-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-09T16:22:10.185-04:00")
 
 
 
@@ -53,7 +53,7 @@ public class PaymentsConfigurationCreditCard {
   private String configuredGatewayDetails = null;
 
   @SerializedName("failed_attempts")
-  private String failedAttempts = null;
+  private Integer failedAttempts = null;
 
   @SerializedName("hide_connect_single_gateway")
   private Boolean hideConnectSingleGateway = null;
@@ -160,7 +160,7 @@ public class PaymentsConfigurationCreditCard {
     this.configuredGatewayDetails = configuredGatewayDetails;
   }
 
-  public PaymentsConfigurationCreditCard failedAttempts(String failedAttempts) {
+  public PaymentsConfigurationCreditCard failedAttempts(Integer failedAttempts) {
     this.failedAttempts = failedAttempts;
     return this;
   }
@@ -170,11 +170,11 @@ public class PaymentsConfigurationCreditCard {
    * @return failedAttempts
   **/
   @ApiModelProperty(value = "The number of failed attempts before the order is placed into Accounts Receivable for manual intervention")
-  public String getFailedAttempts() {
+  public Integer getFailedAttempts() {
     return failedAttempts;
   }
 
-  public void setFailedAttempts(String failedAttempts) {
+  public void setFailedAttempts(Integer failedAttempts) {
     this.failedAttempts = failedAttempts;
   }
 
