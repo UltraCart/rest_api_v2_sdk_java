@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-08-09T16:22:10.185-04:00
+  - Build date: 2021-08-10T14:18:51.639-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.4.11</version>
+  <version>3.4.12</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.4.11"
+compile "com.ultracart:rest-sdk:3.4.12"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.4.11.jar`
+* `target/rest-sdk-3.4.12.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -280,6 +280,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseqStatOverall**](docs/StorefrontApi.md#getEmailCommseqStatOverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 *StorefrontApi* | [**getEmailCommseqStepStats**](docs/StorefrontApi.md#getEmailCommseqStepStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 *StorefrontApi* | [**getEmailCommseqStepWaiting**](docs/StorefrontApi.md#getEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
+*StorefrontApi* | [**getEmailCommseqWebhookEditorValues**](docs/StorefrontApi.md#getEmailCommseqWebhookEditorValues) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues | Get email webhook editor values
 *StorefrontApi* | [**getEmailCommseqs**](docs/StorefrontApi.md#getEmailCommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
 *StorefrontApi* | [**getEmailCustomerEditorUrl**](docs/StorefrontApi.md#getEmailCustomerEditorUrl) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL
 *StorefrontApi* | [**getEmailCustomers**](docs/StorefrontApi.md#getEmailCustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
@@ -742,6 +743,7 @@ Class | Method | HTTP request | Description
  - [EmailVerifyTokenResponse](docs/EmailVerifyTokenResponse.md)
  - [EmailVerifyTokenValidateRequest](docs/EmailVerifyTokenValidateRequest.md)
  - [EmailVerifyTokenValidateResponse](docs/EmailVerifyTokenValidateResponse.md)
+ - [EmailWebhookEditorValuesResponse](docs/EmailWebhookEditorValuesResponse.md)
  - [Error](docs/Error.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [Experiment](docs/Experiment.md)
@@ -1147,6 +1149,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.12 | 08/10/2021 | email engine - added webhook editor values for internal ui  | 
 | 3.4.9 | 08/05/2021 | configuration api - updated annotations for method names | 
 | 3.4.8 | 08/04/2021 | configuration api - payments config refactoring | 
 | 3.4.7 | 08/04/2021 | esp folders for lists/segments | 

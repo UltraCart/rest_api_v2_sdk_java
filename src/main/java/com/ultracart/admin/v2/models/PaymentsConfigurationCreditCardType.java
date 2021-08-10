@@ -23,11 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * PaymentsConfigurationCreditCardType
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-09T16:22:10.185-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-10T14:18:51.639-04:00")
 
 
 
@@ -103,19 +104,19 @@ public class PaymentsConfigurationCreditCardType {
   private Boolean enabled = null;
 
   @SerializedName("processing_fee")
-  private String processingFee = null;
+  private BigDecimal processingFee = null;
 
   @SerializedName("processing_percentage")
-  private String processingPercentage = null;
+  private BigDecimal processingPercentage = null;
 
   @SerializedName("surcharge_accounting_code")
   private String surchargeAccountingCode = null;
 
   @SerializedName("transaction_fee")
-  private String transactionFee = null;
+  private BigDecimal transactionFee = null;
 
   @SerializedName("transaction_percentage")
-  private String transactionPercentage = null;
+  private BigDecimal transactionPercentage = null;
 
   public PaymentsConfigurationCreditCardType accountingCode(String accountingCode) {
     this.accountingCode = accountingCode;
@@ -207,7 +208,7 @@ public class PaymentsConfigurationCreditCardType {
     this.enabled = enabled;
   }
 
-  public PaymentsConfigurationCreditCardType processingFee(String processingFee) {
+  public PaymentsConfigurationCreditCardType processingFee(BigDecimal processingFee) {
     this.processingFee = processingFee;
     return this;
   }
@@ -217,15 +218,15 @@ public class PaymentsConfigurationCreditCardType {
    * @return processingFee
   **/
   @ApiModelProperty(value = "Optional additional fee applied to order for this card")
-  public String getProcessingFee() {
+  public BigDecimal getProcessingFee() {
     return processingFee;
   }
 
-  public void setProcessingFee(String processingFee) {
+  public void setProcessingFee(BigDecimal processingFee) {
     this.processingFee = processingFee;
   }
 
-  public PaymentsConfigurationCreditCardType processingPercentage(String processingPercentage) {
+  public PaymentsConfigurationCreditCardType processingPercentage(BigDecimal processingPercentage) {
     this.processingPercentage = processingPercentage;
     return this;
   }
@@ -235,11 +236,11 @@ public class PaymentsConfigurationCreditCardType {
    * @return processingPercentage
   **/
   @ApiModelProperty(value = "Optional additional fee applied to order for this card")
-  public String getProcessingPercentage() {
+  public BigDecimal getProcessingPercentage() {
     return processingPercentage;
   }
 
-  public void setProcessingPercentage(String processingPercentage) {
+  public void setProcessingPercentage(BigDecimal processingPercentage) {
     this.processingPercentage = processingPercentage;
   }
 
@@ -261,7 +262,7 @@ public class PaymentsConfigurationCreditCardType {
     this.surchargeAccountingCode = surchargeAccountingCode;
   }
 
-  public PaymentsConfigurationCreditCardType transactionFee(String transactionFee) {
+  public PaymentsConfigurationCreditCardType transactionFee(BigDecimal transactionFee) {
     this.transactionFee = transactionFee;
     return this;
   }
@@ -271,15 +272,15 @@ public class PaymentsConfigurationCreditCardType {
    * @return transactionFee
   **/
   @ApiModelProperty(value = "An optional additional fee to charge the customer for using this card.")
-  public String getTransactionFee() {
+  public BigDecimal getTransactionFee() {
     return transactionFee;
   }
 
-  public void setTransactionFee(String transactionFee) {
+  public void setTransactionFee(BigDecimal transactionFee) {
     this.transactionFee = transactionFee;
   }
 
-  public PaymentsConfigurationCreditCardType transactionPercentage(String transactionPercentage) {
+  public PaymentsConfigurationCreditCardType transactionPercentage(BigDecimal transactionPercentage) {
     this.transactionPercentage = transactionPercentage;
     return this;
   }
@@ -289,11 +290,11 @@ public class PaymentsConfigurationCreditCardType {
    * @return transactionPercentage
   **/
   @ApiModelProperty(value = "An optional transaction percentage to charge the customer for using this card")
-  public String getTransactionPercentage() {
+  public BigDecimal getTransactionPercentage() {
     return transactionPercentage;
   }
 
-  public void setTransactionPercentage(String transactionPercentage) {
+  public void setTransactionPercentage(BigDecimal transactionPercentage) {
     this.transactionPercentage = transactionPercentage;
   }
 
