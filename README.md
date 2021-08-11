@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-08-10T22:25:27.401-04:00
+  - Build date: 2021-08-11T09:39:58.817-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.4.13</version>
+  <version>3.5.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.4.13"
+compile "com.ultracart:rest-sdk:3.5.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.4.13.jar`
+* `target/rest-sdk-3.5.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1149,6 +1149,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.5.0 | 08/11/2021 | RestOrderChannelPartner.store_completed was incorrectly defaulting to true | 
 | 3.4.13 | 08/10/2021 | configuration api - changed some field types form string to number | 
 | 3.4.12 | 08/10/2021 | email engine - added webhook editor values for internal ui  | 
 | 3.4.9 | 08/05/2021 | configuration api - updated annotations for method names | 

@@ -24,11 +24,12 @@ import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * PaymentsConfigurationPayPal
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-10T22:25:27.401-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-11T09:39:58.817-04:00")
 
 
 
@@ -223,10 +224,10 @@ public class PaymentsConfigurationPayPal {
   private String privateKeyPassword = null;
 
   @SerializedName("processing_fee")
-  private String processingFee = null;
+  private BigDecimal processingFee = null;
 
   @SerializedName("processing_percentage")
-  private String processingPercentage = null;
+  private BigDecimal processingPercentage = null;
 
   @SerializedName("push_paypal")
   private Boolean pushPaypal = null;
@@ -596,7 +597,7 @@ public class PaymentsConfigurationPayPal {
     this.privateKeyPassword = privateKeyPassword;
   }
 
-  public PaymentsConfigurationPayPal processingFee(String processingFee) {
+  public PaymentsConfigurationPayPal processingFee(BigDecimal processingFee) {
     this.processingFee = processingFee;
     return this;
   }
@@ -606,15 +607,15 @@ public class PaymentsConfigurationPayPal {
    * @return processingFee
   **/
   @ApiModelProperty(value = "Optional additional fee to charge if PayPal is used.  It is rare for this to be used.")
-  public String getProcessingFee() {
+  public BigDecimal getProcessingFee() {
     return processingFee;
   }
 
-  public void setProcessingFee(String processingFee) {
+  public void setProcessingFee(BigDecimal processingFee) {
     this.processingFee = processingFee;
   }
 
-  public PaymentsConfigurationPayPal processingPercentage(String processingPercentage) {
+  public PaymentsConfigurationPayPal processingPercentage(BigDecimal processingPercentage) {
     this.processingPercentage = processingPercentage;
     return this;
   }
@@ -624,11 +625,11 @@ public class PaymentsConfigurationPayPal {
    * @return processingPercentage
   **/
   @ApiModelProperty(value = "The processing percentage charged by PayPal")
-  public String getProcessingPercentage() {
+  public BigDecimal getProcessingPercentage() {
     return processingPercentage;
   }
 
-  public void setProcessingPercentage(String processingPercentage) {
+  public void setProcessingPercentage(BigDecimal processingPercentage) {
     this.processingPercentage = processingPercentage;
   }
 

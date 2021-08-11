@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderChannelPartner
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-10T22:25:27.401-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-11T09:39:58.817-04:00")
 
 
 
@@ -215,10 +215,10 @@ public class OrderChannelPartner {
   }
 
    /**
-   * Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.
+   * Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.
    * @return storeCompleted
   **/
-  @ApiModelProperty(value = "Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.")
+  @ApiModelProperty(value = "Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.")
   public Boolean isStoreCompleted() {
     return storeCompleted;
   }

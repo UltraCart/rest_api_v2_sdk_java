@@ -24,11 +24,12 @@ import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * PaymentsConfigurationWireTransfer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-10T22:25:27.401-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-11T09:39:58.817-04:00")
 
 
 
@@ -61,10 +62,10 @@ public class PaymentsConfigurationWireTransfer {
   private String surchargeAccountingCode = null;
 
   @SerializedName("surcharge_fee")
-  private String surchargeFee = null;
+  private BigDecimal surchargeFee = null;
 
   @SerializedName("surcharge_percentage")
-  private String surchargePercentage = null;
+  private BigDecimal surchargePercentage = null;
 
   public PaymentsConfigurationWireTransfer acceptWireTransfer(Boolean acceptWireTransfer) {
     this.acceptWireTransfer = acceptWireTransfer;
@@ -228,7 +229,7 @@ public class PaymentsConfigurationWireTransfer {
     this.surchargeAccountingCode = surchargeAccountingCode;
   }
 
-  public PaymentsConfigurationWireTransfer surchargeFee(String surchargeFee) {
+  public PaymentsConfigurationWireTransfer surchargeFee(BigDecimal surchargeFee) {
     this.surchargeFee = surchargeFee;
     return this;
   }
@@ -238,15 +239,15 @@ public class PaymentsConfigurationWireTransfer {
    * @return surchargeFee
   **/
   @ApiModelProperty(value = "surcharge_fee")
-  public String getSurchargeFee() {
+  public BigDecimal getSurchargeFee() {
     return surchargeFee;
   }
 
-  public void setSurchargeFee(String surchargeFee) {
+  public void setSurchargeFee(BigDecimal surchargeFee) {
     this.surchargeFee = surchargeFee;
   }
 
-  public PaymentsConfigurationWireTransfer surchargePercentage(String surchargePercentage) {
+  public PaymentsConfigurationWireTransfer surchargePercentage(BigDecimal surchargePercentage) {
     this.surchargePercentage = surchargePercentage;
     return this;
   }
@@ -256,11 +257,11 @@ public class PaymentsConfigurationWireTransfer {
    * @return surchargePercentage
   **/
   @ApiModelProperty(value = "surcharge_percentage")
-  public String getSurchargePercentage() {
+  public BigDecimal getSurchargePercentage() {
     return surchargePercentage;
   }
 
-  public void setSurchargePercentage(String surchargePercentage) {
+  public void setSurchargePercentage(BigDecimal surchargePercentage) {
     this.surchargePercentage = surchargePercentage;
   }
 

@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  |  [optional]
 **routingNumber** | **String** | Routing number |  [optional]
 **surchargeAccountingCode** | **String** | If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount |  [optional]
-**surchargeFee** | **String** | surcharge_fee |  [optional]
-**surchargePercentage** | **String** | surcharge_percentage |  [optional]
+**surchargeFee** | [**BigDecimal**](BigDecimal.md) | surcharge_fee |  [optional]
+**surchargePercentage** | [**BigDecimal**](BigDecimal.md) | surcharge_percentage |  [optional]
 
 
 
