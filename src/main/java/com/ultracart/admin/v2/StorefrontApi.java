@@ -56,6 +56,7 @@ import com.ultracart.admin.v2.models.EmailCommseqPostcardsResponse;
 import com.ultracart.admin.v2.models.EmailCommseqResponse;
 import com.ultracart.admin.v2.models.EmailCommseqStatResponse;
 import com.ultracart.admin.v2.models.EmailCommseqStepLogsResponse;
+import com.ultracart.admin.v2.models.EmailCommseqWebhookSendTestRequest;
 import com.ultracart.admin.v2.models.EmailCommseqsResponse;
 import com.ultracart.admin.v2.models.EmailCustomer;
 import com.ultracart.admin.v2.models.EmailCustomerEditorUrlResponse;
@@ -17344,6 +17345,138 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = sendPostcardTestValidateBeforeCall(storefrontOid, commseqPostcardUuid, emailCommseqPostcardTestRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmailCommseqPostcardSendTestResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for sendWebhookTest
+     * @param storefrontOid  (required)
+     * @param emailCommseqWebhookTestRequest Email commseq webhook test request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendWebhookTestCall(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = emailCommseqWebhookTestRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/webhooks/test"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", apiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sendWebhookTestValidateBeforeCall(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling sendWebhookTest(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqWebhookTestRequest' is set
+        if (emailCommseqWebhookTestRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqWebhookTestRequest' when calling sendWebhookTest(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sendWebhookTestCall(storefrontOid, emailCommseqWebhookTestRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Send webhook test
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqWebhookTestRequest Email commseq webhook test request (required)
+     * @return EmailCommseqEmailSendTestResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmailCommseqEmailSendTestResponse sendWebhookTest(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest) throws ApiException {
+        ApiResponse<EmailCommseqEmailSendTestResponse> resp = sendWebhookTestWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Send webhook test
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqWebhookTestRequest Email commseq webhook test request (required)
+     * @return ApiResponse&lt;EmailCommseqEmailSendTestResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmailCommseqEmailSendTestResponse> sendWebhookTestWithHttpInfo(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest) throws ApiException {
+        com.squareup.okhttp.Call call = sendWebhookTestValidateBeforeCall(storefrontOid, emailCommseqWebhookTestRequest, null, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailSendTestResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Send webhook test (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param emailCommseqWebhookTestRequest Email commseq webhook test request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sendWebhookTestAsync(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest, final ApiCallback<EmailCommseqEmailSendTestResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sendWebhookTestValidateBeforeCall(storefrontOid, emailCommseqWebhookTestRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailSendTestResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

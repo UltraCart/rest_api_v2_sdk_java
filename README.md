@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-08-11T09:39:58.817-04:00
+  - Build date: 2021-08-11T12:02:23.034-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.5.0</version>
+  <version>3.5.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.5.0"
+compile "com.ultracart:rest-sdk:3.5.1"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.5.0.jar`
+* `target/rest-sdk-3.5.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -370,6 +370,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**searchSharedItems**](docs/StorefrontApi.md#searchSharedItems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 *StorefrontApi* | [**sendEmailTest**](docs/StorefrontApi.md#sendEmailTest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**sendPostcardTest**](docs/StorefrontApi.md#sendPostcardTest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
+*StorefrontApi* | [**sendWebhookTest**](docs/StorefrontApi.md#sendWebhookTest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
 *StorefrontApi* | [**startEmailCampaign**](docs/StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/StorefrontApi.md#subscribeToEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 *StorefrontApi* | [**unfavoriteScreenRecording**](docs/StorefrontApi.md#unfavoriteScreenRecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
@@ -666,6 +667,7 @@ Class | Method | HTTP request | Description
  - [EmailCommseqStep](docs/EmailCommseqStep.md)
  - [EmailCommseqStepLog](docs/EmailCommseqStepLog.md)
  - [EmailCommseqStepLogsResponse](docs/EmailCommseqStepLogsResponse.md)
+ - [EmailCommseqWebhookSendTestRequest](docs/EmailCommseqWebhookSendTestRequest.md)
  - [EmailCommseqsResponse](docs/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/EmailCustomer.md)
  - [EmailCustomerEditorUrlResponse](docs/EmailCustomerEditorUrlResponse.md)
@@ -1149,6 +1151,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.5.1 | 08/11/2021 | email webhook test method | 
 | 3.5.0 | 08/11/2021 | RestOrderChannelPartner.store_completed was incorrectly defaulting to true | 
 | 3.4.13 | 08/10/2021 | configuration api - changed some field types form string to number | 
 | 3.4.12 | 08/10/2021 | email engine - added webhook editor values for internal ui  | 
