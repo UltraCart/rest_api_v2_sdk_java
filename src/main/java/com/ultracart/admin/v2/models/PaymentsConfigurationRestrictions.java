@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * PaymentsConfigurationRestrictions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-11T12:02:23.034-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-17T16:36:15.597-04:00")
 
 
 
@@ -48,32 +48,473 @@ public class PaymentsConfigurationRestrictions {
   @SerializedName("payment_method")
   private String paymentMethod = null;
 
+  /**
+   * Alaska and Hawaii restriction
+   */
+  @JsonAdapter(RestrictionAlaskaHawaiiEnum.Adapter.class)
+  public enum RestrictionAlaskaHawaiiEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionAlaskaHawaiiEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionAlaskaHawaiiEnum fromValue(String text) {
+      for (RestrictionAlaskaHawaiiEnum b : RestrictionAlaskaHawaiiEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionAlaskaHawaiiEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionAlaskaHawaiiEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionAlaskaHawaiiEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionAlaskaHawaiiEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("restriction_alaska_hawaii")
-  private String restrictionAlaskaHawaii = null;
+  private RestrictionAlaskaHawaiiEnum restrictionAlaskaHawaii = null;
+
+  /**
+   * APO/FPO restriction
+   */
+  @JsonAdapter(RestrictionApoFpoEnum.Adapter.class)
+  public enum RestrictionApoFpoEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionApoFpoEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionApoFpoEnum fromValue(String text) {
+      for (RestrictionApoFpoEnum b : RestrictionApoFpoEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionApoFpoEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionApoFpoEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionApoFpoEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionApoFpoEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("restriction_apo_fpo")
-  private String restrictionApoFpo = null;
+  private RestrictionApoFpoEnum restrictionApoFpo = null;
+
+  /**
+   * Canada restriction
+   */
+  @JsonAdapter(RestrictionCanadaEnum.Adapter.class)
+  public enum RestrictionCanadaEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionCanadaEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionCanadaEnum fromValue(String text) {
+      for (RestrictionCanadaEnum b : RestrictionCanadaEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionCanadaEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionCanadaEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionCanadaEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionCanadaEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("restriction_canada")
-  private String restrictionCanada = null;
+  private RestrictionCanadaEnum restrictionCanada = null;
+
+  /**
+   * Continental US restriction
+   */
+  @JsonAdapter(RestrictionContinentalUsEnum.Adapter.class)
+  public enum RestrictionContinentalUsEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionContinentalUsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionContinentalUsEnum fromValue(String text) {
+      for (RestrictionContinentalUsEnum b : RestrictionContinentalUsEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionContinentalUsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionContinentalUsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionContinentalUsEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionContinentalUsEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("restriction_continental_us")
-  private String restrictionContinentalUs = null;
+  private RestrictionContinentalUsEnum restrictionContinentalUs = null;
+
+  /**
+   * Domestic only restriction
+   */
+  @JsonAdapter(RestrictionDomesticOnlyEnum.Adapter.class)
+  public enum RestrictionDomesticOnlyEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionDomesticOnlyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionDomesticOnlyEnum fromValue(String text) {
+      for (RestrictionDomesticOnlyEnum b : RestrictionDomesticOnlyEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionDomesticOnlyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionDomesticOnlyEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionDomesticOnlyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionDomesticOnlyEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("restriction_domestic_only")
-  private String restrictionDomesticOnly = null;
+  private RestrictionDomesticOnlyEnum restrictionDomesticOnly = null;
+
+  /**
+   * International only restriction
+   */
+  @JsonAdapter(RestrictionInternationalOnlyEnum.Adapter.class)
+  public enum RestrictionInternationalOnlyEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionInternationalOnlyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionInternationalOnlyEnum fromValue(String text) {
+      for (RestrictionInternationalOnlyEnum b : RestrictionInternationalOnlyEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionInternationalOnlyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionInternationalOnlyEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionInternationalOnlyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionInternationalOnlyEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("restriction_international_only")
-  private String restrictionInternationalOnly = null;
+  private RestrictionInternationalOnlyEnum restrictionInternationalOnly = null;
+
+  /**
+   * PO Box restriction
+   */
+  @JsonAdapter(RestrictionPoBoxEnum.Adapter.class)
+  public enum RestrictionPoBoxEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionPoBoxEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionPoBoxEnum fromValue(String text) {
+      for (RestrictionPoBoxEnum b : RestrictionPoBoxEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionPoBoxEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionPoBoxEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionPoBoxEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionPoBoxEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("restriction_po_box")
-  private String restrictionPoBox = null;
+  private RestrictionPoBoxEnum restrictionPoBox = null;
+
+  /**
+   * Puerto Rico restriction
+   */
+  @JsonAdapter(RestrictionPuertoRicoEnum.Adapter.class)
+  public enum RestrictionPuertoRicoEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionPuertoRicoEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionPuertoRicoEnum fromValue(String text) {
+      for (RestrictionPuertoRicoEnum b : RestrictionPuertoRicoEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionPuertoRicoEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionPuertoRicoEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionPuertoRicoEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionPuertoRicoEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("restriction_puerto_rico")
-  private String restrictionPuertoRico = null;
+  private RestrictionPuertoRicoEnum restrictionPuertoRico = null;
+
+  /**
+   * US Territories restriction
+   */
+  @JsonAdapter(RestrictionUsTerritoriesEnum.Adapter.class)
+  public enum RestrictionUsTerritoriesEnum {
+    INVALID("invalid"),
+    
+    INVALIDONLY("invalidOnly"),
+    
+    VALID("valid");
+
+    private String value;
+
+    RestrictionUsTerritoriesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestrictionUsTerritoriesEnum fromValue(String text) {
+      for (RestrictionUsTerritoriesEnum b : RestrictionUsTerritoriesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RestrictionUsTerritoriesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestrictionUsTerritoriesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestrictionUsTerritoriesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestrictionUsTerritoriesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("restriction_us_territories")
-  private String restrictionUsTerritories = null;
+  private RestrictionUsTerritoriesEnum restrictionUsTerritories = null;
 
   @SerializedName("themes")
   private List<PaymentsConfigurationRestrictionsTheme> themes = null;
@@ -158,7 +599,7 @@ public class PaymentsConfigurationRestrictions {
     this.paymentMethod = paymentMethod;
   }
 
-  public PaymentsConfigurationRestrictions restrictionAlaskaHawaii(String restrictionAlaskaHawaii) {
+  public PaymentsConfigurationRestrictions restrictionAlaskaHawaii(RestrictionAlaskaHawaiiEnum restrictionAlaskaHawaii) {
     this.restrictionAlaskaHawaii = restrictionAlaskaHawaii;
     return this;
   }
@@ -168,15 +609,15 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionAlaskaHawaii
   **/
   @ApiModelProperty(value = "Alaska and Hawaii restriction")
-  public String getRestrictionAlaskaHawaii() {
+  public RestrictionAlaskaHawaiiEnum getRestrictionAlaskaHawaii() {
     return restrictionAlaskaHawaii;
   }
 
-  public void setRestrictionAlaskaHawaii(String restrictionAlaskaHawaii) {
+  public void setRestrictionAlaskaHawaii(RestrictionAlaskaHawaiiEnum restrictionAlaskaHawaii) {
     this.restrictionAlaskaHawaii = restrictionAlaskaHawaii;
   }
 
-  public PaymentsConfigurationRestrictions restrictionApoFpo(String restrictionApoFpo) {
+  public PaymentsConfigurationRestrictions restrictionApoFpo(RestrictionApoFpoEnum restrictionApoFpo) {
     this.restrictionApoFpo = restrictionApoFpo;
     return this;
   }
@@ -186,15 +627,15 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionApoFpo
   **/
   @ApiModelProperty(value = "APO/FPO restriction")
-  public String getRestrictionApoFpo() {
+  public RestrictionApoFpoEnum getRestrictionApoFpo() {
     return restrictionApoFpo;
   }
 
-  public void setRestrictionApoFpo(String restrictionApoFpo) {
+  public void setRestrictionApoFpo(RestrictionApoFpoEnum restrictionApoFpo) {
     this.restrictionApoFpo = restrictionApoFpo;
   }
 
-  public PaymentsConfigurationRestrictions restrictionCanada(String restrictionCanada) {
+  public PaymentsConfigurationRestrictions restrictionCanada(RestrictionCanadaEnum restrictionCanada) {
     this.restrictionCanada = restrictionCanada;
     return this;
   }
@@ -204,15 +645,15 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionCanada
   **/
   @ApiModelProperty(value = "Canada restriction")
-  public String getRestrictionCanada() {
+  public RestrictionCanadaEnum getRestrictionCanada() {
     return restrictionCanada;
   }
 
-  public void setRestrictionCanada(String restrictionCanada) {
+  public void setRestrictionCanada(RestrictionCanadaEnum restrictionCanada) {
     this.restrictionCanada = restrictionCanada;
   }
 
-  public PaymentsConfigurationRestrictions restrictionContinentalUs(String restrictionContinentalUs) {
+  public PaymentsConfigurationRestrictions restrictionContinentalUs(RestrictionContinentalUsEnum restrictionContinentalUs) {
     this.restrictionContinentalUs = restrictionContinentalUs;
     return this;
   }
@@ -222,15 +663,15 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionContinentalUs
   **/
   @ApiModelProperty(value = "Continental US restriction")
-  public String getRestrictionContinentalUs() {
+  public RestrictionContinentalUsEnum getRestrictionContinentalUs() {
     return restrictionContinentalUs;
   }
 
-  public void setRestrictionContinentalUs(String restrictionContinentalUs) {
+  public void setRestrictionContinentalUs(RestrictionContinentalUsEnum restrictionContinentalUs) {
     this.restrictionContinentalUs = restrictionContinentalUs;
   }
 
-  public PaymentsConfigurationRestrictions restrictionDomesticOnly(String restrictionDomesticOnly) {
+  public PaymentsConfigurationRestrictions restrictionDomesticOnly(RestrictionDomesticOnlyEnum restrictionDomesticOnly) {
     this.restrictionDomesticOnly = restrictionDomesticOnly;
     return this;
   }
@@ -240,15 +681,15 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionDomesticOnly
   **/
   @ApiModelProperty(value = "Domestic only restriction")
-  public String getRestrictionDomesticOnly() {
+  public RestrictionDomesticOnlyEnum getRestrictionDomesticOnly() {
     return restrictionDomesticOnly;
   }
 
-  public void setRestrictionDomesticOnly(String restrictionDomesticOnly) {
+  public void setRestrictionDomesticOnly(RestrictionDomesticOnlyEnum restrictionDomesticOnly) {
     this.restrictionDomesticOnly = restrictionDomesticOnly;
   }
 
-  public PaymentsConfigurationRestrictions restrictionInternationalOnly(String restrictionInternationalOnly) {
+  public PaymentsConfigurationRestrictions restrictionInternationalOnly(RestrictionInternationalOnlyEnum restrictionInternationalOnly) {
     this.restrictionInternationalOnly = restrictionInternationalOnly;
     return this;
   }
@@ -258,15 +699,15 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionInternationalOnly
   **/
   @ApiModelProperty(value = "International only restriction")
-  public String getRestrictionInternationalOnly() {
+  public RestrictionInternationalOnlyEnum getRestrictionInternationalOnly() {
     return restrictionInternationalOnly;
   }
 
-  public void setRestrictionInternationalOnly(String restrictionInternationalOnly) {
+  public void setRestrictionInternationalOnly(RestrictionInternationalOnlyEnum restrictionInternationalOnly) {
     this.restrictionInternationalOnly = restrictionInternationalOnly;
   }
 
-  public PaymentsConfigurationRestrictions restrictionPoBox(String restrictionPoBox) {
+  public PaymentsConfigurationRestrictions restrictionPoBox(RestrictionPoBoxEnum restrictionPoBox) {
     this.restrictionPoBox = restrictionPoBox;
     return this;
   }
@@ -276,15 +717,15 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionPoBox
   **/
   @ApiModelProperty(value = "PO Box restriction")
-  public String getRestrictionPoBox() {
+  public RestrictionPoBoxEnum getRestrictionPoBox() {
     return restrictionPoBox;
   }
 
-  public void setRestrictionPoBox(String restrictionPoBox) {
+  public void setRestrictionPoBox(RestrictionPoBoxEnum restrictionPoBox) {
     this.restrictionPoBox = restrictionPoBox;
   }
 
-  public PaymentsConfigurationRestrictions restrictionPuertoRico(String restrictionPuertoRico) {
+  public PaymentsConfigurationRestrictions restrictionPuertoRico(RestrictionPuertoRicoEnum restrictionPuertoRico) {
     this.restrictionPuertoRico = restrictionPuertoRico;
     return this;
   }
@@ -294,15 +735,15 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionPuertoRico
   **/
   @ApiModelProperty(value = "Puerto Rico restriction")
-  public String getRestrictionPuertoRico() {
+  public RestrictionPuertoRicoEnum getRestrictionPuertoRico() {
     return restrictionPuertoRico;
   }
 
-  public void setRestrictionPuertoRico(String restrictionPuertoRico) {
+  public void setRestrictionPuertoRico(RestrictionPuertoRicoEnum restrictionPuertoRico) {
     this.restrictionPuertoRico = restrictionPuertoRico;
   }
 
-  public PaymentsConfigurationRestrictions restrictionUsTerritories(String restrictionUsTerritories) {
+  public PaymentsConfigurationRestrictions restrictionUsTerritories(RestrictionUsTerritoriesEnum restrictionUsTerritories) {
     this.restrictionUsTerritories = restrictionUsTerritories;
     return this;
   }
@@ -312,11 +753,11 @@ public class PaymentsConfigurationRestrictions {
    * @return restrictionUsTerritories
   **/
   @ApiModelProperty(value = "US Territories restriction")
-  public String getRestrictionUsTerritories() {
+  public RestrictionUsTerritoriesEnum getRestrictionUsTerritories() {
     return restrictionUsTerritories;
   }
 
-  public void setRestrictionUsTerritories(String restrictionUsTerritories) {
+  public void setRestrictionUsTerritories(RestrictionUsTerritoriesEnum restrictionUsTerritories) {
     this.restrictionUsTerritories = restrictionUsTerritories;
   }
 

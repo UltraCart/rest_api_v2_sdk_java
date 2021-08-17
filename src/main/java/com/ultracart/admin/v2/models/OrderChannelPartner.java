@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderChannelPartner
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-11T12:02:23.034-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-17T16:36:15.597-04:00")
 
 
 
@@ -143,10 +143,10 @@ public class OrderChannelPartner {
   }
 
    /**
-   * The order ID assigned by the channel partner for this order
+   * The order ID assigned by the channel partner for this order.
    * @return channelPartnerOrderId
   **/
-  @ApiModelProperty(value = "The order ID assigned by the channel partner for this order")
+  @ApiModelProperty(value = "The order ID assigned by the channel partner for this order.")
   public String getChannelPartnerOrderId() {
     return channelPartnerOrderId;
   }

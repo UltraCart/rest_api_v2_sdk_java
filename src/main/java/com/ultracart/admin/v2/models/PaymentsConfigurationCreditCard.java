@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.PaymentsConfigurationCreditCardType;
-import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
 import com.ultracart.admin.v2.models.PaymentsConfigurationTestMethod;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,7 +31,7 @@ import java.util.List;
 /**
  * PaymentsConfigurationCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-11T12:02:23.034-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-17T16:36:15.597-04:00")
 
 
 
@@ -57,9 +56,6 @@ public class PaymentsConfigurationCreditCard {
 
   @SerializedName("hide_connect_single_gateway")
   private Boolean hideConnectSingleGateway = null;
-
-  @SerializedName("restrictions")
-  private List<PaymentsConfigurationRestrictions> restrictions = null;
 
   @SerializedName("send_customer_billing_update_on_decline")
   private Boolean sendCustomerBillingUpdateOnDecline = null;
@@ -196,32 +192,6 @@ public class PaymentsConfigurationCreditCard {
     this.hideConnectSingleGateway = hideConnectSingleGateway;
   }
 
-  public PaymentsConfigurationCreditCard restrictions(List<PaymentsConfigurationRestrictions> restrictions) {
-    this.restrictions = restrictions;
-    return this;
-  }
-
-  public PaymentsConfigurationCreditCard addRestrictionsItem(PaymentsConfigurationRestrictions restrictionsItem) {
-    if (this.restrictions == null) {
-      this.restrictions = new ArrayList<PaymentsConfigurationRestrictions>();
-    }
-    this.restrictions.add(restrictionsItem);
-    return this;
-  }
-
-   /**
-   * Restrictions for this payment method
-   * @return restrictions
-  **/
-  @ApiModelProperty(value = "Restrictions for this payment method")
-  public List<PaymentsConfigurationRestrictions> getRestrictions() {
-    return restrictions;
-  }
-
-  public void setRestrictions(List<PaymentsConfigurationRestrictions> restrictions) {
-    this.restrictions = restrictions;
-  }
-
   public PaymentsConfigurationCreditCard sendCustomerBillingUpdateOnDecline(Boolean sendCustomerBillingUpdateOnDecline) {
     this.sendCustomerBillingUpdateOnDecline = sendCustomerBillingUpdateOnDecline;
     return this;
@@ -309,7 +279,6 @@ public class PaymentsConfigurationCreditCard {
         Objects.equals(this.configuredGatewayDetails, paymentsConfigurationCreditCard.configuredGatewayDetails) &&
         Objects.equals(this.failedAttempts, paymentsConfigurationCreditCard.failedAttempts) &&
         Objects.equals(this.hideConnectSingleGateway, paymentsConfigurationCreditCard.hideConnectSingleGateway) &&
-        Objects.equals(this.restrictions, paymentsConfigurationCreditCard.restrictions) &&
         Objects.equals(this.sendCustomerBillingUpdateOnDecline, paymentsConfigurationCreditCard.sendCustomerBillingUpdateOnDecline) &&
         Objects.equals(this.supportedCards, paymentsConfigurationCreditCard.supportedCards) &&
         Objects.equals(this.testMethods, paymentsConfigurationCreditCard.testMethods);
@@ -317,7 +286,7 @@ public class PaymentsConfigurationCreditCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptCreditCard, billedBy, chargeDuringCheckout, collectCvv2, configuredGatewayDetails, failedAttempts, hideConnectSingleGateway, restrictions, sendCustomerBillingUpdateOnDecline, supportedCards, testMethods);
+    return Objects.hash(acceptCreditCard, billedBy, chargeDuringCheckout, collectCvv2, configuredGatewayDetails, failedAttempts, hideConnectSingleGateway, sendCustomerBillingUpdateOnDecline, supportedCards, testMethods);
   }
 
 
@@ -333,7 +302,6 @@ public class PaymentsConfigurationCreditCard {
     sb.append("    configuredGatewayDetails: ").append(toIndentedString(configuredGatewayDetails)).append("\n");
     sb.append("    failedAttempts: ").append(toIndentedString(failedAttempts)).append("\n");
     sb.append("    hideConnectSingleGateway: ").append(toIndentedString(hideConnectSingleGateway)).append("\n");
-    sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("    sendCustomerBillingUpdateOnDecline: ").append(toIndentedString(sendCustomerBillingUpdateOnDecline)).append("\n");
     sb.append("    supportedCards: ").append(toIndentedString(supportedCards)).append("\n");
     sb.append("    testMethods: ").append(toIndentedString(testMethods)).append("\n");

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * PaymentsConfigurationCreditCardType
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-11T12:02:23.034-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-17T16:36:15.597-04:00")
 
 
 
@@ -108,6 +109,9 @@ public class PaymentsConfigurationCreditCardType {
 
   @SerializedName("processing_percentage")
   private BigDecimal processingPercentage = null;
+
+  @SerializedName("restrictions")
+  private PaymentsConfigurationRestrictions restrictions = null;
 
   @SerializedName("surcharge_accounting_code")
   private String surchargeAccountingCode = null;
@@ -244,6 +248,24 @@ public class PaymentsConfigurationCreditCardType {
     this.processingPercentage = processingPercentage;
   }
 
+  public PaymentsConfigurationCreditCardType restrictions(PaymentsConfigurationRestrictions restrictions) {
+    this.restrictions = restrictions;
+    return this;
+  }
+
+   /**
+   * Get restrictions
+   * @return restrictions
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentsConfigurationRestrictions getRestrictions() {
+    return restrictions;
+  }
+
+  public void setRestrictions(PaymentsConfigurationRestrictions restrictions) {
+    this.restrictions = restrictions;
+  }
+
   public PaymentsConfigurationCreditCardType surchargeAccountingCode(String surchargeAccountingCode) {
     this.surchargeAccountingCode = surchargeAccountingCode;
     return this;
@@ -315,6 +337,7 @@ public class PaymentsConfigurationCreditCardType {
         Objects.equals(this.enabled, paymentsConfigurationCreditCardType.enabled) &&
         Objects.equals(this.processingFee, paymentsConfigurationCreditCardType.processingFee) &&
         Objects.equals(this.processingPercentage, paymentsConfigurationCreditCardType.processingPercentage) &&
+        Objects.equals(this.restrictions, paymentsConfigurationCreditCardType.restrictions) &&
         Objects.equals(this.surchargeAccountingCode, paymentsConfigurationCreditCardType.surchargeAccountingCode) &&
         Objects.equals(this.transactionFee, paymentsConfigurationCreditCardType.transactionFee) &&
         Objects.equals(this.transactionPercentage, paymentsConfigurationCreditCardType.transactionPercentage);
@@ -322,7 +345,7 @@ public class PaymentsConfigurationCreditCardType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, cardTypeIcon, creditCard, depositToAccount, enabled, processingFee, processingPercentage, surchargeAccountingCode, transactionFee, transactionPercentage);
+    return Objects.hash(accountingCode, cardTypeIcon, creditCard, depositToAccount, enabled, processingFee, processingPercentage, restrictions, surchargeAccountingCode, transactionFee, transactionPercentage);
   }
 
 
@@ -338,6 +361,7 @@ public class PaymentsConfigurationCreditCardType {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    processingFee: ").append(toIndentedString(processingFee)).append("\n");
     sb.append("    processingPercentage: ").append(toIndentedString(processingPercentage)).append("\n");
+    sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("    surchargeAccountingCode: ").append(toIndentedString(surchargeAccountingCode)).append("\n");
     sb.append("    transactionFee: ").append(toIndentedString(transactionFee)).append("\n");
     sb.append("    transactionPercentage: ").append(toIndentedString(transactionPercentage)).append("\n");

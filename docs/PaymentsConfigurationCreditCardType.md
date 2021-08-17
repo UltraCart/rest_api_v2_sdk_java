@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **enabled** | **Boolean** | If true, this card type will be accepted during checkout |  [optional]
 **processingFee** | [**BigDecimal**](BigDecimal.md) | Optional additional fee applied to order for this card |  [optional]
 **processingPercentage** | [**BigDecimal**](BigDecimal.md) | Optional additional fee applied to order for this card |  [optional]
+**restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  |  [optional]
 **surchargeAccountingCode** | **String** | Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders |  [optional]
 **transactionFee** | [**BigDecimal**](BigDecimal.md) | An optional additional fee to charge the customer for using this card. |  [optional]
 **transactionPercentage** | [**BigDecimal**](BigDecimal.md) | An optional transaction percentage to charge the customer for using this card |  [optional]
