@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * CartFinalizeOrderRequestOptions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-17T16:36:15.597-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-18T10:06:39.741-04:00")
 
 
 

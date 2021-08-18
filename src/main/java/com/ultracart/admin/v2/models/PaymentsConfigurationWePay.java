@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationWePay
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-17T16:36:15.597-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-18T10:06:39.741-04:00")
 
 
 
@@ -62,6 +62,9 @@ public class PaymentsConfigurationWePay {
 
   @SerializedName("country")
   private String country = null;
+
+  @SerializedName("credit_card_rate")
+  private String creditCardRate = null;
 
   @SerializedName("currency")
   private String currency = null;
@@ -295,6 +298,24 @@ public class PaymentsConfigurationWePay {
 
   public void setCountry(String country) {
     this.country = country;
+  }
+
+  public PaymentsConfigurationWePay creditCardRate(String creditCardRate) {
+    this.creditCardRate = creditCardRate;
+    return this;
+  }
+
+   /**
+   * WePay credit card rate
+   * @return creditCardRate
+  **/
+  @ApiModelProperty(value = "WePay credit card rate")
+  public String getCreditCardRate() {
+    return creditCardRate;
+  }
+
+  public void setCreditCardRate(String creditCardRate) {
+    this.creditCardRate = creditCardRate;
   }
 
   public PaymentsConfigurationWePay currency(String currency) {
@@ -641,6 +662,7 @@ public class PaymentsConfigurationWePay {
         Objects.equals(this.companyDescription, paymentsConfigurationWePay.companyDescription) &&
         Objects.equals(this.consoleHostname, paymentsConfigurationWePay.consoleHostname) &&
         Objects.equals(this.country, paymentsConfigurationWePay.country) &&
+        Objects.equals(this.creditCardRate, paymentsConfigurationWePay.creditCardRate) &&
         Objects.equals(this.currency, paymentsConfigurationWePay.currency) &&
         Objects.equals(this.expectedRevenue, paymentsConfigurationWePay.expectedRevenue) &&
         Objects.equals(this.hideCreditCardNonUltracartPayments, paymentsConfigurationWePay.hideCreditCardNonUltracartPayments) &&
@@ -663,7 +685,7 @@ public class PaymentsConfigurationWePay {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptWepay, accountUpdateUri, address1, address2, canadaAcceptDebitCards, city, company, companyDescription, consoleHostname, country, currency, expectedRevenue, hideCreditCardNonUltracartPayments, hideSurchargeAmount, industry, ownerEmail, ownerName, ownerPhone, postalCode, removePayPalPro, restrictions, shortPaypalMarketingText, showUltracartPaymentsDisabled, showUltracartPaymentsIntro, showUltracartPaymentsVerification, showUltracartPaymentsVerified, state, websiteUrl);
+    return Objects.hash(acceptWepay, accountUpdateUri, address1, address2, canadaAcceptDebitCards, city, company, companyDescription, consoleHostname, country, creditCardRate, currency, expectedRevenue, hideCreditCardNonUltracartPayments, hideSurchargeAmount, industry, ownerEmail, ownerName, ownerPhone, postalCode, removePayPalPro, restrictions, shortPaypalMarketingText, showUltracartPaymentsDisabled, showUltracartPaymentsIntro, showUltracartPaymentsVerification, showUltracartPaymentsVerified, state, websiteUrl);
   }
 
 
@@ -682,6 +704,7 @@ public class PaymentsConfigurationWePay {
     sb.append("    companyDescription: ").append(toIndentedString(companyDescription)).append("\n");
     sb.append("    consoleHostname: ").append(toIndentedString(consoleHostname)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    creditCardRate: ").append(toIndentedString(creditCardRate)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    expectedRevenue: ").append(toIndentedString(expectedRevenue)).append("\n");
     sb.append("    hideCreditCardNonUltracartPayments: ").append(toIndentedString(hideCreditCardNonUltracartPayments)).append("\n");
