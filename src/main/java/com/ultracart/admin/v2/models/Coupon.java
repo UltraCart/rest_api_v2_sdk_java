@@ -57,7 +57,7 @@ import com.ultracart.admin.v2.models.CouponPercentOffSubtotalLimit;
 import com.ultracart.admin.v2.models.CouponPercentOffSubtotalWithItemsPurchase;
 import com.ultracart.admin.v2.models.CouponPercentOffSubtotalWithSubtotal;
 import com.ultracart.admin.v2.models.CouponRestriction;
-import com.ultracart.admin.v2.models.CouponTieredAmountOffItem;
+import com.ultracart.admin.v2.models.CouponTieredAmountOffItems;
 import com.ultracart.admin.v2.models.CouponTieredAmountOffSubtotal;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffItems;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffShipping;
@@ -71,7 +71,7 @@ import java.util.List;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-18T10:06:39.741-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-19T05:36:48.877-04:00")
 
 
 
@@ -235,8 +235,8 @@ public class Coupon {
   @SerializedName("super_coupon")
   private Boolean superCoupon = null;
 
-  @SerializedName("tiered_amount_off_item")
-  private CouponTieredAmountOffItem tieredAmountOffItem = null;
+  @SerializedName("tiered_amount_off_items")
+  private CouponTieredAmountOffItems tieredAmountOffItems = null;
 
   @SerializedName("tiered_amount_off_subtotal")
   private CouponTieredAmountOffSubtotal tieredAmountOffSubtotal = null;
@@ -1231,22 +1231,22 @@ public class Coupon {
     this.superCoupon = superCoupon;
   }
 
-  public Coupon tieredAmountOffItem(CouponTieredAmountOffItem tieredAmountOffItem) {
-    this.tieredAmountOffItem = tieredAmountOffItem;
+  public Coupon tieredAmountOffItems(CouponTieredAmountOffItems tieredAmountOffItems) {
+    this.tieredAmountOffItems = tieredAmountOffItems;
     return this;
   }
 
    /**
-   * Get tieredAmountOffItem
-   * @return tieredAmountOffItem
+   * Get tieredAmountOffItems
+   * @return tieredAmountOffItems
   **/
   @ApiModelProperty(value = "")
-  public CouponTieredAmountOffItem getTieredAmountOffItem() {
-    return tieredAmountOffItem;
+  public CouponTieredAmountOffItems getTieredAmountOffItems() {
+    return tieredAmountOffItems;
   }
 
-  public void setTieredAmountOffItem(CouponTieredAmountOffItem tieredAmountOffItem) {
-    this.tieredAmountOffItem = tieredAmountOffItem;
+  public void setTieredAmountOffItems(CouponTieredAmountOffItems tieredAmountOffItems) {
+    this.tieredAmountOffItems = tieredAmountOffItems;
   }
 
   public Coupon tieredAmountOffSubtotal(CouponTieredAmountOffSubtotal tieredAmountOffSubtotal) {
@@ -1402,7 +1402,7 @@ public class Coupon {
         Objects.equals(this.restrictByStorefronts, coupon.restrictByStorefronts) &&
         Objects.equals(this.startDts, coupon.startDts) &&
         Objects.equals(this.superCoupon, coupon.superCoupon) &&
-        Objects.equals(this.tieredAmountOffItem, coupon.tieredAmountOffItem) &&
+        Objects.equals(this.tieredAmountOffItems, coupon.tieredAmountOffItems) &&
         Objects.equals(this.tieredAmountOffSubtotal, coupon.tieredAmountOffSubtotal) &&
         Objects.equals(this.tieredPercentOffItems, coupon.tieredPercentOffItems) &&
         Objects.equals(this.tieredPercentOffShipping, coupon.tieredPercentOffShipping) &&
@@ -1412,7 +1412,7 @@ public class Coupon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItem, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
   }
 
 
@@ -1474,7 +1474,7 @@ public class Coupon {
     sb.append("    restrictByStorefronts: ").append(toIndentedString(restrictByStorefronts)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    superCoupon: ").append(toIndentedString(superCoupon)).append("\n");
-    sb.append("    tieredAmountOffItem: ").append(toIndentedString(tieredAmountOffItem)).append("\n");
+    sb.append("    tieredAmountOffItems: ").append(toIndentedString(tieredAmountOffItems)).append("\n");
     sb.append("    tieredAmountOffSubtotal: ").append(toIndentedString(tieredAmountOffSubtotal)).append("\n");
     sb.append("    tieredPercentOffItems: ").append(toIndentedString(tieredPercentOffItems)).append("\n");
     sb.append("    tieredPercentOffShipping: ").append(toIndentedString(tieredPercentOffShipping)).append("\n");

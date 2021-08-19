@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-08-18T10:06:39.741-04:00
+  - Build date: 2021-08-19T05:36:48.877-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.5.3</version>
+  <version>3.6.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.5.3"
+compile "com.ultracart:rest-sdk:3.6.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.5.3.jar`
+* `target/rest-sdk-3.6.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -601,7 +601,7 @@ Class | Method | HTTP request | Description
  - [CouponTierPercent](docs/CouponTierPercent.md)
  - [CouponTierQuantityAmount](docs/CouponTierQuantityAmount.md)
  - [CouponTierQuantityPercent](docs/CouponTierQuantityPercent.md)
- - [CouponTieredAmountOffItem](docs/CouponTieredAmountOffItem.md)
+ - [CouponTieredAmountOffItems](docs/CouponTieredAmountOffItems.md)
  - [CouponTieredAmountOffSubtotal](docs/CouponTieredAmountOffSubtotal.md)
  - [CouponTieredPercentOffItems](docs/CouponTieredPercentOffItems.md)
  - [CouponTieredPercentOffShipping](docs/CouponTieredPercentOffShipping.md)
@@ -1151,6 +1151,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.0 | 08/19/2021 | coupon api - changed tieredAmountOffItem to support mulitple items | 
 | 3.5.3 | 08/18/2021 | configuration api - added credit card rate to UltraCart Payments object | 
 | 3.5.1 | 08/11/2021 | email webhook test method | 
 | 3.5.0 | 08/11/2021 | RestOrderChannelPartner.store_completed was incorrectly defaulting to true | 
