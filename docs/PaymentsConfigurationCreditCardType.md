@@ -22,11 +22,11 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 AMEX | &quot;AMEX&quot;
-VISA | &quot;Visa&quot;
 DINERS_CLUB | &quot;Diners Club&quot;
 DISCOVER | &quot;Discover&quot;
-JCB | &quot;JCB&quot;
 MASTERCARD | &quot;MasterCard&quot;
+JCB | &quot;JCB&quot;
+VISA | &quot;VISA&quot;
 
 
 

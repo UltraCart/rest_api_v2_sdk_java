@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-19T05:36:48.877-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-23T11:56:12.970-04:00")
 
 
 
@@ -108,6 +108,9 @@ public class ScreenRecordingFilter {
 
   @SerializedName("referrer_domain")
   private String referrerDomain = null;
+
+  @SerializedName("return_filter_values")
+  private List<String> returnFilterValues = null;
 
   @SerializedName("screen_recording_uuids")
   private List<String> screenRecordingUuids = null;
@@ -582,6 +585,32 @@ public class ScreenRecordingFilter {
     this.referrerDomain = referrerDomain;
   }
 
+  public ScreenRecordingFilter returnFilterValues(List<String> returnFilterValues) {
+    this.returnFilterValues = returnFilterValues;
+    return this;
+  }
+
+  public ScreenRecordingFilter addReturnFilterValuesItem(String returnFilterValuesItem) {
+    if (this.returnFilterValues == null) {
+      this.returnFilterValues = new ArrayList<String>();
+    }
+    this.returnFilterValues.add(returnFilterValuesItem);
+    return this;
+  }
+
+   /**
+   * Get returnFilterValues
+   * @return returnFilterValues
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getReturnFilterValues() {
+    return returnFilterValues;
+  }
+
+  public void setReturnFilterValues(List<String> returnFilterValues) {
+    this.returnFilterValues = returnFilterValues;
+  }
+
   public ScreenRecordingFilter screenRecordingUuids(List<String> screenRecordingUuids) {
     this.screenRecordingUuids = screenRecordingUuids;
     return this;
@@ -945,6 +974,7 @@ public class ScreenRecordingFilter {
         Objects.equals(this.placedOrder, screenRecordingFilter.placedOrder) &&
         Objects.equals(this.preferredLanguage, screenRecordingFilter.preferredLanguage) &&
         Objects.equals(this.referrerDomain, screenRecordingFilter.referrerDomain) &&
+        Objects.equals(this.returnFilterValues, screenRecordingFilter.returnFilterValues) &&
         Objects.equals(this.screenRecordingUuids, screenRecordingFilter.screenRecordingUuids) &&
         Objects.equals(this.screenSizes, screenRecordingFilter.screenSizes) &&
         Objects.equals(this.skipFilterValues, screenRecordingFilter.skipFilterValues) &&
@@ -966,7 +996,7 @@ public class ScreenRecordingFilter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateEmail, affiliateId, communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailDomain, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, languageIsoCode, lastXDays, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, preferredLanguage, referrerDomain, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, utmCampaign, utmSource, visitorNumber, watched);
+    return Objects.hash(affiliateEmail, affiliateId, communicationsCampaignName, communicationsEmailSubject, communicationsFlowName, email, emailDomain, emailIdentified, endTimestamp, espCustomerUuid, favorite, geolocation, geolocationCountry, geolocationState, languageIsoCode, lastXDays, maxFilterValues, orderId, pageViewCount, pageViews, placedOrder, preferredLanguage, referrerDomain, returnFilterValues, screenRecordingUuids, screenSizes, skipFilterValues, skipHits, startTimestamp, tags, timeOnSite, userAgentDeviceName, userAgentName, userAgentOriginal, userAgentOsName, userAgentOsVersion, userIp, utmCampaign, utmSource, visitorNumber, watched);
   }
 
 
@@ -998,6 +1028,7 @@ public class ScreenRecordingFilter {
     sb.append("    placedOrder: ").append(toIndentedString(placedOrder)).append("\n");
     sb.append("    preferredLanguage: ").append(toIndentedString(preferredLanguage)).append("\n");
     sb.append("    referrerDomain: ").append(toIndentedString(referrerDomain)).append("\n");
+    sb.append("    returnFilterValues: ").append(toIndentedString(returnFilterValues)).append("\n");
     sb.append("    screenRecordingUuids: ").append(toIndentedString(screenRecordingUuids)).append("\n");
     sb.append("    screenSizes: ").append(toIndentedString(screenSizes)).append("\n");
     sb.append("    skipFilterValues: ").append(toIndentedString(skipFilterValues)).append("\n");

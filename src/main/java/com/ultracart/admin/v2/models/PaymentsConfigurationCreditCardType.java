@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * PaymentsConfigurationCreditCardType
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-19T05:36:48.877-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-23T11:56:12.970-04:00")
 
 
 
@@ -47,15 +47,15 @@ public class PaymentsConfigurationCreditCardType {
   public enum CreditCardEnum {
     AMEX("AMEX"),
     
-    VISA("Visa"),
-    
     DINERS_CLUB("Diners Club"),
     
     DISCOVER("Discover"),
     
+    MASTERCARD("MasterCard"),
+    
     JCB("JCB"),
     
-    MASTERCARD("MasterCard");
+    VISA("VISA");
 
     private String value;
 

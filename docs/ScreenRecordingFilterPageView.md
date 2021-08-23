@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **referrer** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
 **referrerParams** | [**List&lt;ScreenRecordingFilterPageViewReferrerParam&gt;**](ScreenRecordingFilterPageViewReferrerParam.md) |  |  [optional]
 **referrerRaw** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
+**returnFilterValues** | **List&lt;String&gt;** |  |  [optional]
 **timeOnPage** | [**ScreenRecordingFilterRangeInteger**](ScreenRecordingFilterRangeInteger.md) |  |  [optional]
 **url** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  |  [optional]
 

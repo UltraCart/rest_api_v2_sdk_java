@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilterPageView
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-19T05:36:48.877-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-23T11:56:12.970-04:00")
 
 
 
@@ -56,6 +56,9 @@ public class ScreenRecordingFilterPageView {
 
   @SerializedName("referrer_raw")
   private ScreenRecordingFilterStringSearch referrerRaw = null;
+
+  @SerializedName("return_filter_values")
+  private List<String> returnFilterValues = null;
 
   @SerializedName("time_on_page")
   private ScreenRecordingFilterRangeInteger timeOnPage = null;
@@ -195,6 +198,32 @@ public class ScreenRecordingFilterPageView {
     this.referrerRaw = referrerRaw;
   }
 
+  public ScreenRecordingFilterPageView returnFilterValues(List<String> returnFilterValues) {
+    this.returnFilterValues = returnFilterValues;
+    return this;
+  }
+
+  public ScreenRecordingFilterPageView addReturnFilterValuesItem(String returnFilterValuesItem) {
+    if (this.returnFilterValues == null) {
+      this.returnFilterValues = new ArrayList<String>();
+    }
+    this.returnFilterValues.add(returnFilterValuesItem);
+    return this;
+  }
+
+   /**
+   * Get returnFilterValues
+   * @return returnFilterValues
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getReturnFilterValues() {
+    return returnFilterValues;
+  }
+
+  public void setReturnFilterValues(List<String> returnFilterValues) {
+    this.returnFilterValues = returnFilterValues;
+  }
+
   public ScreenRecordingFilterPageView timeOnPage(ScreenRecordingFilterRangeInteger timeOnPage) {
     this.timeOnPage = timeOnPage;
     return this;
@@ -247,13 +276,14 @@ public class ScreenRecordingFilterPageView {
         Objects.equals(this.referrer, screenRecordingFilterPageView.referrer) &&
         Objects.equals(this.referrerParams, screenRecordingFilterPageView.referrerParams) &&
         Objects.equals(this.referrerRaw, screenRecordingFilterPageView.referrerRaw) &&
+        Objects.equals(this.returnFilterValues, screenRecordingFilterPageView.returnFilterValues) &&
         Objects.equals(this.timeOnPage, screenRecordingFilterPageView.timeOnPage) &&
         Objects.equals(this.url, screenRecordingFilterPageView.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, events, params, referrer, referrerParams, referrerRaw, timeOnPage, url);
+    return Objects.hash(domain, events, params, referrer, referrerParams, referrerRaw, returnFilterValues, timeOnPage, url);
   }
 
 
@@ -268,6 +298,7 @@ public class ScreenRecordingFilterPageView {
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    referrerParams: ").append(toIndentedString(referrerParams)).append("\n");
     sb.append("    referrerRaw: ").append(toIndentedString(referrerRaw)).append("\n");
+    sb.append("    returnFilterValues: ").append(toIndentedString(returnFilterValues)).append("\n");
     sb.append("    timeOnPage: ").append(toIndentedString(timeOnPage)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
