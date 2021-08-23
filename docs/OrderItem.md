@@ -53,6 +53,7 @@ Name | Type | Description | Notes
 **taxableCost** | [**Currency**](Currency.md) |  |  [optional]
 **totalCostWithDiscount** | [**Currency**](Currency.md) |  |  [optional]
 **totalRefunded** | [**Currency**](Currency.md) |  |  [optional]
+**trackingNumber** | **String** | Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order |  [optional]
 **transmittedToDistributionCenterDts** | **String** | Date/time that this item was transmitted to the distribution center |  [optional]
 **unitCostWithDiscount** | [**Currency**](Currency.md) |  |  [optional]
 **upsell** | **Boolean** | True if this item was added to the order as part of an upsell |  [optional]

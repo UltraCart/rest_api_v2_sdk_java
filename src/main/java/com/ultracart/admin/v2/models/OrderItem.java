@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-23T11:56:12.970-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-23T16:00:41.663-04:00")
 
 
 
@@ -188,6 +188,9 @@ public class OrderItem {
 
   @SerializedName("total_refunded")
   private Currency totalRefunded = null;
+
+  @SerializedName("tracking_number")
+  private String trackingNumber = null;
 
   @SerializedName("transmitted_to_distribution_center_dts")
   private String transmittedToDistributionCenterDts = null;
@@ -1118,6 +1121,24 @@ public class OrderItem {
     this.totalRefunded = totalRefunded;
   }
 
+  public OrderItem trackingNumber(String trackingNumber) {
+    this.trackingNumber = trackingNumber;
+    return this;
+  }
+
+   /**
+   * Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order
+   * @return trackingNumber
+  **/
+  @ApiModelProperty(value = "Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order")
+  public String getTrackingNumber() {
+    return trackingNumber;
+  }
+
+  public void setTrackingNumber(String trackingNumber) {
+    this.trackingNumber = trackingNumber;
+  }
+
   public OrderItem transmittedToDistributionCenterDts(String transmittedToDistributionCenterDts) {
     this.transmittedToDistributionCenterDts = transmittedToDistributionCenterDts;
     return this;
@@ -1267,6 +1288,7 @@ public class OrderItem {
         Objects.equals(this.taxableCost, orderItem.taxableCost) &&
         Objects.equals(this.totalCostWithDiscount, orderItem.totalCostWithDiscount) &&
         Objects.equals(this.totalRefunded, orderItem.totalRefunded) &&
+        Objects.equals(this.trackingNumber, orderItem.trackingNumber) &&
         Objects.equals(this.transmittedToDistributionCenterDts, orderItem.transmittedToDistributionCenterDts) &&
         Objects.equals(this.unitCostWithDiscount, orderItem.unitCostWithDiscount) &&
         Objects.equals(this.upsell, orderItem.upsell) &&
@@ -1276,7 +1298,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, tags, taxFree, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, tags, taxFree, taxableCost, totalCostWithDiscount, totalRefunded, trackingNumber, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
 
@@ -1334,6 +1356,7 @@ public class OrderItem {
     sb.append("    taxableCost: ").append(toIndentedString(taxableCost)).append("\n");
     sb.append("    totalCostWithDiscount: ").append(toIndentedString(totalCostWithDiscount)).append("\n");
     sb.append("    totalRefunded: ").append(toIndentedString(totalRefunded)).append("\n");
+    sb.append("    trackingNumber: ").append(toIndentedString(trackingNumber)).append("\n");
     sb.append("    transmittedToDistributionCenterDts: ").append(toIndentedString(transmittedToDistributionCenterDts)).append("\n");
     sb.append("    unitCostWithDiscount: ").append(toIndentedString(unitCostWithDiscount)).append("\n");
     sb.append("    upsell: ").append(toIndentedString(upsell)).append("\n");
