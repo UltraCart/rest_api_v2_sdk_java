@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilterPageView
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-23T16:00:41.663-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-24T15:03:26.736-04:00")
 
 
 
@@ -42,8 +42,26 @@ public class ScreenRecordingFilterPageView {
   @SerializedName("domain")
   private ScreenRecordingFilterStringSearch domain = null;
 
+  @SerializedName("domain_filter")
+  private Boolean domainFilter = null;
+
+  @SerializedName("event_name_filter")
+  private Boolean eventNameFilter = null;
+
+  @SerializedName("event_param_name_filter")
+  private Boolean eventParamNameFilter = null;
+
+  @SerializedName("event_param_value_filter")
+  private Boolean eventParamValueFilter = null;
+
   @SerializedName("events")
   private List<ScreenRecordingFilterPageViewEvent> events = null;
+
+  @SerializedName("param_name_filter")
+  private Boolean paramNameFilter = null;
+
+  @SerializedName("param_value_filter")
+  private Boolean paramValueFilter = null;
 
   @SerializedName("params")
   private List<ScreenRecordingFilterPageViewParam> params = null;
@@ -57,14 +75,20 @@ public class ScreenRecordingFilterPageView {
   @SerializedName("referrer_raw")
   private ScreenRecordingFilterStringSearch referrerRaw = null;
 
-  @SerializedName("return_filter_values")
-  private List<String> returnFilterValues = null;
-
   @SerializedName("time_on_page")
   private ScreenRecordingFilterRangeInteger timeOnPage = null;
 
+  @SerializedName("time_on_page_max_filter")
+  private Boolean timeOnPageMaxFilter = null;
+
+  @SerializedName("time_on_page_min_filter")
+  private Boolean timeOnPageMinFilter = null;
+
   @SerializedName("url")
   private ScreenRecordingFilterStringSearch url = null;
+
+  @SerializedName("url_filter")
+  private Boolean urlFilter = null;
 
   public ScreenRecordingFilterPageView domain(ScreenRecordingFilterStringSearch domain) {
     this.domain = domain;
@@ -82,6 +106,78 @@ public class ScreenRecordingFilterPageView {
 
   public void setDomain(ScreenRecordingFilterStringSearch domain) {
     this.domain = domain;
+  }
+
+  public ScreenRecordingFilterPageView domainFilter(Boolean domainFilter) {
+    this.domainFilter = domainFilter;
+    return this;
+  }
+
+   /**
+   * Get domainFilter
+   * @return domainFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isDomainFilter() {
+    return domainFilter;
+  }
+
+  public void setDomainFilter(Boolean domainFilter) {
+    this.domainFilter = domainFilter;
+  }
+
+  public ScreenRecordingFilterPageView eventNameFilter(Boolean eventNameFilter) {
+    this.eventNameFilter = eventNameFilter;
+    return this;
+  }
+
+   /**
+   * Get eventNameFilter
+   * @return eventNameFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isEventNameFilter() {
+    return eventNameFilter;
+  }
+
+  public void setEventNameFilter(Boolean eventNameFilter) {
+    this.eventNameFilter = eventNameFilter;
+  }
+
+  public ScreenRecordingFilterPageView eventParamNameFilter(Boolean eventParamNameFilter) {
+    this.eventParamNameFilter = eventParamNameFilter;
+    return this;
+  }
+
+   /**
+   * Get eventParamNameFilter
+   * @return eventParamNameFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isEventParamNameFilter() {
+    return eventParamNameFilter;
+  }
+
+  public void setEventParamNameFilter(Boolean eventParamNameFilter) {
+    this.eventParamNameFilter = eventParamNameFilter;
+  }
+
+  public ScreenRecordingFilterPageView eventParamValueFilter(Boolean eventParamValueFilter) {
+    this.eventParamValueFilter = eventParamValueFilter;
+    return this;
+  }
+
+   /**
+   * Get eventParamValueFilter
+   * @return eventParamValueFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isEventParamValueFilter() {
+    return eventParamValueFilter;
+  }
+
+  public void setEventParamValueFilter(Boolean eventParamValueFilter) {
+    this.eventParamValueFilter = eventParamValueFilter;
   }
 
   public ScreenRecordingFilterPageView events(List<ScreenRecordingFilterPageViewEvent> events) {
@@ -108,6 +204,42 @@ public class ScreenRecordingFilterPageView {
 
   public void setEvents(List<ScreenRecordingFilterPageViewEvent> events) {
     this.events = events;
+  }
+
+  public ScreenRecordingFilterPageView paramNameFilter(Boolean paramNameFilter) {
+    this.paramNameFilter = paramNameFilter;
+    return this;
+  }
+
+   /**
+   * Get paramNameFilter
+   * @return paramNameFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isParamNameFilter() {
+    return paramNameFilter;
+  }
+
+  public void setParamNameFilter(Boolean paramNameFilter) {
+    this.paramNameFilter = paramNameFilter;
+  }
+
+  public ScreenRecordingFilterPageView paramValueFilter(Boolean paramValueFilter) {
+    this.paramValueFilter = paramValueFilter;
+    return this;
+  }
+
+   /**
+   * Get paramValueFilter
+   * @return paramValueFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isParamValueFilter() {
+    return paramValueFilter;
+  }
+
+  public void setParamValueFilter(Boolean paramValueFilter) {
+    this.paramValueFilter = paramValueFilter;
   }
 
   public ScreenRecordingFilterPageView params(List<ScreenRecordingFilterPageViewParam> params) {
@@ -198,32 +330,6 @@ public class ScreenRecordingFilterPageView {
     this.referrerRaw = referrerRaw;
   }
 
-  public ScreenRecordingFilterPageView returnFilterValues(List<String> returnFilterValues) {
-    this.returnFilterValues = returnFilterValues;
-    return this;
-  }
-
-  public ScreenRecordingFilterPageView addReturnFilterValuesItem(String returnFilterValuesItem) {
-    if (this.returnFilterValues == null) {
-      this.returnFilterValues = new ArrayList<String>();
-    }
-    this.returnFilterValues.add(returnFilterValuesItem);
-    return this;
-  }
-
-   /**
-   * Get returnFilterValues
-   * @return returnFilterValues
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getReturnFilterValues() {
-    return returnFilterValues;
-  }
-
-  public void setReturnFilterValues(List<String> returnFilterValues) {
-    this.returnFilterValues = returnFilterValues;
-  }
-
   public ScreenRecordingFilterPageView timeOnPage(ScreenRecordingFilterRangeInteger timeOnPage) {
     this.timeOnPage = timeOnPage;
     return this;
@@ -240,6 +346,42 @@ public class ScreenRecordingFilterPageView {
 
   public void setTimeOnPage(ScreenRecordingFilterRangeInteger timeOnPage) {
     this.timeOnPage = timeOnPage;
+  }
+
+  public ScreenRecordingFilterPageView timeOnPageMaxFilter(Boolean timeOnPageMaxFilter) {
+    this.timeOnPageMaxFilter = timeOnPageMaxFilter;
+    return this;
+  }
+
+   /**
+   * Get timeOnPageMaxFilter
+   * @return timeOnPageMaxFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isTimeOnPageMaxFilter() {
+    return timeOnPageMaxFilter;
+  }
+
+  public void setTimeOnPageMaxFilter(Boolean timeOnPageMaxFilter) {
+    this.timeOnPageMaxFilter = timeOnPageMaxFilter;
+  }
+
+  public ScreenRecordingFilterPageView timeOnPageMinFilter(Boolean timeOnPageMinFilter) {
+    this.timeOnPageMinFilter = timeOnPageMinFilter;
+    return this;
+  }
+
+   /**
+   * Get timeOnPageMinFilter
+   * @return timeOnPageMinFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isTimeOnPageMinFilter() {
+    return timeOnPageMinFilter;
+  }
+
+  public void setTimeOnPageMinFilter(Boolean timeOnPageMinFilter) {
+    this.timeOnPageMinFilter = timeOnPageMinFilter;
   }
 
   public ScreenRecordingFilterPageView url(ScreenRecordingFilterStringSearch url) {
@@ -260,6 +402,24 @@ public class ScreenRecordingFilterPageView {
     this.url = url;
   }
 
+  public ScreenRecordingFilterPageView urlFilter(Boolean urlFilter) {
+    this.urlFilter = urlFilter;
+    return this;
+  }
+
+   /**
+   * Get urlFilter
+   * @return urlFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isUrlFilter() {
+    return urlFilter;
+  }
+
+  public void setUrlFilter(Boolean urlFilter) {
+    this.urlFilter = urlFilter;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -271,19 +431,27 @@ public class ScreenRecordingFilterPageView {
     }
     ScreenRecordingFilterPageView screenRecordingFilterPageView = (ScreenRecordingFilterPageView) o;
     return Objects.equals(this.domain, screenRecordingFilterPageView.domain) &&
+        Objects.equals(this.domainFilter, screenRecordingFilterPageView.domainFilter) &&
+        Objects.equals(this.eventNameFilter, screenRecordingFilterPageView.eventNameFilter) &&
+        Objects.equals(this.eventParamNameFilter, screenRecordingFilterPageView.eventParamNameFilter) &&
+        Objects.equals(this.eventParamValueFilter, screenRecordingFilterPageView.eventParamValueFilter) &&
         Objects.equals(this.events, screenRecordingFilterPageView.events) &&
+        Objects.equals(this.paramNameFilter, screenRecordingFilterPageView.paramNameFilter) &&
+        Objects.equals(this.paramValueFilter, screenRecordingFilterPageView.paramValueFilter) &&
         Objects.equals(this.params, screenRecordingFilterPageView.params) &&
         Objects.equals(this.referrer, screenRecordingFilterPageView.referrer) &&
         Objects.equals(this.referrerParams, screenRecordingFilterPageView.referrerParams) &&
         Objects.equals(this.referrerRaw, screenRecordingFilterPageView.referrerRaw) &&
-        Objects.equals(this.returnFilterValues, screenRecordingFilterPageView.returnFilterValues) &&
         Objects.equals(this.timeOnPage, screenRecordingFilterPageView.timeOnPage) &&
-        Objects.equals(this.url, screenRecordingFilterPageView.url);
+        Objects.equals(this.timeOnPageMaxFilter, screenRecordingFilterPageView.timeOnPageMaxFilter) &&
+        Objects.equals(this.timeOnPageMinFilter, screenRecordingFilterPageView.timeOnPageMinFilter) &&
+        Objects.equals(this.url, screenRecordingFilterPageView.url) &&
+        Objects.equals(this.urlFilter, screenRecordingFilterPageView.urlFilter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, events, params, referrer, referrerParams, referrerRaw, returnFilterValues, timeOnPage, url);
+    return Objects.hash(domain, domainFilter, eventNameFilter, eventParamNameFilter, eventParamValueFilter, events, paramNameFilter, paramValueFilter, params, referrer, referrerParams, referrerRaw, timeOnPage, timeOnPageMaxFilter, timeOnPageMinFilter, url, urlFilter);
   }
 
 
@@ -293,14 +461,22 @@ public class ScreenRecordingFilterPageView {
     sb.append("class ScreenRecordingFilterPageView {\n");
     
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    domainFilter: ").append(toIndentedString(domainFilter)).append("\n");
+    sb.append("    eventNameFilter: ").append(toIndentedString(eventNameFilter)).append("\n");
+    sb.append("    eventParamNameFilter: ").append(toIndentedString(eventParamNameFilter)).append("\n");
+    sb.append("    eventParamValueFilter: ").append(toIndentedString(eventParamValueFilter)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    paramNameFilter: ").append(toIndentedString(paramNameFilter)).append("\n");
+    sb.append("    paramValueFilter: ").append(toIndentedString(paramValueFilter)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    referrerParams: ").append(toIndentedString(referrerParams)).append("\n");
     sb.append("    referrerRaw: ").append(toIndentedString(referrerRaw)).append("\n");
-    sb.append("    returnFilterValues: ").append(toIndentedString(returnFilterValues)).append("\n");
     sb.append("    timeOnPage: ").append(toIndentedString(timeOnPage)).append("\n");
+    sb.append("    timeOnPageMaxFilter: ").append(toIndentedString(timeOnPageMaxFilter)).append("\n");
+    sb.append("    timeOnPageMinFilter: ").append(toIndentedString(timeOnPageMinFilter)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    urlFilter: ").append(toIndentedString(urlFilter)).append("\n");
     sb.append("}");
     return sb.toString();
   }

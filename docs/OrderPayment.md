@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **creditCard** | [**OrderPaymentCreditCard**](OrderPaymentCreditCard.md) |  |  [optional]
 **echeck** | [**OrderPaymentECheck**](OrderPaymentECheck.md) |  |  [optional]
 **holdForFraudReview** | **Boolean** | True if order has been held for fraud review |  [optional]
+**insurance** | [**OrderPaymentInsurance**](OrderPaymentInsurance.md) |  |  [optional]
 **paymentDts** | **String** | Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true |  [optional]
 **paymentMethod** | [**PaymentMethodEnum**](#PaymentMethodEnum) | Payment method |  [optional]
 **paymentMethodAccountingCode** | **String** | Payment method QuickBooks code |  [optional]
@@ -36,6 +37,7 @@ COD | &quot;COD&quot;
 CREDIT_CARD | &quot;Credit Card&quot;
 EBAY | &quot;eBay&quot;
 ECHECK | &quot;eCheck&quot;
+INSURANCE | &quot;Insurance&quot;
 LOANHERO | &quot;LoanHero&quot;
 MONEY_ORDER | &quot;Money Order&quot;
 PAYPAL | &quot;PayPal&quot;

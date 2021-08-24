@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.Currency;
 import com.ultracart.admin.v2.models.OrderPaymentCheck;
 import com.ultracart.admin.v2.models.OrderPaymentCreditCard;
 import com.ultracart.admin.v2.models.OrderPaymentECheck;
+import com.ultracart.admin.v2.models.OrderPaymentInsurance;
 import com.ultracart.admin.v2.models.OrderPaymentPurchaseOrder;
 import com.ultracart.admin.v2.models.OrderPaymentTransaction;
 import io.swagger.annotations.ApiModel;
@@ -36,7 +37,7 @@ import java.util.List;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-23T16:00:41.663-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-24T15:03:26.736-04:00")
 
 
 
@@ -52,6 +53,9 @@ public class OrderPayment {
 
   @SerializedName("hold_for_fraud_review")
   private Boolean holdForFraudReview = null;
+
+  @SerializedName("insurance")
+  private OrderPaymentInsurance insurance = null;
 
   @SerializedName("payment_dts")
   private String paymentDts = null;
@@ -78,6 +82,8 @@ public class OrderPayment {
     EBAY("eBay"),
     
     ECHECK("eCheck"),
+    
+    INSURANCE("Insurance"),
     
     LOANHERO("LoanHero"),
     
@@ -298,6 +304,24 @@ public class OrderPayment {
 
   public void setHoldForFraudReview(Boolean holdForFraudReview) {
     this.holdForFraudReview = holdForFraudReview;
+  }
+
+  public OrderPayment insurance(OrderPaymentInsurance insurance) {
+    this.insurance = insurance;
+    return this;
+  }
+
+   /**
+   * Get insurance
+   * @return insurance
+  **/
+  @ApiModelProperty(value = "")
+  public OrderPaymentInsurance getInsurance() {
+    return insurance;
+  }
+
+  public void setInsurance(OrderPaymentInsurance insurance) {
+    this.insurance = insurance;
   }
 
   public OrderPayment paymentDts(String paymentDts) {
@@ -556,6 +580,7 @@ public class OrderPayment {
         Objects.equals(this.creditCard, orderPayment.creditCard) &&
         Objects.equals(this.echeck, orderPayment.echeck) &&
         Objects.equals(this.holdForFraudReview, orderPayment.holdForFraudReview) &&
+        Objects.equals(this.insurance, orderPayment.insurance) &&
         Objects.equals(this.paymentDts, orderPayment.paymentDts) &&
         Objects.equals(this.paymentMethod, orderPayment.paymentMethod) &&
         Objects.equals(this.paymentMethodAccountingCode, orderPayment.paymentMethodAccountingCode) &&
@@ -573,7 +598,7 @@ public class OrderPayment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(check, creditCard, echeck, holdForFraudReview, paymentDts, paymentMethod, paymentMethodAccountingCode, paymentMethodDepositToAccount, paymentStatus, purchaseOrder, rotatingTransactionGatewayCode, surcharge, surchargeAccountingCode, surchargeTransactionFee, surchargeTransactionPercentage, testOrder, transactions);
+    return Objects.hash(check, creditCard, echeck, holdForFraudReview, insurance, paymentDts, paymentMethod, paymentMethodAccountingCode, paymentMethodDepositToAccount, paymentStatus, purchaseOrder, rotatingTransactionGatewayCode, surcharge, surchargeAccountingCode, surchargeTransactionFee, surchargeTransactionPercentage, testOrder, transactions);
   }
 
 
@@ -586,6 +611,7 @@ public class OrderPayment {
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
     sb.append("    echeck: ").append(toIndentedString(echeck)).append("\n");
     sb.append("    holdForFraudReview: ").append(toIndentedString(holdForFraudReview)).append("\n");
+    sb.append("    insurance: ").append(toIndentedString(insurance)).append("\n");
     sb.append("    paymentDts: ").append(toIndentedString(paymentDts)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    paymentMethodAccountingCode: ").append(toIndentedString(paymentMethodAccountingCode)).append("\n");

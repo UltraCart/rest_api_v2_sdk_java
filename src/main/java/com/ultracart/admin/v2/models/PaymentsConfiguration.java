@@ -27,6 +27,7 @@ import com.ultracart.admin.v2.models.PaymentsConfigurationCash;
 import com.ultracart.admin.v2.models.PaymentsConfigurationCheck;
 import com.ultracart.admin.v2.models.PaymentsConfigurationCreditCard;
 import com.ultracart.admin.v2.models.PaymentsConfigurationEcheck;
+import com.ultracart.admin.v2.models.PaymentsConfigurationInsurance;
 import com.ultracart.admin.v2.models.PaymentsConfigurationLoanHero;
 import com.ultracart.admin.v2.models.PaymentsConfigurationMoneyOrder;
 import com.ultracart.admin.v2.models.PaymentsConfigurationPayPal;
@@ -42,7 +43,7 @@ import java.io.IOException;
 /**
  * PaymentsConfiguration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-23T16:00:41.663-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-24T15:03:26.736-04:00")
 
 
 
@@ -67,6 +68,9 @@ public class PaymentsConfiguration {
 
   @SerializedName("echeck")
   private PaymentsConfigurationEcheck echeck = null;
+
+  @SerializedName("insurance")
+  private PaymentsConfigurationInsurance insurance = null;
 
   @SerializedName("loan_hero")
   private PaymentsConfigurationLoanHero loanHero = null;
@@ -225,6 +229,24 @@ public class PaymentsConfiguration {
 
   public void setEcheck(PaymentsConfigurationEcheck echeck) {
     this.echeck = echeck;
+  }
+
+  public PaymentsConfiguration insurance(PaymentsConfigurationInsurance insurance) {
+    this.insurance = insurance;
+    return this;
+  }
+
+   /**
+   * Get insurance
+   * @return insurance
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentsConfigurationInsurance getInsurance() {
+    return insurance;
+  }
+
+  public void setInsurance(PaymentsConfigurationInsurance insurance) {
+    this.insurance = insurance;
   }
 
   public PaymentsConfiguration loanHero(PaymentsConfigurationLoanHero loanHero) {
@@ -442,6 +464,7 @@ public class PaymentsConfiguration {
         Objects.equals(this.cod, paymentsConfiguration.cod) &&
         Objects.equals(this.creditCard, paymentsConfiguration.creditCard) &&
         Objects.equals(this.echeck, paymentsConfiguration.echeck) &&
+        Objects.equals(this.insurance, paymentsConfiguration.insurance) &&
         Objects.equals(this.loanHero, paymentsConfiguration.loanHero) &&
         Objects.equals(this.moneyOrder, paymentsConfiguration.moneyOrder) &&
         Objects.equals(this.paypal, paymentsConfiguration.paypal) &&
@@ -457,7 +480,7 @@ public class PaymentsConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affirm, amazon, cash, check, cod, creditCard, echeck, loanHero, moneyOrder, paypal, purchaseOrder, quoteRequest, sezzle, showAccountingCode, switchToSubTab, switchToTab, ultracartPaymentsWepay, wireTransfer);
+    return Objects.hash(affirm, amazon, cash, check, cod, creditCard, echeck, insurance, loanHero, moneyOrder, paypal, purchaseOrder, quoteRequest, sezzle, showAccountingCode, switchToSubTab, switchToTab, ultracartPaymentsWepay, wireTransfer);
   }
 
 
@@ -473,6 +496,7 @@ public class PaymentsConfiguration {
     sb.append("    cod: ").append(toIndentedString(cod)).append("\n");
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
     sb.append("    echeck: ").append(toIndentedString(echeck)).append("\n");
+    sb.append("    insurance: ").append(toIndentedString(insurance)).append("\n");
     sb.append("    loanHero: ").append(toIndentedString(loanHero)).append("\n");
     sb.append("    moneyOrder: ").append(toIndentedString(moneyOrder)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");

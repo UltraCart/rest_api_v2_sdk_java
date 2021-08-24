@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **cod** | [**PaymentsConfigurationCOD**](PaymentsConfigurationCOD.md) |  |  [optional]
 **creditCard** | [**PaymentsConfigurationCreditCard**](PaymentsConfigurationCreditCard.md) |  |  [optional]
 **echeck** | [**PaymentsConfigurationEcheck**](PaymentsConfigurationEcheck.md) |  |  [optional]
+**insurance** | [**PaymentsConfigurationInsurance**](PaymentsConfigurationInsurance.md) |  |  [optional]
 **loanHero** | [**PaymentsConfigurationLoanHero**](PaymentsConfigurationLoanHero.md) |  |  [optional]
 **moneyOrder** | [**PaymentsConfigurationMoneyOrder**](PaymentsConfigurationMoneyOrder.md) |  |  [optional]
 **paypal** | [**PaymentsConfigurationPayPal**](PaymentsConfigurationPayPal.md) |  |  [optional]
