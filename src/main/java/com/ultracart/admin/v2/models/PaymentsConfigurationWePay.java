@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationWePay
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-24T15:03:26.736-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-25T05:35:08.069-04:00")
 
 
 
@@ -92,9 +92,6 @@ public class PaymentsConfigurationWePay {
 
   @SerializedName("postal_code")
   private String postalCode = null;
-
-  @SerializedName("removePayPalPro")
-  private Boolean removePayPalPro = null;
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
@@ -480,24 +477,6 @@ public class PaymentsConfigurationWePay {
     this.postalCode = postalCode;
   }
 
-  public PaymentsConfigurationWePay removePayPalPro(Boolean removePayPalPro) {
-    this.removePayPalPro = removePayPalPro;
-    return this;
-  }
-
-   /**
-   * Get removePayPalPro
-   * @return removePayPalPro
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isRemovePayPalPro() {
-    return removePayPalPro;
-  }
-
-  public void setRemovePayPalPro(Boolean removePayPalPro) {
-    this.removePayPalPro = removePayPalPro;
-  }
-
   public PaymentsConfigurationWePay restrictions(PaymentsConfigurationRestrictions restrictions) {
     this.restrictions = restrictions;
     return this;
@@ -672,7 +651,6 @@ public class PaymentsConfigurationWePay {
         Objects.equals(this.ownerName, paymentsConfigurationWePay.ownerName) &&
         Objects.equals(this.ownerPhone, paymentsConfigurationWePay.ownerPhone) &&
         Objects.equals(this.postalCode, paymentsConfigurationWePay.postalCode) &&
-        Objects.equals(this.removePayPalPro, paymentsConfigurationWePay.removePayPalPro) &&
         Objects.equals(this.restrictions, paymentsConfigurationWePay.restrictions) &&
         Objects.equals(this.shortPaypalMarketingText, paymentsConfigurationWePay.shortPaypalMarketingText) &&
         Objects.equals(this.showUltracartPaymentsDisabled, paymentsConfigurationWePay.showUltracartPaymentsDisabled) &&
@@ -685,7 +663,7 @@ public class PaymentsConfigurationWePay {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptWepay, accountUpdateUri, address1, address2, canadaAcceptDebitCards, city, company, companyDescription, consoleHostname, country, creditCardRate, currency, expectedRevenue, hideCreditCardNonUltracartPayments, hideSurchargeAmount, industry, ownerEmail, ownerName, ownerPhone, postalCode, removePayPalPro, restrictions, shortPaypalMarketingText, showUltracartPaymentsDisabled, showUltracartPaymentsIntro, showUltracartPaymentsVerification, showUltracartPaymentsVerified, state, websiteUrl);
+    return Objects.hash(acceptWepay, accountUpdateUri, address1, address2, canadaAcceptDebitCards, city, company, companyDescription, consoleHostname, country, creditCardRate, currency, expectedRevenue, hideCreditCardNonUltracartPayments, hideSurchargeAmount, industry, ownerEmail, ownerName, ownerPhone, postalCode, restrictions, shortPaypalMarketingText, showUltracartPaymentsDisabled, showUltracartPaymentsIntro, showUltracartPaymentsVerification, showUltracartPaymentsVerified, state, websiteUrl);
   }
 
 
@@ -714,7 +692,6 @@ public class PaymentsConfigurationWePay {
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    ownerPhone: ").append(toIndentedString(ownerPhone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
-    sb.append("    removePayPalPro: ").append(toIndentedString(removePayPalPro)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("    shortPaypalMarketingText: ").append(toIndentedString(shortPaypalMarketingText)).append("\n");
     sb.append("    showUltracartPaymentsDisabled: ").append(toIndentedString(showUltracartPaymentsDisabled)).append("\n");

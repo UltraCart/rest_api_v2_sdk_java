@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **quoteRequest** | [**PaymentsConfigurationQuoteRequest**](PaymentsConfigurationQuoteRequest.md) |  |  [optional]
 **sezzle** | [**PaymentsConfigurationSezzle**](PaymentsConfigurationSezzle.md) |  |  [optional]
 **showAccountingCode** | **Boolean** | Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured. |  [optional]
-**switchToSubTab** | **String** |  |  [optional]
-**switchToTab** | **String** |  |  [optional]
 **ultracartPaymentsWepay** | [**PaymentsConfigurationWePay**](PaymentsConfigurationWePay.md) |  |  [optional]
 **wireTransfer** | [**PaymentsConfigurationWireTransfer**](PaymentsConfigurationWireTransfer.md) |  |  [optional]
 

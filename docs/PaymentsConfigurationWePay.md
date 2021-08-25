@@ -24,7 +24,6 @@ Name | Type | Description | Notes
 **ownerName** | **String** | Owner name |  [optional]
 **ownerPhone** | **String** | Owner phone |  [optional]
 **postalCode** | **String** | Postal code |  [optional]
-**removePayPalPro** | **Boolean** |  |  [optional]
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  |  [optional]
 **shortPaypalMarketingText** | **Boolean** | Internal UI aid |  [optional]
 **showUltracartPaymentsDisabled** | **Boolean** | Internal flag to aid UI |  [optional]

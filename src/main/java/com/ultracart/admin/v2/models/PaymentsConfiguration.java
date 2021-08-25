@@ -43,7 +43,7 @@ import java.io.IOException;
 /**
  * PaymentsConfiguration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-24T15:03:26.736-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-25T05:35:08.069-04:00")
 
 
 
@@ -92,12 +92,6 @@ public class PaymentsConfiguration {
 
   @SerializedName("show_accounting_code")
   private Boolean showAccountingCode = null;
-
-  @SerializedName("switchToSubTab")
-  private String switchToSubTab = null;
-
-  @SerializedName("switchToTab")
-  private String switchToTab = null;
 
   @SerializedName("ultracart_payments_wepay")
   private PaymentsConfigurationWePay ultracartPaymentsWepay = null;
@@ -375,42 +369,6 @@ public class PaymentsConfiguration {
     this.showAccountingCode = showAccountingCode;
   }
 
-  public PaymentsConfiguration switchToSubTab(String switchToSubTab) {
-    this.switchToSubTab = switchToSubTab;
-    return this;
-  }
-
-   /**
-   * Get switchToSubTab
-   * @return switchToSubTab
-  **/
-  @ApiModelProperty(value = "")
-  public String getSwitchToSubTab() {
-    return switchToSubTab;
-  }
-
-  public void setSwitchToSubTab(String switchToSubTab) {
-    this.switchToSubTab = switchToSubTab;
-  }
-
-  public PaymentsConfiguration switchToTab(String switchToTab) {
-    this.switchToTab = switchToTab;
-    return this;
-  }
-
-   /**
-   * Get switchToTab
-   * @return switchToTab
-  **/
-  @ApiModelProperty(value = "")
-  public String getSwitchToTab() {
-    return switchToTab;
-  }
-
-  public void setSwitchToTab(String switchToTab) {
-    this.switchToTab = switchToTab;
-  }
-
   public PaymentsConfiguration ultracartPaymentsWepay(PaymentsConfigurationWePay ultracartPaymentsWepay) {
     this.ultracartPaymentsWepay = ultracartPaymentsWepay;
     return this;
@@ -472,15 +430,13 @@ public class PaymentsConfiguration {
         Objects.equals(this.quoteRequest, paymentsConfiguration.quoteRequest) &&
         Objects.equals(this.sezzle, paymentsConfiguration.sezzle) &&
         Objects.equals(this.showAccountingCode, paymentsConfiguration.showAccountingCode) &&
-        Objects.equals(this.switchToSubTab, paymentsConfiguration.switchToSubTab) &&
-        Objects.equals(this.switchToTab, paymentsConfiguration.switchToTab) &&
         Objects.equals(this.ultracartPaymentsWepay, paymentsConfiguration.ultracartPaymentsWepay) &&
         Objects.equals(this.wireTransfer, paymentsConfiguration.wireTransfer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affirm, amazon, cash, check, cod, creditCard, echeck, insurance, loanHero, moneyOrder, paypal, purchaseOrder, quoteRequest, sezzle, showAccountingCode, switchToSubTab, switchToTab, ultracartPaymentsWepay, wireTransfer);
+    return Objects.hash(affirm, amazon, cash, check, cod, creditCard, echeck, insurance, loanHero, moneyOrder, paypal, purchaseOrder, quoteRequest, sezzle, showAccountingCode, ultracartPaymentsWepay, wireTransfer);
   }
 
 
@@ -504,8 +460,6 @@ public class PaymentsConfiguration {
     sb.append("    quoteRequest: ").append(toIndentedString(quoteRequest)).append("\n");
     sb.append("    sezzle: ").append(toIndentedString(sezzle)).append("\n");
     sb.append("    showAccountingCode: ").append(toIndentedString(showAccountingCode)).append("\n");
-    sb.append("    switchToSubTab: ").append(toIndentedString(switchToSubTab)).append("\n");
-    sb.append("    switchToTab: ").append(toIndentedString(switchToTab)).append("\n");
     sb.append("    ultracartPaymentsWepay: ").append(toIndentedString(ultracartPaymentsWepay)).append("\n");
     sb.append("    wireTransfer: ").append(toIndentedString(wireTransfer)).append("\n");
     sb.append("}");
