@@ -9,9 +9,17 @@ Name | Type | Description | Notes
 **accountingCode** | **String** | Optional accounting code for use with Quickbooks integrations |  [optional]
 **amazonMerchantId** | **String** | Amazon merchant ID |  [optional]
 **depositToAccount** | **String** | Optional deposit to account field for use with Quickbooks integrations |  [optional]
+**environment** | [**EnvironmentEnum**](#EnvironmentEnum) | Environment |  [optional]
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  |  [optional]
-**sandbox** | **Boolean** | True if transactions should run against the Amazon sandbox.  Useful for testing not configurations |  [optional]
 **secretAccessKey** | **String** | Amazon secret access key |  [optional]
+
+
+<a name="EnvironmentEnum"></a>
+## Enum: EnvironmentEnum
+Name | Value
+---- | -----
+LIVE | &quot;Live&quot;
+SANDBOX | &quot;Sandbox&quot;
 
 
 

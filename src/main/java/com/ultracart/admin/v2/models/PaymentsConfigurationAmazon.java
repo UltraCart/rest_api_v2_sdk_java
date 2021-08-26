@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * PaymentsConfigurationAmazon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-25T05:35:08.069-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-26T11:33:55.256-04:00")
 
 
 
@@ -48,11 +48,58 @@ public class PaymentsConfigurationAmazon {
   @SerializedName("deposit_to_account")
   private String depositToAccount = null;
 
+  /**
+   * Environment
+   */
+  @JsonAdapter(EnvironmentEnum.Adapter.class)
+  public enum EnvironmentEnum {
+    LIVE("Live"),
+    
+    SANDBOX("Sandbox");
+
+    private String value;
+
+    EnvironmentEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EnvironmentEnum fromValue(String text) {
+      for (EnvironmentEnum b : EnvironmentEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EnvironmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EnvironmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EnvironmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EnvironmentEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("environment")
+  private EnvironmentEnum environment = null;
+
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
-
-  @SerializedName("sandbox")
-  private Boolean sandbox = null;
 
   @SerializedName("secret_access_key")
   private String secretAccessKey = null;
@@ -147,6 +194,24 @@ public class PaymentsConfigurationAmazon {
     this.depositToAccount = depositToAccount;
   }
 
+  public PaymentsConfigurationAmazon environment(EnvironmentEnum environment) {
+    this.environment = environment;
+    return this;
+  }
+
+   /**
+   * Environment
+   * @return environment
+  **/
+  @ApiModelProperty(value = "Environment")
+  public EnvironmentEnum getEnvironment() {
+    return environment;
+  }
+
+  public void setEnvironment(EnvironmentEnum environment) {
+    this.environment = environment;
+  }
+
   public PaymentsConfigurationAmazon restrictions(PaymentsConfigurationRestrictions restrictions) {
     this.restrictions = restrictions;
     return this;
@@ -163,24 +228,6 @@ public class PaymentsConfigurationAmazon {
 
   public void setRestrictions(PaymentsConfigurationRestrictions restrictions) {
     this.restrictions = restrictions;
-  }
-
-  public PaymentsConfigurationAmazon sandbox(Boolean sandbox) {
-    this.sandbox = sandbox;
-    return this;
-  }
-
-   /**
-   * True if transactions should run against the Amazon sandbox.  Useful for testing not configurations
-   * @return sandbox
-  **/
-  @ApiModelProperty(value = "True if transactions should run against the Amazon sandbox.  Useful for testing not configurations")
-  public Boolean isSandbox() {
-    return sandbox;
-  }
-
-  public void setSandbox(Boolean sandbox) {
-    this.sandbox = sandbox;
   }
 
   public PaymentsConfigurationAmazon secretAccessKey(String secretAccessKey) {
@@ -216,14 +263,14 @@ public class PaymentsConfigurationAmazon {
         Objects.equals(this.accountingCode, paymentsConfigurationAmazon.accountingCode) &&
         Objects.equals(this.amazonMerchantId, paymentsConfigurationAmazon.amazonMerchantId) &&
         Objects.equals(this.depositToAccount, paymentsConfigurationAmazon.depositToAccount) &&
+        Objects.equals(this.environment, paymentsConfigurationAmazon.environment) &&
         Objects.equals(this.restrictions, paymentsConfigurationAmazon.restrictions) &&
-        Objects.equals(this.sandbox, paymentsConfigurationAmazon.sandbox) &&
         Objects.equals(this.secretAccessKey, paymentsConfigurationAmazon.secretAccessKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptAmazon, accessKeyId, accountingCode, amazonMerchantId, depositToAccount, restrictions, sandbox, secretAccessKey);
+    return Objects.hash(acceptAmazon, accessKeyId, accountingCode, amazonMerchantId, depositToAccount, environment, restrictions, secretAccessKey);
   }
 
 
@@ -237,8 +284,8 @@ public class PaymentsConfigurationAmazon {
     sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
     sb.append("    amazonMerchantId: ").append(toIndentedString(amazonMerchantId)).append("\n");
     sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
-    sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
     sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
     sb.append("}");
     return sb.toString();

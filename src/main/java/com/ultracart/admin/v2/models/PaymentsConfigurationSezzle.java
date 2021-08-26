@@ -24,13 +24,11 @@ import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * PaymentsConfigurationSezzle
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-25T05:35:08.069-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-26T11:33:55.256-04:00")
 
 
 
@@ -96,9 +94,6 @@ public class PaymentsConfigurationSezzle {
 
   @SerializedName("environment")
   private EnvironmentEnum environment = null;
-
-  @SerializedName("environments")
-  private List<String> environments = null;
 
   @SerializedName("private_api_key")
   private String privateApiKey = null;
@@ -199,32 +194,6 @@ public class PaymentsConfigurationSezzle {
     this.environment = environment;
   }
 
-  public PaymentsConfigurationSezzle environments(List<String> environments) {
-    this.environments = environments;
-    return this;
-  }
-
-  public PaymentsConfigurationSezzle addEnvironmentsItem(String environmentsItem) {
-    if (this.environments == null) {
-      this.environments = new ArrayList<String>();
-    }
-    this.environments.add(environmentsItem);
-    return this;
-  }
-
-   /**
-   * List of environments possible
-   * @return environments
-  **/
-  @ApiModelProperty(value = "List of environments possible")
-  public List<String> getEnvironments() {
-    return environments;
-  }
-
-  public void setEnvironments(List<String> environments) {
-    this.environments = environments;
-  }
-
   public PaymentsConfigurationSezzle privateApiKey(String privateApiKey) {
     this.privateApiKey = privateApiKey;
     return this;
@@ -294,7 +263,6 @@ public class PaymentsConfigurationSezzle {
         Objects.equals(this.businessId, paymentsConfigurationSezzle.businessId) &&
         Objects.equals(this.depositToAccount, paymentsConfigurationSezzle.depositToAccount) &&
         Objects.equals(this.environment, paymentsConfigurationSezzle.environment) &&
-        Objects.equals(this.environments, paymentsConfigurationSezzle.environments) &&
         Objects.equals(this.privateApiKey, paymentsConfigurationSezzle.privateApiKey) &&
         Objects.equals(this.publicApiKey, paymentsConfigurationSezzle.publicApiKey) &&
         Objects.equals(this.restrictions, paymentsConfigurationSezzle.restrictions);
@@ -302,7 +270,7 @@ public class PaymentsConfigurationSezzle {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptSezzle, accountingCode, businessId, depositToAccount, environment, environments, privateApiKey, publicApiKey, restrictions);
+    return Objects.hash(acceptSezzle, accountingCode, businessId, depositToAccount, environment, privateApiKey, publicApiKey, restrictions);
   }
 
 
@@ -316,7 +284,6 @@ public class PaymentsConfigurationSezzle {
     sb.append("    businessId: ").append(toIndentedString(businessId)).append("\n");
     sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-    sb.append("    environments: ").append(toIndentedString(environments)).append("\n");
     sb.append("    privateApiKey: ").append(toIndentedString(privateApiKey)).append("\n");
     sb.append("    publicApiKey: ").append(toIndentedString(publicApiKey)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
