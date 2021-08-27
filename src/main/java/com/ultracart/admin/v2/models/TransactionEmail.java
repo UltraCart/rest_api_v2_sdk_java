@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * TransactionEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-26T11:33:55.256-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-27T11:05:55.720-04:00")
 
 
 

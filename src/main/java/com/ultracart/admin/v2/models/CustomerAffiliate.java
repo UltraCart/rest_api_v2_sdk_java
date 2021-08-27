@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CustomerAffiliate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-26T11:33:55.256-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-27T11:05:55.720-04:00")
 
 
 
@@ -37,6 +37,12 @@ public class CustomerAffiliate {
 
   @SerializedName("email")
   private String email = null;
+
+  @SerializedName("first_name")
+  private String firstName = null;
+
+  @SerializedName("last_name")
+  private String lastName = null;
 
   public CustomerAffiliate affiliateOid(Integer affiliateOid) {
     this.affiliateOid = affiliateOid;
@@ -74,6 +80,42 @@ public class CustomerAffiliate {
     this.email = email;
   }
 
+  public CustomerAffiliate firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * First name
+   * @return firstName
+  **/
+  @ApiModelProperty(value = "First name")
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public CustomerAffiliate lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+   /**
+   * Last name
+   * @return lastName
+  **/
+  @ApiModelProperty(value = "Last name")
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +127,14 @@ public class CustomerAffiliate {
     }
     CustomerAffiliate customerAffiliate = (CustomerAffiliate) o;
     return Objects.equals(this.affiliateOid, customerAffiliate.affiliateOid) &&
-        Objects.equals(this.email, customerAffiliate.email);
+        Objects.equals(this.email, customerAffiliate.email) &&
+        Objects.equals(this.firstName, customerAffiliate.firstName) &&
+        Objects.equals(this.lastName, customerAffiliate.lastName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, email);
+    return Objects.hash(affiliateOid, email, firstName, lastName);
   }
 
 
@@ -101,6 +145,8 @@ public class CustomerAffiliate {
     
     sb.append("    affiliateOid: ").append(toIndentedString(affiliateOid)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
