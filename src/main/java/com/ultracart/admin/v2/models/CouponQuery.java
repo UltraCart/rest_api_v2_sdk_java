@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CouponQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-27T11:05:55.720-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-31T13:37:27.043-04:00")
 
 
 
@@ -52,6 +52,9 @@ public class CouponQuery {
 
   @SerializedName("merchant_code")
   private String merchantCode = null;
+
+  @SerializedName("merchant_code_or_description")
+  private String merchantCodeOrDescription = null;
 
   @SerializedName("start_dts_begin")
   private String startDtsBegin = null;
@@ -185,6 +188,24 @@ public class CouponQuery {
     this.merchantCode = merchantCode;
   }
 
+  public CouponQuery merchantCodeOrDescription(String merchantCodeOrDescription) {
+    this.merchantCodeOrDescription = merchantCodeOrDescription;
+    return this;
+  }
+
+   /**
+   * Merchant code description used for searching
+   * @return merchantCodeOrDescription
+  **/
+  @ApiModelProperty(value = "Merchant code description used for searching")
+  public String getMerchantCodeOrDescription() {
+    return merchantCodeOrDescription;
+  }
+
+  public void setMerchantCodeOrDescription(String merchantCodeOrDescription) {
+    this.merchantCodeOrDescription = merchantCodeOrDescription;
+  }
+
   public CouponQuery startDtsBegin(String startDtsBegin) {
     this.startDtsBegin = startDtsBegin;
     return this;
@@ -238,13 +259,14 @@ public class CouponQuery {
         Objects.equals(this.expirationDtsBegin, couponQuery.expirationDtsBegin) &&
         Objects.equals(this.expirationDtsEnd, couponQuery.expirationDtsEnd) &&
         Objects.equals(this.merchantCode, couponQuery.merchantCode) &&
+        Objects.equals(this.merchantCodeOrDescription, couponQuery.merchantCodeOrDescription) &&
         Objects.equals(this.startDtsBegin, couponQuery.startDtsBegin) &&
         Objects.equals(this.startDtsEnd, couponQuery.startDtsEnd);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, couponType, description, excludeExpired, expirationDtsBegin, expirationDtsEnd, merchantCode, startDtsBegin, startDtsEnd);
+    return Objects.hash(affiliateOid, couponType, description, excludeExpired, expirationDtsBegin, expirationDtsEnd, merchantCode, merchantCodeOrDescription, startDtsBegin, startDtsEnd);
   }
 
 
@@ -260,6 +282,7 @@ public class CouponQuery {
     sb.append("    expirationDtsBegin: ").append(toIndentedString(expirationDtsBegin)).append("\n");
     sb.append("    expirationDtsEnd: ").append(toIndentedString(expirationDtsEnd)).append("\n");
     sb.append("    merchantCode: ").append(toIndentedString(merchantCode)).append("\n");
+    sb.append("    merchantCodeOrDescription: ").append(toIndentedString(merchantCodeOrDescription)).append("\n");
     sb.append("    startDtsBegin: ").append(toIndentedString(startDtsBegin)).append("\n");
     sb.append("    startDtsEnd: ").append(toIndentedString(startDtsEnd)).append("\n");
     sb.append("}");

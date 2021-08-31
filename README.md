@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-08-27T11:05:55.720-04:00
+  - Build date: 2021-08-31T13:37:27.043-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.7</version>
+  <version>3.6.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.7"
+compile "com.ultracart:rest-sdk:3.6.8"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.7.jar`
+* `target/rest-sdk-3.6.8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1153,6 +1153,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.8 | 08/31/2021 | coupon query field to allow merchant code and description to be searched  | 
 | 3.6.7 | 08/27/2021 | customer profile affiliate information now contains affiliate first and last name | 
 | 3.6.6 | 08/26/2021 | configuration api - more field changes for UI | 
 | 3.6.5 | 08/25/2021 | configuration api - removed some internal fields from sdk | 

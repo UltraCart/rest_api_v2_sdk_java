@@ -1217,6 +1217,7 @@ public class CouponApi {
      * @param expirationDateEnd Expiration date end (optional)
      * @param affiliateOid Affiliate oid (optional)
      * @param excludeExpired Exclude expired (optional)
+     * @param merchantCodeOrDescription Merchant code or description (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1226,7 +1227,7 @@ public class CouponApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCouponsCall(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCouponsCall(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, String merchantCodeOrDescription, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1252,6 +1253,8 @@ public class CouponApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("affiliate_oid", affiliateOid));
         if (excludeExpired != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("exclude_expired", excludeExpired));
+        if (merchantCodeOrDescription != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("merchant_code_or_description", merchantCodeOrDescription));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
         if (offset != null)
@@ -1294,10 +1297,10 @@ public class CouponApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCouponsValidateBeforeCall(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCouponsValidateBeforeCall(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, String merchantCodeOrDescription, Integer limit, Integer offset, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getCouponsCall(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCouponsCall(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1314,6 +1317,7 @@ public class CouponApi {
      * @param expirationDateEnd Expiration date end (optional)
      * @param affiliateOid Affiliate oid (optional)
      * @param excludeExpired Exclude expired (optional)
+     * @param merchantCodeOrDescription Merchant code or description (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1321,8 +1325,8 @@ public class CouponApi {
      * @return CouponsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CouponsResponse getCoupons(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, Integer limit, Integer offset, String sort, String expand) throws ApiException {
-        ApiResponse<CouponsResponse> resp = getCouponsWithHttpInfo(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand);
+    public CouponsResponse getCoupons(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, String merchantCodeOrDescription, Integer limit, Integer offset, String sort, String expand) throws ApiException {
+        ApiResponse<CouponsResponse> resp = getCouponsWithHttpInfo(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand);
         return resp.getData();
     }
 
@@ -1338,6 +1342,7 @@ public class CouponApi {
      * @param expirationDateEnd Expiration date end (optional)
      * @param affiliateOid Affiliate oid (optional)
      * @param excludeExpired Exclude expired (optional)
+     * @param merchantCodeOrDescription Merchant code or description (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1345,8 +1350,8 @@ public class CouponApi {
      * @return ApiResponse&lt;CouponsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CouponsResponse> getCouponsWithHttpInfo(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, Integer limit, Integer offset, String sort, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = getCouponsValidateBeforeCall(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand, null, null);
+    public ApiResponse<CouponsResponse> getCouponsWithHttpInfo(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, String merchantCodeOrDescription, Integer limit, Integer offset, String sort, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getCouponsValidateBeforeCall(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand, null, null);
         Type localVarReturnType = new TypeToken<CouponsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1363,6 +1368,7 @@ public class CouponApi {
      * @param expirationDateEnd Expiration date end (optional)
      * @param affiliateOid Affiliate oid (optional)
      * @param excludeExpired Exclude expired (optional)
+     * @param merchantCodeOrDescription Merchant code or description (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1371,7 +1377,7 @@ public class CouponApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCouponsAsync(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, Integer limit, Integer offset, String sort, String expand, final ApiCallback<CouponsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCouponsAsync(String merchantCode, String description, String couponType, String startDateBegin, String startDateEnd, String expirationDateBegin, String expirationDateEnd, Integer affiliateOid, Boolean excludeExpired, String merchantCodeOrDescription, Integer limit, Integer offset, String sort, String expand, final ApiCallback<CouponsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1392,7 +1398,7 @@ public class CouponApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getCouponsValidateBeforeCall(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCouponsValidateBeforeCall(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CouponsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
