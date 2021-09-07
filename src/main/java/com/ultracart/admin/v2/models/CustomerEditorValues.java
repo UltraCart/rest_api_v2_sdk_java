@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CustomerEditorValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-31T13:37:27.043-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-07T13:52:55.704-04:00")
 
 
 
@@ -56,6 +56,9 @@ public class CustomerEditorValues {
 
   @SerializedName("sales_rep_codes")
   private List<String> salesRepCodes = null;
+
+  @SerializedName("state_optional_countries")
+  private List<Country> stateOptionalCountries = null;
 
   @SerializedName("terms")
   private List<String> terms = null;
@@ -242,6 +245,32 @@ public class CustomerEditorValues {
     this.salesRepCodes = salesRepCodes;
   }
 
+  public CustomerEditorValues stateOptionalCountries(List<Country> stateOptionalCountries) {
+    this.stateOptionalCountries = stateOptionalCountries;
+    return this;
+  }
+
+  public CustomerEditorValues addStateOptionalCountriesItem(Country stateOptionalCountriesItem) {
+    if (this.stateOptionalCountries == null) {
+      this.stateOptionalCountries = new ArrayList<Country>();
+    }
+    this.stateOptionalCountries.add(stateOptionalCountriesItem);
+    return this;
+  }
+
+   /**
+   * state_optional_countries
+   * @return stateOptionalCountries
+  **/
+  @ApiModelProperty(value = "state_optional_countries")
+  public List<Country> getStateOptionalCountries() {
+    return stateOptionalCountries;
+  }
+
+  public void setStateOptionalCountries(List<Country> stateOptionalCountries) {
+    this.stateOptionalCountries = stateOptionalCountries;
+  }
+
   public CustomerEditorValues terms(List<String> terms) {
     this.terms = terms;
     return this;
@@ -285,12 +314,13 @@ public class CustomerEditorValues {
         Objects.equals(this.countries, customerEditorValues.countries) &&
         Objects.equals(this.qbClasses, customerEditorValues.qbClasses) &&
         Objects.equals(this.salesRepCodes, customerEditorValues.salesRepCodes) &&
+        Objects.equals(this.stateOptionalCountries, customerEditorValues.stateOptionalCountries) &&
         Objects.equals(this.terms, customerEditorValues.terms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, qbClasses, salesRepCodes, terms);
+    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, qbClasses, salesRepCodes, stateOptionalCountries, terms);
   }
 
 
@@ -306,6 +336,7 @@ public class CustomerEditorValues {
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    qbClasses: ").append(toIndentedString(qbClasses)).append("\n");
     sb.append("    salesRepCodes: ").append(toIndentedString(salesRepCodes)).append("\n");
+    sb.append("    stateOptionalCountries: ").append(toIndentedString(stateOptionalCountries)).append("\n");
     sb.append("    terms: ").append(toIndentedString(terms)).append("\n");
     sb.append("}");
     return sb.toString();
