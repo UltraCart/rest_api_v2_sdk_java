@@ -73,6 +73,7 @@ CHECK | &quot;Check&quot;
 COD | &quot;COD&quot;
 CREDIT_CARD | &quot;Credit Card&quot;
 ECHECK | &quot;eCheck&quot;
+GOOGLE_SHOPPING | &quot;Google Shopping&quot;
 LOANHERO | &quot;LoanHero&quot;
 MONEY_ORDER | &quot;Money Order&quot;
 PAYPAL | &quot;PayPal&quot;

@@ -37,6 +37,7 @@ COD | &quot;COD&quot;
 CREDIT_CARD | &quot;Credit Card&quot;
 EBAY | &quot;eBay&quot;
 ECHECK | &quot;eCheck&quot;
+GOOGLE_SHOPPING | &quot;Google Shopping&quot;
 INSURANCE | &quot;Insurance&quot;
 LOANHERO | &quot;LoanHero&quot;
 MONEY_ORDER | &quot;Money Order&quot;
