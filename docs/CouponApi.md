@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 <a name="getCoupons"></a>
 # **getCoupons**
-> CouponsResponse getCoupons(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand)
+> CouponsResponse getCoupons(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand)
 
 Retrieve coupons
 
@@ -506,13 +506,12 @@ String expirationDateBegin = "expirationDateBegin_example"; // String | Expirati
 String expirationDateEnd = "expirationDateEnd_example"; // String | Expiration date end
 Integer affiliateOid = 56; // Integer | Affiliate oid
 Boolean excludeExpired = true; // Boolean | Exclude expired
-String merchantCodeOrDescription = "merchantCodeOrDescription_example"; // String | Merchant code or description
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
 String sort = "sort_example"; // String | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    CouponsResponse result = apiInstance.getCoupons(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand);
+    CouponsResponse result = apiInstance.getCoupons(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CouponApi#getCoupons");
@@ -533,7 +532,6 @@ Name | Type | Description  | Notes
  **expirationDateEnd** | **String**| Expiration date end | [optional]
  **affiliateOid** | **Integer**| Affiliate oid | [optional]
  **excludeExpired** | **Boolean**| Exclude expired | [optional]
- **merchantCodeOrDescription** | **String**| Merchant code or description | [optional]
  **limit** | **Integer**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **sort** | **String**| The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
