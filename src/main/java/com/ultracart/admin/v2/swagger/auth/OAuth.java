@@ -18,7 +18,7 @@ import com.ultracart.admin.v2.swagger.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-13T13:37:38.400-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-20T13:58:01.132-04:00")
 public class OAuth implements Authentication {
   private String accessToken;
 
