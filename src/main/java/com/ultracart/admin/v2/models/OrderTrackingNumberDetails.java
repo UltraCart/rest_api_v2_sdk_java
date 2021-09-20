@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * OrderTrackingNumberDetails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-20T13:58:01.132-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-20T15:16:56.995-04:00")
 
 
 
@@ -43,6 +43,9 @@ public class OrderTrackingNumberDetails {
 
   @SerializedName("details")
   private List<OrderTrackingNumberDetail> details = null;
+
+  @SerializedName("easypost_tracker_id")
+  private String easypostTrackerId = null;
 
   @SerializedName("expected_delivery_date")
   private String expectedDeliveryDate = null;
@@ -146,6 +149,24 @@ public class OrderTrackingNumberDetails {
 
   public void setDetails(List<OrderTrackingNumberDetail> details) {
     this.details = details;
+  }
+
+  public OrderTrackingNumberDetails easypostTrackerId(String easypostTrackerId) {
+    this.easypostTrackerId = easypostTrackerId;
+    return this;
+  }
+
+   /**
+   * Get easypostTrackerId
+   * @return easypostTrackerId
+  **/
+  @ApiModelProperty(value = "")
+  public String getEasypostTrackerId() {
+    return easypostTrackerId;
+  }
+
+  public void setEasypostTrackerId(String easypostTrackerId) {
+    this.easypostTrackerId = easypostTrackerId;
   }
 
   public OrderTrackingNumberDetails expectedDeliveryDate(String expectedDeliveryDate) {
@@ -413,6 +434,7 @@ public class OrderTrackingNumberDetails {
     return Objects.equals(this.actualDeliveryDate, orderTrackingNumberDetails.actualDeliveryDate) &&
         Objects.equals(this.actualDeliveryDateFormatted, orderTrackingNumberDetails.actualDeliveryDateFormatted) &&
         Objects.equals(this.details, orderTrackingNumberDetails.details) &&
+        Objects.equals(this.easypostTrackerId, orderTrackingNumberDetails.easypostTrackerId) &&
         Objects.equals(this.expectedDeliveryDate, orderTrackingNumberDetails.expectedDeliveryDate) &&
         Objects.equals(this.expectedDeliveryDateFormatted, orderTrackingNumberDetails.expectedDeliveryDateFormatted) &&
         Objects.equals(this.mapUrl, orderTrackingNumberDetails.mapUrl) &&
@@ -431,7 +453,7 @@ public class OrderTrackingNumberDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualDeliveryDate, actualDeliveryDateFormatted, details, expectedDeliveryDate, expectedDeliveryDateFormatted, mapUrl, orderPlacedDate, orderPlacedDateFormatted, paymentProcessedDate, paymentProcessedDateFormatted, shippedDate, shippedDateFormatted, shippingMethod, status, statusDescription, trackingNumber, trackingUrl);
+    return Objects.hash(actualDeliveryDate, actualDeliveryDateFormatted, details, easypostTrackerId, expectedDeliveryDate, expectedDeliveryDateFormatted, mapUrl, orderPlacedDate, orderPlacedDateFormatted, paymentProcessedDate, paymentProcessedDateFormatted, shippedDate, shippedDateFormatted, shippingMethod, status, statusDescription, trackingNumber, trackingUrl);
   }
 
 
@@ -443,6 +465,7 @@ public class OrderTrackingNumberDetails {
     sb.append("    actualDeliveryDate: ").append(toIndentedString(actualDeliveryDate)).append("\n");
     sb.append("    actualDeliveryDateFormatted: ").append(toIndentedString(actualDeliveryDateFormatted)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    easypostTrackerId: ").append(toIndentedString(easypostTrackerId)).append("\n");
     sb.append("    expectedDeliveryDate: ").append(toIndentedString(expectedDeliveryDate)).append("\n");
     sb.append("    expectedDeliveryDateFormatted: ").append(toIndentedString(expectedDeliveryDateFormatted)).append("\n");
     sb.append("    mapUrl: ").append(toIndentedString(mapUrl)).append("\n");

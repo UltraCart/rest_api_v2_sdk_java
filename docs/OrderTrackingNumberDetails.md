@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **actualDeliveryDate** | **String** |  |  [optional]
 **actualDeliveryDateFormatted** | **String** |  |  [optional]
 **details** | [**List&lt;OrderTrackingNumberDetail&gt;**](OrderTrackingNumberDetail.md) |  |  [optional]
+**easypostTrackerId** | **String** |  |  [optional]
 **expectedDeliveryDate** | **String** |  |  [optional]
 **expectedDeliveryDateFormatted** | **String** |  |  [optional]
 **mapUrl** | **String** |  |  [optional]
