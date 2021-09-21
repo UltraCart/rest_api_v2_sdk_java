@@ -21,14 +21,17 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
+import com.ultracart.admin.v2.models.PaymentsConfigurationTestMethod;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PaymentsConfigurationEcheck
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-20T15:16:56.995-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-21T10:48:32.913-04:00")
 
 
 
@@ -44,6 +47,9 @@ public class PaymentsConfigurationEcheck {
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
+
+  @SerializedName("test_methods")
+  private List<PaymentsConfigurationTestMethod> testMethods = null;
 
   public PaymentsConfigurationEcheck acceptEcheck(Boolean acceptEcheck) {
     this.acceptEcheck = acceptEcheck;
@@ -117,6 +123,32 @@ public class PaymentsConfigurationEcheck {
     this.restrictions = restrictions;
   }
 
+  public PaymentsConfigurationEcheck testMethods(List<PaymentsConfigurationTestMethod> testMethods) {
+    this.testMethods = testMethods;
+    return this;
+  }
+
+  public PaymentsConfigurationEcheck addTestMethodsItem(PaymentsConfigurationTestMethod testMethodsItem) {
+    if (this.testMethods == null) {
+      this.testMethods = new ArrayList<PaymentsConfigurationTestMethod>();
+    }
+    this.testMethods.add(testMethodsItem);
+    return this;
+  }
+
+   /**
+   * Test methods for this payment method
+   * @return testMethods
+  **/
+  @ApiModelProperty(value = "Test methods for this payment method")
+  public List<PaymentsConfigurationTestMethod> getTestMethods() {
+    return testMethods;
+  }
+
+  public void setTestMethods(List<PaymentsConfigurationTestMethod> testMethods) {
+    this.testMethods = testMethods;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -130,12 +162,13 @@ public class PaymentsConfigurationEcheck {
     return Objects.equals(this.acceptEcheck, paymentsConfigurationEcheck.acceptEcheck) &&
         Objects.equals(this.accountingCode, paymentsConfigurationEcheck.accountingCode) &&
         Objects.equals(this.depositToAccount, paymentsConfigurationEcheck.depositToAccount) &&
-        Objects.equals(this.restrictions, paymentsConfigurationEcheck.restrictions);
+        Objects.equals(this.restrictions, paymentsConfigurationEcheck.restrictions) &&
+        Objects.equals(this.testMethods, paymentsConfigurationEcheck.testMethods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptEcheck, accountingCode, depositToAccount, restrictions);
+    return Objects.hash(acceptEcheck, accountingCode, depositToAccount, restrictions, testMethods);
   }
 
 
@@ -148,6 +181,7 @@ public class PaymentsConfigurationEcheck {
     sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
     sb.append("    depositToAccount: ").append(toIndentedString(depositToAccount)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
+    sb.append("    testMethods: ").append(toIndentedString(testMethods)).append("\n");
     sb.append("}");
     return sb.toString();
   }

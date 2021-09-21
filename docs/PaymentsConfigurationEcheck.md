@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **accountingCode** | **String** | Optional Quickbooks accounting code |  [optional]
 **depositToAccount** | **String** | Optional Quickbooks deposit to account |  [optional]
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  |  [optional]
+**testMethods** | [**List&lt;PaymentsConfigurationTestMethod&gt;**](PaymentsConfigurationTestMethod.md) | Test methods for this payment method |  [optional]
 
 
 

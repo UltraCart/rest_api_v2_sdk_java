@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ScreenRecordingFilterValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-20T15:16:56.995-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-21T10:48:32.913-04:00")
 
 
 

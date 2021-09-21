@@ -21,17 +21,14 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.PaymentsConfigurationRestrictions;
-import com.ultracart.admin.v2.models.PaymentsConfigurationTestMethod;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * PaymentsConfigurationCheck
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-20T15:16:56.995-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-21T10:48:32.913-04:00")
 
 
 
@@ -71,9 +68,6 @@ public class PaymentsConfigurationCheck {
 
   @SerializedName("restrictions")
   private PaymentsConfigurationRestrictions restrictions = null;
-
-  @SerializedName("test_methods")
-  private List<PaymentsConfigurationTestMethod> testMethods = null;
 
   public PaymentsConfigurationCheck acceptCheckOrders(Boolean acceptCheckOrders) {
     this.acceptCheckOrders = acceptCheckOrders;
@@ -291,32 +285,6 @@ public class PaymentsConfigurationCheck {
     this.restrictions = restrictions;
   }
 
-  public PaymentsConfigurationCheck testMethods(List<PaymentsConfigurationTestMethod> testMethods) {
-    this.testMethods = testMethods;
-    return this;
-  }
-
-  public PaymentsConfigurationCheck addTestMethodsItem(PaymentsConfigurationTestMethod testMethodsItem) {
-    if (this.testMethods == null) {
-      this.testMethods = new ArrayList<PaymentsConfigurationTestMethod>();
-    }
-    this.testMethods.add(testMethodsItem);
-    return this;
-  }
-
-   /**
-   * Test methods for this payment method
-   * @return testMethods
-  **/
-  @ApiModelProperty(value = "Test methods for this payment method")
-  public List<PaymentsConfigurationTestMethod> getTestMethods() {
-    return testMethods;
-  }
-
-  public void setTestMethods(List<PaymentsConfigurationTestMethod> testMethods) {
-    this.testMethods = testMethods;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -338,13 +306,12 @@ public class PaymentsConfigurationCheck {
         Objects.equals(this.mailToName, paymentsConfigurationCheck.mailToName) &&
         Objects.equals(this.mailToPostalCode, paymentsConfigurationCheck.mailToPostalCode) &&
         Objects.equals(this.mailToStore, paymentsConfigurationCheck.mailToStore) &&
-        Objects.equals(this.restrictions, paymentsConfigurationCheck.restrictions) &&
-        Objects.equals(this.testMethods, paymentsConfigurationCheck.testMethods);
+        Objects.equals(this.restrictions, paymentsConfigurationCheck.restrictions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptCheckOrders, accountingCode, checksPayableTo, depositToAccount, mailToAddress1, mailToAddress2, mailToCity, mailToCountry, mailToName, mailToPostalCode, mailToStore, restrictions, testMethods);
+    return Objects.hash(acceptCheckOrders, accountingCode, checksPayableTo, depositToAccount, mailToAddress1, mailToAddress2, mailToCity, mailToCountry, mailToName, mailToPostalCode, mailToStore, restrictions);
   }
 
 
@@ -365,7 +332,6 @@ public class PaymentsConfigurationCheck {
     sb.append("    mailToPostalCode: ").append(toIndentedString(mailToPostalCode)).append("\n");
     sb.append("    mailToStore: ").append(toIndentedString(mailToStore)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
-    sb.append("    testMethods: ").append(toIndentedString(testMethods)).append("\n");
     sb.append("}");
     return sb.toString();
   }
