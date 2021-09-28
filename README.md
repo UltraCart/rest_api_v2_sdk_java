@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-09-21T10:48:32.913-04:00
+  - Build date: 2021-09-28T13:43:08.336-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.14</version>
+  <version>3.6.15</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.14"
+compile "com.ultracart:rest-sdk:3.6.15"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.14.jar`
+* `target/rest-sdk-3.6.15.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1153,6 +1153,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.15 | 09/28/2021 | added refund_claim_id to insurance object  | 
 | 3.6.14 | 09/21/2021 | configuration api fix.  the echeck test methods were attached to the paper check object  | 
 | 3.6.13 | 09/20/2021 | expose EasyPost tracker id if available on shipment tracking details  | 
 | 3.6.12 | 09/20/2021 | fix method for getCouponsByQuery to be POST instead of GET since it uses a JSON body  | 

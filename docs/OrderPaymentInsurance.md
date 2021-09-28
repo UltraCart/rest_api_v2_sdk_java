@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **applicationId** | **String** | application id |  [optional]
 **claimId** | **String** | claim id |  [optional]
+**refundClaimId** | **String** | refund claim id |  [optional]
 
 
 

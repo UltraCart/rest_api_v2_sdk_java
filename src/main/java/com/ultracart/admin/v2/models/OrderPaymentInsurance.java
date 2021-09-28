@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderPaymentInsurance
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-21T10:48:32.913-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-28T13:43:08.336-04:00")
 
 
 
@@ -37,6 +37,9 @@ public class OrderPaymentInsurance {
 
   @SerializedName("claim_id")
   private String claimId = null;
+
+  @SerializedName("refund_claim_id")
+  private String refundClaimId = null;
 
   public OrderPaymentInsurance applicationId(String applicationId) {
     this.applicationId = applicationId;
@@ -74,6 +77,24 @@ public class OrderPaymentInsurance {
     this.claimId = claimId;
   }
 
+  public OrderPaymentInsurance refundClaimId(String refundClaimId) {
+    this.refundClaimId = refundClaimId;
+    return this;
+  }
+
+   /**
+   * refund claim id
+   * @return refundClaimId
+  **/
+  @ApiModelProperty(value = "refund claim id")
+  public String getRefundClaimId() {
+    return refundClaimId;
+  }
+
+  public void setRefundClaimId(String refundClaimId) {
+    this.refundClaimId = refundClaimId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +106,13 @@ public class OrderPaymentInsurance {
     }
     OrderPaymentInsurance orderPaymentInsurance = (OrderPaymentInsurance) o;
     return Objects.equals(this.applicationId, orderPaymentInsurance.applicationId) &&
-        Objects.equals(this.claimId, orderPaymentInsurance.claimId);
+        Objects.equals(this.claimId, orderPaymentInsurance.claimId) &&
+        Objects.equals(this.refundClaimId, orderPaymentInsurance.refundClaimId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId, claimId);
+    return Objects.hash(applicationId, claimId, refundClaimId);
   }
 
 
@@ -101,6 +123,7 @@ public class OrderPaymentInsurance {
     
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    claimId: ").append(toIndentedString(claimId)).append("\n");
+    sb.append("    refundClaimId: ").append(toIndentedString(refundClaimId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

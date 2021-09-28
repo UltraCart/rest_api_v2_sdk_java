@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * OrderPaymentCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-21T10:48:32.913-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-28T13:43:08.336-04:00")
 
 
 
@@ -253,10 +253,10 @@ public class OrderPaymentCreditCard {
   }
 
    /**
-   * Card number token from hosted fields used to update the cart number
+   * Card number token from hosted fields used to update the card number
    * @return cardNumberToken
   **/
-  @ApiModelProperty(value = "Card number token from hosted fields used to update the cart number")
+  @ApiModelProperty(value = "Card number token from hosted fields used to update the card number")
   public String getCardNumberToken() {
     return cardNumberToken;
   }
