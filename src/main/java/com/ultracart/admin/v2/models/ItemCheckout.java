@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemCheckout
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-30T10:35:05.922-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-30T11:24:23.303-04:00")
 
 
 
@@ -37,6 +37,9 @@ public class ItemCheckout {
 
   @SerializedName("terms")
   private String terms = null;
+
+  @SerializedName("terms_if_auto_order")
+  private Boolean termsIfAutoOrder = null;
 
   @SerializedName("terms_translated_text_instance_oid")
   private Integer termsTranslatedTextInstanceOid = null;
@@ -77,6 +80,24 @@ public class ItemCheckout {
     this.terms = terms;
   }
 
+  public ItemCheckout termsIfAutoOrder(Boolean termsIfAutoOrder) {
+    this.termsIfAutoOrder = termsIfAutoOrder;
+    return this;
+  }
+
+   /**
+   * Terms only apply if the item is on auto order
+   * @return termsIfAutoOrder
+  **/
+  @ApiModelProperty(value = "Terms only apply if the item is on auto order")
+  public Boolean isTermsIfAutoOrder() {
+    return termsIfAutoOrder;
+  }
+
+  public void setTermsIfAutoOrder(Boolean termsIfAutoOrder) {
+    this.termsIfAutoOrder = termsIfAutoOrder;
+  }
+
   public ItemCheckout termsTranslatedTextInstanceOid(Integer termsTranslatedTextInstanceOid) {
     this.termsTranslatedTextInstanceOid = termsTranslatedTextInstanceOid;
     return this;
@@ -107,12 +128,13 @@ public class ItemCheckout {
     ItemCheckout itemCheckout = (ItemCheckout) o;
     return Objects.equals(this.suppressBuysafe, itemCheckout.suppressBuysafe) &&
         Objects.equals(this.terms, itemCheckout.terms) &&
+        Objects.equals(this.termsIfAutoOrder, itemCheckout.termsIfAutoOrder) &&
         Objects.equals(this.termsTranslatedTextInstanceOid, itemCheckout.termsTranslatedTextInstanceOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(suppressBuysafe, terms, termsTranslatedTextInstanceOid);
+    return Objects.hash(suppressBuysafe, terms, termsIfAutoOrder, termsTranslatedTextInstanceOid);
   }
 
 
@@ -123,6 +145,7 @@ public class ItemCheckout {
     
     sb.append("    suppressBuysafe: ").append(toIndentedString(suppressBuysafe)).append("\n");
     sb.append("    terms: ").append(toIndentedString(terms)).append("\n");
+    sb.append("    termsIfAutoOrder: ").append(toIndentedString(termsIfAutoOrder)).append("\n");
     sb.append("    termsTranslatedTextInstanceOid: ").append(toIndentedString(termsTranslatedTextInstanceOid)).append("\n");
     sb.append("}");
     return sb.toString();
