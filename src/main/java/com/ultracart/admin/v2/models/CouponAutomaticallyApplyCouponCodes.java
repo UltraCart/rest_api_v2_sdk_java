@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CouponAutomaticallyApplyCouponCodes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-30T10:24:11.922-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-30T10:35:05.922-04:00")
 
 
 

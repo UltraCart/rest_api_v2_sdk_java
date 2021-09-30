@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ItemContent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-30T10:24:11.922-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-30T10:35:05.922-04:00")
 
 
 
@@ -48,6 +48,9 @@ public class ItemContent {
 
   @SerializedName("exclude_from_search")
   private Boolean excludeFromSearch = null;
+
+  @SerializedName("exclude_from_sitemap")
+  private Boolean excludeFromSitemap = null;
 
   @SerializedName("exclude_from_top_sellers")
   private Boolean excludeFromTopSellers = null;
@@ -159,6 +162,24 @@ public class ItemContent {
 
   public void setExcludeFromSearch(Boolean excludeFromSearch) {
     this.excludeFromSearch = excludeFromSearch;
+  }
+
+  public ItemContent excludeFromSitemap(Boolean excludeFromSitemap) {
+    this.excludeFromSitemap = excludeFromSitemap;
+    return this;
+  }
+
+   /**
+   * Exclude from the sitemap for the StoreFront
+   * @return excludeFromSitemap
+  **/
+  @ApiModelProperty(value = "Exclude from the sitemap for the StoreFront")
+  public Boolean isExcludeFromSitemap() {
+    return excludeFromSitemap;
+  }
+
+  public void setExcludeFromSitemap(Boolean excludeFromSitemap) {
+    this.excludeFromSitemap = excludeFromSitemap;
   }
 
   public ItemContent excludeFromTopSellers(Boolean excludeFromTopSellers) {
@@ -327,6 +348,7 @@ public class ItemContent {
         Objects.equals(this.attributes, itemContent.attributes) &&
         Objects.equals(this.customThankYouUrl, itemContent.customThankYouUrl) &&
         Objects.equals(this.excludeFromSearch, itemContent.excludeFromSearch) &&
+        Objects.equals(this.excludeFromSitemap, itemContent.excludeFromSitemap) &&
         Objects.equals(this.excludeFromTopSellers, itemContent.excludeFromTopSellers) &&
         Objects.equals(this.extendedDescription, itemContent.extendedDescription) &&
         Objects.equals(this.extendedDescriptionTranslatedTextInstanceOid, itemContent.extendedDescriptionTranslatedTextInstanceOid) &&
@@ -339,7 +361,7 @@ public class ItemContent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignments, attributes, customThankYouUrl, excludeFromSearch, excludeFromTopSellers, extendedDescription, extendedDescriptionTranslatedTextInstanceOid, multimedia, newItem, newItemEnd, newItemStart, viewUrl);
+    return Objects.hash(assignments, attributes, customThankYouUrl, excludeFromSearch, excludeFromSitemap, excludeFromTopSellers, extendedDescription, extendedDescriptionTranslatedTextInstanceOid, multimedia, newItem, newItemEnd, newItemStart, viewUrl);
   }
 
 
@@ -352,6 +374,7 @@ public class ItemContent {
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    customThankYouUrl: ").append(toIndentedString(customThankYouUrl)).append("\n");
     sb.append("    excludeFromSearch: ").append(toIndentedString(excludeFromSearch)).append("\n");
+    sb.append("    excludeFromSitemap: ").append(toIndentedString(excludeFromSitemap)).append("\n");
     sb.append("    excludeFromTopSellers: ").append(toIndentedString(excludeFromTopSellers)).append("\n");
     sb.append("    extendedDescription: ").append(toIndentedString(extendedDescription)).append("\n");
     sb.append("    extendedDescriptionTranslatedTextInstanceOid: ").append(toIndentedString(extendedDescriptionTranslatedTextInstanceOid)).append("\n");
