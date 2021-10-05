@@ -32,6 +32,7 @@ import com.ultracart.admin.v2.models.ItemDigitalDelivery;
 import com.ultracart.admin.v2.models.ItemEbay;
 import com.ultracart.admin.v2.models.ItemEmailNotifications;
 import com.ultracart.admin.v2.models.ItemEnrollment123;
+import com.ultracart.admin.v2.models.ItemFulfillmentAddon;
 import com.ultracart.admin.v2.models.ItemGiftCertificate;
 import com.ultracart.admin.v2.models.ItemGoogleProductSearch;
 import com.ultracart.admin.v2.models.ItemIdentifiers;
@@ -66,7 +67,7 @@ import java.util.List;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-30T11:24:23.303-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-05T14:32:28.614-04:00")
 
 
 
@@ -115,6 +116,9 @@ public class Item {
 
   @SerializedName("enrollment123")
   private ItemEnrollment123 enrollment123 = null;
+
+  @SerializedName("fulfillment_addons")
+  private List<ItemFulfillmentAddon> fulfillmentAddons = null;
 
   @SerializedName("gift_certificate")
   private ItemGiftCertificate giftCertificate = null;
@@ -497,6 +501,32 @@ public class Item {
 
   public void setEnrollment123(ItemEnrollment123 enrollment123) {
     this.enrollment123 = enrollment123;
+  }
+
+  public Item fulfillmentAddons(List<ItemFulfillmentAddon> fulfillmentAddons) {
+    this.fulfillmentAddons = fulfillmentAddons;
+    return this;
+  }
+
+  public Item addFulfillmentAddonsItem(ItemFulfillmentAddon fulfillmentAddonsItem) {
+    if (this.fulfillmentAddons == null) {
+      this.fulfillmentAddons = new ArrayList<ItemFulfillmentAddon>();
+    }
+    this.fulfillmentAddons.add(fulfillmentAddonsItem);
+    return this;
+  }
+
+   /**
+   * Fulfillment Add-ons
+   * @return fulfillmentAddons
+  **/
+  @ApiModelProperty(value = "Fulfillment Add-ons")
+  public List<ItemFulfillmentAddon> getFulfillmentAddons() {
+    return fulfillmentAddons;
+  }
+
+  public void setFulfillmentAddons(List<ItemFulfillmentAddon> fulfillmentAddons) {
+    this.fulfillmentAddons = fulfillmentAddons;
   }
 
   public Item giftCertificate(ItemGiftCertificate giftCertificate) {
@@ -1194,6 +1224,7 @@ public class Item {
         Objects.equals(this.ebay, item.ebay) &&
         Objects.equals(this.emailNotifications, item.emailNotifications) &&
         Objects.equals(this.enrollment123, item.enrollment123) &&
+        Objects.equals(this.fulfillmentAddons, item.fulfillmentAddons) &&
         Objects.equals(this.giftCertificate, item.giftCertificate) &&
         Objects.equals(this.googleProductSearch, item.googleProductSearch) &&
         Objects.equals(this.identifiers, item.identifiers) &&
@@ -1233,7 +1264,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerItemMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitComponentOnly, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, recommendReplenishmentDays, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
+    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerItemMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, fulfillmentAddons, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitComponentOnly, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, recommendReplenishmentDays, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
   }
 
 
@@ -1257,6 +1288,7 @@ public class Item {
     sb.append("    ebay: ").append(toIndentedString(ebay)).append("\n");
     sb.append("    emailNotifications: ").append(toIndentedString(emailNotifications)).append("\n");
     sb.append("    enrollment123: ").append(toIndentedString(enrollment123)).append("\n");
+    sb.append("    fulfillmentAddons: ").append(toIndentedString(fulfillmentAddons)).append("\n");
     sb.append("    giftCertificate: ").append(toIndentedString(giftCertificate)).append("\n");
     sb.append("    googleProductSearch: ").append(toIndentedString(googleProductSearch)).append("\n");
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");

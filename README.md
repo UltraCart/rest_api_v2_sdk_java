@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-09-30T11:24:23.303-04:00
+  - Build date: 2021-10-05T14:32:28.614-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.18</version>
+  <version>3.6.19</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.18"
+compile "com.ultracart:rest-sdk:3.6.19"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.18.jar`
+* `target/rest-sdk-3.6.19.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -798,6 +798,7 @@ Class | Method | HTTP request | Description
  - [ItemEbayMarketPlaceAnalysis](docs/ItemEbayMarketPlaceAnalysis.md)
  - [ItemEmailNotifications](docs/ItemEmailNotifications.md)
  - [ItemEnrollment123](docs/ItemEnrollment123.md)
+ - [ItemFulfillmentAddon](docs/ItemFulfillmentAddon.md)
  - [ItemGiftCertificate](docs/ItemGiftCertificate.md)
  - [ItemGoogleProductSearch](docs/ItemGoogleProductSearch.md)
  - [ItemIdentifiers](docs/ItemIdentifiers.md)
@@ -1153,6 +1154,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.19 | 10/05/2021 | item fulfillment add ons  | 
 | 3.6.18 | 09/30/2021 | terms if auto order flag added  | 
 | 3.6.16 | 09/30/2021 | item exclude from sitemap field  | 
 | 3.6.15 | 09/28/2021 | added refund_claim_id to insurance object  | 
