@@ -20,15 +20,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ExperimentVariationStat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ExperimentVariation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-05T14:32:28.614-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T09:51:22.890-04:00")
 
 
 
@@ -51,6 +54,9 @@ public class ExperimentVariation {
   @SerializedName("conversion_rate")
   private BigDecimal conversionRate = null;
 
+  @SerializedName("daily_statistics")
+  private List<ExperimentVariationStat> dailyStatistics = null;
+
   @SerializedName("duration_seconds_sum")
   private Long durationSecondsSum = null;
 
@@ -62,6 +68,9 @@ public class ExperimentVariation {
 
   @SerializedName("order_count")
   private Integer orderCount = null;
+
+  @SerializedName("order_item_count")
+  private Integer orderItemCount = null;
 
   @SerializedName("original_traffic_percentage")
   private BigDecimal originalTrafficPercentage = null;
@@ -198,6 +207,32 @@ public class ExperimentVariation {
     this.conversionRate = conversionRate;
   }
 
+  public ExperimentVariation dailyStatistics(List<ExperimentVariationStat> dailyStatistics) {
+    this.dailyStatistics = dailyStatistics;
+    return this;
+  }
+
+  public ExperimentVariation addDailyStatisticsItem(ExperimentVariationStat dailyStatisticsItem) {
+    if (this.dailyStatistics == null) {
+      this.dailyStatistics = new ArrayList<ExperimentVariationStat>();
+    }
+    this.dailyStatistics.add(dailyStatisticsItem);
+    return this;
+  }
+
+   /**
+   * Array of daily statistics for this variation
+   * @return dailyStatistics
+  **/
+  @ApiModelProperty(value = "Array of daily statistics for this variation")
+  public List<ExperimentVariationStat> getDailyStatistics() {
+    return dailyStatistics;
+  }
+
+  public void setDailyStatistics(List<ExperimentVariationStat> dailyStatistics) {
+    this.dailyStatistics = dailyStatistics;
+  }
+
   public ExperimentVariation durationSecondsSum(Long durationSecondsSum) {
     this.durationSecondsSum = durationSecondsSum;
     return this;
@@ -268,6 +303,24 @@ public class ExperimentVariation {
 
   public void setOrderCount(Integer orderCount) {
     this.orderCount = orderCount;
+  }
+
+  public ExperimentVariation orderItemCount(Integer orderItemCount) {
+    this.orderItemCount = orderItemCount;
+    return this;
+  }
+
+   /**
+   * Total order item count for this variation
+   * @return orderItemCount
+  **/
+  @ApiModelProperty(value = "Total order item count for this variation")
+  public Integer getOrderItemCount() {
+    return orderItemCount;
+  }
+
+  public void setOrderItemCount(Integer orderItemCount) {
+    this.orderItemCount = orderItemCount;
   }
 
   public ExperimentVariation originalTrafficPercentage(BigDecimal originalTrafficPercentage) {
@@ -448,10 +501,12 @@ public class ExperimentVariation {
         Objects.equals(this.averageOrderValue, experimentVariation.averageOrderValue) &&
         Objects.equals(this.bounceCount, experimentVariation.bounceCount) &&
         Objects.equals(this.conversionRate, experimentVariation.conversionRate) &&
+        Objects.equals(this.dailyStatistics, experimentVariation.dailyStatistics) &&
         Objects.equals(this.durationSecondsSum, experimentVariation.durationSecondsSum) &&
         Objects.equals(this.eventCount, experimentVariation.eventCount) &&
         Objects.equals(this.initiateCheckoutCount, experimentVariation.initiateCheckoutCount) &&
         Objects.equals(this.orderCount, experimentVariation.orderCount) &&
+        Objects.equals(this.orderItemCount, experimentVariation.orderItemCount) &&
         Objects.equals(this.originalTrafficPercentage, experimentVariation.originalTrafficPercentage) &&
         Objects.equals(this.pageViewCount, experimentVariation.pageViewCount) &&
         Objects.equals(this.revenue, experimentVariation.revenue) &&
@@ -465,7 +520,7 @@ public class ExperimentVariation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, originalTrafficPercentage, pageViewCount, revenue, sessionCount, trafficPercentage, url, variationName, variationNumber, winner);
+    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, dailyStatistics, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, originalTrafficPercentage, pageViewCount, revenue, sessionCount, trafficPercentage, url, variationName, variationNumber, winner);
   }
 
 
@@ -480,10 +535,12 @@ public class ExperimentVariation {
     sb.append("    averageOrderValue: ").append(toIndentedString(averageOrderValue)).append("\n");
     sb.append("    bounceCount: ").append(toIndentedString(bounceCount)).append("\n");
     sb.append("    conversionRate: ").append(toIndentedString(conversionRate)).append("\n");
+    sb.append("    dailyStatistics: ").append(toIndentedString(dailyStatistics)).append("\n");
     sb.append("    durationSecondsSum: ").append(toIndentedString(durationSecondsSum)).append("\n");
     sb.append("    eventCount: ").append(toIndentedString(eventCount)).append("\n");
     sb.append("    initiateCheckoutCount: ").append(toIndentedString(initiateCheckoutCount)).append("\n");
     sb.append("    orderCount: ").append(toIndentedString(orderCount)).append("\n");
+    sb.append("    orderItemCount: ").append(toIndentedString(orderItemCount)).append("\n");
     sb.append("    originalTrafficPercentage: ").append(toIndentedString(originalTrafficPercentage)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    revenue: ").append(toIndentedString(revenue)).append("\n");

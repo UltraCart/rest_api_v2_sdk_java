@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ApplyLibraryItemRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-05T14:32:28.614-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T09:51:22.890-04:00")
 
 
 
@@ -37,6 +37,9 @@ public class ApplyLibraryItemRequest {
 
   @SerializedName("library_item_oid")
   private Integer libraryItemOid = null;
+
+  @SerializedName("postcard_uuid")
+  private String postcardUuid = null;
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
@@ -77,6 +80,24 @@ public class ApplyLibraryItemRequest {
     this.libraryItemOid = libraryItemOid;
   }
 
+  public ApplyLibraryItemRequest postcardUuid(String postcardUuid) {
+    this.postcardUuid = postcardUuid;
+    return this;
+  }
+
+   /**
+   * The postcard uuid you wish to apply to a given StoreFront.
+   * @return postcardUuid
+  **/
+  @ApiModelProperty(value = "The postcard uuid you wish to apply to a given StoreFront.")
+  public String getPostcardUuid() {
+    return postcardUuid;
+  }
+
+  public void setPostcardUuid(String postcardUuid) {
+    this.postcardUuid = postcardUuid;
+  }
+
   public ApplyLibraryItemRequest storefrontOid(Integer storefrontOid) {
     this.storefrontOid = storefrontOid;
     return this;
@@ -107,12 +128,13 @@ public class ApplyLibraryItemRequest {
     ApplyLibraryItemRequest applyLibraryItemRequest = (ApplyLibraryItemRequest) o;
     return Objects.equals(this.emailUuid, applyLibraryItemRequest.emailUuid) &&
         Objects.equals(this.libraryItemOid, applyLibraryItemRequest.libraryItemOid) &&
+        Objects.equals(this.postcardUuid, applyLibraryItemRequest.postcardUuid) &&
         Objects.equals(this.storefrontOid, applyLibraryItemRequest.storefrontOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailUuid, libraryItemOid, storefrontOid);
+    return Objects.hash(emailUuid, libraryItemOid, postcardUuid, storefrontOid);
   }
 
 
@@ -123,6 +145,7 @@ public class ApplyLibraryItemRequest {
     
     sb.append("    emailUuid: ").append(toIndentedString(emailUuid)).append("\n");
     sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
+    sb.append("    postcardUuid: ").append(toIndentedString(postcardUuid)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("}");
     return sb.toString();

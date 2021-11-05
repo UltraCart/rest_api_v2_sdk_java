@@ -31,13 +31,16 @@ import java.math.BigDecimal;
 /**
  * AffiliateLedger
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-05T14:32:28.614-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T09:51:22.890-04:00")
 
 
 
 public class AffiliateLedger {
   @SerializedName("affiliate_click_oid")
   private Integer affiliateClickOid = null;
+
+  @SerializedName("affiliate_ledger_oid")
+  private Integer affiliateLedgerOid = null;
 
   @SerializedName("affiliate_link_oid")
   private Integer affiliateLinkOid = null;
@@ -70,7 +73,7 @@ public class AffiliateLedger {
   private String subId = null;
 
   @SerializedName("tier_number")
-  private String tierNumber = null;
+  private Integer tierNumber = null;
 
   @SerializedName("transaction_amount")
   private BigDecimal transactionAmount = null;
@@ -85,7 +88,7 @@ public class AffiliateLedger {
   private String transactionMemo = null;
 
   @SerializedName("transaction_percentage")
-  private String transactionPercentage = null;
+  private BigDecimal transactionPercentage = null;
 
   /**
    * Transaction state
@@ -161,6 +164,24 @@ public class AffiliateLedger {
 
   public void setAffiliateClickOid(Integer affiliateClickOid) {
     this.affiliateClickOid = affiliateClickOid;
+  }
+
+  public AffiliateLedger affiliateLedgerOid(Integer affiliateLedgerOid) {
+    this.affiliateLedgerOid = affiliateLedgerOid;
+    return this;
+  }
+
+   /**
+   * Affiliate ledger object ID associated with this ledger
+   * @return affiliateLedgerOid
+  **/
+  @ApiModelProperty(value = "Affiliate ledger object ID associated with this ledger")
+  public Integer getAffiliateLedgerOid() {
+    return affiliateLedgerOid;
+  }
+
+  public void setAffiliateLedgerOid(Integer affiliateLedgerOid) {
+    this.affiliateLedgerOid = affiliateLedgerOid;
   }
 
   public AffiliateLedger affiliateLinkOid(Integer affiliateLinkOid) {
@@ -343,7 +364,7 @@ public class AffiliateLedger {
     this.subId = subId;
   }
 
-  public AffiliateLedger tierNumber(String tierNumber) {
+  public AffiliateLedger tierNumber(Integer tierNumber) {
     this.tierNumber = tierNumber;
     return this;
   }
@@ -353,11 +374,11 @@ public class AffiliateLedger {
    * @return tierNumber
   **/
   @ApiModelProperty(value = "Tier number that this transaction earned")
-  public String getTierNumber() {
+  public Integer getTierNumber() {
     return tierNumber;
   }
 
-  public void setTierNumber(String tierNumber) {
+  public void setTierNumber(Integer tierNumber) {
     this.tierNumber = tierNumber;
   }
 
@@ -433,7 +454,7 @@ public class AffiliateLedger {
     this.transactionMemo = transactionMemo;
   }
 
-  public AffiliateLedger transactionPercentage(String transactionPercentage) {
+  public AffiliateLedger transactionPercentage(BigDecimal transactionPercentage) {
     this.transactionPercentage = transactionPercentage;
     return this;
   }
@@ -443,11 +464,11 @@ public class AffiliateLedger {
    * @return transactionPercentage
   **/
   @ApiModelProperty(value = "Percentage associated with this transaction")
-  public String getTransactionPercentage() {
+  public BigDecimal getTransactionPercentage() {
     return transactionPercentage;
   }
 
-  public void setTransactionPercentage(String transactionPercentage) {
+  public void setTransactionPercentage(BigDecimal transactionPercentage) {
     this.transactionPercentage = transactionPercentage;
   }
 
@@ -480,6 +501,7 @@ public class AffiliateLedger {
     }
     AffiliateLedger affiliateLedger = (AffiliateLedger) o;
     return Objects.equals(this.affiliateClickOid, affiliateLedger.affiliateClickOid) &&
+        Objects.equals(this.affiliateLedgerOid, affiliateLedger.affiliateLedgerOid) &&
         Objects.equals(this.affiliateLinkOid, affiliateLedger.affiliateLinkOid) &&
         Objects.equals(this.affiliateOid, affiliateLedger.affiliateOid) &&
         Objects.equals(this.assignedByUser, affiliateLedger.assignedByUser) &&
@@ -501,7 +523,7 @@ public class AffiliateLedger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateClickOid, affiliateLinkOid, affiliateOid, assignedByUser, click, itemId, link, order, orderId, originalTransactionDts, subId, tierNumber, transactionAmount, transactionAmountPaid, transactionDts, transactionMemo, transactionPercentage, transactionState);
+    return Objects.hash(affiliateClickOid, affiliateLedgerOid, affiliateLinkOid, affiliateOid, assignedByUser, click, itemId, link, order, orderId, originalTransactionDts, subId, tierNumber, transactionAmount, transactionAmountPaid, transactionDts, transactionMemo, transactionPercentage, transactionState);
   }
 
 
@@ -511,6 +533,7 @@ public class AffiliateLedger {
     sb.append("class AffiliateLedger {\n");
     
     sb.append("    affiliateClickOid: ").append(toIndentedString(affiliateClickOid)).append("\n");
+    sb.append("    affiliateLedgerOid: ").append(toIndentedString(affiliateLedgerOid)).append("\n");
     sb.append("    affiliateLinkOid: ").append(toIndentedString(affiliateLinkOid)).append("\n");
     sb.append("    affiliateOid: ").append(toIndentedString(affiliateOid)).append("\n");
     sb.append("    assignedByUser: ").append(toIndentedString(assignedByUser)).append("\n");

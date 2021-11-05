@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ScreenshotsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-05T14:32:28.614-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T09:51:22.890-04:00")
 
 
 

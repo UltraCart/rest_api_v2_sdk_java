@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-10-05T14:32:28.614-04:00
+  - Build date: 2021-11-05T09:51:22.890-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.19</version>
+  <version>3.6.20</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.19"
+compile "com.ultracart:rest-sdk:3.6.20"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.19.jar`
+* `target/rest-sdk-3.6.20.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -751,6 +751,7 @@ Class | Method | HTTP request | Description
  - [Experiment](docs/Experiment.md)
  - [ExperimentResponse](docs/ExperimentResponse.md)
  - [ExperimentVariation](docs/ExperimentVariation.md)
+ - [ExperimentVariationStat](docs/ExperimentVariationStat.md)
  - [ExperimentsResponse](docs/ExperimentsResponse.md)
  - [FulfillmentInventory](docs/FulfillmentInventory.md)
  - [FulfillmentShipment](docs/FulfillmentShipment.md)
@@ -1154,6 +1155,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.20 | 11/05/2021 | additional item auto order step types  | 
 | 3.6.19 | 10/05/2021 | item fulfillment add ons  | 
 | 3.6.18 | 09/30/2021 | terms if auto order flag added  | 
 | 3.6.16 | 09/30/2021 | item exclude from sitemap field  | 

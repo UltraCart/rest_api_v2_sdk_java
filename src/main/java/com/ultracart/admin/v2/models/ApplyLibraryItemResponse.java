@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * ApplyLibraryItemResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-05T14:32:28.614-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T09:51:22.890-04:00")
 
 
 
@@ -121,10 +121,10 @@ public class ApplyLibraryItemResponse {
   }
 
    /**
-   * flow, campaign, cjson, upsell, transactional_email or email
+   * flow, campaign, cjson, upsell, postcard, transactional_email or email
    * @return contentType
   **/
-  @ApiModelProperty(value = "flow, campaign, cjson, upsell, transactional_email or email")
+  @ApiModelProperty(value = "flow, campaign, cjson, upsell, postcard, transactional_email or email")
   public String getContentType() {
     return contentType;
   }

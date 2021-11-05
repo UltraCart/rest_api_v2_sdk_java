@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * AddLibraryItemRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-05T14:32:28.614-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T09:51:22.890-04:00")
 
 
 
@@ -119,10 +119,10 @@ public class AddLibraryItemRequest {
   }
 
    /**
-   * flow, campaign, cjson, email, transactional_email or upsell
+   * flow, campaign, cjson, email, transactional_email, postcard or upsell
    * @return contentType
   **/
-  @ApiModelProperty(value = "flow, campaign, cjson, email, transactional_email or upsell")
+  @ApiModelProperty(value = "flow, campaign, cjson, email, transactional_email, postcard or upsell")
   public String getContentType() {
     return contentType;
   }
@@ -271,10 +271,10 @@ public class AddLibraryItemRequest {
   }
 
    /**
-   * UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name
+   * UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name
    * @return uuid
   **/
-  @ApiModelProperty(value = "UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name")
+  @ApiModelProperty(value = "UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name")
   public String getUuid() {
     return uuid;
   }

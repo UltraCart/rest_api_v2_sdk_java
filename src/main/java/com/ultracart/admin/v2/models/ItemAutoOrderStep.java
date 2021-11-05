@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ItemAutoOrderStep
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-05T14:32:28.614-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T09:51:22.890-04:00")
 
 
 
@@ -80,13 +80,17 @@ public class ItemAutoOrderStep {
   private Integer subscribeEmailListOid = null;
 
   /**
-   * Type of step (item or pause)
+   * Type of step (item, kit only, loop or pause)
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     ITEM("item"),
     
-    PAUSE("pause");
+    PAUSE("pause"),
+    
+    LOOP("loop"),
+    
+    KIT_ONLY("kit only");
 
     private String value;
 
@@ -403,10 +407,10 @@ public class ItemAutoOrderStep {
   }
 
    /**
-   * Type of step (item or pause)
+   * Type of step (item, kit only, loop or pause)
    * @return type
   **/
-  @ApiModelProperty(value = "Type of step (item or pause)")
+  @ApiModelProperty(value = "Type of step (item, kit only, loop or pause)")
   public TypeEnum getType() {
     return type;
   }
