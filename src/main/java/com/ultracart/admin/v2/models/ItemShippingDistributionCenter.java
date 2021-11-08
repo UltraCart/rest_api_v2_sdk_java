@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemShippingDistributionCenter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T09:51:22.890-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-08T13:11:09.241-05:00")
 
 
 
@@ -41,6 +41,9 @@ public class ItemShippingDistributionCenter {
 
   @SerializedName("available_to_allocate")
   private BigDecimal availableToAllocate = null;
+
+  @SerializedName("cogs")
+  private BigDecimal cogs = null;
 
   @SerializedName("desired_inventory_level")
   private BigDecimal desiredInventoryLevel = null;
@@ -124,6 +127,24 @@ public class ItemShippingDistributionCenter {
 
   public void setAvailableToAllocate(BigDecimal availableToAllocate) {
     this.availableToAllocate = availableToAllocate;
+  }
+
+  public ItemShippingDistributionCenter cogs(BigDecimal cogs) {
+    this.cogs = cogs;
+    return this;
+  }
+
+   /**
+   * Cost of goods sold override at the distribution center level
+   * @return cogs
+  **/
+  @ApiModelProperty(value = "Cost of goods sold override at the distribution center level")
+  public BigDecimal getCogs() {
+    return cogs;
+  }
+
+  public void setCogs(BigDecimal cogs) {
+    this.cogs = cogs;
   }
 
   public ItemShippingDistributionCenter desiredInventoryLevel(BigDecimal desiredInventoryLevel) {
@@ -319,6 +340,7 @@ public class ItemShippingDistributionCenter {
     return Objects.equals(this.allocatedToPlacedOrders, itemShippingDistributionCenter.allocatedToPlacedOrders) &&
         Objects.equals(this.allocatedToShoppingCarts, itemShippingDistributionCenter.allocatedToShoppingCarts) &&
         Objects.equals(this.availableToAllocate, itemShippingDistributionCenter.availableToAllocate) &&
+        Objects.equals(this.cogs, itemShippingDistributionCenter.cogs) &&
         Objects.equals(this.desiredInventoryLevel, itemShippingDistributionCenter.desiredInventoryLevel) &&
         Objects.equals(this.distributionCenterCode, itemShippingDistributionCenter.distributionCenterCode) &&
         Objects.equals(this.distributionCenterOid, itemShippingDistributionCenter.distributionCenterOid) &&
@@ -333,7 +355,7 @@ public class ItemShippingDistributionCenter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocatedToPlacedOrders, allocatedToShoppingCarts, availableToAllocate, desiredInventoryLevel, distributionCenterCode, distributionCenterOid, eta, handles, inventoryLevel, maximumBackorder, reorderInventoryLevel, sku, stockPickingLocation);
+    return Objects.hash(allocatedToPlacedOrders, allocatedToShoppingCarts, availableToAllocate, cogs, desiredInventoryLevel, distributionCenterCode, distributionCenterOid, eta, handles, inventoryLevel, maximumBackorder, reorderInventoryLevel, sku, stockPickingLocation);
   }
 
 
@@ -345,6 +367,7 @@ public class ItemShippingDistributionCenter {
     sb.append("    allocatedToPlacedOrders: ").append(toIndentedString(allocatedToPlacedOrders)).append("\n");
     sb.append("    allocatedToShoppingCarts: ").append(toIndentedString(allocatedToShoppingCarts)).append("\n");
     sb.append("    availableToAllocate: ").append(toIndentedString(availableToAllocate)).append("\n");
+    sb.append("    cogs: ").append(toIndentedString(cogs)).append("\n");
     sb.append("    desiredInventoryLevel: ").append(toIndentedString(desiredInventoryLevel)).append("\n");
     sb.append("    distributionCenterCode: ").append(toIndentedString(distributionCenterCode)).append("\n");
     sb.append("    distributionCenterOid: ").append(toIndentedString(distributionCenterOid)).append("\n");
