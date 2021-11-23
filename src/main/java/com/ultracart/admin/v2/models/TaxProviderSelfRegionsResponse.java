@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * TaxProviderSelfRegionsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-08T13:11:09.241-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-23T14:49:10.477-05:00")
 
 
 

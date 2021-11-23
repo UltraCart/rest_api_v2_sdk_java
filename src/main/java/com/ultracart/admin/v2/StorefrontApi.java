@@ -152,6 +152,9 @@ import com.ultracart.admin.v2.models.ThumbnailParametersResponse;
 import com.ultracart.admin.v2.models.TransactionEmail;
 import com.ultracart.admin.v2.models.TransactionEmailListResponse;
 import com.ultracart.admin.v2.models.TransactionEmailResponse;
+import com.ultracart.admin.v2.models.Twilio;
+import com.ultracart.admin.v2.models.TwilioResponse;
+import com.ultracart.admin.v2.models.TwiliosResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1396,6 +1399,128 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = createEmailSendingDomainValidateBeforeCall(domain, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmailSendingDomainResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createTwilioAccount
+     * @param twilio Twilio (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createTwilioAccountCall(Twilio twilio, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = twilio;
+
+        // create path and map variables
+        String localVarPath = "/storefront/twilio/accounts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createTwilioAccountValidateBeforeCall(Twilio twilio, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'twilio' is set
+        if (twilio == null) {
+            throw new ApiException("Missing the required parameter 'twilio' when calling createTwilioAccount(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = createTwilioAccountCall(twilio, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create Twilio account
+     * 
+     * @param twilio Twilio (required)
+     * @return TwilioResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TwilioResponse createTwilioAccount(Twilio twilio) throws ApiException {
+        ApiResponse<TwilioResponse> resp = createTwilioAccountWithHttpInfo(twilio);
+        return resp.getData();
+    }
+
+    /**
+     * Create Twilio account
+     * 
+     * @param twilio Twilio (required)
+     * @return ApiResponse&lt;TwilioResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TwilioResponse> createTwilioAccountWithHttpInfo(Twilio twilio) throws ApiException {
+        com.squareup.okhttp.Call call = createTwilioAccountValidateBeforeCall(twilio, null, null);
+        Type localVarReturnType = new TypeToken<TwilioResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create Twilio account (asynchronously)
+     * 
+     * @param twilio Twilio (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createTwilioAccountAsync(Twilio twilio, final ApiCallback<TwilioResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createTwilioAccountValidateBeforeCall(twilio, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TwilioResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3081,6 +3206,129 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = deleteScreenRecordingSegmentValidateBeforeCall(storefrontOid, screenRecordingSegmentOid, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteTwilioAccount
+     * @param espTwilioUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteTwilioAccountCall(String espTwilioUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}"
+            .replaceAll("\\{" + "esp_twilio_uuid" + "\\}", apiClient.escapeString(espTwilioUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTwilioAccountValidateBeforeCall(String espTwilioUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'espTwilioUuid' is set
+        if (espTwilioUuid == null) {
+            throw new ApiException("Missing the required parameter 'espTwilioUuid' when calling deleteTwilioAccount(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteTwilioAccountCall(espTwilioUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * delete Twilio account
+     * 
+     * @param espTwilioUuid  (required)
+     * @return BaseResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BaseResponse deleteTwilioAccount(String espTwilioUuid) throws ApiException {
+        ApiResponse<BaseResponse> resp = deleteTwilioAccountWithHttpInfo(espTwilioUuid);
+        return resp.getData();
+    }
+
+    /**
+     * delete Twilio account
+     * 
+     * @param espTwilioUuid  (required)
+     * @return ApiResponse&lt;BaseResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<BaseResponse> deleteTwilioAccountWithHttpInfo(String espTwilioUuid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTwilioAccountValidateBeforeCall(espTwilioUuid, null, null);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * delete Twilio account (asynchronously)
+     * 
+     * @param espTwilioUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteTwilioAccountAsync(String espTwilioUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteTwilioAccountValidateBeforeCall(espTwilioUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -13575,6 +13823,242 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for getTwilioAccount
+     * @param espTwilioUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTwilioAccountCall(String espTwilioUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}"
+            .replaceAll("\\{" + "esp_twilio_uuid" + "\\}", apiClient.escapeString(espTwilioUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTwilioAccountValidateBeforeCall(String espTwilioUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'espTwilioUuid' is set
+        if (espTwilioUuid == null) {
+            throw new ApiException("Missing the required parameter 'espTwilioUuid' when calling getTwilioAccount(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getTwilioAccountCall(espTwilioUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get Twilio account
+     * 
+     * @param espTwilioUuid  (required)
+     * @return TwilioResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TwilioResponse getTwilioAccount(String espTwilioUuid) throws ApiException {
+        ApiResponse<TwilioResponse> resp = getTwilioAccountWithHttpInfo(espTwilioUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get Twilio account
+     * 
+     * @param espTwilioUuid  (required)
+     * @return ApiResponse&lt;TwilioResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TwilioResponse> getTwilioAccountWithHttpInfo(String espTwilioUuid) throws ApiException {
+        com.squareup.okhttp.Call call = getTwilioAccountValidateBeforeCall(espTwilioUuid, null, null);
+        Type localVarReturnType = new TypeToken<TwilioResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get Twilio account (asynchronously)
+     * 
+     * @param espTwilioUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTwilioAccountAsync(String espTwilioUuid, final ApiCallback<TwilioResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTwilioAccountValidateBeforeCall(espTwilioUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TwilioResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTwilioAccounts
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTwilioAccountsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/twilio/accounts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTwilioAccountsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getTwilioAccountsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get all Twilio accounts
+     * 
+     * @return TwiliosResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TwiliosResponse getTwilioAccounts() throws ApiException {
+        ApiResponse<TwiliosResponse> resp = getTwilioAccountsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get all Twilio accounts
+     * 
+     * @return ApiResponse&lt;TwiliosResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TwiliosResponse> getTwilioAccountsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getTwilioAccountsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<TwiliosResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get all Twilio accounts (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTwilioAccountsAsync(final ApiCallback<TwiliosResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTwilioAccountsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TwiliosResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for globalUnsubscribe
      * @param storefrontOid  (required)
      * @param unsubscribe Unsubscribe (required)
@@ -20791,6 +21275,138 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = updateTransactionEmailValidateBeforeCall(storefrontOid, emailId, transactionEmail, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TransactionEmailResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateTwilioAccount
+     * @param espTwilioUuid  (required)
+     * @param twilio Twilio (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateTwilioAccountCall(String espTwilioUuid, Twilio twilio, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = twilio;
+
+        // create path and map variables
+        String localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}"
+            .replaceAll("\\{" + "esp_twilio_uuid" + "\\}", apiClient.escapeString(espTwilioUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateTwilioAccountValidateBeforeCall(String espTwilioUuid, Twilio twilio, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'espTwilioUuid' is set
+        if (espTwilioUuid == null) {
+            throw new ApiException("Missing the required parameter 'espTwilioUuid' when calling updateTwilioAccount(Async)");
+        }
+        
+        // verify the required parameter 'twilio' is set
+        if (twilio == null) {
+            throw new ApiException("Missing the required parameter 'twilio' when calling updateTwilioAccount(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateTwilioAccountCall(espTwilioUuid, twilio, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update Twilio account
+     * 
+     * @param espTwilioUuid  (required)
+     * @param twilio Twilio (required)
+     * @return TwilioResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TwilioResponse updateTwilioAccount(String espTwilioUuid, Twilio twilio) throws ApiException {
+        ApiResponse<TwilioResponse> resp = updateTwilioAccountWithHttpInfo(espTwilioUuid, twilio);
+        return resp.getData();
+    }
+
+    /**
+     * Update Twilio account
+     * 
+     * @param espTwilioUuid  (required)
+     * @param twilio Twilio (required)
+     * @return ApiResponse&lt;TwilioResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TwilioResponse> updateTwilioAccountWithHttpInfo(String espTwilioUuid, Twilio twilio) throws ApiException {
+        com.squareup.okhttp.Call call = updateTwilioAccountValidateBeforeCall(espTwilioUuid, twilio, null, null);
+        Type localVarReturnType = new TypeToken<TwilioResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update Twilio account (asynchronously)
+     * 
+     * @param espTwilioUuid  (required)
+     * @param twilio Twilio (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateTwilioAccountAsync(String espTwilioUuid, Twilio twilio, final ApiCallback<TwilioResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateTwilioAccountValidateBeforeCall(espTwilioUuid, twilio, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TwilioResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
