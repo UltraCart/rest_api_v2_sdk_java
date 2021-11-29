@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ItemAutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-23T14:49:10.477-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-29T09:52:39.024-05:00")
 
 
 
@@ -53,6 +53,9 @@ public class ItemAutoOrder {
 
   @SerializedName("auto_order_paused")
   private Boolean autoOrderPaused = null;
+
+  @SerializedName("auto_order_prohibit_expiring_cards")
+  private Integer autoOrderProhibitExpiringCards = null;
 
   @SerializedName("auto_order_schedules")
   private List<String> autoOrderSchedules = null;
@@ -198,6 +201,24 @@ public class ItemAutoOrder {
 
   public void setAutoOrderPaused(Boolean autoOrderPaused) {
     this.autoOrderPaused = autoOrderPaused;
+  }
+
+  public ItemAutoOrder autoOrderProhibitExpiringCards(Integer autoOrderProhibitExpiringCards) {
+    this.autoOrderProhibitExpiringCards = autoOrderProhibitExpiringCards;
+    return this;
+  }
+
+   /**
+   * Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.
+   * @return autoOrderProhibitExpiringCards
+  **/
+  @ApiModelProperty(value = "Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.")
+  public Integer getAutoOrderProhibitExpiringCards() {
+    return autoOrderProhibitExpiringCards;
+  }
+
+  public void setAutoOrderProhibitExpiringCards(Integer autoOrderProhibitExpiringCards) {
+    this.autoOrderProhibitExpiringCards = autoOrderProhibitExpiringCards;
   }
 
   public ItemAutoOrder autoOrderSchedules(List<String> autoOrderSchedules) {
@@ -420,6 +441,7 @@ public class ItemAutoOrder {
         Objects.equals(this.autoOrderCancelItemOid, itemAutoOrder.autoOrderCancelItemOid) &&
         Objects.equals(this.autoOrderDowngradeItems, itemAutoOrder.autoOrderDowngradeItems) &&
         Objects.equals(this.autoOrderPaused, itemAutoOrder.autoOrderPaused) &&
+        Objects.equals(this.autoOrderProhibitExpiringCards, itemAutoOrder.autoOrderProhibitExpiringCards) &&
         Objects.equals(this.autoOrderSchedules, itemAutoOrder.autoOrderSchedules) &&
         Objects.equals(this.autoOrderUpgradeItems, itemAutoOrder.autoOrderUpgradeItems) &&
         Objects.equals(this.autoOrderUpsell, itemAutoOrder.autoOrderUpsell) &&
@@ -434,7 +456,7 @@ public class ItemAutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderDowngradeItems, autoOrderPaused, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, refundOtherAutoOrders, steps);
+    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderDowngradeItems, autoOrderPaused, autoOrderProhibitExpiringCards, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, refundOtherAutoOrders, steps);
   }
 
 
@@ -449,6 +471,7 @@ public class ItemAutoOrder {
     sb.append("    autoOrderCancelItemOid: ").append(toIndentedString(autoOrderCancelItemOid)).append("\n");
     sb.append("    autoOrderDowngradeItems: ").append(toIndentedString(autoOrderDowngradeItems)).append("\n");
     sb.append("    autoOrderPaused: ").append(toIndentedString(autoOrderPaused)).append("\n");
+    sb.append("    autoOrderProhibitExpiringCards: ").append(toIndentedString(autoOrderProhibitExpiringCards)).append("\n");
     sb.append("    autoOrderSchedules: ").append(toIndentedString(autoOrderSchedules)).append("\n");
     sb.append("    autoOrderUpgradeItems: ").append(toIndentedString(autoOrderUpgradeItems)).append("\n");
     sb.append("    autoOrderUpsell: ").append(toIndentedString(autoOrderUpsell)).append("\n");
