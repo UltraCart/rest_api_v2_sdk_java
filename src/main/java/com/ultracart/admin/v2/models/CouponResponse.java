@@ -27,11 +27,13 @@ import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CouponResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-29T09:52:39.024-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-30T09:47:30.905-05:00")
 
 
 
@@ -41,6 +43,9 @@ public class CouponResponse {
 
   @SerializedName("error")
   private Error error = null;
+
+  @SerializedName("items_invalid_for_coupons")
+  private List<String> itemsInvalidForCoupons = null;
 
   @SerializedName("metadata")
   private ResponseMetadata metadata = null;
@@ -85,6 +90,32 @@ public class CouponResponse {
 
   public void setError(Error error) {
     this.error = error;
+  }
+
+  public CouponResponse itemsInvalidForCoupons(List<String> itemsInvalidForCoupons) {
+    this.itemsInvalidForCoupons = itemsInvalidForCoupons;
+    return this;
+  }
+
+  public CouponResponse addItemsInvalidForCouponsItem(String itemsInvalidForCouponsItem) {
+    if (this.itemsInvalidForCoupons == null) {
+      this.itemsInvalidForCoupons = new ArrayList<String>();
+    }
+    this.itemsInvalidForCoupons.add(itemsInvalidForCouponsItem);
+    return this;
+  }
+
+   /**
+   * Items invalid for coupons.  These will display as warnings within the UI.
+   * @return itemsInvalidForCoupons
+  **/
+  @ApiModelProperty(value = "Items invalid for coupons.  These will display as warnings within the UI.")
+  public List<String> getItemsInvalidForCoupons() {
+    return itemsInvalidForCoupons;
+  }
+
+  public void setItemsInvalidForCoupons(List<String> itemsInvalidForCoupons) {
+    this.itemsInvalidForCoupons = itemsInvalidForCoupons;
   }
 
   public CouponResponse metadata(ResponseMetadata metadata) {
@@ -153,6 +184,7 @@ public class CouponResponse {
     CouponResponse couponResponse = (CouponResponse) o;
     return Objects.equals(this.coupon, couponResponse.coupon) &&
         Objects.equals(this.error, couponResponse.error) &&
+        Objects.equals(this.itemsInvalidForCoupons, couponResponse.itemsInvalidForCoupons) &&
         Objects.equals(this.metadata, couponResponse.metadata) &&
         Objects.equals(this.success, couponResponse.success) &&
         Objects.equals(this.warning, couponResponse.warning);
@@ -160,7 +192,7 @@ public class CouponResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(coupon, error, metadata, success, warning);
+    return Objects.hash(coupon, error, itemsInvalidForCoupons, metadata, success, warning);
   }
 
 
@@ -171,6 +203,7 @@ public class CouponResponse {
     
     sb.append("    coupon: ").append(toIndentedString(coupon)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    itemsInvalidForCoupons: ").append(toIndentedString(itemsInvalidForCoupons)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");

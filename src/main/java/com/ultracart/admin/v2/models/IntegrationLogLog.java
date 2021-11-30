@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * IntegrationLogLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-29T09:52:39.024-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-30T09:47:30.905-05:00")
 
 
 
