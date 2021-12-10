@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ItemPaymentProcessing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-30T09:47:30.905-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-10T15:21:34.452-05:00")
 
 
 

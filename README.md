@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-11-30T09:47:30.905-05:00
+  - Build date: 2021-12-10T15:21:34.452-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.24</version>
+  <version>3.6.32</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.24"
+compile "com.ultracart:rest-sdk:3.6.32"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.24.jar`
+* `target/rest-sdk-3.6.32.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1163,6 +1163,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.32 | 12/10/2021 | testing automation - message 4 |
+| 3.6.25 | 12/06/2021 | sdk automation testing.  no changes to actual sdk | 
 | 3.6.24 | 11/30/2021 | return items_invalid_for_coupons for CouponResponse object to drive UI warnings | 
 | 3.6.23 | 11/29/2021 | Item auto order prohibit cards that expire in months setting. | 
 | 3.6.22 | 11/23/2021 | new storefront methods for twilio configuration | 
