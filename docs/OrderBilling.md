@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **dayPhoneE164** | **String** | Day time phone (E164 format) |  [optional]
 **email** | **String** | Email |  [optional]
 **eveningPhone** | **String** | Evening phone |  [optional]
+**eveningPhoneE164** | **String** | Evening phone (E164 format) |  [optional]
 **firstName** | **String** | First name |  [optional]
 **lastName** | **String** | Last name |  [optional]
 **postalCode** | **String** | Postal code |  [optional]

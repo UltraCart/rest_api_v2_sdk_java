@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-12-13T16:23:11.641-05:00
+  - Build date: 2021-12-14T09:01:57.671-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.33</version>
+  <version>3.6.34</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.33"
+compile "com.ultracart:rest-sdk:3.6.34"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.33.jar`
+* `target/rest-sdk-3.6.34.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1163,6 +1163,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.34 | 12/14/2021 | add evening phone E.164 fields to order billing/shipping objects |
 | 3.6.33 | 12/13/2021 | automation testing |
 | 3.6.32 | 12/10/2021 | testing automation - message 4 |
 | 3.6.25 | 12/06/2021 | sdk automation testing.  no changes to actual sdk | 
