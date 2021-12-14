@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * AccountsReceivableRetryConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-14T09:01:57.671-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-14T13:06:12.998-05:00")
 
 
 
@@ -40,6 +40,9 @@ public class AccountsReceivableRetryConfig {
 
   @SerializedName("allow_process_linked_accounts")
   private Boolean allowProcessLinkedAccounts = null;
+
+  @SerializedName("cancel_auto_order")
+  private Boolean cancelAutoOrder = null;
 
   @SerializedName("current_service_plan")
   private String currentServicePlan = null;
@@ -111,6 +114,24 @@ public class AccountsReceivableRetryConfig {
 
   public void setAllowProcessLinkedAccounts(Boolean allowProcessLinkedAccounts) {
     this.allowProcessLinkedAccounts = allowProcessLinkedAccounts;
+  }
+
+  public AccountsReceivableRetryConfig cancelAutoOrder(Boolean cancelAutoOrder) {
+    this.cancelAutoOrder = cancelAutoOrder;
+    return this;
+  }
+
+   /**
+   * If true also cancel the auto order if the order is rejected at the end
+   * @return cancelAutoOrder
+  **/
+  @ApiModelProperty(value = "If true also cancel the auto order if the order is rejected at the end")
+  public Boolean isCancelAutoOrder() {
+    return cancelAutoOrder;
+  }
+
+  public void setCancelAutoOrder(Boolean cancelAutoOrder) {
+    this.cancelAutoOrder = cancelAutoOrder;
   }
 
   public AccountsReceivableRetryConfig currentServicePlan(String currentServicePlan) {
@@ -357,6 +378,7 @@ public class AccountsReceivableRetryConfig {
     AccountsReceivableRetryConfig accountsReceivableRetryConfig = (AccountsReceivableRetryConfig) o;
     return Objects.equals(this.active, accountsReceivableRetryConfig.active) &&
         Objects.equals(this.allowProcessLinkedAccounts, accountsReceivableRetryConfig.allowProcessLinkedAccounts) &&
+        Objects.equals(this.cancelAutoOrder, accountsReceivableRetryConfig.cancelAutoOrder) &&
         Objects.equals(this.currentServicePlan, accountsReceivableRetryConfig.currentServicePlan) &&
         Objects.equals(this.dailyActivityList, accountsReceivableRetryConfig.dailyActivityList) &&
         Objects.equals(this.managedByLinkedAccountMerchantId, accountsReceivableRetryConfig.managedByLinkedAccountMerchantId) &&
@@ -373,7 +395,7 @@ public class AccountsReceivableRetryConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, allowProcessLinkedAccounts, currentServicePlan, dailyActivityList, managedByLinkedAccountMerchantId, merchantId, notifyEmails, notifyRejections, notifySuccesses, processLinkedAccounts, processingPercentage, rejectAtEnd, trialMode, trialModeExpirationDts);
+    return Objects.hash(active, allowProcessLinkedAccounts, cancelAutoOrder, currentServicePlan, dailyActivityList, managedByLinkedAccountMerchantId, merchantId, notifyEmails, notifyRejections, notifySuccesses, processLinkedAccounts, processingPercentage, rejectAtEnd, trialMode, trialModeExpirationDts);
   }
 
 
@@ -384,6 +406,7 @@ public class AccountsReceivableRetryConfig {
     
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    allowProcessLinkedAccounts: ").append(toIndentedString(allowProcessLinkedAccounts)).append("\n");
+    sb.append("    cancelAutoOrder: ").append(toIndentedString(cancelAutoOrder)).append("\n");
     sb.append("    currentServicePlan: ").append(toIndentedString(currentServicePlan)).append("\n");
     sb.append("    dailyActivityList: ").append(toIndentedString(dailyActivityList)).append("\n");
     sb.append("    managedByLinkedAccountMerchantId: ").append(toIndentedString(managedByLinkedAccountMerchantId)).append("\n");
