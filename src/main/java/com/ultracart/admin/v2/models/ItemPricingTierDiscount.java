@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemPricingTierDiscount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-14T13:06:12.998-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-29T11:15:51.350-05:00")
 
 
 

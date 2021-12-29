@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **espCommseqPostcardUuid** | **String** |  |  [optional]
 **espCommseqStepUuid** | **String** |  |  [optional]
 **espCommseqUuid** | **String** |  |  [optional]
+**mailCard** | **Boolean** |  |  [optional]
 **name** | **String** |  |  [optional]
 **orderId** | **String** |  |  [optional]
 **postalCode** | **String** |  |  [optional]

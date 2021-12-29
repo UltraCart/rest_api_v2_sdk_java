@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * EmailCommseqPostcardSendTestRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-14T13:06:12.998-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-29T11:15:51.350-05:00")
 
 
 
@@ -57,6 +57,9 @@ public class EmailCommseqPostcardSendTestRequest {
 
   @SerializedName("esp_commseq_uuid")
   private String espCommseqUuid = null;
+
+  @SerializedName("mail_card")
+  private Boolean mailCard = null;
 
   @SerializedName("name")
   private String name = null;
@@ -222,6 +225,24 @@ public class EmailCommseqPostcardSendTestRequest {
     this.espCommseqUuid = espCommseqUuid;
   }
 
+  public EmailCommseqPostcardSendTestRequest mailCard(Boolean mailCard) {
+    this.mailCard = mailCard;
+    return this;
+  }
+
+   /**
+   * Get mailCard
+   * @return mailCard
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isMailCard() {
+    return mailCard;
+  }
+
+  public void setMailCard(Boolean mailCard) {
+    this.mailCard = mailCard;
+  }
+
   public EmailCommseqPostcardSendTestRequest name(String name) {
     this.name = name;
     return this;
@@ -312,6 +333,7 @@ public class EmailCommseqPostcardSendTestRequest {
         Objects.equals(this.espCommseqPostcardUuid, emailCommseqPostcardSendTestRequest.espCommseqPostcardUuid) &&
         Objects.equals(this.espCommseqStepUuid, emailCommseqPostcardSendTestRequest.espCommseqStepUuid) &&
         Objects.equals(this.espCommseqUuid, emailCommseqPostcardSendTestRequest.espCommseqUuid) &&
+        Objects.equals(this.mailCard, emailCommseqPostcardSendTestRequest.mailCard) &&
         Objects.equals(this.name, emailCommseqPostcardSendTestRequest.name) &&
         Objects.equals(this.orderId, emailCommseqPostcardSendTestRequest.orderId) &&
         Objects.equals(this.postalCode, emailCommseqPostcardSendTestRequest.postalCode) &&
@@ -320,7 +342,7 @@ public class EmailCommseqPostcardSendTestRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, cartId, cartItemIds, city, espCommseqPostcardUuid, espCommseqStepUuid, espCommseqUuid, name, orderId, postalCode, state);
+    return Objects.hash(address1, address2, cartId, cartItemIds, city, espCommseqPostcardUuid, espCommseqStepUuid, espCommseqUuid, mailCard, name, orderId, postalCode, state);
   }
 
 
@@ -337,6 +359,7 @@ public class EmailCommseqPostcardSendTestRequest {
     sb.append("    espCommseqPostcardUuid: ").append(toIndentedString(espCommseqPostcardUuid)).append("\n");
     sb.append("    espCommseqStepUuid: ").append(toIndentedString(espCommseqStepUuid)).append("\n");
     sb.append("    espCommseqUuid: ").append(toIndentedString(espCommseqUuid)).append("\n");
+    sb.append("    mailCard: ").append(toIndentedString(mailCard)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
