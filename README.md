@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2021-12-29T11:15:51.350-05:00
+  - Build date: 2022-02-04T15:10:33.905-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.36</version>
+  <version>3.6.37</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.36"
+compile "com.ultracart:rest-sdk:3.6.37"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.36.jar`
+* `target/rest-sdk-3.6.37.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1163,6 +1163,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.37 | 02/04/2022 | insurance type for insurance payments |
 | 3.6.36 | 12/29/2021 | Mail actual post card flag added to test method |
 | 3.6.35 | 12/14/2021 | Add cancel_auto_order option to the accounts receivable retry configuration |
 | 3.6.34 | 12/14/2021 | add evening phone E.164 fields to order billing/shipping objects |

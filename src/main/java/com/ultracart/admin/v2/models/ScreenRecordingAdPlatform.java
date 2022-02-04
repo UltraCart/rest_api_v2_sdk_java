@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ScreenRecordingAdPlatform
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-29T11:15:51.350-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:10:33.905-05:00")
 
 
 
@@ -49,6 +49,9 @@ public class ScreenRecordingAdPlatform {
 
   @SerializedName("msclkid")
   private String msclkid = null;
+
+  @SerializedName("ttclid")
+  private String ttclid = null;
 
   public ScreenRecordingAdPlatform fbc(String fbc) {
     this.fbc = fbc;
@@ -158,6 +161,24 @@ public class ScreenRecordingAdPlatform {
     this.msclkid = msclkid;
   }
 
+  public ScreenRecordingAdPlatform ttclid(String ttclid) {
+    this.ttclid = ttclid;
+    return this;
+  }
+
+   /**
+   * TikTok Click Id (Parameter
+   * @return ttclid
+  **/
+  @ApiModelProperty(value = "TikTok Click Id (Parameter")
+  public String getTtclid() {
+    return ttclid;
+  }
+
+  public void setTtclid(String ttclid) {
+    this.ttclid = ttclid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -173,12 +194,13 @@ public class ScreenRecordingAdPlatform {
         Objects.equals(this.fbp, screenRecordingAdPlatform.fbp) &&
         Objects.equals(this.gacid, screenRecordingAdPlatform.gacid) &&
         Objects.equals(this.glcid, screenRecordingAdPlatform.glcid) &&
-        Objects.equals(this.msclkid, screenRecordingAdPlatform.msclkid);
+        Objects.equals(this.msclkid, screenRecordingAdPlatform.msclkid) &&
+        Objects.equals(this.ttclid, screenRecordingAdPlatform.ttclid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fbc, fbclid, fbp, gacid, glcid, msclkid);
+    return Objects.hash(fbc, fbclid, fbp, gacid, glcid, msclkid, ttclid);
   }
 
 
@@ -193,6 +215,7 @@ public class ScreenRecordingAdPlatform {
     sb.append("    gacid: ").append(toIndentedString(gacid)).append("\n");
     sb.append("    glcid: ").append(toIndentedString(glcid)).append("\n");
     sb.append("    msclkid: ").append(toIndentedString(msclkid)).append("\n");
+    sb.append("    ttclid: ").append(toIndentedString(ttclid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
