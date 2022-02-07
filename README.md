@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-02-04T15:10:33.905-05:00
+  - Build date: 2022-02-07T11:19:02.365-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.37</version>
+  <version>3.6.38</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.37"
+compile "com.ultracart:rest-sdk:3.6.38"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.37.jar`
+* `target/rest-sdk-3.6.38.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -475,6 +475,7 @@ Class | Method | HTTP request | Description
  - [AutoOrderItemFutureSchedule](docs/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/AutoOrderItemOption.md)
  - [AutoOrderItemSimpleSchedule](docs/AutoOrderItemSimpleSchedule.md)
+ - [AutoOrderLog](docs/AutoOrderLog.md)
  - [AutoOrderQuery](docs/AutoOrderQuery.md)
  - [AutoOrderQueryBatch](docs/AutoOrderQueryBatch.md)
  - [AutoOrderResponse](docs/AutoOrderResponse.md)
@@ -1163,6 +1164,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.38 | 02/07/2022 | Exposed auto order logs |
 | 3.6.37 | 02/04/2022 | insurance type for insurance payments |
 | 3.6.36 | 12/29/2021 | Mail actual post card flag added to test method |
 | 3.6.35 | 12/14/2021 | Add cancel_auto_order option to the accounts receivable retry configuration |

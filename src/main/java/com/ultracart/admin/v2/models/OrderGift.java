@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * OrderGift
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:10:33.905-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-07T11:19:02.365-05:00")
 
 
 

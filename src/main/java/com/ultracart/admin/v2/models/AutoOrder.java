@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.AutoOrderItem;
+import com.ultracart.admin.v2.models.AutoOrderLog;
 import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:10:33.905-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-07T11:19:02.365-05:00")
 
 
 
@@ -74,6 +75,9 @@ public class AutoOrder {
 
   @SerializedName("items")
   private List<AutoOrderItem> items = null;
+
+  @SerializedName("logs")
+  private List<AutoOrderLog> logs = null;
 
   @SerializedName("next_attempt")
   private String nextAttempt = null;
@@ -387,6 +391,32 @@ public class AutoOrder {
     this.items = items;
   }
 
+  public AutoOrder logs(List<AutoOrderLog> logs) {
+    this.logs = logs;
+    return this;
+  }
+
+  public AutoOrder addLogsItem(AutoOrderLog logsItem) {
+    if (this.logs == null) {
+      this.logs = new ArrayList<AutoOrderLog>();
+    }
+    this.logs.add(logsItem);
+    return this;
+  }
+
+   /**
+   * Logs associated with this auto order
+   * @return logs
+  **/
+  @ApiModelProperty(value = "Logs associated with this auto order")
+  public List<AutoOrderLog> getLogs() {
+    return logs;
+  }
+
+  public void setLogs(List<AutoOrderLog> logs) {
+    this.logs = logs;
+  }
+
   public AutoOrder nextAttempt(String nextAttempt) {
     this.nextAttempt = nextAttempt;
     return this;
@@ -544,6 +574,7 @@ public class AutoOrder {
         Objects.equals(this.enabled, autoOrder.enabled) &&
         Objects.equals(this.failureReason, autoOrder.failureReason) &&
         Objects.equals(this.items, autoOrder.items) &&
+        Objects.equals(this.logs, autoOrder.logs) &&
         Objects.equals(this.nextAttempt, autoOrder.nextAttempt) &&
         Objects.equals(this.originalOrder, autoOrder.originalOrder) &&
         Objects.equals(this.originalOrderId, autoOrder.originalOrderId) &&
@@ -555,7 +586,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
 
@@ -577,6 +608,7 @@ public class AutoOrder {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    nextAttempt: ").append(toIndentedString(nextAttempt)).append("\n");
     sb.append("    originalOrder: ").append(toIndentedString(originalOrder)).append("\n");
     sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");
