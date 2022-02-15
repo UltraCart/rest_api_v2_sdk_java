@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 <a name="deleteCustomer"></a>
 # **deleteCustomer**
-> CustomerResponse deleteCustomer(customerProfileOid)
+> deleteCustomer(customerProfileOid)
 
 Delete a customer
 
@@ -42,8 +42,7 @@ CustomerApi apiInstance = new CustomerApi(apiKey);
 
 Integer customerProfileOid = 56; // Integer | The customer_profile_oid to delete.
 try {
-    CustomerResponse result = apiInstance.deleteCustomer(customerProfileOid);
-    System.out.println(result);
+    apiInstance.deleteCustomer(customerProfileOid);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#deleteCustomer");
     e.printStackTrace();
@@ -58,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerResponse**](CustomerResponse.md)
+null (empty response body)
 
 ### Authorization
 

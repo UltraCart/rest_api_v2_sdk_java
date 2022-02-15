@@ -159,25 +159,22 @@ public class CustomerApi {
      * Delete a customer
      * Delete a customer on the UltraCart account. 
      * @param customerProfileOid The customer_profile_oid to delete. (required)
-     * @return CustomerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomerResponse deleteCustomer(Integer customerProfileOid) throws ApiException {
-        ApiResponse<CustomerResponse> resp = deleteCustomerWithHttpInfo(customerProfileOid);
-        return resp.getData();
+    public void deleteCustomer(Integer customerProfileOid) throws ApiException {
+        deleteCustomerWithHttpInfo(customerProfileOid);
     }
 
     /**
      * Delete a customer
      * Delete a customer on the UltraCart account. 
      * @param customerProfileOid The customer_profile_oid to delete. (required)
-     * @return ApiResponse&lt;CustomerResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomerResponse> deleteCustomerWithHttpInfo(Integer customerProfileOid) throws ApiException {
+    public ApiResponse<Void> deleteCustomerWithHttpInfo(Integer customerProfileOid) throws ApiException {
         com.squareup.okhttp.Call call = deleteCustomerValidateBeforeCall(customerProfileOid, null, null);
-        Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -188,7 +185,7 @@ public class CustomerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCustomerAsync(Integer customerProfileOid, final ApiCallback<CustomerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteCustomerAsync(Integer customerProfileOid, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -210,8 +207,7 @@ public class CustomerApi {
         }
 
         com.squareup.okhttp.Call call = deleteCustomerValidateBeforeCall(customerProfileOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**

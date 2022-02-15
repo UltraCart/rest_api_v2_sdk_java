@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ExperimentVariation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-07T11:19:02.365-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T13:53:51.055-05:00")
 
 
 
@@ -77,6 +77,9 @@ public class ExperimentVariation {
 
   @SerializedName("page_view_count")
   private Integer pageViewCount = null;
+
+  @SerializedName("paused")
+  private Boolean paused = null;
 
   @SerializedName("revenue")
   private BigDecimal revenue = null;
@@ -359,6 +362,24 @@ public class ExperimentVariation {
     this.pageViewCount = pageViewCount;
   }
 
+  public ExperimentVariation paused(Boolean paused) {
+    this.paused = paused;
+    return this;
+  }
+
+   /**
+   * True if traffic should be paused to this variation
+   * @return paused
+  **/
+  @ApiModelProperty(value = "True if traffic should be paused to this variation")
+  public Boolean isPaused() {
+    return paused;
+  }
+
+  public void setPaused(Boolean paused) {
+    this.paused = paused;
+  }
+
   public ExperimentVariation revenue(BigDecimal revenue) {
     this.revenue = revenue;
     return this;
@@ -509,6 +530,7 @@ public class ExperimentVariation {
         Objects.equals(this.orderItemCount, experimentVariation.orderItemCount) &&
         Objects.equals(this.originalTrafficPercentage, experimentVariation.originalTrafficPercentage) &&
         Objects.equals(this.pageViewCount, experimentVariation.pageViewCount) &&
+        Objects.equals(this.paused, experimentVariation.paused) &&
         Objects.equals(this.revenue, experimentVariation.revenue) &&
         Objects.equals(this.sessionCount, experimentVariation.sessionCount) &&
         Objects.equals(this.trafficPercentage, experimentVariation.trafficPercentage) &&
@@ -520,7 +542,7 @@ public class ExperimentVariation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, dailyStatistics, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, originalTrafficPercentage, pageViewCount, revenue, sessionCount, trafficPercentage, url, variationName, variationNumber, winner);
+    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, dailyStatistics, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, originalTrafficPercentage, pageViewCount, paused, revenue, sessionCount, trafficPercentage, url, variationName, variationNumber, winner);
   }
 
 
@@ -543,6 +565,7 @@ public class ExperimentVariation {
     sb.append("    orderItemCount: ").append(toIndentedString(orderItemCount)).append("\n");
     sb.append("    originalTrafficPercentage: ").append(toIndentedString(originalTrafficPercentage)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
+    sb.append("    paused: ").append(toIndentedString(paused)).append("\n");
     sb.append("    revenue: ").append(toIndentedString(revenue)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
     sb.append("    trafficPercentage: ").append(toIndentedString(trafficPercentage)).append("\n");

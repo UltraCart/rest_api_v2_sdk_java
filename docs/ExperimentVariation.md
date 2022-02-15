@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **orderItemCount** | **Integer** | Total order item count for this variation |  [optional]
 **originalTrafficPercentage** | [**BigDecimal**](BigDecimal.md) | Percentage of the traffic the variation originally started out with |  [optional]
 **pageViewCount** | **Integer** | Total page view count for this variation |  [optional]
+**paused** | **Boolean** | True if traffic should be paused to this variation |  [optional]
 **revenue** | [**BigDecimal**](BigDecimal.md) | Total revenue for this variation |  [optional]
 **sessionCount** | **Integer** | Total sessions for this variation |  [optional]
 **trafficPercentage** | [**BigDecimal**](BigDecimal.md) | Percentage of the traffic this variation is currently receiving |  [optional]

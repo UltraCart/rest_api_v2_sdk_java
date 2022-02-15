@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-02-07T11:19:02.365-05:00
+  - Build date: 2022-02-15T13:53:51.055-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.6.38</version>
+  <version>3.7.38</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.6.38"
+compile "com.ultracart:rest-sdk:3.7.38"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.6.38.jar`
+* `target/rest-sdk-3.7.38.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -199,6 +199,14 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**getDistributionCenters**](docs/FulfillmentApi.md#getDistributionCenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
 *FulfillmentApi* | [**shipOrders**](docs/FulfillmentApi.md#shipOrders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
 *FulfillmentApi* | [**updateInventory**](docs/FulfillmentApi.md#updateInventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
+*GiftCertificateApi* | [**addGiftCertificateLedgerEntry**](docs/GiftCertificateApi.md#addGiftCertificateLedgerEntry) | **POST** /gift_certificate/gift_certificates/{gift_certificate_oid}/ledger_entry | Add a gift certificate ledger entry
+*GiftCertificateApi* | [**createGiftCertificate**](docs/GiftCertificateApi.md#createGiftCertificate) | **POST** /gift_certificate/gift_certificates | Create a gift certificate
+*GiftCertificateApi* | [**deleteGiftCertificate**](docs/GiftCertificateApi.md#deleteGiftCertificate) | **DELETE** /gift_certificate/gift_certificates/{gift_certificate_oid} | Delete a gift certificate
+*GiftCertificateApi* | [**getGiftCertificateByCode**](docs/GiftCertificateApi.md#getGiftCertificateByCode) | **POST** /gift_certificate/gift_certificates/by_code/{code} | Retrieve gift certificate by code
+*GiftCertificateApi* | [**getGiftCertificateByOid**](docs/GiftCertificateApi.md#getGiftCertificateByOid) | **POST** /gift_certificate/gift_certificates/{gift_certificate_oid} | Retrieve gift certificate by oid
+*GiftCertificateApi* | [**getGiftCertificatesByEmail**](docs/GiftCertificateApi.md#getGiftCertificatesByEmail) | **POST** /gift_certificate/gift_certificates/by_email/{email} | Retrieve gift certificate by email
+*GiftCertificateApi* | [**getGiftCertificatesByQuery**](docs/GiftCertificateApi.md#getGiftCertificatesByQuery) | **POST** /gift_certificate/gift_certificates/query | Retrieve gift certificates by query
+*GiftCertificateApi* | [**updateGiftCertificate**](docs/GiftCertificateApi.md#updateGiftCertificate) | **PUT** /gift_certificate/gift_certificates/{gift_certificate_oid} | Update a gift certificate
 *IntegrationLogApi* | [**getIntegrationLog**](docs/IntegrationLogApi.md#getIntegrationLog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
 *IntegrationLogApi* | [**getIntegrationLogFile**](docs/IntegrationLogApi.md#getIntegrationLogFile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
 *IntegrationLogApi* | [**getIntegrationLogSummariesQuery**](docs/IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
@@ -764,6 +772,12 @@ Class | Method | HTTP request | Description
  - [GeoPoint](docs/GeoPoint.md)
  - [GeocodeRequest](docs/GeocodeRequest.md)
  - [GeocodeResponse](docs/GeocodeResponse.md)
+ - [GiftCertificate](docs/GiftCertificate.md)
+ - [GiftCertificateCreateRequest](docs/GiftCertificateCreateRequest.md)
+ - [GiftCertificateLedgerEntry](docs/GiftCertificateLedgerEntry.md)
+ - [GiftCertificateQuery](docs/GiftCertificateQuery.md)
+ - [GiftCertificateResponse](docs/GiftCertificateResponse.md)
+ - [GiftCertificatesResponse](docs/GiftCertificatesResponse.md)
  - [Group](docs/Group.md)
  - [GroupResponse](docs/GroupResponse.md)
  - [GroupUserMembership](docs/GroupUserMembership.md)
@@ -1164,6 +1178,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.7.38 | 02/15/2022 | gift certificate api (currently in testing) |
 | 3.6.38 | 02/07/2022 | Exposed auto order logs |
 | 3.6.37 | 02/04/2022 | insurance type for insurance payments |
 | 3.6.36 | 12/29/2021 | Mail actual post card flag added to test method |
