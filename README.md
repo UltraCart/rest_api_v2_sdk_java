@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-02-16T09:05:04.845-05:00
+  - Build date: 2022-02-16T15:05:07.594-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.8.0</version>
+  <version>3.8.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.8.0"
+compile "com.ultracart:rest-sdk:3.8.1"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.8.0.jar`
+* `target/rest-sdk-3.8.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1138,6 +1138,8 @@ Authentication schemes defined for the API:
   - customer_write: Allows you to write customer information.
   - fulfillment_read: Allows you to read fulfillment information.
   - fulfillment_write: Allows you to write fulfillment information.
+  - gift_certificate_read: Allows you to read gift certificate information.
+  - gift_certificate_write: Allows you to write gift certificate information.
   - integration_log_read: Allows you to read integration log information.
   - integration_log_write: Allows you to write integration log information.
   - order_read: Allows you to read order information.
@@ -1178,6 +1180,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.8.1 | 02/16/2022 | auto order item level pause flag |
 | 3.8.0 | 02/16/2022 | gift certificate api (testing) |
 | 3.7.38 | 02/15/2022 | gift certificate api (currently in testing) |
 | 3.6.38 | 02/07/2022 | Exposed auto order logs |
