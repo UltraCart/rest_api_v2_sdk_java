@@ -28,13 +28,16 @@ import java.math.BigDecimal;
 /**
  * GiftCertificateCreateRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-16T15:05:07.594-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-16T15:51:01.740-05:00")
 
 
 
 public class GiftCertificateCreateRequest {
   @SerializedName("amount")
   private BigDecimal amount = null;
+
+  @SerializedName("email")
+  private String email = null;
 
   @SerializedName("expiration_dts")
   private String expirationDts = null;
@@ -61,6 +64,24 @@ public class GiftCertificateCreateRequest {
 
   public void setAmount(BigDecimal amount) {
     this.amount = amount;
+  }
+
+  public GiftCertificateCreateRequest email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * The email address (customer/owner) associated with this gift certificate.
+   * @return email
+  **/
+  @ApiModelProperty(value = "The email address (customer/owner) associated with this gift certificate.")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public GiftCertificateCreateRequest expirationDts(String expirationDts) {
@@ -128,6 +149,7 @@ public class GiftCertificateCreateRequest {
     }
     GiftCertificateCreateRequest giftCertificateCreateRequest = (GiftCertificateCreateRequest) o;
     return Objects.equals(this.amount, giftCertificateCreateRequest.amount) &&
+        Objects.equals(this.email, giftCertificateCreateRequest.email) &&
         Objects.equals(this.expirationDts, giftCertificateCreateRequest.expirationDts) &&
         Objects.equals(this.initialLedgerDescription, giftCertificateCreateRequest.initialLedgerDescription) &&
         Objects.equals(this.merchantNote, giftCertificateCreateRequest.merchantNote);
@@ -135,7 +157,7 @@ public class GiftCertificateCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, expirationDts, initialLedgerDescription, merchantNote);
+    return Objects.hash(amount, email, expirationDts, initialLedgerDescription, merchantNote);
   }
 
 
@@ -145,6 +167,7 @@ public class GiftCertificateCreateRequest {
     sb.append("class GiftCertificateCreateRequest {\n");
     
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    expirationDts: ").append(toIndentedString(expirationDts)).append("\n");
     sb.append("    initialLedgerDescription: ").append(toIndentedString(initialLedgerDescription)).append("\n");
     sb.append("    merchantNote: ").append(toIndentedString(merchantNote)).append("\n");
