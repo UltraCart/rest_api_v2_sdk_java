@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-02-16T15:51:01.740-05:00
+  - Build date: 2022-02-25T14:03:02.344-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.8.2</version>
+  <version>3.8.5</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.8.2"
+compile "com.ultracart:rest-sdk:3.8.5"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.8.2.jar`
+* `target/rest-sdk-3.8.5.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -571,6 +571,7 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/CouponAmountOffSubtotalWithItemsPurchase.md)
  - [CouponAmountOffSubtotalWithPurchase](docs/CouponAmountOffSubtotalWithPurchase.md)
+ - [CouponAmountShippingWithSubtotal](docs/CouponAmountShippingWithSubtotal.md)
  - [CouponAutoApplyCondition](docs/CouponAutoApplyCondition.md)
  - [CouponAutoApplyConditions](docs/CouponAutoApplyConditions.md)
  - [CouponAutomaticallyApplyCouponCodes](docs/CouponAutomaticallyApplyCouponCodes.md)
@@ -1180,6 +1181,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.8.5 | 02/25/2022 | new coupon for fixed cost shipping method |
 | 3.8.2 | 02/16/2022 | create gift certificate method was missing email |
 | 3.8.1 | 02/16/2022 | auto order item level pause flag |
 | 3.8.0 | 02/16/2022 | gift certificate api (testing) |
