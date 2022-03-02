@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CouponEditorValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T14:29:24.630-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T14:47:30.048-05:00")
 
 
 
