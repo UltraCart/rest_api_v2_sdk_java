@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailCommseqStepLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T14:47:30.048-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T16:04:25.313-05:00")
 
 
 
