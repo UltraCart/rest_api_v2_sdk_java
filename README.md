@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-03-02T16:04:25.313-05:00
+  - Build date: 2022-03-03T12:50:07.402-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.8.8</version>
+  <version>3.9.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.8.8"
+compile "com.ultracart:rest-sdk:3.9.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.8.8.jar`
+* `target/rest-sdk-3.9.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1181,6 +1181,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.9.0 | 03/03/2022 | removed  ultra_cart_rest_api_v2.d.ts from javascript sdk because typescript sdk exists now |
 | 3.8.8 | 03/02/2022 | bug fix for ruby sdk, uri.escape deprecated in 3.x |
 | 3.8.7 | 03/02/2022 | bug fix for ruby sdk, uri.escape deprecated in 3.x |
 | 3.8.6 | 03/02/2022 | bug fix for ruby sdk, uri.escape deprecated in 3.x |
