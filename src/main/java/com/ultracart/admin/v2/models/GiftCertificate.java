@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * GiftCertificate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
@@ -41,6 +41,9 @@ public class GiftCertificate {
 
   @SerializedName("code")
   private String code = null;
+
+  @SerializedName("customer_profile_oid")
+  private Integer customerProfileOid = null;
 
   @SerializedName("deleted")
   private Boolean deleted = null;
@@ -53,6 +56,9 @@ public class GiftCertificate {
 
   @SerializedName("gift_certificate_oid")
   private Integer giftCertificateOid = null;
+
+  @SerializedName("internal")
+  private Boolean internal = null;
 
   @SerializedName("ledger_entries")
   private List<GiftCertificateLedgerEntry> ledgerEntries = null;
@@ -106,6 +112,24 @@ public class GiftCertificate {
 
   public void setCode(String code) {
     this.code = code;
+  }
+
+  public GiftCertificate customerProfileOid(Integer customerProfileOid) {
+    this.customerProfileOid = customerProfileOid;
+    return this;
+  }
+
+   /**
+   * This is the customer profile oid associated with this internally managed gift certificate.
+   * @return customerProfileOid
+  **/
+  @ApiModelProperty(value = "This is the customer profile oid associated with this internally managed gift certificate.")
+  public Integer getCustomerProfileOid() {
+    return customerProfileOid;
+  }
+
+  public void setCustomerProfileOid(Integer customerProfileOid) {
+    this.customerProfileOid = customerProfileOid;
   }
 
   public GiftCertificate deleted(Boolean deleted) {
@@ -178,6 +202,24 @@ public class GiftCertificate {
 
   public void setGiftCertificateOid(Integer giftCertificateOid) {
     this.giftCertificateOid = giftCertificateOid;
+  }
+
+  public GiftCertificate internal(Boolean internal) {
+    this.internal = internal;
+    return this;
+  }
+
+   /**
+   * This is an internally managed gift certificate associated with the loyalty cash rewards program.
+   * @return internal
+  **/
+  @ApiModelProperty(value = "This is an internally managed gift certificate associated with the loyalty cash rewards program.")
+  public Boolean isInternal() {
+    return internal;
+  }
+
+  public void setInternal(Boolean internal) {
+    this.internal = internal;
   }
 
   public GiftCertificate ledgerEntries(List<GiftCertificateLedgerEntry> ledgerEntries) {
@@ -308,10 +350,12 @@ public class GiftCertificate {
     GiftCertificate giftCertificate = (GiftCertificate) o;
     return Objects.equals(this.activated, giftCertificate.activated) &&
         Objects.equals(this.code, giftCertificate.code) &&
+        Objects.equals(this.customerProfileOid, giftCertificate.customerProfileOid) &&
         Objects.equals(this.deleted, giftCertificate.deleted) &&
         Objects.equals(this.email, giftCertificate.email) &&
         Objects.equals(this.expirationDts, giftCertificate.expirationDts) &&
         Objects.equals(this.giftCertificateOid, giftCertificate.giftCertificateOid) &&
+        Objects.equals(this.internal, giftCertificate.internal) &&
         Objects.equals(this.ledgerEntries, giftCertificate.ledgerEntries) &&
         Objects.equals(this.merchantId, giftCertificate.merchantId) &&
         Objects.equals(this.merchantNote, giftCertificate.merchantNote) &&
@@ -322,7 +366,7 @@ public class GiftCertificate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activated, code, deleted, email, expirationDts, giftCertificateOid, ledgerEntries, merchantId, merchantNote, originalBalance, referenceOrderId, remainingBalance);
+    return Objects.hash(activated, code, customerProfileOid, deleted, email, expirationDts, giftCertificateOid, internal, ledgerEntries, merchantId, merchantNote, originalBalance, referenceOrderId, remainingBalance);
   }
 
 
@@ -333,10 +377,12 @@ public class GiftCertificate {
     
     sb.append("    activated: ").append(toIndentedString(activated)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    expirationDts: ").append(toIndentedString(expirationDts)).append("\n");
     sb.append("    giftCertificateOid: ").append(toIndentedString(giftCertificateOid)).append("\n");
+    sb.append("    internal: ").append(toIndentedString(internal)).append("\n");
     sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    merchantNote: ").append(toIndentedString(merchantNote)).append("\n");

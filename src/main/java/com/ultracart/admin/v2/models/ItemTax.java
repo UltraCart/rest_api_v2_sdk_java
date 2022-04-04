@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ItemTax
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
@@ -41,6 +41,60 @@ public class ItemTax {
 
   @SerializedName("tax_free")
   private Boolean taxFree = null;
+
+  /**
+   * Tax product type
+   */
+  @JsonAdapter(TaxProductTypeEnum.Adapter.class)
+  public enum TaxProductTypeEnum {
+    EMPTY(""),
+    
+    DIGITAL("digital"),
+    
+    PHYSICAL("physical"),
+    
+    SERVICE("service");
+
+    private String value;
+
+    TaxProductTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TaxProductTypeEnum fromValue(String text) {
+      for (TaxProductTypeEnum b : TaxProductTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TaxProductTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TaxProductTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TaxProductTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TaxProductTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("tax_product_type")
+  private TaxProductTypeEnum taxProductType = null;
 
   @SerializedName("taxable_cost")
   private BigDecimal taxableCost = null;
@@ -89,6 +143,24 @@ public class ItemTax {
     this.taxFree = taxFree;
   }
 
+  public ItemTax taxProductType(TaxProductTypeEnum taxProductType) {
+    this.taxProductType = taxProductType;
+    return this;
+  }
+
+   /**
+   * Tax product type
+   * @return taxProductType
+  **/
+  @ApiModelProperty(value = "Tax product type")
+  public TaxProductTypeEnum getTaxProductType() {
+    return taxProductType;
+  }
+
+  public void setTaxProductType(TaxProductTypeEnum taxProductType) {
+    this.taxProductType = taxProductType;
+  }
+
   public ItemTax taxableCost(BigDecimal taxableCost) {
     this.taxableCost = taxableCost;
     return this;
@@ -119,12 +191,13 @@ public class ItemTax {
     ItemTax itemTax = (ItemTax) o;
     return Objects.equals(this.exemptions, itemTax.exemptions) &&
         Objects.equals(this.taxFree, itemTax.taxFree) &&
+        Objects.equals(this.taxProductType, itemTax.taxProductType) &&
         Objects.equals(this.taxableCost, itemTax.taxableCost);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exemptions, taxFree, taxableCost);
+    return Objects.hash(exemptions, taxFree, taxProductType, taxableCost);
   }
 
 
@@ -135,6 +208,7 @@ public class ItemTax {
     
     sb.append("    exemptions: ").append(toIndentedString(exemptions)).append("\n");
     sb.append("    taxFree: ").append(toIndentedString(taxFree)).append("\n");
+    sb.append("    taxProductType: ").append(toIndentedString(taxProductType)).append("\n");
     sb.append("    taxableCost: ").append(toIndentedString(taxableCost)).append("\n");
     sb.append("}");
     return sb.toString();

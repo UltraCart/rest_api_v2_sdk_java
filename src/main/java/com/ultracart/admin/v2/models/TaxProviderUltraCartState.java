@@ -27,13 +27,22 @@ import java.io.IOException;
 /**
  * TaxProviderUltraCartState
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
 public class TaxProviderUltraCartState {
   @SerializedName("enabled")
   private Boolean enabled = null;
+
+  @SerializedName("exempt_digital_items")
+  private Boolean exemptDigitalItems = null;
+
+  @SerializedName("exempt_physical_items")
+  private Boolean exemptPhysicalItems = null;
+
+  @SerializedName("exempt_service_items")
+  private Boolean exemptServiceItems = null;
 
   @SerializedName("state_code")
   private String stateCode = null;
@@ -69,6 +78,60 @@ public class TaxProviderUltraCartState {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public TaxProviderUltraCartState exemptDigitalItems(Boolean exemptDigitalItems) {
+    this.exemptDigitalItems = exemptDigitalItems;
+    return this;
+  }
+
+   /**
+   * True if digital items are exempt from sales tax in this state.
+   * @return exemptDigitalItems
+  **/
+  @ApiModelProperty(value = "True if digital items are exempt from sales tax in this state.")
+  public Boolean isExemptDigitalItems() {
+    return exemptDigitalItems;
+  }
+
+  public void setExemptDigitalItems(Boolean exemptDigitalItems) {
+    this.exemptDigitalItems = exemptDigitalItems;
+  }
+
+  public TaxProviderUltraCartState exemptPhysicalItems(Boolean exemptPhysicalItems) {
+    this.exemptPhysicalItems = exemptPhysicalItems;
+    return this;
+  }
+
+   /**
+   * True if physical items are exempt from sales tax in this state.
+   * @return exemptPhysicalItems
+  **/
+  @ApiModelProperty(value = "True if physical items are exempt from sales tax in this state.")
+  public Boolean isExemptPhysicalItems() {
+    return exemptPhysicalItems;
+  }
+
+  public void setExemptPhysicalItems(Boolean exemptPhysicalItems) {
+    this.exemptPhysicalItems = exemptPhysicalItems;
+  }
+
+  public TaxProviderUltraCartState exemptServiceItems(Boolean exemptServiceItems) {
+    this.exemptServiceItems = exemptServiceItems;
+    return this;
+  }
+
+   /**
+   * True if service items are exempt from sales tax in this state.
+   * @return exemptServiceItems
+  **/
+  @ApiModelProperty(value = "True if service items are exempt from sales tax in this state.")
+  public Boolean isExemptServiceItems() {
+    return exemptServiceItems;
+  }
+
+  public void setExemptServiceItems(Boolean exemptServiceItems) {
+    this.exemptServiceItems = exemptServiceItems;
   }
 
   public TaxProviderUltraCartState stateCode(String stateCode) {
@@ -190,6 +253,9 @@ public class TaxProviderUltraCartState {
     }
     TaxProviderUltraCartState taxProviderUltraCartState = (TaxProviderUltraCartState) o;
     return Objects.equals(this.enabled, taxProviderUltraCartState.enabled) &&
+        Objects.equals(this.exemptDigitalItems, taxProviderUltraCartState.exemptDigitalItems) &&
+        Objects.equals(this.exemptPhysicalItems, taxProviderUltraCartState.exemptPhysicalItems) &&
+        Objects.equals(this.exemptServiceItems, taxProviderUltraCartState.exemptServiceItems) &&
         Objects.equals(this.stateCode, taxProviderUltraCartState.stateCode) &&
         Objects.equals(this.stateName, taxProviderUltraCartState.stateName) &&
         Objects.equals(this.taxGiftCharge, taxProviderUltraCartState.taxGiftCharge) &&
@@ -200,7 +266,7 @@ public class TaxProviderUltraCartState {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, stateCode, stateName, taxGiftCharge, taxGiftWrap, taxRateFormatted, taxShipping);
+    return Objects.hash(enabled, exemptDigitalItems, exemptPhysicalItems, exemptServiceItems, stateCode, stateName, taxGiftCharge, taxGiftWrap, taxRateFormatted, taxShipping);
   }
 
 
@@ -210,6 +276,9 @@ public class TaxProviderUltraCartState {
     sb.append("class TaxProviderUltraCartState {\n");
     
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    exemptDigitalItems: ").append(toIndentedString(exemptDigitalItems)).append("\n");
+    sb.append("    exemptPhysicalItems: ").append(toIndentedString(exemptPhysicalItems)).append("\n");
+    sb.append("    exemptServiceItems: ").append(toIndentedString(exemptServiceItems)).append("\n");
     sb.append("    stateCode: ").append(toIndentedString(stateCode)).append("\n");
     sb.append("    stateName: ").append(toIndentedString(stateName)).append("\n");
     sb.append("    taxGiftCharge: ").append(toIndentedString(taxGiftCharge)).append("\n");

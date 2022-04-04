@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * AddLibraryItemRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
@@ -41,6 +41,9 @@ public class AddLibraryItemRequest {
 
   @SerializedName("cjson")
   private String cjson = null;
+
+  @SerializedName("cjson2")
+  private String cjson2 = null;
 
   @SerializedName("content_type")
   private String contentType = null;
@@ -111,6 +114,24 @@ public class AddLibraryItemRequest {
 
   public void setCjson(String cjson) {
     this.cjson = cjson;
+  }
+
+  public AddLibraryItemRequest cjson2(String cjson2) {
+    this.cjson2 = cjson2;
+    return this;
+  }
+
+   /**
+   * Additional Cjson to be added to library, notably for the postcard which has a front and back.
+   * @return cjson2
+  **/
+  @ApiModelProperty(value = "Additional Cjson to be added to library, notably for the postcard which has a front and back.")
+  public String getCjson2() {
+    return cjson2;
+  }
+
+  public void setCjson2(String cjson2) {
+    this.cjson2 = cjson2;
   }
 
   public AddLibraryItemRequest contentType(String contentType) {
@@ -295,6 +316,7 @@ public class AddLibraryItemRequest {
     AddLibraryItemRequest addLibraryItemRequest = (AddLibraryItemRequest) o;
     return Objects.equals(this.attributes, addLibraryItemRequest.attributes) &&
         Objects.equals(this.cjson, addLibraryItemRequest.cjson) &&
+        Objects.equals(this.cjson2, addLibraryItemRequest.cjson2) &&
         Objects.equals(this.contentType, addLibraryItemRequest.contentType) &&
         Objects.equals(this.description, addLibraryItemRequest.description) &&
         Objects.equals(this.emailName, addLibraryItemRequest.emailName) &&
@@ -308,7 +330,7 @@ public class AddLibraryItemRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, cjson, contentType, description, emailName, emailPath, screenshots, storefrontOid, title, upsellOfferOid, uuid);
+    return Objects.hash(attributes, cjson, cjson2, contentType, description, emailName, emailPath, screenshots, storefrontOid, title, upsellOfferOid, uuid);
   }
 
 
@@ -319,6 +341,7 @@ public class AddLibraryItemRequest {
     
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    cjson: ").append(toIndentedString(cjson)).append("\n");
+    sb.append("    cjson2: ").append(toIndentedString(cjson2)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    emailName: ").append(toIndentedString(emailName)).append("\n");

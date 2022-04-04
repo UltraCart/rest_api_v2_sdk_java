@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Browser;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,11 +28,14 @@ import java.io.IOException;
 /**
  * OrderCheckout
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
 public class OrderCheckout {
+  @SerializedName("browser")
+  private Browser browser = null;
+
   @SerializedName("comments")
   private String comments = null;
 
@@ -62,11 +66,32 @@ public class OrderCheckout {
   @SerializedName("screen_branding_theme_code")
   private String screenBrandingThemeCode = null;
 
+  @SerializedName("screen_size")
+  private String screenSize = null;
+
   @SerializedName("storefront_host_name")
   private String storefrontHostName = null;
 
   @SerializedName("upsell_path_code")
   private String upsellPathCode = null;
+
+  public OrderCheckout browser(Browser browser) {
+    this.browser = browser;
+    return this;
+  }
+
+   /**
+   * Get browser
+   * @return browser
+  **/
+  @ApiModelProperty(value = "")
+  public Browser getBrowser() {
+    return browser;
+  }
+
+  public void setBrowser(Browser browser) {
+    this.browser = browser;
+  }
 
   public OrderCheckout comments(String comments) {
     this.comments = comments;
@@ -248,6 +273,24 @@ public class OrderCheckout {
     this.screenBrandingThemeCode = screenBrandingThemeCode;
   }
 
+  public OrderCheckout screenSize(String screenSize) {
+    this.screenSize = screenSize;
+    return this;
+  }
+
+   /**
+   * Screen size small, medium or large
+   * @return screenSize
+  **/
+  @ApiModelProperty(value = "Screen size small, medium or large")
+  public String getScreenSize() {
+    return screenSize;
+  }
+
+  public void setScreenSize(String screenSize) {
+    this.screenSize = screenSize;
+  }
+
   public OrderCheckout storefrontHostName(String storefrontHostName) {
     this.storefrontHostName = storefrontHostName;
     return this;
@@ -294,7 +337,8 @@ public class OrderCheckout {
       return false;
     }
     OrderCheckout orderCheckout = (OrderCheckout) o;
-    return Objects.equals(this.comments, orderCheckout.comments) &&
+    return Objects.equals(this.browser, orderCheckout.browser) &&
+        Objects.equals(this.comments, orderCheckout.comments) &&
         Objects.equals(this.customField1, orderCheckout.customField1) &&
         Objects.equals(this.customField2, orderCheckout.customField2) &&
         Objects.equals(this.customField3, orderCheckout.customField3) &&
@@ -304,13 +348,14 @@ public class OrderCheckout {
         Objects.equals(this.customField7, orderCheckout.customField7) &&
         Objects.equals(this.customerIpAddress, orderCheckout.customerIpAddress) &&
         Objects.equals(this.screenBrandingThemeCode, orderCheckout.screenBrandingThemeCode) &&
+        Objects.equals(this.screenSize, orderCheckout.screenSize) &&
         Objects.equals(this.storefrontHostName, orderCheckout.storefrontHostName) &&
         Objects.equals(this.upsellPathCode, orderCheckout.upsellPathCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerIpAddress, screenBrandingThemeCode, storefrontHostName, upsellPathCode);
+    return Objects.hash(browser, comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerIpAddress, screenBrandingThemeCode, screenSize, storefrontHostName, upsellPathCode);
   }
 
 
@@ -319,6 +364,7 @@ public class OrderCheckout {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderCheckout {\n");
     
+    sb.append("    browser: ").append(toIndentedString(browser)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    customField1: ").append(toIndentedString(customField1)).append("\n");
     sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");
@@ -329,6 +375,7 @@ public class OrderCheckout {
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
     sb.append("    customerIpAddress: ").append(toIndentedString(customerIpAddress)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
+    sb.append("    screenSize: ").append(toIndentedString(screenSize)).append("\n");
     sb.append("    storefrontHostName: ").append(toIndentedString(storefrontHostName)).append("\n");
     sb.append("    upsellPathCode: ").append(toIndentedString(upsellPathCode)).append("\n");
     sb.append("}");

@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * DistributionCenter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
@@ -131,6 +131,9 @@ public class DistributionCenter {
 
   @SerializedName("state")
   private String state = null;
+
+  @SerializedName("transmit_blank_costs")
+  private Boolean transmitBlankCosts = null;
 
   @SerializedName("transport")
   private String transport = null;
@@ -729,6 +732,24 @@ public class DistributionCenter {
     this.state = state;
   }
 
+  public DistributionCenter transmitBlankCosts(Boolean transmitBlankCosts) {
+    this.transmitBlankCosts = transmitBlankCosts;
+    return this;
+  }
+
+   /**
+   * True if monetary amounts should be zeroed before transmission
+   * @return transmitBlankCosts
+  **/
+  @ApiModelProperty(value = "True if monetary amounts should be zeroed before transmission")
+  public Boolean isTransmitBlankCosts() {
+    return transmitBlankCosts;
+  }
+
+  public void setTransmitBlankCosts(Boolean transmitBlankCosts) {
+    this.transmitBlankCosts = transmitBlankCosts;
+  }
+
   public DistributionCenter transport(String transport) {
     this.transport = transport;
     return this;
@@ -790,12 +811,13 @@ public class DistributionCenter {
         Objects.equals(this.shipmentCutoffTimeTuesday, distributionCenter.shipmentCutoffTimeTuesday) &&
         Objects.equals(this.shipmentCutoffTimeWednesday, distributionCenter.shipmentCutoffTimeWednesday) &&
         Objects.equals(this.state, distributionCenter.state) &&
+        Objects.equals(this.transmitBlankCosts, distributionCenter.transmitBlankCosts) &&
         Objects.equals(this.transport, distributionCenter.transport);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, code, countryCode, defaultCenter, defaultHandlesAllItems, distributionCenterOid, duns, estimateFromDistributionCenterOid, ftpPassword, holdBeforeShipmentMinutes, holdBeforeTransmission, holdAutoOrderBeforeShipmentMinutes, latitude, longitude, name, noCustomerDirectShipments, noSplitShipment, postalCode, processDays, processInventoryStartTime, processInventoryStopTime, requireAsn, sendKitInsteadOfComponents, shipmentCutoffTimeFriday, shipmentCutoffTimeMonday, shipmentCutoffTimeSaturday, shipmentCutoffTimeSunday, shipmentCutoffTimeThursday, shipmentCutoffTimeTuesday, shipmentCutoffTimeWednesday, state, transport);
+    return Objects.hash(address1, address2, city, code, countryCode, defaultCenter, defaultHandlesAllItems, distributionCenterOid, duns, estimateFromDistributionCenterOid, ftpPassword, holdBeforeShipmentMinutes, holdBeforeTransmission, holdAutoOrderBeforeShipmentMinutes, latitude, longitude, name, noCustomerDirectShipments, noSplitShipment, postalCode, processDays, processInventoryStartTime, processInventoryStopTime, requireAsn, sendKitInsteadOfComponents, shipmentCutoffTimeFriday, shipmentCutoffTimeMonday, shipmentCutoffTimeSaturday, shipmentCutoffTimeSunday, shipmentCutoffTimeThursday, shipmentCutoffTimeTuesday, shipmentCutoffTimeWednesday, state, transmitBlankCosts, transport);
   }
 
 
@@ -837,6 +859,7 @@ public class DistributionCenter {
     sb.append("    shipmentCutoffTimeTuesday: ").append(toIndentedString(shipmentCutoffTimeTuesday)).append("\n");
     sb.append("    shipmentCutoffTimeWednesday: ").append(toIndentedString(shipmentCutoffTimeWednesday)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    transmitBlankCosts: ").append(toIndentedString(transmitBlankCosts)).append("\n");
     sb.append("    transport: ").append(toIndentedString(transport)).append("\n");
     sb.append("}");
     return sb.toString();

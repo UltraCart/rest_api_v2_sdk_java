@@ -50,6 +50,7 @@ Name | Type | Description | Notes
 **specialProductType** | **String** | Special product type (USPS Media Mail) |  [optional]
 **tags** | [**List&lt;OrderItemTag&gt;**](OrderItemTag.md) | Tags |  [optional]
 **taxFree** | **Boolean** | True if the item is tax free |  [optional]
+**taxProductType** | [**TaxProductTypeEnum**](#TaxProductTypeEnum) | Type of product for tax purposes (self or UltraCart Managed taxes) |  [optional]
 **taxableCost** | [**Currency**](Currency.md) |  |  [optional]
 **totalCostWithDiscount** | [**Currency**](Currency.md) |  |  [optional]
 **totalRefunded** | [**Currency**](Currency.md) |  |  [optional]
@@ -58,6 +59,16 @@ Name | Type | Description | Notes
 **upsell** | **Boolean** | True if this item was added to the order as part of an upsell |  [optional]
 **weight** | [**Weight**](Weight.md) |  |  [optional]
 **width** | [**Distance**](Distance.md) |  |  [optional]
+
+
+<a name="TaxProductTypeEnum"></a>
+## Enum: TaxProductTypeEnum
+Name | Value
+---- | -----
+EMPTY | &quot;&quot;
+DIGITAL | &quot;digital&quot;
+PHYSICAL | &quot;physical&quot;
+SERVICE | &quot;service&quot;
 
 
 

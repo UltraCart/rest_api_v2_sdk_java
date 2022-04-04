@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-03-03T13:00:24.049-05:00
+  - Build date: 2022-04-04T16:07:33.190-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.9.1</version>
+  <version>3.9.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.9.1"
+compile "com.ultracart:rest-sdk:3.9.2"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.9.1.jar`
+* `target/rest-sdk-3.9.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -491,6 +491,10 @@ Class | Method | HTTP request | Description
  - [AutoOrdersResponse](docs/AutoOrdersResponse.md)
  - [AvalaraConfig](docs/AvalaraConfig.md)
  - [BaseResponse](docs/BaseResponse.md)
+ - [Browser](docs/Browser.md)
+ - [BrowserDevice](docs/BrowserDevice.md)
+ - [BrowserOS](docs/BrowserOS.md)
+ - [BrowserUserAgent](docs/BrowserUserAgent.md)
  - [Cart](docs/Cart.md)
  - [CartAffiliate](docs/CartAffiliate.md)
  - [CartAffirmCheckoutResponse](docs/CartAffirmCheckoutResponse.md)
@@ -1139,8 +1143,6 @@ Authentication schemes defined for the API:
   - customer_write: Allows you to write customer information.
   - fulfillment_read: Allows you to read fulfillment information.
   - fulfillment_write: Allows you to write fulfillment information.
-  - gift_certificate_read: Allows you to read gift certificate information.
-  - gift_certificate_write: Allows you to write gift certificate information.
   - integration_log_read: Allows you to read integration log information.
   - integration_log_write: Allows you to write integration log information.
   - order_read: Allows you to read order information.
@@ -1157,6 +1159,8 @@ Authentication schemes defined for the API:
   - ultrabooks_write: 2 of 2 required to use UltraBooks
   - user_read: Allows you to read user information.
   - user_write: Allows you to write user information.
+  - gift_certificate_read: Allows you to read gift certificate information.
+  - gift_certificate_write: Allows you to write gift certificate information.
 
 ### ultraCartSimpleApiKey
 
@@ -1181,6 +1185,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.9.2 | 04/04/2022 | user.email field extended and postcard screenshot fields |
 | 3.9.1 | 03/03/2022 | javascript sdk package.json bug fix |
 | 3.9.0 | 03/03/2022 | removed  ultra_cart_rest_api_v2.d.ts from javascript sdk because typescript sdk exists now |
 | 3.8.8 | 03/02/2022 | bug fix for ruby sdk, uri.escape deprecated in 3.x |

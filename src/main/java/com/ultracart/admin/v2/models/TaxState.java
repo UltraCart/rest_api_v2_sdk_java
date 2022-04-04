@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * TaxState
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
@@ -56,6 +56,15 @@ public class TaxState {
 
   @SerializedName("dont_collect_state")
   private Boolean dontCollectState = null;
+
+  @SerializedName("exempt_digital_items")
+  private Boolean exemptDigitalItems = null;
+
+  @SerializedName("exempt_physical_items")
+  private Boolean exemptPhysicalItems = null;
+
+  @SerializedName("exempt_service_items")
+  private Boolean exemptServiceItems = null;
 
   @SerializedName("state_code")
   private String stateCode = null;
@@ -213,6 +222,60 @@ public class TaxState {
 
   public void setDontCollectState(Boolean dontCollectState) {
     this.dontCollectState = dontCollectState;
+  }
+
+  public TaxState exemptDigitalItems(Boolean exemptDigitalItems) {
+    this.exemptDigitalItems = exemptDigitalItems;
+    return this;
+  }
+
+   /**
+   * True if digital items are exempt from sales tax in this state.
+   * @return exemptDigitalItems
+  **/
+  @ApiModelProperty(value = "True if digital items are exempt from sales tax in this state.")
+  public Boolean isExemptDigitalItems() {
+    return exemptDigitalItems;
+  }
+
+  public void setExemptDigitalItems(Boolean exemptDigitalItems) {
+    this.exemptDigitalItems = exemptDigitalItems;
+  }
+
+  public TaxState exemptPhysicalItems(Boolean exemptPhysicalItems) {
+    this.exemptPhysicalItems = exemptPhysicalItems;
+    return this;
+  }
+
+   /**
+   * True if physical items are exempt from sales tax in this state.
+   * @return exemptPhysicalItems
+  **/
+  @ApiModelProperty(value = "True if physical items are exempt from sales tax in this state.")
+  public Boolean isExemptPhysicalItems() {
+    return exemptPhysicalItems;
+  }
+
+  public void setExemptPhysicalItems(Boolean exemptPhysicalItems) {
+    this.exemptPhysicalItems = exemptPhysicalItems;
+  }
+
+  public TaxState exemptServiceItems(Boolean exemptServiceItems) {
+    this.exemptServiceItems = exemptServiceItems;
+    return this;
+  }
+
+   /**
+   * True if service items are exempt from sales tax in this state.
+   * @return exemptServiceItems
+  **/
+  @ApiModelProperty(value = "True if service items are exempt from sales tax in this state.")
+  public Boolean isExemptServiceItems() {
+    return exemptServiceItems;
+  }
+
+  public void setExemptServiceItems(Boolean exemptServiceItems) {
+    this.exemptServiceItems = exemptServiceItems;
   }
 
   public TaxState stateCode(String stateCode) {
@@ -376,6 +439,9 @@ public class TaxState {
         Objects.equals(this.dontCollectCounty, taxState.dontCollectCounty) &&
         Objects.equals(this.dontCollectPostalCode, taxState.dontCollectPostalCode) &&
         Objects.equals(this.dontCollectState, taxState.dontCollectState) &&
+        Objects.equals(this.exemptDigitalItems, taxState.exemptDigitalItems) &&
+        Objects.equals(this.exemptPhysicalItems, taxState.exemptPhysicalItems) &&
+        Objects.equals(this.exemptServiceItems, taxState.exemptServiceItems) &&
         Objects.equals(this.stateCode, taxState.stateCode) &&
         Objects.equals(this.stateOid, taxState.stateOid) &&
         Objects.equals(this.taxGiftCharge, taxState.taxGiftCharge) &&
@@ -388,7 +454,7 @@ public class TaxState {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, counties, countryOid, dontCollectCity, dontCollectCounty, dontCollectPostalCode, dontCollectState, stateCode, stateOid, taxGiftCharge, taxGiftWrap, taxRate, taxRateFormatted, taxShipping, useUltracartManagedRates);
+    return Objects.hash(accountingCode, counties, countryOid, dontCollectCity, dontCollectCounty, dontCollectPostalCode, dontCollectState, exemptDigitalItems, exemptPhysicalItems, exemptServiceItems, stateCode, stateOid, taxGiftCharge, taxGiftWrap, taxRate, taxRateFormatted, taxShipping, useUltracartManagedRates);
   }
 
 
@@ -404,6 +470,9 @@ public class TaxState {
     sb.append("    dontCollectCounty: ").append(toIndentedString(dontCollectCounty)).append("\n");
     sb.append("    dontCollectPostalCode: ").append(toIndentedString(dontCollectPostalCode)).append("\n");
     sb.append("    dontCollectState: ").append(toIndentedString(dontCollectState)).append("\n");
+    sb.append("    exemptDigitalItems: ").append(toIndentedString(exemptDigitalItems)).append("\n");
+    sb.append("    exemptPhysicalItems: ").append(toIndentedString(exemptPhysicalItems)).append("\n");
+    sb.append("    exemptServiceItems: ").append(toIndentedString(exemptServiceItems)).append("\n");
     sb.append("    stateCode: ").append(toIndentedString(stateCode)).append("\n");
     sb.append("    stateOid: ").append(toIndentedString(stateOid)).append("\n");
     sb.append("    taxGiftCharge: ").append(toIndentedString(taxGiftCharge)).append("\n");

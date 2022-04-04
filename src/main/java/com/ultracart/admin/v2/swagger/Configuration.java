@@ -13,7 +13,7 @@
 
 package com.ultracart.admin.v2.swagger;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

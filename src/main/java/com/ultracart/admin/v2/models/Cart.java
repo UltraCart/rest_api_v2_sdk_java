@@ -48,13 +48,16 @@ import java.util.List;
 /**
  * Cart
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
 public class Cart {
   @SerializedName("affiliate")
   private CartAffiliate affiliate = null;
+
+  @SerializedName("affiliate_network_pixel_oid")
+  private Integer affiliateNetworkPixelOid = null;
 
   @SerializedName("base_currency_code")
   private String baseCurrencyCode = null;
@@ -144,6 +147,24 @@ public class Cart {
 
   public void setAffiliate(CartAffiliate affiliate) {
     this.affiliate = affiliate;
+  }
+
+  public Cart affiliateNetworkPixelOid(Integer affiliateNetworkPixelOid) {
+    this.affiliateNetworkPixelOid = affiliateNetworkPixelOid;
+    return this;
+  }
+
+   /**
+   * The affiliate network pixel identifier associated with the cart
+   * @return affiliateNetworkPixelOid
+  **/
+  @ApiModelProperty(value = "The affiliate network pixel identifier associated with the cart")
+  public Integer getAffiliateNetworkPixelOid() {
+    return affiliateNetworkPixelOid;
+  }
+
+  public void setAffiliateNetworkPixelOid(Integer affiliateNetworkPixelOid) {
+    this.affiliateNetworkPixelOid = affiliateNetworkPixelOid;
   }
 
   public Cart baseCurrencyCode(String baseCurrencyCode) {
@@ -613,6 +634,7 @@ public class Cart {
     }
     Cart cart = (Cart) o;
     return Objects.equals(this.affiliate, cart.affiliate) &&
+        Objects.equals(this.affiliateNetworkPixelOid, cart.affiliateNetworkPixelOid) &&
         Objects.equals(this.baseCurrencyCode, cart.baseCurrencyCode) &&
         Objects.equals(this.billing, cart.billing) &&
         Objects.equals(this.buysafe, cart.buysafe) &&
@@ -641,7 +663,7 @@ public class Cart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliate, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, properties, settings, shipping, summary, taxes, upsellAfter);
+    return Objects.hash(affiliate, affiliateNetworkPixelOid, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, properties, settings, shipping, summary, taxes, upsellAfter);
   }
 
 
@@ -651,6 +673,7 @@ public class Cart {
     sb.append("class Cart {\n");
     
     sb.append("    affiliate: ").append(toIndentedString(affiliate)).append("\n");
+    sb.append("    affiliateNetworkPixelOid: ").append(toIndentedString(affiliateNetworkPixelOid)).append("\n");
     sb.append("    baseCurrencyCode: ").append(toIndentedString(baseCurrencyCode)).append("\n");
     sb.append("    billing: ").append(toIndentedString(billing)).append("\n");
     sb.append("    buysafe: ").append(toIndentedString(buysafe)).append("\n");

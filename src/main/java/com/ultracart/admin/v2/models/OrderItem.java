@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T13:00:24.049-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
 
 
 
@@ -179,6 +179,60 @@ public class OrderItem {
 
   @SerializedName("tax_free")
   private Boolean taxFree = null;
+
+  /**
+   * Type of product for tax purposes (self or UltraCart Managed taxes)
+   */
+  @JsonAdapter(TaxProductTypeEnum.Adapter.class)
+  public enum TaxProductTypeEnum {
+    EMPTY(""),
+    
+    DIGITAL("digital"),
+    
+    PHYSICAL("physical"),
+    
+    SERVICE("service");
+
+    private String value;
+
+    TaxProductTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TaxProductTypeEnum fromValue(String text) {
+      for (TaxProductTypeEnum b : TaxProductTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TaxProductTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TaxProductTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TaxProductTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TaxProductTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("tax_product_type")
+  private TaxProductTypeEnum taxProductType = null;
 
   @SerializedName("taxable_cost")
   private Currency taxableCost = null;
@@ -1064,6 +1118,24 @@ public class OrderItem {
     this.taxFree = taxFree;
   }
 
+  public OrderItem taxProductType(TaxProductTypeEnum taxProductType) {
+    this.taxProductType = taxProductType;
+    return this;
+  }
+
+   /**
+   * Type of product for tax purposes (self or UltraCart Managed taxes)
+   * @return taxProductType
+  **/
+  @ApiModelProperty(value = "Type of product for tax purposes (self or UltraCart Managed taxes)")
+  public TaxProductTypeEnum getTaxProductType() {
+    return taxProductType;
+  }
+
+  public void setTaxProductType(TaxProductTypeEnum taxProductType) {
+    this.taxProductType = taxProductType;
+  }
+
   public OrderItem taxableCost(Currency taxableCost) {
     this.taxableCost = taxableCost;
     return this;
@@ -1264,6 +1336,7 @@ public class OrderItem {
         Objects.equals(this.specialProductType, orderItem.specialProductType) &&
         Objects.equals(this.tags, orderItem.tags) &&
         Objects.equals(this.taxFree, orderItem.taxFree) &&
+        Objects.equals(this.taxProductType, orderItem.taxProductType) &&
         Objects.equals(this.taxableCost, orderItem.taxableCost) &&
         Objects.equals(this.totalCostWithDiscount, orderItem.totalCostWithDiscount) &&
         Objects.equals(this.totalRefunded, orderItem.totalRefunded) &&
@@ -1276,7 +1349,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, tags, taxFree, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
 
@@ -1331,6 +1404,7 @@ public class OrderItem {
     sb.append("    specialProductType: ").append(toIndentedString(specialProductType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    taxFree: ").append(toIndentedString(taxFree)).append("\n");
+    sb.append("    taxProductType: ").append(toIndentedString(taxProductType)).append("\n");
     sb.append("    taxableCost: ").append(toIndentedString(taxableCost)).append("\n");
     sb.append("    totalCostWithDiscount: ").append(toIndentedString(totalCostWithDiscount)).append("\n");
     sb.append("    totalRefunded: ").append(toIndentedString(totalRefunded)).append("\n");
