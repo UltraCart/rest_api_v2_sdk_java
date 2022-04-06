@@ -57,6 +57,7 @@ import com.ultracart.admin.v2.models.EmailCommseqResponse;
 import com.ultracart.admin.v2.models.EmailCommseqStatResponse;
 import com.ultracart.admin.v2.models.EmailCommseqStepLogsResponse;
 import com.ultracart.admin.v2.models.EmailCommseqWebhookSendTestRequest;
+import com.ultracart.admin.v2.models.EmailCommseqWebhookSendTestResponse;
 import com.ultracart.admin.v2.models.EmailCommseqsResponse;
 import com.ultracart.admin.v2.models.EmailCustomer;
 import com.ultracart.admin.v2.models.EmailCustomerEditorUrlResponse;
@@ -17907,11 +17908,11 @@ public class StorefrontApi {
      * 
      * @param storefrontOid  (required)
      * @param emailCommseqWebhookTestRequest Email commseq webhook test request (required)
-     * @return EmailCommseqEmailSendTestResponse
+     * @return EmailCommseqWebhookSendTestResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EmailCommseqEmailSendTestResponse sendWebhookTest(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest) throws ApiException {
-        ApiResponse<EmailCommseqEmailSendTestResponse> resp = sendWebhookTestWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
+    public EmailCommseqWebhookSendTestResponse sendWebhookTest(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest) throws ApiException {
+        ApiResponse<EmailCommseqWebhookSendTestResponse> resp = sendWebhookTestWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
         return resp.getData();
     }
 
@@ -17920,12 +17921,12 @@ public class StorefrontApi {
      * 
      * @param storefrontOid  (required)
      * @param emailCommseqWebhookTestRequest Email commseq webhook test request (required)
-     * @return ApiResponse&lt;EmailCommseqEmailSendTestResponse&gt;
+     * @return ApiResponse&lt;EmailCommseqWebhookSendTestResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EmailCommseqEmailSendTestResponse> sendWebhookTestWithHttpInfo(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest) throws ApiException {
+    public ApiResponse<EmailCommseqWebhookSendTestResponse> sendWebhookTestWithHttpInfo(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest) throws ApiException {
         com.squareup.okhttp.Call call = sendWebhookTestValidateBeforeCall(storefrontOid, emailCommseqWebhookTestRequest, null, null);
-        Type localVarReturnType = new TypeToken<EmailCommseqEmailSendTestResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailCommseqWebhookSendTestResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -17938,7 +17939,7 @@ public class StorefrontApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendWebhookTestAsync(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest, final ApiCallback<EmailCommseqEmailSendTestResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call sendWebhookTestAsync(Integer storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest, final ApiCallback<EmailCommseqWebhookSendTestResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17960,7 +17961,7 @@ public class StorefrontApi {
         }
 
         com.squareup.okhttp.Call call = sendWebhookTestValidateBeforeCall(storefrontOid, emailCommseqWebhookTestRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<EmailCommseqEmailSendTestResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailCommseqWebhookSendTestResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -6905,7 +6905,7 @@ Name | Type | Description  | Notes
 
 <a name="sendWebhookTest"></a>
 # **sendWebhookTest**
-> EmailCommseqEmailSendTestResponse sendWebhookTest(storefrontOid, emailCommseqWebhookTestRequest)
+> EmailCommseqWebhookSendTestResponse sendWebhookTest(storefrontOid, emailCommseqWebhookTestRequest)
 
 Send webhook test
 
@@ -6925,7 +6925,7 @@ StorefrontApi apiInstance = new StorefrontApi(apiKey);
 Integer storefrontOid = 56; // Integer | 
 EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest = new EmailCommseqWebhookSendTestRequest(); // EmailCommseqWebhookSendTestRequest | Email commseq webhook test request
 try {
-    EmailCommseqEmailSendTestResponse result = apiInstance.sendWebhookTest(storefrontOid, emailCommseqWebhookTestRequest);
+    EmailCommseqWebhookSendTestResponse result = apiInstance.sendWebhookTest(storefrontOid, emailCommseqWebhookTestRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorefrontApi#sendWebhookTest");
@@ -6942,7 +6942,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EmailCommseqEmailSendTestResponse**](EmailCommseqEmailSendTestResponse.md)
+[**EmailCommseqWebhookSendTestResponse**](EmailCommseqWebhookSendTestResponse.md)
 
 ### Authorization
 

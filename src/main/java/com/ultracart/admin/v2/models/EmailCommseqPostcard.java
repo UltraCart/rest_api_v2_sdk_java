@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailCommseqPostcard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-04T16:07:33.190-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-06T14:56:13.465-04:00")
 
 
 
@@ -62,29 +62,11 @@ public class EmailCommseqPostcard {
   @SerializedName("postcard_front_container_uuid")
   private String postcardFrontContainerUuid = null;
 
-  @SerializedName("screenshot_back_large_full_url")
-  private String screenshotBackLargeFullUrl = null;
-
-  @SerializedName("screenshot_back_large_viewport_url")
-  private String screenshotBackLargeViewportUrl = null;
-
-  @SerializedName("screenshot_back_small_full_url")
-  private String screenshotBackSmallFullUrl = null;
-
-  @SerializedName("screenshot_back_small_viewport_url")
-  private String screenshotBackSmallViewportUrl = null;
-
-  @SerializedName("screenshot_large_full_url")
-  private String screenshotLargeFullUrl = null;
-
-  @SerializedName("screenshot_large_viewport_url")
-  private String screenshotLargeViewportUrl = null;
+  @SerializedName("screenshot_front_url")
+  private String screenshotFrontUrl = null;
 
   @SerializedName("screenshot_small_full_url")
   private String screenshotSmallFullUrl = null;
-
-  @SerializedName("screenshot_small_viewport_url")
-  private String screenshotSmallViewportUrl = null;
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
@@ -269,112 +251,22 @@ public class EmailCommseqPostcard {
     this.postcardFrontContainerUuid = postcardFrontContainerUuid;
   }
 
-  public EmailCommseqPostcard screenshotBackLargeFullUrl(String screenshotBackLargeFullUrl) {
-    this.screenshotBackLargeFullUrl = screenshotBackLargeFullUrl;
+  public EmailCommseqPostcard screenshotFrontUrl(String screenshotFrontUrl) {
+    this.screenshotFrontUrl = screenshotFrontUrl;
     return this;
   }
 
    /**
-   * URL to screenshot (back) in large form factor full page
-   * @return screenshotBackLargeFullUrl
+   * URL for front screenshot
+   * @return screenshotFrontUrl
   **/
-  @ApiModelProperty(value = "URL to screenshot (back) in large form factor full page")
-  public String getScreenshotBackLargeFullUrl() {
-    return screenshotBackLargeFullUrl;
+  @ApiModelProperty(value = "URL for front screenshot")
+  public String getScreenshotFrontUrl() {
+    return screenshotFrontUrl;
   }
 
-  public void setScreenshotBackLargeFullUrl(String screenshotBackLargeFullUrl) {
-    this.screenshotBackLargeFullUrl = screenshotBackLargeFullUrl;
-  }
-
-  public EmailCommseqPostcard screenshotBackLargeViewportUrl(String screenshotBackLargeViewportUrl) {
-    this.screenshotBackLargeViewportUrl = screenshotBackLargeViewportUrl;
-    return this;
-  }
-
-   /**
-   * URL to screenshot (back) in large form factor viewport
-   * @return screenshotBackLargeViewportUrl
-  **/
-  @ApiModelProperty(value = "URL to screenshot (back) in large form factor viewport")
-  public String getScreenshotBackLargeViewportUrl() {
-    return screenshotBackLargeViewportUrl;
-  }
-
-  public void setScreenshotBackLargeViewportUrl(String screenshotBackLargeViewportUrl) {
-    this.screenshotBackLargeViewportUrl = screenshotBackLargeViewportUrl;
-  }
-
-  public EmailCommseqPostcard screenshotBackSmallFullUrl(String screenshotBackSmallFullUrl) {
-    this.screenshotBackSmallFullUrl = screenshotBackSmallFullUrl;
-    return this;
-  }
-
-   /**
-   * URL to screenshot (back) in small form factor full page
-   * @return screenshotBackSmallFullUrl
-  **/
-  @ApiModelProperty(value = "URL to screenshot (back) in small form factor full page")
-  public String getScreenshotBackSmallFullUrl() {
-    return screenshotBackSmallFullUrl;
-  }
-
-  public void setScreenshotBackSmallFullUrl(String screenshotBackSmallFullUrl) {
-    this.screenshotBackSmallFullUrl = screenshotBackSmallFullUrl;
-  }
-
-  public EmailCommseqPostcard screenshotBackSmallViewportUrl(String screenshotBackSmallViewportUrl) {
-    this.screenshotBackSmallViewportUrl = screenshotBackSmallViewportUrl;
-    return this;
-  }
-
-   /**
-   * URL to screenshot (back) in small form factor viewport
-   * @return screenshotBackSmallViewportUrl
-  **/
-  @ApiModelProperty(value = "URL to screenshot (back) in small form factor viewport")
-  public String getScreenshotBackSmallViewportUrl() {
-    return screenshotBackSmallViewportUrl;
-  }
-
-  public void setScreenshotBackSmallViewportUrl(String screenshotBackSmallViewportUrl) {
-    this.screenshotBackSmallViewportUrl = screenshotBackSmallViewportUrl;
-  }
-
-  public EmailCommseqPostcard screenshotLargeFullUrl(String screenshotLargeFullUrl) {
-    this.screenshotLargeFullUrl = screenshotLargeFullUrl;
-    return this;
-  }
-
-   /**
-   * URL to screenshot in large form factor full page
-   * @return screenshotLargeFullUrl
-  **/
-  @ApiModelProperty(value = "URL to screenshot in large form factor full page")
-  public String getScreenshotLargeFullUrl() {
-    return screenshotLargeFullUrl;
-  }
-
-  public void setScreenshotLargeFullUrl(String screenshotLargeFullUrl) {
-    this.screenshotLargeFullUrl = screenshotLargeFullUrl;
-  }
-
-  public EmailCommseqPostcard screenshotLargeViewportUrl(String screenshotLargeViewportUrl) {
-    this.screenshotLargeViewportUrl = screenshotLargeViewportUrl;
-    return this;
-  }
-
-   /**
-   * URL to screenshot in large form factor viewport
-   * @return screenshotLargeViewportUrl
-  **/
-  @ApiModelProperty(value = "URL to screenshot in large form factor viewport")
-  public String getScreenshotLargeViewportUrl() {
-    return screenshotLargeViewportUrl;
-  }
-
-  public void setScreenshotLargeViewportUrl(String screenshotLargeViewportUrl) {
-    this.screenshotLargeViewportUrl = screenshotLargeViewportUrl;
+  public void setScreenshotFrontUrl(String screenshotFrontUrl) {
+    this.screenshotFrontUrl = screenshotFrontUrl;
   }
 
   public EmailCommseqPostcard screenshotSmallFullUrl(String screenshotSmallFullUrl) {
@@ -383,34 +275,16 @@ public class EmailCommseqPostcard {
   }
 
    /**
-   * URL to screenshot in small form factor full page
+   * URL for back screenshot
    * @return screenshotSmallFullUrl
   **/
-  @ApiModelProperty(value = "URL to screenshot in small form factor full page")
+  @ApiModelProperty(value = "URL for back screenshot")
   public String getScreenshotSmallFullUrl() {
     return screenshotSmallFullUrl;
   }
 
   public void setScreenshotSmallFullUrl(String screenshotSmallFullUrl) {
     this.screenshotSmallFullUrl = screenshotSmallFullUrl;
-  }
-
-  public EmailCommseqPostcard screenshotSmallViewportUrl(String screenshotSmallViewportUrl) {
-    this.screenshotSmallViewportUrl = screenshotSmallViewportUrl;
-    return this;
-  }
-
-   /**
-   * URL to screenshot in small form factor viewport
-   * @return screenshotSmallViewportUrl
-  **/
-  @ApiModelProperty(value = "URL to screenshot in small form factor viewport")
-  public String getScreenshotSmallViewportUrl() {
-    return screenshotSmallViewportUrl;
-  }
-
-  public void setScreenshotSmallViewportUrl(String screenshotSmallViewportUrl) {
-    this.screenshotSmallViewportUrl = screenshotSmallViewportUrl;
   }
 
   public EmailCommseqPostcard storefrontOid(Integer storefrontOid) {
@@ -451,20 +325,14 @@ public class EmailCommseqPostcard {
         Objects.equals(this.postcardContainerCjsonLastModifiedDts, emailCommseqPostcard.postcardContainerCjsonLastModifiedDts) &&
         Objects.equals(this.postcardFrontContainerCjson, emailCommseqPostcard.postcardFrontContainerCjson) &&
         Objects.equals(this.postcardFrontContainerUuid, emailCommseqPostcard.postcardFrontContainerUuid) &&
-        Objects.equals(this.screenshotBackLargeFullUrl, emailCommseqPostcard.screenshotBackLargeFullUrl) &&
-        Objects.equals(this.screenshotBackLargeViewportUrl, emailCommseqPostcard.screenshotBackLargeViewportUrl) &&
-        Objects.equals(this.screenshotBackSmallFullUrl, emailCommseqPostcard.screenshotBackSmallFullUrl) &&
-        Objects.equals(this.screenshotBackSmallViewportUrl, emailCommseqPostcard.screenshotBackSmallViewportUrl) &&
-        Objects.equals(this.screenshotLargeFullUrl, emailCommseqPostcard.screenshotLargeFullUrl) &&
-        Objects.equals(this.screenshotLargeViewportUrl, emailCommseqPostcard.screenshotLargeViewportUrl) &&
+        Objects.equals(this.screenshotFrontUrl, emailCommseqPostcard.screenshotFrontUrl) &&
         Objects.equals(this.screenshotSmallFullUrl, emailCommseqPostcard.screenshotSmallFullUrl) &&
-        Objects.equals(this.screenshotSmallViewportUrl, emailCommseqPostcard.screenshotSmallViewportUrl) &&
         Objects.equals(this.storefrontOid, emailCommseqPostcard.storefrontOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequencePostcardUuid, filterProfileEquationJson, merchantId, postcardBackContainerCjson, postcardBackContainerUuid, postcardContainerCjsonLastModifiedDts, postcardFrontContainerCjson, postcardFrontContainerUuid, screenshotBackLargeFullUrl, screenshotBackLargeViewportUrl, screenshotBackSmallFullUrl, screenshotBackSmallViewportUrl, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, storefrontOid);
+    return Objects.hash(deleted, editedByUser, emailCommunicationSequencePostcardUuid, filterProfileEquationJson, merchantId, postcardBackContainerCjson, postcardBackContainerUuid, postcardContainerCjsonLastModifiedDts, postcardFrontContainerCjson, postcardFrontContainerUuid, screenshotFrontUrl, screenshotSmallFullUrl, storefrontOid);
   }
 
 
@@ -483,14 +351,8 @@ public class EmailCommseqPostcard {
     sb.append("    postcardContainerCjsonLastModifiedDts: ").append(toIndentedString(postcardContainerCjsonLastModifiedDts)).append("\n");
     sb.append("    postcardFrontContainerCjson: ").append(toIndentedString(postcardFrontContainerCjson)).append("\n");
     sb.append("    postcardFrontContainerUuid: ").append(toIndentedString(postcardFrontContainerUuid)).append("\n");
-    sb.append("    screenshotBackLargeFullUrl: ").append(toIndentedString(screenshotBackLargeFullUrl)).append("\n");
-    sb.append("    screenshotBackLargeViewportUrl: ").append(toIndentedString(screenshotBackLargeViewportUrl)).append("\n");
-    sb.append("    screenshotBackSmallFullUrl: ").append(toIndentedString(screenshotBackSmallFullUrl)).append("\n");
-    sb.append("    screenshotBackSmallViewportUrl: ").append(toIndentedString(screenshotBackSmallViewportUrl)).append("\n");
-    sb.append("    screenshotLargeFullUrl: ").append(toIndentedString(screenshotLargeFullUrl)).append("\n");
-    sb.append("    screenshotLargeViewportUrl: ").append(toIndentedString(screenshotLargeViewportUrl)).append("\n");
+    sb.append("    screenshotFrontUrl: ").append(toIndentedString(screenshotFrontUrl)).append("\n");
     sb.append("    screenshotSmallFullUrl: ").append(toIndentedString(screenshotSmallFullUrl)).append("\n");
-    sb.append("    screenshotSmallViewportUrl: ").append(toIndentedString(screenshotSmallViewportUrl)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("}");
     return sb.toString();

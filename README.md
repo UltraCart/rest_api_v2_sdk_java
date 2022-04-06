@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-04-04T16:07:33.190-04:00
+  - Build date: 2022-04-06T14:56:13.465-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.9.2</version>
+  <version>3.9.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.9.2"
+compile "com.ultracart:rest-sdk:3.9.3"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.9.2.jar`
+* `target/rest-sdk-3.9.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -687,6 +687,7 @@ Class | Method | HTTP request | Description
  - [EmailCommseqStepLog](docs/EmailCommseqStepLog.md)
  - [EmailCommseqStepLogsResponse](docs/EmailCommseqStepLogsResponse.md)
  - [EmailCommseqWebhookSendTestRequest](docs/EmailCommseqWebhookSendTestRequest.md)
+ - [EmailCommseqWebhookSendTestResponse](docs/EmailCommseqWebhookSendTestResponse.md)
  - [EmailCommseqsResponse](docs/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/EmailCustomer.md)
  - [EmailCustomerEditorUrlResponse](docs/EmailCustomerEditorUrlResponse.md)
@@ -1185,6 +1186,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.9.3 | 04/06/2022 | fix return object on send webhook test method |
 | 3.9.2 | 04/04/2022 | user.email field extended and postcard screenshot fields |
 | 3.9.1 | 03/03/2022 | javascript sdk package.json bug fix |
 | 3.9.0 | 03/03/2022 | removed  ultra_cart_rest_api_v2.d.ts from javascript sdk because typescript sdk exists now |
