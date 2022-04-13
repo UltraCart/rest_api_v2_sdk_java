@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailDomain
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-06T14:56:13.465-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-13T09:50:04.908-04:00")
 
 
 
@@ -58,6 +58,9 @@ public class EmailDomain {
 
   @SerializedName("provider")
   private String provider = null;
+
+  @SerializedName("spf")
+  private VerificationRecord spf = null;
 
   @SerializedName("start_dkim_dts")
   private String startDkimDts = null;
@@ -220,6 +223,24 @@ public class EmailDomain {
     this.provider = provider;
   }
 
+  public EmailDomain spf(VerificationRecord spf) {
+    this.spf = spf;
+    return this;
+  }
+
+   /**
+   * Get spf
+   * @return spf
+  **/
+  @ApiModelProperty(value = "")
+  public VerificationRecord getSpf() {
+    return spf;
+  }
+
+  public void setSpf(VerificationRecord spf) {
+    this.spf = spf;
+  }
+
   public EmailDomain startDkimDts(String startDkimDts) {
     this.startDkimDts = startDkimDts;
     return this;
@@ -292,6 +313,7 @@ public class EmailDomain {
         Objects.equals(this.identityStatus, emailDomain.identityStatus) &&
         Objects.equals(this.merchantId, emailDomain.merchantId) &&
         Objects.equals(this.provider, emailDomain.provider) &&
+        Objects.equals(this.spf, emailDomain.spf) &&
         Objects.equals(this.startDkimDts, emailDomain.startDkimDts) &&
         Objects.equals(this.startIdentityDts, emailDomain.startIdentityDts) &&
         Objects.equals(this.verification, emailDomain.verification);
@@ -299,7 +321,7 @@ public class EmailDomain {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dkim, dkimStatus, domain, espDomainUuid, identityStatus, merchantId, provider, startDkimDts, startIdentityDts, verification);
+    return Objects.hash(comment, dkim, dkimStatus, domain, espDomainUuid, identityStatus, merchantId, provider, spf, startDkimDts, startIdentityDts, verification);
   }
 
 
@@ -316,6 +338,7 @@ public class EmailDomain {
     sb.append("    identityStatus: ").append(toIndentedString(identityStatus)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    spf: ").append(toIndentedString(spf)).append("\n");
     sb.append("    startDkimDts: ").append(toIndentedString(startDkimDts)).append("\n");
     sb.append("    startIdentityDts: ").append(toIndentedString(startIdentityDts)).append("\n");
     sb.append("    verification: ").append(toIndentedString(verification)).append("\n");

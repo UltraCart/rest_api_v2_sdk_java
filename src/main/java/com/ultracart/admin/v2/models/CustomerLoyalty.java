@@ -31,13 +31,19 @@ import java.util.List;
 /**
  * CustomerLoyalty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-06T14:56:13.465-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-13T09:50:04.908-04:00")
 
 
 
 public class CustomerLoyalty {
   @SerializedName("current_points")
   private Integer currentPoints = null;
+
+  @SerializedName("internal_gift_certificate_balance")
+  private String internalGiftCertificateBalance = null;
+
+  @SerializedName("internal_gift_certificate_oid")
+  private Integer internalGiftCertificateOid = null;
 
   @SerializedName("ledger_entries")
   private List<CustomerLoyaltyLedger> ledgerEntries = null;
@@ -64,6 +70,42 @@ public class CustomerLoyalty {
 
   public void setCurrentPoints(Integer currentPoints) {
     this.currentPoints = currentPoints;
+  }
+
+  public CustomerLoyalty internalGiftCertificateBalance(String internalGiftCertificateBalance) {
+    this.internalGiftCertificateBalance = internalGiftCertificateBalance;
+    return this;
+  }
+
+   /**
+   * Loyalty Cashback / Store credit balance (internal gift certificate balance)
+   * @return internalGiftCertificateBalance
+  **/
+  @ApiModelProperty(value = "Loyalty Cashback / Store credit balance (internal gift certificate balance)")
+  public String getInternalGiftCertificateBalance() {
+    return internalGiftCertificateBalance;
+  }
+
+  public void setInternalGiftCertificateBalance(String internalGiftCertificateBalance) {
+    this.internalGiftCertificateBalance = internalGiftCertificateBalance;
+  }
+
+  public CustomerLoyalty internalGiftCertificateOid(Integer internalGiftCertificateOid) {
+    this.internalGiftCertificateOid = internalGiftCertificateOid;
+    return this;
+  }
+
+   /**
+   * Internal gift certificate oid used to tracking loyalty cashback / store credit.
+   * @return internalGiftCertificateOid
+  **/
+  @ApiModelProperty(value = "Internal gift certificate oid used to tracking loyalty cashback / store credit.")
+  public Integer getInternalGiftCertificateOid() {
+    return internalGiftCertificateOid;
+  }
+
+  public void setInternalGiftCertificateOid(Integer internalGiftCertificateOid) {
+    this.internalGiftCertificateOid = internalGiftCertificateOid;
   }
 
   public CustomerLoyalty ledgerEntries(List<CustomerLoyaltyLedger> ledgerEntries) {
@@ -147,6 +189,8 @@ public class CustomerLoyalty {
     }
     CustomerLoyalty customerLoyalty = (CustomerLoyalty) o;
     return Objects.equals(this.currentPoints, customerLoyalty.currentPoints) &&
+        Objects.equals(this.internalGiftCertificateBalance, customerLoyalty.internalGiftCertificateBalance) &&
+        Objects.equals(this.internalGiftCertificateOid, customerLoyalty.internalGiftCertificateOid) &&
         Objects.equals(this.ledgerEntries, customerLoyalty.ledgerEntries) &&
         Objects.equals(this.pendingPoints, customerLoyalty.pendingPoints) &&
         Objects.equals(this.redemptions, customerLoyalty.redemptions);
@@ -154,7 +198,7 @@ public class CustomerLoyalty {
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPoints, ledgerEntries, pendingPoints, redemptions);
+    return Objects.hash(currentPoints, internalGiftCertificateBalance, internalGiftCertificateOid, ledgerEntries, pendingPoints, redemptions);
   }
 
 
@@ -164,6 +208,8 @@ public class CustomerLoyalty {
     sb.append("class CustomerLoyalty {\n");
     
     sb.append("    currentPoints: ").append(toIndentedString(currentPoints)).append("\n");
+    sb.append("    internalGiftCertificateBalance: ").append(toIndentedString(internalGiftCertificateBalance)).append("\n");
+    sb.append("    internalGiftCertificateOid: ").append(toIndentedString(internalGiftCertificateOid)).append("\n");
     sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
     sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
