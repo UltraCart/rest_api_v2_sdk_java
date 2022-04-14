@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailCommseqPostcard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-13T09:50:04.908-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-14T09:59:09.012-04:00")
 
 
 
@@ -62,11 +62,11 @@ public class EmailCommseqPostcard {
   @SerializedName("postcard_front_container_uuid")
   private String postcardFrontContainerUuid = null;
 
+  @SerializedName("screenshot_back_url")
+  private String screenshotBackUrl = null;
+
   @SerializedName("screenshot_front_url")
   private String screenshotFrontUrl = null;
-
-  @SerializedName("screenshot_small_full_url")
-  private String screenshotSmallFullUrl = null;
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
@@ -251,40 +251,40 @@ public class EmailCommseqPostcard {
     this.postcardFrontContainerUuid = postcardFrontContainerUuid;
   }
 
+  public EmailCommseqPostcard screenshotBackUrl(String screenshotBackUrl) {
+    this.screenshotBackUrl = screenshotBackUrl;
+    return this;
+  }
+
+   /**
+   * URL to screenshot of the back of the postcard
+   * @return screenshotBackUrl
+  **/
+  @ApiModelProperty(value = "URL to screenshot of the back of the postcard")
+  public String getScreenshotBackUrl() {
+    return screenshotBackUrl;
+  }
+
+  public void setScreenshotBackUrl(String screenshotBackUrl) {
+    this.screenshotBackUrl = screenshotBackUrl;
+  }
+
   public EmailCommseqPostcard screenshotFrontUrl(String screenshotFrontUrl) {
     this.screenshotFrontUrl = screenshotFrontUrl;
     return this;
   }
 
    /**
-   * URL for front screenshot
+   * URL to screenshot of the front of the postcard
    * @return screenshotFrontUrl
   **/
-  @ApiModelProperty(value = "URL for front screenshot")
+  @ApiModelProperty(value = "URL to screenshot of the front of the postcard")
   public String getScreenshotFrontUrl() {
     return screenshotFrontUrl;
   }
 
   public void setScreenshotFrontUrl(String screenshotFrontUrl) {
     this.screenshotFrontUrl = screenshotFrontUrl;
-  }
-
-  public EmailCommseqPostcard screenshotSmallFullUrl(String screenshotSmallFullUrl) {
-    this.screenshotSmallFullUrl = screenshotSmallFullUrl;
-    return this;
-  }
-
-   /**
-   * URL for back screenshot
-   * @return screenshotSmallFullUrl
-  **/
-  @ApiModelProperty(value = "URL for back screenshot")
-  public String getScreenshotSmallFullUrl() {
-    return screenshotSmallFullUrl;
-  }
-
-  public void setScreenshotSmallFullUrl(String screenshotSmallFullUrl) {
-    this.screenshotSmallFullUrl = screenshotSmallFullUrl;
   }
 
   public EmailCommseqPostcard storefrontOid(Integer storefrontOid) {
@@ -325,14 +325,14 @@ public class EmailCommseqPostcard {
         Objects.equals(this.postcardContainerCjsonLastModifiedDts, emailCommseqPostcard.postcardContainerCjsonLastModifiedDts) &&
         Objects.equals(this.postcardFrontContainerCjson, emailCommseqPostcard.postcardFrontContainerCjson) &&
         Objects.equals(this.postcardFrontContainerUuid, emailCommseqPostcard.postcardFrontContainerUuid) &&
+        Objects.equals(this.screenshotBackUrl, emailCommseqPostcard.screenshotBackUrl) &&
         Objects.equals(this.screenshotFrontUrl, emailCommseqPostcard.screenshotFrontUrl) &&
-        Objects.equals(this.screenshotSmallFullUrl, emailCommseqPostcard.screenshotSmallFullUrl) &&
         Objects.equals(this.storefrontOid, emailCommseqPostcard.storefrontOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequencePostcardUuid, filterProfileEquationJson, merchantId, postcardBackContainerCjson, postcardBackContainerUuid, postcardContainerCjsonLastModifiedDts, postcardFrontContainerCjson, postcardFrontContainerUuid, screenshotFrontUrl, screenshotSmallFullUrl, storefrontOid);
+    return Objects.hash(deleted, editedByUser, emailCommunicationSequencePostcardUuid, filterProfileEquationJson, merchantId, postcardBackContainerCjson, postcardBackContainerUuid, postcardContainerCjsonLastModifiedDts, postcardFrontContainerCjson, postcardFrontContainerUuid, screenshotBackUrl, screenshotFrontUrl, storefrontOid);
   }
 
 
@@ -351,8 +351,8 @@ public class EmailCommseqPostcard {
     sb.append("    postcardContainerCjsonLastModifiedDts: ").append(toIndentedString(postcardContainerCjsonLastModifiedDts)).append("\n");
     sb.append("    postcardFrontContainerCjson: ").append(toIndentedString(postcardFrontContainerCjson)).append("\n");
     sb.append("    postcardFrontContainerUuid: ").append(toIndentedString(postcardFrontContainerUuid)).append("\n");
+    sb.append("    screenshotBackUrl: ").append(toIndentedString(screenshotBackUrl)).append("\n");
     sb.append("    screenshotFrontUrl: ").append(toIndentedString(screenshotFrontUrl)).append("\n");
-    sb.append("    screenshotSmallFullUrl: ").append(toIndentedString(screenshotSmallFullUrl)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("}");
     return sb.toString();
