@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-14T09:59:09.012-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-25T10:15:16.740-04:00")
 
 
 
@@ -48,6 +48,9 @@ public class AutoOrder {
 
   @SerializedName("cancel_downgrade")
   private Boolean cancelDowngrade = null;
+
+  @SerializedName("cancel_reason")
+  private String cancelReason = null;
 
   @SerializedName("cancel_upgrade")
   private Boolean cancelUpgrade = null;
@@ -219,6 +222,24 @@ public class AutoOrder {
 
   public void setCancelDowngrade(Boolean cancelDowngrade) {
     this.cancelDowngrade = cancelDowngrade;
+  }
+
+  public AutoOrder cancelReason(String cancelReason) {
+    this.cancelReason = cancelReason;
+    return this;
+  }
+
+   /**
+   * The reason this auto order was canceled by either merchant or customer
+   * @return cancelReason
+  **/
+  @ApiModelProperty(value = "The reason this auto order was canceled by either merchant or customer")
+  public String getCancelReason() {
+    return cancelReason;
+  }
+
+  public void setCancelReason(String cancelReason) {
+    this.cancelReason = cancelReason;
   }
 
   public AutoOrder cancelUpgrade(Boolean cancelUpgrade) {
@@ -565,6 +586,7 @@ public class AutoOrder {
         Objects.equals(this.autoOrderOid, autoOrder.autoOrderOid) &&
         Objects.equals(this.cancelAfterNextXOrders, autoOrder.cancelAfterNextXOrders) &&
         Objects.equals(this.cancelDowngrade, autoOrder.cancelDowngrade) &&
+        Objects.equals(this.cancelReason, autoOrder.cancelReason) &&
         Objects.equals(this.cancelUpgrade, autoOrder.cancelUpgrade) &&
         Objects.equals(this.canceledByUser, autoOrder.canceledByUser) &&
         Objects.equals(this.canceledDts, autoOrder.canceledDts) &&
@@ -586,7 +608,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
 
@@ -599,6 +621,7 @@ public class AutoOrder {
     sb.append("    autoOrderOid: ").append(toIndentedString(autoOrderOid)).append("\n");
     sb.append("    cancelAfterNextXOrders: ").append(toIndentedString(cancelAfterNextXOrders)).append("\n");
     sb.append("    cancelDowngrade: ").append(toIndentedString(cancelDowngrade)).append("\n");
+    sb.append("    cancelReason: ").append(toIndentedString(cancelReason)).append("\n");
     sb.append("    cancelUpgrade: ").append(toIndentedString(cancelUpgrade)).append("\n");
     sb.append("    canceledByUser: ").append(toIndentedString(canceledByUser)).append("\n");
     sb.append("    canceledDts: ").append(toIndentedString(canceledDts)).append("\n");

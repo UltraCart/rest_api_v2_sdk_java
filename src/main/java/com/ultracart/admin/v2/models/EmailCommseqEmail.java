@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailCommseqEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-14T09:59:09.012-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-25T10:15:16.740-04:00")
 
 
 
@@ -61,6 +61,9 @@ public class EmailCommseqEmail {
 
   @SerializedName("library_item_oid")
   private Integer libraryItemOid = null;
+
+  @SerializedName("magic_link")
+  private Boolean magicLink = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
@@ -285,6 +288,24 @@ public class EmailCommseqEmail {
 
   public void setLibraryItemOid(Integer libraryItemOid) {
     this.libraryItemOid = libraryItemOid;
+  }
+
+  public EmailCommseqEmail magicLink(Boolean magicLink) {
+    this.magicLink = magicLink;
+    return this;
+  }
+
+   /**
+   * True if email links should contain magic link tokens to log the customer in automatically
+   * @return magicLink
+  **/
+  @ApiModelProperty(value = "True if email links should contain magic link tokens to log the customer in automatically")
+  public Boolean isMagicLink() {
+    return magicLink;
+  }
+
+  public void setMagicLink(Boolean magicLink) {
+    this.magicLink = magicLink;
   }
 
   public EmailCommseqEmail merchantId(String merchantId) {
@@ -577,6 +598,7 @@ public class EmailCommseqEmail {
         Objects.equals(this.filterProfileEquationJson, emailCommseqEmail.filterProfileEquationJson) &&
         Objects.equals(this.individuallyRender, emailCommseqEmail.individuallyRender) &&
         Objects.equals(this.libraryItemOid, emailCommseqEmail.libraryItemOid) &&
+        Objects.equals(this.magicLink, emailCommseqEmail.magicLink) &&
         Objects.equals(this.merchantId, emailCommseqEmail.merchantId) &&
         Objects.equals(this.pendingReview, emailCommseqEmail.pendingReview) &&
         Objects.equals(this.previewText, emailCommseqEmail.previewText) &&
@@ -596,7 +618,7 @@ public class EmailCommseqEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, libraryItemOid, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
+    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
   }
 
 
@@ -615,6 +637,7 @@ public class EmailCommseqEmail {
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    individuallyRender: ").append(toIndentedString(individuallyRender)).append("\n");
     sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
+    sb.append("    magicLink: ").append(toIndentedString(magicLink)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    pendingReview: ").append(toIndentedString(pendingReview)).append("\n");
     sb.append("    previewText: ").append(toIndentedString(previewText)).append("\n");

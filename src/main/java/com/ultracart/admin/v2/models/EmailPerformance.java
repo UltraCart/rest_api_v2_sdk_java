@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * EmailPerformance
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-14T09:59:09.012-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-25T10:15:16.740-04:00")
 
 
 
@@ -60,6 +60,58 @@ public class EmailPerformance {
 
   @SerializedName("delivered_count")
   private Integer deliveredCount = null;
+
+  /**
+   * Loyalty Program Type
+   */
+  @JsonAdapter(LoyaltyProgramTypeEnum.Adapter.class)
+  public enum LoyaltyProgramTypeEnum {
+    DISABLED("disabled"),
+    
+    POINTS("points"),
+    
+    CASHBACK("cashback");
+
+    private String value;
+
+    LoyaltyProgramTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static LoyaltyProgramTypeEnum fromValue(String text) {
+      for (LoyaltyProgramTypeEnum b : LoyaltyProgramTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<LoyaltyProgramTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LoyaltyProgramTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LoyaltyProgramTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LoyaltyProgramTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("loyalty_program_type")
+  private LoyaltyProgramTypeEnum loyaltyProgramType = null;
 
   @SerializedName("max_active_customers")
   private Integer maxActiveCustomers = null;
@@ -253,6 +305,24 @@ public class EmailPerformance {
 
   public void setDeliveredCount(Integer deliveredCount) {
     this.deliveredCount = deliveredCount;
+  }
+
+  public EmailPerformance loyaltyProgramType(LoyaltyProgramTypeEnum loyaltyProgramType) {
+    this.loyaltyProgramType = loyaltyProgramType;
+    return this;
+  }
+
+   /**
+   * Loyalty Program Type
+   * @return loyaltyProgramType
+  **/
+  @ApiModelProperty(value = "Loyalty Program Type")
+  public LoyaltyProgramTypeEnum getLoyaltyProgramType() {
+    return loyaltyProgramType;
+  }
+
+  public void setLoyaltyProgramType(LoyaltyProgramTypeEnum loyaltyProgramType) {
+    this.loyaltyProgramType = loyaltyProgramType;
   }
 
   public EmailPerformance maxActiveCustomers(Integer maxActiveCustomers) {
@@ -525,6 +595,7 @@ public class EmailPerformance {
         Objects.equals(this.customerHistogram, emailPerformance.customerHistogram) &&
         Objects.equals(this.dailyStats, emailPerformance.dailyStats) &&
         Objects.equals(this.deliveredCount, emailPerformance.deliveredCount) &&
+        Objects.equals(this.loyaltyProgramType, emailPerformance.loyaltyProgramType) &&
         Objects.equals(this.maxActiveCustomers, emailPerformance.maxActiveCustomers) &&
         Objects.equals(this.maxEmailsPerDay, emailPerformance.maxEmailsPerDay) &&
         Objects.equals(this.maxEmailsPerHour, emailPerformance.maxEmailsPerHour) &&
@@ -543,7 +614,7 @@ public class EmailPerformance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeCustomers, actualCustomers, bounceCount, bouncePercentage, bouncePercentageFormatted, customerHistogram, dailyStats, deliveredCount, maxActiveCustomers, maxEmailsPerDay, maxEmailsPerHour, maxEmailsPerMonth, pausedForSpam, revenue, sentEmailsPerDay, sentEmailsPerHour, sentEmailsPerMonth, sequenceSendCount, spamCount, spamPercentage, spamPercentageFormatted, transactionalSendCount);
+    return Objects.hash(activeCustomers, actualCustomers, bounceCount, bouncePercentage, bouncePercentageFormatted, customerHistogram, dailyStats, deliveredCount, loyaltyProgramType, maxActiveCustomers, maxEmailsPerDay, maxEmailsPerHour, maxEmailsPerMonth, pausedForSpam, revenue, sentEmailsPerDay, sentEmailsPerHour, sentEmailsPerMonth, sequenceSendCount, spamCount, spamPercentage, spamPercentageFormatted, transactionalSendCount);
   }
 
 
@@ -560,6 +631,7 @@ public class EmailPerformance {
     sb.append("    customerHistogram: ").append(toIndentedString(customerHistogram)).append("\n");
     sb.append("    dailyStats: ").append(toIndentedString(dailyStats)).append("\n");
     sb.append("    deliveredCount: ").append(toIndentedString(deliveredCount)).append("\n");
+    sb.append("    loyaltyProgramType: ").append(toIndentedString(loyaltyProgramType)).append("\n");
     sb.append("    maxActiveCustomers: ").append(toIndentedString(maxActiveCustomers)).append("\n");
     sb.append("    maxEmailsPerDay: ").append(toIndentedString(maxEmailsPerDay)).append("\n");
     sb.append("    maxEmailsPerHour: ").append(toIndentedString(maxEmailsPerHour)).append("\n");

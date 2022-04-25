@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **autoOrderOid** | **Integer** | Auto order object identifier |  [optional]
 **cancelAfterNextXOrders** | **Integer** | Cancel this auto order after X additional rebills |  [optional]
 **cancelDowngrade** | **Boolean** | True if the auto order was canceled because the customer purchased a downgrade item |  [optional]
+**cancelReason** | **String** | The reason this auto order was canceled by either merchant or customer |  [optional]
 **cancelUpgrade** | **Boolean** | True if the auto order was canceled because the customer purchased an upgrade item |  [optional]
 **canceledByUser** | **String** | The user that canceled the auto order |  [optional]
 **canceledDts** | **String** | The date/time that the auto order was canceled |  [optional]

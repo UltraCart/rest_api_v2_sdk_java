@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **customerHistogram** | [**EmailPerformanceCustomerHistogram**](EmailPerformanceCustomerHistogram.md) |  |  [optional]
 **dailyStats** | [**List&lt;EmailPerformanceDaily&gt;**](EmailPerformanceDaily.md) | Daily statistics used for charting |  [optional]
 **deliveredCount** | **Integer** | Delivered count |  [optional]
+**loyaltyProgramType** | [**LoyaltyProgramTypeEnum**](#LoyaltyProgramTypeEnum) | Loyalty Program Type |  [optional]
 **maxActiveCustomers** | **Integer** | Maximum active customers allowed under their billing plan |  [optional]
 **maxEmailsPerDay** | **Integer** | Max emails per day |  [optional]
 **maxEmailsPerHour** | **Integer** | Max emails per hour |  [optional]
@@ -26,6 +27,15 @@ Name | Type | Description | Notes
 **spamPercentage** | [**BigDecimal**](BigDecimal.md) | Spam percentage rate based upon our look back window.  This should be under one half a percent or the account will be paused for sending. |  [optional]
 **spamPercentageFormatted** | **String** | Spam percentage rate (formatted) based upon our look back window.  This should be under one half a percent or the account will be paused for sending. |  [optional]
 **transactionalSendCount** | **Integer** | Total transactions emails sent |  [optional]
+
+
+<a name="LoyaltyProgramTypeEnum"></a>
+## Enum: LoyaltyProgramTypeEnum
+Name | Value
+---- | -----
+DISABLED | &quot;disabled&quot;
+POINTS | &quot;points&quot;
+CASHBACK | &quot;cashback&quot;
 
 
 
