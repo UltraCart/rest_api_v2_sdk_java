@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-04-25T10:15:16.740-04:00
+  - Build date: 2022-04-25T15:45:07.075-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.9.6</version>
+  <version>3.9.7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.9.6"
+compile "com.ultracart:rest-sdk:3.9.7"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.9.6.jar`
+* `target/rest-sdk-3.9.7.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -180,6 +180,7 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**updateCoupon**](docs/CouponApi.md#updateCoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
 *CouponApi* | [**updateCoupons**](docs/CouponApi.md#updateCoupons) | **PUT** /coupon/coupons/batch | Update multiple coupons
 *CouponApi* | [**uploadCouponCodes**](docs/CouponApi.md#uploadCouponCodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
+*CustomerApi* | [**adjustInternalCertificate**](docs/CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 *CustomerApi* | [**deleteCustomer**](docs/CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomerByEmail**](docs/CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
@@ -209,6 +210,7 @@ Class | Method | HTTP request | Description
 *GiftCertificateApi* | [**updateGiftCertificate**](docs/GiftCertificateApi.md#updateGiftCertificate) | **PUT** /gift_certificate/gift_certificates/{gift_certificate_oid} | Update a gift certificate
 *IntegrationLogApi* | [**getIntegrationLog**](docs/IntegrationLogApi.md#getIntegrationLog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
 *IntegrationLogApi* | [**getIntegrationLogFile**](docs/IntegrationLogApi.md#getIntegrationLogFile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
+*IntegrationLogApi* | [**getIntegrationLogFilePdf**](docs/IntegrationLogApi.md#getIntegrationLogFilePdf) | **GET** /integration_log/query/{pk}/{sk}/{uuid}/pdf | Retrieve an integration log file converted to PDF
 *IntegrationLogApi* | [**getIntegrationLogSummariesQuery**](docs/IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteItem**](docs/ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
@@ -468,6 +470,8 @@ Class | Method | HTTP request | Description
  - [AccountsReceivableRetryStatsResponse](docs/AccountsReceivableRetryStatsResponse.md)
  - [Activity](docs/Activity.md)
  - [AddLibraryItemRequest](docs/AddLibraryItemRequest.md)
+ - [AdjustInternalCertificateRequest](docs/AdjustInternalCertificateRequest.md)
+ - [AdjustInternalCertificateResponse](docs/AdjustInternalCertificateResponse.md)
  - [AffiliateClick](docs/AffiliateClick.md)
  - [AffiliateClickQuery](docs/AffiliateClickQuery.md)
  - [AffiliateClicksResponse](docs/AffiliateClicksResponse.md)
@@ -1186,6 +1190,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.9.7 | 04/25/2022 | integration logs method for zpl to pdf conversion |
 | 3.9.6 | 04/25/2022 | storefront communications email magic link setting |
 | 3.9.5 | 04/14/2022 | postcard screenshot bug fixes |
 | 3.9.4 | 04/13/2022 | Added spf DNS record to the sending domain object |

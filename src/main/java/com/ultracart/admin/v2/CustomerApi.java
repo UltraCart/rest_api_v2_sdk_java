@@ -27,6 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ultracart.admin.v2.models.AdjustInternalCertificateRequest;
+import com.ultracart.admin.v2.models.AdjustInternalCertificateResponse;
 import com.ultracart.admin.v2.models.Customer;
 import com.ultracart.admin.v2.models.CustomerEditorValues;
 import com.ultracart.admin.v2.models.CustomerEmailListChanges;
@@ -91,6 +93,138 @@ public class CustomerApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for adjustInternalCertificate
+     * @param customerProfileOid The customer profile oid (required)
+     * @param adjustInternalCertificateRequest adjustInternalCertificateRequest (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call adjustInternalCertificateCall(Integer customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = adjustInternalCertificateRequest;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/adjust_cashback_balance"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call adjustInternalCertificateValidateBeforeCall(Integer customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling adjustInternalCertificate(Async)");
+        }
+        
+        // verify the required parameter 'adjustInternalCertificateRequest' is set
+        if (adjustInternalCertificateRequest == null) {
+            throw new ApiException("Missing the required parameter 'adjustInternalCertificateRequest' when calling adjustInternalCertificate(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = adjustInternalCertificateCall(customerProfileOid, adjustInternalCertificateRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+     * Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param adjustInternalCertificateRequest adjustInternalCertificateRequest (required)
+     * @return AdjustInternalCertificateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AdjustInternalCertificateResponse adjustInternalCertificate(Integer customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest) throws ApiException {
+        ApiResponse<AdjustInternalCertificateResponse> resp = adjustInternalCertificateWithHttpInfo(customerProfileOid, adjustInternalCertificateRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+     * Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param adjustInternalCertificateRequest adjustInternalCertificateRequest (required)
+     * @return ApiResponse&lt;AdjustInternalCertificateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AdjustInternalCertificateResponse> adjustInternalCertificateWithHttpInfo(Integer customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest) throws ApiException {
+        com.squareup.okhttp.Call call = adjustInternalCertificateValidateBeforeCall(customerProfileOid, adjustInternalCertificateRequest, null, null);
+        Type localVarReturnType = new TypeToken<AdjustInternalCertificateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. (asynchronously)
+     * Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param adjustInternalCertificateRequest adjustInternalCertificateRequest (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call adjustInternalCertificateAsync(Integer customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest, final ApiCallback<AdjustInternalCertificateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = adjustInternalCertificateValidateBeforeCall(customerProfileOid, adjustInternalCertificateRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AdjustInternalCertificateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for deleteCustomer
      * @param customerProfileOid The customer_profile_oid to delete. (required)

@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.CustomerLoyaltyLedger;
 import com.ultracart.admin.v2.models.CustomerLoyaltyRedemption;
+import com.ultracart.admin.v2.models.GiftCertificate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,13 +32,16 @@ import java.util.List;
 /**
  * CustomerLoyalty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-25T10:15:16.740-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-25T15:45:07.075-04:00")
 
 
 
 public class CustomerLoyalty {
   @SerializedName("current_points")
   private Integer currentPoints = null;
+
+  @SerializedName("internal_gift_certificate")
+  private GiftCertificate internalGiftCertificate = null;
 
   @SerializedName("internal_gift_certificate_balance")
   private String internalGiftCertificateBalance = null;
@@ -60,16 +64,34 @@ public class CustomerLoyalty {
   }
 
    /**
-   * Current Points
+   * Current points
    * @return currentPoints
   **/
-  @ApiModelProperty(value = "Current Points")
+  @ApiModelProperty(value = "Current points")
   public Integer getCurrentPoints() {
     return currentPoints;
   }
 
   public void setCurrentPoints(Integer currentPoints) {
     this.currentPoints = currentPoints;
+  }
+
+  public CustomerLoyalty internalGiftCertificate(GiftCertificate internalGiftCertificate) {
+    this.internalGiftCertificate = internalGiftCertificate;
+    return this;
+  }
+
+   /**
+   * Get internalGiftCertificate
+   * @return internalGiftCertificate
+  **/
+  @ApiModelProperty(value = "")
+  public GiftCertificate getInternalGiftCertificate() {
+    return internalGiftCertificate;
+  }
+
+  public void setInternalGiftCertificate(GiftCertificate internalGiftCertificate) {
+    this.internalGiftCertificate = internalGiftCertificate;
   }
 
   public CustomerLoyalty internalGiftCertificateBalance(String internalGiftCertificateBalance) {
@@ -189,6 +211,7 @@ public class CustomerLoyalty {
     }
     CustomerLoyalty customerLoyalty = (CustomerLoyalty) o;
     return Objects.equals(this.currentPoints, customerLoyalty.currentPoints) &&
+        Objects.equals(this.internalGiftCertificate, customerLoyalty.internalGiftCertificate) &&
         Objects.equals(this.internalGiftCertificateBalance, customerLoyalty.internalGiftCertificateBalance) &&
         Objects.equals(this.internalGiftCertificateOid, customerLoyalty.internalGiftCertificateOid) &&
         Objects.equals(this.ledgerEntries, customerLoyalty.ledgerEntries) &&
@@ -198,7 +221,7 @@ public class CustomerLoyalty {
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPoints, internalGiftCertificateBalance, internalGiftCertificateOid, ledgerEntries, pendingPoints, redemptions);
+    return Objects.hash(currentPoints, internalGiftCertificate, internalGiftCertificateBalance, internalGiftCertificateOid, ledgerEntries, pendingPoints, redemptions);
   }
 
 
@@ -208,6 +231,7 @@ public class CustomerLoyalty {
     sb.append("class CustomerLoyalty {\n");
     
     sb.append("    currentPoints: ").append(toIndentedString(currentPoints)).append("\n");
+    sb.append("    internalGiftCertificate: ").append(toIndentedString(internalGiftCertificate)).append("\n");
     sb.append("    internalGiftCertificateBalance: ").append(toIndentedString(internalGiftCertificateBalance)).append("\n");
     sb.append("    internalGiftCertificateOid: ").append(toIndentedString(internalGiftCertificateOid)).append("\n");
     sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
