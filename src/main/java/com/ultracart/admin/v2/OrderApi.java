@@ -473,6 +473,135 @@ public class OrderApi {
         return call;
     }
     /**
+     * Build call for duplicateOrder
+     * @param orderId The order id to duplicate. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call duplicateOrderCall(String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/duplicate"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call duplicateOrderValidateBeforeCall(String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling duplicateOrder(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = duplicateOrderCall(orderId, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Duplicate an order
+     * Perform a duplicate of the specified order_id and return a new order located in Accounts Receivable. 
+     * @param orderId The order id to duplicate. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse duplicateOrder(String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = duplicateOrderWithHttpInfo(orderId, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Duplicate an order
+     * Perform a duplicate of the specified order_id and return a new order located in Accounts Receivable. 
+     * @param orderId The order id to duplicate. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> duplicateOrderWithHttpInfo(String orderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = duplicateOrderValidateBeforeCall(orderId, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Duplicate an order (asynchronously)
+     * Perform a duplicate of the specified order_id and return a new order located in Accounts Receivable. 
+     * @param orderId The order id to duplicate. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call duplicateOrderAsync(String orderId, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = duplicateOrderValidateBeforeCall(orderId, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for format
      * @param orderId The order id to format (required)
      * @param formatOptions Format options (required)

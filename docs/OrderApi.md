@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**adjustOrderTotal**](OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
 [**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
+[**duplicateOrder**](OrderApi.md#duplicateOrder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
 [**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 [**generateOrderToken**](OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
 [**generatePackingSlipAllDC**](OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
@@ -177,6 +178,58 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="duplicateOrder"></a>
+# **duplicateOrder**
+> OrderResponse duplicateOrder(orderId, expand)
+
+Duplicate an order
+
+Perform a duplicate of the specified order_id and return a new order located in Accounts Receivable. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
+
+String orderId = "orderId_example"; // String | The order id to duplicate.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.duplicateOrder(orderId, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#duplicateOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| The order id to duplicate. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="format"></a>
