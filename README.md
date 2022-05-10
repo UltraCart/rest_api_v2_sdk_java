@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-04-26T11:37:38.556-04:00
+  - Build date: 2022-05-10T13:08:51.201-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.9.8</version>
+  <version>3.10.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.9.8"
+compile "com.ultracart:rest-sdk:3.10.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.9.8.jar`
+* `target/rest-sdk-3.10.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -122,6 +122,10 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrdersByQuery**](docs/AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 *AutoOrderApi* | [**updateAutoOrder**](docs/AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
+*ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/ChannelPartnerApi.md#cancelOrderByChannelPartnerOrderId) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
+*ChannelPartnerApi* | [**cancelOrderByChannelUltraCartOrderId**](docs/ChannelPartnerApi.md#cancelOrderByChannelUltraCartOrderId) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
+*ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateShippingForChannelPartnerOrder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
+*ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/ChannelPartnerApi.md#importChannelPartnerOrder) | **POST** /channel_partner/import | Insert channel partner order
 *ChargebackApi* | [**deleteChargeback**](docs/ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/ChargebackApi.md#getChargebackDispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
 *ChargebackApi* | [**getChargebackDisputes**](docs/ChargebackApi.md#getChargebackDisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
@@ -558,6 +562,15 @@ Class | Method | HTTP request | Description
  - [CartUpsellAfter](docs/CartUpsellAfter.md)
  - [CartValidationRequest](docs/CartValidationRequest.md)
  - [CartValidationResponse](docs/CartValidationResponse.md)
+ - [ChannelPartnerCancelResponse](docs/ChannelPartnerCancelResponse.md)
+ - [ChannelPartnerEstimateShippingResponse](docs/ChannelPartnerEstimateShippingResponse.md)
+ - [ChannelPartnerImportResponse](docs/ChannelPartnerImportResponse.md)
+ - [ChannelPartnerOrder](docs/ChannelPartnerOrder.md)
+ - [ChannelPartnerOrderItem](docs/ChannelPartnerOrderItem.md)
+ - [ChannelPartnerOrderItemOption](docs/ChannelPartnerOrderItemOption.md)
+ - [ChannelPartnerOrderTransaction](docs/ChannelPartnerOrderTransaction.md)
+ - [ChannelPartnerOrderTransactionDetail](docs/ChannelPartnerOrderTransactionDetail.md)
+ - [ChannelPartnerShippingEstimate](docs/ChannelPartnerShippingEstimate.md)
  - [ChargebackDispute](docs/ChargebackDispute.md)
  - [ChargebackDisputeResponse](docs/ChargebackDisputeResponse.md)
  - [ChargebackDisputesResponse](docs/ChargebackDisputesResponse.md)
@@ -1139,6 +1152,8 @@ Authentication schemes defined for the API:
   - auto_order_write: Allows you to write auto order information.
   - chargeback_read: Allows you to read chargeback information.
   - chargeback_write: Allows you to write chargeback information.
+  - channel_partner_read: Allows you to read channel partner information.
+  - channel_partner_write: Allows you to write channel partner information.
   - checkout_read: Allows you to read checkout information.
   - checkout_write: Allows you to write checkout information.
   - configuration_read: Allows you to read configuration information.
@@ -1191,6 +1206,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.0 | 05/10/2022 | beta release of ChannelPartnerApi |
 | 3.9.8 | 04/26/2022 | OrderApi.duplicateOrder |
 | 3.9.7 | 04/25/2022 | integration logs method for zpl to pdf conversion |
 | 3.9.6 | 04/25/2022 | storefront communications email magic link setting |

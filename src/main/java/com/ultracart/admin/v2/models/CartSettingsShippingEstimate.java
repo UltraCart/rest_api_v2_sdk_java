@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * CartSettingsShippingEstimate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-26T11:37:38.556-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-10T13:08:51.201-04:00")
 
 
 
@@ -65,6 +65,9 @@ public class CartSettingsShippingEstimate {
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("pickup")
+  private Boolean pickup = null;
 
   @SerializedName("tax")
   private Currency tax = null;
@@ -270,6 +273,24 @@ public class CartSettingsShippingEstimate {
     this.name = name;
   }
 
+  public CartSettingsShippingEstimate pickup(Boolean pickup) {
+    this.pickup = pickup;
+    return this;
+  }
+
+   /**
+   * True if this shipping method requires customers to physically pickup product themselves
+   * @return pickup
+  **/
+  @ApiModelProperty(value = "True if this shipping method requires customers to physically pickup product themselves")
+  public Boolean isPickup() {
+    return pickup;
+  }
+
+  public void setPickup(Boolean pickup) {
+    this.pickup = pickup;
+  }
+
   public CartSettingsShippingEstimate tax(Currency tax) {
     this.tax = tax;
     return this;
@@ -327,13 +348,14 @@ public class CartSettingsShippingEstimate {
         Objects.equals(this.estimatedDelivery, cartSettingsShippingEstimate.estimatedDelivery) &&
         Objects.equals(this.liftGateOption, cartSettingsShippingEstimate.liftGateOption) &&
         Objects.equals(this.name, cartSettingsShippingEstimate.name) &&
+        Objects.equals(this.pickup, cartSettingsShippingEstimate.pickup) &&
         Objects.equals(this.tax, cartSettingsShippingEstimate.tax) &&
         Objects.equals(this.totalTax, cartSettingsShippingEstimate.totalTax);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, comment, cost, costBeforeDiscount, defaultMethod, discount, discounted, displayName, estimatedDelivery, liftGateOption, name, tax, totalTax);
+    return Objects.hash(allow3rdPartyBilling, comment, cost, costBeforeDiscount, defaultMethod, discount, discounted, displayName, estimatedDelivery, liftGateOption, name, pickup, tax, totalTax);
   }
 
 
@@ -353,6 +375,7 @@ public class CartSettingsShippingEstimate {
     sb.append("    estimatedDelivery: ").append(toIndentedString(estimatedDelivery)).append("\n");
     sb.append("    liftGateOption: ").append(toIndentedString(liftGateOption)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    pickup: ").append(toIndentedString(pickup)).append("\n");
     sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
     sb.append("    totalTax: ").append(toIndentedString(totalTax)).append("\n");
     sb.append("}");
