@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-05-12T08:35:54.795-04:00
+  - Build date: 2022-05-12T12:03:12.162-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.1</version>
+  <version>3.10.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.1"
+compile "com.ultracart:rest-sdk:3.10.2"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.1.jar`
+* `target/rest-sdk-3.10.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -123,7 +123,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**updateAutoOrder**](docs/AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 *ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/ChannelPartnerApi.md#cancelOrderByChannelPartnerOrderId) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
-*ChannelPartnerApi* | [**cancelOrderByChannelUltraCartOrderId**](docs/ChannelPartnerApi.md#cancelOrderByChannelUltraCartOrderId) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
+*ChannelPartnerApi* | [**cancelOrderByUltraCartOrderId**](docs/ChannelPartnerApi.md#cancelOrderByUltraCartOrderId) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
 *ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateShippingForChannelPartnerOrder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 *ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/ChannelPartnerApi.md#importChannelPartnerOrder) | **POST** /channel_partner/import | Insert channel partner order
 *ChargebackApi* | [**deleteChargeback**](docs/ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
@@ -1206,6 +1206,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.2 | 05/12/2022 | ChannelPartnerApi renamed one of the delete methods |
 | 3.10.1 | 05/12/2022 | ChannelPartnerApi added orderId to import response obj |
 | 3.10.0 | 05/10/2022 | beta release of ChannelPartnerApi |
 | 3.9.8 | 04/26/2022 | OrderApi.duplicateOrder |

@@ -207,14 +207,14 @@ public class ChannelPartnerApi {
         return call;
     }
     /**
-     * Build call for cancelOrderByChannelUltraCartOrderId
+     * Build call for cancelOrderByUltraCartOrderId
      * @param orderId The UltraCart order id to delete. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call cancelOrderByChannelUltraCartOrderIdCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call cancelOrderByUltraCartOrderIdCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -257,15 +257,15 @@ public class ChannelPartnerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call cancelOrderByChannelUltraCartOrderIdValidateBeforeCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call cancelOrderByUltraCartOrderIdValidateBeforeCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
-            throw new ApiException("Missing the required parameter 'orderId' when calling cancelOrderByChannelUltraCartOrderId(Async)");
+            throw new ApiException("Missing the required parameter 'orderId' when calling cancelOrderByUltraCartOrderId(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = cancelOrderByChannelUltraCartOrderIdCall(orderId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = cancelOrderByUltraCartOrderIdCall(orderId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -277,8 +277,8 @@ public class ChannelPartnerApi {
      * @return ChannelPartnerCancelResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ChannelPartnerCancelResponse cancelOrderByChannelUltraCartOrderId(String orderId) throws ApiException {
-        ApiResponse<ChannelPartnerCancelResponse> resp = cancelOrderByChannelUltraCartOrderIdWithHttpInfo(orderId);
+    public ChannelPartnerCancelResponse cancelOrderByUltraCartOrderId(String orderId) throws ApiException {
+        ApiResponse<ChannelPartnerCancelResponse> resp = cancelOrderByUltraCartOrderIdWithHttpInfo(orderId);
         return resp.getData();
     }
 
@@ -289,8 +289,8 @@ public class ChannelPartnerApi {
      * @return ApiResponse&lt;ChannelPartnerCancelResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ChannelPartnerCancelResponse> cancelOrderByChannelUltraCartOrderIdWithHttpInfo(String orderId) throws ApiException {
-        com.squareup.okhttp.Call call = cancelOrderByChannelUltraCartOrderIdValidateBeforeCall(orderId, null, null);
+    public ApiResponse<ChannelPartnerCancelResponse> cancelOrderByUltraCartOrderIdWithHttpInfo(String orderId) throws ApiException {
+        com.squareup.okhttp.Call call = cancelOrderByUltraCartOrderIdValidateBeforeCall(orderId, null, null);
         Type localVarReturnType = new TypeToken<ChannelPartnerCancelResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -303,7 +303,7 @@ public class ChannelPartnerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call cancelOrderByChannelUltraCartOrderIdAsync(String orderId, final ApiCallback<ChannelPartnerCancelResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call cancelOrderByUltraCartOrderIdAsync(String orderId, final ApiCallback<ChannelPartnerCancelResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -324,7 +324,7 @@ public class ChannelPartnerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = cancelOrderByChannelUltraCartOrderIdValidateBeforeCall(orderId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = cancelOrderByUltraCartOrderIdValidateBeforeCall(orderId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ChannelPartnerCancelResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

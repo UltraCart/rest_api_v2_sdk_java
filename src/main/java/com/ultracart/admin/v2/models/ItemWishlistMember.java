@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemWishlistMember
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-12T08:35:54.795-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-12T12:03:12.162-04:00")
 
 
 
