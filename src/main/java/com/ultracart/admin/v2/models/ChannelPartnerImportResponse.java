@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ChannelPartnerImportResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-10T13:08:51.201-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-12T08:35:54.795-04:00")
 
 
 
@@ -48,6 +48,9 @@ public class ChannelPartnerImportResponse {
 
   @SerializedName("metadata")
   private ResponseMetadata metadata = null;
+
+  @SerializedName("order_id")
+  private String orderId = null;
 
   @SerializedName("success")
   private Boolean success = null;
@@ -143,6 +146,24 @@ public class ChannelPartnerImportResponse {
     this.metadata = metadata;
   }
 
+  public ChannelPartnerImportResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * The order id of the newly imported order if successful
+   * @return orderId
+  **/
+  @ApiModelProperty(value = "The order id of the newly imported order if successful")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
+
   public ChannelPartnerImportResponse success(Boolean success) {
     this.success = success;
     return this;
@@ -193,13 +214,14 @@ public class ChannelPartnerImportResponse {
         Objects.equals(this.importErrors, channelPartnerImportResponse.importErrors) &&
         Objects.equals(this.importWarnings, channelPartnerImportResponse.importWarnings) &&
         Objects.equals(this.metadata, channelPartnerImportResponse.metadata) &&
+        Objects.equals(this.orderId, channelPartnerImportResponse.orderId) &&
         Objects.equals(this.success, channelPartnerImportResponse.success) &&
         Objects.equals(this.warning, channelPartnerImportResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, importErrors, importWarnings, metadata, success, warning);
+    return Objects.hash(error, importErrors, importWarnings, metadata, orderId, success, warning);
   }
 
 
@@ -212,6 +234,7 @@ public class ChannelPartnerImportResponse {
     sb.append("    importErrors: ").append(toIndentedString(importErrors)).append("\n");
     sb.append("    importWarnings: ").append(toIndentedString(importWarnings)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
