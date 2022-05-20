@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-05-12T12:03:12.162-04:00
+  - Build date: 2022-05-20T15:10:12.127-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.2</version>
+  <version>3.10.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.2"
+compile "com.ultracart:rest-sdk:3.10.3"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.2.jar`
+* `target/rest-sdk-3.10.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -942,6 +942,7 @@ Class | Method | HTTP request | Description
  - [OrderItemTag](docs/OrderItemTag.md)
  - [OrderLinkedShipment](docs/OrderLinkedShipment.md)
  - [OrderMarketing](docs/OrderMarketing.md)
+ - [OrderPackingSlipResponse](docs/OrderPackingSlipResponse.md)
  - [OrderPayment](docs/OrderPayment.md)
  - [OrderPaymentCheck](docs/OrderPaymentCheck.md)
  - [OrderPaymentCreditCard](docs/OrderPaymentCreditCard.md)
@@ -1206,6 +1207,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.3 | 05/20/2022 | OrderApi.generatePackingSkip calls had wrong return type |
 | 3.10.2 | 05/12/2022 | ChannelPartnerApi renamed one of the delete methods |
 | 3.10.1 | 05/12/2022 | ChannelPartnerApi added orderId to import response obj |
 | 3.10.0 | 05/10/2022 | beta release of ChannelPartnerApi |

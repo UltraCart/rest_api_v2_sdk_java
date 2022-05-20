@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **shipSeparately** | **Boolean** | True if this item ships in a separate box |  [optional]
 **shippedByUser** | **String** | Shipped by user |  [optional]
 **shippedDts** | **String** | Date/time that this item was marked shipped |  [optional]
+**shippingStatus** | **String** | Shipping status for this item.  This is the replacement for the old order level shipping status. |  [optional]
 **specialProductType** | **String** | Special product type (USPS Media Mail) |  [optional]
 **tags** | [**List&lt;OrderItemTag&gt;**](OrderItemTag.md) | Tags |  [optional]
 **taxFree** | **Boolean** | True if the item is tax free |  [optional]

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderFormat
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-12T12:03:12.162-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-20T15:10:12.127-04:00")
 
 
 
@@ -44,8 +44,8 @@ public class OrderFormat {
   @SerializedName("filter_distribution_center_oid")
   private Integer filterDistributionCenterOid = null;
 
-  @SerializedName("filter_to_items_in_contact_oid")
-  private Integer filterToItemsInContactOid = null;
+  @SerializedName("filter_to_items_in_container_oid")
+  private Integer filterToItemsInContainerOid = null;
 
   /**
    * The desired format.
@@ -203,22 +203,22 @@ public class OrderFormat {
     this.filterDistributionCenterOid = filterDistributionCenterOid;
   }
 
-  public OrderFormat filterToItemsInContactOid(Integer filterToItemsInContactOid) {
-    this.filterToItemsInContactOid = filterToItemsInContactOid;
+  public OrderFormat filterToItemsInContainerOid(Integer filterToItemsInContainerOid) {
+    this.filterToItemsInContainerOid = filterToItemsInContainerOid;
     return this;
   }
 
    /**
    * The container oid to filter items to.
-   * @return filterToItemsInContactOid
+   * @return filterToItemsInContainerOid
   **/
   @ApiModelProperty(value = "The container oid to filter items to.")
-  public Integer getFilterToItemsInContactOid() {
-    return filterToItemsInContactOid;
+  public Integer getFilterToItemsInContainerOid() {
+    return filterToItemsInContainerOid;
   }
 
-  public void setFilterToItemsInContactOid(Integer filterToItemsInContactOid) {
-    this.filterToItemsInContactOid = filterToItemsInContactOid;
+  public void setFilterToItemsInContainerOid(Integer filterToItemsInContainerOid) {
+    this.filterToItemsInContainerOid = filterToItemsInContainerOid;
   }
 
   public OrderFormat format(FormatEnum format) {
@@ -433,7 +433,7 @@ public class OrderFormat {
         Objects.equals(this.dontLinkEmailToSearch, orderFormat.dontLinkEmailToSearch) &&
         Objects.equals(this.emailAsLink, orderFormat.emailAsLink) &&
         Objects.equals(this.filterDistributionCenterOid, orderFormat.filterDistributionCenterOid) &&
-        Objects.equals(this.filterToItemsInContactOid, orderFormat.filterToItemsInContactOid) &&
+        Objects.equals(this.filterToItemsInContainerOid, orderFormat.filterToItemsInContainerOid) &&
         Objects.equals(this.format, orderFormat.format) &&
         Objects.equals(this.hideBillToAddress, orderFormat.hideBillToAddress) &&
         Objects.equals(this.hidePriceInformation, orderFormat.hidePriceInformation) &&
@@ -449,7 +449,7 @@ public class OrderFormat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(context, dontLinkEmailToSearch, emailAsLink, filterDistributionCenterOid, filterToItemsInContactOid, format, hideBillToAddress, hidePriceInformation, linkFileAttachments, showContactInfo, showInMerchantCurrency, showInternalInformation, showMerchantNotes, showNonSensitivePaymentInfo, showPaymentInfo, translate);
+    return Objects.hash(context, dontLinkEmailToSearch, emailAsLink, filterDistributionCenterOid, filterToItemsInContainerOid, format, hideBillToAddress, hidePriceInformation, linkFileAttachments, showContactInfo, showInMerchantCurrency, showInternalInformation, showMerchantNotes, showNonSensitivePaymentInfo, showPaymentInfo, translate);
   }
 
 
@@ -462,7 +462,7 @@ public class OrderFormat {
     sb.append("    dontLinkEmailToSearch: ").append(toIndentedString(dontLinkEmailToSearch)).append("\n");
     sb.append("    emailAsLink: ").append(toIndentedString(emailAsLink)).append("\n");
     sb.append("    filterDistributionCenterOid: ").append(toIndentedString(filterDistributionCenterOid)).append("\n");
-    sb.append("    filterToItemsInContactOid: ").append(toIndentedString(filterToItemsInContactOid)).append("\n");
+    sb.append("    filterToItemsInContainerOid: ").append(toIndentedString(filterToItemsInContainerOid)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    hideBillToAddress: ").append(toIndentedString(hideBillToAddress)).append("\n");
     sb.append("    hidePriceInformation: ").append(toIndentedString(hidePriceInformation)).append("\n");

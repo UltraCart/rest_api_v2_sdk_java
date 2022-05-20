@@ -37,6 +37,7 @@ import com.ultracart.admin.v2.models.Order;
 import com.ultracart.admin.v2.models.OrderByTokenQuery;
 import com.ultracart.admin.v2.models.OrderFormat;
 import com.ultracart.admin.v2.models.OrderFormatResponse;
+import com.ultracart.admin.v2.models.OrderPackingSlipResponse;
 import com.ultracart.admin.v2.models.OrderProcessPaymentRequest;
 import com.ultracart.admin.v2.models.OrderProcessPaymentResponse;
 import com.ultracart.admin.v2.models.OrderQuery;
@@ -924,11 +925,11 @@ public class OrderApi {
      * Generate a packing slip for this order across all distribution centers.
      * The packing slip PDF that is returned is base 64 encoded 
      * @param orderId Order ID (required)
-     * @return OrdersResponse
+     * @return OrderPackingSlipResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrdersResponse generatePackingSlipAllDC(String orderId) throws ApiException {
-        ApiResponse<OrdersResponse> resp = generatePackingSlipAllDCWithHttpInfo(orderId);
+    public OrderPackingSlipResponse generatePackingSlipAllDC(String orderId) throws ApiException {
+        ApiResponse<OrderPackingSlipResponse> resp = generatePackingSlipAllDCWithHttpInfo(orderId);
         return resp.getData();
     }
 
@@ -936,12 +937,12 @@ public class OrderApi {
      * Generate a packing slip for this order across all distribution centers.
      * The packing slip PDF that is returned is base 64 encoded 
      * @param orderId Order ID (required)
-     * @return ApiResponse&lt;OrdersResponse&gt;
+     * @return ApiResponse&lt;OrderPackingSlipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrdersResponse> generatePackingSlipAllDCWithHttpInfo(String orderId) throws ApiException {
+    public ApiResponse<OrderPackingSlipResponse> generatePackingSlipAllDCWithHttpInfo(String orderId) throws ApiException {
         com.squareup.okhttp.Call call = generatePackingSlipAllDCValidateBeforeCall(orderId, null, null);
-        Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderPackingSlipResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -953,7 +954,7 @@ public class OrderApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generatePackingSlipAllDCAsync(String orderId, final ApiCallback<OrdersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call generatePackingSlipAllDCAsync(String orderId, final ApiCallback<OrderPackingSlipResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -975,7 +976,7 @@ public class OrderApi {
         }
 
         com.squareup.okhttp.Call call = generatePackingSlipAllDCValidateBeforeCall(orderId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderPackingSlipResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1055,11 +1056,11 @@ public class OrderApi {
      * The packing slip PDF that is returned is base 64 encoded 
      * @param distributionCenterCode Distribution center code (required)
      * @param orderId Order ID (required)
-     * @return OrdersResponse
+     * @return OrderPackingSlipResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrdersResponse generatePackingSlipSpecificDC(String distributionCenterCode, String orderId) throws ApiException {
-        ApiResponse<OrdersResponse> resp = generatePackingSlipSpecificDCWithHttpInfo(distributionCenterCode, orderId);
+    public OrderPackingSlipResponse generatePackingSlipSpecificDC(String distributionCenterCode, String orderId) throws ApiException {
+        ApiResponse<OrderPackingSlipResponse> resp = generatePackingSlipSpecificDCWithHttpInfo(distributionCenterCode, orderId);
         return resp.getData();
     }
 
@@ -1068,12 +1069,12 @@ public class OrderApi {
      * The packing slip PDF that is returned is base 64 encoded 
      * @param distributionCenterCode Distribution center code (required)
      * @param orderId Order ID (required)
-     * @return ApiResponse&lt;OrdersResponse&gt;
+     * @return ApiResponse&lt;OrderPackingSlipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrdersResponse> generatePackingSlipSpecificDCWithHttpInfo(String distributionCenterCode, String orderId) throws ApiException {
+    public ApiResponse<OrderPackingSlipResponse> generatePackingSlipSpecificDCWithHttpInfo(String distributionCenterCode, String orderId) throws ApiException {
         com.squareup.okhttp.Call call = generatePackingSlipSpecificDCValidateBeforeCall(distributionCenterCode, orderId, null, null);
-        Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderPackingSlipResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1086,7 +1087,7 @@ public class OrderApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generatePackingSlipSpecificDCAsync(String distributionCenterCode, String orderId, final ApiCallback<OrdersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call generatePackingSlipSpecificDCAsync(String distributionCenterCode, String orderId, final ApiCallback<OrderPackingSlipResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1108,7 +1109,7 @@ public class OrderApi {
         }
 
         com.squareup.okhttp.Call call = generatePackingSlipSpecificDCValidateBeforeCall(distributionCenterCode, orderId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderPackingSlipResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

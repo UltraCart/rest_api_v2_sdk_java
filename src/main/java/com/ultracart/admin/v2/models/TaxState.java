@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * TaxState
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-12T12:03:12.162-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-20T15:10:12.127-04:00")
 
 
 

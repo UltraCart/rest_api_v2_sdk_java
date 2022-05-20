@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **dontLinkEmailToSearch** | **Boolean** | True to not link the email address to the order search |  [optional]
 **emailAsLink** | **Boolean** | True to make the email address a clickable mailto link |  [optional]
 **filterDistributionCenterOid** | **Integer** | Specify a distribution center oid to filter the items displayed to that particular distribution center. |  [optional]
-**filterToItemsInContactOid** | **Integer** | The container oid to filter items to. |  [optional]
+**filterToItemsInContainerOid** | **Integer** | The container oid to filter items to. |  [optional]
 **format** | [**FormatEnum**](#FormatEnum) | The desired format. |  [optional]
 **hideBillToAddress** | **Boolean** | True to ide the bill to address |  [optional]
 **hidePriceInformation** | **Boolean** | True to hide price information |  [optional]

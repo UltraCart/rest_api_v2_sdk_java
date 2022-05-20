@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePackingSlipAllDC"></a>
 # **generatePackingSlipAllDC**
-> OrdersResponse generatePackingSlipAllDC(orderId)
+> OrderPackingSlipResponse generatePackingSlipAllDC(orderId)
 
 Generate a packing slip for this order across all distribution centers.
 
@@ -357,7 +357,7 @@ OrderApi apiInstance = new OrderApi(apiKey);
 
 String orderId = "orderId_example"; // String | Order ID
 try {
-    OrdersResponse result = apiInstance.generatePackingSlipAllDC(orderId);
+    OrderPackingSlipResponse result = apiInstance.generatePackingSlipAllDC(orderId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#generatePackingSlipAllDC");
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrdersResponse**](OrdersResponse.md)
+[**OrderPackingSlipResponse**](OrderPackingSlipResponse.md)
 
 ### Authorization
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePackingSlipSpecificDC"></a>
 # **generatePackingSlipSpecificDC**
-> OrdersResponse generatePackingSlipSpecificDC(distributionCenterCode, orderId)
+> OrderPackingSlipResponse generatePackingSlipSpecificDC(distributionCenterCode, orderId)
 
 Generate a packing slip for this order for the given distribution center.
 
@@ -408,7 +408,7 @@ OrderApi apiInstance = new OrderApi(apiKey);
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 String orderId = "orderId_example"; // String | Order ID
 try {
-    OrdersResponse result = apiInstance.generatePackingSlipSpecificDC(distributionCenterCode, orderId);
+    OrderPackingSlipResponse result = apiInstance.generatePackingSlipSpecificDC(distributionCenterCode, orderId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#generatePackingSlipSpecificDC");
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrdersResponse**](OrdersResponse.md)
+[**OrderPackingSlipResponse**](OrderPackingSlipResponse.md)
 
 ### Authorization
 

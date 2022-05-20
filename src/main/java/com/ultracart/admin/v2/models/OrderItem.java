@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-12T12:03:12.162-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-20T15:10:12.127-04:00")
 
 
 
@@ -170,6 +170,9 @@ public class OrderItem {
 
   @SerializedName("shipped_dts")
   private String shippedDts = null;
+
+  @SerializedName("shipping_status")
+  private String shippingStatus = null;
 
   @SerializedName("special_product_type")
   private String specialProductType = null;
@@ -1056,6 +1059,24 @@ public class OrderItem {
     this.shippedDts = shippedDts;
   }
 
+  public OrderItem shippingStatus(String shippingStatus) {
+    this.shippingStatus = shippingStatus;
+    return this;
+  }
+
+   /**
+   * Shipping status for this item.  This is the replacement for the old order level shipping status.
+   * @return shippingStatus
+  **/
+  @ApiModelProperty(value = "Shipping status for this item.  This is the replacement for the old order level shipping status.")
+  public String getShippingStatus() {
+    return shippingStatus;
+  }
+
+  public void setShippingStatus(String shippingStatus) {
+    this.shippingStatus = shippingStatus;
+  }
+
   public OrderItem specialProductType(String specialProductType) {
     this.specialProductType = specialProductType;
     return this;
@@ -1333,6 +1354,7 @@ public class OrderItem {
         Objects.equals(this.shipSeparately, orderItem.shipSeparately) &&
         Objects.equals(this.shippedByUser, orderItem.shippedByUser) &&
         Objects.equals(this.shippedDts, orderItem.shippedDts) &&
+        Objects.equals(this.shippingStatus, orderItem.shippingStatus) &&
         Objects.equals(this.specialProductType, orderItem.specialProductType) &&
         Objects.equals(this.tags, orderItem.tags) &&
         Objects.equals(this.taxFree, orderItem.taxFree) &&
@@ -1349,7 +1371,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
 
@@ -1401,6 +1423,7 @@ public class OrderItem {
     sb.append("    shipSeparately: ").append(toIndentedString(shipSeparately)).append("\n");
     sb.append("    shippedByUser: ").append(toIndentedString(shippedByUser)).append("\n");
     sb.append("    shippedDts: ").append(toIndentedString(shippedDts)).append("\n");
+    sb.append("    shippingStatus: ").append(toIndentedString(shippingStatus)).append("\n");
     sb.append("    specialProductType: ").append(toIndentedString(specialProductType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    taxFree: ").append(toIndentedString(taxFree)).append("\n");
