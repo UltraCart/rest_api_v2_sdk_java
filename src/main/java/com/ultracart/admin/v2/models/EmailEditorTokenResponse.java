@@ -30,7 +30,7 @@ import java.io.IOException;
 /**
  * EmailEditorTokenResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-23T15:44:47.415-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-23T15:53:36.441-04:00")
 
 
 
