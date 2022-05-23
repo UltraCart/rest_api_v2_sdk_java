@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-20T19:54:49.816-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-23T15:44:47.415-04:00")
 
 
 
@@ -44,6 +44,12 @@ public class OrderSummary {
 
   @SerializedName("arbitrary_shipping_handling_total")
   private Currency arbitraryShippingHandlingTotal = null;
+
+  @SerializedName("internal_gift_certificate_amount")
+  private Currency internalGiftCertificateAmount = null;
+
+  @SerializedName("internal_gift_certificate_refunded")
+  private Currency internalGiftCertificateRefunded = null;
 
   @SerializedName("other_refunded")
   private Currency otherRefunded = null;
@@ -157,6 +163,42 @@ public class OrderSummary {
 
   public void setArbitraryShippingHandlingTotal(Currency arbitraryShippingHandlingTotal) {
     this.arbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+  }
+
+  public OrderSummary internalGiftCertificateAmount(Currency internalGiftCertificateAmount) {
+    this.internalGiftCertificateAmount = internalGiftCertificateAmount;
+    return this;
+  }
+
+   /**
+   * Get internalGiftCertificateAmount
+   * @return internalGiftCertificateAmount
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getInternalGiftCertificateAmount() {
+    return internalGiftCertificateAmount;
+  }
+
+  public void setInternalGiftCertificateAmount(Currency internalGiftCertificateAmount) {
+    this.internalGiftCertificateAmount = internalGiftCertificateAmount;
+  }
+
+  public OrderSummary internalGiftCertificateRefunded(Currency internalGiftCertificateRefunded) {
+    this.internalGiftCertificateRefunded = internalGiftCertificateRefunded;
+    return this;
+  }
+
+   /**
+   * Get internalGiftCertificateRefunded
+   * @return internalGiftCertificateRefunded
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getInternalGiftCertificateRefunded() {
+    return internalGiftCertificateRefunded;
+  }
+
+  public void setInternalGiftCertificateRefunded(Currency internalGiftCertificateRefunded) {
+    this.internalGiftCertificateRefunded = internalGiftCertificateRefunded;
   }
 
   public OrderSummary otherRefunded(Currency otherRefunded) {
@@ -425,6 +467,8 @@ public class OrderSummary {
         Objects.equals(this.actualPaymentProcessing, orderSummary.actualPaymentProcessing) &&
         Objects.equals(this.actualShipping, orderSummary.actualShipping) &&
         Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
+        Objects.equals(this.internalGiftCertificateAmount, orderSummary.internalGiftCertificateAmount) &&
+        Objects.equals(this.internalGiftCertificateRefunded, orderSummary.internalGiftCertificateRefunded) &&
         Objects.equals(this.otherRefunded, orderSummary.otherRefunded) &&
         Objects.equals(this.shippingHandlingRefunded, orderSummary.shippingHandlingRefunded) &&
         Objects.equals(this.shippingHandlingTotal, orderSummary.shippingHandlingTotal) &&
@@ -443,7 +487,7 @@ public class OrderSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualFulfillment, actualPaymentProcessing, actualShipping, arbitraryShippingHandlingTotal, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
+    return Objects.hash(actualFulfillment, actualPaymentProcessing, actualShipping, arbitraryShippingHandlingTotal, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
   }
 
 
@@ -456,6 +500,8 @@ public class OrderSummary {
     sb.append("    actualPaymentProcessing: ").append(toIndentedString(actualPaymentProcessing)).append("\n");
     sb.append("    actualShipping: ").append(toIndentedString(actualShipping)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
+    sb.append("    internalGiftCertificateAmount: ").append(toIndentedString(internalGiftCertificateAmount)).append("\n");
+    sb.append("    internalGiftCertificateRefunded: ").append(toIndentedString(internalGiftCertificateRefunded)).append("\n");
     sb.append("    otherRefunded: ").append(toIndentedString(otherRefunded)).append("\n");
     sb.append("    shippingHandlingRefunded: ").append(toIndentedString(shippingHandlingRefunded)).append("\n");
     sb.append("    shippingHandlingTotal: ").append(toIndentedString(shippingHandlingTotal)).append("\n");

@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.EmailThirdPartyList;
+import com.ultracart.admin.v2.models.EmailThirdPartyTag;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * EmailThirdPartyProvider
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-20T19:54:49.816-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-23T15:44:47.415-04:00")
 
 
 
@@ -61,6 +62,12 @@ public class EmailThirdPartyProvider {
 
   @SerializedName("supports_remove_tags")
   private Boolean supportsRemoveTags = null;
+
+  @SerializedName("tag_count")
+  private Integer tagCount = null;
+
+  @SerializedName("tags")
+  private List<EmailThirdPartyTag> tags = null;
 
   public EmailThirdPartyProvider connectUrl(String connectUrl) {
     this.connectUrl = connectUrl;
@@ -232,6 +239,50 @@ public class EmailThirdPartyProvider {
     this.supportsRemoveTags = supportsRemoveTags;
   }
 
+  public EmailThirdPartyProvider tagCount(Integer tagCount) {
+    this.tagCount = tagCount;
+    return this;
+  }
+
+   /**
+   * tag_count
+   * @return tagCount
+  **/
+  @ApiModelProperty(value = "tag_count")
+  public Integer getTagCount() {
+    return tagCount;
+  }
+
+  public void setTagCount(Integer tagCount) {
+    this.tagCount = tagCount;
+  }
+
+  public EmailThirdPartyProvider tags(List<EmailThirdPartyTag> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public EmailThirdPartyProvider addTagsItem(EmailThirdPartyTag tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<EmailThirdPartyTag>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * tags
+   * @return tags
+  **/
+  @ApiModelProperty(value = "tags")
+  public List<EmailThirdPartyTag> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<EmailThirdPartyTag> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -250,12 +301,14 @@ public class EmailThirdPartyProvider {
         Objects.equals(this.supportsAddTags, emailThirdPartyProvider.supportsAddTags) &&
         Objects.equals(this.supportsListSubscribe, emailThirdPartyProvider.supportsListSubscribe) &&
         Objects.equals(this.supportsListUnsubscribe, emailThirdPartyProvider.supportsListUnsubscribe) &&
-        Objects.equals(this.supportsRemoveTags, emailThirdPartyProvider.supportsRemoveTags);
+        Objects.equals(this.supportsRemoveTags, emailThirdPartyProvider.supportsRemoveTags) &&
+        Objects.equals(this.tagCount, emailThirdPartyProvider.tagCount) &&
+        Objects.equals(this.tags, emailThirdPartyProvider.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectUrl, listCount, lists, logoUrl, name, supportsAddTags, supportsListSubscribe, supportsListUnsubscribe, supportsRemoveTags);
+    return Objects.hash(connectUrl, listCount, lists, logoUrl, name, supportsAddTags, supportsListSubscribe, supportsListUnsubscribe, supportsRemoveTags, tagCount, tags);
   }
 
 
@@ -273,6 +326,8 @@ public class EmailThirdPartyProvider {
     sb.append("    supportsListSubscribe: ").append(toIndentedString(supportsListSubscribe)).append("\n");
     sb.append("    supportsListUnsubscribe: ").append(toIndentedString(supportsListUnsubscribe)).append("\n");
     sb.append("    supportsRemoveTags: ").append(toIndentedString(supportsRemoveTags)).append("\n");
+    sb.append("    tagCount: ").append(toIndentedString(tagCount)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

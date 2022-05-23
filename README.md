@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-05-20T19:54:49.816-04:00
+  - Build date: 2022-05-23T15:44:47.415-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.5</version>
+  <version>3.10.6</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.5"
+compile "com.ultracart:rest-sdk:3.10.6"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.5.jar`
+* `target/rest-sdk-3.10.6.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -779,6 +779,7 @@ Class | Method | HTTP request | Description
  - [EmailThirdPartyListImportRequest](docs/EmailThirdPartyListImportRequest.md)
  - [EmailThirdPartyProvider](docs/EmailThirdPartyProvider.md)
  - [EmailThirdPartyProvidersResponse](docs/EmailThirdPartyProvidersResponse.md)
+ - [EmailThirdPartyTag](docs/EmailThirdPartyTag.md)
  - [EmailVerifyTokenRequest](docs/EmailVerifyTokenRequest.md)
  - [EmailVerifyTokenResponse](docs/EmailVerifyTokenResponse.md)
  - [EmailVerifyTokenValidateRequest](docs/EmailVerifyTokenValidateRequest.md)
@@ -1207,6 +1208,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.6 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |
 | 3.10.5 | 05/20/2022 | dependabot on java gson version |
 | 3.10.4 | 05/20/2022 | dependabot on java gson |
 | 3.10.3 | 05/20/2022 | OrderApi.generatePackingSkip calls had wrong return type |

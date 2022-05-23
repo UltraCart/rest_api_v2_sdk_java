@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **supportsListSubscribe** | **Boolean** | True if this provider can support list subscribe |  [optional]
 **supportsListUnsubscribe** | **Boolean** | True if this provider can support list unsubscribe |  [optional]
 **supportsRemoveTags** | **Boolean** | True if this provider can support remove tags |  [optional]
+**tagCount** | **Integer** | tag_count |  [optional]
+**tags** | [**List&lt;EmailThirdPartyTag&gt;**](EmailThirdPartyTag.md) | tags |  [optional]
 
 
 
