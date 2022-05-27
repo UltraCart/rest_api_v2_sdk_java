@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-05-23T15:53:36.441-04:00
+  - Build date: 2022-05-27T09:06:14.568-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.7</version>
+  <version>3.10.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.7"
+compile "com.ultracart:rest-sdk:3.10.8"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.7.jar`
+* `target/rest-sdk-3.10.8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -184,12 +184,14 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**updateCoupon**](docs/CouponApi.md#updateCoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
 *CouponApi* | [**updateCoupons**](docs/CouponApi.md#updateCoupons) | **PUT** /coupon/coupons/batch | Update multiple coupons
 *CouponApi* | [**uploadCouponCodes**](docs/CouponApi.md#uploadCouponCodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
+*CustomerApi* | [**addCustomerStoreCredit**](docs/CustomerApi.md#addCustomerStoreCredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 *CustomerApi* | [**adjustInternalCertificate**](docs/CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 *CustomerApi* | [**deleteCustomer**](docs/CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomerByEmail**](docs/CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 *CustomerApi* | [**getCustomerEditorValues**](docs/CustomerApi.md#getCustomerEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 *CustomerApi* | [**getCustomerEmailLists**](docs/CustomerApi.md#getCustomerEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+*CustomerApi* | [**getCustomerStoreCredit**](docs/CustomerApi.md#getCustomerStoreCredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
 *CustomerApi* | [**getCustomers**](docs/CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
 *CustomerApi* | [**getCustomersByQuery**](docs/CustomerApi.md#getCustomersByQuery) | **POST** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**getCustomersForDataTables**](docs/CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
@@ -668,6 +670,10 @@ Class | Method | HTTP request | Description
  - [CustomerReviewer](docs/CustomerReviewer.md)
  - [CustomerShipping](docs/CustomerShipping.md)
  - [CustomerSoftwareEntitlement](docs/CustomerSoftwareEntitlement.md)
+ - [CustomerStoreCredit](docs/CustomerStoreCredit.md)
+ - [CustomerStoreCreditAddRequest](docs/CustomerStoreCreditAddRequest.md)
+ - [CustomerStoreCreditLedgerEntry](docs/CustomerStoreCreditLedgerEntry.md)
+ - [CustomerStoreCreditResponse](docs/CustomerStoreCreditResponse.md)
  - [CustomerTag](docs/CustomerTag.md)
  - [CustomerTaxCodes](docs/CustomerTaxCodes.md)
  - [CustomersResponse](docs/CustomersResponse.md)
@@ -1208,6 +1214,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.8 | 05/27/2022 | customer store credit |
 | 3.10.7 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |
 | 3.10.6 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |
 | 3.10.5 | 05/20/2022 | dependabot on java gson version |

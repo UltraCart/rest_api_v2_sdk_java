@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CustomerEditorValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-23T15:53:36.441-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-27T09:06:14.568-04:00")
 
 
 
@@ -50,6 +50,9 @@ public class CustomerEditorValues {
 
   @SerializedName("countries")
   private List<Country> countries = null;
+
+  @SerializedName("loyalty_program_type")
+  private String loyaltyProgramType = null;
 
   @SerializedName("qb_classes")
   private List<String> qbClasses = null;
@@ -193,6 +196,24 @@ public class CustomerEditorValues {
     this.countries = countries;
   }
 
+  public CustomerEditorValues loyaltyProgramType(String loyaltyProgramType) {
+    this.loyaltyProgramType = loyaltyProgramType;
+    return this;
+  }
+
+   /**
+   * loyalty_program_type
+   * @return loyaltyProgramType
+  **/
+  @ApiModelProperty(value = "loyalty_program_type")
+  public String getLoyaltyProgramType() {
+    return loyaltyProgramType;
+  }
+
+  public void setLoyaltyProgramType(String loyaltyProgramType) {
+    this.loyaltyProgramType = loyaltyProgramType;
+  }
+
   public CustomerEditorValues qbClasses(List<String> qbClasses) {
     this.qbClasses = qbClasses;
     return this;
@@ -312,6 +333,7 @@ public class CustomerEditorValues {
         Objects.equals(this.cardExpYears, customerEditorValues.cardExpYears) &&
         Objects.equals(this.cardTypes, customerEditorValues.cardTypes) &&
         Objects.equals(this.countries, customerEditorValues.countries) &&
+        Objects.equals(this.loyaltyProgramType, customerEditorValues.loyaltyProgramType) &&
         Objects.equals(this.qbClasses, customerEditorValues.qbClasses) &&
         Objects.equals(this.salesRepCodes, customerEditorValues.salesRepCodes) &&
         Objects.equals(this.stateOptionalCountries, customerEditorValues.stateOptionalCountries) &&
@@ -320,7 +342,7 @@ public class CustomerEditorValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, qbClasses, salesRepCodes, stateOptionalCountries, terms);
+    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, loyaltyProgramType, qbClasses, salesRepCodes, stateOptionalCountries, terms);
   }
 
 
@@ -334,6 +356,7 @@ public class CustomerEditorValues {
     sb.append("    cardExpYears: ").append(toIndentedString(cardExpYears)).append("\n");
     sb.append("    cardTypes: ").append(toIndentedString(cardTypes)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
+    sb.append("    loyaltyProgramType: ").append(toIndentedString(loyaltyProgramType)).append("\n");
     sb.append("    qbClasses: ").append(toIndentedString(qbClasses)).append("\n");
     sb.append("    salesRepCodes: ").append(toIndentedString(salesRepCodes)).append("\n");
     sb.append("    stateOptionalCountries: ").append(toIndentedString(stateOptionalCountries)).append("\n");

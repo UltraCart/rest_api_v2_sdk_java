@@ -29,11 +29,14 @@ import java.io.IOException;
 
 import com.ultracart.admin.v2.models.AdjustInternalCertificateRequest;
 import com.ultracart.admin.v2.models.AdjustInternalCertificateResponse;
+import com.ultracart.admin.v2.models.BaseResponse;
 import com.ultracart.admin.v2.models.Customer;
 import com.ultracart.admin.v2.models.CustomerEditorValues;
 import com.ultracart.admin.v2.models.CustomerEmailListChanges;
 import com.ultracart.admin.v2.models.CustomerQuery;
 import com.ultracart.admin.v2.models.CustomerResponse;
+import com.ultracart.admin.v2.models.CustomerStoreCreditAddRequest;
+import com.ultracart.admin.v2.models.CustomerStoreCreditResponse;
 import com.ultracart.admin.v2.models.CustomersResponse;
 import com.ultracart.admin.v2.models.DataTablesServerSideResponse;
 import com.ultracart.admin.v2.models.EmailListsResponse;
@@ -93,6 +96,138 @@ public class CustomerApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for addCustomerStoreCredit
+     * @param customerProfileOid The customer oid to credit. (required)
+     * @param storeCreditRequest Store credit to add (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addCustomerStoreCreditCall(Integer customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = storeCreditRequest;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/store_credit"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addCustomerStoreCreditValidateBeforeCall(Integer customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling addCustomerStoreCredit(Async)");
+        }
+        
+        // verify the required parameter 'storeCreditRequest' is set
+        if (storeCreditRequest == null) {
+            throw new ApiException("Missing the required parameter 'storeCreditRequest' when calling addCustomerStoreCredit(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addCustomerStoreCreditCall(customerProfileOid, storeCreditRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds store credit to a customer
+     * Adds store credit to a customer 
+     * @param customerProfileOid The customer oid to credit. (required)
+     * @param storeCreditRequest Store credit to add (required)
+     * @return BaseResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BaseResponse addCustomerStoreCredit(Integer customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest) throws ApiException {
+        ApiResponse<BaseResponse> resp = addCustomerStoreCreditWithHttpInfo(customerProfileOid, storeCreditRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Adds store credit to a customer
+     * Adds store credit to a customer 
+     * @param customerProfileOid The customer oid to credit. (required)
+     * @param storeCreditRequest Store credit to add (required)
+     * @return ApiResponse&lt;BaseResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<BaseResponse> addCustomerStoreCreditWithHttpInfo(Integer customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest) throws ApiException {
+        com.squareup.okhttp.Call call = addCustomerStoreCreditValidateBeforeCall(customerProfileOid, storeCreditRequest, null, null);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds store credit to a customer (asynchronously)
+     * Adds store credit to a customer 
+     * @param customerProfileOid The customer oid to credit. (required)
+     * @param storeCreditRequest Store credit to add (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addCustomerStoreCreditAsync(Integer customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest, final ApiCallback<BaseResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addCustomerStoreCreditValidateBeforeCall(customerProfileOid, storeCreditRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for adjustInternalCertificate
      * @param customerProfileOid The customer profile oid (required)
@@ -825,6 +960,129 @@ public class CustomerApi {
 
         com.squareup.okhttp.Call call = getCustomerEmailListsValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmailListsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getCustomerStoreCredit
+     * @param customerProfileOid The customer oid to retrieve. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomerStoreCreditCall(Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/store_credit"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomerStoreCreditValidateBeforeCall(Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling getCustomerStoreCredit(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getCustomerStoreCreditCall(customerProfileOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve the customer store credit accumulated through loyalty programs
+     * Retrieve the customer store credit accumulated through loyalty programs 
+     * @param customerProfileOid The customer oid to retrieve. (required)
+     * @return CustomerStoreCreditResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerStoreCreditResponse getCustomerStoreCredit(Integer customerProfileOid) throws ApiException {
+        ApiResponse<CustomerStoreCreditResponse> resp = getCustomerStoreCreditWithHttpInfo(customerProfileOid);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve the customer store credit accumulated through loyalty programs
+     * Retrieve the customer store credit accumulated through loyalty programs 
+     * @param customerProfileOid The customer oid to retrieve. (required)
+     * @return ApiResponse&lt;CustomerStoreCreditResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerStoreCreditResponse> getCustomerStoreCreditWithHttpInfo(Integer customerProfileOid) throws ApiException {
+        com.squareup.okhttp.Call call = getCustomerStoreCreditValidateBeforeCall(customerProfileOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomerStoreCreditResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the customer store credit accumulated through loyalty programs (asynchronously)
+     * Retrieve the customer store credit accumulated through loyalty programs 
+     * @param customerProfileOid The customer oid to retrieve. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getCustomerStoreCreditAsync(Integer customerProfileOid, final ApiCallback<CustomerStoreCreditResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomerStoreCreditValidateBeforeCall(customerProfileOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerStoreCreditResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

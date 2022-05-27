@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **cardExpYears** | **List&lt;String&gt;** | card_exp_years |  [optional]
 **cardTypes** | **List&lt;String&gt;** | card_types |  [optional]
 **countries** | [**List&lt;Country&gt;**](Country.md) | countries |  [optional]
+**loyaltyProgramType** | **String** | loyalty_program_type |  [optional]
 **qbClasses** | **List&lt;String&gt;** | qb_classes |  [optional]
 **salesRepCodes** | **List&lt;String&gt;** | sales_rep_codes |  [optional]
 **stateOptionalCountries** | [**List&lt;Country&gt;**](Country.md) | state_optional_countries |  [optional]
