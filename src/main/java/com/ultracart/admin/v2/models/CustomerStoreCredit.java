@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CustomerStoreCredit
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-27T09:06:14.568-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T16:51:13.532-04:00")
 
 
 
@@ -42,10 +42,10 @@ public class CustomerStoreCredit {
   @SerializedName("expiring")
   private BigDecimal expiring = null;
 
-  @SerializedName("futureLedgers")
+  @SerializedName("future_ledgers")
   private List<CustomerStoreCreditLedgerEntry> futureLedgers = null;
 
-  @SerializedName("pastLedgers")
+  @SerializedName("past_ledgers")
   private List<CustomerStoreCreditLedgerEntry> pastLedgers = null;
 
   @SerializedName("total")
@@ -60,10 +60,10 @@ public class CustomerStoreCredit {
   }
 
    /**
-   * Get available
+   * Available store credit which is defined as unused and vested
    * @return available
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Available store credit which is defined as unused and vested")
   public BigDecimal getAvailable() {
     return available;
   }
@@ -78,10 +78,10 @@ public class CustomerStoreCredit {
   }
 
    /**
-   * Get expiring
+   * Amount of store credit expiring within 30 days
    * @return expiring
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Amount of store credit expiring within 30 days")
   public BigDecimal getExpiring() {
     return expiring;
   }
@@ -104,10 +104,10 @@ public class CustomerStoreCredit {
   }
 
    /**
-   * Get futureLedgers
+   * Array of future ledger entries including expiring entries
    * @return futureLedgers
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of future ledger entries including expiring entries")
   public List<CustomerStoreCreditLedgerEntry> getFutureLedgers() {
     return futureLedgers;
   }
@@ -130,10 +130,10 @@ public class CustomerStoreCredit {
   }
 
    /**
-   * Get pastLedgers
+   * Array of past ledger entries including accrual, usage, and expiring entries
    * @return pastLedgers
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of past ledger entries including accrual, usage, and expiring entries")
   public List<CustomerStoreCreditLedgerEntry> getPastLedgers() {
     return pastLedgers;
   }
@@ -148,10 +148,10 @@ public class CustomerStoreCredit {
   }
 
    /**
-   * Get total
+   * Total lifetime store credit for this customer.
    * @return total
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Total lifetime store credit for this customer.")
   public BigDecimal getTotal() {
     return total;
   }
@@ -166,10 +166,10 @@ public class CustomerStoreCredit {
   }
 
    /**
-   * Get vesting
+   * Amount of store credit vesting
    * @return vesting
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Amount of store credit vesting")
   public BigDecimal getVesting() {
     return vesting;
   }
