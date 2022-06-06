@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailSegment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T16:51:13.532-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-06T15:08:34.018-04:00")
 
 
 
@@ -76,6 +76,12 @@ public class EmailSegment {
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
+
+  @SerializedName("thirdparty_list_id")
+  private String thirdpartyListId = null;
+
+  @SerializedName("thirdparty_provider_name")
+  private String thirdpartyProviderName = null;
 
   @SerializedName("used_by")
   private List<EmailListSegmentUsedBy> usedBy = null;
@@ -332,6 +338,42 @@ public class EmailSegment {
     this.storefrontOid = storefrontOid;
   }
 
+  public EmailSegment thirdpartyListId(String thirdpartyListId) {
+    this.thirdpartyListId = thirdpartyListId;
+    return this;
+  }
+
+   /**
+   * List id of third party provider to sync with.
+   * @return thirdpartyListId
+  **/
+  @ApiModelProperty(value = "List id of third party provider to sync with.")
+  public String getThirdpartyListId() {
+    return thirdpartyListId;
+  }
+
+  public void setThirdpartyListId(String thirdpartyListId) {
+    this.thirdpartyListId = thirdpartyListId;
+  }
+
+  public EmailSegment thirdpartyProviderName(String thirdpartyProviderName) {
+    this.thirdpartyProviderName = thirdpartyProviderName;
+    return this;
+  }
+
+   /**
+   * Name of third party provider to sync segment to a list with.
+   * @return thirdpartyProviderName
+  **/
+  @ApiModelProperty(value = "Name of third party provider to sync segment to a list with.")
+  public String getThirdpartyProviderName() {
+    return thirdpartyProviderName;
+  }
+
+  public void setThirdpartyProviderName(String thirdpartyProviderName) {
+    this.thirdpartyProviderName = thirdpartyProviderName;
+  }
+
   public EmailSegment usedBy(List<EmailListSegmentUsedBy> usedBy) {
     this.usedBy = usedBy;
     return this;
@@ -382,12 +424,14 @@ public class EmailSegment {
         Objects.equals(this.rankJson, emailSegment.rankJson) &&
         Objects.equals(this.rebuildRequired, emailSegment.rebuildRequired) &&
         Objects.equals(this.storefrontOid, emailSegment.storefrontOid) &&
+        Objects.equals(this.thirdpartyListId, emailSegment.thirdpartyListId) &&
+        Objects.equals(this.thirdpartyProviderName, emailSegment.thirdpartyProviderName) &&
         Objects.equals(this.usedBy, emailSegment.usedBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, usedBy);
+    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, thirdpartyListId, thirdpartyProviderName, usedBy);
   }
 
 
@@ -410,6 +454,8 @@ public class EmailSegment {
     sb.append("    rankJson: ").append(toIndentedString(rankJson)).append("\n");
     sb.append("    rebuildRequired: ").append(toIndentedString(rebuildRequired)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    thirdpartyListId: ").append(toIndentedString(thirdpartyListId)).append("\n");
+    sb.append("    thirdpartyProviderName: ").append(toIndentedString(thirdpartyProviderName)).append("\n");
     sb.append("    usedBy: ").append(toIndentedString(usedBy)).append("\n");
     sb.append("}");
     return sb.toString();

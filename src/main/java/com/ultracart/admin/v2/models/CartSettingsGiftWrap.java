@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * CartSettingsGiftWrap
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T16:51:13.532-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-06T15:08:34.018-04:00")
 
 
 
