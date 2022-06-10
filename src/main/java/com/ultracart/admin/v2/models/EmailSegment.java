@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailSegment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-06T15:08:34.018-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-10T12:15:34.738-04:00")
 
 
 
@@ -76,6 +76,18 @@ public class EmailSegment {
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
+
+  @SerializedName("thirdparty_join_add_tags")
+  private List<String> thirdpartyJoinAddTags = null;
+
+  @SerializedName("thirdparty_join_remove_tags")
+  private List<String> thirdpartyJoinRemoveTags = null;
+
+  @SerializedName("thirdparty_leave_add_tags")
+  private List<String> thirdpartyLeaveAddTags = null;
+
+  @SerializedName("thirdparty_leave_remove_tags")
+  private List<String> thirdpartyLeaveRemoveTags = null;
 
   @SerializedName("thirdparty_list_id")
   private String thirdpartyListId = null;
@@ -338,6 +350,110 @@ public class EmailSegment {
     this.storefrontOid = storefrontOid;
   }
 
+  public EmailSegment thirdpartyJoinAddTags(List<String> thirdpartyJoinAddTags) {
+    this.thirdpartyJoinAddTags = thirdpartyJoinAddTags;
+    return this;
+  }
+
+  public EmailSegment addThirdpartyJoinAddTagsItem(String thirdpartyJoinAddTagsItem) {
+    if (this.thirdpartyJoinAddTags == null) {
+      this.thirdpartyJoinAddTags = new ArrayList<String>();
+    }
+    this.thirdpartyJoinAddTags.add(thirdpartyJoinAddTagsItem);
+    return this;
+  }
+
+   /**
+   * Third party provider tags to add when a customer joins the segment.
+   * @return thirdpartyJoinAddTags
+  **/
+  @ApiModelProperty(value = "Third party provider tags to add when a customer joins the segment.")
+  public List<String> getThirdpartyJoinAddTags() {
+    return thirdpartyJoinAddTags;
+  }
+
+  public void setThirdpartyJoinAddTags(List<String> thirdpartyJoinAddTags) {
+    this.thirdpartyJoinAddTags = thirdpartyJoinAddTags;
+  }
+
+  public EmailSegment thirdpartyJoinRemoveTags(List<String> thirdpartyJoinRemoveTags) {
+    this.thirdpartyJoinRemoveTags = thirdpartyJoinRemoveTags;
+    return this;
+  }
+
+  public EmailSegment addThirdpartyJoinRemoveTagsItem(String thirdpartyJoinRemoveTagsItem) {
+    if (this.thirdpartyJoinRemoveTags == null) {
+      this.thirdpartyJoinRemoveTags = new ArrayList<String>();
+    }
+    this.thirdpartyJoinRemoveTags.add(thirdpartyJoinRemoveTagsItem);
+    return this;
+  }
+
+   /**
+   * Third party provider tags to remove when a customer joins the segment.
+   * @return thirdpartyJoinRemoveTags
+  **/
+  @ApiModelProperty(value = "Third party provider tags to remove when a customer joins the segment.")
+  public List<String> getThirdpartyJoinRemoveTags() {
+    return thirdpartyJoinRemoveTags;
+  }
+
+  public void setThirdpartyJoinRemoveTags(List<String> thirdpartyJoinRemoveTags) {
+    this.thirdpartyJoinRemoveTags = thirdpartyJoinRemoveTags;
+  }
+
+  public EmailSegment thirdpartyLeaveAddTags(List<String> thirdpartyLeaveAddTags) {
+    this.thirdpartyLeaveAddTags = thirdpartyLeaveAddTags;
+    return this;
+  }
+
+  public EmailSegment addThirdpartyLeaveAddTagsItem(String thirdpartyLeaveAddTagsItem) {
+    if (this.thirdpartyLeaveAddTags == null) {
+      this.thirdpartyLeaveAddTags = new ArrayList<String>();
+    }
+    this.thirdpartyLeaveAddTags.add(thirdpartyLeaveAddTagsItem);
+    return this;
+  }
+
+   /**
+   * Third party provider tags to add when a customer leaves the segment.
+   * @return thirdpartyLeaveAddTags
+  **/
+  @ApiModelProperty(value = "Third party provider tags to add when a customer leaves the segment.")
+  public List<String> getThirdpartyLeaveAddTags() {
+    return thirdpartyLeaveAddTags;
+  }
+
+  public void setThirdpartyLeaveAddTags(List<String> thirdpartyLeaveAddTags) {
+    this.thirdpartyLeaveAddTags = thirdpartyLeaveAddTags;
+  }
+
+  public EmailSegment thirdpartyLeaveRemoveTags(List<String> thirdpartyLeaveRemoveTags) {
+    this.thirdpartyLeaveRemoveTags = thirdpartyLeaveRemoveTags;
+    return this;
+  }
+
+  public EmailSegment addThirdpartyLeaveRemoveTagsItem(String thirdpartyLeaveRemoveTagsItem) {
+    if (this.thirdpartyLeaveRemoveTags == null) {
+      this.thirdpartyLeaveRemoveTags = new ArrayList<String>();
+    }
+    this.thirdpartyLeaveRemoveTags.add(thirdpartyLeaveRemoveTagsItem);
+    return this;
+  }
+
+   /**
+   * Third party provider tags to remove when a customer leaves the segment.
+   * @return thirdpartyLeaveRemoveTags
+  **/
+  @ApiModelProperty(value = "Third party provider tags to remove when a customer leaves the segment.")
+  public List<String> getThirdpartyLeaveRemoveTags() {
+    return thirdpartyLeaveRemoveTags;
+  }
+
+  public void setThirdpartyLeaveRemoveTags(List<String> thirdpartyLeaveRemoveTags) {
+    this.thirdpartyLeaveRemoveTags = thirdpartyLeaveRemoveTags;
+  }
+
   public EmailSegment thirdpartyListId(String thirdpartyListId) {
     this.thirdpartyListId = thirdpartyListId;
     return this;
@@ -424,6 +540,10 @@ public class EmailSegment {
         Objects.equals(this.rankJson, emailSegment.rankJson) &&
         Objects.equals(this.rebuildRequired, emailSegment.rebuildRequired) &&
         Objects.equals(this.storefrontOid, emailSegment.storefrontOid) &&
+        Objects.equals(this.thirdpartyJoinAddTags, emailSegment.thirdpartyJoinAddTags) &&
+        Objects.equals(this.thirdpartyJoinRemoveTags, emailSegment.thirdpartyJoinRemoveTags) &&
+        Objects.equals(this.thirdpartyLeaveAddTags, emailSegment.thirdpartyLeaveAddTags) &&
+        Objects.equals(this.thirdpartyLeaveRemoveTags, emailSegment.thirdpartyLeaveRemoveTags) &&
         Objects.equals(this.thirdpartyListId, emailSegment.thirdpartyListId) &&
         Objects.equals(this.thirdpartyProviderName, emailSegment.thirdpartyProviderName) &&
         Objects.equals(this.usedBy, emailSegment.usedBy);
@@ -431,7 +551,7 @@ public class EmailSegment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, thirdpartyListId, thirdpartyProviderName, usedBy);
+    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, thirdpartyJoinAddTags, thirdpartyJoinRemoveTags, thirdpartyLeaveAddTags, thirdpartyLeaveRemoveTags, thirdpartyListId, thirdpartyProviderName, usedBy);
   }
 
 
@@ -454,6 +574,10 @@ public class EmailSegment {
     sb.append("    rankJson: ").append(toIndentedString(rankJson)).append("\n");
     sb.append("    rebuildRequired: ").append(toIndentedString(rebuildRequired)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    thirdpartyJoinAddTags: ").append(toIndentedString(thirdpartyJoinAddTags)).append("\n");
+    sb.append("    thirdpartyJoinRemoveTags: ").append(toIndentedString(thirdpartyJoinRemoveTags)).append("\n");
+    sb.append("    thirdpartyLeaveAddTags: ").append(toIndentedString(thirdpartyLeaveAddTags)).append("\n");
+    sb.append("    thirdpartyLeaveRemoveTags: ").append(toIndentedString(thirdpartyLeaveRemoveTags)).append("\n");
     sb.append("    thirdpartyListId: ").append(toIndentedString(thirdpartyListId)).append("\n");
     sb.append("    thirdpartyProviderName: ").append(toIndentedString(thirdpartyProviderName)).append("\n");
     sb.append("    usedBy: ").append(toIndentedString(usedBy)).append("\n");
