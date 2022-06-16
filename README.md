@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-06-16T11:41:09.331-04:00
+  - Build date: 2022-06-16T12:48:23.332-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.12</version>
+  <version>3.10.13</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.12"
+compile "com.ultracart:rest-sdk:3.10.13"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.12.jar`
+* `target/rest-sdk-3.10.13.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -197,7 +197,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersForDataTables**](docs/CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**insertCustomer**](docs/CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
-*CustomerApi* | [**search**](docs/CustomerApi.md#search) | **POST** /customer/search | Searches for all matching values (using POST)
+*CustomerApi* | [**searchCustomerProfileValues**](docs/CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
 *CustomerApi* | [**updateCustomer**](docs/CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**validateEmailVerificationToken**](docs/CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
@@ -1215,6 +1215,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.13 | 06/16/2022 | renamed latest method to avoid conflict between customer profile search and storefront search |
 | 3.10.12 | 06/16/2022 | Customer profile search method to look up tags |
 | 3.10.11 | 06/10/2022 | esp segment 3rd party sync add/remove tag fields |
 | 3.10.10 | 06/06/2022 | storefront communication options for syncing to third party provider list |

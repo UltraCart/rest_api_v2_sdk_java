@@ -1915,14 +1915,14 @@ public class CustomerApi {
         return call;
     }
     /**
-     * Build call for search
+     * Build call for searchCustomerProfileValues
      * @param lookupRequest LookupRequest (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchCall(LookupRequest lookupRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchCustomerProfileValuesCall(LookupRequest lookupRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = lookupRequest;
 
         // create path and map variables
@@ -1964,15 +1964,15 @@ public class CustomerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(LookupRequest lookupRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchCustomerProfileValuesValidateBeforeCall(LookupRequest lookupRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'lookupRequest' is set
         if (lookupRequest == null) {
-            throw new ApiException("Missing the required parameter 'lookupRequest' when calling search(Async)");
+            throw new ApiException("Missing the required parameter 'lookupRequest' when calling searchCustomerProfileValues(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = searchCall(lookupRequest, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchCustomerProfileValuesCall(lookupRequest, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1984,8 +1984,8 @@ public class CustomerApi {
      * @return LookupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LookupResponse search(LookupRequest lookupRequest) throws ApiException {
-        ApiResponse<LookupResponse> resp = searchWithHttpInfo(lookupRequest);
+    public LookupResponse searchCustomerProfileValues(LookupRequest lookupRequest) throws ApiException {
+        ApiResponse<LookupResponse> resp = searchCustomerProfileValuesWithHttpInfo(lookupRequest);
         return resp.getData();
     }
 
@@ -1996,8 +1996,8 @@ public class CustomerApi {
      * @return ApiResponse&lt;LookupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LookupResponse> searchWithHttpInfo(LookupRequest lookupRequest) throws ApiException {
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(lookupRequest, null, null);
+    public ApiResponse<LookupResponse> searchCustomerProfileValuesWithHttpInfo(LookupRequest lookupRequest) throws ApiException {
+        com.squareup.okhttp.Call call = searchCustomerProfileValuesValidateBeforeCall(lookupRequest, null, null);
         Type localVarReturnType = new TypeToken<LookupResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2010,7 +2010,7 @@ public class CustomerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchAsync(LookupRequest lookupRequest, final ApiCallback<LookupResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchCustomerProfileValuesAsync(LookupRequest lookupRequest, final ApiCallback<LookupResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2031,7 +2031,7 @@ public class CustomerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(lookupRequest, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchCustomerProfileValuesValidateBeforeCall(lookupRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<LookupResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
