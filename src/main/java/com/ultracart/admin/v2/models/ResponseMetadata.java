@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ResponseMetadata
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-10T12:15:34.738-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-16T11:41:09.331-04:00")
 
 
 

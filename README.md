@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-06-10T12:15:34.738-04:00
+  - Build date: 2022-06-16T11:41:09.331-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.11</version>
+  <version>3.10.12</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.11"
+compile "com.ultracart:rest-sdk:3.10.12"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.11.jar`
+* `target/rest-sdk-3.10.12.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -197,6 +197,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersForDataTables**](docs/CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**insertCustomer**](docs/CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
+*CustomerApi* | [**search**](docs/CustomerApi.md#search) | **POST** /customer/search | Searches for all matching values (using POST)
 *CustomerApi* | [**updateCustomer**](docs/CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**validateEmailVerificationToken**](docs/CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
@@ -1158,10 +1159,10 @@ Authentication schemes defined for the API:
   - affiliate_write: Allows you to write affiliate information.
   - auto_order_read: Allows you to read auto order information.
   - auto_order_write: Allows you to write auto order information.
-  - chargeback_read: Allows you to read chargeback information.
-  - chargeback_write: Allows you to write chargeback information.
   - channel_partner_read: Allows you to read channel partner information.
   - channel_partner_write: Allows you to write channel partner information.
+  - chargeback_read: Allows you to read chargeback information.
+  - chargeback_write: Allows you to write chargeback information.
   - checkout_read: Allows you to read checkout information.
   - checkout_write: Allows you to write checkout information.
   - configuration_read: Allows you to read configuration information.
@@ -1172,6 +1173,8 @@ Authentication schemes defined for the API:
   - customer_write: Allows you to write customer information.
   - fulfillment_read: Allows you to read fulfillment information.
   - fulfillment_write: Allows you to write fulfillment information.
+  - gift_certificate_read: Allows you to read gift certificate information.
+  - gift_certificate_write: Allows you to write gift certificate information.
   - integration_log_read: Allows you to read integration log information.
   - integration_log_write: Allows you to write integration log information.
   - order_read: Allows you to read order information.
@@ -1188,8 +1191,6 @@ Authentication schemes defined for the API:
   - ultrabooks_write: 2 of 2 required to use UltraBooks
   - user_read: Allows you to read user information.
   - user_write: Allows you to write user information.
-  - gift_certificate_read: Allows you to read gift certificate information.
-  - gift_certificate_write: Allows you to write gift certificate information.
 
 ### ultraCartSimpleApiKey
 
@@ -1214,6 +1215,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.12 | 06/16/2022 | Customer profile search method to look up tags |
 | 3.10.11 | 06/10/2022 | esp segment 3rd party sync add/remove tag fields |
 | 3.10.10 | 06/06/2022 | storefront communication options for syncing to third party provider list |
 | 3.10.9 | 06/01/2022 | bug fixes for customer profile store credit |
