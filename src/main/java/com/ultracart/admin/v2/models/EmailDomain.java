@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Mailgun;
 import com.ultracart.admin.v2.models.VerificationRecord;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * EmailDomain
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-16T12:48:23.332-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-16T15:52:34.213-04:00")
 
 
 
@@ -52,6 +53,9 @@ public class EmailDomain {
 
   @SerializedName("identity_status")
   private String identityStatus = null;
+
+  @SerializedName("mailgun")
+  private Mailgun mailgun = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
@@ -187,6 +191,24 @@ public class EmailDomain {
     this.identityStatus = identityStatus;
   }
 
+  public EmailDomain mailgun(Mailgun mailgun) {
+    this.mailgun = mailgun;
+    return this;
+  }
+
+   /**
+   * Get mailgun
+   * @return mailgun
+  **/
+  @ApiModelProperty(value = "")
+  public Mailgun getMailgun() {
+    return mailgun;
+  }
+
+  public void setMailgun(Mailgun mailgun) {
+    this.mailgun = mailgun;
+  }
+
   public EmailDomain merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
@@ -311,6 +333,7 @@ public class EmailDomain {
         Objects.equals(this.domain, emailDomain.domain) &&
         Objects.equals(this.espDomainUuid, emailDomain.espDomainUuid) &&
         Objects.equals(this.identityStatus, emailDomain.identityStatus) &&
+        Objects.equals(this.mailgun, emailDomain.mailgun) &&
         Objects.equals(this.merchantId, emailDomain.merchantId) &&
         Objects.equals(this.provider, emailDomain.provider) &&
         Objects.equals(this.spf, emailDomain.spf) &&
@@ -321,7 +344,7 @@ public class EmailDomain {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dkim, dkimStatus, domain, espDomainUuid, identityStatus, merchantId, provider, spf, startDkimDts, startIdentityDts, verification);
+    return Objects.hash(comment, dkim, dkimStatus, domain, espDomainUuid, identityStatus, mailgun, merchantId, provider, spf, startDkimDts, startIdentityDts, verification);
   }
 
 
@@ -336,6 +359,7 @@ public class EmailDomain {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    espDomainUuid: ").append(toIndentedString(espDomainUuid)).append("\n");
     sb.append("    identityStatus: ").append(toIndentedString(identityStatus)).append("\n");
+    sb.append("    mailgun: ").append(toIndentedString(mailgun)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    spf: ").append(toIndentedString(spf)).append("\n");
