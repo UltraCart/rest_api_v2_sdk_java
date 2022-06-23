@@ -1,14 +1,17 @@
 
+
 # ScreenRecordingFilterRangeBigDecimal
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**eq** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
-**gt** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
-**gte** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
-**lt** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
-**lte** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**eq** | **BigDecimal** |  |  [optional] |
+|**gt** | **BigDecimal** |  |  [optional] |
+|**gte** | **BigDecimal** |  |  [optional] |
+|**lt** | **BigDecimal** |  |  [optional] |
+|**lte** | **BigDecimal** |  |  [optional] |
 
 
 

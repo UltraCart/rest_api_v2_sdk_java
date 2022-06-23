@@ -2,19 +2,19 @@
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteGroup**](UserApi.md#deleteGroup) | **DELETE** /user/groups/{group_oid} | Delete a group
-[**deleteUser**](UserApi.md#deleteUser) | **DELETE** /user/users/{user_id} | Delete a user
-[**getGroup**](UserApi.md#getGroup) | **GET** /user/groups/{group_oid} | Retrieve a group
-[**getGroups**](UserApi.md#getGroups) | **GET** /user/groups | Get groups
-[**getUser**](UserApi.md#getUser) | **GET** /user/users/{user_id} | Retrieve a user
-[**getUserLogins**](UserApi.md#getUserLogins) | **GET** /user/users/{user_id}/logins | Retrieve a user&#39;s login history
-[**getUsers**](UserApi.md#getUsers) | **GET** /user/users | Get users
-[**insertGroup**](UserApi.md#insertGroup) | **POST** /user/groups | Insert a group
-[**insertUser**](UserApi.md#insertUser) | **POST** /user/users | Insert a user
-[**updateGroup**](UserApi.md#updateGroup) | **PUT** /user/groups/{group_oid} | Update a group
-[**updateUser**](UserApi.md#updateUser) | **PUT** /user/users/{user_id} | Update a user
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**deleteGroup**](UserApi.md#deleteGroup) | **DELETE** /user/groups/{group_oid} | Delete a group |
+| [**deleteUser**](UserApi.md#deleteUser) | **DELETE** /user/users/{user_id} | Delete a user |
+| [**getGroup**](UserApi.md#getGroup) | **GET** /user/groups/{group_oid} | Retrieve a group |
+| [**getGroups**](UserApi.md#getGroups) | **GET** /user/groups | Get groups |
+| [**getUser**](UserApi.md#getUser) | **GET** /user/users/{user_id} | Retrieve a user |
+| [**getUserLogins**](UserApi.md#getUserLogins) | **GET** /user/users/{user_id}/logins | Retrieve a user&#39;s login history |
+| [**getUsers**](UserApi.md#getUsers) | **GET** /user/users | Get users |
+| [**insertGroup**](UserApi.md#insertGroup) | **POST** /user/groups | Insert a group |
+| [**insertUser**](UserApi.md#insertUser) | **POST** /user/users | Insert a user |
+| [**updateGroup**](UserApi.md#updateGroup) | **PUT** /user/groups/{group_oid} | Update a group |
+| [**updateUser**](UserApi.md#updateUser) | **PUT** /user/users/{user_id} | Update a user |
 
 
 <a name="deleteGroup"></a>
@@ -28,30 +28,48 @@ Delete a group on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Integer groupOid = 56; // Integer | The group_oid to delete.
-try {
-    apiInstance.deleteGroup(groupOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#deleteGroup");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    Integer groupOid = 56; // Integer | The group_oid to delete.
+    try {
+      apiInstance.deleteGroup(groupOid);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#deleteGroup");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupOid** | **Integer**| The group_oid to delete. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupOid** | **Integer**| The group_oid to delete. | |
 
 ### Return type
 
@@ -63,8 +81,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="deleteUser"></a>
 # **deleteUser**
@@ -77,30 +104,48 @@ Delete a user on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Integer userId = 56; // Integer | The user_id to delete.
-try {
-    apiInstance.deleteUser(userId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#deleteUser");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    Integer userId = 56; // Integer | The user_id to delete.
+    try {
+      apiInstance.deleteUser(userId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#deleteUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The user_id to delete. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **Integer**| The user_id to delete. | |
 
 ### Return type
 
@@ -112,8 +157,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getGroup"></a>
 # **getGroup**
@@ -126,30 +180,48 @@ Retrieves a single group using the specified group id.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Integer groupOid = 56; // Integer | The group id to retrieve.
-try {
-    apiInstance.getGroup(groupOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getGroup");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    Integer groupOid = 56; // Integer | The group id to retrieve.
+    try {
+      apiInstance.getGroup(groupOid);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#getGroup");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupOid** | **Integer**| The group id to retrieve. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupOid** | **Integer**| The group id to retrieve. | |
 
 ### Return type
 
@@ -161,8 +233,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getGroups"></a>
 # **getGroups**
@@ -173,22 +254,40 @@ Get groups
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-try {
-    GroupsResponse result = apiInstance.getGroups();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getGroups");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    try {
+      GroupsResponse result = apiInstance.getGroups();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#getGroups");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -205,8 +304,18 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getUser"></a>
 # **getUser**
@@ -219,31 +328,49 @@ Retrieves a single user using the specified user id.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Integer userId = 56; // Integer | The user id to retrieve.
-try {
-    UserResponse result = apiInstance.getUser(userId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getUser");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    Integer userId = 56; // Integer | The user id to retrieve.
+    try {
+      UserResponse result = apiInstance.getUser(userId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#getUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The user id to retrieve. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **Integer**| The user id to retrieve. | |
 
 ### Return type
 
@@ -255,8 +382,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getUserLogins"></a>
 # **getUserLogins**
@@ -269,31 +406,49 @@ Retrieves logins for a single user using the specified user id.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Integer userId = 56; // Integer | The user id to retrieve.
-try {
-    UserLoginsResponse result = apiInstance.getUserLogins(userId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getUserLogins");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    Integer userId = 56; // Integer | The user id to retrieve.
+    try {
+      UserLoginsResponse result = apiInstance.getUserLogins(userId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#getUserLogins");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The user id to retrieve. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **Integer**| The user id to retrieve. | |
 
 ### Return type
 
@@ -305,8 +460,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getUsers"></a>
 # **getUsers**
@@ -317,22 +482,40 @@ Get users
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-try {
-    UsersResponse result = apiInstance.getUsers();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getUsers");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    try {
+      UsersResponse result = apiInstance.getUsers();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#getUsers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -349,8 +532,18 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="insertGroup"></a>
 # **insertGroup**
@@ -363,31 +556,49 @@ Insert a group on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Group group = new Group(); // Group | Group to insert
-try {
-    GroupResponse result = apiInstance.insertGroup(group);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#insertGroup");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    Group group = new Group(); // Group | Group to insert
+    try {
+      GroupResponse result = apiInstance.insertGroup(group);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#insertGroup");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group** | [**Group**](Group.md)| Group to insert |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **group** | [**Group**](Group.md)| Group to insert | |
 
 ### Return type
 
@@ -401,6 +612,16 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="insertUser"></a>
 # **insertUser**
@@ -413,31 +634,49 @@ Insert a user on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-User user = new User(); // User | User to insert
-try {
-    UserResponse result = apiInstance.insertUser(user);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#insertUser");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    User user = new User(); // User | User to insert
+    try {
+      UserResponse result = apiInstance.insertUser(user);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#insertUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| User to insert |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **user** | [**User**](User.md)| User to insert | |
 
 ### Return type
 
@@ -452,9 +691,19 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="updateGroup"></a>
 # **updateGroup**
-> GroupResponse updateGroup(group, groupOid)
+> GroupResponse updateGroup(groupOid, group)
 
 Update a group
 
@@ -463,33 +712,51 @@ Update a group on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Group group = new Group(); // Group | Group to update
-Integer groupOid = 56; // Integer | The group_oid to update.
-try {
-    GroupResponse result = apiInstance.updateGroup(group, groupOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#updateGroup");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    Integer groupOid = 56; // Integer | The group_oid to update.
+    Group group = new Group(); // Group | Group to update
+    try {
+      GroupResponse result = apiInstance.updateGroup(groupOid, group);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#updateGroup");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group** | [**Group**](Group.md)| Group to update |
- **groupOid** | **Integer**| The group_oid to update. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupOid** | **Integer**| The group_oid to update. | |
+| **group** | [**Group**](Group.md)| Group to update | |
 
 ### Return type
 
@@ -504,9 +771,19 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="updateUser"></a>
 # **updateUser**
-> UserResponse updateUser(user, userId)
+> UserResponse updateUser(userId, user)
 
 Update a user
 
@@ -515,33 +792,51 @@ Update a user on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.UserApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.UserApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-UserApi apiInstance = new UserApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-User user = new User(); // User | User to update
-Integer userId = 56; // Integer | The user_id to update.
-try {
-    UserResponse result = apiInstance.updateUser(user, userId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#updateUser");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    UserApi apiInstance = new UserApi(defaultClient);
+    Integer userId = 56; // Integer | The user_id to update.
+    User user = new User(); // User | User to update
+    try {
+      UserResponse result = apiInstance.updateUser(userId, user);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#updateUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| User to update |
- **userId** | **Integer**| The user_id to update. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **Integer**| The user_id to update. | |
+| **user** | [**User**](User.md)| User to update | |
 
 ### Return type
 
@@ -555,4 +850,14 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 

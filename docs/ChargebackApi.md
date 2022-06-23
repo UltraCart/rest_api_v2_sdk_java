@@ -2,13 +2,13 @@
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteChargeback**](ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
-[**getChargebackDispute**](ChargebackApi.md#getChargebackDispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
-[**getChargebackDisputes**](ChargebackApi.md#getChargebackDisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
-[**insertChargeback**](ChargebackApi.md#insertChargeback) | **POST** /chargeback/chargebacks | Insert a chargeback
-[**updateChargeback**](ChargebackApi.md#updateChargeback) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**deleteChargeback**](ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback |
+| [**getChargebackDispute**](ChargebackApi.md#getChargebackDispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback |
+| [**getChargebackDisputes**](ChargebackApi.md#getChargebackDisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks |
+| [**insertChargeback**](ChargebackApi.md#insertChargeback) | **POST** /chargeback/chargebacks | Insert a chargeback |
+| [**updateChargeback**](ChargebackApi.md#updateChargeback) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback |
 
 
 <a name="deleteChargeback"></a>
@@ -22,31 +22,49 @@ Delete a chargeback on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.ChargebackApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.ChargebackApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-ChargebackApi apiInstance = new ChargebackApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Integer chargebackDisputeOid = 56; // Integer | The chargeback_dispute_oid to delete.
-try {
-    ChargebackDisputeResponse result = apiInstance.deleteChargeback(chargebackDisputeOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#deleteChargeback");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    ChargebackApi apiInstance = new ChargebackApi(defaultClient);
+    Integer chargebackDisputeOid = 56; // Integer | The chargeback_dispute_oid to delete.
+    try {
+      ChargebackDisputeResponse result = apiInstance.deleteChargeback(chargebackDisputeOid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ChargebackApi#deleteChargeback");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **chargebackDisputeOid** | **Integer**| The chargeback_dispute_oid to delete. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **chargebackDisputeOid** | **Integer**| The chargeback_dispute_oid to delete. | |
 
 ### Return type
 
@@ -58,8 +76,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getChargebackDispute"></a>
 # **getChargebackDispute**
@@ -72,33 +100,51 @@ Retrieves a single chargeback using the specified chargeback dispute oid.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.ChargebackApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.ChargebackApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-ChargebackApi apiInstance = new ChargebackApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Integer chargebackDisputeOid = 56; // Integer | The chargeback dispute oid to retrieve.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    ChargebackDisputeResponse result = apiInstance.getChargebackDispute(chargebackDisputeOid, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#getChargebackDispute");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    ChargebackApi apiInstance = new ChargebackApi(defaultClient);
+    Integer chargebackDisputeOid = 56; // Integer | The chargeback dispute oid to retrieve.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      ChargebackDisputeResponse result = apiInstance.getChargebackDispute(chargebackDisputeOid, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ChargebackApi#getChargebackDispute");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **chargebackDisputeOid** | **Integer**| The chargeback dispute oid to retrieve. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **chargebackDisputeOid** | **Integer**| The chargeback dispute oid to retrieve. | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -110,8 +156,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getChargebackDisputes"></a>
 # **getChargebackDisputes**
@@ -124,53 +180,71 @@ Retrieves chargebacks from the account.  If no parameters are specified, all cha
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.ChargebackApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.ChargebackApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-ChargebackApi apiInstance = new ChargebackApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | Order Id
-String caseNumber = "caseNumber_example"; // String | Case number
-String status = "status_example"; // String | Status
-String expirationDtsStart = "expirationDtsStart_example"; // String | Expiration dts start
-String expirationDtsEnd = "expirationDtsEnd_example"; // String | Expiration dts end
-String chargebackDtsStart = "chargebackDtsStart_example"; // String | Chargeback dts start
-String chargebackDtsEnd = "chargebackDtsEnd_example"; // String | Chargeback dts end
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String since = "since_example"; // String | Fetch chargebacks that have been created/modified since this date/time.
-String sort = "sort_example"; // String | The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    ChargebackDisputesResponse result = apiInstance.getChargebackDisputes(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#getChargebackDisputes");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    ChargebackApi apiInstance = new ChargebackApi(defaultClient);
+    String orderId = "orderId_example"; // String | Order Id
+    String caseNumber = "caseNumber_example"; // String | Case number
+    String status = "status_example"; // String | Status
+    String expirationDtsStart = "expirationDtsStart_example"; // String | Expiration dts start
+    String expirationDtsEnd = "expirationDtsEnd_example"; // String | Expiration dts end
+    String chargebackDtsStart = "chargebackDtsStart_example"; // String | Chargeback dts start
+    String chargebackDtsEnd = "chargebackDtsEnd_example"; // String | Chargeback dts end
+    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
+    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+    String since = "since_example"; // String | Fetch chargebacks that have been created/modified since this date/time.
+    String sort = "sort_example"; // String | The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      ChargebackDisputesResponse result = apiInstance.getChargebackDisputes(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ChargebackApi#getChargebackDisputes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| Order Id | [optional]
- **caseNumber** | **String**| Case number | [optional]
- **status** | **String**| Status | [optional]
- **expirationDtsStart** | **String**| Expiration dts start | [optional]
- **expirationDtsEnd** | **String**| Expiration dts end | [optional]
- **chargebackDtsStart** | **String**| Chargeback dts start | [optional]
- **chargebackDtsEnd** | **String**| Chargeback dts end | [optional]
- **limit** | **Integer**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
- **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **since** | **String**| Fetch chargebacks that have been created/modified since this date/time. | [optional]
- **sort** | **String**| The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| Order Id | [optional] |
+| **caseNumber** | **String**| Case number | [optional] |
+| **status** | **String**| Status | [optional] |
+| **expirationDtsStart** | **String**| Expiration dts start | [optional] |
+| **expirationDtsEnd** | **String**| Expiration dts end | [optional] |
+| **chargebackDtsStart** | **String**| Chargeback dts start | [optional] |
+| **chargebackDtsEnd** | **String**| Chargeback dts end | [optional] |
+| **limit** | **Integer**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100] |
+| **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
+| **since** | **String**| Fetch chargebacks that have been created/modified since this date/time. | [optional] |
+| **sort** | **String**| The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -182,8 +256,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="insertChargeback"></a>
 # **insertChargeback**
@@ -196,33 +280,51 @@ Insert a chargeback on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.ChargebackApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.ChargebackApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-ChargebackApi apiInstance = new ChargebackApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to insert
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    ChargebackDisputeResponse result = apiInstance.insertChargeback(chargeback, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#insertChargeback");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    ChargebackApi apiInstance = new ChargebackApi(defaultClient);
+    ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to insert
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      ChargebackDisputeResponse result = apiInstance.insertChargeback(chargeback, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ChargebackApi#insertChargeback");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to insert |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to insert | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -237,9 +339,19 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="updateChargeback"></a>
 # **updateChargeback**
-> ChargebackDisputeResponse updateChargeback(chargeback, chargebackDisputeOid, expand)
+> ChargebackDisputeResponse updateChargeback(chargebackDisputeOid, chargeback, expand)
 
 Update a chargeback
 
@@ -248,35 +360,53 @@ Update a chargeback on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.ChargebackApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.ChargebackApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-ChargebackApi apiInstance = new ChargebackApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
-Integer chargebackDisputeOid = 56; // Integer | The chargeback_dispute_oid to update.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    ChargebackDisputeResponse result = apiInstance.updateChargeback(chargeback, chargebackDisputeOid, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ChargebackApi#updateChargeback");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    ChargebackApi apiInstance = new ChargebackApi(defaultClient);
+    Integer chargebackDisputeOid = 56; // Integer | The chargeback_dispute_oid to update.
+    ChargebackDispute chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      ChargebackDisputeResponse result = apiInstance.updateChargeback(chargebackDisputeOid, chargeback, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ChargebackApi#updateChargeback");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update |
- **chargebackDisputeOid** | **Integer**| The chargeback_dispute_oid to update. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **chargebackDisputeOid** | **Integer**| The chargeback_dispute_oid to update. | |
+| **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -290,4 +420,14 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 

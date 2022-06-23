@@ -1,10 +1,13 @@
 
+
 # CartPaymentPurchaseOrder
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**purchaseOrderNumber** | **String** | Purchase order number |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**purchaseOrderNumber** | **String** | Purchase order number |  [optional] |
 
 
 

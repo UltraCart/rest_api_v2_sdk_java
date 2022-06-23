@@ -1,19 +1,22 @@
 
+
 # ItemEbayMarketPlaceAnalysis
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**adjustedPrice** | [**BigDecimal**](BigDecimal.md) | Adjusted price |  [optional]
-**adjustedShipping** | [**BigDecimal**](BigDecimal.md) | Adjusted shipping |  [optional]
-**adjustedTotal** | [**BigDecimal**](BigDecimal.md) | Adjusted total |  [optional]
-**cogs** | [**BigDecimal**](BigDecimal.md) | Cost of goods sold |  [optional]
-**finalValueFee** | [**BigDecimal**](BigDecimal.md) | Final value fee |  [optional]
-**minimumAdvertisedPrice** | [**BigDecimal**](BigDecimal.md) | Minimum advertised price |  [optional]
-**otherListings** | [**List&lt;ItemEbayMarketListing&gt;**](ItemEbayMarketListing.md) | Other listings |  [optional]
-**ourListing** | [**ItemEbayMarketListing**](ItemEbayMarketListing.md) |  |  [optional]
-**overhead** | [**BigDecimal**](BigDecimal.md) | Overhead |  [optional]
-**profitPotential** | [**BigDecimal**](BigDecimal.md) | Profit potential |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**adjustedPrice** | **BigDecimal** | Adjusted price |  [optional] |
+|**adjustedShipping** | **BigDecimal** | Adjusted shipping |  [optional] |
+|**adjustedTotal** | **BigDecimal** | Adjusted total |  [optional] |
+|**cogs** | **BigDecimal** | Cost of goods sold |  [optional] |
+|**finalValueFee** | **BigDecimal** | Final value fee |  [optional] |
+|**minimumAdvertisedPrice** | **BigDecimal** | Minimum advertised price |  [optional] |
+|**otherListings** | [**List&lt;ItemEbayMarketListing&gt;**](ItemEbayMarketListing.md) | Other listings |  [optional] |
+|**ourListing** | [**ItemEbayMarketListing**](ItemEbayMarketListing.md) |  |  [optional] |
+|**overhead** | **BigDecimal** | Overhead |  [optional] |
+|**profitPotential** | **BigDecimal** | Profit potential |  [optional] |
 
 
 

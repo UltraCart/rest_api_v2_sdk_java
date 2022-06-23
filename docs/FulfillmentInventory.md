@@ -1,11 +1,14 @@
 
+
 # FulfillmentInventory
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**itemId** | **String** |  |  [optional]
-**quantity** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**itemId** | **String** |  |  [optional] |
+|**quantity** | **BigDecimal** |  |  [optional] |
 
 
 

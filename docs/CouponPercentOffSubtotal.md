@@ -1,10 +1,13 @@
 
+
 # CouponPercentOffSubtotal
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**discountPercent** | [**BigDecimal**](BigDecimal.md) | The percentage of subtotal discount |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**discountPercent** | **BigDecimal** | The percentage of subtotal discount |  [optional] |
 
 
 

@@ -1,11 +1,14 @@
 
+
 # GeoPoint
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**lat** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
-**lon** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**lat** | **BigDecimal** |  |  [optional] |
+|**lon** | **BigDecimal** |  |  [optional] |
 
 
 

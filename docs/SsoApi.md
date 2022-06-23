@@ -2,12 +2,12 @@
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getSsoSessionUser**](SsoApi.md#getSsoSessionUser) | **GET** /sso/session/user | Get single sign on session user
-[**ssoAuthorize**](SsoApi.md#ssoAuthorize) | **PUT** /sso/authorize | Authorize a single sign on session
-[**ssoSessionRevoke**](SsoApi.md#ssoSessionRevoke) | **DELETE** /sso/session/revoke | Revoke single sign on session
-[**ssoToken**](SsoApi.md#ssoToken) | **PUT** /sso/token | Exchange a single sign on code for a simple key token
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getSsoSessionUser**](SsoApi.md#getSsoSessionUser) | **GET** /sso/session/user | Get single sign on session user |
+| [**ssoAuthorize**](SsoApi.md#ssoAuthorize) | **PUT** /sso/authorize | Authorize a single sign on session |
+| [**ssoSessionRevoke**](SsoApi.md#ssoSessionRevoke) | **DELETE** /sso/session/revoke | Revoke single sign on session |
+| [**ssoToken**](SsoApi.md#ssoToken) | **PUT** /sso/token | Exchange a single sign on code for a simple key token |
 
 
 <a name="getSsoSessionUser"></a>
@@ -21,22 +21,40 @@ This is the equivalent of logging out of the single sign on session
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.SsoApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.SsoApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-SsoApi apiInstance = new SsoApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-try {
-    User result = apiInstance.getSsoSessionUser();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SsoApi#getSsoSessionUser");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    SsoApi apiInstance = new SsoApi(defaultClient);
+    try {
+      User result = apiInstance.getSsoSessionUser();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SsoApi#getSsoSessionUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -53,8 +71,18 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="ssoAuthorize"></a>
 # **ssoAuthorize**
@@ -67,31 +95,49 @@ Starts the process of authorizing a single sign on session.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.SsoApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.SsoApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-SsoApi apiInstance = new SsoApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-SingleSignOnAuthorizeRequest authorizationRequest = new SingleSignOnAuthorizeRequest(); // SingleSignOnAuthorizeRequest | Authorization request
-try {
-    SingleSignOnAuthorizeResponse result = apiInstance.ssoAuthorize(authorizationRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SsoApi#ssoAuthorize");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    SsoApi apiInstance = new SsoApi(defaultClient);
+    SingleSignOnAuthorizeRequest authorizationRequest = new SingleSignOnAuthorizeRequest(); // SingleSignOnAuthorizeRequest | Authorization request
+    try {
+      SingleSignOnAuthorizeResponse result = apiInstance.ssoAuthorize(authorizationRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SsoApi#ssoAuthorize");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorizationRequest** | [**SingleSignOnAuthorizeRequest**](SingleSignOnAuthorizeRequest.md)| Authorization request |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **authorizationRequest** | [**SingleSignOnAuthorizeRequest**](SingleSignOnAuthorizeRequest.md)| Authorization request | |
 
 ### Return type
 
@@ -106,6 +152,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="ssoSessionRevoke"></a>
 # **ssoSessionRevoke**
 > ssoSessionRevoke()
@@ -117,21 +173,39 @@ This is the equivalent of logging out of the single sign on session
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.SsoApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.SsoApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-SsoApi apiInstance = new SsoApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-try {
-    apiInstance.ssoSessionRevoke();
-} catch (ApiException e) {
-    System.err.println("Exception when calling SsoApi#ssoSessionRevoke");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    SsoApi apiInstance = new SsoApi(defaultClient);
+    try {
+      apiInstance.ssoSessionRevoke();
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SsoApi#ssoSessionRevoke");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -148,8 +222,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="ssoToken"></a>
 # **ssoToken**
@@ -162,31 +245,49 @@ Called by your application after receiving the code back on the redirect URI to 
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.SsoApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.SsoApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-SsoApi apiInstance = new SsoApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-SingleSignOnTokenRequest tokenRequest = new SingleSignOnTokenRequest(); // SingleSignOnTokenRequest | Token request
-try {
-    SingleSignOnTokenResponse result = apiInstance.ssoToken(tokenRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SsoApi#ssoToken");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    SsoApi apiInstance = new SsoApi(defaultClient);
+    SingleSignOnTokenRequest tokenRequest = new SingleSignOnTokenRequest(); // SingleSignOnTokenRequest | Token request
+    try {
+      SingleSignOnTokenResponse result = apiInstance.ssoToken(tokenRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SsoApi#ssoToken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tokenRequest** | [**SingleSignOnTokenRequest**](SingleSignOnTokenRequest.md)| Token request |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tokenRequest** | [**SingleSignOnTokenRequest**](SingleSignOnTokenRequest.md)| Token request | |
 
 ### Return type
 
@@ -200,4 +301,14 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 

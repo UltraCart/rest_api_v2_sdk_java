@@ -2,16 +2,16 @@
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
-[**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
-[**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
-[**getAutoOrders**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
-[**getAutoOrdersBatch**](AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
-[**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
-[**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
-[**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid |
+| [**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code |
+| [**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id |
+| [**getAutoOrders**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders |
+| [**getAutoOrdersBatch**](AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch |
+| [**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query |
+| [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order |
+| [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders |
 
 
 <a name="getAutoOrder"></a>
@@ -25,33 +25,51 @@ Retrieves a single auto order using the specified auto order oid.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoOrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.AutoOrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Integer autoOrderOid = 56; // Integer | The auto order oid to retrieve.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    AutoOrderResponse result = apiInstance.getAutoOrder(autoOrderOid, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoOrderApi#getAutoOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    AutoOrderApi apiInstance = new AutoOrderApi(defaultClient);
+    Integer autoOrderOid = 56; // Integer | The auto order oid to retrieve.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      AutoOrderResponse result = apiInstance.getAutoOrder(autoOrderOid, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoOrderApi#getAutoOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrderOid** | **Integer**| The auto order oid to retrieve. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to retrieve. | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -63,8 +81,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getAutoOrderByCode"></a>
 # **getAutoOrderByCode**
@@ -77,33 +105,51 @@ Retrieves a single auto order using the specified reference (original) order id.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoOrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.AutoOrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String autoOrderCode = "autoOrderCode_example"; // String | The auto order oid to retrieve.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    AutoOrderResponse result = apiInstance.getAutoOrderByCode(autoOrderCode, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoOrderApi#getAutoOrderByCode");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    AutoOrderApi apiInstance = new AutoOrderApi(defaultClient);
+    String autoOrderCode = "autoOrderCode_example"; // String | The auto order oid to retrieve.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      AutoOrderResponse result = apiInstance.getAutoOrderByCode(autoOrderCode, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoOrderApi#getAutoOrderByCode");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrderCode** | **String**| The auto order oid to retrieve. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderCode** | **String**| The auto order oid to retrieve. | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -115,8 +161,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getAutoOrderByReferenceOrderId"></a>
 # **getAutoOrderByReferenceOrderId**
@@ -129,33 +185,51 @@ Retrieves a single auto order using the specified reference (original) order id.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoOrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.AutoOrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String referenceOrderId = "referenceOrderId_example"; // String | The auto order oid to retrieve.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    AutoOrderResponse result = apiInstance.getAutoOrderByReferenceOrderId(referenceOrderId, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoOrderApi#getAutoOrderByReferenceOrderId");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    AutoOrderApi apiInstance = new AutoOrderApi(defaultClient);
+    String referenceOrderId = "referenceOrderId_example"; // String | The auto order oid to retrieve.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      AutoOrderResponse result = apiInstance.getAutoOrderByReferenceOrderId(referenceOrderId, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoOrderApi#getAutoOrderByReferenceOrderId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **referenceOrderId** | **String**| The auto order oid to retrieve. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **referenceOrderId** | **String**| The auto order oid to retrieve. | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -167,8 +241,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getAutoOrders"></a>
 # **getAutoOrders**
@@ -181,75 +265,93 @@ Retrieves auto orders from the account.  If no parameters are specified, all aut
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoOrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.AutoOrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String autoOrderCode = "autoOrderCode_example"; // String | Auto order code
-String originalOrderId = "originalOrderId_example"; // String | Original order id
-String firstName = "firstName_example"; // String | First name
-String lastName = "lastName_example"; // String | Last name
-String company = "company_example"; // String | Company
-String city = "city_example"; // String | City
-String state = "state_example"; // String | State
-String postalCode = "postalCode_example"; // String | Postal code
-String countryCode = "countryCode_example"; // String | Country code (ISO-3166 two letter)
-String phone = "phone_example"; // String | Phone
-String email = "email_example"; // String | Email
-String originalOrderDateBegin = "originalOrderDateBegin_example"; // String | Original order date begin
-String originalOrderDateEnd = "originalOrderDateEnd_example"; // String | Original order date end
-String nextShipmentDateBegin = "nextShipmentDateBegin_example"; // String | Next shipment date begin
-String nextShipmentDateEnd = "nextShipmentDateEnd_example"; // String | Next shipment date end
-String cardType = "cardType_example"; // String | Card type
-String itemId = "itemId_example"; // String | Item ID
-String status = "status_example"; // String | Status
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String since = "since_example"; // String | Fetch auto orders that have been created/modified since this date/time.
-String sort = "sort_example"; // String | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    AutoOrdersResponse result = apiInstance.getAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoOrderApi#getAutoOrders");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    AutoOrderApi apiInstance = new AutoOrderApi(defaultClient);
+    String autoOrderCode = "autoOrderCode_example"; // String | Auto order code
+    String originalOrderId = "originalOrderId_example"; // String | Original order id
+    String firstName = "firstName_example"; // String | First name
+    String lastName = "lastName_example"; // String | Last name
+    String company = "company_example"; // String | Company
+    String city = "city_example"; // String | City
+    String state = "state_example"; // String | State
+    String postalCode = "postalCode_example"; // String | Postal code
+    String countryCode = "countryCode_example"; // String | Country code (ISO-3166 two letter)
+    String phone = "phone_example"; // String | Phone
+    String email = "email_example"; // String | Email
+    String originalOrderDateBegin = "originalOrderDateBegin_example"; // String | Original order date begin
+    String originalOrderDateEnd = "originalOrderDateEnd_example"; // String | Original order date end
+    String nextShipmentDateBegin = "nextShipmentDateBegin_example"; // String | Next shipment date begin
+    String nextShipmentDateEnd = "nextShipmentDateEnd_example"; // String | Next shipment date end
+    String cardType = "cardType_example"; // String | Card type
+    String itemId = "itemId_example"; // String | Item ID
+    String status = "status_example"; // String | Status
+    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
+    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+    String since = "since_example"; // String | Fetch auto orders that have been created/modified since this date/time.
+    String sort = "sort_example"; // String | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      AutoOrdersResponse result = apiInstance.getAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoOrderApi#getAutoOrders");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrderCode** | **String**| Auto order code | [optional]
- **originalOrderId** | **String**| Original order id | [optional]
- **firstName** | **String**| First name | [optional]
- **lastName** | **String**| Last name | [optional]
- **company** | **String**| Company | [optional]
- **city** | **String**| City | [optional]
- **state** | **String**| State | [optional]
- **postalCode** | **String**| Postal code | [optional]
- **countryCode** | **String**| Country code (ISO-3166 two letter) | [optional]
- **phone** | **String**| Phone | [optional]
- **email** | **String**| Email | [optional]
- **originalOrderDateBegin** | **String**| Original order date begin | [optional]
- **originalOrderDateEnd** | **String**| Original order date end | [optional]
- **nextShipmentDateBegin** | **String**| Next shipment date begin | [optional]
- **nextShipmentDateEnd** | **String**| Next shipment date end | [optional]
- **cardType** | **String**| Card type | [optional]
- **itemId** | **String**| Item ID | [optional]
- **status** | **String**| Status | [optional]
- **limit** | **Integer**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
- **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **since** | **String**| Fetch auto orders that have been created/modified since this date/time. | [optional]
- **sort** | **String**| The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderCode** | **String**| Auto order code | [optional] |
+| **originalOrderId** | **String**| Original order id | [optional] |
+| **firstName** | **String**| First name | [optional] |
+| **lastName** | **String**| Last name | [optional] |
+| **company** | **String**| Company | [optional] |
+| **city** | **String**| City | [optional] |
+| **state** | **String**| State | [optional] |
+| **postalCode** | **String**| Postal code | [optional] |
+| **countryCode** | **String**| Country code (ISO-3166 two letter) | [optional] |
+| **phone** | **String**| Phone | [optional] |
+| **email** | **String**| Email | [optional] |
+| **originalOrderDateBegin** | **String**| Original order date begin | [optional] |
+| **originalOrderDateEnd** | **String**| Original order date end | [optional] |
+| **nextShipmentDateBegin** | **String**| Next shipment date begin | [optional] |
+| **nextShipmentDateEnd** | **String**| Next shipment date end | [optional] |
+| **cardType** | **String**| Card type | [optional] |
+| **itemId** | **String**| Item ID | [optional] |
+| **status** | **String**| Status | [optional] |
+| **limit** | **Integer**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100] |
+| **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
+| **since** | **String**| Fetch auto orders that have been created/modified since this date/time. | [optional] |
+| **sort** | **String**| The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -261,8 +363,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getAutoOrdersBatch"></a>
 # **getAutoOrdersBatch**
@@ -275,33 +387,51 @@ Retrieves a group of auto orders from the account based on an array of auto orde
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoOrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.AutoOrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-AutoOrderQueryBatch autoOrderBatch = new AutoOrderQueryBatch(); // AutoOrderQueryBatch | Auto order batch
-String expand = "expand_example"; // String | The object expansion to perform on the result.
-try {
-    AutoOrdersResponse result = apiInstance.getAutoOrdersBatch(autoOrderBatch, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoOrderApi#getAutoOrdersBatch");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    AutoOrderApi apiInstance = new AutoOrderApi(defaultClient);
+    AutoOrderQueryBatch autoOrderBatch = new AutoOrderQueryBatch(); // AutoOrderQueryBatch | Auto order batch
+    String expand = "expand_example"; // String | The object expansion to perform on the result.
+    try {
+      AutoOrdersResponse result = apiInstance.getAutoOrdersBatch(autoOrderBatch, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoOrderApi#getAutoOrdersBatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrderBatch** | [**AutoOrderQueryBatch**](AutoOrderQueryBatch.md)| Auto order batch |
- **expand** | **String**| The object expansion to perform on the result. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderBatch** | [**AutoOrderQueryBatch**](AutoOrderQueryBatch.md)| Auto order batch | |
+| **expand** | **String**| The object expansion to perform on the result. | [optional] |
 
 ### Return type
 
@@ -315,6 +445,16 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getAutoOrdersByQuery"></a>
 # **getAutoOrdersByQuery**
@@ -327,39 +467,57 @@ Retrieves a group of auto orders from the account based on a query object.  You 
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoOrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.AutoOrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-AutoOrderQuery autoOrderQuery = new AutoOrderQuery(); // AutoOrderQuery | Auto order query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.
-try {
-    AutoOrdersResponse result = apiInstance.getAutoOrdersByQuery(autoOrderQuery, limit, offset, sort, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoOrderApi#getAutoOrdersByQuery");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    AutoOrderApi apiInstance = new AutoOrderApi(defaultClient);
+    AutoOrderQuery autoOrderQuery = new AutoOrderQuery(); // AutoOrderQuery | Auto order query
+    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
+    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+    String sort = "sort_example"; // String | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.
+    try {
+      AutoOrdersResponse result = apiInstance.getAutoOrdersByQuery(autoOrderQuery, limit, offset, sort, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoOrderApi#getAutoOrdersByQuery");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrderQuery** | [**AutoOrderQuery**](AutoOrderQuery.md)| Auto order query |
- **limit** | **Integer**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
- **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **String**| The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
- **expand** | **String**| The object expansion to perform on the result. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderQuery** | [**AutoOrderQuery**](AutoOrderQuery.md)| Auto order query | |
+| **limit** | **Integer**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100] |
+| **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
+| **sort** | **String**| The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] |
+| **expand** | **String**| The object expansion to perform on the result. | [optional] |
 
 ### Return type
 
@@ -374,9 +532,19 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="updateAutoOrder"></a>
 # **updateAutoOrder**
-> AutoOrderResponse updateAutoOrder(autoOrder, autoOrderOid, expand)
+> AutoOrderResponse updateAutoOrder(autoOrderOid, autoOrder, expand)
 
 Update an auto order
 
@@ -385,35 +553,53 @@ Update an auto order on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoOrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.AutoOrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
-Integer autoOrderOid = 56; // Integer | The auto order oid to update.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    AutoOrderResponse result = apiInstance.updateAutoOrder(autoOrder, autoOrderOid, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoOrderApi#updateAutoOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    AutoOrderApi apiInstance = new AutoOrderApi(defaultClient);
+    Integer autoOrderOid = 56; // Integer | The auto order oid to update.
+    AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      AutoOrderResponse result = apiInstance.updateAutoOrder(autoOrderOid, autoOrder, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoOrderApi#updateAutoOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update |
- **autoOrderOid** | **Integer**| The auto order oid to update. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to update. | |
+| **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -428,6 +614,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="updateAutoOrdersBatch"></a>
 # **updateAutoOrdersBatch**
 > AutoOrdersResponse updateAutoOrdersBatch(autoOrdersRequest, expand, placeholders, async)
@@ -439,37 +635,55 @@ Update multiple auto orders on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.AutoOrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.AutoOrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-AutoOrdersRequest autoOrdersRequest = new AutoOrdersRequest(); // AutoOrdersRequest | Auto orders to update (synchronous maximum 20 / asynchronous maximum 100)
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-Boolean async = true; // Boolean | True if the operation should be run async.  No result returned
-try {
-    AutoOrdersResponse result = apiInstance.updateAutoOrdersBatch(autoOrdersRequest, expand, placeholders, async);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AutoOrderApi#updateAutoOrdersBatch");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    AutoOrderApi apiInstance = new AutoOrderApi(defaultClient);
+    AutoOrdersRequest autoOrdersRequest = new AutoOrdersRequest(); // AutoOrdersRequest | Auto orders to update (synchronous maximum 20 / asynchronous maximum 100)
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+    Boolean async = true; // Boolean | True if the operation should be run async.  No result returned
+    try {
+      AutoOrdersResponse result = apiInstance.updateAutoOrdersBatch(autoOrdersRequest, expand, placeholders, async);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoOrderApi#updateAutoOrdersBatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrdersRequest** | [**AutoOrdersRequest**](AutoOrdersRequest.md)| Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
- **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
- **async** | **Boolean**| True if the operation should be run async.  No result returned | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrdersRequest** | [**AutoOrdersRequest**](AutoOrdersRequest.md)| Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+| **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] |
+| **async** | **Boolean**| True if the operation should be run async.  No result returned | [optional] |
 
 ### Return type
 
@@ -483,4 +697,14 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 

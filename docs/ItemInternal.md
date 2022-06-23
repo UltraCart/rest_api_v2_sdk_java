@@ -1,10 +1,13 @@
 
+
 # ItemInternal
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**memo** | **String** | Memo |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**memo** | **String** | Memo |  [optional] |
 
 
 

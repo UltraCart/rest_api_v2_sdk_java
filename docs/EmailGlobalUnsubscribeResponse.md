@@ -1,10 +1,13 @@
 
+
 # EmailGlobalUnsubscribeResponse
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**listsUnsubscribed** | **Integer** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**listsUnsubscribed** | **Integer** |  |  [optional] |
 
 
 

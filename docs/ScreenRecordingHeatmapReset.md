@@ -1,10 +1,13 @@
 
+
 # ScreenRecordingHeatmapReset
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**url** | **String** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**url** | **String** |  |  [optional] |
 
 
 

@@ -1,11 +1,14 @@
 
+
 # ItemPricingTierDiscount
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**cost** | [**BigDecimal**](BigDecimal.md) | Cost |  [optional]
-**quantity** | **Integer** | Quantity |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**cost** | **BigDecimal** | Cost |  [optional] |
+|**quantity** | **Integer** | Quantity |  [optional] |
 
 
 

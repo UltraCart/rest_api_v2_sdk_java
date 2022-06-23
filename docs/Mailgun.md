@@ -1,10 +1,13 @@
 
+
 # Mailgun
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**apiKey** | **String** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**apiKey** | **String** |  |  [optional] |
 
 
 

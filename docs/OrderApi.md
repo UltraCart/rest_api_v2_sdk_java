@@ -2,31 +2,31 @@
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**adjustOrderTotal**](OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
-[**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
-[**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
-[**duplicateOrder**](OrderApi.md#duplicateOrder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
-[**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
-[**generateOrderToken**](OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
-[**generatePackingSlipAllDC**](OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
-[**generatePackingSlipSpecificDC**](OrderApi.md#generatePackingSlipSpecificDC) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
-[**getAccountsReceivableRetryConfig**](OrderApi.md#getAccountsReceivableRetryConfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
-[**getAccountsReceivableRetryStats**](OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
-[**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
-[**getOrderByToken**](OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
-[**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
-[**getOrdersBatch**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
-[**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
-[**insertOrder**](OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order
-[**processPayment**](OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
-[**refundOrder**](OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
-[**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
-[**resendReceipt**](OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
-[**resendShipmentConfirmation**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
-[**updateAccountsReceivableRetryConfig**](OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
-[**updateOrder**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**adjustOrderTotal**](OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total |
+| [**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order |
+| [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order |
+| [**duplicateOrder**](OrderApi.md#duplicateOrder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order |
+| [**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order |
+| [**generateOrderToken**](OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id |
+| [**generatePackingSlipAllDC**](OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers. |
+| [**generatePackingSlipSpecificDC**](OrderApi.md#generatePackingSlipSpecificDC) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center. |
+| [**getAccountsReceivableRetryConfig**](OrderApi.md#getAccountsReceivableRetryConfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration |
+| [**getAccountsReceivableRetryStats**](OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics |
+| [**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order |
+| [**getOrderByToken**](OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token |
+| [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders |
+| [**getOrdersBatch**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch |
+| [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query |
+| [**insertOrder**](OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order |
+| [**processPayment**](OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment |
+| [**refundOrder**](OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order |
+| [**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order |
+| [**resendReceipt**](OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt |
+| [**resendShipmentConfirmation**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation |
+| [**updateAccountsReceivableRetryConfig**](OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration |
+| [**updateOrder**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order |
 
 
 <a name="adjustOrderTotal"></a>
@@ -40,33 +40,51 @@ Adjusts an order total.  Adjusts individual items appropriately and considers ta
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to cancel.
-String desiredTotal = "desiredTotal_example"; // String | The desired total with no formatting. example 123.45
-try {
-    BaseResponse result = apiInstance.adjustOrderTotal(orderId, desiredTotal);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#adjustOrderTotal");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to cancel.
+    String desiredTotal = "desiredTotal_example"; // String | The desired total with no formatting. example 123.45
+    try {
+      BaseResponse result = apiInstance.adjustOrderTotal(orderId, desiredTotal);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#adjustOrderTotal");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to cancel. |
- **desiredTotal** | **String**| The desired total with no formatting. example 123.45 |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to cancel. | |
+| **desiredTotal** | **String**| The desired total with no formatting. example 123.45 | |
 
 ### Return type
 
@@ -78,8 +96,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="cancelOrder"></a>
 # **cancelOrder**
@@ -92,31 +120,49 @@ Cancel an order on the UltraCart account.  If the success flag is false, then co
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to cancel.
-try {
-    BaseResponse result = apiInstance.cancelOrder(orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#cancelOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to cancel.
+    try {
+      BaseResponse result = apiInstance.cancelOrder(orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#cancelOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to cancel. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to cancel. | |
 
 ### Return type
 
@@ -128,8 +174,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="deleteOrder"></a>
 # **deleteOrder**
@@ -142,30 +198,48 @@ Delete an order on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to delete.
-try {
-    apiInstance.deleteOrder(orderId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#deleteOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to delete.
+    try {
+      apiInstance.deleteOrder(orderId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#deleteOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to delete. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to delete. | |
 
 ### Return type
 
@@ -177,8 +251,18 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="duplicateOrder"></a>
 # **duplicateOrder**
@@ -191,33 +275,51 @@ Perform a duplicate of the specified order_id and return a new order located in 
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to duplicate.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    OrderResponse result = apiInstance.duplicateOrder(orderId, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#duplicateOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to duplicate.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      OrderResponse result = apiInstance.duplicateOrder(orderId, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#duplicateOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to duplicate. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to duplicate. | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -229,8 +331,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="format"></a>
 # **format**
@@ -243,33 +355,51 @@ Format the order for display at text or html
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to format
-OrderFormat formatOptions = new OrderFormat(); // OrderFormat | Format options
-try {
-    OrderFormatResponse result = apiInstance.format(orderId, formatOptions);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#format");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to format
+    OrderFormat formatOptions = new OrderFormat(); // OrderFormat | Format options
+    try {
+      OrderFormatResponse result = apiInstance.format(orderId, formatOptions);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#format");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to format |
- **formatOptions** | [**OrderFormat**](OrderFormat.md)| Format options |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to format | |
+| **formatOptions** | [**OrderFormat**](OrderFormat.md)| Format options | |
 
 ### Return type
 
@@ -284,6 +414,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="generateOrderToken"></a>
 # **generateOrderToken**
 > OrderTokenResponse generateOrderToken(orderId)
@@ -295,31 +435,49 @@ Retrieves a single order token for a given order id.  The token can be used with
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to generate a token for.
-try {
-    OrderTokenResponse result = apiInstance.generateOrderToken(orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#generateOrderToken");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to generate a token for.
+    try {
+      OrderTokenResponse result = apiInstance.generateOrderToken(orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#generateOrderToken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to generate a token for. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to generate a token for. | |
 
 ### Return type
 
@@ -331,8 +489,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="generatePackingSlipAllDC"></a>
 # **generatePackingSlipAllDC**
@@ -345,31 +513,49 @@ The packing slip PDF that is returned is base 64 encoded
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | Order ID
-try {
-    OrderPackingSlipResponse result = apiInstance.generatePackingSlipAllDC(orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#generatePackingSlipAllDC");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | Order ID
+    try {
+      OrderPackingSlipResponse result = apiInstance.generatePackingSlipAllDC(orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#generatePackingSlipAllDC");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| Order ID |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| Order ID | |
 
 ### Return type
 
@@ -381,8 +567,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="generatePackingSlipSpecificDC"></a>
 # **generatePackingSlipSpecificDC**
@@ -395,33 +591,51 @@ The packing slip PDF that is returned is base 64 encoded
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
-String orderId = "orderId_example"; // String | Order ID
-try {
-    OrderPackingSlipResponse result = apiInstance.generatePackingSlipSpecificDC(distributionCenterCode, orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#generatePackingSlipSpecificDC");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+    String orderId = "orderId_example"; // String | Order ID
+    try {
+      OrderPackingSlipResponse result = apiInstance.generatePackingSlipSpecificDC(distributionCenterCode, orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#generatePackingSlipSpecificDC");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **distributionCenterCode** | **String**| Distribution center code |
- **orderId** | **String**| Order ID |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **distributionCenterCode** | **String**| Distribution center code | |
+| **orderId** | **String**| Order ID | |
 
 ### Return type
 
@@ -433,8 +647,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getAccountsReceivableRetryConfig"></a>
 # **getAccountsReceivableRetryConfig**
@@ -447,22 +671,40 @@ Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-try {
-    AccountsReceivableRetryConfigResponse result = apiInstance.getAccountsReceivableRetryConfig();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#getAccountsReceivableRetryConfig");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    try {
+      AccountsReceivableRetryConfigResponse result = apiInstance.getAccountsReceivableRetryConfig();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#getAccountsReceivableRetryConfig");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -479,8 +721,18 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getAccountsReceivableRetryStats"></a>
 # **getAccountsReceivableRetryStats**
@@ -493,33 +745,51 @@ Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is do
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String from = "from_example"; // String | 
-String to = "to_example"; // String | 
-try {
-    AccountsReceivableRetryStatsResponse result = apiInstance.getAccountsReceivableRetryStats(from, to);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#getAccountsReceivableRetryStats");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String from = "from_example"; // String | 
+    String to = "to_example"; // String | 
+    try {
+      AccountsReceivableRetryStatsResponse result = apiInstance.getAccountsReceivableRetryStats(from, to);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#getAccountsReceivableRetryStats");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | **String**|  | [optional]
- **to** | **String**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **from** | **String**|  | [optional] |
+| **to** | **String**|  | [optional] |
 
 ### Return type
 
@@ -531,8 +801,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getOrder"></a>
 # **getOrder**
@@ -545,33 +825,51 @@ Retrieves a single order using the specified order id.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to retrieve.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    OrderResponse result = apiInstance.getOrder(orderId, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#getOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to retrieve.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      OrderResponse result = apiInstance.getOrder(orderId, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#getOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to retrieve. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to retrieve. | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -583,8 +881,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getOrderByToken"></a>
 # **getOrderByToken**
@@ -597,33 +905,51 @@ Retrieves a single order using the specified order token.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-OrderByTokenQuery orderByTokenQuery = new OrderByTokenQuery(); // OrderByTokenQuery | Order by token query
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    OrderResponse result = apiInstance.getOrderByToken(orderByTokenQuery, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#getOrderByToken");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    OrderByTokenQuery orderByTokenQuery = new OrderByTokenQuery(); // OrderByTokenQuery | Order by token query
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      OrderResponse result = apiInstance.getOrderByToken(orderByTokenQuery, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#getOrderByToken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderByTokenQuery** | [**OrderByTokenQuery**](OrderByTokenQuery.md)| Order by token query |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderByTokenQuery** | [**OrderByTokenQuery**](OrderByTokenQuery.md)| Order by token query | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -638,6 +964,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="getOrders"></a>
 # **getOrders**
 > OrdersResponse getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand)
@@ -649,91 +985,109 @@ Retrieves a group of orders from the account.  If no parameters are specified, t
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | Order Id
-String paymentMethod = "paymentMethod_example"; // String | Payment Method
-String company = "company_example"; // String | Company
-String firstName = "firstName_example"; // String | First Name
-String lastName = "lastName_example"; // String | Last Name
-String city = "city_example"; // String | City
-String stateRegion = "stateRegion_example"; // String | State/Region
-String postalCode = "postalCode_example"; // String | Postal Code
-String countryCode = "countryCode_example"; // String | Country Code (ISO-3166 two letter)
-String phone = "phone_example"; // String | Phone
-String email = "email_example"; // String | Email
-String ccEmail = "ccEmail_example"; // String | CC Email
-BigDecimal total = new BigDecimal(); // BigDecimal | Total
-String screenBrandingThemeCode = "screenBrandingThemeCode_example"; // String | Screen Branding Theme Code
-String storefrontHostName = "storefrontHostName_example"; // String | StoreFront Host Name
-String creationDateBegin = "creationDateBegin_example"; // String | Creation Date Begin
-String creationDateEnd = "creationDateEnd_example"; // String | Creation Date End
-String paymentDateBegin = "paymentDateBegin_example"; // String | Payment Date Begin
-String paymentDateEnd = "paymentDateEnd_example"; // String | Payment Date End
-String shipmentDateBegin = "shipmentDateBegin_example"; // String | Shipment Date Begin
-String shipmentDateEnd = "shipmentDateEnd_example"; // String | Shipment Date End
-String rma = "rma_example"; // String | RMA
-String purchaseOrderNumber = "purchaseOrderNumber_example"; // String | Purchase Order Number
-String itemId = "itemId_example"; // String | Item Id
-String currentStage = "currentStage_example"; // String | Current Stage
-String channelPartnerCode = "channelPartnerCode_example"; // String | Channel Partner Code
-String channelPartnerOrderId = "channelPartnerOrderId_example"; // String | Channel Partner Order ID
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.
-try {
-    OrdersResponse result = apiInstance.getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#getOrders");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | Order Id
+    String paymentMethod = "paymentMethod_example"; // String | Payment Method
+    String company = "company_example"; // String | Company
+    String firstName = "firstName_example"; // String | First Name
+    String lastName = "lastName_example"; // String | Last Name
+    String city = "city_example"; // String | City
+    String stateRegion = "stateRegion_example"; // String | State/Region
+    String postalCode = "postalCode_example"; // String | Postal Code
+    String countryCode = "countryCode_example"; // String | Country Code (ISO-3166 two letter)
+    String phone = "phone_example"; // String | Phone
+    String email = "email_example"; // String | Email
+    String ccEmail = "ccEmail_example"; // String | CC Email
+    BigDecimal total = new BigDecimal(78); // BigDecimal | Total
+    String screenBrandingThemeCode = "screenBrandingThemeCode_example"; // String | Screen Branding Theme Code
+    String storefrontHostName = "storefrontHostName_example"; // String | StoreFront Host Name
+    String creationDateBegin = "creationDateBegin_example"; // String | Creation Date Begin
+    String creationDateEnd = "creationDateEnd_example"; // String | Creation Date End
+    String paymentDateBegin = "paymentDateBegin_example"; // String | Payment Date Begin
+    String paymentDateEnd = "paymentDateEnd_example"; // String | Payment Date End
+    String shipmentDateBegin = "shipmentDateBegin_example"; // String | Shipment Date Begin
+    String shipmentDateEnd = "shipmentDateEnd_example"; // String | Shipment Date End
+    String rma = "rma_example"; // String | RMA
+    String purchaseOrderNumber = "purchaseOrderNumber_example"; // String | Purchase Order Number
+    String itemId = "itemId_example"; // String | Item Id
+    String currentStage = "currentStage_example"; // String | Current Stage
+    String channelPartnerCode = "channelPartnerCode_example"; // String | Channel Partner Code
+    String channelPartnerOrderId = "channelPartnerOrderId_example"; // String | Channel Partner Order ID
+    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
+    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+    String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.
+    try {
+      OrdersResponse result = apiInstance.getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#getOrders");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| Order Id | [optional]
- **paymentMethod** | **String**| Payment Method | [optional]
- **company** | **String**| Company | [optional]
- **firstName** | **String**| First Name | [optional]
- **lastName** | **String**| Last Name | [optional]
- **city** | **String**| City | [optional]
- **stateRegion** | **String**| State/Region | [optional]
- **postalCode** | **String**| Postal Code | [optional]
- **countryCode** | **String**| Country Code (ISO-3166 two letter) | [optional]
- **phone** | **String**| Phone | [optional]
- **email** | **String**| Email | [optional]
- **ccEmail** | **String**| CC Email | [optional]
- **total** | **BigDecimal**| Total | [optional]
- **screenBrandingThemeCode** | **String**| Screen Branding Theme Code | [optional]
- **storefrontHostName** | **String**| StoreFront Host Name | [optional]
- **creationDateBegin** | **String**| Creation Date Begin | [optional]
- **creationDateEnd** | **String**| Creation Date End | [optional]
- **paymentDateBegin** | **String**| Payment Date Begin | [optional]
- **paymentDateEnd** | **String**| Payment Date End | [optional]
- **shipmentDateBegin** | **String**| Shipment Date Begin | [optional]
- **shipmentDateEnd** | **String**| Shipment Date End | [optional]
- **rma** | **String**| RMA | [optional]
- **purchaseOrderNumber** | **String**| Purchase Order Number | [optional]
- **itemId** | **String**| Item Id | [optional]
- **currentStage** | **String**| Current Stage | [optional]
- **channelPartnerCode** | **String**| Channel Partner Code | [optional]
- **channelPartnerOrderId** | **String**| Channel Partner Order ID | [optional]
- **limit** | **Integer**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
- **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **String**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
- **expand** | **String**| The object expansion to perform on the result. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| Order Id | [optional] |
+| **paymentMethod** | **String**| Payment Method | [optional] |
+| **company** | **String**| Company | [optional] |
+| **firstName** | **String**| First Name | [optional] |
+| **lastName** | **String**| Last Name | [optional] |
+| **city** | **String**| City | [optional] |
+| **stateRegion** | **String**| State/Region | [optional] |
+| **postalCode** | **String**| Postal Code | [optional] |
+| **countryCode** | **String**| Country Code (ISO-3166 two letter) | [optional] |
+| **phone** | **String**| Phone | [optional] |
+| **email** | **String**| Email | [optional] |
+| **ccEmail** | **String**| CC Email | [optional] |
+| **total** | **BigDecimal**| Total | [optional] |
+| **screenBrandingThemeCode** | **String**| Screen Branding Theme Code | [optional] |
+| **storefrontHostName** | **String**| StoreFront Host Name | [optional] |
+| **creationDateBegin** | **String**| Creation Date Begin | [optional] |
+| **creationDateEnd** | **String**| Creation Date End | [optional] |
+| **paymentDateBegin** | **String**| Payment Date Begin | [optional] |
+| **paymentDateEnd** | **String**| Payment Date End | [optional] |
+| **shipmentDateBegin** | **String**| Shipment Date Begin | [optional] |
+| **shipmentDateEnd** | **String**| Shipment Date End | [optional] |
+| **rma** | **String**| RMA | [optional] |
+| **purchaseOrderNumber** | **String**| Purchase Order Number | [optional] |
+| **itemId** | **String**| Item Id | [optional] |
+| **currentStage** | **String**| Current Stage | [optional] |
+| **channelPartnerCode** | **String**| Channel Partner Code | [optional] |
+| **channelPartnerOrderId** | **String**| Channel Partner Order ID | [optional] |
+| **limit** | **Integer**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100] |
+| **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
+| **sort** | **String**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] |
+| **expand** | **String**| The object expansion to perform on the result. | [optional] |
 
 ### Return type
 
@@ -745,8 +1099,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getOrdersBatch"></a>
 # **getOrdersBatch**
@@ -759,33 +1123,51 @@ Retrieves a group of orders from the account based on an array of order ids.  If
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-OrderQueryBatch orderBatch = new OrderQueryBatch(); // OrderQueryBatch | Order batch
-String expand = "expand_example"; // String | The object expansion to perform on the result.
-try {
-    OrdersResponse result = apiInstance.getOrdersBatch(orderBatch, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#getOrdersBatch");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    OrderQueryBatch orderBatch = new OrderQueryBatch(); // OrderQueryBatch | Order batch
+    String expand = "expand_example"; // String | The object expansion to perform on the result.
+    try {
+      OrdersResponse result = apiInstance.getOrdersBatch(orderBatch, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#getOrdersBatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderBatch** | [**OrderQueryBatch**](OrderQueryBatch.md)| Order batch |
- **expand** | **String**| The object expansion to perform on the result. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderBatch** | [**OrderQueryBatch**](OrderQueryBatch.md)| Order batch | |
+| **expand** | **String**| The object expansion to perform on the result. | [optional] |
 
 ### Return type
 
@@ -799,6 +1181,16 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getOrdersByQuery"></a>
 # **getOrdersByQuery**
@@ -811,39 +1203,57 @@ Retrieves a group of orders from the account based on a query object.  If no par
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-OrderQuery orderQuery = new OrderQuery(); // OrderQuery | Order query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.
-try {
-    OrdersResponse result = apiInstance.getOrdersByQuery(orderQuery, limit, offset, sort, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#getOrdersByQuery");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    OrderQuery orderQuery = new OrderQuery(); // OrderQuery | Order query
+    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
+    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+    String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+    String expand = "expand_example"; // String | The object expansion to perform on the result.
+    try {
+      OrdersResponse result = apiInstance.getOrdersByQuery(orderQuery, limit, offset, sort, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#getOrdersByQuery");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderQuery** | [**OrderQuery**](OrderQuery.md)| Order query |
- **limit** | **Integer**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
- **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **String**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
- **expand** | **String**| The object expansion to perform on the result. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderQuery** | [**OrderQuery**](OrderQuery.md)| Order query | |
+| **limit** | **Integer**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100] |
+| **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
+| **sort** | **String**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] |
+| **expand** | **String**| The object expansion to perform on the result. | [optional] |
 
 ### Return type
 
@@ -858,6 +1268,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="insertOrder"></a>
 # **insertOrder**
 > OrderResponse insertOrder(order, expand)
@@ -869,33 +1289,51 @@ Inserts a new order on the UltraCart account.  This is probably NOT the method y
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Order order = new Order(); // Order | Order to insert
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    OrderResponse result = apiInstance.insertOrder(order, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#insertOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    Order order = new Order(); // Order | Order to insert
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      OrderResponse result = apiInstance.insertOrder(order, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#insertOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order** | [**Order**](Order.md)| Order to insert |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **order** | [**Order**](Order.md)| Order to insert | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -910,6 +1348,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="processPayment"></a>
 # **processPayment**
 > OrderProcessPaymentResponse processPayment(orderId, processPaymentRequest)
@@ -921,33 +1369,51 @@ Process payment on order
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to process payment on
-OrderProcessPaymentRequest processPaymentRequest = new OrderProcessPaymentRequest(); // OrderProcessPaymentRequest | Process payment parameters
-try {
-    OrderProcessPaymentResponse result = apiInstance.processPayment(orderId, processPaymentRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#processPayment");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to process payment on
+    OrderProcessPaymentRequest processPaymentRequest = new OrderProcessPaymentRequest(); // OrderProcessPaymentRequest | Process payment parameters
+    try {
+      OrderProcessPaymentResponse result = apiInstance.processPayment(orderId, processPaymentRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#processPayment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to process payment on |
- **processPaymentRequest** | [**OrderProcessPaymentRequest**](OrderProcessPaymentRequest.md)| Process payment parameters |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to process payment on | |
+| **processPaymentRequest** | [**OrderProcessPaymentRequest**](OrderProcessPaymentRequest.md)| Process payment parameters | |
 
 ### Return type
 
@@ -962,9 +1428,19 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="refundOrder"></a>
 # **refundOrder**
-> OrderResponse refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand)
+> OrderResponse refundOrder(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand)
 
 Refund an order
 
@@ -973,45 +1449,63 @@ Perform a refund operation on an order and then update the order if successful
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Order order = new Order(); // Order | Order to refund
-String orderId = "orderId_example"; // String | The order id to refund.
-Boolean rejectAfterRefund = false; // Boolean | Reject order after refund
-Boolean skipCustomerNotification = false; // Boolean | Skip customer email notification
-Boolean autoOrderCancel = false; // Boolean | Cancel associated auto orders
-Boolean manualRefund = false; // Boolean | Consider a manual refund done externally
-Boolean reverseAffiliateTransactions = true; // Boolean | Reverse affiliate transactions
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    OrderResponse result = apiInstance.refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#refundOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to refund.
+    Order order = new Order(); // Order | Order to refund
+    Boolean rejectAfterRefund = false; // Boolean | Reject order after refund
+    Boolean skipCustomerNotification = false; // Boolean | Skip customer email notification
+    Boolean autoOrderCancel = false; // Boolean | Cancel associated auto orders
+    Boolean manualRefund = false; // Boolean | Consider a manual refund done externally
+    Boolean reverseAffiliateTransactions = true; // Boolean | Reverse affiliate transactions
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      OrderResponse result = apiInstance.refundOrder(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#refundOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order** | [**Order**](Order.md)| Order to refund |
- **orderId** | **String**| The order id to refund. |
- **rejectAfterRefund** | **Boolean**| Reject order after refund | [optional] [default to false]
- **skipCustomerNotification** | **Boolean**| Skip customer email notification | [optional] [default to false]
- **autoOrderCancel** | **Boolean**| Cancel associated auto orders | [optional] [default to false]
- **manualRefund** | **Boolean**| Consider a manual refund done externally | [optional] [default to false]
- **reverseAffiliateTransactions** | **Boolean**| Reverse affiliate transactions | [optional] [default to true]
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to refund. | |
+| **order** | [**Order**](Order.md)| Order to refund | |
+| **rejectAfterRefund** | **Boolean**| Reject order after refund | [optional] [default to false] |
+| **skipCustomerNotification** | **Boolean**| Skip customer email notification | [optional] [default to false] |
+| **autoOrderCancel** | **Boolean**| Cancel associated auto orders | [optional] [default to false] |
+| **manualRefund** | **Boolean**| Consider a manual refund done externally | [optional] [default to false] |
+| **reverseAffiliateTransactions** | **Boolean**| Reverse affiliate transactions | [optional] [default to true] |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -1026,6 +1520,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="replacement"></a>
 # **replacement**
 > OrderReplacementResponse replacement(orderId, replacement)
@@ -1037,33 +1541,51 @@ Create a replacement order based upon a previous order
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to generate a replacement for.
-OrderReplacement replacement = new OrderReplacement(); // OrderReplacement | Replacement order details
-try {
-    OrderReplacementResponse result = apiInstance.replacement(orderId, replacement);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#replacement");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to generate a replacement for.
+    OrderReplacement replacement = new OrderReplacement(); // OrderReplacement | Replacement order details
+    try {
+      OrderReplacementResponse result = apiInstance.replacement(orderId, replacement);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#replacement");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to generate a replacement for. |
- **replacement** | [**OrderReplacement**](OrderReplacement.md)| Replacement order details |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to generate a replacement for. | |
+| **replacement** | [**OrderReplacement**](OrderReplacement.md)| Replacement order details | |
 
 ### Return type
 
@@ -1078,6 +1600,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="resendReceipt"></a>
 # **resendReceipt**
 > BaseResponse resendReceipt(orderId)
@@ -1089,31 +1621,49 @@ Resend the receipt for an order on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to resend the receipt for.
-try {
-    BaseResponse result = apiInstance.resendReceipt(orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#resendReceipt");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to resend the receipt for.
+    try {
+      BaseResponse result = apiInstance.resendReceipt(orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#resendReceipt");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to resend the receipt for. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to resend the receipt for. | |
 
 ### Return type
 
@@ -1125,8 +1675,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="resendShipmentConfirmation"></a>
 # **resendShipmentConfirmation**
@@ -1139,31 +1699,49 @@ Resend shipment confirmation for an order on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-String orderId = "orderId_example"; // String | The order id to resend the shipment notification for.
-try {
-    BaseResponse result = apiInstance.resendShipmentConfirmation(orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#resendShipmentConfirmation");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to resend the shipment notification for.
+    try {
+      BaseResponse result = apiInstance.resendShipmentConfirmation(orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#resendShipmentConfirmation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to resend the shipment notification for. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to resend the shipment notification for. | |
 
 ### Return type
 
@@ -1175,8 +1753,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="updateAccountsReceivableRetryConfig"></a>
 # **updateAccountsReceivableRetryConfig**
@@ -1189,31 +1777,49 @@ Update A/R Retry Configuration.  This is primarily an internal API call.  It is 
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-AccountsReceivableRetryConfig retryConfig = new AccountsReceivableRetryConfig(); // AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
-try {
-    BaseResponse result = apiInstance.updateAccountsReceivableRetryConfig(retryConfig);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#updateAccountsReceivableRetryConfig");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    AccountsReceivableRetryConfig retryConfig = new AccountsReceivableRetryConfig(); // AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
+    try {
+      BaseResponse result = apiInstance.updateAccountsReceivableRetryConfig(retryConfig);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#updateAccountsReceivableRetryConfig");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **retryConfig** | [**AccountsReceivableRetryConfig**](AccountsReceivableRetryConfig.md)| AccountsReceivableRetryConfig object |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **retryConfig** | [**AccountsReceivableRetryConfig**](AccountsReceivableRetryConfig.md)| AccountsReceivableRetryConfig object | |
 
 ### Return type
 
@@ -1228,9 +1834,19 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="updateOrder"></a>
 # **updateOrder**
-> OrderResponse updateOrder(order, orderId, expand)
+> OrderResponse updateOrder(orderId, order, expand)
 
 Update an order
 
@@ -1239,35 +1855,53 @@ Update a new order on the UltraCart account.  This is probably NOT the method yo
 ### Example
 ```java
 // Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.swagger.ApiClient;
+import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.swagger.Configuration;
+import com.ultracart.admin.v2.swagger.auth.*;
+import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.OrderApi;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
+    
+    // Configure OAuth2 access token for authorization: ultraCartOauth
+    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
+    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
 
-Order order = new Order(); // Order | Order to update
-String orderId = "orderId_example"; // String | The order id to update.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    OrderResponse result = apiInstance.updateOrder(order, orderId, expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#updateOrder");
-    e.printStackTrace();
+    // Configure API key authorization: ultraCartSimpleApiKey
+    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
+    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
+
+    OrderApi apiInstance = new OrderApi(defaultClient);
+    String orderId = "orderId_example"; // String | The order id to update.
+    Order order = new Order(); // Order | Order to update
+    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+    try {
+      OrderResponse result = apiInstance.updateOrder(orderId, order, expand);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrderApi#updateOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order** | [**Order**](Order.md)| Order to update |
- **orderId** | **String**| The order id to update. |
- **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to update. | |
+| **order** | [**Order**](Order.md)| Order to update | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
 
@@ -1281,4 +1915,14 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 

@@ -1,10 +1,13 @@
 
+
 # BrowserDevice
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**family** | **String** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**family** | **String** |  |  [optional] |
 
 
 

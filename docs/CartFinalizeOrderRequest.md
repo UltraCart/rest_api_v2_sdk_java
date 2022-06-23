@@ -1,11 +1,14 @@
 
+
 # CartFinalizeOrderRequest
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**cart** | [**Cart**](Cart.md) |  |  [optional]
-**options** | [**CartFinalizeOrderRequestOptions**](CartFinalizeOrderRequestOptions.md) |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**cart** | [**Cart**](Cart.md) |  |  [optional] |
+|**options** | [**CartFinalizeOrderRequestOptions**](CartFinalizeOrderRequestOptions.md) |  |  [optional] |
 
 
 
