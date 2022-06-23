@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * EmailSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:27:43.239-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:47:31.010-04:00[America/Indianapolis]")
 public class EmailSettings {
   public static final String SERIALIZED_NAME_MARKETING_ESP_DOMAIN_USER = "marketing_esp_domain_user";
   @SerializedName(SERIALIZED_NAME_MARKETING_ESP_DOMAIN_USER)

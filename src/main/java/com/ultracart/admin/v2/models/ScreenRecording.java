@@ -55,7 +55,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * ScreenRecording
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:27:43.239-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:47:31.010-04:00[America/Indianapolis]")
 public class ScreenRecording {
   public static final String SERIALIZED_NAME_AD_PLATFORM = "ad_platform";
   @SerializedName(SERIALIZED_NAME_AD_PLATFORM)
