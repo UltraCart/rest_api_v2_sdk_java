@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * EmailCommseqWebhookSendTestRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:12:18.213-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:24:31.283-04:00[America/Indianapolis]")
 public class EmailCommseqWebhookSendTestRequest {
   public static final String SERIALIZED_NAME_CART_ID = "cart_id";
   @SerializedName(SERIALIZED_NAME_CART_ID)

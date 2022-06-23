@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * OrderEdi
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:12:18.213-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:24:31.283-04:00[America/Indianapolis]")
 public class OrderEdi {
   public static final String SERIALIZED_NAME_BILL_TO_EDI_CODE = "bill_to_edi_code";
   @SerializedName(SERIALIZED_NAME_BILL_TO_EDI_CODE)

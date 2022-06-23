@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * AccountsReceivableRetryStatAccount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:12:18.213-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:24:31.283-04:00[America/Indianapolis]")
 public class AccountsReceivableRetryStatAccount {
   public static final String SERIALIZED_NAME_DAYS = "days";
   @SerializedName(SERIALIZED_NAME_DAYS)
