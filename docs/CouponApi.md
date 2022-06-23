@@ -36,11 +36,11 @@ Delete a coupon on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -112,11 +112,11 @@ Delete coupons on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -188,11 +188,11 @@ Delete coupons on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -264,11 +264,11 @@ Determines if a coupon merchant code already exists.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -342,11 +342,11 @@ Generate one time codes for a coupon
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -422,11 +422,11 @@ Generate one time codes by merchant code
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -502,11 +502,11 @@ Retrieve auto apply rules and conditions
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -576,11 +576,11 @@ Retrieves a single coupon using the specified coupon profile oid.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -656,11 +656,11 @@ Retrieves a single coupon using the specified merchant code.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -736,11 +736,11 @@ Retrieves coupons for this account.  If no parameters are specified, all coupons
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -838,11 +838,11 @@ Retrieves coupons from the account.  If no parameters are specified, all coupons
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -924,11 +924,11 @@ Retrieve values needed for a coupon editor
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -998,11 +998,11 @@ Insert a coupon on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -1078,11 +1078,11 @@ Insert multiple coupon on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -1160,11 +1160,11 @@ Searches for items to display within a coupon editor and assign to coupons
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -1240,11 +1240,11 @@ Update auto apply rules and conditions
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -1316,11 +1316,11 @@ Update a coupon on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -1398,11 +1398,11 @@ Update multiple coupon on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {
@@ -1482,11 +1482,11 @@ Upload one-time codes for a coupon
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
 
 public class Example {

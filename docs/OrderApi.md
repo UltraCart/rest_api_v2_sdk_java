@@ -40,11 +40,11 @@ Adjusts an order total.  Adjusts individual items appropriately and considers ta
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -120,11 +120,11 @@ Cancel an order on the UltraCart account.  If the success flag is false, then co
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -198,11 +198,11 @@ Delete an order on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -275,11 +275,11 @@ Perform a duplicate of the specified order_id and return a new order located in 
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -355,11 +355,11 @@ Format the order for display at text or html
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -435,11 +435,11 @@ Retrieves a single order token for a given order id.  The token can be used with
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -513,11 +513,11 @@ The packing slip PDF that is returned is base 64 encoded
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -591,11 +591,11 @@ The packing slip PDF that is returned is base 64 encoded
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -671,11 +671,11 @@ Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -745,11 +745,11 @@ Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is do
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -825,11 +825,11 @@ Retrieves a single order using the specified order id.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -905,11 +905,11 @@ Retrieves a single order using the specified order token.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -985,11 +985,11 @@ Retrieves a group of orders from the account.  If no parameters are specified, t
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1123,11 +1123,11 @@ Retrieves a group of orders from the account based on an array of order ids.  If
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1203,11 +1203,11 @@ Retrieves a group of orders from the account based on a query object.  If no par
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1289,11 +1289,11 @@ Inserts a new order on the UltraCart account.  This is probably NOT the method y
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1369,11 +1369,11 @@ Process payment on order
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1449,11 +1449,11 @@ Perform a refund operation on an order and then update the order if successful
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1541,11 +1541,11 @@ Create a replacement order based upon a previous order
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1621,11 +1621,11 @@ Resend the receipt for an order on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1699,11 +1699,11 @@ Resend shipment confirmation for an order on the UltraCart account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1777,11 +1777,11 @@ Update A/R Retry Configuration.  This is primarily an internal API call.  It is 
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {
@@ -1855,11 +1855,11 @@ Update a new order on the UltraCart account.  This is probably NOT the method yo
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
 
 public class Example {

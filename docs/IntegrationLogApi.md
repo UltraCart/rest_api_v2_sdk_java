@@ -22,11 +22,11 @@ Retrieve an integration logs from the account based identifiers
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.IntegrationLogApi;
 
 public class Example {
@@ -102,11 +102,11 @@ Retrieve an integration log file from the account based identifiers
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.IntegrationLogApi;
 
 public class Example {
@@ -184,11 +184,11 @@ Retrieve an integration log file from the account based identifiers
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.IntegrationLogApi;
 
 public class Example {
@@ -266,11 +266,11 @@ Retrieves a set of integration log summaries from the account based on a query o
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.IntegrationLogApi;
 
 public class Example {
@@ -344,11 +344,11 @@ Retrieves a set of integration logs from the account based on a query object.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.IntegrationLogApi;
 
 public class Example {

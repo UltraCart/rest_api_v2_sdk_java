@@ -25,11 +25,11 @@ Adds a ledger entry for this gift certificate.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
 
 public class Example {
@@ -105,11 +105,11 @@ Creates a gift certificate for this merchant account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
 
 public class Example {
@@ -183,11 +183,11 @@ Deletes a gift certificate for this merchant account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
 
 public class Example {
@@ -259,11 +259,11 @@ Retrieves a gift certificate from the account based on the code (the value the c
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
 
 public class Example {
@@ -337,11 +337,11 @@ Retrieves a gift certificate from the account based on the internal primary key.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
 
 public class Example {
@@ -415,11 +415,11 @@ Retrieves all gift certificates from the account based on customer email.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
 
 public class Example {
@@ -493,11 +493,11 @@ Retrieves gift certificates from the account.  If no parameters are specified, a
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
 
 public class Example {
@@ -581,11 +581,11 @@ Update a gift certificate for this merchant account.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
 
 public class Example {

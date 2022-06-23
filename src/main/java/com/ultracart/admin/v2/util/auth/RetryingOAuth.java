@@ -1,7 +1,7 @@
-package com.ultracart.admin.v2.swagger.auth;
+package com.ultracart.admin.v2.util.auth;
 
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Pair;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Pair;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;

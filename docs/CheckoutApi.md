@@ -36,11 +36,11 @@ Look up the city and state for the shipping zip code.  Useful for building an au
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -120,11 +120,11 @@ Finalize the cart into an order.  This method can not be called with browser key
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -198,11 +198,11 @@ Get a Affirm checkout object for the specified cart_id parameter.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -282,11 +282,11 @@ Lookup the allowed countries for this merchant id
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -362,11 +362,11 @@ If the cookie is set on the browser making the request then it will return their
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -446,11 +446,11 @@ Get a cart specified by the cart_id parameter.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -532,11 +532,11 @@ Get a cart specified by the return code parameter.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -618,11 +618,11 @@ Get a cart specified by the encrypted return token parameter.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -704,11 +704,11 @@ Lookup a state/province list for a given country code
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -788,11 +788,11 @@ Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -874,11 +874,11 @@ Login in to the customer profile specified by cart.billing.email and password
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -960,11 +960,11 @@ Log the cart out of the current profile.  No error will occur if they are not lo
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -1046,11 +1046,11 @@ Register a new customer profile.  Requires the cart.billing object to be populat
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -1132,11 +1132,11 @@ Register an affiliate click.  Used by custom checkouts that are completely API b
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -1218,11 +1218,11 @@ Retrieve all the related items for the cart contents.  Expansion is limited to c
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -1304,11 +1304,11 @@ Retrieve all the related items for the cart contents.  Expansion is limited to c
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -1392,11 +1392,11 @@ Setup a browser key authenticated application with checkout permissions.  This R
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -1470,11 +1470,11 @@ Update the cart.
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {
@@ -1556,11 +1556,11 @@ Validate the cart for errors.  Specific checks can be passed and multiple valida
 ### Example
 ```java
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CheckoutApi;
 
 public class Example {

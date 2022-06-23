@@ -43,12 +43,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.ultracart.admin.v2.swagger.JSON;
+import com.ultracart.admin.v2.util.JSON;
 
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:24:31.283-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:37:17.283-04:00[America/Indianapolis]")
 public class OrderSummary {
   public static final String SERIALIZED_NAME_ACTUAL_FULFILLMENT = "actual_fulfillment";
   @SerializedName(SERIALIZED_NAME_ACTUAL_FULFILLMENT)

@@ -11,9 +11,9 @@
  */
 
 
-package com.ultracart.admin.v2.swagger;
+package com.ultracart.admin.v2.util;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:24:31.283-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:37:17.283-04:00[America/Indianapolis]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

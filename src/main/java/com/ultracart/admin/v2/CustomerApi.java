@@ -13,14 +13,14 @@
 
 package com.ultracart.admin.v2;
 
-import com.ultracart.admin.v2.swagger.ApiCallback;
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.ApiResponse;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.Pair;
-import com.ultracart.admin.v2.swagger.ProgressRequestBody;
-import com.ultracart.admin.v2.swagger.ProgressResponseBody;
+import com.ultracart.admin.v2.util.ApiCallback;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.ApiResponse;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.Pair;
+import com.ultracart.admin.v2.util.ProgressRequestBody;
+import com.ultracart.admin.v2.util.ProgressResponseBody;
 
 import com.google.gson.reflect.TypeToken;
 

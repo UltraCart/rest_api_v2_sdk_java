@@ -11,16 +11,16 @@
  */
 
 
-package com.ultracart.admin.v2.swagger.auth;
+package com.ultracart.admin.v2.util.auth;
 
-import com.ultracart.admin.v2.swagger.Pair;
-import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.util.Pair;
+import com.ultracart.admin.v2.util.ApiException;
 
 import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:24:31.283-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:37:17.283-04:00[America/Indianapolis]")
 public class OAuth implements Authentication {
   private String accessToken;
 

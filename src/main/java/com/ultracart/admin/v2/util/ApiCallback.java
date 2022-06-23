@@ -11,7 +11,7 @@
  */
 
 
-package com.ultracart.admin.v2.swagger;
+package com.ultracart.admin.v2.util;
 
 import java.io.IOException;
 

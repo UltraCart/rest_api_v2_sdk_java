@@ -1,4 +1,4 @@
-package com.ultracart.admin.v2.swagger.auth;
+package com.ultracart.admin.v2.util.auth;
 
 import okhttp3.OkHttpClient;
 import okhttp3.MediaType;

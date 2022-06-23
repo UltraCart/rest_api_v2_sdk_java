@@ -11,10 +11,10 @@
  */
 
 
-package com.ultracart.admin.v2.swagger.auth;
+package com.ultracart.admin.v2.util.auth;
 
-import com.ultracart.admin.v2.swagger.Pair;
-import com.ultracart.admin.v2.swagger.ApiException;
+import com.ultracart.admin.v2.util.Pair;
+import com.ultracart.admin.v2.util.ApiException;
 
 import java.net.URI;
 import java.util.Map;

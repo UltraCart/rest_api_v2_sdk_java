@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-06-22T23:24:31.283-04:00[America/Indianapolis]
+  - Build date: 2022-06-22T23:37:17.283-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.19-RC</version>
+  <version>4.0.20-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.19-RC"
+     implementation "com.ultracart:rest-sdk:4.0.20-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.19-RC.jar`
+* `target/rest-sdk-4.0.20-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -81,11 +81,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import com.ultracart.admin.v2.swagger.ApiClient;
-import com.ultracart.admin.v2.swagger.ApiException;
-import com.ultracart.admin.v2.swagger.Configuration;
-import com.ultracart.admin.v2.swagger.auth.*;
-import com.ultracart.admin.v2.swagger.models.*;
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.AffiliateApi;
 
 public class Example {
@@ -1183,6 +1183,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.20-RC | 06/22/2022 | v4 automation testing - not production ready |
 | 4.0.19-RC | 06/22/2022 | v4 automation testing - not production ready |
 | 4.0.18-RC | 06/22/2022 | v4 automation testing - not production ready |
 | 4.0.17-RC | 06/22/2022 | v4 automation testing - not production ready |
