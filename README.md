@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-06-16T15:52:34.213-04:00
+  - Build date: 2022-06-23T00:36:36.606-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.14</version>
+  <version>3.10.17</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.14"
+compile "com.ultracart:rest-sdk:3.10.17"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.14.jar`
+* `target/rest-sdk-3.10.17.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
 *ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/ChannelPartnerApi.md#cancelOrderByChannelPartnerOrderId) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
 *ChannelPartnerApi* | [**cancelOrderByUltraCartOrderId**](docs/ChannelPartnerApi.md#cancelOrderByUltraCartOrderId) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
 *ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateShippingForChannelPartnerOrder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
+*ChannelPartnerApi* | [**estimateTaxForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateTaxForChannelPartnerOrder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
 *ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/ChannelPartnerApi.md#importChannelPartnerOrder) | **POST** /channel_partner/import | Insert channel partner order
 *ChargebackApi* | [**deleteChargeback**](docs/ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/ChargebackApi.md#getChargebackDispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
@@ -150,21 +151,6 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/CheckoutApi.md#setupBrowserKey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/CheckoutApi.md#updateCart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
-*ConfigurationApi* | [**delayAutoOrders**](docs/ConfigurationApi.md#delayAutoOrders) | **POST** /configuration/checkout/payments/rtg/{rtg_oid}/delayAutoOrders | Delay auto order processing for a day for this rotating transaction gateway
-*ConfigurationApi* | [**deleteRotatingTransactionGateway**](docs/ConfigurationApi.md#deleteRotatingTransactionGateway) | **DELETE** /configuration/checkout/payments/rtg/{rtg_oid} | Delete a rotating transaction gateway
-*ConfigurationApi* | [**getPaymentsConfiguration**](docs/ConfigurationApi.md#getPaymentsConfiguration) | **GET** /configuration/checkout/payments | Retrieve payments configuration
-*ConfigurationApi* | [**getPaymentsRotatingGateway**](docs/ConfigurationApi.md#getPaymentsRotatingGateway) | **GET** /configuration/checkout/payments/rtg/{rtg_oid} | Retrieve a rotating transaction gateway
-*ConfigurationApi* | [**getPaymentsRotatingGatewayByCode**](docs/ConfigurationApi.md#getPaymentsRotatingGatewayByCode) | **GET** /configuration/checkout/payments/rtg/byCode/{code} | Retrieve a rotating transaction gateway by code
-*ConfigurationApi* | [**getPaymentsRotatingTransactionGateways**](docs/ConfigurationApi.md#getPaymentsRotatingTransactionGateways) | **GET** /configuration/checkout/payments/rtg | Retrieve a list of rotating transaction gateways
-*ConfigurationApi* | [**getPaymentsRtgSummaries**](docs/ConfigurationApi.md#getPaymentsRtgSummaries) | **GET** /configuration/checkout/payments/rtg/summaries | Retrieve a summary of rotating transaction gateways
-*ConfigurationApi* | [**getPaymentsTransactionGateways**](docs/ConfigurationApi.md#getPaymentsTransactionGateways) | **GET** /configuration/checkout/payments/tg | Retrieve a list of transaction gateways
-*ConfigurationApi* | [**insertRotatingTransactionGateway**](docs/ConfigurationApi.md#insertRotatingTransactionGateway) | **POST** /configuration/checkout/payments/rtg/ | Insert a rotating transaction gateway
-*ConfigurationApi* | [**migrateToRotatingTransactionGateway**](docs/ConfigurationApi.md#migrateToRotatingTransactionGateway) | **POST** /configuration/checkout/payments/tg/migrateToRtgWithCodeOf/{code} | Migrate a normal transaction gateway to a rotating transaction gateway
-*ConfigurationApi* | [**stripeConnect**](docs/ConfigurationApi.md#stripeConnect) | **POST** /configuration/checkout/payments/rtg/{rtg_oid}/stripeConnect | Begin the processing of connecting with Stripe
-*ConfigurationApi* | [**updatePaymentsConfiguration**](docs/ConfigurationApi.md#updatePaymentsConfiguration) | **PUT** /configuration/checkout/payments | Updates payments configuration
-*ConfigurationApi* | [**updatePaymentsTransactionGateway**](docs/ConfigurationApi.md#updatePaymentsTransactionGateway) | **PUT** /configuration/checkout/payments/tg | Updates payments transaction gateway
-*ConfigurationApi* | [**updateRotatingTransactionGateway**](docs/ConfigurationApi.md#updateRotatingTransactionGateway) | **PUT** /configuration/checkout/payments/rtg/{rtg_oid} | Update a rotating transaction gateway
-*ConfigurationApi* | [**wepayEnroll**](docs/ConfigurationApi.md#wepayEnroll) | **PUT** /configuration/checkout/wepayEnroll | Enroll with WePay
 *CouponApi* | [**deleteCoupon**](docs/CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/CouponApi.md#deleteCouponsByOid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -569,6 +555,7 @@ Class | Method | HTTP request | Description
  - [CartValidationResponse](docs/CartValidationResponse.md)
  - [ChannelPartnerCancelResponse](docs/ChannelPartnerCancelResponse.md)
  - [ChannelPartnerEstimateShippingResponse](docs/ChannelPartnerEstimateShippingResponse.md)
+ - [ChannelPartnerEstimateTaxResponse](docs/ChannelPartnerEstimateTaxResponse.md)
  - [ChannelPartnerImportResponse](docs/ChannelPartnerImportResponse.md)
  - [ChannelPartnerOrder](docs/ChannelPartnerOrder.md)
  - [ChannelPartnerOrderItem](docs/ChannelPartnerOrderItem.md)
@@ -681,7 +668,6 @@ Class | Method | HTTP request | Description
  - [CustomerTaxCodes](docs/CustomerTaxCodes.md)
  - [CustomersResponse](docs/CustomersResponse.md)
  - [DataTablesServerSideResponse](docs/DataTablesServerSideResponse.md)
- - [DelayAutoOrdersResponse](docs/DelayAutoOrdersResponse.md)
  - [Distance](docs/Distance.md)
  - [DistributionCenter](docs/DistributionCenter.md)
  - [DistributionCentersResponse](docs/DistributionCentersResponse.md)
@@ -981,30 +967,6 @@ Class | Method | HTTP request | Description
  - [OrderTrackingNumberDetail](docs/OrderTrackingNumberDetail.md)
  - [OrderTrackingNumberDetails](docs/OrderTrackingNumberDetails.md)
  - [OrdersResponse](docs/OrdersResponse.md)
- - [PaymentsConfiguration](docs/PaymentsConfiguration.md)
- - [PaymentsConfigurationAffirm](docs/PaymentsConfigurationAffirm.md)
- - [PaymentsConfigurationAmazon](docs/PaymentsConfigurationAmazon.md)
- - [PaymentsConfigurationCOD](docs/PaymentsConfigurationCOD.md)
- - [PaymentsConfigurationCash](docs/PaymentsConfigurationCash.md)
- - [PaymentsConfigurationCheck](docs/PaymentsConfigurationCheck.md)
- - [PaymentsConfigurationCreditCard](docs/PaymentsConfigurationCreditCard.md)
- - [PaymentsConfigurationCreditCardType](docs/PaymentsConfigurationCreditCardType.md)
- - [PaymentsConfigurationEcheck](docs/PaymentsConfigurationEcheck.md)
- - [PaymentsConfigurationInsurance](docs/PaymentsConfigurationInsurance.md)
- - [PaymentsConfigurationLoanHero](docs/PaymentsConfigurationLoanHero.md)
- - [PaymentsConfigurationMoneyOrder](docs/PaymentsConfigurationMoneyOrder.md)
- - [PaymentsConfigurationPayPal](docs/PaymentsConfigurationPayPal.md)
- - [PaymentsConfigurationPurchaseOrder](docs/PaymentsConfigurationPurchaseOrder.md)
- - [PaymentsConfigurationQuoteRequest](docs/PaymentsConfigurationQuoteRequest.md)
- - [PaymentsConfigurationResponse](docs/PaymentsConfigurationResponse.md)
- - [PaymentsConfigurationRestrictions](docs/PaymentsConfigurationRestrictions.md)
- - [PaymentsConfigurationRestrictionsTheme](docs/PaymentsConfigurationRestrictionsTheme.md)
- - [PaymentsConfigurationSezzle](docs/PaymentsConfigurationSezzle.md)
- - [PaymentsConfigurationTestMethod](docs/PaymentsConfigurationTestMethod.md)
- - [PaymentsConfigurationWePay](docs/PaymentsConfigurationWePay.md)
- - [PaymentsConfigurationWireTransfer](docs/PaymentsConfigurationWireTransfer.md)
- - [PaymentsThemeTransactionType](docs/PaymentsThemeTransactionType.md)
- - [PaymentsWepayEnroll](docs/PaymentsWepayEnroll.md)
  - [Permission](docs/Permission.md)
  - [PricingTier](docs/PricingTier.md)
  - [PricingTierNotification](docs/PricingTierNotification.md)
@@ -1015,15 +977,6 @@ Class | Method | HTTP request | Description
  - [RegisterAffiliateClickResponse](docs/RegisterAffiliateClickResponse.md)
  - [ResponseMetadata](docs/ResponseMetadata.md)
  - [ResultSet](docs/ResultSet.md)
- - [RotatingTransactionGateway](docs/RotatingTransactionGateway.md)
- - [RotatingTransactionGatewayResponse](docs/RotatingTransactionGatewayResponse.md)
- - [RotatingTransactionGatewaysResponse](docs/RotatingTransactionGatewaysResponse.md)
- - [RtgCurrency](docs/RtgCurrency.md)
- - [RtgDayOfMonthRestriction](docs/RtgDayOfMonthRestriction.md)
- - [RtgDayOfWeekRestriction](docs/RtgDayOfWeekRestriction.md)
- - [RtgSummaryGateway](docs/RtgSummaryGateway.md)
- - [RtgSummaryResponse](docs/RtgSummaryResponse.md)
- - [RtgThemeRestriction](docs/RtgThemeRestriction.md)
  - [ScreenRecording](docs/ScreenRecording.md)
  - [ScreenRecordingAdPlatform](docs/ScreenRecordingAdPlatform.md)
  - [ScreenRecordingFilter](docs/ScreenRecordingFilter.md)
@@ -1082,7 +1035,6 @@ Class | Method | HTTP request | Description
  - [SovosConfig](docs/SovosConfig.md)
  - [StateProvince](docs/StateProvince.md)
  - [StepWaiting](docs/StepWaiting.md)
- - [StripeConnectResponse](docs/StripeConnectResponse.md)
  - [TaxCity](docs/TaxCity.md)
  - [TaxCountry](docs/TaxCountry.md)
  - [TaxCountryCode](docs/TaxCountryCode.md)
@@ -1112,9 +1064,6 @@ Class | Method | HTTP request | Description
  - [TransactionEmailListResponse](docs/TransactionEmailListResponse.md)
  - [TransactionEmailOption](docs/TransactionEmailOption.md)
  - [TransactionEmailResponse](docs/TransactionEmailResponse.md)
- - [TransactionGateway](docs/TransactionGateway.md)
- - [TransactionGatewaysRequest](docs/TransactionGatewaysRequest.md)
- - [TransactionGatewaysResponse](docs/TransactionGatewaysResponse.md)
  - [Twilio](docs/Twilio.md)
  - [TwilioResponse](docs/TwilioResponse.md)
  - [TwiliosResponse](docs/TwiliosResponse.md)
@@ -1218,6 +1167,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.17 | 06/23/2022 | automation test |
+| 3.10.16 | 06/23/2022 | automation test |
+| 3.10.15 | 06/21/2022 | ChannelPartnerApi.estimateShipping |
 | 3.10.14 | 06/16/2022 | added createEmailSendingDomain2 to support additional MTAs |
 | 3.10.13 | 06/16/2022 | renamed latest method to avoid conflict between customer profile search and storefront search |
 | 3.10.12 | 06/16/2022 | Customer profile search method to look up tags |

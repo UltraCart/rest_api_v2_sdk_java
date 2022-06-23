@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * LibraryItemQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-16T15:52:34.213-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:36:36.606-04:00")
 
 
 

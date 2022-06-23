@@ -22,28 +22,28 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
-import com.ultracart.admin.v2.models.RotatingTransactionGateway;
 import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
- * RotatingTransactionGatewayResponse
+ * ChannelPartnerEstimateTaxResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-16T15:52:34.213-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:36:36.606-04:00")
 
 
 
-public class RotatingTransactionGatewayResponse {
+public class ChannelPartnerEstimateTaxResponse {
+  @SerializedName("arbitrary_tax")
+  private BigDecimal arbitraryTax = null;
+
   @SerializedName("error")
   private Error error = null;
 
   @SerializedName("metadata")
   private ResponseMetadata metadata = null;
-
-  @SerializedName("rotating_gateway")
-  private RotatingTransactionGateway rotatingGateway = null;
 
   @SerializedName("success")
   private Boolean success = null;
@@ -51,7 +51,25 @@ public class RotatingTransactionGatewayResponse {
   @SerializedName("warning")
   private Warning warning = null;
 
-  public RotatingTransactionGatewayResponse error(Error error) {
+  public ChannelPartnerEstimateTaxResponse arbitraryTax(BigDecimal arbitraryTax) {
+    this.arbitraryTax = arbitraryTax;
+    return this;
+  }
+
+   /**
+   * Get arbitraryTax
+   * @return arbitraryTax
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getArbitraryTax() {
+    return arbitraryTax;
+  }
+
+  public void setArbitraryTax(BigDecimal arbitraryTax) {
+    this.arbitraryTax = arbitraryTax;
+  }
+
+  public ChannelPartnerEstimateTaxResponse error(Error error) {
     this.error = error;
     return this;
   }
@@ -69,7 +87,7 @@ public class RotatingTransactionGatewayResponse {
     this.error = error;
   }
 
-  public RotatingTransactionGatewayResponse metadata(ResponseMetadata metadata) {
+  public ChannelPartnerEstimateTaxResponse metadata(ResponseMetadata metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -87,25 +105,7 @@ public class RotatingTransactionGatewayResponse {
     this.metadata = metadata;
   }
 
-  public RotatingTransactionGatewayResponse rotatingGateway(RotatingTransactionGateway rotatingGateway) {
-    this.rotatingGateway = rotatingGateway;
-    return this;
-  }
-
-   /**
-   * Get rotatingGateway
-   * @return rotatingGateway
-  **/
-  @ApiModelProperty(value = "")
-  public RotatingTransactionGateway getRotatingGateway() {
-    return rotatingGateway;
-  }
-
-  public void setRotatingGateway(RotatingTransactionGateway rotatingGateway) {
-    this.rotatingGateway = rotatingGateway;
-  }
-
-  public RotatingTransactionGatewayResponse success(Boolean success) {
+  public ChannelPartnerEstimateTaxResponse success(Boolean success) {
     this.success = success;
     return this;
   }
@@ -123,7 +123,7 @@ public class RotatingTransactionGatewayResponse {
     this.success = success;
   }
 
-  public RotatingTransactionGatewayResponse warning(Warning warning) {
+  public ChannelPartnerEstimateTaxResponse warning(Warning warning) {
     this.warning = warning;
     return this;
   }
@@ -150,28 +150,28 @@ public class RotatingTransactionGatewayResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RotatingTransactionGatewayResponse rotatingTransactionGatewayResponse = (RotatingTransactionGatewayResponse) o;
-    return Objects.equals(this.error, rotatingTransactionGatewayResponse.error) &&
-        Objects.equals(this.metadata, rotatingTransactionGatewayResponse.metadata) &&
-        Objects.equals(this.rotatingGateway, rotatingTransactionGatewayResponse.rotatingGateway) &&
-        Objects.equals(this.success, rotatingTransactionGatewayResponse.success) &&
-        Objects.equals(this.warning, rotatingTransactionGatewayResponse.warning);
+    ChannelPartnerEstimateTaxResponse channelPartnerEstimateTaxResponse = (ChannelPartnerEstimateTaxResponse) o;
+    return Objects.equals(this.arbitraryTax, channelPartnerEstimateTaxResponse.arbitraryTax) &&
+        Objects.equals(this.error, channelPartnerEstimateTaxResponse.error) &&
+        Objects.equals(this.metadata, channelPartnerEstimateTaxResponse.metadata) &&
+        Objects.equals(this.success, channelPartnerEstimateTaxResponse.success) &&
+        Objects.equals(this.warning, channelPartnerEstimateTaxResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, rotatingGateway, success, warning);
+    return Objects.hash(arbitraryTax, error, metadata, success, warning);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RotatingTransactionGatewayResponse {\n");
+    sb.append("class ChannelPartnerEstimateTaxResponse {\n");
     
+    sb.append("    arbitraryTax: ").append(toIndentedString(arbitraryTax)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    rotatingGateway: ").append(toIndentedString(rotatingGateway)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
