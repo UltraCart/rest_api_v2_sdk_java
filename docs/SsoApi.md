@@ -53,7 +53,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="ssoAuthorize"></a>
@@ -148,7 +148,7 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="ssoToken"></a>

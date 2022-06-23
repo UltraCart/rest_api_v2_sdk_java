@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-06-23T00:36:36.606-04:00
+  - Build date: 2022-06-23T15:06:39.973-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.17</version>
+  <version>3.10.18</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.17"
+compile "com.ultracart:rest-sdk:3.10.18"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.17.jar`
+* `target/rest-sdk-3.10.18.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1167,6 +1167,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.18 | 06/23/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
 | 3.10.17 | 06/23/2022 | automation test |
 | 3.10.16 | 06/23/2022 | automation test |
 | 3.10.15 | 06/21/2022 | ChannelPartnerApi.estimateShipping |
