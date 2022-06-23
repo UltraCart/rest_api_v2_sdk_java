@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * CartSettingsBilling
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:47:31.010-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:55:36.620-04:00[America/Indianapolis]")
 public class CartSettingsBilling {
   public static final String SERIALIZED_NAME_PROVINCES = "provinces";
   @SerializedName(SERIALIZED_NAME_PROVINCES)

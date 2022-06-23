@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * GiftCertificate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:47:31.010-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:55:36.620-04:00[America/Indianapolis]")
 public class GiftCertificate {
   public static final String SERIALIZED_NAME_ACTIVATED = "activated";
   @SerializedName(SERIALIZED_NAME_ACTIVATED)

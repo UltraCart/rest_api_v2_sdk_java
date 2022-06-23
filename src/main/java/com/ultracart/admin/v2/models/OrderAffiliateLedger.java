@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * OrderAffiliateLedger
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:47:31.010-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:55:36.620-04:00[America/Indianapolis]")
 public class OrderAffiliateLedger {
   public static final String SERIALIZED_NAME_ASSIGNED_BY_USER = "assigned_by_user";
   @SerializedName(SERIALIZED_NAME_ASSIGNED_BY_USER)
