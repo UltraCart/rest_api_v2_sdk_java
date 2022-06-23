@@ -5,7 +5,7 @@
     <artifactId>rest-sdk</artifactId>
     <packaging>jar</packaging>
     <name>rest-sdk</name>
-    <version>4.0.23-RC</version>
+    <version>4.0.24-RC</version>
     <url>https://github.com/UltraCart/rest_api_v2_sdk_java</url>
     <description>UltraCart REST SDK</description>
     <scm>
@@ -308,6 +308,19 @@
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
             <version>${jackson-databind-nullable-version}</version>
+        </dependency>
+        <!-- Added (two) manually by UltraCart to address a vulnerability in earlier versions.  Needed by jackson-databind-nullable -->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.7</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.13.3</version>
         </dependency>
         <dependency>
             <groupId>javax.ws.rs</groupId>
