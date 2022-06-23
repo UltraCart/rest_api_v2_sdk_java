@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.swagger.JSON;
 /**
  * ItemRevguard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T22:55:36.620-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T23:12:18.213-04:00[America/Indianapolis]")
 public class ItemRevguard {
   public static final String SERIALIZED_NAME_REVGUARD_CANCELED_CSR_PROMPT_GROUP = "revguard_canceled_csr_prompt_group";
   @SerializedName(SERIALIZED_NAME_REVGUARD_CANCELED_CSR_PROMPT_GROUP)
