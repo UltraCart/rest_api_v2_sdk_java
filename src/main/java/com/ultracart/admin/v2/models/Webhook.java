@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Webhook
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T09:20:07.999-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T15:17:08.601-04:00[America/Indianapolis]")
 public class Webhook {
   public static final String SERIALIZED_NAME_API_USER_OID = "api_user_oid";
   @SerializedName(SERIALIZED_NAME_API_USER_OID)

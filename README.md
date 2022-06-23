@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-06-23T09:20:07.999-04:00[America/Indianapolis]
+  - Build date: 2022-06-23T15:17:08.601-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.24-RC</version>
+  <version>4.0.25-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.24-RC"
+     implementation "com.ultracart:rest-sdk:4.0.25-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.24-RC.jar`
+* `target/rest-sdk-4.0.25-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1183,6 +1183,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.25-RC | 06/23/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
 | 4.0.24-RC | 06/23/2022 | automation test |
 | 4.0.23-RC | 06/23/2022 | automation test |
 | 4.0.22-RC | 06/23/2022 | v4 automation testing - not production ready |
