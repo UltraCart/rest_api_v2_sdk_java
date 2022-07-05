@@ -22,44 +22,32 @@ Acknowledge receipt of orders so that they are removed from the fulfillment queu
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.FulfillmentApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+FulfillmentApi apiInstance = new FulfillmentApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    FulfillmentApi apiInstance = new FulfillmentApi(defaultClient);
-    String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
-    List<String> orderIds = Arrays.asList(); // List<String> | Orders to acknowledge receipt of (limit 100)
-    try {
-      apiInstance.acknowledgeOrders(distributionCenterCode, orderIds);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FulfillmentApi#acknowledgeOrders");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+List<String> orderIds = Arrays.asList(); // List<String> | Orders to acknowledge receipt of (limit 100)
+try {
+    apiInstance.acknowledgeOrders(distributionCenterCodeorderIds);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FulfillmentApi#acknowledgeOrders");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -101,45 +89,33 @@ The packing slip PDF that is returned is base 64 encoded
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.FulfillmentApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+FulfillmentApi apiInstance = new FulfillmentApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    FulfillmentApi apiInstance = new FulfillmentApi(defaultClient);
-    String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
-    String orderId = "orderId_example"; // String | Order ID
-    try {
-      OrdersResponse result = apiInstance.generatePackingSlip(distributionCenterCode, orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FulfillmentApi#generatePackingSlip");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+String orderId = "orderId_example"; // String | Order ID
+try {
+    OrdersResponse result = apiInstance.generatePackingSlip(distributionCenterCodeorderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FulfillmentApi#generatePackingSlip");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -181,44 +157,32 @@ Retrieves up to 100 orders that are queued up in this distribution center.  You 
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.FulfillmentApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+FulfillmentApi apiInstance = new FulfillmentApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    FulfillmentApi apiInstance = new FulfillmentApi(defaultClient);
-    String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
-    try {
-      OrdersResponse result = apiInstance.getDistributionCenterOrders(distributionCenterCode);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FulfillmentApi#getDistributionCenterOrders");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+try {
+    OrdersResponse result = apiInstance.getDistributionCenterOrders(distributionCenterCode);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FulfillmentApi#getDistributionCenterOrders");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -259,43 +223,31 @@ Retrieves the distribution centers that this user has access to.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.FulfillmentApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+FulfillmentApi apiInstance = new FulfillmentApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    FulfillmentApi apiInstance = new FulfillmentApi(defaultClient);
-    try {
-      DistributionCentersResponse result = apiInstance.getDistributionCenters();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FulfillmentApi#getDistributionCenters");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    DistributionCentersResponse result = apiInstance.getDistributionCenters();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FulfillmentApi#getDistributionCenters");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -333,44 +285,32 @@ Store the tracking information and mark the order shipped for this distribution 
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.FulfillmentApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+FulfillmentApi apiInstance = new FulfillmentApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    FulfillmentApi apiInstance = new FulfillmentApi(defaultClient);
-    String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
-    List<FulfillmentShipment> shipments = Arrays.asList(); // List<FulfillmentShipment> | Orders to mark shipped
-    try {
-      apiInstance.shipOrders(distributionCenterCode, shipments);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FulfillmentApi#shipOrders");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+List<FulfillmentShipment> shipments = Arrays.asList(); // List<FulfillmentShipment> | Orders to mark shipped
+try {
+    apiInstance.shipOrders(distributionCenterCodeshipments);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FulfillmentApi#shipOrders");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -412,44 +352,32 @@ Update the inventory for items associated with this distribution center
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.FulfillmentApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+FulfillmentApi apiInstance = new FulfillmentApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    FulfillmentApi apiInstance = new FulfillmentApi(defaultClient);
-    String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
-    List<FulfillmentInventory> inventories = Arrays.asList(); // List<FulfillmentInventory> | Inventory updates (limit 500)
-    try {
-      apiInstance.updateInventory(distributionCenterCode, inventories);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FulfillmentApi#updateInventory");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+List<FulfillmentInventory> inventories = Arrays.asList(); // List<FulfillmentInventory> | Inventory updates (limit 500)
+try {
+    apiInstance.updateInventory(distributionCenterCodeinventories);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FulfillmentApi#updateInventory");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 

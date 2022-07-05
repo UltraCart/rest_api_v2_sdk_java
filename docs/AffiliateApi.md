@@ -18,47 +18,35 @@ Retrieves a group of clicks from the account based on a query object.  If no par
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.AffiliateApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+AffiliateApi apiInstance = new AffiliateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    AffiliateApi apiInstance = new AffiliateApi(defaultClient);
-    AffiliateClickQuery clickQuery = new AffiliateClickQuery(); // AffiliateClickQuery | Click query
-    Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  Only option is link.
-    try {
-      AffiliateClicksResponse result = apiInstance.getClicksByQuery(clickQuery, limit, offset, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AffiliateApi#getClicksByQuery");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+AffiliateClickQuery clickQuery = new AffiliateClickQuery(); // AffiliateClickQuery | Click query
+Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  Only option is link.
+try {
+    AffiliateClicksResponse result = apiInstance.getClicksByQuery(clickQuerylimitoffsetexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AffiliateApi#getClicksByQuery");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -102,47 +90,35 @@ Retrieves a group of ledger entries from the account based on a query object.  I
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.AffiliateApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+AffiliateApi apiInstance = new AffiliateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    AffiliateApi apiInstance = new AffiliateApi(defaultClient);
-    AffiliateLedgerQuery ledgerQuery = new AffiliateLedgerQuery(); // AffiliateLedgerQuery | Ledger query
-    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  Only option is link.
-    try {
-      AffiliateLedgersResponse result = apiInstance.getLedgersByQuery(ledgerQuery, limit, offset, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AffiliateApi#getLedgersByQuery");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+AffiliateLedgerQuery ledgerQuery = new AffiliateLedgerQuery(); // AffiliateLedgerQuery | Ledger query
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  Only option is link.
+try {
+    AffiliateLedgersResponse result = apiInstance.getLedgersByQuery(ledgerQuerylimitoffsetexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AffiliateApi#getLedgersByQuery");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 

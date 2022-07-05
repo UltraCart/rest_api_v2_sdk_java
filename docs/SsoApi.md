@@ -20,43 +20,31 @@ This is the equivalent of logging out of the single sign on session
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.SsoApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+SsoApi apiInstance = new SsoApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    SsoApi apiInstance = new SsoApi(defaultClient);
-    try {
-      User result = apiInstance.getSsoSessionUser();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SsoApi#getSsoSessionUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    User result = apiInstance.getSsoSessionUser();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SsoApi#getSsoSessionUser");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -94,44 +82,32 @@ Starts the process of authorizing a single sign on session.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.SsoApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+SsoApi apiInstance = new SsoApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    SsoApi apiInstance = new SsoApi(defaultClient);
-    SingleSignOnAuthorizeRequest authorizationRequest = new SingleSignOnAuthorizeRequest(); // SingleSignOnAuthorizeRequest | Authorization request
-    try {
-      SingleSignOnAuthorizeResponse result = apiInstance.ssoAuthorize(authorizationRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SsoApi#ssoAuthorize");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+SingleSignOnAuthorizeRequest authorizationRequest = new SingleSignOnAuthorizeRequest(); // SingleSignOnAuthorizeRequest | Authorization request
+try {
+    SingleSignOnAuthorizeResponse result = apiInstance.ssoAuthorize(authorizationRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SsoApi#ssoAuthorize");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -172,42 +148,30 @@ This is the equivalent of logging out of the single sign on session
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.SsoApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+SsoApi apiInstance = new SsoApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    SsoApi apiInstance = new SsoApi(defaultClient);
-    try {
-      apiInstance.ssoSessionRevoke();
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SsoApi#ssoSessionRevoke");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    apiInstance.ssoSessionRevoke();
+} catch (ApiException e) {
+    System.err.println("Exception when calling SsoApi#ssoSessionRevoke");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -244,44 +208,32 @@ Called by your application after receiving the code back on the redirect URI to 
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.SsoApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+SsoApi apiInstance = new SsoApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    SsoApi apiInstance = new SsoApi(defaultClient);
-    SingleSignOnTokenRequest tokenRequest = new SingleSignOnTokenRequest(); // SingleSignOnTokenRequest | Token request
-    try {
-      SingleSignOnTokenResponse result = apiInstance.ssoToken(tokenRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SsoApi#ssoToken");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+SingleSignOnTokenRequest tokenRequest = new SingleSignOnTokenRequest(); // SingleSignOnTokenRequest | Token request
+try {
+    SingleSignOnTokenResponse result = apiInstance.ssoToken(tokenRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SsoApi#ssoToken");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 

@@ -44,44 +44,32 @@ Deletes a Self tax provider city.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String city = "city_example"; // String | The city being deleted.
-    TaxCity taxCity = new TaxCity(); // TaxCity | tax city to be deleted
-    try {
-      apiInstance.deleteTaxProviderSelfCity(city, taxCity);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfCity");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String city = "city_example"; // String | The city being deleted.
+TaxCity taxCity = new TaxCity(); // TaxCity | tax city to be deleted
+try {
+    apiInstance.deleteTaxProviderSelfCity(citytaxCity);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfCity");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -122,44 +110,32 @@ Deletes a Self tax provider country.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String countryCode = "countryCode_example"; // String | The country code being deleted.
-    TaxCountry taxCountry = new TaxCountry(); // TaxCountry | tax country to be deleted
-    try {
-      apiInstance.deleteTaxProviderSelfCountry(countryCode, taxCountry);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfCountry");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String countryCode = "countryCode_example"; // String | The country code being deleted.
+TaxCountry taxCountry = new TaxCountry(); // TaxCountry | tax country to be deleted
+try {
+    apiInstance.deleteTaxProviderSelfCountry(countryCodetaxCountry);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfCountry");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -200,44 +176,32 @@ Deletes a Self tax provider county.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String county = "county_example"; // String | The county being deleted.
-    TaxCounty taxCounty = new TaxCounty(); // TaxCounty | tax county to be deleted
-    try {
-      apiInstance.deleteTaxProviderSelfCounty(county, taxCounty);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfCounty");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String county = "county_example"; // String | The county being deleted.
+TaxCounty taxCounty = new TaxCounty(); // TaxCounty | tax county to be deleted
+try {
+    apiInstance.deleteTaxProviderSelfCounty(countytaxCounty);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfCounty");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -278,44 +242,32 @@ Deletes a Self tax provider postalCode.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String postalCode = "postalCode_example"; // String | The postal code being deleted.
-    TaxPostalCode taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be deleted
-    try {
-      apiInstance.deleteTaxProviderSelfPostalCode(postalCode, taxPostalCode);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfPostalCode");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String postalCode = "postalCode_example"; // String | The postal code being deleted.
+TaxPostalCode taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be deleted
+try {
+    apiInstance.deleteTaxProviderSelfPostalCode(postalCodetaxPostalCode);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfPostalCode");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -356,44 +308,32 @@ Deletes a Self tax provider state.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String stateCode = "stateCode_example"; // String | The state code being deleted.
-    TaxState taxState = new TaxState(); // TaxState | tax state to be deleted
-    try {
-      apiInstance.deleteTaxProviderSelfState(stateCode, taxState);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfState");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String stateCode = "stateCode_example"; // String | The state code being deleted.
+TaxState taxState = new TaxState(); // TaxState | tax state to be deleted
+try {
+    apiInstance.deleteTaxProviderSelfState(stateCodetaxState);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#deleteTaxProviderSelfState");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -434,43 +374,31 @@ Retrieves the Avalara tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderAvalara result = apiInstance.getTaxProviderAvalara();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderAvalara");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderAvalara result = apiInstance.getTaxProviderAvalara();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderAvalara");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -508,44 +436,32 @@ Returns Avalara Tax companies configured by the merchant
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    TaxProviderAvalara taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
-    try {
-      TaxProviderAvalaraCompaniesResult result = apiInstance.getTaxProviderAvalaraCompanies(taxProviderAvalara);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderAvalaraCompanies");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+TaxProviderAvalara taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
+try {
+    TaxProviderAvalaraCompaniesResult result = apiInstance.getTaxProviderAvalaraCompanies(taxProviderAvalara);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderAvalaraCompanies");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -586,43 +502,31 @@ Attempts to connect to Avalara and returns back the response.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderTestResult result = apiInstance.getTaxProviderAvalaraTest();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderAvalaraTest");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderTestResult result = apiInstance.getTaxProviderAvalaraTest();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderAvalaraTest");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -660,43 +564,31 @@ Retrieves the Self tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderSelf result = apiInstance.getTaxProviderSelf();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderSelf");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderSelf result = apiInstance.getTaxProviderSelf();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderSelf");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -734,43 +626,31 @@ Retrieves the Self tax provider countries.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderSelfCountriesResponse result = apiInstance.getTaxProviderSelfCountries();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderSelfCountries");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderSelfCountriesResponse result = apiInstance.getTaxProviderSelfCountries();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderSelfCountries");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -808,44 +688,32 @@ Retrieves the Self tax provider regions for a given country code.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String countryCode = "countryCode_example"; // String | The country code regions desired.
-    try {
-      TaxProviderSelfRegionsResponse result = apiInstance.getTaxProviderSelfRegionsByCountryCode(countryCode);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderSelfRegionsByCountryCode");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String countryCode = "countryCode_example"; // String | The country code regions desired.
+try {
+    TaxProviderSelfRegionsResponse result = apiInstance.getTaxProviderSelfRegionsByCountryCode(countryCode);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderSelfRegionsByCountryCode");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -886,43 +754,31 @@ Retrieves the Sovos tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderSovos result = apiInstance.getTaxProviderSovos();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderSovos");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderSovos result = apiInstance.getTaxProviderSovos();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderSovos");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -960,43 +816,31 @@ Attempts to connect to Sovos and returns back the response.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderTestResult result = apiInstance.getTaxProviderSovosTest();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderSovosTest");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderTestResult result = apiInstance.getTaxProviderSovosTest();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderSovosTest");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -1034,43 +878,31 @@ Retrieves the TaxJar tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderTaxJar result = apiInstance.getTaxProviderTaxJar();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderTaxJar");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderTaxJar result = apiInstance.getTaxProviderTaxJar();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderTaxJar");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -1108,43 +940,31 @@ Attempts to connect to TaxJar and returns back the response.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderTestResult result = apiInstance.getTaxProviderTaxJarTest();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderTaxJarTest");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderTestResult result = apiInstance.getTaxProviderTaxJarTest();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderTaxJarTest");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -1182,43 +1002,31 @@ Retrieves the UltraCart tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    try {
-      TaxProviderUltraCart result = apiInstance.getTaxProviderUltraCart();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviderUltraCart");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    TaxProviderUltraCart result = apiInstance.getTaxProviderUltraCart();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviderUltraCart");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -1256,46 +1064,34 @@ Retrieves tax methods for this account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      TaxProvidersResponse result = apiInstance.getTaxProviders(limit, offset, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#getTaxProviders");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    TaxProvidersResponse result = apiInstance.getTaxProviders(limitoffsetexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#getTaxProviders");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1338,44 +1134,32 @@ Toggle a tax provider to active.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String providerName = "providerName_example"; // String | The tax provider to set active.
-    try {
-      TaxProviderActivateResult result = apiInstance.setActiveTaxProvider(providerName);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#setActiveTaxProvider");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String providerName = "providerName_example"; // String | The tax provider to set active.
+try {
+    TaxProviderActivateResult result = apiInstance.setActiveTaxProvider(providerName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#setActiveTaxProvider");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1416,44 +1200,32 @@ Update the Avalara tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    TaxProviderAvalara taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
-    try {
-      TaxProviderAvalara result = apiInstance.updateTaxProviderAvalara(taxProviderAvalara);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderAvalara");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+TaxProviderAvalara taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
+try {
+    TaxProviderAvalara result = apiInstance.updateTaxProviderAvalara(taxProviderAvalara);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderAvalara");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1494,44 +1266,32 @@ Update the Self tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    TaxProviderSelf taxProviderSelf = new TaxProviderSelf(); // TaxProviderSelf | TaxProviderSelf object
-    try {
-      TaxProviderSelf result = apiInstance.updateTaxProviderSelf(taxProviderSelf);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderSelf");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+TaxProviderSelf taxProviderSelf = new TaxProviderSelf(); // TaxProviderSelf | TaxProviderSelf object
+try {
+    TaxProviderSelf result = apiInstance.updateTaxProviderSelf(taxProviderSelf);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderSelf");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1572,45 +1332,33 @@ Updates a Self tax provider city.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String city = "city_example"; // String | The city being updated.
-    TaxCity taxCity = new TaxCity(); // TaxCity | tax city to be updated
-    try {
-      TaxCity result = apiInstance.updateTaxProviderSelfCity(city, taxCity);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderSelfCity");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String city = "city_example"; // String | The city being updated.
+TaxCity taxCity = new TaxCity(); // TaxCity | tax city to be updated
+try {
+    TaxCity result = apiInstance.updateTaxProviderSelfCity(citytaxCity);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderSelfCity");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1652,45 +1400,33 @@ Updates a Self tax provider country.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String countryCode = "countryCode_example"; // String | The country code being updated.
-    TaxCountry taxCountry = new TaxCountry(); // TaxCountry | tax country to be updated
-    try {
-      TaxCountry result = apiInstance.updateTaxProviderSelfCountry(countryCode, taxCountry);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderSelfCountry");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String countryCode = "countryCode_example"; // String | The country code being updated.
+TaxCountry taxCountry = new TaxCountry(); // TaxCountry | tax country to be updated
+try {
+    TaxCountry result = apiInstance.updateTaxProviderSelfCountry(countryCodetaxCountry);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderSelfCountry");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1732,45 +1468,33 @@ Updates a Self tax provider county.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String county = "county_example"; // String | The county being updated.
-    TaxCounty taxCounty = new TaxCounty(); // TaxCounty | tax county to be updated
-    try {
-      TaxCounty result = apiInstance.updateTaxProviderSelfCounty(county, taxCounty);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderSelfCounty");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String county = "county_example"; // String | The county being updated.
+TaxCounty taxCounty = new TaxCounty(); // TaxCounty | tax county to be updated
+try {
+    TaxCounty result = apiInstance.updateTaxProviderSelfCounty(countytaxCounty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderSelfCounty");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1812,45 +1536,33 @@ Updates a Self tax provider postalCode.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String postalCode = "postalCode_example"; // String | The postal code being updated.
-    TaxPostalCode taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be updated
-    try {
-      TaxPostalCode result = apiInstance.updateTaxProviderSelfPostalCode(postalCode, taxPostalCode);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderSelfPostalCode");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String postalCode = "postalCode_example"; // String | The postal code being updated.
+TaxPostalCode taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be updated
+try {
+    TaxPostalCode result = apiInstance.updateTaxProviderSelfPostalCode(postalCodetaxPostalCode);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderSelfPostalCode");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1892,45 +1604,33 @@ Updates a Self tax provider state.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    String stateCode = "stateCode_example"; // String | The state code being updated.
-    TaxState taxState = new TaxState(); // TaxState | tax state to be updated
-    try {
-      TaxState result = apiInstance.updateTaxProviderSelfState(stateCode, taxState);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderSelfState");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String stateCode = "stateCode_example"; // String | The state code being updated.
+TaxState taxState = new TaxState(); // TaxState | tax state to be updated
+try {
+    TaxState result = apiInstance.updateTaxProviderSelfState(stateCodetaxState);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderSelfState");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1972,44 +1672,32 @@ Update the Sovos tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    TaxProviderSovos taxProviderSovos = new TaxProviderSovos(); // TaxProviderSovos | TaxProviderSovos object
-    try {
-      TaxProviderSovos result = apiInstance.updateTaxProviderSovos(taxProviderSovos);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderSovos");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+TaxProviderSovos taxProviderSovos = new TaxProviderSovos(); // TaxProviderSovos | TaxProviderSovos object
+try {
+    TaxProviderSovos result = apiInstance.updateTaxProviderSovos(taxProviderSovos);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderSovos");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -2050,44 +1738,32 @@ Update the TaxJar tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    TaxProviderTaxJar taxProviderTaxJar = new TaxProviderTaxJar(); // TaxProviderTaxJar | TaxProviderTaxJar object
-    try {
-      TaxProviderTaxJar result = apiInstance.updateTaxProviderTaxJar(taxProviderTaxJar);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderTaxJar");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+TaxProviderTaxJar taxProviderTaxJar = new TaxProviderTaxJar(); // TaxProviderTaxJar | TaxProviderTaxJar object
+try {
+    TaxProviderTaxJar result = apiInstance.updateTaxProviderTaxJar(taxProviderTaxJar);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderTaxJar");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -2128,44 +1804,32 @@ Update the UltraCart tax provider.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.TaxApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+TaxApi apiInstance = new TaxApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    TaxApi apiInstance = new TaxApi(defaultClient);
-    TaxProviderUltraCart taxProviderUltracart = new TaxProviderUltraCart(); // TaxProviderUltraCart | TaxProviderUltraCart object
-    try {
-      TaxProviderUltraCart result = apiInstance.updateTaxProviderUltraCart(taxProviderUltracart);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaxApi#updateTaxProviderUltraCart");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+TaxProviderUltraCart taxProviderUltracart = new TaxProviderUltraCart(); // TaxProviderUltraCart | TaxProviderUltraCart object
+try {
+    TaxProviderUltraCart result = apiInstance.updateTaxProviderUltraCart(taxProviderUltracart);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TaxApi#updateTaxProviderUltraCart");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 

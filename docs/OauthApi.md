@@ -18,54 +18,36 @@ The final leg in the OAuth process which exchanges the specified access token fo
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OauthApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure API key authorization: ultraCartBrowserApiKey
-    ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-    ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartBrowserApiKey.setApiKeyPrefix("Token");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OauthApi apiInstance = new OauthApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OauthApi apiInstance = new OauthApi(defaultClient);
-    String clientId = "clientId_example"; // String | The OAuth application client_id.
-    String grantType = "grantType_example"; // String | Type of grant
-    String code = "code_example"; // String | Authorization code received back from the browser redirect
-    String redirectUri = "redirectUri_example"; // String | The URI that you redirect the browser to to start the authorization process
-    String refreshToken = "refreshToken_example"; // String | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token
-    try {
-      OauthTokenResponse result = apiInstance.oauthAccessToken(clientId, grantType, code, redirectUri, refreshToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OauthApi#oauthAccessToken");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String clientId = "clientId_example"; // String | The OAuth application client_id.
+String grantType = "grantType_example"; // String | Type of grant
+String code = "code_example"; // String | Authorization code received back from the browser redirect
+String redirectUri = "redirectUri_example"; // String | The URI that you redirect the browser to to start the authorization process
+String refreshToken = "refreshToken_example"; // String | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token
+try {
+    OauthTokenResponse result = apiInstance.oauthAccessToken(clientIdgrantTypecoderedirectUrirefreshToken);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OauthApi#oauthAccessToken");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -107,51 +89,33 @@ Revokes the OAuth application associated with the specified client_id and token.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OauthApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure API key authorization: ultraCartBrowserApiKey
-    ApiKeyAuth ultraCartBrowserApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartBrowserApiKey");
-    ultraCartBrowserApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartBrowserApiKey.setApiKeyPrefix("Token");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OauthApi apiInstance = new OauthApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OauthApi apiInstance = new OauthApi(defaultClient);
-    String clientId = "clientId_example"; // String | The OAuth application client_id.
-    String token = "token_example"; // String | The OAuth access token that is to be revoked..
-    try {
-      OauthRevokeSuccessResponse result = apiInstance.oauthRevoke(clientId, token);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OauthApi#oauthRevoke");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String clientId = "clientId_example"; // String | The OAuth application client_id.
+String token = "token_example"; // String | The OAuth access token that is to be revoked..
+try {
+    OauthRevokeSuccessResponse result = apiInstance.oauthRevoke(clientIdtoken);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OauthApi#oauthRevoke");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 

@@ -35,43 +35,31 @@ Delete a coupon on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    Integer couponOid = 56; // Integer | The coupon_oid to delete.
-    try {
-      apiInstance.deleteCoupon(couponOid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#deleteCoupon");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer couponOid = 56; // Integer | The coupon_oid to delete.
+try {
+    apiInstance.deleteCoupon(couponOid);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#deleteCoupon");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -111,43 +99,31 @@ Delete coupons on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    CouponDeletesRequest couponDeleteRequest = new CouponDeletesRequest(); // CouponDeletesRequest | Coupon oids to delete
-    try {
-      apiInstance.deleteCouponsByCode(couponDeleteRequest);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#deleteCouponsByCode");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+CouponDeletesRequest couponDeleteRequest = new CouponDeletesRequest(); // CouponDeletesRequest | Coupon oids to delete
+try {
+    apiInstance.deleteCouponsByCode(couponDeleteRequest);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#deleteCouponsByCode");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -187,43 +163,31 @@ Delete coupons on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    CouponDeletesRequest couponDeleteRequest = new CouponDeletesRequest(); // CouponDeletesRequest | Coupon oids to delete
-    try {
-      apiInstance.deleteCouponsByOid(couponDeleteRequest);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#deleteCouponsByOid");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+CouponDeletesRequest couponDeleteRequest = new CouponDeletesRequest(); // CouponDeletesRequest | Coupon oids to delete
+try {
+    apiInstance.deleteCouponsByOid(couponDeleteRequest);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#deleteCouponsByOid");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -263,44 +227,32 @@ Determines if a coupon merchant code already exists.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    String merchantCode = "merchantCode_example"; // String | The coupon merchant code to examine.
-    try {
-      CouponExistsResponse result = apiInstance.doesCouponCodeExist(merchantCode);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#doesCouponCodeExist");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String merchantCode = "merchantCode_example"; // String | The coupon merchant code to examine.
+try {
+    CouponExistsResponse result = apiInstance.doesCouponCodeExist(merchantCode);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#doesCouponCodeExist");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -341,45 +293,33 @@ Generate one time codes for a coupon
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    Integer couponOid = 56; // Integer | The coupon oid to generate codes.
-    CouponCodesRequest couponCodesRequest = new CouponCodesRequest(); // CouponCodesRequest | Coupon code generation parameters
-    try {
-      CouponCodesResponse result = apiInstance.generateCouponCodes(couponOid, couponCodesRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#generateCouponCodes");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer couponOid = 56; // Integer | The coupon oid to generate codes.
+CouponCodesRequest couponCodesRequest = new CouponCodesRequest(); // CouponCodesRequest | Coupon code generation parameters
+try {
+    CouponCodesResponse result = apiInstance.generateCouponCodes(couponOidcouponCodesRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#generateCouponCodes");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -421,45 +361,33 @@ Generate one time codes by merchant code
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    String merchantCode = "merchantCode_example"; // String | The merchant code to generate one time codes.
-    CouponCodesRequest couponCodesRequest = new CouponCodesRequest(); // CouponCodesRequest | Coupon code generation parameters
-    try {
-      CouponCodesResponse result = apiInstance.generateOneTimeCodesByMerchantCode(merchantCode, couponCodesRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#generateOneTimeCodesByMerchantCode");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String merchantCode = "merchantCode_example"; // String | The merchant code to generate one time codes.
+CouponCodesRequest couponCodesRequest = new CouponCodesRequest(); // CouponCodesRequest | Coupon code generation parameters
+try {
+    CouponCodesResponse result = apiInstance.generateOneTimeCodesByMerchantCode(merchantCodecouponCodesRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#generateOneTimeCodesByMerchantCode");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -501,43 +429,31 @@ Retrieve auto apply rules and conditions
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    try {
-      CouponAutoApplyConditions result = apiInstance.getAutoApply();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#getAutoApply");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    CouponAutoApplyConditions result = apiInstance.getAutoApply();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#getAutoApply");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -575,45 +491,33 @@ Retrieves a single coupon using the specified coupon profile oid.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    Integer couponOid = 56; // Integer | The coupon oid to retrieve.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      CouponResponse result = apiInstance.getCoupon(couponOid, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#getCoupon");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer couponOid = 56; // Integer | The coupon oid to retrieve.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CouponResponse result = apiInstance.getCoupon(couponOidexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#getCoupon");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -655,45 +559,33 @@ Retrieves a single coupon using the specified merchant code.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    String merchantCode = "merchantCode_example"; // String | The coupon merchant code to retrieve.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      CouponResponse result = apiInstance.getCouponByMerchantCode(merchantCode, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#getCouponByMerchantCode");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String merchantCode = "merchantCode_example"; // String | The coupon merchant code to retrieve.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CouponResponse result = apiInstance.getCouponByMerchantCode(merchantCodeexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#getCouponByMerchantCode");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -735,56 +627,44 @@ Retrieves coupons for this account.  If no parameters are specified, all coupons
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    String merchantCode = "merchantCode_example"; // String | Merchant code
-    String description = "description_example"; // String | Description
-    String couponType = "couponType_example"; // String | Coupon type
-    String startDateBegin = "startDateBegin_example"; // String | Start date begin
-    String startDateEnd = "startDateEnd_example"; // String | Start date end
-    String expirationDateBegin = "expirationDateBegin_example"; // String | Expiration date begin
-    String expirationDateEnd = "expirationDateEnd_example"; // String | Expiration date end
-    Integer affiliateOid = 56; // Integer | Affiliate oid
-    Boolean excludeExpired = true; // Boolean | Exclude expired
-    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String sort = "sort_example"; // String | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      CouponsResponse result = apiInstance.getCoupons(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#getCoupons");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String merchantCode = "merchantCode_example"; // String | Merchant code
+String description = "description_example"; // String | Description
+String couponType = "couponType_example"; // String | Coupon type
+String startDateBegin = "startDateBegin_example"; // String | Start date begin
+String startDateEnd = "startDateEnd_example"; // String | Start date end
+String expirationDateBegin = "expirationDateBegin_example"; // String | Expiration date begin
+String expirationDateEnd = "expirationDateEnd_example"; // String | Expiration date end
+Integer affiliateOid = 56; // Integer | Affiliate oid
+Boolean excludeExpired = true; // Boolean | Exclude expired
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String sort = "sort_example"; // String | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CouponsResponse result = apiInstance.getCoupons(merchantCodedescriptioncouponTypestartDateBeginstartDateEndexpirationDateBeginexpirationDateEndaffiliateOidexcludeExpiredlimitoffsetsortexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#getCoupons");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -837,48 +717,36 @@ Retrieves coupons from the account.  If no parameters are specified, all coupons
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    CouponQuery couponQuery = new CouponQuery(); // CouponQuery | Coupon query
-    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String sort = "sort_example"; // String | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      CouponsResponse result = apiInstance.getCouponsByQuery(couponQuery, limit, offset, sort, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#getCouponsByQuery");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+CouponQuery couponQuery = new CouponQuery(); // CouponQuery | Coupon query
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String sort = "sort_example"; // String | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CouponsResponse result = apiInstance.getCouponsByQuery(couponQuerylimitoffsetsortexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#getCouponsByQuery");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -923,43 +791,31 @@ Retrieve values needed for a coupon editor
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    try {
-      CouponEditorValues result = apiInstance.getEditorValues();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#getEditorValues");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    CouponEditorValues result = apiInstance.getEditorValues();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#getEditorValues");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -997,45 +853,33 @@ Insert a coupon on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    Coupon coupon = new Coupon(); // Coupon | Coupon to insert
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      CouponResponse result = apiInstance.insertCoupon(coupon, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#insertCoupon");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Coupon coupon = new Coupon(); // Coupon | Coupon to insert
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CouponResponse result = apiInstance.insertCoupon(couponexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#insertCoupon");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1077,46 +921,34 @@ Insert multiple coupon on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    CouponsRequest couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to insert (maximum 50)
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-    try {
-      CouponsResponse result = apiInstance.insertCoupons(couponsRequest, expand, placeholders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#insertCoupons");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+CouponsRequest couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to insert (maximum 50)
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+try {
+    CouponsResponse result = apiInstance.insertCoupons(couponsRequestexpandplaceholders);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#insertCoupons");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1159,45 +991,33 @@ Searches for items to display within a coupon editor and assign to coupons
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    String s = "s_example"; // String | 
-    Integer m = 56; // Integer | 
-    try {
-      CouponItemSearchResultsResponse result = apiInstance.searchItems(s, m);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#searchItems");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String s = "s_example"; // String | 
+Integer m = 56; // Integer | 
+try {
+    CouponItemSearchResultsResponse result = apiInstance.searchItems(sm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#searchItems");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1239,43 +1059,31 @@ Update auto apply rules and conditions
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    CouponAutoApplyConditions conditions = new CouponAutoApplyConditions(); // CouponAutoApplyConditions | Conditions
-    try {
-      apiInstance.updateAutoApply(conditions);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#updateAutoApply");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+CouponAutoApplyConditions conditions = new CouponAutoApplyConditions(); // CouponAutoApplyConditions | Conditions
+try {
+    apiInstance.updateAutoApply(conditions);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#updateAutoApply");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1315,46 +1123,34 @@ Update a coupon on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    Integer couponOid = 56; // Integer | The coupon_oid to update.
-    Coupon coupon = new Coupon(); // Coupon | Coupon to update
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      CouponResponse result = apiInstance.updateCoupon(couponOid, coupon, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#updateCoupon");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer couponOid = 56; // Integer | The coupon_oid to update.
+Coupon coupon = new Coupon(); // Coupon | Coupon to update
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CouponResponse result = apiInstance.updateCoupon(couponOidcouponexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#updateCoupon");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1397,47 +1193,35 @@ Update multiple coupon on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    CouponsRequest couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to update (synchronous maximum 50 / asynchronous maximum 100)
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-    Boolean async = true; // Boolean | True if the operation should be run async.  No result returned
-    try {
-      CouponsResponse result = apiInstance.updateCoupons(couponsRequest, expand, placeholders, async);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#updateCoupons");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+CouponsRequest couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to update (synchronous maximum 50 / asynchronous maximum 100)
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+Boolean async = true; // Boolean | True if the operation should be run async.  No result returned
+try {
+    CouponsResponse result = apiInstance.updateCoupons(couponsRequestexpandplaceholdersasync);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#updateCoupons");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1481,45 +1265,33 @@ Upload one-time codes for a coupon
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.CouponApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CouponApi apiInstance = new CouponApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    CouponApi apiInstance = new CouponApi(defaultClient);
-    Integer couponOid = 56; // Integer | The coupon oid to associate with the provided one-time codes.
-    UploadCouponCodesRequest uploadCouponCodesRequest = new UploadCouponCodesRequest(); // UploadCouponCodesRequest | One-time coupon codes
-    try {
-      UploadCouponCodesResponse result = apiInstance.uploadCouponCodes(couponOid, uploadCouponCodesRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CouponApi#uploadCouponCodes");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer couponOid = 56; // Integer | The coupon oid to associate with the provided one-time codes.
+UploadCouponCodesRequest uploadCouponCodesRequest = new UploadCouponCodesRequest(); // UploadCouponCodesRequest | One-time coupon codes
+try {
+    UploadCouponCodesResponse result = apiInstance.uploadCouponCodes(couponOiduploadCouponCodesRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CouponApi#uploadCouponCodes");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 

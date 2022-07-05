@@ -39,45 +39,33 @@ Adjusts an order total.  Adjusts individual items appropriately and considers ta
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to cancel.
-    String desiredTotal = "desiredTotal_example"; // String | The desired total with no formatting. example 123.45
-    try {
-      BaseResponse result = apiInstance.adjustOrderTotal(orderId, desiredTotal);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#adjustOrderTotal");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to cancel.
+String desiredTotal = "desiredTotal_example"; // String | The desired total with no formatting. example 123.45
+try {
+    BaseResponse result = apiInstance.adjustOrderTotal(orderIddesiredTotal);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#adjustOrderTotal");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -119,44 +107,32 @@ Cancel an order on the UltraCart account.  If the success flag is false, then co
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to cancel.
-    try {
-      BaseResponse result = apiInstance.cancelOrder(orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#cancelOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to cancel.
+try {
+    BaseResponse result = apiInstance.cancelOrder(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#cancelOrder");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -197,43 +173,31 @@ Delete an order on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to delete.
-    try {
-      apiInstance.deleteOrder(orderId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#deleteOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to delete.
+try {
+    apiInstance.deleteOrder(orderId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#deleteOrder");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -274,45 +238,33 @@ Perform a duplicate of the specified order_id and return a new order located in 
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to duplicate.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      OrderResponse result = apiInstance.duplicateOrder(orderId, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#duplicateOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to duplicate.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.duplicateOrder(orderIdexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#duplicateOrder");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -354,45 +306,33 @@ Format the order for display at text or html
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to format
-    OrderFormat formatOptions = new OrderFormat(); // OrderFormat | Format options
-    try {
-      OrderFormatResponse result = apiInstance.format(orderId, formatOptions);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#format");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to format
+OrderFormat formatOptions = new OrderFormat(); // OrderFormat | Format options
+try {
+    OrderFormatResponse result = apiInstance.format(orderIdformatOptions);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#format");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -434,44 +374,32 @@ Retrieves a single order token for a given order id.  The token can be used with
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to generate a token for.
-    try {
-      OrderTokenResponse result = apiInstance.generateOrderToken(orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#generateOrderToken");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to generate a token for.
+try {
+    OrderTokenResponse result = apiInstance.generateOrderToken(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#generateOrderToken");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -512,44 +440,32 @@ The packing slip PDF that is returned is base 64 encoded
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | Order ID
-    try {
-      OrderPackingSlipResponse result = apiInstance.generatePackingSlipAllDC(orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#generatePackingSlipAllDC");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | Order ID
+try {
+    OrderPackingSlipResponse result = apiInstance.generatePackingSlipAllDC(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#generatePackingSlipAllDC");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -590,45 +506,33 @@ The packing slip PDF that is returned is base 64 encoded
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
-    String orderId = "orderId_example"; // String | Order ID
-    try {
-      OrderPackingSlipResponse result = apiInstance.generatePackingSlipSpecificDC(distributionCenterCode, orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#generatePackingSlipSpecificDC");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
+String orderId = "orderId_example"; // String | Order ID
+try {
+    OrderPackingSlipResponse result = apiInstance.generatePackingSlipSpecificDC(distributionCenterCodeorderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#generatePackingSlipSpecificDC");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -670,43 +574,31 @@ Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    try {
-      AccountsReceivableRetryConfigResponse result = apiInstance.getAccountsReceivableRetryConfig();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#getAccountsReceivableRetryConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+try {
+    AccountsReceivableRetryConfigResponse result = apiInstance.getAccountsReceivableRetryConfig();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getAccountsReceivableRetryConfig");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -744,45 +636,33 @@ Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is do
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String from = "from_example"; // String | 
-    String to = "to_example"; // String | 
-    try {
-      AccountsReceivableRetryStatsResponse result = apiInstance.getAccountsReceivableRetryStats(from, to);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#getAccountsReceivableRetryStats");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String from = "from_example"; // String | 
+String to = "to_example"; // String | 
+try {
+    AccountsReceivableRetryStatsResponse result = apiInstance.getAccountsReceivableRetryStats(fromto);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getAccountsReceivableRetryStats");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -824,45 +704,33 @@ Retrieves a single order using the specified order id.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to retrieve.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      OrderResponse result = apiInstance.getOrder(orderId, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#getOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to retrieve.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.getOrder(orderIdexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getOrder");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -904,45 +772,33 @@ Retrieves a single order using the specified order token.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    OrderByTokenQuery orderByTokenQuery = new OrderByTokenQuery(); // OrderByTokenQuery | Order by token query
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      OrderResponse result = apiInstance.getOrderByToken(orderByTokenQuery, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#getOrderByToken");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+OrderByTokenQuery orderByTokenQuery = new OrderByTokenQuery(); // OrderByTokenQuery | Order by token query
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.getOrderByToken(orderByTokenQueryexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getOrderByToken");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -984,74 +840,62 @@ Retrieves a group of orders from the account.  If no parameters are specified, t
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | Order Id
-    String paymentMethod = "paymentMethod_example"; // String | Payment Method
-    String company = "company_example"; // String | Company
-    String firstName = "firstName_example"; // String | First Name
-    String lastName = "lastName_example"; // String | Last Name
-    String city = "city_example"; // String | City
-    String stateRegion = "stateRegion_example"; // String | State/Region
-    String postalCode = "postalCode_example"; // String | Postal Code
-    String countryCode = "countryCode_example"; // String | Country Code (ISO-3166 two letter)
-    String phone = "phone_example"; // String | Phone
-    String email = "email_example"; // String | Email
-    String ccEmail = "ccEmail_example"; // String | CC Email
-    BigDecimal total = new BigDecimal(78); // BigDecimal | Total
-    String screenBrandingThemeCode = "screenBrandingThemeCode_example"; // String | Screen Branding Theme Code
-    String storefrontHostName = "storefrontHostName_example"; // String | StoreFront Host Name
-    String creationDateBegin = "creationDateBegin_example"; // String | Creation Date Begin
-    String creationDateEnd = "creationDateEnd_example"; // String | Creation Date End
-    String paymentDateBegin = "paymentDateBegin_example"; // String | Payment Date Begin
-    String paymentDateEnd = "paymentDateEnd_example"; // String | Payment Date End
-    String shipmentDateBegin = "shipmentDateBegin_example"; // String | Shipment Date Begin
-    String shipmentDateEnd = "shipmentDateEnd_example"; // String | Shipment Date End
-    String rma = "rma_example"; // String | RMA
-    String purchaseOrderNumber = "purchaseOrderNumber_example"; // String | Purchase Order Number
-    String itemId = "itemId_example"; // String | Item Id
-    String currentStage = "currentStage_example"; // String | Current Stage
-    String channelPartnerCode = "channelPartnerCode_example"; // String | Channel Partner Code
-    String channelPartnerOrderId = "channelPartnerOrderId_example"; // String | Channel Partner Order ID
-    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.
-    try {
-      OrdersResponse result = apiInstance.getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#getOrders");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | Order Id
+String paymentMethod = "paymentMethod_example"; // String | Payment Method
+String company = "company_example"; // String | Company
+String firstName = "firstName_example"; // String | First Name
+String lastName = "lastName_example"; // String | Last Name
+String city = "city_example"; // String | City
+String stateRegion = "stateRegion_example"; // String | State/Region
+String postalCode = "postalCode_example"; // String | Postal Code
+String countryCode = "countryCode_example"; // String | Country Code (ISO-3166 two letter)
+String phone = "phone_example"; // String | Phone
+String email = "email_example"; // String | Email
+String ccEmail = "ccEmail_example"; // String | CC Email
+BigDecimal total = new BigDecimal(78); // BigDecimal | Total
+String screenBrandingThemeCode = "screenBrandingThemeCode_example"; // String | Screen Branding Theme Code
+String storefrontHostName = "storefrontHostName_example"; // String | StoreFront Host Name
+String creationDateBegin = "creationDateBegin_example"; // String | Creation Date Begin
+String creationDateEnd = "creationDateEnd_example"; // String | Creation Date End
+String paymentDateBegin = "paymentDateBegin_example"; // String | Payment Date Begin
+String paymentDateEnd = "paymentDateEnd_example"; // String | Payment Date End
+String shipmentDateBegin = "shipmentDateBegin_example"; // String | Shipment Date Begin
+String shipmentDateEnd = "shipmentDateEnd_example"; // String | Shipment Date End
+String rma = "rma_example"; // String | RMA
+String purchaseOrderNumber = "purchaseOrderNumber_example"; // String | Purchase Order Number
+String itemId = "itemId_example"; // String | Item Id
+String currentStage = "currentStage_example"; // String | Current Stage
+String channelPartnerCode = "channelPartnerCode_example"; // String | Channel Partner Code
+String channelPartnerOrderId = "channelPartnerOrderId_example"; // String | Channel Partner Order ID
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+String expand = "expand_example"; // String | The object expansion to perform on the result.
+try {
+    OrdersResponse result = apiInstance.getOrders(orderIdpaymentMethodcompanyfirstNamelastNamecitystateRegionpostalCodecountryCodephoneemailccEmailtotalscreenBrandingThemeCodestorefrontHostNamecreationDateBegincreationDateEndpaymentDateBeginpaymentDateEndshipmentDateBeginshipmentDateEndrmapurchaseOrderNumberitemIdcurrentStagechannelPartnerCodechannelPartnerOrderIdlimitoffsetsortexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getOrders");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1122,45 +966,33 @@ Retrieves a group of orders from the account based on an array of order ids.  If
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    OrderQueryBatch orderBatch = new OrderQueryBatch(); // OrderQueryBatch | Order batch
-    String expand = "expand_example"; // String | The object expansion to perform on the result.
-    try {
-      OrdersResponse result = apiInstance.getOrdersBatch(orderBatch, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#getOrdersBatch");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+OrderQueryBatch orderBatch = new OrderQueryBatch(); // OrderQueryBatch | Order batch
+String expand = "expand_example"; // String | The object expansion to perform on the result.
+try {
+    OrdersResponse result = apiInstance.getOrdersBatch(orderBatchexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getOrdersBatch");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1202,48 +1034,36 @@ Retrieves a group of orders from the account based on a query object.  If no par
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    OrderQuery orderQuery = new OrderQuery(); // OrderQuery | Order query
-    Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-    String expand = "expand_example"; // String | The object expansion to perform on the result.
-    try {
-      OrdersResponse result = apiInstance.getOrdersByQuery(orderQuery, limit, offset, sort, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#getOrdersByQuery");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+OrderQuery orderQuery = new OrderQuery(); // OrderQuery | Order query
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String sort = "sort_example"; // String | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+String expand = "expand_example"; // String | The object expansion to perform on the result.
+try {
+    OrdersResponse result = apiInstance.getOrdersByQuery(orderQuerylimitoffsetsortexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getOrdersByQuery");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1288,45 +1108,33 @@ Inserts a new order on the UltraCart account.  This is probably NOT the method y
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    Order order = new Order(); // Order | Order to insert
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      OrderResponse result = apiInstance.insertOrder(order, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#insertOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Order order = new Order(); // Order | Order to insert
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.insertOrder(orderexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#insertOrder");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1368,45 +1176,33 @@ Process payment on order
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to process payment on
-    OrderProcessPaymentRequest processPaymentRequest = new OrderProcessPaymentRequest(); // OrderProcessPaymentRequest | Process payment parameters
-    try {
-      OrderProcessPaymentResponse result = apiInstance.processPayment(orderId, processPaymentRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#processPayment");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to process payment on
+OrderProcessPaymentRequest processPaymentRequest = new OrderProcessPaymentRequest(); // OrderProcessPaymentRequest | Process payment parameters
+try {
+    OrderProcessPaymentResponse result = apiInstance.processPayment(orderIdprocessPaymentRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#processPayment");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1448,51 +1244,39 @@ Perform a refund operation on an order and then update the order if successful
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to refund.
-    Order order = new Order(); // Order | Order to refund
-    Boolean rejectAfterRefund = false; // Boolean | Reject order after refund
-    Boolean skipCustomerNotification = false; // Boolean | Skip customer email notification
-    Boolean autoOrderCancel = false; // Boolean | Cancel associated auto orders
-    Boolean manualRefund = false; // Boolean | Consider a manual refund done externally
-    Boolean reverseAffiliateTransactions = true; // Boolean | Reverse affiliate transactions
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      OrderResponse result = apiInstance.refundOrder(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#refundOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to refund.
+Order order = new Order(); // Order | Order to refund
+Boolean rejectAfterRefund = false; // Boolean | Reject order after refund
+Boolean skipCustomerNotification = false; // Boolean | Skip customer email notification
+Boolean autoOrderCancel = false; // Boolean | Cancel associated auto orders
+Boolean manualRefund = false; // Boolean | Consider a manual refund done externally
+Boolean reverseAffiliateTransactions = true; // Boolean | Reverse affiliate transactions
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.refundOrder(orderIdorderrejectAfterRefundskipCustomerNotificationautoOrderCancelmanualRefundreverseAffiliateTransactionsexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#refundOrder");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1540,45 +1324,33 @@ Create a replacement order based upon a previous order
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to generate a replacement for.
-    OrderReplacement replacement = new OrderReplacement(); // OrderReplacement | Replacement order details
-    try {
-      OrderReplacementResponse result = apiInstance.replacement(orderId, replacement);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#replacement");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to generate a replacement for.
+OrderReplacement replacement = new OrderReplacement(); // OrderReplacement | Replacement order details
+try {
+    OrderReplacementResponse result = apiInstance.replacement(orderIdreplacement);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#replacement");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1620,44 +1392,32 @@ Resend the receipt for an order on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to resend the receipt for.
-    try {
-      BaseResponse result = apiInstance.resendReceipt(orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#resendReceipt");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to resend the receipt for.
+try {
+    BaseResponse result = apiInstance.resendReceipt(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#resendReceipt");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1698,44 +1458,32 @@ Resend shipment confirmation for an order on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to resend the shipment notification for.
-    try {
-      BaseResponse result = apiInstance.resendShipmentConfirmation(orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#resendShipmentConfirmation");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to resend the shipment notification for.
+try {
+    BaseResponse result = apiInstance.resendShipmentConfirmation(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#resendShipmentConfirmation");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1776,44 +1524,32 @@ Update A/R Retry Configuration.  This is primarily an internal API call.  It is 
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    AccountsReceivableRetryConfig retryConfig = new AccountsReceivableRetryConfig(); // AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
-    try {
-      BaseResponse result = apiInstance.updateAccountsReceivableRetryConfig(retryConfig);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#updateAccountsReceivableRetryConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+AccountsReceivableRetryConfig retryConfig = new AccountsReceivableRetryConfig(); // AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
+try {
+    BaseResponse result = apiInstance.updateAccountsReceivableRetryConfig(retryConfig);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#updateAccountsReceivableRetryConfig");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -1854,46 +1590,34 @@ Update a new order on the UltraCart account.  This is probably NOT the method yo
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    OrderApi apiInstance = new OrderApi(defaultClient);
-    String orderId = "orderId_example"; // String | The order id to update.
-    Order order = new Order(); // Order | Order to update
-    String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-    try {
-      OrderResponse result = apiInstance.updateOrder(orderId, order, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OrderApi#updateOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+String orderId = "orderId_example"; // String | The order id to update.
+Order order = new Order(); // Order | Order to update
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.updateOrder(orderIdorderexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#updateOrder");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 

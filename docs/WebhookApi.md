@@ -24,43 +24,31 @@ Delete a webhook on the UltraCart account.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.WebhookApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    WebhookApi apiInstance = new WebhookApi(defaultClient);
-    Integer webhookOid = 56; // Integer | The webhook oid to delete.
-    try {
-      apiInstance.deleteWebhook(webhookOid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebhookApi#deleteWebhook");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer webhookOid = 56; // Integer | The webhook oid to delete.
+try {
+    apiInstance.deleteWebhook(webhookOid);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebhookApi#deleteWebhook");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -101,44 +89,32 @@ Delete a webhook based upon the URL on the webhook_url matching an existing webh
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.WebhookApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    WebhookApi apiInstance = new WebhookApi(defaultClient);
-    Webhook webhook = new Webhook(); // Webhook | Webhook to delete
-    try {
-      WebhookResponse result = apiInstance.deleteWebhookByUrl(webhook);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebhookApi#deleteWebhookByUrl");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Webhook webhook = new Webhook(); // Webhook | Webhook to delete
+try {
+    WebhookResponse result = apiInstance.deleteWebhookByUrl(webhook);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebhookApi#deleteWebhookByUrl");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -179,45 +155,33 @@ Retrieves an individual log for a webhook given the webhook oid the request id.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.WebhookApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    WebhookApi apiInstance = new WebhookApi(defaultClient);
-    Integer webhookOid = 56; // Integer | The webhook oid that owns the log.
-    String requestId = "requestId_example"; // String | The request id associated with the log to view.
-    try {
-      WebhookLogResponse result = apiInstance.getWebhookLog(webhookOid, requestId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebhookApi#getWebhookLog");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer webhookOid = 56; // Integer | The webhook oid that owns the log.
+String requestId = "requestId_example"; // String | The request id associated with the log to view.
+try {
+    WebhookLogResponse result = apiInstance.getWebhookLog(webhookOidrequestId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebhookApi#getWebhookLog");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -259,47 +223,35 @@ Retrieves the log summary information for a given webhook.  This is useful for d
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.WebhookApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    WebhookApi apiInstance = new WebhookApi(defaultClient);
-    Integer webhookOid = 56; // Integer | The webhook oid to retrieve log summaries for.
-    Integer limit = 100; // Integer | The maximum number of records to return on this one API call.
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String since = "since_example"; // String | Fetch log summaries that have been delivered since this date/time.
-    try {
-      WebhookLogSummariesResponse result = apiInstance.getWebhookLogSummaries(webhookOid, limit, offset, since);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebhookApi#getWebhookLogSummaries");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer webhookOid = 56; // Integer | The webhook oid to retrieve log summaries for.
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call.
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String since = "since_example"; // String | Fetch log summaries that have been delivered since this date/time.
+try {
+    WebhookLogSummariesResponse result = apiInstance.getWebhookLogSummaries(webhookOidlimitoffsetsince);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebhookApi#getWebhookLogSummaries");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -343,47 +295,35 @@ Retrieves the webhooks associated with this application.
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.WebhookApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    WebhookApi apiInstance = new WebhookApi(defaultClient);
-    Integer limit = 100; // Integer | The maximum number of records to return on this one API call.
-    Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-    String sort = "sort_example"; // String | The sort order of the webhooks.  See documentation for examples
-    Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-    try {
-      WebhooksResponse result = apiInstance.getWebhooks(limit, offset, sort, placeholders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebhookApi#getWebhooks");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call.
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String sort = "sort_example"; // String | The sort order of the webhooks.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+try {
+    WebhooksResponse result = apiInstance.getWebhooks(limitoffsetsortplaceholders);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebhookApi#getWebhooks");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -427,45 +367,33 @@ Adds a new webhook on the account.  If you add a new webhook with the authentica
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.WebhookApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    WebhookApi apiInstance = new WebhookApi(defaultClient);
-    Webhook webhook = new Webhook(); // Webhook | Webhook to create
-    Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-    try {
-      WebhookResponse result = apiInstance.insertWebhook(webhook, placeholders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebhookApi#insertWebhook");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Webhook webhook = new Webhook(); // Webhook | Webhook to create
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+try {
+    WebhookResponse result = apiInstance.insertWebhook(webhookplaceholders);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebhookApi#insertWebhook");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -507,45 +435,33 @@ This method will resend events to the webhook endpoint.  This method can be used
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.WebhookApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    WebhookApi apiInstance = new WebhookApi(defaultClient);
-    Integer webhookOid = 56; // Integer | The webhook oid that is receiving the reflowed events.
-    String eventName = "eventName_example"; // String | The event to reflow.
-    try {
-      WebhookSampleRequestResponse result = apiInstance.resendEvent(webhookOid, eventName);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebhookApi#resendEvent");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer webhookOid = 56; // Integer | The webhook oid that is receiving the reflowed events.
+String eventName = "eventName_example"; // String | The event to reflow.
+try {
+    WebhookSampleRequestResponse result = apiInstance.resendEvent(webhookOideventName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebhookApi#resendEvent");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
@@ -587,46 +503,34 @@ Update a webhook on the account
 
 ### Example
 ```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 // Import classes:
 import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
 import com.ultracart.admin.v2.util.Configuration;
 import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.util.models.*;
 import com.ultracart.admin.v2.WebhookApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://secure.ultracart.com/rest/v2");
-    
-    // Configure OAuth2 access token for authorization: ultraCartOauth
-    OAuth ultraCartOauth = (OAuth) defaultClient.getAuthentication("ultraCartOauth");
-    ultraCartOauth.setAccessToken("YOUR ACCESS TOKEN");
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
-    // Configure API key authorization: ultraCartSimpleApiKey
-    ApiKeyAuth ultraCartSimpleApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ultraCartSimpleApiKey");
-    ultraCartSimpleApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ultraCartSimpleApiKey.setApiKeyPrefix("Token");
-
-    WebhookApi apiInstance = new WebhookApi(defaultClient);
-    Integer webhookOid = 56; // Integer | The webhook oid to update.
-    Webhook webhook = new Webhook(); // Webhook | Webhook to update
-    Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-    try {
-      WebhookResponse result = apiInstance.updateWebhook(webhookOid, webhook, placeholders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebhookApi#updateWebhook");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
+Integer webhookOid = 56; // Integer | The webhook oid to update.
+Webhook webhook = new Webhook(); // Webhook | Webhook to update
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+try {
+    WebhookResponse result = apiInstance.updateWebhook(webhookOidwebhookplaceholders);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebhookApi#updateWebhook");
+    e.printStackTrace();
 }
 ```
+
 
 ### Parameters
 
