@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ChannelPartnerOrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-23T15:06:39.973-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:38:13.832-04:00")
 
 
 

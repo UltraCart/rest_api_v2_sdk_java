@@ -33,6 +33,7 @@ import com.ultracart.admin.v2.models.BaseResponse;
 import com.ultracart.admin.v2.models.Customer;
 import com.ultracart.admin.v2.models.CustomerEditorValues;
 import com.ultracart.admin.v2.models.CustomerEmailListChanges;
+import com.ultracart.admin.v2.models.CustomerMergeRequest;
 import com.ultracart.admin.v2.models.CustomerQuery;
 import com.ultracart.admin.v2.models.CustomerResponse;
 import com.ultracart.admin.v2.models.CustomerStoreCreditAddRequest;
@@ -1912,6 +1913,140 @@ public class CustomerApi {
         com.squareup.okhttp.Call call = insertCustomerValidateBeforeCall(customer, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for mergeCustomer
+     * @param customer Customer to merge into this profile. (required)
+     * @param customerProfileOid The customer_profile_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call mergeCustomerCall(CustomerMergeRequest customer, Integer customerProfileOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = customer;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/merge"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call mergeCustomerValidateBeforeCall(CustomerMergeRequest customer, Integer customerProfileOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customer' is set
+        if (customer == null) {
+            throw new ApiException("Missing the required parameter 'customer' when calling mergeCustomer(Async)");
+        }
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling mergeCustomer(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = mergeCustomerCall(customer, customerProfileOid, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Merge customer into this customer
+     * Merge customer into this customer. 
+     * @param customer Customer to merge into this profile. (required)
+     * @param customerProfileOid The customer_profile_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void mergeCustomer(CustomerMergeRequest customer, Integer customerProfileOid, String expand) throws ApiException {
+        mergeCustomerWithHttpInfo(customer, customerProfileOid, expand);
+    }
+
+    /**
+     * Merge customer into this customer
+     * Merge customer into this customer. 
+     * @param customer Customer to merge into this profile. (required)
+     * @param customerProfileOid The customer_profile_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> mergeCustomerWithHttpInfo(CustomerMergeRequest customer, Integer customerProfileOid, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = mergeCustomerValidateBeforeCall(customer, customerProfileOid, expand, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Merge customer into this customer (asynchronously)
+     * Merge customer into this customer. 
+     * @param customer Customer to merge into this profile. (required)
+     * @param customerProfileOid The customer_profile_oid to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call mergeCustomerAsync(CustomerMergeRequest customer, Integer customerProfileOid, String expand, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = mergeCustomerValidateBeforeCall(customer, customerProfileOid, expand, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**

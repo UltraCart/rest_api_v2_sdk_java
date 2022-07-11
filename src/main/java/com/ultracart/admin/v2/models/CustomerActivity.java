@@ -33,13 +33,19 @@ import java.util.List;
 /**
  * CustomerActivity
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-23T15:06:39.973-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:38:13.832-04:00")
 
 
 
 public class CustomerActivity {
   @SerializedName("activities")
   private List<Activity> activities = null;
+
+  @SerializedName("global_unsubscribed")
+  private Boolean globalUnsubscribed = null;
+
+  @SerializedName("global_unsubscribed_dts")
+  private String globalUnsubscribedDts = null;
 
   @SerializedName("memberships")
   private List<ListSegmentMembership> memberships = null;
@@ -49,6 +55,12 @@ public class CustomerActivity {
 
   @SerializedName("properties_list")
   private List<Property> propertiesList = null;
+
+  @SerializedName("spam_complaint")
+  private Boolean spamComplaint = null;
+
+  @SerializedName("spam_complaint_dts")
+  private String spamComplaintDts = null;
 
   public CustomerActivity activities(List<Activity> activities) {
     this.activities = activities;
@@ -74,6 +86,42 @@ public class CustomerActivity {
 
   public void setActivities(List<Activity> activities) {
     this.activities = activities;
+  }
+
+  public CustomerActivity globalUnsubscribed(Boolean globalUnsubscribed) {
+    this.globalUnsubscribed = globalUnsubscribed;
+    return this;
+  }
+
+   /**
+   * Get globalUnsubscribed
+   * @return globalUnsubscribed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isGlobalUnsubscribed() {
+    return globalUnsubscribed;
+  }
+
+  public void setGlobalUnsubscribed(Boolean globalUnsubscribed) {
+    this.globalUnsubscribed = globalUnsubscribed;
+  }
+
+  public CustomerActivity globalUnsubscribedDts(String globalUnsubscribedDts) {
+    this.globalUnsubscribedDts = globalUnsubscribedDts;
+    return this;
+  }
+
+   /**
+   * Get globalUnsubscribedDts
+   * @return globalUnsubscribedDts
+  **/
+  @ApiModelProperty(value = "")
+  public String getGlobalUnsubscribedDts() {
+    return globalUnsubscribedDts;
+  }
+
+  public void setGlobalUnsubscribedDts(String globalUnsubscribedDts) {
+    this.globalUnsubscribedDts = globalUnsubscribedDts;
   }
 
   public CustomerActivity memberships(List<ListSegmentMembership> memberships) {
@@ -154,6 +202,42 @@ public class CustomerActivity {
     this.propertiesList = propertiesList;
   }
 
+  public CustomerActivity spamComplaint(Boolean spamComplaint) {
+    this.spamComplaint = spamComplaint;
+    return this;
+  }
+
+   /**
+   * Get spamComplaint
+   * @return spamComplaint
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSpamComplaint() {
+    return spamComplaint;
+  }
+
+  public void setSpamComplaint(Boolean spamComplaint) {
+    this.spamComplaint = spamComplaint;
+  }
+
+  public CustomerActivity spamComplaintDts(String spamComplaintDts) {
+    this.spamComplaintDts = spamComplaintDts;
+    return this;
+  }
+
+   /**
+   * Get spamComplaintDts
+   * @return spamComplaintDts
+  **/
+  @ApiModelProperty(value = "")
+  public String getSpamComplaintDts() {
+    return spamComplaintDts;
+  }
+
+  public void setSpamComplaintDts(String spamComplaintDts) {
+    this.spamComplaintDts = spamComplaintDts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -165,14 +249,18 @@ public class CustomerActivity {
     }
     CustomerActivity customerActivity = (CustomerActivity) o;
     return Objects.equals(this.activities, customerActivity.activities) &&
+        Objects.equals(this.globalUnsubscribed, customerActivity.globalUnsubscribed) &&
+        Objects.equals(this.globalUnsubscribedDts, customerActivity.globalUnsubscribedDts) &&
         Objects.equals(this.memberships, customerActivity.memberships) &&
         Objects.equals(this.metrics, customerActivity.metrics) &&
-        Objects.equals(this.propertiesList, customerActivity.propertiesList);
+        Objects.equals(this.propertiesList, customerActivity.propertiesList) &&
+        Objects.equals(this.spamComplaint, customerActivity.spamComplaint) &&
+        Objects.equals(this.spamComplaintDts, customerActivity.spamComplaintDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activities, memberships, metrics, propertiesList);
+    return Objects.hash(activities, globalUnsubscribed, globalUnsubscribedDts, memberships, metrics, propertiesList, spamComplaint, spamComplaintDts);
   }
 
 
@@ -182,9 +270,13 @@ public class CustomerActivity {
     sb.append("class CustomerActivity {\n");
     
     sb.append("    activities: ").append(toIndentedString(activities)).append("\n");
+    sb.append("    globalUnsubscribed: ").append(toIndentedString(globalUnsubscribed)).append("\n");
+    sb.append("    globalUnsubscribedDts: ").append(toIndentedString(globalUnsubscribedDts)).append("\n");
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    propertiesList: ").append(toIndentedString(propertiesList)).append("\n");
+    sb.append("    spamComplaint: ").append(toIndentedString(spamComplaint)).append("\n");
+    sb.append("    spamComplaintDts: ").append(toIndentedString(spamComplaintDts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
