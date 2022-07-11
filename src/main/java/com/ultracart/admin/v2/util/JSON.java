@@ -286,6 +286,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerLoyalty.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerLoyaltyLedger.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerLoyaltyRedemption.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerMergeRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerOrdersSummary.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerPricingTier.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerPrivacy.CustomTypeAdapterFactory())

@@ -204,6 +204,7 @@ docs/CustomerEmailListChanges.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
+docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
 docs/CustomerPricingTier.md
 docs/CustomerPrivacy.md
@@ -875,6 +876,7 @@ src/main/java/com/ultracart/admin/v2/models/CustomerEmailListChanges.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyalty.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyLedger.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyRedemption.java
+src/main/java/com/ultracart/admin/v2/models/CustomerMergeRequest.java
 src/main/java/com/ultracart/admin/v2/models/CustomerOrdersSummary.java
 src/main/java/com/ultracart/admin/v2/models/CustomerPricingTier.java
 src/main/java/com/ultracart/admin/v2/models/CustomerPrivacy.java

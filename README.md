@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-07-05T15:48:24.518-04:00[America/Indianapolis]
+  - Build date: 2022-07-11T09:49:01.664-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.33-RC</version>
+  <version>4.0.34-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.33-RC"
+     implementation "com.ultracart:rest-sdk:4.0.34-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.33-RC.jar`
+* `target/rest-sdk-4.0.34-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -200,6 +200,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersForDataTables**](docs/CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**insertCustomer**](docs/CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
+*CustomerApi* | [**mergeCustomer**](docs/CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 *CustomerApi* | [**searchCustomerProfileValues**](docs/CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
 *CustomerApi* | [**updateCustomer**](docs/CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
@@ -667,6 +668,7 @@ Class | Method | HTTP request | Description
  - [CustomerLoyalty](docs/CustomerLoyalty.md)
  - [CustomerLoyaltyLedger](docs/CustomerLoyaltyLedger.md)
  - [CustomerLoyaltyRedemption](docs/CustomerLoyaltyRedemption.md)
+ - [CustomerMergeRequest](docs/CustomerMergeRequest.md)
  - [CustomerOrdersSummary](docs/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/CustomerPricingTier.md)
  - [CustomerPrivacy](docs/CustomerPrivacy.md)
@@ -1183,6 +1185,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.34-RC | 07/11/2022 | Customer API - mergeCustomer method |
 | 4.0.33-RC | 07/05/2022 | docs update |
 | 4.0.32-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
 | 4.0.31-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |

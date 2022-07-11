@@ -53,11 +53,19 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerActivity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-05T15:48:24.518-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:49:01.664-04:00[America/Indianapolis]")
 public class CustomerActivity {
   public static final String SERIALIZED_NAME_ACTIVITIES = "activities";
   @SerializedName(SERIALIZED_NAME_ACTIVITIES)
   private List<Activity> activities = null;
+
+  public static final String SERIALIZED_NAME_GLOBAL_UNSUBSCRIBED = "global_unsubscribed";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_UNSUBSCRIBED)
+  private Boolean globalUnsubscribed;
+
+  public static final String SERIALIZED_NAME_GLOBAL_UNSUBSCRIBED_DTS = "global_unsubscribed_dts";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_UNSUBSCRIBED_DTS)
+  private String globalUnsubscribedDts;
 
   public static final String SERIALIZED_NAME_MEMBERSHIPS = "memberships";
   @SerializedName(SERIALIZED_NAME_MEMBERSHIPS)
@@ -70,6 +78,14 @@ public class CustomerActivity {
   public static final String SERIALIZED_NAME_PROPERTIES_LIST = "properties_list";
   @SerializedName(SERIALIZED_NAME_PROPERTIES_LIST)
   private List<Property> propertiesList = null;
+
+  public static final String SERIALIZED_NAME_SPAM_COMPLAINT = "spam_complaint";
+  @SerializedName(SERIALIZED_NAME_SPAM_COMPLAINT)
+  private Boolean spamComplaint;
+
+  public static final String SERIALIZED_NAME_SPAM_COMPLAINT_DTS = "spam_complaint_dts";
+  @SerializedName(SERIALIZED_NAME_SPAM_COMPLAINT_DTS)
+  private String spamComplaintDts;
 
   public CustomerActivity() { 
   }
@@ -102,6 +118,52 @@ public class CustomerActivity {
 
   public void setActivities(List<Activity> activities) {
     this.activities = activities;
+  }
+
+
+  public CustomerActivity globalUnsubscribed(Boolean globalUnsubscribed) {
+    
+    this.globalUnsubscribed = globalUnsubscribed;
+    return this;
+  }
+
+   /**
+   * Get globalUnsubscribed
+   * @return globalUnsubscribed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getGlobalUnsubscribed() {
+    return globalUnsubscribed;
+  }
+
+
+  public void setGlobalUnsubscribed(Boolean globalUnsubscribed) {
+    this.globalUnsubscribed = globalUnsubscribed;
+  }
+
+
+  public CustomerActivity globalUnsubscribedDts(String globalUnsubscribedDts) {
+    
+    this.globalUnsubscribedDts = globalUnsubscribedDts;
+    return this;
+  }
+
+   /**
+   * Get globalUnsubscribedDts
+   * @return globalUnsubscribedDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGlobalUnsubscribedDts() {
+    return globalUnsubscribedDts;
+  }
+
+
+  public void setGlobalUnsubscribedDts(String globalUnsubscribedDts) {
+    this.globalUnsubscribedDts = globalUnsubscribedDts;
   }
 
 
@@ -198,6 +260,52 @@ public class CustomerActivity {
   }
 
 
+  public CustomerActivity spamComplaint(Boolean spamComplaint) {
+    
+    this.spamComplaint = spamComplaint;
+    return this;
+  }
+
+   /**
+   * Get spamComplaint
+   * @return spamComplaint
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSpamComplaint() {
+    return spamComplaint;
+  }
+
+
+  public void setSpamComplaint(Boolean spamComplaint) {
+    this.spamComplaint = spamComplaint;
+  }
+
+
+  public CustomerActivity spamComplaintDts(String spamComplaintDts) {
+    
+    this.spamComplaintDts = spamComplaintDts;
+    return this;
+  }
+
+   /**
+   * Get spamComplaintDts
+   * @return spamComplaintDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSpamComplaintDts() {
+    return spamComplaintDts;
+  }
+
+
+  public void setSpamComplaintDts(String spamComplaintDts) {
+    this.spamComplaintDts = spamComplaintDts;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -209,14 +317,18 @@ public class CustomerActivity {
     }
     CustomerActivity customerActivity = (CustomerActivity) o;
     return Objects.equals(this.activities, customerActivity.activities) &&
+        Objects.equals(this.globalUnsubscribed, customerActivity.globalUnsubscribed) &&
+        Objects.equals(this.globalUnsubscribedDts, customerActivity.globalUnsubscribedDts) &&
         Objects.equals(this.memberships, customerActivity.memberships) &&
         Objects.equals(this.metrics, customerActivity.metrics) &&
-        Objects.equals(this.propertiesList, customerActivity.propertiesList);
+        Objects.equals(this.propertiesList, customerActivity.propertiesList) &&
+        Objects.equals(this.spamComplaint, customerActivity.spamComplaint) &&
+        Objects.equals(this.spamComplaintDts, customerActivity.spamComplaintDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activities, memberships, metrics, propertiesList);
+    return Objects.hash(activities, globalUnsubscribed, globalUnsubscribedDts, memberships, metrics, propertiesList, spamComplaint, spamComplaintDts);
   }
 
   @Override
@@ -224,9 +336,13 @@ public class CustomerActivity {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerActivity {\n");
     sb.append("    activities: ").append(toIndentedString(activities)).append("\n");
+    sb.append("    globalUnsubscribed: ").append(toIndentedString(globalUnsubscribed)).append("\n");
+    sb.append("    globalUnsubscribedDts: ").append(toIndentedString(globalUnsubscribedDts)).append("\n");
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    propertiesList: ").append(toIndentedString(propertiesList)).append("\n");
+    sb.append("    spamComplaint: ").append(toIndentedString(spamComplaint)).append("\n");
+    sb.append("    spamComplaintDts: ").append(toIndentedString(spamComplaintDts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -250,9 +366,13 @@ public class CustomerActivity {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("activities");
+    openapiFields.add("global_unsubscribed");
+    openapiFields.add("global_unsubscribed_dts");
     openapiFields.add("memberships");
     openapiFields.add("metrics");
     openapiFields.add("properties_list");
+    openapiFields.add("spam_complaint");
+    openapiFields.add("spam_complaint_dts");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -292,6 +412,9 @@ public class CustomerActivity {
           Activity.validateJsonObject(jsonArrayactivities.get(i).getAsJsonObject());
         };
       }
+      if (jsonObj.get("global_unsubscribed_dts") != null && !jsonObj.get("global_unsubscribed_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `global_unsubscribed_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("global_unsubscribed_dts").toString()));
+      }
       JsonArray jsonArraymemberships = jsonObj.getAsJsonArray("memberships");
       if (jsonArraymemberships != null) {
         // ensure the json data is an array
@@ -327,6 +450,9 @@ public class CustomerActivity {
         for (int i = 0; i < jsonArraypropertiesList.size(); i++) {
           Property.validateJsonObject(jsonArraypropertiesList.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("spam_complaint_dts") != null && !jsonObj.get("spam_complaint_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `spam_complaint_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("spam_complaint_dts").toString()));
       }
   }
 
