@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Group
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:49:01.664-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-14T10:02:18.793-04:00[America/Indianapolis]")
 public class Group {
   public static final String SERIALIZED_NAME_GROUP_OID = "group_oid";
   @SerializedName(SERIALIZED_NAME_GROUP_OID)

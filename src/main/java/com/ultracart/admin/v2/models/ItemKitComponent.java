@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemKitComponent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:49:01.664-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-14T10:02:18.793-04:00[America/Indianapolis]")
 public class ItemKitComponent {
   public static final String SERIALIZED_NAME_COMPONENT_COST = "component_cost";
   @SerializedName(SERIALIZED_NAME_COMPONENT_COST)

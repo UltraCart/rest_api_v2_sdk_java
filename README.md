@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-07-11T09:49:01.664-04:00[America/Indianapolis]
+  - Build date: 2022-07-14T10:02:18.793-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.34-RC</version>
+  <version>4.0.35-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.34-RC"
+     implementation "com.ultracart:rest-sdk:4.0.35-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.34-RC.jar`
+* `target/rest-sdk-4.0.35-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -168,6 +168,12 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/CheckoutApi.md#setupBrowserKey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/CheckoutApi.md#updateCart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
+*ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
+*ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+*ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
+*ConversationApi* | [**joinConversation**](docs/ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
+*ConversationApi* | [**leaveConversation**](docs/ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
+*ConversationApi* | [**startConversation**](docs/ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 *CouponApi* | [**deleteCoupon**](docs/CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/CouponApi.md#deleteCouponsByOid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -591,6 +597,14 @@ Class | Method | HTTP request | Description
  - [CheckoutSetupBrowserKeyResponse](docs/CheckoutSetupBrowserKeyResponse.md)
  - [CheckoutStateProvinceResponse](docs/CheckoutStateProvinceResponse.md)
  - [CityStateZip](docs/CityStateZip.md)
+ - [Conversation](docs/Conversation.md)
+ - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
+ - [ConversationMessage](docs/ConversationMessage.md)
+ - [ConversationParticipant](docs/ConversationParticipant.md)
+ - [ConversationStartRequest](docs/ConversationStartRequest.md)
+ - [ConversationStartResponse](docs/ConversationStartResponse.md)
+ - [ConversationSummary](docs/ConversationSummary.md)
+ - [ConversationsResponse](docs/ConversationsResponse.md)
  - [CountriesResponse](docs/CountriesResponse.md)
  - [Country](docs/Country.md)
  - [Coupon](docs/Coupon.md)
@@ -1137,6 +1151,8 @@ Authentication schemes defined for the API:
   - checkout_write: Allows you to write checkout information.
   - configuration_read: Allows you to read configuration information.
   - configuration_write: Allows you to write configuration information.
+  - conversation_read: Allows you to read conversation information.
+  - conversation_write: Allows you to write conversation information.
   - coupon_read: Allows you to read coupon information.
   - coupon_write: Allows you to write coupon information.
   - customer_read: Allows you to read customer information.
@@ -1185,6 +1201,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.35-RC | 07/14/2022 | Add channel storefront_oid to the customer activity record |
 | 4.0.34-RC | 07/11/2022 | Customer API - mergeCustomer method |
 | 4.0.33-RC | 07/05/2022 | docs update |
 | 4.0.32-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |

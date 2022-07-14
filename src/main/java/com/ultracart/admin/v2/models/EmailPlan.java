@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailPlan
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:49:01.664-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-14T10:02:18.793-04:00[America/Indianapolis]")
 public class EmailPlan {
   public static final String SERIALIZED_NAME_ADDITIONAL_CUSTOMERS = "additional_customers";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_CUSTOMERS)

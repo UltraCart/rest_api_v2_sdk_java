@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartCurrencyConversion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:49:01.664-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-14T10:02:18.793-04:00[America/Indianapolis]")
 public class CartCurrencyConversion {
   public static final String SERIALIZED_NAME_BASE_CURRENCY_CODE = "base_currency_Code";
   @SerializedName(SERIALIZED_NAME_BASE_CURRENCY_CODE)

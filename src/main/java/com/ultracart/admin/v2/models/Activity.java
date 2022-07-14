@@ -47,15 +47,23 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Activity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:49:01.664-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-14T10:02:18.793-04:00[America/Indianapolis]")
 public class Activity {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
   private String action;
 
+  public static final String SERIALIZED_NAME_CHANNEL = "channel";
+  @SerializedName(SERIALIZED_NAME_CHANNEL)
+  private String channel;
+
   public static final String SERIALIZED_NAME_METRIC = "metric";
   @SerializedName(SERIALIZED_NAME_METRIC)
   private String metric;
+
+  public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefront_oid";
+  @SerializedName(SERIALIZED_NAME_STOREFRONT_OID)
+  private Integer storefrontOid;
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
@@ -99,6 +107,29 @@ public class Activity {
   }
 
 
+  public Activity channel(String channel) {
+    
+    this.channel = channel;
+    return this;
+  }
+
+   /**
+   * Get channel
+   * @return channel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getChannel() {
+    return channel;
+  }
+
+
+  public void setChannel(String channel) {
+    this.channel = channel;
+  }
+
+
   public Activity metric(String metric) {
     
     this.metric = metric;
@@ -119,6 +150,29 @@ public class Activity {
 
   public void setMetric(String metric) {
     this.metric = metric;
+  }
+
+
+  public Activity storefrontOid(Integer storefrontOid) {
+    
+    this.storefrontOid = storefrontOid;
+    return this;
+  }
+
+   /**
+   * Get storefrontOid
+   * @return storefrontOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getStorefrontOid() {
+    return storefrontOid;
+  }
+
+
+  public void setStorefrontOid(Integer storefrontOid) {
+    this.storefrontOid = storefrontOid;
   }
 
 
@@ -225,7 +279,9 @@ public class Activity {
     }
     Activity activity = (Activity) o;
     return Objects.equals(this.action, activity.action) &&
+        Objects.equals(this.channel, activity.channel) &&
         Objects.equals(this.metric, activity.metric) &&
+        Objects.equals(this.storefrontOid, activity.storefrontOid) &&
         Objects.equals(this.subject, activity.subject) &&
         Objects.equals(this.ts, activity.ts) &&
         Objects.equals(this.type, activity.type) &&
@@ -234,7 +290,7 @@ public class Activity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, metric, subject, ts, type, uuid);
+    return Objects.hash(action, channel, metric, storefrontOid, subject, ts, type, uuid);
   }
 
   @Override
@@ -242,7 +298,9 @@ public class Activity {
     StringBuilder sb = new StringBuilder();
     sb.append("class Activity {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    ts: ").append(toIndentedString(ts)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -270,7 +328,9 @@ public class Activity {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("action");
+    openapiFields.add("channel");
     openapiFields.add("metric");
+    openapiFields.add("storefront_oid");
     openapiFields.add("subject");
     openapiFields.add("ts");
     openapiFields.add("type");
@@ -304,6 +364,9 @@ public class Activity {
       }
       if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+      }
+      if (jsonObj.get("channel") != null && !jsonObj.get("channel").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("channel").toString()));
       }
       if (jsonObj.get("metric") != null && !jsonObj.get("metric").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metric` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metric").toString()));
