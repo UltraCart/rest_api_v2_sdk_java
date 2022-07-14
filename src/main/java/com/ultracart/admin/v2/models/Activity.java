@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Activity
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-11T09:38:13.832-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-14T09:51:24.129-04:00")
 
 
 
@@ -35,8 +35,14 @@ public class Activity {
   @SerializedName("action")
   private String action = null;
 
+  @SerializedName("channel")
+  private String channel = null;
+
   @SerializedName("metric")
   private String metric = null;
+
+  @SerializedName("storefront_oid")
+  private Integer storefrontOid = null;
 
   @SerializedName("subject")
   private String subject = null;
@@ -68,6 +74,24 @@ public class Activity {
     this.action = action;
   }
 
+  public Activity channel(String channel) {
+    this.channel = channel;
+    return this;
+  }
+
+   /**
+   * Get channel
+   * @return channel
+  **/
+  @ApiModelProperty(value = "")
+  public String getChannel() {
+    return channel;
+  }
+
+  public void setChannel(String channel) {
+    this.channel = channel;
+  }
+
   public Activity metric(String metric) {
     this.metric = metric;
     return this;
@@ -84,6 +108,24 @@ public class Activity {
 
   public void setMetric(String metric) {
     this.metric = metric;
+  }
+
+  public Activity storefrontOid(Integer storefrontOid) {
+    this.storefrontOid = storefrontOid;
+    return this;
+  }
+
+   /**
+   * Get storefrontOid
+   * @return storefrontOid
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getStorefrontOid() {
+    return storefrontOid;
+  }
+
+  public void setStorefrontOid(Integer storefrontOid) {
+    this.storefrontOid = storefrontOid;
   }
 
   public Activity subject(String subject) {
@@ -169,7 +211,9 @@ public class Activity {
     }
     Activity activity = (Activity) o;
     return Objects.equals(this.action, activity.action) &&
+        Objects.equals(this.channel, activity.channel) &&
         Objects.equals(this.metric, activity.metric) &&
+        Objects.equals(this.storefrontOid, activity.storefrontOid) &&
         Objects.equals(this.subject, activity.subject) &&
         Objects.equals(this.ts, activity.ts) &&
         Objects.equals(this.type, activity.type) &&
@@ -178,7 +222,7 @@ public class Activity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, metric, subject, ts, type, uuid);
+    return Objects.hash(action, channel, metric, storefrontOid, subject, ts, type, uuid);
   }
 
 
@@ -188,7 +232,9 @@ public class Activity {
     sb.append("class Activity {\n");
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    ts: ").append(toIndentedString(ts)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
