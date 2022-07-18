@@ -23,11 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ConversationAgentAuthResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-14T09:51:24.129-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-18T13:22:03.331-04:00")
 
 
 
@@ -37,6 +39,12 @@ public class ConversationAgentAuthResponse {
 
   @SerializedName("jwt")
   private String jwt = null;
+
+  @SerializedName("merchant_id")
+  private String merchantId = null;
+
+  @SerializedName("twilio_phone_numbers")
+  private List<String> twilioPhoneNumbers = null;
 
   @SerializedName("websocket_url")
   private String websocketUrl = null;
@@ -77,6 +85,50 @@ public class ConversationAgentAuthResponse {
     this.jwt = jwt;
   }
 
+  public ConversationAgentAuthResponse merchantId(String merchantId) {
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * Get merchantId
+   * @return merchantId
+  **/
+  @ApiModelProperty(value = "")
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
+  public ConversationAgentAuthResponse twilioPhoneNumbers(List<String> twilioPhoneNumbers) {
+    this.twilioPhoneNumbers = twilioPhoneNumbers;
+    return this;
+  }
+
+  public ConversationAgentAuthResponse addTwilioPhoneNumbersItem(String twilioPhoneNumbersItem) {
+    if (this.twilioPhoneNumbers == null) {
+      this.twilioPhoneNumbers = new ArrayList<String>();
+    }
+    this.twilioPhoneNumbers.add(twilioPhoneNumbersItem);
+    return this;
+  }
+
+   /**
+   * Get twilioPhoneNumbers
+   * @return twilioPhoneNumbers
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getTwilioPhoneNumbers() {
+    return twilioPhoneNumbers;
+  }
+
+  public void setTwilioPhoneNumbers(List<String> twilioPhoneNumbers) {
+    this.twilioPhoneNumbers = twilioPhoneNumbers;
+  }
+
   public ConversationAgentAuthResponse websocketUrl(String websocketUrl) {
     this.websocketUrl = websocketUrl;
     return this;
@@ -107,12 +159,14 @@ public class ConversationAgentAuthResponse {
     ConversationAgentAuthResponse conversationAgentAuthResponse = (ConversationAgentAuthResponse) o;
     return Objects.equals(this.conversationParticipantArn, conversationAgentAuthResponse.conversationParticipantArn) &&
         Objects.equals(this.jwt, conversationAgentAuthResponse.jwt) &&
+        Objects.equals(this.merchantId, conversationAgentAuthResponse.merchantId) &&
+        Objects.equals(this.twilioPhoneNumbers, conversationAgentAuthResponse.twilioPhoneNumbers) &&
         Objects.equals(this.websocketUrl, conversationAgentAuthResponse.websocketUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, jwt, websocketUrl);
+    return Objects.hash(conversationParticipantArn, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
   }
 
 
@@ -123,6 +177,8 @@ public class ConversationAgentAuthResponse {
     
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    twilioPhoneNumbers: ").append(toIndentedString(twilioPhoneNumbers)).append("\n");
     sb.append("    websocketUrl: ").append(toIndentedString(websocketUrl)).append("\n");
     sb.append("}");
     return sb.toString();
