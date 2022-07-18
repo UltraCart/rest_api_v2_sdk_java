@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-07-14T10:02:18.793-04:00[America/Indianapolis]
+  - Build date: 2022-07-18T13:33:29.229-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.35-RC</version>
+  <version>4.0.36-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.35-RC"
+     implementation "com.ultracart:rest-sdk:4.0.36-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.35-RC.jar`
+* `target/rest-sdk-4.0.36-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**validateCart**](docs/CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+*ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**joinConversation**](docs/ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
@@ -1201,6 +1202,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.36-RC | 07/18/2022 | twilio dev |
 | 4.0.35-RC | 07/14/2022 | Add channel storefront_oid to the customer activity record |
 | 4.0.34-RC | 07/11/2022 | Customer API - mergeCustomer method |
 | 4.0.33-RC | 07/05/2022 | docs update |

@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailHistogramPropertyNamesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-14T10:02:18.793-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-18T13:33:29.229-04:00[America/Indianapolis]")
 public class EmailHistogramPropertyNamesResponse {
   public static final String SERIALIZED_NAME_PROPERTY_NAMES = "property_names";
   @SerializedName(SERIALIZED_NAME_PROPERTY_NAMES)

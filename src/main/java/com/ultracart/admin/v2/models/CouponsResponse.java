@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-14T10:02:18.793-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-18T13:33:29.229-04:00[America/Indianapolis]")
 public class CouponsResponse {
   public static final String SERIALIZED_NAME_COUPONS = "coupons";
   @SerializedName(SERIALIZED_NAME_COUPONS)

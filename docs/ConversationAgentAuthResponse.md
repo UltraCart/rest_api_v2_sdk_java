@@ -9,6 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**conversationParticipantArn** | **String** |  |  [optional] |
 |**jwt** | **String** |  |  [optional] |
+|**merchantId** | **String** |  |  [optional] |
+|**twilioPhoneNumbers** | **List&lt;String&gt;** |  |  [optional] |
 |**websocketUrl** | **String** |  |  [optional] |
 
 

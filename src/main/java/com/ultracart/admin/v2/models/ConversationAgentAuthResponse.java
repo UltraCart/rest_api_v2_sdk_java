@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuthResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-14T10:02:18.793-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-18T13:33:29.229-04:00[America/Indianapolis]")
 public class ConversationAgentAuthResponse {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -56,6 +58,14 @@ public class ConversationAgentAuthResponse {
   public static final String SERIALIZED_NAME_JWT = "jwt";
   @SerializedName(SERIALIZED_NAME_JWT)
   private String jwt;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
+
+  public static final String SERIALIZED_NAME_TWILIO_PHONE_NUMBERS = "twilio_phone_numbers";
+  @SerializedName(SERIALIZED_NAME_TWILIO_PHONE_NUMBERS)
+  private List<String> twilioPhoneNumbers = null;
 
   public static final String SERIALIZED_NAME_WEBSOCKET_URL = "websocket_url";
   @SerializedName(SERIALIZED_NAME_WEBSOCKET_URL)
@@ -110,6 +120,60 @@ public class ConversationAgentAuthResponse {
   }
 
 
+  public ConversationAgentAuthResponse merchantId(String merchantId) {
+    
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * Get merchantId
+   * @return merchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
+
+  public ConversationAgentAuthResponse twilioPhoneNumbers(List<String> twilioPhoneNumbers) {
+    
+    this.twilioPhoneNumbers = twilioPhoneNumbers;
+    return this;
+  }
+
+  public ConversationAgentAuthResponse addTwilioPhoneNumbersItem(String twilioPhoneNumbersItem) {
+    if (this.twilioPhoneNumbers == null) {
+      this.twilioPhoneNumbers = new ArrayList<>();
+    }
+    this.twilioPhoneNumbers.add(twilioPhoneNumbersItem);
+    return this;
+  }
+
+   /**
+   * Get twilioPhoneNumbers
+   * @return twilioPhoneNumbers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getTwilioPhoneNumbers() {
+    return twilioPhoneNumbers;
+  }
+
+
+  public void setTwilioPhoneNumbers(List<String> twilioPhoneNumbers) {
+    this.twilioPhoneNumbers = twilioPhoneNumbers;
+  }
+
+
   public ConversationAgentAuthResponse websocketUrl(String websocketUrl) {
     
     this.websocketUrl = websocketUrl;
@@ -145,12 +209,14 @@ public class ConversationAgentAuthResponse {
     ConversationAgentAuthResponse conversationAgentAuthResponse = (ConversationAgentAuthResponse) o;
     return Objects.equals(this.conversationParticipantArn, conversationAgentAuthResponse.conversationParticipantArn) &&
         Objects.equals(this.jwt, conversationAgentAuthResponse.jwt) &&
+        Objects.equals(this.merchantId, conversationAgentAuthResponse.merchantId) &&
+        Objects.equals(this.twilioPhoneNumbers, conversationAgentAuthResponse.twilioPhoneNumbers) &&
         Objects.equals(this.websocketUrl, conversationAgentAuthResponse.websocketUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, jwt, websocketUrl);
+    return Objects.hash(conversationParticipantArn, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
   }
 
   @Override
@@ -159,6 +225,8 @@ public class ConversationAgentAuthResponse {
     sb.append("class ConversationAgentAuthResponse {\n");
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    twilioPhoneNumbers: ").append(toIndentedString(twilioPhoneNumbers)).append("\n");
     sb.append("    websocketUrl: ").append(toIndentedString(websocketUrl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,6 +252,8 @@ public class ConversationAgentAuthResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("conversation_participant_arn");
     openapiFields.add("jwt");
+    openapiFields.add("merchant_id");
+    openapiFields.add("twilio_phone_numbers");
     openapiFields.add("websocket_url");
 
     // a set of required properties/fields (JSON key names)
@@ -217,6 +287,13 @@ public class ConversationAgentAuthResponse {
       }
       if (jsonObj.get("jwt") != null && !jsonObj.get("jwt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `jwt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwt").toString()));
+      }
+      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("twilio_phone_numbers") != null && !jsonObj.get("twilio_phone_numbers").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `twilio_phone_numbers` to be an array in the JSON string but got `%s`", jsonObj.get("twilio_phone_numbers").toString()));
       }
       if (jsonObj.get("websocket_url") != null && !jsonObj.get("websocket_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `websocket_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("websocket_url").toString()));
