@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationMessageTransportStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-18T13:33:29.229-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:18:45.077-04:00[America/Indianapolis]")
 public class ConversationMessage {
   public static final String SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN = "author_conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN)
@@ -70,6 +71,10 @@ public class ConversationMessage {
   public static final String SERIALIZED_NAME_MESSAGE_DTS = "message_dts";
   @SerializedName(SERIALIZED_NAME_MESSAGE_DTS)
   private String messageDts;
+
+  public static final String SERIALIZED_NAME_TRANSPORT_STATUSES = "transport_statuses";
+  @SerializedName(SERIALIZED_NAME_TRANSPORT_STATUSES)
+  private List<ConversationMessageTransportStatus> transportStatuses = null;
 
   public ConversationMessage() { 
   }
@@ -197,6 +202,37 @@ public class ConversationMessage {
   }
 
 
+  public ConversationMessage transportStatuses(List<ConversationMessageTransportStatus> transportStatuses) {
+    
+    this.transportStatuses = transportStatuses;
+    return this;
+  }
+
+  public ConversationMessage addTransportStatusesItem(ConversationMessageTransportStatus transportStatusesItem) {
+    if (this.transportStatuses == null) {
+      this.transportStatuses = new ArrayList<>();
+    }
+    this.transportStatuses.add(transportStatusesItem);
+    return this;
+  }
+
+   /**
+   * Get transportStatuses
+   * @return transportStatuses
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ConversationMessageTransportStatus> getTransportStatuses() {
+    return transportStatuses;
+  }
+
+
+  public void setTransportStatuses(List<ConversationMessageTransportStatus> transportStatuses) {
+    this.transportStatuses = transportStatuses;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -211,12 +247,13 @@ public class ConversationMessage {
         Objects.equals(this.authorConversationParticipantName, conversationMessage.authorConversationParticipantName) &&
         Objects.equals(this.body, conversationMessage.body) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
-        Objects.equals(this.messageDts, conversationMessage.messageDts);
+        Objects.equals(this.messageDts, conversationMessage.messageDts) &&
+        Objects.equals(this.transportStatuses, conversationMessage.transportStatuses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts, transportStatuses);
   }
 
   @Override
@@ -228,6 +265,7 @@ public class ConversationMessage {
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
+    sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -255,6 +293,7 @@ public class ConversationMessage {
     openapiFields.add("body");
     openapiFields.add("media_urls");
     openapiFields.add("message_dts");
+    openapiFields.add("transport_statuses");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -297,6 +336,18 @@ public class ConversationMessage {
       }
       if (jsonObj.get("message_dts") != null && !jsonObj.get("message_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message_dts").toString()));
+      }
+      JsonArray jsonArraytransportStatuses = jsonObj.getAsJsonArray("transport_statuses");
+      if (jsonArraytransportStatuses != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("transport_statuses").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `transport_statuses` to be an array in the JSON string but got `%s`", jsonObj.get("transport_statuses").toString()));
+        }
+
+        // validate the optional field `transport_statuses` (array)
+        for (int i = 0; i < jsonArraytransportStatuses.size(); i++) {
+          ConversationMessageTransportStatus.validateJsonObject(jsonArraytransportStatuses.get(i).getAsJsonObject());
+        };
       }
   }
 

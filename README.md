@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-07-18T13:33:29.229-04:00[America/Indianapolis]
+  - Build date: 2022-07-20T11:18:45.077-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.36-RC</version>
+  <version>4.0.37-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.36-RC"
+     implementation "com.ultracart:rest-sdk:4.0.37-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.36-RC.jar`
+* `target/rest-sdk-4.0.37-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -601,6 +601,7 @@ Class | Method | HTTP request | Description
  - [Conversation](docs/Conversation.md)
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
  - [ConversationMessage](docs/ConversationMessage.md)
+ - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
  - [ConversationParticipant](docs/ConversationParticipant.md)
  - [ConversationStartRequest](docs/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
@@ -1202,6 +1203,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.37-RC | 07/20/2022 | conversation participant name added |
 | 4.0.36-RC | 07/18/2022 | twilio dev |
 | 4.0.35-RC | 07/14/2022 | Add channel storefront_oid to the customer activity record |
 | 4.0.34-RC | 07/11/2022 | Customer API - mergeCustomer method |

@@ -49,11 +49,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuthResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-18T13:33:29.229-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:18:45.077-04:00[America/Indianapolis]")
 public class ConversationAgentAuthResponse {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
   private String conversationParticipantArn;
+
+  public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_NAME = "conversation_participant_name";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_NAME)
+  private String conversationParticipantName;
 
   public static final String SERIALIZED_NAME_JWT = "jwt";
   @SerializedName(SERIALIZED_NAME_JWT)
@@ -94,6 +98,29 @@ public class ConversationAgentAuthResponse {
 
   public void setConversationParticipantArn(String conversationParticipantArn) {
     this.conversationParticipantArn = conversationParticipantArn;
+  }
+
+
+  public ConversationAgentAuthResponse conversationParticipantName(String conversationParticipantName) {
+    
+    this.conversationParticipantName = conversationParticipantName;
+    return this;
+  }
+
+   /**
+   * Get conversationParticipantName
+   * @return conversationParticipantName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getConversationParticipantName() {
+    return conversationParticipantName;
+  }
+
+
+  public void setConversationParticipantName(String conversationParticipantName) {
+    this.conversationParticipantName = conversationParticipantName;
   }
 
 
@@ -208,6 +235,7 @@ public class ConversationAgentAuthResponse {
     }
     ConversationAgentAuthResponse conversationAgentAuthResponse = (ConversationAgentAuthResponse) o;
     return Objects.equals(this.conversationParticipantArn, conversationAgentAuthResponse.conversationParticipantArn) &&
+        Objects.equals(this.conversationParticipantName, conversationAgentAuthResponse.conversationParticipantName) &&
         Objects.equals(this.jwt, conversationAgentAuthResponse.jwt) &&
         Objects.equals(this.merchantId, conversationAgentAuthResponse.merchantId) &&
         Objects.equals(this.twilioPhoneNumbers, conversationAgentAuthResponse.twilioPhoneNumbers) &&
@@ -216,7 +244,7 @@ public class ConversationAgentAuthResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
   }
 
   @Override
@@ -224,6 +252,7 @@ public class ConversationAgentAuthResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationAgentAuthResponse {\n");
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
+    sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    twilioPhoneNumbers: ").append(toIndentedString(twilioPhoneNumbers)).append("\n");
@@ -251,6 +280,7 @@ public class ConversationAgentAuthResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("conversation_participant_arn");
+    openapiFields.add("conversation_participant_name");
     openapiFields.add("jwt");
     openapiFields.add("merchant_id");
     openapiFields.add("twilio_phone_numbers");
@@ -284,6 +314,9 @@ public class ConversationAgentAuthResponse {
       }
       if (jsonObj.get("conversation_participant_arn") != null && !jsonObj.get("conversation_participant_arn").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_participant_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_participant_arn").toString()));
+      }
+      if (jsonObj.get("conversation_participant_name") != null && !jsonObj.get("conversation_participant_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conversation_participant_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_participant_name").toString()));
       }
       if (jsonObj.get("jwt") != null && !jsonObj.get("jwt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `jwt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwt").toString()));
