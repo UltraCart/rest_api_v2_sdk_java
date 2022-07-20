@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationMessageTransportStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-18T13:22:03.331-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:07:34.130-04:00")
 
 
 
@@ -48,6 +49,9 @@ public class ConversationMessage {
 
   @SerializedName("message_dts")
   private String messageDts = null;
+
+  @SerializedName("transport_statuses")
+  private List<ConversationMessageTransportStatus> transportStatuses = null;
 
   public ConversationMessage authorConversationParticipantArn(String authorConversationParticipantArn) {
     this.authorConversationParticipantArn = authorConversationParticipantArn;
@@ -147,6 +151,32 @@ public class ConversationMessage {
     this.messageDts = messageDts;
   }
 
+  public ConversationMessage transportStatuses(List<ConversationMessageTransportStatus> transportStatuses) {
+    this.transportStatuses = transportStatuses;
+    return this;
+  }
+
+  public ConversationMessage addTransportStatusesItem(ConversationMessageTransportStatus transportStatusesItem) {
+    if (this.transportStatuses == null) {
+      this.transportStatuses = new ArrayList<ConversationMessageTransportStatus>();
+    }
+    this.transportStatuses.add(transportStatusesItem);
+    return this;
+  }
+
+   /**
+   * Get transportStatuses
+   * @return transportStatuses
+  **/
+  @ApiModelProperty(value = "")
+  public List<ConversationMessageTransportStatus> getTransportStatuses() {
+    return transportStatuses;
+  }
+
+  public void setTransportStatuses(List<ConversationMessageTransportStatus> transportStatuses) {
+    this.transportStatuses = transportStatuses;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -161,12 +191,13 @@ public class ConversationMessage {
         Objects.equals(this.authorConversationParticipantName, conversationMessage.authorConversationParticipantName) &&
         Objects.equals(this.body, conversationMessage.body) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
-        Objects.equals(this.messageDts, conversationMessage.messageDts);
+        Objects.equals(this.messageDts, conversationMessage.messageDts) &&
+        Objects.equals(this.transportStatuses, conversationMessage.transportStatuses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts, transportStatuses);
   }
 
 
@@ -180,6 +211,7 @@ public class ConversationMessage {
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
+    sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("}");
     return sb.toString();
   }

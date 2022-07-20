@@ -29,13 +29,16 @@ import java.util.List;
 /**
  * ConversationAgentAuthResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-18T13:22:03.331-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:07:34.130-04:00")
 
 
 
 public class ConversationAgentAuthResponse {
   @SerializedName("conversation_participant_arn")
   private String conversationParticipantArn = null;
+
+  @SerializedName("conversation_participant_name")
+  private String conversationParticipantName = null;
 
   @SerializedName("jwt")
   private String jwt = null;
@@ -65,6 +68,24 @@ public class ConversationAgentAuthResponse {
 
   public void setConversationParticipantArn(String conversationParticipantArn) {
     this.conversationParticipantArn = conversationParticipantArn;
+  }
+
+  public ConversationAgentAuthResponse conversationParticipantName(String conversationParticipantName) {
+    this.conversationParticipantName = conversationParticipantName;
+    return this;
+  }
+
+   /**
+   * Get conversationParticipantName
+   * @return conversationParticipantName
+  **/
+  @ApiModelProperty(value = "")
+  public String getConversationParticipantName() {
+    return conversationParticipantName;
+  }
+
+  public void setConversationParticipantName(String conversationParticipantName) {
+    this.conversationParticipantName = conversationParticipantName;
   }
 
   public ConversationAgentAuthResponse jwt(String jwt) {
@@ -158,6 +179,7 @@ public class ConversationAgentAuthResponse {
     }
     ConversationAgentAuthResponse conversationAgentAuthResponse = (ConversationAgentAuthResponse) o;
     return Objects.equals(this.conversationParticipantArn, conversationAgentAuthResponse.conversationParticipantArn) &&
+        Objects.equals(this.conversationParticipantName, conversationAgentAuthResponse.conversationParticipantName) &&
         Objects.equals(this.jwt, conversationAgentAuthResponse.jwt) &&
         Objects.equals(this.merchantId, conversationAgentAuthResponse.merchantId) &&
         Objects.equals(this.twilioPhoneNumbers, conversationAgentAuthResponse.twilioPhoneNumbers) &&
@@ -166,7 +188,7 @@ public class ConversationAgentAuthResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
   }
 
 
@@ -176,6 +198,7 @@ public class ConversationAgentAuthResponse {
     sb.append("class ConversationAgentAuthResponse {\n");
     
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
+    sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    twilioPhoneNumbers: ").append(toIndentedString(twilioPhoneNumbers)).append("\n");

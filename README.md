@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-07-18T13:22:03.331-04:00
+  - Build date: 2022-07-20T11:07:34.130-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.21</version>
+  <version>3.10.22</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.21"
+compile "com.ultracart:rest-sdk:3.10.22"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.21.jar`
+* `target/rest-sdk-3.10.22.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -584,6 +584,7 @@ Class | Method | HTTP request | Description
  - [Conversation](docs/Conversation.md)
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
  - [ConversationMessage](docs/ConversationMessage.md)
+ - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
  - [ConversationParticipant](docs/ConversationParticipant.md)
  - [ConversationStartRequest](docs/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
@@ -1186,6 +1187,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.22 | 07/20/2022 | conversation participant name added |
 | 3.10.21 | 07/18/2022 | twilio dev |
 | 3.10.20 | 07/14/2022 | Add channel storefront_oid to the customer activity record |
 | 3.10.19 | 07/11/2022 | Customer API - mergeCustomer method |
