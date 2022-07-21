@@ -143,7 +143,7 @@ try {
 
 <a name="getConversationMultimediaUploadUrl"></a>
 # **getConversationMultimediaUploadUrl**
-> getConversationMultimediaUploadUrl(extension)
+> ConversationMultimediaUploadUrlResponse getConversationMultimediaUploadUrl(extension)
 
 Get a presigned conersation multimedia upload URL
 
@@ -169,7 +169,8 @@ ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.V
 
 String extension = "extension_example"; // String | 
 try {
-    apiInstance.getConversationMultimediaUploadUrl(extension);
+    ConversationMultimediaUploadUrlResponse result = apiInstance.getConversationMultimediaUploadUrl(extension);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#getConversationMultimediaUploadUrl");
     e.printStackTrace();
@@ -185,7 +186,7 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
 
 ### Authorization
 
@@ -199,6 +200,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
