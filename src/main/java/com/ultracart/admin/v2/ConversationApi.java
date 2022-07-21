@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.ultracart.admin.v2.models.Conversation;
 import com.ultracart.admin.v2.models.ConversationAgentAuthResponse;
+import com.ultracart.admin.v2.models.ConversationResponse;
 import com.ultracart.admin.v2.models.ConversationStartRequest;
 import com.ultracart.admin.v2.models.ConversationStartResponse;
 import com.ultracart.admin.v2.models.ConversationsResponse;
@@ -322,7 +322,7 @@ public class ConversationApi {
      * Retrieve a conversation
      * Retrieve a conversation including the participants and messages 
      * @param conversationUuid  (required)
-     * @return Conversation
+     * @return ConversationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -335,8 +335,8 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public Conversation getConversation(String conversationUuid) throws ApiException {
-        ApiResponse<Conversation> localVarResp = getConversationWithHttpInfo(conversationUuid);
+    public ConversationResponse getConversation(String conversationUuid) throws ApiException {
+        ApiResponse<ConversationResponse> localVarResp = getConversationWithHttpInfo(conversationUuid);
         return localVarResp.getData();
     }
 
@@ -344,7 +344,7 @@ public class ConversationApi {
      * Retrieve a conversation
      * Retrieve a conversation including the participants and messages 
      * @param conversationUuid  (required)
-     * @return ApiResponse&lt;Conversation&gt;
+     * @return ApiResponse&lt;ConversationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -357,9 +357,9 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Conversation> getConversationWithHttpInfo(String conversationUuid) throws ApiException {
+    public ApiResponse<ConversationResponse> getConversationWithHttpInfo(String conversationUuid) throws ApiException {
         okhttp3.Call localVarCall = getConversationValidateBeforeCall(conversationUuid, null);
-        Type localVarReturnType = new TypeToken<Conversation>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConversationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -381,10 +381,10 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getConversationAsync(String conversationUuid, final ApiCallback<Conversation> _callback) throws ApiException {
+    public okhttp3.Call getConversationAsync(String conversationUuid, final ApiCallback<ConversationResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getConversationValidateBeforeCall(conversationUuid, _callback);
-        Type localVarReturnType = new TypeToken<Conversation>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConversationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

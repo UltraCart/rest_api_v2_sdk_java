@@ -20,11 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationAgentAuth;
+import com.ultracart.admin.v2.models.Error;
+import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,178 +51,143 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuthResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:18:45.077-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-21T13:35:45.079-04:00[America/Indianapolis]")
 public class ConversationAgentAuthResponse {
-  public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
-  @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
-  private String conversationParticipantArn;
+  public static final String SERIALIZED_NAME_AGENT_AUTH = "agent_auth";
+  @SerializedName(SERIALIZED_NAME_AGENT_AUTH)
+  private ConversationAgentAuth agentAuth;
 
-  public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_NAME = "conversation_participant_name";
-  @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_NAME)
-  private String conversationParticipantName;
+  public static final String SERIALIZED_NAME_ERROR = "error";
+  @SerializedName(SERIALIZED_NAME_ERROR)
+  private Error error;
 
-  public static final String SERIALIZED_NAME_JWT = "jwt";
-  @SerializedName(SERIALIZED_NAME_JWT)
-  private String jwt;
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private ResponseMetadata metadata;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
-  private String merchantId;
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  private Boolean success;
 
-  public static final String SERIALIZED_NAME_TWILIO_PHONE_NUMBERS = "twilio_phone_numbers";
-  @SerializedName(SERIALIZED_NAME_TWILIO_PHONE_NUMBERS)
-  private List<String> twilioPhoneNumbers = null;
-
-  public static final String SERIALIZED_NAME_WEBSOCKET_URL = "websocket_url";
-  @SerializedName(SERIALIZED_NAME_WEBSOCKET_URL)
-  private String websocketUrl;
+  public static final String SERIALIZED_NAME_WARNING = "warning";
+  @SerializedName(SERIALIZED_NAME_WARNING)
+  private Warning warning;
 
   public ConversationAgentAuthResponse() { 
   }
 
-  public ConversationAgentAuthResponse conversationParticipantArn(String conversationParticipantArn) {
+  public ConversationAgentAuthResponse agentAuth(ConversationAgentAuth agentAuth) {
     
-    this.conversationParticipantArn = conversationParticipantArn;
+    this.agentAuth = agentAuth;
     return this;
   }
 
    /**
-   * Get conversationParticipantArn
-   * @return conversationParticipantArn
+   * Get agentAuth
+   * @return agentAuth
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getConversationParticipantArn() {
-    return conversationParticipantArn;
+  public ConversationAgentAuth getAgentAuth() {
+    return agentAuth;
   }
 
 
-  public void setConversationParticipantArn(String conversationParticipantArn) {
-    this.conversationParticipantArn = conversationParticipantArn;
+  public void setAgentAuth(ConversationAgentAuth agentAuth) {
+    this.agentAuth = agentAuth;
   }
 
 
-  public ConversationAgentAuthResponse conversationParticipantName(String conversationParticipantName) {
+  public ConversationAgentAuthResponse error(Error error) {
     
-    this.conversationParticipantName = conversationParticipantName;
+    this.error = error;
     return this;
   }
 
    /**
-   * Get conversationParticipantName
-   * @return conversationParticipantName
+   * Get error
+   * @return error
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getConversationParticipantName() {
-    return conversationParticipantName;
+  public Error getError() {
+    return error;
   }
 
 
-  public void setConversationParticipantName(String conversationParticipantName) {
-    this.conversationParticipantName = conversationParticipantName;
+  public void setError(Error error) {
+    this.error = error;
   }
 
 
-  public ConversationAgentAuthResponse jwt(String jwt) {
+  public ConversationAgentAuthResponse metadata(ResponseMetadata metadata) {
     
-    this.jwt = jwt;
+    this.metadata = metadata;
     return this;
   }
 
    /**
-   * Get jwt
-   * @return jwt
+   * Get metadata
+   * @return metadata
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getJwt() {
-    return jwt;
+  public ResponseMetadata getMetadata() {
+    return metadata;
   }
 
 
-  public void setJwt(String jwt) {
-    this.jwt = jwt;
+  public void setMetadata(ResponseMetadata metadata) {
+    this.metadata = metadata;
   }
 
 
-  public ConversationAgentAuthResponse merchantId(String merchantId) {
+  public ConversationAgentAuthResponse success(Boolean success) {
     
-    this.merchantId = merchantId;
+    this.success = success;
     return this;
   }
 
    /**
-   * Get merchantId
-   * @return merchantId
+   * Indicates if API call was successful
+   * @return success
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates if API call was successful")
 
-  public String getMerchantId() {
-    return merchantId;
+  public Boolean getSuccess() {
+    return success;
   }
 
 
-  public void setMerchantId(String merchantId) {
-    this.merchantId = merchantId;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
 
-  public ConversationAgentAuthResponse twilioPhoneNumbers(List<String> twilioPhoneNumbers) {
+  public ConversationAgentAuthResponse warning(Warning warning) {
     
-    this.twilioPhoneNumbers = twilioPhoneNumbers;
-    return this;
-  }
-
-  public ConversationAgentAuthResponse addTwilioPhoneNumbersItem(String twilioPhoneNumbersItem) {
-    if (this.twilioPhoneNumbers == null) {
-      this.twilioPhoneNumbers = new ArrayList<>();
-    }
-    this.twilioPhoneNumbers.add(twilioPhoneNumbersItem);
+    this.warning = warning;
     return this;
   }
 
    /**
-   * Get twilioPhoneNumbers
-   * @return twilioPhoneNumbers
+   * Get warning
+   * @return warning
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getTwilioPhoneNumbers() {
-    return twilioPhoneNumbers;
+  public Warning getWarning() {
+    return warning;
   }
 
 
-  public void setTwilioPhoneNumbers(List<String> twilioPhoneNumbers) {
-    this.twilioPhoneNumbers = twilioPhoneNumbers;
-  }
-
-
-  public ConversationAgentAuthResponse websocketUrl(String websocketUrl) {
-    
-    this.websocketUrl = websocketUrl;
-    return this;
-  }
-
-   /**
-   * Get websocketUrl
-   * @return websocketUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getWebsocketUrl() {
-    return websocketUrl;
-  }
-
-
-  public void setWebsocketUrl(String websocketUrl) {
-    this.websocketUrl = websocketUrl;
+  public void setWarning(Warning warning) {
+    this.warning = warning;
   }
 
 
@@ -234,29 +201,27 @@ public class ConversationAgentAuthResponse {
       return false;
     }
     ConversationAgentAuthResponse conversationAgentAuthResponse = (ConversationAgentAuthResponse) o;
-    return Objects.equals(this.conversationParticipantArn, conversationAgentAuthResponse.conversationParticipantArn) &&
-        Objects.equals(this.conversationParticipantName, conversationAgentAuthResponse.conversationParticipantName) &&
-        Objects.equals(this.jwt, conversationAgentAuthResponse.jwt) &&
-        Objects.equals(this.merchantId, conversationAgentAuthResponse.merchantId) &&
-        Objects.equals(this.twilioPhoneNumbers, conversationAgentAuthResponse.twilioPhoneNumbers) &&
-        Objects.equals(this.websocketUrl, conversationAgentAuthResponse.websocketUrl);
+    return Objects.equals(this.agentAuth, conversationAgentAuthResponse.agentAuth) &&
+        Objects.equals(this.error, conversationAgentAuthResponse.error) &&
+        Objects.equals(this.metadata, conversationAgentAuthResponse.metadata) &&
+        Objects.equals(this.success, conversationAgentAuthResponse.success) &&
+        Objects.equals(this.warning, conversationAgentAuthResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
+    return Objects.hash(agentAuth, error, metadata, success, warning);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationAgentAuthResponse {\n");
-    sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
-    sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
-    sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
-    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    twilioPhoneNumbers: ").append(toIndentedString(twilioPhoneNumbers)).append("\n");
-    sb.append("    websocketUrl: ").append(toIndentedString(websocketUrl)).append("\n");
+    sb.append("    agentAuth: ").append(toIndentedString(agentAuth)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -279,12 +244,11 @@ public class ConversationAgentAuthResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("conversation_participant_arn");
-    openapiFields.add("conversation_participant_name");
-    openapiFields.add("jwt");
-    openapiFields.add("merchant_id");
-    openapiFields.add("twilio_phone_numbers");
-    openapiFields.add("websocket_url");
+    openapiFields.add("agent_auth");
+    openapiFields.add("error");
+    openapiFields.add("metadata");
+    openapiFields.add("success");
+    openapiFields.add("warning");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -312,24 +276,21 @@ public class ConversationAgentAuthResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationAgentAuthResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("conversation_participant_arn") != null && !jsonObj.get("conversation_participant_arn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conversation_participant_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_participant_arn").toString()));
+      // validate the optional field `agent_auth`
+      if (jsonObj.getAsJsonObject("agent_auth") != null) {
+        ConversationAgentAuth.validateJsonObject(jsonObj.getAsJsonObject("agent_auth"));
       }
-      if (jsonObj.get("conversation_participant_name") != null && !jsonObj.get("conversation_participant_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conversation_participant_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_participant_name").toString()));
+      // validate the optional field `error`
+      if (jsonObj.getAsJsonObject("error") != null) {
+        Error.validateJsonObject(jsonObj.getAsJsonObject("error"));
       }
-      if (jsonObj.get("jwt") != null && !jsonObj.get("jwt").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jwt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwt").toString()));
+      // validate the optional field `metadata`
+      if (jsonObj.getAsJsonObject("metadata") != null) {
+        ResponseMetadata.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
       }
-      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("twilio_phone_numbers") != null && !jsonObj.get("twilio_phone_numbers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `twilio_phone_numbers` to be an array in the JSON string but got `%s`", jsonObj.get("twilio_phone_numbers").toString()));
-      }
-      if (jsonObj.get("websocket_url") != null && !jsonObj.get("websocket_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `websocket_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("websocket_url").toString()));
+      // validate the optional field `warning`
+      if (jsonObj.getAsJsonObject("warning") != null) {
+        Warning.validateJsonObject(jsonObj.getAsJsonObject("warning"));
       }
   }
 

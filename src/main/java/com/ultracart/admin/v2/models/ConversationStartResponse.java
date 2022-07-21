@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Conversation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -47,62 +48,35 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationStartResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:18:45.077-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-21T13:35:45.079-04:00[America/Indianapolis]")
 public class ConversationStartResponse {
-  public static final String SERIALIZED_NAME_CONVERSATION_ARN = "conversation_arn";
-  @SerializedName(SERIALIZED_NAME_CONVERSATION_ARN)
-  private String conversationArn;
-
-  public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
-  @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
-  private String conversationUuid;
+  public static final String SERIALIZED_NAME_CONVERSATION = "conversation";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION)
+  private Conversation conversation;
 
   public ConversationStartResponse() { 
   }
 
-  public ConversationStartResponse conversationArn(String conversationArn) {
+  public ConversationStartResponse conversation(Conversation conversation) {
     
-    this.conversationArn = conversationArn;
+    this.conversation = conversation;
     return this;
   }
 
    /**
-   * Get conversationArn
-   * @return conversationArn
+   * Get conversation
+   * @return conversation
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getConversationArn() {
-    return conversationArn;
+  public Conversation getConversation() {
+    return conversation;
   }
 
 
-  public void setConversationArn(String conversationArn) {
-    this.conversationArn = conversationArn;
-  }
-
-
-  public ConversationStartResponse conversationUuid(String conversationUuid) {
-    
-    this.conversationUuid = conversationUuid;
-    return this;
-  }
-
-   /**
-   * Get conversationUuid
-   * @return conversationUuid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getConversationUuid() {
-    return conversationUuid;
-  }
-
-
-  public void setConversationUuid(String conversationUuid) {
-    this.conversationUuid = conversationUuid;
+  public void setConversation(Conversation conversation) {
+    this.conversation = conversation;
   }
 
 
@@ -116,21 +90,19 @@ public class ConversationStartResponse {
       return false;
     }
     ConversationStartResponse conversationStartResponse = (ConversationStartResponse) o;
-    return Objects.equals(this.conversationArn, conversationStartResponse.conversationArn) &&
-        Objects.equals(this.conversationUuid, conversationStartResponse.conversationUuid);
+    return Objects.equals(this.conversation, conversationStartResponse.conversation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationArn, conversationUuid);
+    return Objects.hash(conversation);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationStartResponse {\n");
-    sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
-    sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    conversation: ").append(toIndentedString(conversation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -153,8 +125,7 @@ public class ConversationStartResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("conversation_arn");
-    openapiFields.add("conversation_uuid");
+    openapiFields.add("conversation");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -182,11 +153,9 @@ public class ConversationStartResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationStartResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("conversation_arn") != null && !jsonObj.get("conversation_arn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conversation_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_arn").toString()));
-      }
-      if (jsonObj.get("conversation_uuid") != null && !jsonObj.get("conversation_uuid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conversation_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_uuid").toString()));
+      // validate the optional field `conversation`
+      if (jsonObj.getAsJsonObject("conversation") != null) {
+        Conversation.validateJsonObject(jsonObj.getAsJsonObject("conversation"));
       }
   }
 

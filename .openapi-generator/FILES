@@ -126,11 +126,13 @@ docs/CheckoutSetupBrowserKeyResponse.md
 docs/CheckoutStateProvinceResponse.md
 docs/CityStateZip.md
 docs/Conversation.md
+docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
 docs/ConversationMessage.md
 docs/ConversationMessageTransportStatus.md
 docs/ConversationParticipant.md
+docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
@@ -811,10 +813,12 @@ src/main/java/com/ultracart/admin/v2/models/CheckoutSetupBrowserKeyResponse.java
 src/main/java/com/ultracart/admin/v2/models/CheckoutStateProvinceResponse.java
 src/main/java/com/ultracart/admin/v2/models/CityStateZip.java
 src/main/java/com/ultracart/admin/v2/models/Conversation.java
+src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuth.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuthResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessageTransportStatus.java
 src/main/java/com/ultracart/admin/v2/models/ConversationParticipant.java
+src/main/java/com/ultracart/admin/v2/models/ConversationResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationSummary.java

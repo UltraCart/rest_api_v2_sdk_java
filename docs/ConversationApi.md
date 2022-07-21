@@ -77,7 +77,7 @@ This endpoint does not need any parameter.
 
 <a name="getConversation"></a>
 # **getConversation**
-> Conversation getConversation(conversationUuid)
+> ConversationResponse getConversation(conversationUuid)
 
 Retrieve a conversation
 
@@ -103,7 +103,7 @@ ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.V
 
 String conversationUuid = "conversationUuid_example"; // String | 
 try {
-    Conversation result = apiInstance.getConversation(conversationUuid);
+    ConversationResponse result = apiInstance.getConversation(conversationUuid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#getConversation");
@@ -120,7 +120,7 @@ try {
 
 ### Return type
 
-[**Conversation**](Conversation.md)
+[**ConversationResponse**](ConversationResponse.md)
 
 ### Authorization
 

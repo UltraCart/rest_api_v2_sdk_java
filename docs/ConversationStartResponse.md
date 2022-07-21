@@ -7,8 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**conversationArn** | **String** |  |  [optional] |
-|**conversationUuid** | **String** |  |  [optional] |
+|**conversation** | [**Conversation**](Conversation.md) |  |  [optional] |
 
 
 
