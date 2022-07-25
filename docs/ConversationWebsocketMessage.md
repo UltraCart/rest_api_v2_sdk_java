@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **conversationUuid** | **String** | Conversation UUID if the websocket message is tied to a specific conversation |  [optional]
 **eventConversationClosed** | [**Conversation**](Conversation.md) |  |  [optional]
 **eventNewConversation** | [**Conversation**](Conversation.md) |  |  [optional]
-**eventNewMessage** | [**ConversationMessage**](ConversationMessage.md) |  |  [optional]
+**eventNewMessage** | [**Conversation**](Conversation.md) |  |  [optional]
 **eventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  |  [optional]
 **eventType** | [**EventTypeEnum**](#EventTypeEnum) | Type of event |  [optional]
 **eventUpdatedMessage** | [**ConversationMessage**](ConversationMessage.md) |  |  [optional]

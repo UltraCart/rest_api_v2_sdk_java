@@ -30,7 +30,7 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:08:28.757-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:39:38.982-04:00")
 
 
 
@@ -45,7 +45,7 @@ public class ConversationWebsocketMessage {
   private Conversation eventNewConversation = null;
 
   @SerializedName("event_new_message")
-  private ConversationMessage eventNewMessage = null;
+  private Conversation eventNewMessage = null;
 
   @SerializedName("event_queue_position")
   private ConversationEventQueuePosition eventQueuePosition = null;
@@ -220,7 +220,7 @@ public class ConversationWebsocketMessage {
     this.eventNewConversation = eventNewConversation;
   }
 
-  public ConversationWebsocketMessage eventNewMessage(ConversationMessage eventNewMessage) {
+  public ConversationWebsocketMessage eventNewMessage(Conversation eventNewMessage) {
     this.eventNewMessage = eventNewMessage;
     return this;
   }
@@ -230,11 +230,11 @@ public class ConversationWebsocketMessage {
    * @return eventNewMessage
   **/
   @ApiModelProperty(value = "")
-  public ConversationMessage getEventNewMessage() {
+  public Conversation getEventNewMessage() {
     return eventNewMessage;
   }
 
-  public void setEventNewMessage(ConversationMessage eventNewMessage) {
+  public void setEventNewMessage(Conversation eventNewMessage) {
     this.eventNewMessage = eventNewMessage;
   }
 

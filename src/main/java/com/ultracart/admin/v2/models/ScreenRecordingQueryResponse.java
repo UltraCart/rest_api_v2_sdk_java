@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * ScreenRecordingQueryResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:08:28.757-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:39:38.982-04:00")
 
 
 

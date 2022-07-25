@@ -15,15 +15,65 @@ package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * ConversationEventQueuePosition
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:08:28.757-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:39:38.982-04:00")
 
 
 
 public class ConversationEventQueuePosition {
+  @SerializedName("available")
+  private Boolean available = null;
+
+  @SerializedName("position")
+  private Integer position = null;
+
+  public ConversationEventQueuePosition available(Boolean available) {
+    this.available = available;
+    return this;
+  }
+
+   /**
+   * True if agents are logged into the queue
+   * @return available
+  **/
+  @ApiModelProperty(value = "True if agents are logged into the queue")
+  public Boolean isAvailable() {
+    return available;
+  }
+
+  public void setAvailable(Boolean available) {
+    this.available = available;
+  }
+
+  public ConversationEventQueuePosition position(Integer position) {
+    this.position = position;
+    return this;
+  }
+
+   /**
+   * Position in the queue.  Value will be -1 if they cant be found in the queue.
+   * @return position
+  **/
+  @ApiModelProperty(value = "Position in the queue.  Value will be -1 if they cant be found in the queue.")
+  public Integer getPosition() {
+    return position;
+  }
+
+  public void setPosition(Integer position) {
+    this.position = position;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -33,12 +83,14 @@ public class ConversationEventQueuePosition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    ConversationEventQueuePosition conversationEventQueuePosition = (ConversationEventQueuePosition) o;
+    return Objects.equals(this.available, conversationEventQueuePosition.available) &&
+        Objects.equals(this.position, conversationEventQueuePosition.position);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(available, position);
   }
 
 
@@ -47,6 +99,8 @@ public class ConversationEventQueuePosition {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationEventQueuePosition {\n");
     
+    sb.append("    available: ").append(toIndentedString(available)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("}");
     return sb.toString();
   }
