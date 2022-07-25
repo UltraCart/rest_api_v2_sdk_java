@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * TaxProviderSelfCountriesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:19:44.125-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:50:22.156-04:00[America/Indianapolis]")
 public class TaxProviderSelfCountriesResponse {
   public static final String SERIALIZED_NAME_COUNTRIES = "countries";
   @SerializedName(SERIALIZED_NAME_COUNTRIES)

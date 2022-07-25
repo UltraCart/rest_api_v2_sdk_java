@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:19:44.125-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:50:22.156-04:00[America/Indianapolis]")
 public class ConversationMessage {
   public static final String SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN = "author_conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN)

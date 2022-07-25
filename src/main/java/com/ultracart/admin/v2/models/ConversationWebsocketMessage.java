@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Conversation;
+import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationMessage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -49,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:19:44.125-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:50:22.156-04:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
@@ -65,11 +66,11 @@ public class ConversationWebsocketMessage {
 
   public static final String SERIALIZED_NAME_EVENT_NEW_MESSAGE = "event_new_message";
   @SerializedName(SERIALIZED_NAME_EVENT_NEW_MESSAGE)
-  private ConversationMessage eventNewMessage;
+  private Conversation eventNewMessage;
 
   public static final String SERIALIZED_NAME_EVENT_QUEUE_POSITION = "event_queue_position";
   @SerializedName(SERIALIZED_NAME_EVENT_QUEUE_POSITION)
-  private Object eventQueuePosition;
+  private ConversationEventQueuePosition eventQueuePosition;
 
   /**
    * Type of event
@@ -263,7 +264,7 @@ public class ConversationWebsocketMessage {
   }
 
 
-  public ConversationWebsocketMessage eventNewMessage(ConversationMessage eventNewMessage) {
+  public ConversationWebsocketMessage eventNewMessage(Conversation eventNewMessage) {
     
     this.eventNewMessage = eventNewMessage;
     return this;
@@ -276,17 +277,17 @@ public class ConversationWebsocketMessage {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ConversationMessage getEventNewMessage() {
+  public Conversation getEventNewMessage() {
     return eventNewMessage;
   }
 
 
-  public void setEventNewMessage(ConversationMessage eventNewMessage) {
+  public void setEventNewMessage(Conversation eventNewMessage) {
     this.eventNewMessage = eventNewMessage;
   }
 
 
-  public ConversationWebsocketMessage eventQueuePosition(Object eventQueuePosition) {
+  public ConversationWebsocketMessage eventQueuePosition(ConversationEventQueuePosition eventQueuePosition) {
     
     this.eventQueuePosition = eventQueuePosition;
     return this;
@@ -299,12 +300,12 @@ public class ConversationWebsocketMessage {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getEventQueuePosition() {
+  public ConversationEventQueuePosition getEventQueuePosition() {
     return eventQueuePosition;
   }
 
 
-  public void setEventQueuePosition(Object eventQueuePosition) {
+  public void setEventQueuePosition(ConversationEventQueuePosition eventQueuePosition) {
     this.eventQueuePosition = eventQueuePosition;
   }
 
@@ -511,7 +512,11 @@ public class ConversationWebsocketMessage {
       }
       // validate the optional field `event_new_message`
       if (jsonObj.getAsJsonObject("event_new_message") != null) {
-        ConversationMessage.validateJsonObject(jsonObj.getAsJsonObject("event_new_message"));
+        Conversation.validateJsonObject(jsonObj.getAsJsonObject("event_new_message"));
+      }
+      // validate the optional field `event_queue_position`
+      if (jsonObj.getAsJsonObject("event_queue_position") != null) {
+        ConversationEventQueuePosition.validateJsonObject(jsonObj.getAsJsonObject("event_queue_position"));
       }
       if (jsonObj.get("event_type") != null && !jsonObj.get("event_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `event_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event_type").toString()));
