@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**closed** | **Boolean** |  |  [optional]
 **conversationArn** | **String** |  |  [optional]
 **conversationUuid** | **String** |  |  [optional]
 **merchantId** | **String** |  |  [optional]

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ScreenRecordingPageViewEvent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:39:38.982-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:03:00.980-04:00")
 
 
 

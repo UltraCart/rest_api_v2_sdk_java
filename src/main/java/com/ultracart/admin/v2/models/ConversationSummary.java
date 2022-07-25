@@ -27,11 +27,14 @@ import java.io.IOException;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:39:38.982-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:03:00.980-04:00")
 
 
 
 public class ConversationSummary {
+  @SerializedName("closed")
+  private Boolean closed = null;
+
   @SerializedName("conversation_arn")
   private String conversationArn = null;
 
@@ -58,6 +61,24 @@ public class ConversationSummary {
 
   @SerializedName("unread_messages")
   private Boolean unreadMessages = null;
+
+  public ConversationSummary closed(Boolean closed) {
+    this.closed = closed;
+    return this;
+  }
+
+   /**
+   * Get closed
+   * @return closed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isClosed() {
+    return closed;
+  }
+
+  public void setClosed(Boolean closed) {
+    this.closed = closed;
+  }
 
   public ConversationSummary conversationArn(String conversationArn) {
     this.conversationArn = conversationArn;
@@ -231,7 +252,8 @@ public class ConversationSummary {
       return false;
     }
     ConversationSummary conversationSummary = (ConversationSummary) o;
-    return Objects.equals(this.conversationArn, conversationSummary.conversationArn) &&
+    return Objects.equals(this.closed, conversationSummary.closed) &&
+        Objects.equals(this.conversationArn, conversationSummary.conversationArn) &&
         Objects.equals(this.conversationUuid, conversationSummary.conversationUuid) &&
         Objects.equals(this.lastConversationMessageBody, conversationSummary.lastConversationMessageBody) &&
         Objects.equals(this.lastConversationParticipantArn, conversationSummary.lastConversationParticipantArn) &&
@@ -244,7 +266,7 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, unreadMessages);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, unreadMessages);
   }
 
 
@@ -253,6 +275,7 @@ public class ConversationSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationSummary {\n");
     
+    sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    lastConversationMessageBody: ").append(toIndentedString(lastConversationMessageBody)).append("\n");

@@ -31,11 +31,14 @@ import java.util.List;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:39:38.982-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:03:00.980-04:00")
 
 
 
 public class Conversation {
+  @SerializedName("closed")
+  private Boolean closed = null;
+
   @SerializedName("conversation_arn")
   private String conversationArn = null;
 
@@ -50,6 +53,24 @@ public class Conversation {
 
   @SerializedName("participants")
   private List<ConversationParticipant> participants = null;
+
+  public Conversation closed(Boolean closed) {
+    this.closed = closed;
+    return this;
+  }
+
+   /**
+   * Get closed
+   * @return closed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isClosed() {
+    return closed;
+  }
+
+  public void setClosed(Boolean closed) {
+    this.closed = closed;
+  }
 
   public Conversation conversationArn(String conversationArn) {
     this.conversationArn = conversationArn;
@@ -167,7 +188,8 @@ public class Conversation {
       return false;
     }
     Conversation conversation = (Conversation) o;
-    return Objects.equals(this.conversationArn, conversation.conversationArn) &&
+    return Objects.equals(this.closed, conversation.closed) &&
+        Objects.equals(this.conversationArn, conversation.conversationArn) &&
         Objects.equals(this.conversationUuid, conversation.conversationUuid) &&
         Objects.equals(this.merchantId, conversation.merchantId) &&
         Objects.equals(this.messages, conversation.messages) &&
@@ -176,7 +198,7 @@ public class Conversation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationArn, conversationUuid, merchantId, messages, participants);
+    return Objects.hash(closed, conversationArn, conversationUuid, merchantId, messages, participants);
   }
 
 
@@ -185,6 +207,7 @@ public class Conversation {
     StringBuilder sb = new StringBuilder();
     sb.append("class Conversation {\n");
     
+    sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
