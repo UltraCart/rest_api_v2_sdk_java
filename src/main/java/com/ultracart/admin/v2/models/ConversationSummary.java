@@ -47,8 +47,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:50:22.156-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:14:16.360-04:00[America/Indianapolis]")
 public class ConversationSummary {
+  public static final String SERIALIZED_NAME_CLOSED = "closed";
+  @SerializedName(SERIALIZED_NAME_CLOSED)
+  private Boolean closed;
+
   public static final String SERIALIZED_NAME_CONVERSATION_ARN = "conversation_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_ARN)
   private String conversationArn;
@@ -87,6 +91,29 @@ public class ConversationSummary {
 
   public ConversationSummary() { 
   }
+
+  public ConversationSummary closed(Boolean closed) {
+    
+    this.closed = closed;
+    return this;
+  }
+
+   /**
+   * Get closed
+   * @return closed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getClosed() {
+    return closed;
+  }
+
+
+  public void setClosed(Boolean closed) {
+    this.closed = closed;
+  }
+
 
   public ConversationSummary conversationArn(String conversationArn) {
     
@@ -305,7 +332,8 @@ public class ConversationSummary {
       return false;
     }
     ConversationSummary conversationSummary = (ConversationSummary) o;
-    return Objects.equals(this.conversationArn, conversationSummary.conversationArn) &&
+    return Objects.equals(this.closed, conversationSummary.closed) &&
+        Objects.equals(this.conversationArn, conversationSummary.conversationArn) &&
         Objects.equals(this.conversationUuid, conversationSummary.conversationUuid) &&
         Objects.equals(this.lastConversationMessageBody, conversationSummary.lastConversationMessageBody) &&
         Objects.equals(this.lastConversationParticipantArn, conversationSummary.lastConversationParticipantArn) &&
@@ -318,13 +346,14 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, unreadMessages);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, unreadMessages);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationSummary {\n");
+    sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    lastConversationMessageBody: ").append(toIndentedString(lastConversationMessageBody)).append("\n");
@@ -356,6 +385,7 @@ public class ConversationSummary {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("closed");
     openapiFields.add("conversation_arn");
     openapiFields.add("conversation_uuid");
     openapiFields.add("last_conversation_message_body");

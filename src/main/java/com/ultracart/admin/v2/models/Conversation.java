@@ -51,8 +51,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:50:22.156-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:14:16.360-04:00[America/Indianapolis]")
 public class Conversation {
+  public static final String SERIALIZED_NAME_CLOSED = "closed";
+  @SerializedName(SERIALIZED_NAME_CLOSED)
+  private Boolean closed;
+
   public static final String SERIALIZED_NAME_CONVERSATION_ARN = "conversation_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_ARN)
   private String conversationArn;
@@ -75,6 +79,29 @@ public class Conversation {
 
   public Conversation() { 
   }
+
+  public Conversation closed(Boolean closed) {
+    
+    this.closed = closed;
+    return this;
+  }
+
+   /**
+   * Get closed
+   * @return closed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getClosed() {
+    return closed;
+  }
+
+
+  public void setClosed(Boolean closed) {
+    this.closed = closed;
+  }
+
 
   public Conversation conversationArn(String conversationArn) {
     
@@ -217,7 +244,8 @@ public class Conversation {
       return false;
     }
     Conversation conversation = (Conversation) o;
-    return Objects.equals(this.conversationArn, conversation.conversationArn) &&
+    return Objects.equals(this.closed, conversation.closed) &&
+        Objects.equals(this.conversationArn, conversation.conversationArn) &&
         Objects.equals(this.conversationUuid, conversation.conversationUuid) &&
         Objects.equals(this.merchantId, conversation.merchantId) &&
         Objects.equals(this.messages, conversation.messages) &&
@@ -226,13 +254,14 @@ public class Conversation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationArn, conversationUuid, merchantId, messages, participants);
+    return Objects.hash(closed, conversationArn, conversationUuid, merchantId, messages, participants);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Conversation {\n");
+    sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
@@ -260,6 +289,7 @@ public class Conversation {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("closed");
     openapiFields.add("conversation_arn");
     openapiFields.add("conversation_uuid");
     openapiFields.add("merchant_id");

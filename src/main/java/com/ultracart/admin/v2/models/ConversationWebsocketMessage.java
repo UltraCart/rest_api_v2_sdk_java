@@ -20,9 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ultracart.admin.v2.models.Conversation;
 import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationMessage;
+import com.ultracart.admin.v2.models.ConversationSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:50:22.156-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:14:16.360-04:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
@@ -58,15 +58,15 @@ public class ConversationWebsocketMessage {
 
   public static final String SERIALIZED_NAME_EVENT_CONVERSATION_CLOSED = "event_conversation_closed";
   @SerializedName(SERIALIZED_NAME_EVENT_CONVERSATION_CLOSED)
-  private Conversation eventConversationClosed;
+  private ConversationSummary eventConversationClosed;
 
   public static final String SERIALIZED_NAME_EVENT_NEW_CONVERSATION = "event_new_conversation";
   @SerializedName(SERIALIZED_NAME_EVENT_NEW_CONVERSATION)
-  private Conversation eventNewConversation;
+  private ConversationSummary eventNewConversation;
 
   public static final String SERIALIZED_NAME_EVENT_NEW_MESSAGE = "event_new_message";
   @SerializedName(SERIALIZED_NAME_EVENT_NEW_MESSAGE)
-  private Conversation eventNewMessage;
+  private ConversationSummary eventNewMessage;
 
   public static final String SERIALIZED_NAME_EVENT_QUEUE_POSITION = "event_queue_position";
   @SerializedName(SERIALIZED_NAME_EVENT_QUEUE_POSITION)
@@ -218,7 +218,7 @@ public class ConversationWebsocketMessage {
   }
 
 
-  public ConversationWebsocketMessage eventConversationClosed(Conversation eventConversationClosed) {
+  public ConversationWebsocketMessage eventConversationClosed(ConversationSummary eventConversationClosed) {
     
     this.eventConversationClosed = eventConversationClosed;
     return this;
@@ -231,17 +231,17 @@ public class ConversationWebsocketMessage {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Conversation getEventConversationClosed() {
+  public ConversationSummary getEventConversationClosed() {
     return eventConversationClosed;
   }
 
 
-  public void setEventConversationClosed(Conversation eventConversationClosed) {
+  public void setEventConversationClosed(ConversationSummary eventConversationClosed) {
     this.eventConversationClosed = eventConversationClosed;
   }
 
 
-  public ConversationWebsocketMessage eventNewConversation(Conversation eventNewConversation) {
+  public ConversationWebsocketMessage eventNewConversation(ConversationSummary eventNewConversation) {
     
     this.eventNewConversation = eventNewConversation;
     return this;
@@ -254,17 +254,17 @@ public class ConversationWebsocketMessage {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Conversation getEventNewConversation() {
+  public ConversationSummary getEventNewConversation() {
     return eventNewConversation;
   }
 
 
-  public void setEventNewConversation(Conversation eventNewConversation) {
+  public void setEventNewConversation(ConversationSummary eventNewConversation) {
     this.eventNewConversation = eventNewConversation;
   }
 
 
-  public ConversationWebsocketMessage eventNewMessage(Conversation eventNewMessage) {
+  public ConversationWebsocketMessage eventNewMessage(ConversationSummary eventNewMessage) {
     
     this.eventNewMessage = eventNewMessage;
     return this;
@@ -277,12 +277,12 @@ public class ConversationWebsocketMessage {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Conversation getEventNewMessage() {
+  public ConversationSummary getEventNewMessage() {
     return eventNewMessage;
   }
 
 
-  public void setEventNewMessage(Conversation eventNewMessage) {
+  public void setEventNewMessage(ConversationSummary eventNewMessage) {
     this.eventNewMessage = eventNewMessage;
   }
 
@@ -504,15 +504,15 @@ public class ConversationWebsocketMessage {
       }
       // validate the optional field `event_conversation_closed`
       if (jsonObj.getAsJsonObject("event_conversation_closed") != null) {
-        Conversation.validateJsonObject(jsonObj.getAsJsonObject("event_conversation_closed"));
+        ConversationSummary.validateJsonObject(jsonObj.getAsJsonObject("event_conversation_closed"));
       }
       // validate the optional field `event_new_conversation`
       if (jsonObj.getAsJsonObject("event_new_conversation") != null) {
-        Conversation.validateJsonObject(jsonObj.getAsJsonObject("event_new_conversation"));
+        ConversationSummary.validateJsonObject(jsonObj.getAsJsonObject("event_new_conversation"));
       }
       // validate the optional field `event_new_message`
       if (jsonObj.getAsJsonObject("event_new_message") != null) {
-        Conversation.validateJsonObject(jsonObj.getAsJsonObject("event_new_message"));
+        ConversationSummary.validateJsonObject(jsonObj.getAsJsonObject("event_new_message"));
       }
       // validate the optional field `event_queue_position`
       if (jsonObj.getAsJsonObject("event_queue_position") != null) {

@@ -54,7 +54,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingFilterPageView
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:50:22.156-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:14:16.360-04:00[America/Indianapolis]")
 public class ScreenRecordingFilterPageView {
   public static final String SERIALIZED_NAME_DOMAIN = "domain";
   @SerializedName(SERIALIZED_NAME_DOMAIN)
