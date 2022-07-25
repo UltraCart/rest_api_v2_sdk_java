@@ -27,8 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.ultracart.admin.v2.models.Conversation;
 import com.ultracart.admin.v2.models.ConversationAgentAuthResponse;
+import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
+import com.ultracart.admin.v2.models.ConversationResponse;
 import com.ultracart.admin.v2.models.ConversationStartRequest;
 import com.ultracart.admin.v2.models.ConversationStartResponse;
 import com.ultracart.admin.v2.models.ConversationsResponse;
@@ -265,11 +266,11 @@ public class ConversationApi {
      * Retrieve a conversation
      * Retrieve a conversation including the participants and messages 
      * @param conversationUuid  (required)
-     * @return Conversation
+     * @return ConversationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Conversation getConversation(String conversationUuid) throws ApiException {
-        ApiResponse<Conversation> resp = getConversationWithHttpInfo(conversationUuid);
+    public ConversationResponse getConversation(String conversationUuid) throws ApiException {
+        ApiResponse<ConversationResponse> resp = getConversationWithHttpInfo(conversationUuid);
         return resp.getData();
     }
 
@@ -277,12 +278,12 @@ public class ConversationApi {
      * Retrieve a conversation
      * Retrieve a conversation including the participants and messages 
      * @param conversationUuid  (required)
-     * @return ApiResponse&lt;Conversation&gt;
+     * @return ApiResponse&lt;ConversationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Conversation> getConversationWithHttpInfo(String conversationUuid) throws ApiException {
+    public ApiResponse<ConversationResponse> getConversationWithHttpInfo(String conversationUuid) throws ApiException {
         com.squareup.okhttp.Call call = getConversationValidateBeforeCall(conversationUuid, null, null);
-        Type localVarReturnType = new TypeToken<Conversation>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConversationResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -294,7 +295,7 @@ public class ConversationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getConversationAsync(String conversationUuid, final ApiCallback<Conversation> callback) throws ApiException {
+    public com.squareup.okhttp.Call getConversationAsync(String conversationUuid, final ApiCallback<ConversationResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -316,7 +317,7 @@ public class ConversationApi {
         }
 
         com.squareup.okhttp.Call call = getConversationValidateBeforeCall(conversationUuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Conversation>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConversationResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -388,22 +389,25 @@ public class ConversationApi {
      * Get a presigned conersation multimedia upload URL
      * Get a presigned conersation multimedia upload URL 
      * @param extension  (required)
+     * @return ConversationMultimediaUploadUrlResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void getConversationMultimediaUploadUrl(String extension) throws ApiException {
-        getConversationMultimediaUploadUrlWithHttpInfo(extension);
+    public ConversationMultimediaUploadUrlResponse getConversationMultimediaUploadUrl(String extension) throws ApiException {
+        ApiResponse<ConversationMultimediaUploadUrlResponse> resp = getConversationMultimediaUploadUrlWithHttpInfo(extension);
+        return resp.getData();
     }
 
     /**
      * Get a presigned conersation multimedia upload URL
      * Get a presigned conersation multimedia upload URL 
      * @param extension  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;ConversationMultimediaUploadUrlResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> getConversationMultimediaUploadUrlWithHttpInfo(String extension) throws ApiException {
+    public ApiResponse<ConversationMultimediaUploadUrlResponse> getConversationMultimediaUploadUrlWithHttpInfo(String extension) throws ApiException {
         com.squareup.okhttp.Call call = getConversationMultimediaUploadUrlValidateBeforeCall(extension, null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<ConversationMultimediaUploadUrlResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -414,7 +418,7 @@ public class ConversationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getConversationMultimediaUploadUrlAsync(String extension, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getConversationMultimediaUploadUrlAsync(String extension, final ApiCallback<ConversationMultimediaUploadUrlResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -436,7 +440,8 @@ public class ConversationApi {
         }
 
         com.squareup.okhttp.Call call = getConversationMultimediaUploadUrlValidateBeforeCall(extension, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<ConversationMultimediaUploadUrlResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**

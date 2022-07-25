@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-07-20T11:07:34.130-04:00
+  - Build date: 2022-07-25T14:08:28.757-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.22</version>
+  <version>3.10.23</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.22"
+compile "com.ultracart:rest-sdk:3.10.23"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.22.jar`
+* `target/rest-sdk-3.10.23.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -492,6 +492,7 @@ Class | Method | HTTP request | Description
  - [AutoOrderItemOption](docs/AutoOrderItemOption.md)
  - [AutoOrderItemSimpleSchedule](docs/AutoOrderItemSimpleSchedule.md)
  - [AutoOrderLog](docs/AutoOrderLog.md)
+ - [AutoOrderManagement](docs/AutoOrderManagement.md)
  - [AutoOrderQuery](docs/AutoOrderQuery.md)
  - [AutoOrderQueryBatch](docs/AutoOrderQueryBatch.md)
  - [AutoOrderResponse](docs/AutoOrderResponse.md)
@@ -582,13 +583,19 @@ Class | Method | HTTP request | Description
  - [CheckoutStateProvinceResponse](docs/CheckoutStateProvinceResponse.md)
  - [CityStateZip](docs/CityStateZip.md)
  - [Conversation](docs/Conversation.md)
+ - [ConversationAgentAuth](docs/ConversationAgentAuth.md)
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
+ - [ConversationEventQueuePosition](docs/ConversationEventQueuePosition.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
+ - [ConversationMultimediaUploadUrl](docs/ConversationMultimediaUploadUrl.md)
+ - [ConversationMultimediaUploadUrlResponse](docs/ConversationMultimediaUploadUrlResponse.md)
  - [ConversationParticipant](docs/ConversationParticipant.md)
+ - [ConversationResponse](docs/ConversationResponse.md)
  - [ConversationStartRequest](docs/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
  - [ConversationSummary](docs/ConversationSummary.md)
+ - [ConversationWebsocketMessage](docs/ConversationWebsocketMessage.md)
  - [ConversationsResponse](docs/ConversationsResponse.md)
  - [CountriesResponse](docs/CountriesResponse.md)
  - [Country](docs/Country.md)
@@ -1187,6 +1194,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.23 | 07/25/2022 | conversations - add a websocket message model |
 | 3.10.22 | 07/20/2022 | conversation participant name added |
 | 3.10.21 | 07/18/2022 | twilio dev |
 | 3.10.20 | 07/14/2022 | Add channel storefront_oid to the customer activity record |

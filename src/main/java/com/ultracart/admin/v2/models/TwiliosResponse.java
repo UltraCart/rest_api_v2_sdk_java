@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * TwiliosResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:07:34.130-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:08:28.757-04:00")
 
 
 

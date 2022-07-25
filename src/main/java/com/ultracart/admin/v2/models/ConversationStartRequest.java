@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ConversationStartRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:07:34.130-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:08:28.757-04:00")
 
 
 
@@ -39,6 +39,9 @@ public class ConversationStartRequest {
 
   @SerializedName("conversation_arn")
   private String conversationArn = null;
+
+  @SerializedName("conversation_webchat_queue_uuid")
+  private String conversationWebchatQueueUuid = null;
 
   public ConversationStartRequest addConversationParticipantArns(List<String> addConversationParticipantArns) {
     this.addConversationParticipantArns = addConversationParticipantArns;
@@ -84,6 +87,24 @@ public class ConversationStartRequest {
     this.conversationArn = conversationArn;
   }
 
+  public ConversationStartRequest conversationWebchatQueueUuid(String conversationWebchatQueueUuid) {
+    this.conversationWebchatQueueUuid = conversationWebchatQueueUuid;
+    return this;
+  }
+
+   /**
+   * Get conversationWebchatQueueUuid
+   * @return conversationWebchatQueueUuid
+  **/
+  @ApiModelProperty(value = "")
+  public String getConversationWebchatQueueUuid() {
+    return conversationWebchatQueueUuid;
+  }
+
+  public void setConversationWebchatQueueUuid(String conversationWebchatQueueUuid) {
+    this.conversationWebchatQueueUuid = conversationWebchatQueueUuid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -95,12 +116,13 @@ public class ConversationStartRequest {
     }
     ConversationStartRequest conversationStartRequest = (ConversationStartRequest) o;
     return Objects.equals(this.addConversationParticipantArns, conversationStartRequest.addConversationParticipantArns) &&
-        Objects.equals(this.conversationArn, conversationStartRequest.conversationArn);
+        Objects.equals(this.conversationArn, conversationStartRequest.conversationArn) &&
+        Objects.equals(this.conversationWebchatQueueUuid, conversationStartRequest.conversationWebchatQueueUuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addConversationParticipantArns, conversationArn);
+    return Objects.hash(addConversationParticipantArns, conversationArn, conversationWebchatQueueUuid);
   }
 
 
@@ -111,6 +133,7 @@ public class ConversationStartRequest {
     
     sb.append("    addConversationParticipantArns: ").append(toIndentedString(addConversationParticipantArns)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
+    sb.append("    conversationWebchatQueueUuid: ").append(toIndentedString(conversationWebchatQueueUuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

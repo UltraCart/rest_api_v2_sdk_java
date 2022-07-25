@@ -20,152 +20,125 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationAgentAuth;
+import com.ultracart.admin.v2.models.Error;
+import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * ConversationAgentAuthResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:07:34.130-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:08:28.757-04:00")
 
 
 
 public class ConversationAgentAuthResponse {
-  @SerializedName("conversation_participant_arn")
-  private String conversationParticipantArn = null;
+  @SerializedName("agent_auth")
+  private ConversationAgentAuth agentAuth = null;
 
-  @SerializedName("conversation_participant_name")
-  private String conversationParticipantName = null;
+  @SerializedName("error")
+  private Error error = null;
 
-  @SerializedName("jwt")
-  private String jwt = null;
+  @SerializedName("metadata")
+  private ResponseMetadata metadata = null;
 
-  @SerializedName("merchant_id")
-  private String merchantId = null;
+  @SerializedName("success")
+  private Boolean success = null;
 
-  @SerializedName("twilio_phone_numbers")
-  private List<String> twilioPhoneNumbers = null;
+  @SerializedName("warning")
+  private Warning warning = null;
 
-  @SerializedName("websocket_url")
-  private String websocketUrl = null;
-
-  public ConversationAgentAuthResponse conversationParticipantArn(String conversationParticipantArn) {
-    this.conversationParticipantArn = conversationParticipantArn;
+  public ConversationAgentAuthResponse agentAuth(ConversationAgentAuth agentAuth) {
+    this.agentAuth = agentAuth;
     return this;
   }
 
    /**
-   * Get conversationParticipantArn
-   * @return conversationParticipantArn
+   * Get agentAuth
+   * @return agentAuth
   **/
   @ApiModelProperty(value = "")
-  public String getConversationParticipantArn() {
-    return conversationParticipantArn;
+  public ConversationAgentAuth getAgentAuth() {
+    return agentAuth;
   }
 
-  public void setConversationParticipantArn(String conversationParticipantArn) {
-    this.conversationParticipantArn = conversationParticipantArn;
+  public void setAgentAuth(ConversationAgentAuth agentAuth) {
+    this.agentAuth = agentAuth;
   }
 
-  public ConversationAgentAuthResponse conversationParticipantName(String conversationParticipantName) {
-    this.conversationParticipantName = conversationParticipantName;
+  public ConversationAgentAuthResponse error(Error error) {
+    this.error = error;
     return this;
   }
 
    /**
-   * Get conversationParticipantName
-   * @return conversationParticipantName
+   * Get error
+   * @return error
   **/
   @ApiModelProperty(value = "")
-  public String getConversationParticipantName() {
-    return conversationParticipantName;
+  public Error getError() {
+    return error;
   }
 
-  public void setConversationParticipantName(String conversationParticipantName) {
-    this.conversationParticipantName = conversationParticipantName;
+  public void setError(Error error) {
+    this.error = error;
   }
 
-  public ConversationAgentAuthResponse jwt(String jwt) {
-    this.jwt = jwt;
+  public ConversationAgentAuthResponse metadata(ResponseMetadata metadata) {
+    this.metadata = metadata;
     return this;
   }
 
    /**
-   * Get jwt
-   * @return jwt
+   * Get metadata
+   * @return metadata
   **/
   @ApiModelProperty(value = "")
-  public String getJwt() {
-    return jwt;
+  public ResponseMetadata getMetadata() {
+    return metadata;
   }
 
-  public void setJwt(String jwt) {
-    this.jwt = jwt;
+  public void setMetadata(ResponseMetadata metadata) {
+    this.metadata = metadata;
   }
 
-  public ConversationAgentAuthResponse merchantId(String merchantId) {
-    this.merchantId = merchantId;
+  public ConversationAgentAuthResponse success(Boolean success) {
+    this.success = success;
     return this;
   }
 
    /**
-   * Get merchantId
-   * @return merchantId
+   * Indicates if API call was successful
+   * @return success
   **/
-  @ApiModelProperty(value = "")
-  public String getMerchantId() {
-    return merchantId;
+  @ApiModelProperty(value = "Indicates if API call was successful")
+  public Boolean isSuccess() {
+    return success;
   }
 
-  public void setMerchantId(String merchantId) {
-    this.merchantId = merchantId;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
-  public ConversationAgentAuthResponse twilioPhoneNumbers(List<String> twilioPhoneNumbers) {
-    this.twilioPhoneNumbers = twilioPhoneNumbers;
-    return this;
-  }
-
-  public ConversationAgentAuthResponse addTwilioPhoneNumbersItem(String twilioPhoneNumbersItem) {
-    if (this.twilioPhoneNumbers == null) {
-      this.twilioPhoneNumbers = new ArrayList<String>();
-    }
-    this.twilioPhoneNumbers.add(twilioPhoneNumbersItem);
+  public ConversationAgentAuthResponse warning(Warning warning) {
+    this.warning = warning;
     return this;
   }
 
    /**
-   * Get twilioPhoneNumbers
-   * @return twilioPhoneNumbers
+   * Get warning
+   * @return warning
   **/
   @ApiModelProperty(value = "")
-  public List<String> getTwilioPhoneNumbers() {
-    return twilioPhoneNumbers;
+  public Warning getWarning() {
+    return warning;
   }
 
-  public void setTwilioPhoneNumbers(List<String> twilioPhoneNumbers) {
-    this.twilioPhoneNumbers = twilioPhoneNumbers;
-  }
-
-  public ConversationAgentAuthResponse websocketUrl(String websocketUrl) {
-    this.websocketUrl = websocketUrl;
-    return this;
-  }
-
-   /**
-   * Get websocketUrl
-   * @return websocketUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getWebsocketUrl() {
-    return websocketUrl;
-  }
-
-  public void setWebsocketUrl(String websocketUrl) {
-    this.websocketUrl = websocketUrl;
+  public void setWarning(Warning warning) {
+    this.warning = warning;
   }
 
 
@@ -178,17 +151,16 @@ public class ConversationAgentAuthResponse {
       return false;
     }
     ConversationAgentAuthResponse conversationAgentAuthResponse = (ConversationAgentAuthResponse) o;
-    return Objects.equals(this.conversationParticipantArn, conversationAgentAuthResponse.conversationParticipantArn) &&
-        Objects.equals(this.conversationParticipantName, conversationAgentAuthResponse.conversationParticipantName) &&
-        Objects.equals(this.jwt, conversationAgentAuthResponse.jwt) &&
-        Objects.equals(this.merchantId, conversationAgentAuthResponse.merchantId) &&
-        Objects.equals(this.twilioPhoneNumbers, conversationAgentAuthResponse.twilioPhoneNumbers) &&
-        Objects.equals(this.websocketUrl, conversationAgentAuthResponse.websocketUrl);
+    return Objects.equals(this.agentAuth, conversationAgentAuthResponse.agentAuth) &&
+        Objects.equals(this.error, conversationAgentAuthResponse.error) &&
+        Objects.equals(this.metadata, conversationAgentAuthResponse.metadata) &&
+        Objects.equals(this.success, conversationAgentAuthResponse.success) &&
+        Objects.equals(this.warning, conversationAgentAuthResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
+    return Objects.hash(agentAuth, error, metadata, success, warning);
   }
 
 
@@ -197,12 +169,11 @@ public class ConversationAgentAuthResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationAgentAuthResponse {\n");
     
-    sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
-    sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
-    sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
-    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    twilioPhoneNumbers: ").append(toIndentedString(twilioPhoneNumbers)).append("\n");
-    sb.append("    websocketUrl: ").append(toIndentedString(websocketUrl)).append("\n");
+    sb.append("    agentAuth: ").append(toIndentedString(agentAuth)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

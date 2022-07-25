@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 <a name="getConversation"></a>
 # **getConversation**
-> Conversation getConversation(conversationUuid)
+> ConversationResponse getConversation(conversationUuid)
 
 Retrieve a conversation
 
@@ -82,7 +82,7 @@ ConversationApi apiInstance = new ConversationApi(apiKey);
 
 String conversationUuid = "conversationUuid_example"; // String | 
 try {
-    Conversation result = apiInstance.getConversation(conversationUuid);
+    ConversationResponse result = apiInstance.getConversation(conversationUuid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#getConversation");
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Conversation**](Conversation.md)
+[**ConversationResponse**](ConversationResponse.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 <a name="getConversationMultimediaUploadUrl"></a>
 # **getConversationMultimediaUploadUrl**
-> getConversationMultimediaUploadUrl(extension)
+> ConversationMultimediaUploadUrlResponse getConversationMultimediaUploadUrl(extension)
 
 Get a presigned conersation multimedia upload URL
 
@@ -132,7 +132,8 @@ ConversationApi apiInstance = new ConversationApi(apiKey);
 
 String extension = "extension_example"; // String | 
 try {
-    apiInstance.getConversationMultimediaUploadUrl(extension);
+    ConversationMultimediaUploadUrlResponse result = apiInstance.getConversationMultimediaUploadUrl(extension);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#getConversationMultimediaUploadUrl");
     e.printStackTrace();
@@ -147,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
 
 ### Authorization
 

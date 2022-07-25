@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Conversation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,51 +28,30 @@ import java.io.IOException;
 /**
  * ConversationStartResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-20T11:07:34.130-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:08:28.757-04:00")
 
 
 
 public class ConversationStartResponse {
-  @SerializedName("conversation_arn")
-  private String conversationArn = null;
+  @SerializedName("conversation")
+  private Conversation conversation = null;
 
-  @SerializedName("conversation_uuid")
-  private String conversationUuid = null;
-
-  public ConversationStartResponse conversationArn(String conversationArn) {
-    this.conversationArn = conversationArn;
+  public ConversationStartResponse conversation(Conversation conversation) {
+    this.conversation = conversation;
     return this;
   }
 
    /**
-   * Get conversationArn
-   * @return conversationArn
+   * Get conversation
+   * @return conversation
   **/
   @ApiModelProperty(value = "")
-  public String getConversationArn() {
-    return conversationArn;
+  public Conversation getConversation() {
+    return conversation;
   }
 
-  public void setConversationArn(String conversationArn) {
-    this.conversationArn = conversationArn;
-  }
-
-  public ConversationStartResponse conversationUuid(String conversationUuid) {
-    this.conversationUuid = conversationUuid;
-    return this;
-  }
-
-   /**
-   * Get conversationUuid
-   * @return conversationUuid
-  **/
-  @ApiModelProperty(value = "")
-  public String getConversationUuid() {
-    return conversationUuid;
-  }
-
-  public void setConversationUuid(String conversationUuid) {
-    this.conversationUuid = conversationUuid;
+  public void setConversation(Conversation conversation) {
+    this.conversation = conversation;
   }
 
 
@@ -84,13 +64,12 @@ public class ConversationStartResponse {
       return false;
     }
     ConversationStartResponse conversationStartResponse = (ConversationStartResponse) o;
-    return Objects.equals(this.conversationArn, conversationStartResponse.conversationArn) &&
-        Objects.equals(this.conversationUuid, conversationStartResponse.conversationUuid);
+    return Objects.equals(this.conversation, conversationStartResponse.conversation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationArn, conversationUuid);
+    return Objects.hash(conversation);
   }
 
 
@@ -99,8 +78,7 @@ public class ConversationStartResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationStartResponse {\n");
     
-    sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
-    sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    conversation: ").append(toIndentedString(conversation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
