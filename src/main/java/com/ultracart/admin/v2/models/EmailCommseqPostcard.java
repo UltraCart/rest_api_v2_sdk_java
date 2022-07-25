@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseqPostcard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-21T16:45:37.861-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:19:44.125-04:00[America/Indianapolis]")
 public class EmailCommseqPostcard {
   public static final String SERIALIZED_NAME_DELETED = "deleted";
   @SerializedName(SERIALIZED_NAME_DELETED)
@@ -341,11 +341,11 @@ public class EmailCommseqPostcard {
   }
 
    /**
-   * URL to screenshot of the front of the postcard
+   * URL to screenshot of the back of the postcard
    * @return screenshotBackUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL to screenshot of the front of the postcard")
+  @ApiModelProperty(value = "URL to screenshot of the back of the postcard")
 
   public String getScreenshotBackUrl() {
     return screenshotBackUrl;

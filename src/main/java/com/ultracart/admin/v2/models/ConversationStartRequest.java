@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationStartRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-21T16:45:37.861-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:19:44.125-04:00[America/Indianapolis]")
 public class ConversationStartRequest {
   public static final String SERIALIZED_NAME_ADD_CONVERSATION_PARTICIPANT_ARNS = "add_conversation_participant_arns";
   @SerializedName(SERIALIZED_NAME_ADD_CONVERSATION_PARTICIPANT_ARNS)
@@ -58,6 +58,10 @@ public class ConversationStartRequest {
   public static final String SERIALIZED_NAME_CONVERSATION_ARN = "conversation_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_ARN)
   private String conversationArn;
+
+  public static final String SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUID = "conversation_webchat_queue_uuid";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUID)
+  private String conversationWebchatQueueUuid;
 
   public ConversationStartRequest() { 
   }
@@ -116,6 +120,29 @@ public class ConversationStartRequest {
   }
 
 
+  public ConversationStartRequest conversationWebchatQueueUuid(String conversationWebchatQueueUuid) {
+    
+    this.conversationWebchatQueueUuid = conversationWebchatQueueUuid;
+    return this;
+  }
+
+   /**
+   * Get conversationWebchatQueueUuid
+   * @return conversationWebchatQueueUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getConversationWebchatQueueUuid() {
+    return conversationWebchatQueueUuid;
+  }
+
+
+  public void setConversationWebchatQueueUuid(String conversationWebchatQueueUuid) {
+    this.conversationWebchatQueueUuid = conversationWebchatQueueUuid;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -127,12 +154,13 @@ public class ConversationStartRequest {
     }
     ConversationStartRequest conversationStartRequest = (ConversationStartRequest) o;
     return Objects.equals(this.addConversationParticipantArns, conversationStartRequest.addConversationParticipantArns) &&
-        Objects.equals(this.conversationArn, conversationStartRequest.conversationArn);
+        Objects.equals(this.conversationArn, conversationStartRequest.conversationArn) &&
+        Objects.equals(this.conversationWebchatQueueUuid, conversationStartRequest.conversationWebchatQueueUuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addConversationParticipantArns, conversationArn);
+    return Objects.hash(addConversationParticipantArns, conversationArn, conversationWebchatQueueUuid);
   }
 
   @Override
@@ -141,6 +169,7 @@ public class ConversationStartRequest {
     sb.append("class ConversationStartRequest {\n");
     sb.append("    addConversationParticipantArns: ").append(toIndentedString(addConversationParticipantArns)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
+    sb.append("    conversationWebchatQueueUuid: ").append(toIndentedString(conversationWebchatQueueUuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -165,6 +194,7 @@ public class ConversationStartRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("add_conversation_participant_arns");
     openapiFields.add("conversation_arn");
+    openapiFields.add("conversation_webchat_queue_uuid");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -198,6 +228,9 @@ public class ConversationStartRequest {
       }
       if (jsonObj.get("conversation_arn") != null && !jsonObj.get("conversation_arn").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_arn").toString()));
+      }
+      if (jsonObj.get("conversation_webchat_queue_uuid") != null && !jsonObj.get("conversation_webchat_queue_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conversation_webchat_queue_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_webchat_queue_uuid").toString()));
       }
   }
 

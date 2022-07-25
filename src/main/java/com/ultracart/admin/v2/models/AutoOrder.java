@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.AutoOrderItem;
 import com.ultracart.admin.v2.models.AutoOrderLog;
+import com.ultracart.admin.v2.models.AutoOrderManagement;
 import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -52,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-21T16:45:37.861-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T14:19:44.125-04:00[America/Indianapolis]")
 public class AutoOrder {
   public static final String SERIALIZED_NAME_AUTO_ORDER_CODE = "auto_order_code";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_CODE)
@@ -113,6 +114,10 @@ public class AutoOrder {
   public static final String SERIALIZED_NAME_LOGS = "logs";
   @SerializedName(SERIALIZED_NAME_LOGS)
   private List<AutoOrderLog> logs = null;
+
+  public static final String SERIALIZED_NAME_MANAGEMENT = "management";
+  @SerializedName(SERIALIZED_NAME_MANAGEMENT)
+  private AutoOrderManagement management;
 
   public static final String SERIALIZED_NAME_NEXT_ATTEMPT = "next_attempt";
   @SerializedName(SERIALIZED_NAME_NEXT_ATTEMPT)
@@ -555,6 +560,29 @@ public class AutoOrder {
   }
 
 
+  public AutoOrder management(AutoOrderManagement management) {
+    
+    this.management = management;
+    return this;
+  }
+
+   /**
+   * Get management
+   * @return management
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AutoOrderManagement getManagement() {
+    return management;
+  }
+
+
+  public void setManagement(AutoOrderManagement management) {
+    this.management = management;
+  }
+
+
   public AutoOrder nextAttempt(String nextAttempt) {
     
     this.nextAttempt = nextAttempt;
@@ -749,6 +777,7 @@ public class AutoOrder {
         Objects.equals(this.failureReason, autoOrder.failureReason) &&
         Objects.equals(this.items, autoOrder.items) &&
         Objects.equals(this.logs, autoOrder.logs) &&
+        Objects.equals(this.management, autoOrder.management) &&
         Objects.equals(this.nextAttempt, autoOrder.nextAttempt) &&
         Objects.equals(this.originalOrder, autoOrder.originalOrder) &&
         Objects.equals(this.originalOrderId, autoOrder.originalOrderId) &&
@@ -760,7 +789,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
   @Override
@@ -782,6 +811,7 @@ public class AutoOrder {
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
+    sb.append("    management: ").append(toIndentedString(management)).append("\n");
     sb.append("    nextAttempt: ").append(toIndentedString(nextAttempt)).append("\n");
     sb.append("    originalOrder: ").append(toIndentedString(originalOrder)).append("\n");
     sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");
@@ -826,6 +856,7 @@ public class AutoOrder {
     openapiFields.add("failure_reason");
     openapiFields.add("items");
     openapiFields.add("logs");
+    openapiFields.add("management");
     openapiFields.add("next_attempt");
     openapiFields.add("original_order");
     openapiFields.add("original_order_id");
@@ -901,6 +932,10 @@ public class AutoOrder {
         for (int i = 0; i < jsonArraylogs.size(); i++) {
           AutoOrderLog.validateJsonObject(jsonArraylogs.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `management`
+      if (jsonObj.getAsJsonObject("management") != null) {
+        AutoOrderManagement.validateJsonObject(jsonObj.getAsJsonObject("management"));
       }
       if (jsonObj.get("next_attempt") != null && !jsonObj.get("next_attempt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `next_attempt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_attempt").toString()));

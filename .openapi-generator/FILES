@@ -33,6 +33,7 @@ docs/AutoOrderItemFutureSchedule.md
 docs/AutoOrderItemOption.md
 docs/AutoOrderItemSimpleSchedule.md
 docs/AutoOrderLog.md
+docs/AutoOrderManagement.md
 docs/AutoOrderQuery.md
 docs/AutoOrderQueryBatch.md
 docs/AutoOrderResponse.md
@@ -138,6 +139,7 @@ docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
+docs/ConversationWebsocketMessage.md
 docs/ConversationsResponse.md
 docs/CountriesResponse.md
 docs/Country.md
@@ -725,6 +727,7 @@ src/main/java/com/ultracart/admin/v2/models/AutoOrderItemFutureSchedule.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItemOption.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItemSimpleSchedule.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderLog.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderManagement.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderQuery.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderQueryBatch.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderResponse.java
@@ -826,6 +829,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationSummary.java
+src/main/java/com/ultracart/admin/v2/models/ConversationWebsocketMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationsResponse.java
 src/main/java/com/ultracart/admin/v2/models/CountriesResponse.java
 src/main/java/com/ultracart/admin/v2/models/Country.java
