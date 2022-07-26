@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationMessage;
 import com.ultracart.admin.v2.models.ConversationSummary;
+import com.ultracart.admin.v2.models.ConversationWebchatQueueStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:14:16.360-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-26T15:37:54.620-04:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
@@ -72,6 +73,10 @@ public class ConversationWebsocketMessage {
   @SerializedName(SERIALIZED_NAME_EVENT_QUEUE_POSITION)
   private ConversationEventQueuePosition eventQueuePosition;
 
+  public static final String SERIALIZED_NAME_EVENT_QUEUE_STATUS_UPDATE = "event_queue_status_update";
+  @SerializedName(SERIALIZED_NAME_EVENT_QUEUE_STATUS_UPDATE)
+  private ConversationWebchatQueueStatus eventQueueStatusUpdate;
+
   /**
    * Type of event
    */
@@ -87,7 +92,9 @@ public class ConversationWebsocketMessage {
     
     NEW_MESSAGE("new message"),
     
-    UPDATED_MESSAGE("updated message");
+    UPDATED_MESSAGE("updated message"),
+    
+    QUEUE_STATUS_UPDATE("queue status update");
 
     private String value;
 
@@ -310,6 +317,29 @@ public class ConversationWebsocketMessage {
   }
 
 
+  public ConversationWebsocketMessage eventQueueStatusUpdate(ConversationWebchatQueueStatus eventQueueStatusUpdate) {
+    
+    this.eventQueueStatusUpdate = eventQueueStatusUpdate;
+    return this;
+  }
+
+   /**
+   * Get eventQueueStatusUpdate
+   * @return eventQueueStatusUpdate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationWebchatQueueStatus getEventQueueStatusUpdate() {
+    return eventQueueStatusUpdate;
+  }
+
+
+  public void setEventQueueStatusUpdate(ConversationWebchatQueueStatus eventQueueStatusUpdate) {
+    this.eventQueueStatusUpdate = eventQueueStatusUpdate;
+  }
+
+
   public ConversationWebsocketMessage eventType(EventTypeEnum eventType) {
     
     this.eventType = eventType;
@@ -417,6 +447,7 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventNewConversation, conversationWebsocketMessage.eventNewConversation) &&
         Objects.equals(this.eventNewMessage, conversationWebsocketMessage.eventNewMessage) &&
         Objects.equals(this.eventQueuePosition, conversationWebsocketMessage.eventQueuePosition) &&
+        Objects.equals(this.eventQueueStatusUpdate, conversationWebsocketMessage.eventQueueStatusUpdate) &&
         Objects.equals(this.eventType, conversationWebsocketMessage.eventType) &&
         Objects.equals(this.eventUpdatedMessage, conversationWebsocketMessage.eventUpdatedMessage) &&
         Objects.equals(this.message, conversationWebsocketMessage.message) &&
@@ -425,7 +456,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventQueuePosition, eventType, eventUpdatedMessage, message, type);
+    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventQueuePosition, eventQueueStatusUpdate, eventType, eventUpdatedMessage, message, type);
   }
 
   @Override
@@ -437,6 +468,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventNewConversation: ").append(toIndentedString(eventNewConversation)).append("\n");
     sb.append("    eventNewMessage: ").append(toIndentedString(eventNewMessage)).append("\n");
     sb.append("    eventQueuePosition: ").append(toIndentedString(eventQueuePosition)).append("\n");
+    sb.append("    eventQueueStatusUpdate: ").append(toIndentedString(eventQueueStatusUpdate)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    eventUpdatedMessage: ").append(toIndentedString(eventUpdatedMessage)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -468,6 +500,7 @@ public class ConversationWebsocketMessage {
     openapiFields.add("event_new_conversation");
     openapiFields.add("event_new_message");
     openapiFields.add("event_queue_position");
+    openapiFields.add("event_queue_status_update");
     openapiFields.add("event_type");
     openapiFields.add("event_updated_message");
     openapiFields.add("message");
@@ -517,6 +550,10 @@ public class ConversationWebsocketMessage {
       // validate the optional field `event_queue_position`
       if (jsonObj.getAsJsonObject("event_queue_position") != null) {
         ConversationEventQueuePosition.validateJsonObject(jsonObj.getAsJsonObject("event_queue_position"));
+      }
+      // validate the optional field `event_queue_status_update`
+      if (jsonObj.getAsJsonObject("event_queue_status_update") != null) {
+        ConversationWebchatQueueStatus.validateJsonObject(jsonObj.getAsJsonObject("event_queue_status_update"));
       }
       if (jsonObj.get("event_type") != null && !jsonObj.get("event_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `event_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event_type").toString()));

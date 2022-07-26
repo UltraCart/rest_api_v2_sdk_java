@@ -140,6 +140,11 @@ docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
+docs/ConversationWebchatQueueStatus.md
+docs/ConversationWebchatQueueStatusAgent.md
+docs/ConversationWebchatQueueStatusQueueEntry.md
+docs/ConversationWebchatQueueStatusUpdateRequest.md
+docs/ConversationWebchatQueueStatusesResponse.md
 docs/ConversationWebsocketMessage.md
 docs/ConversationsResponse.md
 docs/CountriesResponse.md
@@ -831,6 +836,11 @@ src/main/java/com/ultracart/admin/v2/models/ConversationResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationSummary.java
+src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatus.java
+src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusAgent.java
+src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusQueueEntry.java
+src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusUpdateRequest.java
+src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebsocketMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationsResponse.java
 src/main/java/com/ultracart/admin/v2/models/CountriesResponse.java

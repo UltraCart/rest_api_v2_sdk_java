@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Metric
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-25T16:14:16.360-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-26T15:37:54.620-04:00[America/Indianapolis]")
 public class Metric {
   public static final String SERIALIZED_NAME_ALL_TIME = "all_time";
   @SerializedName(SERIALIZED_NAME_ALL_TIME)
