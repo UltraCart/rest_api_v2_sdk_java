@@ -5,7 +5,7 @@
     <artifactId>rest-sdk</artifactId>
     <packaging>jar</packaging>
     <name>rest-sdk</name>
-    <version>3.10.25</version>
+    <version>3.10.26</version>
     <url>https://github.com/UltraCart/rest_api_v2_sdk_java</url>
     <description>UltraCart REST SDK</description>
     <scm>

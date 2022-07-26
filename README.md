@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-07-25T16:03:00.980-04:00
+  - Build date: 2022-07-26T15:26:46.319-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.25</version>
+  <version>3.10.26</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.25"
+compile "com.ultracart:rest-sdk:3.10.26"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.25.jar`
+* `target/rest-sdk-3.10.26.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -154,10 +154,12 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
+*ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**joinConversation**](docs/ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**startConversation**](docs/ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
+*ConversationApi* | [**updateConversationWebchatQueueStatus**](docs/ConversationApi.md#updateConversationWebchatQueueStatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
 *CouponApi* | [**deleteCoupon**](docs/CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/CouponApi.md#deleteCouponsByOid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -595,6 +597,11 @@ Class | Method | HTTP request | Description
  - [ConversationStartRequest](docs/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
  - [ConversationSummary](docs/ConversationSummary.md)
+ - [ConversationWebchatQueueStatus](docs/ConversationWebchatQueueStatus.md)
+ - [ConversationWebchatQueueStatusAgent](docs/ConversationWebchatQueueStatusAgent.md)
+ - [ConversationWebchatQueueStatusQueueEntry](docs/ConversationWebchatQueueStatusQueueEntry.md)
+ - [ConversationWebchatQueueStatusUpdateRequest](docs/ConversationWebchatQueueStatusUpdateRequest.md)
+ - [ConversationWebchatQueueStatusesResponse](docs/ConversationWebchatQueueStatusesResponse.md)
  - [ConversationWebsocketMessage](docs/ConversationWebsocketMessage.md)
  - [ConversationsResponse](docs/ConversationsResponse.md)
  - [CountriesResponse](docs/CountriesResponse.md)
@@ -1194,6 +1201,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.26 | 07/26/2022 | conversations - queue statistics |
 | 3.10.25 | 07/25/2022 | conversation development |
 | 3.10.24 | 07/25/2022 | conversations bug fixes |
 | 3.10.23 | 07/25/2022 | conversations - add a websocket message model |

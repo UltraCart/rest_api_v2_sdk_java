@@ -32,6 +32,8 @@ import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
 import com.ultracart.admin.v2.models.ConversationResponse;
 import com.ultracart.admin.v2.models.ConversationStartRequest;
 import com.ultracart.admin.v2.models.ConversationStartResponse;
+import com.ultracart.admin.v2.models.ConversationWebchatQueueStatusUpdateRequest;
+import com.ultracart.admin.v2.models.ConversationWebchatQueueStatusesResponse;
 import com.ultracart.admin.v2.models.ConversationsResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 
@@ -441,6 +443,119 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = getConversationMultimediaUploadUrlValidateBeforeCall(extension, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationMultimediaUploadUrlResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getConversationWebchatQueueStatuses
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getConversationWebchatQueueStatusesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/conversations/queues/statuses";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getConversationWebchatQueueStatusesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getConversationWebchatQueueStatusesCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve a conversation webchat queue statuses
+     * Retrieve a conversation webchat queue statuses including agent status and queue entries 
+     * @return ConversationWebchatQueueStatusesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationWebchatQueueStatusesResponse getConversationWebchatQueueStatuses() throws ApiException {
+        ApiResponse<ConversationWebchatQueueStatusesResponse> resp = getConversationWebchatQueueStatusesWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a conversation webchat queue statuses
+     * Retrieve a conversation webchat queue statuses including agent status and queue entries 
+     * @return ApiResponse&lt;ConversationWebchatQueueStatusesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationWebchatQueueStatusesResponse> getConversationWebchatQueueStatusesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getConversationWebchatQueueStatusesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationWebchatQueueStatusesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a conversation webchat queue statuses (asynchronously)
+     * Retrieve a conversation webchat queue statuses including agent status and queue entries 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getConversationWebchatQueueStatusesAsync(final ApiCallback<ConversationWebchatQueueStatusesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getConversationWebchatQueueStatusesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationWebchatQueueStatusesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -927,6 +1042,134 @@ public class ConversationApi {
         com.squareup.okhttp.Call call = startConversationValidateBeforeCall(startRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationStartResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateConversationWebchatQueueStatus
+     * @param queueName  (required)
+     * @param statusRequest Status request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateConversationWebchatQueueStatusCall(String queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = statusRequest;
+
+        // create path and map variables
+        String localVarPath = "/conversation/conversations/queues/{queue_name}/status"
+            .replaceAll("\\{" + "queue_name" + "\\}", apiClient.escapeString(queueName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateConversationWebchatQueueStatusValidateBeforeCall(String queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'queueName' is set
+        if (queueName == null) {
+            throw new ApiException("Missing the required parameter 'queueName' when calling updateConversationWebchatQueueStatus(Async)");
+        }
+        
+        // verify the required parameter 'statusRequest' is set
+        if (statusRequest == null) {
+            throw new ApiException("Missing the required parameter 'statusRequest' when calling updateConversationWebchatQueueStatus(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateConversationWebchatQueueStatusCall(queueName, statusRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update status within the queue
+     * Update status within the queue 
+     * @param queueName  (required)
+     * @param statusRequest Status request (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void updateConversationWebchatQueueStatus(String queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest) throws ApiException {
+        updateConversationWebchatQueueStatusWithHttpInfo(queueName, statusRequest);
+    }
+
+    /**
+     * Update status within the queue
+     * Update status within the queue 
+     * @param queueName  (required)
+     * @param statusRequest Status request (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> updateConversationWebchatQueueStatusWithHttpInfo(String queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest) throws ApiException {
+        com.squareup.okhttp.Call call = updateConversationWebchatQueueStatusValidateBeforeCall(queueName, statusRequest, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Update status within the queue (asynchronously)
+     * Update status within the queue 
+     * @param queueName  (required)
+     * @param statusRequest Status request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateConversationWebchatQueueStatusAsync(String queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateConversationWebchatQueueStatusValidateBeforeCall(queueName, statusRequest, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
 }
