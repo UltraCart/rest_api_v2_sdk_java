@@ -54,7 +54,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-26T15:37:54.620-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:06:52.935-04:00[America/Indianapolis]")
 public class User {
   public static final String SERIALIZED_NAME_API_IP_ADDRESS_MASKS = "api_ip_address_masks";
   @SerializedName(SERIALIZED_NAME_API_IP_ADDRESS_MASKS)

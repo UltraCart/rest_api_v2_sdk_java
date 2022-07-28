@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatQueueStatusQueueEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-26T15:37:54.620-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:06:52.935-04:00[America/Indianapolis]")
 public class ConversationWebchatQueueStatusQueueEntry {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -64,6 +64,10 @@ public class ConversationWebchatQueueStatusQueueEntry {
   public static final String SERIALIZED_NAME_JOIN_DTS = "join_dts";
   @SerializedName(SERIALIZED_NAME_JOIN_DTS)
   private String joinDts;
+
+  public static final String SERIALIZED_NAME_QUESTION = "question";
+  @SerializedName(SERIALIZED_NAME_QUESTION)
+  private String question;
 
   public ConversationWebchatQueueStatusQueueEntry() { 
   }
@@ -160,6 +164,29 @@ public class ConversationWebchatQueueStatusQueueEntry {
   }
 
 
+  public ConversationWebchatQueueStatusQueueEntry question(String question) {
+    
+    this.question = question;
+    return this;
+  }
+
+   /**
+   * Get question
+   * @return question
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getQuestion() {
+    return question;
+  }
+
+
+  public void setQuestion(String question) {
+    this.question = question;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -173,12 +200,13 @@ public class ConversationWebchatQueueStatusQueueEntry {
     return Objects.equals(this.conversationParticipantArn, conversationWebchatQueueStatusQueueEntry.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationWebchatQueueStatusQueueEntry.conversationParticipantName) &&
         Objects.equals(this.conversationWebchatQueueUuid, conversationWebchatQueueStatusQueueEntry.conversationWebchatQueueUuid) &&
-        Objects.equals(this.joinDts, conversationWebchatQueueStatusQueueEntry.joinDts);
+        Objects.equals(this.joinDts, conversationWebchatQueueStatusQueueEntry.joinDts) &&
+        Objects.equals(this.question, conversationWebchatQueueStatusQueueEntry.question);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationWebchatQueueUuid, joinDts);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationWebchatQueueUuid, joinDts, question);
   }
 
   @Override
@@ -189,6 +217,7 @@ public class ConversationWebchatQueueStatusQueueEntry {
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    conversationWebchatQueueUuid: ").append(toIndentedString(conversationWebchatQueueUuid)).append("\n");
     sb.append("    joinDts: ").append(toIndentedString(joinDts)).append("\n");
+    sb.append("    question: ").append(toIndentedString(question)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -215,6 +244,7 @@ public class ConversationWebchatQueueStatusQueueEntry {
     openapiFields.add("conversation_participant_name");
     openapiFields.add("conversation_webchat_queue_uuid");
     openapiFields.add("join_dts");
+    openapiFields.add("question");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -253,6 +283,9 @@ public class ConversationWebchatQueueStatusQueueEntry {
       }
       if (jsonObj.get("join_dts") != null && !jsonObj.get("join_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `join_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("join_dts").toString()));
+      }
+      if (jsonObj.get("question") != null && !jsonObj.get("question").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `question` to be a primitive type in the JSON string but got `%s`", jsonObj.get("question").toString()));
       }
   }
 

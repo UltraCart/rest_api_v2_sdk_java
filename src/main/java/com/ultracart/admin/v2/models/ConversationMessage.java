@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-26T15:37:54.620-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:06:52.935-04:00[America/Indianapolis]")
 public class ConversationMessage {
   public static final String SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN = "author_conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN)
@@ -75,6 +75,10 @@ public class ConversationMessage {
   public static final String SERIALIZED_NAME_TRANSPORT_STATUSES = "transport_statuses";
   @SerializedName(SERIALIZED_NAME_TRANSPORT_STATUSES)
   private List<ConversationMessageTransportStatus> transportStatuses = null;
+
+  public static final String SERIALIZED_NAME_UPLOAD_KEYS = "upload_keys";
+  @SerializedName(SERIALIZED_NAME_UPLOAD_KEYS)
+  private List<String> uploadKeys = null;
 
   public ConversationMessage() { 
   }
@@ -233,6 +237,37 @@ public class ConversationMessage {
   }
 
 
+  public ConversationMessage uploadKeys(List<String> uploadKeys) {
+    
+    this.uploadKeys = uploadKeys;
+    return this;
+  }
+
+  public ConversationMessage addUploadKeysItem(String uploadKeysItem) {
+    if (this.uploadKeys == null) {
+      this.uploadKeys = new ArrayList<>();
+    }
+    this.uploadKeys.add(uploadKeysItem);
+    return this;
+  }
+
+   /**
+   * Get uploadKeys
+   * @return uploadKeys
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getUploadKeys() {
+    return uploadKeys;
+  }
+
+
+  public void setUploadKeys(List<String> uploadKeys) {
+    this.uploadKeys = uploadKeys;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -248,12 +283,13 @@ public class ConversationMessage {
         Objects.equals(this.body, conversationMessage.body) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
-        Objects.equals(this.transportStatuses, conversationMessage.transportStatuses);
+        Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
+        Objects.equals(this.uploadKeys, conversationMessage.uploadKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts, transportStatuses);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts, transportStatuses, uploadKeys);
   }
 
   @Override
@@ -266,6 +302,7 @@ public class ConversationMessage {
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
+    sb.append("    uploadKeys: ").append(toIndentedString(uploadKeys)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -294,6 +331,7 @@ public class ConversationMessage {
     openapiFields.add("media_urls");
     openapiFields.add("message_dts");
     openapiFields.add("transport_statuses");
+    openapiFields.add("upload_keys");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -348,6 +386,10 @@ public class ConversationMessage {
         for (int i = 0; i < jsonArraytransportStatuses.size(); i++) {
           ConversationMessageTransportStatus.validateJsonObject(jsonArraytransportStatuses.get(i).getAsJsonObject());
         };
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("upload_keys") != null && !jsonObj.get("upload_keys").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `upload_keys` to be an array in the JSON string but got `%s`", jsonObj.get("upload_keys").toString()));
       }
   }
 
