@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatQueueStatus
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:06:52.935-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:28:45.064-04:00[America/Indianapolis]")
 public class ConversationWebchatQueueStatus {
   public static final String SERIALIZED_NAME_AGENT_AVAILABLE_COUNT = "agent_available_count";
   @SerializedName(SERIALIZED_NAME_AGENT_AVAILABLE_COUNT)
@@ -92,6 +92,10 @@ public class ConversationWebchatQueueStatus {
   public static final String SERIALIZED_NAME_CUSTOMER_AVERAGE_HOLD_TIME_SECONDS = "customer_average_hold_time_seconds";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_AVERAGE_HOLD_TIME_SECONDS)
   private Integer customerAverageHoldTimeSeconds;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_CHAT_COUNT = "customer_chat_count";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_CHAT_COUNT)
+  private Integer customerChatCount;
 
   public static final String SERIALIZED_NAME_CUSTOMER_WAITING_COUNT = "customer_waiting_count";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_WAITING_COUNT)
@@ -350,6 +354,29 @@ public class ConversationWebchatQueueStatus {
   }
 
 
+  public ConversationWebchatQueueStatus customerChatCount(Integer customerChatCount) {
+    
+    this.customerChatCount = customerChatCount;
+    return this;
+  }
+
+   /**
+   * Get customerChatCount
+   * @return customerChatCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getCustomerChatCount() {
+    return customerChatCount;
+  }
+
+
+  public void setCustomerChatCount(Integer customerChatCount) {
+    this.customerChatCount = customerChatCount;
+  }
+
+
   public ConversationWebchatQueueStatus customerWaitingCount(Integer customerWaitingCount) {
     
     this.customerWaitingCount = customerWaitingCount;
@@ -470,6 +497,7 @@ public class ConversationWebchatQueueStatus {
         Objects.equals(this.customerAverageAbandonTimeSeconds, conversationWebchatQueueStatus.customerAverageAbandonTimeSeconds) &&
         Objects.equals(this.customerAverageChatTimeSeconds, conversationWebchatQueueStatus.customerAverageChatTimeSeconds) &&
         Objects.equals(this.customerAverageHoldTimeSeconds, conversationWebchatQueueStatus.customerAverageHoldTimeSeconds) &&
+        Objects.equals(this.customerChatCount, conversationWebchatQueueStatus.customerChatCount) &&
         Objects.equals(this.customerWaitingCount, conversationWebchatQueueStatus.customerWaitingCount) &&
         Objects.equals(this.customerWaitingJoinDts, conversationWebchatQueueStatus.customerWaitingJoinDts) &&
         Objects.equals(this.queueEntries, conversationWebchatQueueStatus.queueEntries) &&
@@ -478,7 +506,7 @@ public class ConversationWebchatQueueStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentAvailableCount, agentBusyCount, agentCount, agentUnavailableCount, agents, customerAbandonCount, customerActiveCount, customerAverageAbandonTimeSeconds, customerAverageChatTimeSeconds, customerAverageHoldTimeSeconds, customerWaitingCount, customerWaitingJoinDts, queueEntries, queueName);
+    return Objects.hash(agentAvailableCount, agentBusyCount, agentCount, agentUnavailableCount, agents, customerAbandonCount, customerActiveCount, customerAverageAbandonTimeSeconds, customerAverageChatTimeSeconds, customerAverageHoldTimeSeconds, customerChatCount, customerWaitingCount, customerWaitingJoinDts, queueEntries, queueName);
   }
 
   @Override
@@ -495,6 +523,7 @@ public class ConversationWebchatQueueStatus {
     sb.append("    customerAverageAbandonTimeSeconds: ").append(toIndentedString(customerAverageAbandonTimeSeconds)).append("\n");
     sb.append("    customerAverageChatTimeSeconds: ").append(toIndentedString(customerAverageChatTimeSeconds)).append("\n");
     sb.append("    customerAverageHoldTimeSeconds: ").append(toIndentedString(customerAverageHoldTimeSeconds)).append("\n");
+    sb.append("    customerChatCount: ").append(toIndentedString(customerChatCount)).append("\n");
     sb.append("    customerWaitingCount: ").append(toIndentedString(customerWaitingCount)).append("\n");
     sb.append("    customerWaitingJoinDts: ").append(toIndentedString(customerWaitingJoinDts)).append("\n");
     sb.append("    queueEntries: ").append(toIndentedString(queueEntries)).append("\n");
@@ -531,6 +560,7 @@ public class ConversationWebchatQueueStatus {
     openapiFields.add("customer_average_abandon_time_seconds");
     openapiFields.add("customer_average_chat_time_seconds");
     openapiFields.add("customer_average_hold_time_seconds");
+    openapiFields.add("customer_chat_count");
     openapiFields.add("customer_waiting_count");
     openapiFields.add("customer_waiting_join_dts");
     openapiFields.add("queue_entries");

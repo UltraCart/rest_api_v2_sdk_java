@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * TaxProviderAvalaraCompany
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:06:52.935-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:28:45.064-04:00[America/Indianapolis]")
 public class TaxProviderAvalaraCompany {
   public static final String SERIALIZED_NAME_COMPANY_CODE = "company_code";
   @SerializedName(SERIALIZED_NAME_COMPANY_CODE)

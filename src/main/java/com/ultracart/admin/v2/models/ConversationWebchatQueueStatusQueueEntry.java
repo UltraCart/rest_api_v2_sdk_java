@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatQueueStatusQueueEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:06:52.935-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:28:45.064-04:00[America/Indianapolis]")
 public class ConversationWebchatQueueStatusQueueEntry {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -60,6 +60,10 @@ public class ConversationWebchatQueueStatusQueueEntry {
   public static final String SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUID = "conversation_webchat_queue_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUID)
   private String conversationWebchatQueueUuid;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_JOIN_DTS = "join_dts";
   @SerializedName(SERIALIZED_NAME_JOIN_DTS)
@@ -141,6 +145,29 @@ public class ConversationWebchatQueueStatusQueueEntry {
   }
 
 
+  public ConversationWebchatQueueStatusQueueEntry email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
   public ConversationWebchatQueueStatusQueueEntry joinDts(String joinDts) {
     
     this.joinDts = joinDts;
@@ -200,13 +227,14 @@ public class ConversationWebchatQueueStatusQueueEntry {
     return Objects.equals(this.conversationParticipantArn, conversationWebchatQueueStatusQueueEntry.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationWebchatQueueStatusQueueEntry.conversationParticipantName) &&
         Objects.equals(this.conversationWebchatQueueUuid, conversationWebchatQueueStatusQueueEntry.conversationWebchatQueueUuid) &&
+        Objects.equals(this.email, conversationWebchatQueueStatusQueueEntry.email) &&
         Objects.equals(this.joinDts, conversationWebchatQueueStatusQueueEntry.joinDts) &&
         Objects.equals(this.question, conversationWebchatQueueStatusQueueEntry.question);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationWebchatQueueUuid, joinDts, question);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationWebchatQueueUuid, email, joinDts, question);
   }
 
   @Override
@@ -216,6 +244,7 @@ public class ConversationWebchatQueueStatusQueueEntry {
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    conversationWebchatQueueUuid: ").append(toIndentedString(conversationWebchatQueueUuid)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    joinDts: ").append(toIndentedString(joinDts)).append("\n");
     sb.append("    question: ").append(toIndentedString(question)).append("\n");
     sb.append("}");
@@ -243,6 +272,7 @@ public class ConversationWebchatQueueStatusQueueEntry {
     openapiFields.add("conversation_participant_arn");
     openapiFields.add("conversation_participant_name");
     openapiFields.add("conversation_webchat_queue_uuid");
+    openapiFields.add("email");
     openapiFields.add("join_dts");
     openapiFields.add("question");
 
@@ -280,6 +310,9 @@ public class ConversationWebchatQueueStatusQueueEntry {
       }
       if (jsonObj.get("conversation_webchat_queue_uuid") != null && !jsonObj.get("conversation_webchat_queue_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_webchat_queue_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_webchat_queue_uuid").toString()));
+      }
+      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if (jsonObj.get("join_dts") != null && !jsonObj.get("join_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `join_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("join_dts").toString()));
