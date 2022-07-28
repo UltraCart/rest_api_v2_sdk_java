@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ConversationWebchatQueueStatus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-26T15:26:46.319-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-28T13:55:59.089-04:00")
 
 
 
@@ -56,6 +56,15 @@ public class ConversationWebchatQueueStatus {
 
   @SerializedName("customer_active_count")
   private Integer customerActiveCount = null;
+
+  @SerializedName("customer_average_abandon_time_seconds")
+  private Integer customerAverageAbandonTimeSeconds = null;
+
+  @SerializedName("customer_average_chat_time_seconds")
+  private Integer customerAverageChatTimeSeconds = null;
+
+  @SerializedName("customer_average_hold_time_seconds")
+  private Integer customerAverageHoldTimeSeconds = null;
 
   @SerializedName("customer_waiting_count")
   private Integer customerWaitingCount = null;
@@ -203,6 +212,60 @@ public class ConversationWebchatQueueStatus {
     this.customerActiveCount = customerActiveCount;
   }
 
+  public ConversationWebchatQueueStatus customerAverageAbandonTimeSeconds(Integer customerAverageAbandonTimeSeconds) {
+    this.customerAverageAbandonTimeSeconds = customerAverageAbandonTimeSeconds;
+    return this;
+  }
+
+   /**
+   * Get customerAverageAbandonTimeSeconds
+   * @return customerAverageAbandonTimeSeconds
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getCustomerAverageAbandonTimeSeconds() {
+    return customerAverageAbandonTimeSeconds;
+  }
+
+  public void setCustomerAverageAbandonTimeSeconds(Integer customerAverageAbandonTimeSeconds) {
+    this.customerAverageAbandonTimeSeconds = customerAverageAbandonTimeSeconds;
+  }
+
+  public ConversationWebchatQueueStatus customerAverageChatTimeSeconds(Integer customerAverageChatTimeSeconds) {
+    this.customerAverageChatTimeSeconds = customerAverageChatTimeSeconds;
+    return this;
+  }
+
+   /**
+   * Get customerAverageChatTimeSeconds
+   * @return customerAverageChatTimeSeconds
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getCustomerAverageChatTimeSeconds() {
+    return customerAverageChatTimeSeconds;
+  }
+
+  public void setCustomerAverageChatTimeSeconds(Integer customerAverageChatTimeSeconds) {
+    this.customerAverageChatTimeSeconds = customerAverageChatTimeSeconds;
+  }
+
+  public ConversationWebchatQueueStatus customerAverageHoldTimeSeconds(Integer customerAverageHoldTimeSeconds) {
+    this.customerAverageHoldTimeSeconds = customerAverageHoldTimeSeconds;
+    return this;
+  }
+
+   /**
+   * Get customerAverageHoldTimeSeconds
+   * @return customerAverageHoldTimeSeconds
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getCustomerAverageHoldTimeSeconds() {
+    return customerAverageHoldTimeSeconds;
+  }
+
+  public void setCustomerAverageHoldTimeSeconds(Integer customerAverageHoldTimeSeconds) {
+    this.customerAverageHoldTimeSeconds = customerAverageHoldTimeSeconds;
+  }
+
   public ConversationWebchatQueueStatus customerWaitingCount(Integer customerWaitingCount) {
     this.customerWaitingCount = customerWaitingCount;
     return this;
@@ -300,6 +363,9 @@ public class ConversationWebchatQueueStatus {
         Objects.equals(this.agents, conversationWebchatQueueStatus.agents) &&
         Objects.equals(this.customerAbandonCount, conversationWebchatQueueStatus.customerAbandonCount) &&
         Objects.equals(this.customerActiveCount, conversationWebchatQueueStatus.customerActiveCount) &&
+        Objects.equals(this.customerAverageAbandonTimeSeconds, conversationWebchatQueueStatus.customerAverageAbandonTimeSeconds) &&
+        Objects.equals(this.customerAverageChatTimeSeconds, conversationWebchatQueueStatus.customerAverageChatTimeSeconds) &&
+        Objects.equals(this.customerAverageHoldTimeSeconds, conversationWebchatQueueStatus.customerAverageHoldTimeSeconds) &&
         Objects.equals(this.customerWaitingCount, conversationWebchatQueueStatus.customerWaitingCount) &&
         Objects.equals(this.customerWaitingJoinDts, conversationWebchatQueueStatus.customerWaitingJoinDts) &&
         Objects.equals(this.queueEntries, conversationWebchatQueueStatus.queueEntries) &&
@@ -308,7 +374,7 @@ public class ConversationWebchatQueueStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentAvailableCount, agentBusyCount, agentCount, agentUnavailableCount, agents, customerAbandonCount, customerActiveCount, customerWaitingCount, customerWaitingJoinDts, queueEntries, queueName);
+    return Objects.hash(agentAvailableCount, agentBusyCount, agentCount, agentUnavailableCount, agents, customerAbandonCount, customerActiveCount, customerAverageAbandonTimeSeconds, customerAverageChatTimeSeconds, customerAverageHoldTimeSeconds, customerWaitingCount, customerWaitingJoinDts, queueEntries, queueName);
   }
 
 
@@ -324,6 +390,9 @@ public class ConversationWebchatQueueStatus {
     sb.append("    agents: ").append(toIndentedString(agents)).append("\n");
     sb.append("    customerAbandonCount: ").append(toIndentedString(customerAbandonCount)).append("\n");
     sb.append("    customerActiveCount: ").append(toIndentedString(customerActiveCount)).append("\n");
+    sb.append("    customerAverageAbandonTimeSeconds: ").append(toIndentedString(customerAverageAbandonTimeSeconds)).append("\n");
+    sb.append("    customerAverageChatTimeSeconds: ").append(toIndentedString(customerAverageChatTimeSeconds)).append("\n");
+    sb.append("    customerAverageHoldTimeSeconds: ").append(toIndentedString(customerAverageHoldTimeSeconds)).append("\n");
     sb.append("    customerWaitingCount: ").append(toIndentedString(customerWaitingCount)).append("\n");
     sb.append("    customerWaitingJoinDts: ").append(toIndentedString(customerWaitingJoinDts)).append("\n");
     sb.append("    queueEntries: ").append(toIndentedString(queueEntries)).append("\n");

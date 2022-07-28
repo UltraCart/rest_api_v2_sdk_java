@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **conversationParticipantName** | **String** |  |  [optional]
 **conversationWebchatQueueUuid** | **String** |  |  [optional]
 **joinDts** | **String** | Date/time the customer joined the queue |  [optional]
+**question** | **String** |  |  [optional]
 
 
 

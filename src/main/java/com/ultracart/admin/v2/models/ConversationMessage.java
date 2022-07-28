@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-26T15:26:46.319-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-28T13:55:59.089-04:00")
 
 
 
@@ -52,6 +52,9 @@ public class ConversationMessage {
 
   @SerializedName("transport_statuses")
   private List<ConversationMessageTransportStatus> transportStatuses = null;
+
+  @SerializedName("upload_keys")
+  private List<String> uploadKeys = null;
 
   public ConversationMessage authorConversationParticipantArn(String authorConversationParticipantArn) {
     this.authorConversationParticipantArn = authorConversationParticipantArn;
@@ -177,6 +180,32 @@ public class ConversationMessage {
     this.transportStatuses = transportStatuses;
   }
 
+  public ConversationMessage uploadKeys(List<String> uploadKeys) {
+    this.uploadKeys = uploadKeys;
+    return this;
+  }
+
+  public ConversationMessage addUploadKeysItem(String uploadKeysItem) {
+    if (this.uploadKeys == null) {
+      this.uploadKeys = new ArrayList<String>();
+    }
+    this.uploadKeys.add(uploadKeysItem);
+    return this;
+  }
+
+   /**
+   * Get uploadKeys
+   * @return uploadKeys
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getUploadKeys() {
+    return uploadKeys;
+  }
+
+  public void setUploadKeys(List<String> uploadKeys) {
+    this.uploadKeys = uploadKeys;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -192,12 +221,13 @@ public class ConversationMessage {
         Objects.equals(this.body, conversationMessage.body) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
-        Objects.equals(this.transportStatuses, conversationMessage.transportStatuses);
+        Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
+        Objects.equals(this.uploadKeys, conversationMessage.uploadKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts, transportStatuses);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts, transportStatuses, uploadKeys);
   }
 
 
@@ -212,6 +242,7 @@ public class ConversationMessage {
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
+    sb.append("    uploadKeys: ").append(toIndentedString(uploadKeys)).append("\n");
     sb.append("}");
     return sb.toString();
   }
