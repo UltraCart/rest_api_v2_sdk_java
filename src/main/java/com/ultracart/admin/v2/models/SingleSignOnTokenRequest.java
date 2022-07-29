@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SingleSignOnTokenRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:18:12.344-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:29:46.161-04:00")
 
 
 

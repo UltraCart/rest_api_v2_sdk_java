@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:18:12.344-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:29:46.161-04:00")
 
 
 
@@ -43,6 +43,9 @@ public class ConversationMessage {
 
   @SerializedName("body")
   private String body = null;
+
+  @SerializedName("client_message_id")
+  private String clientMessageId = null;
 
   @SerializedName("media_urls")
   private List<String> mediaUrls = null;
@@ -108,6 +111,24 @@ public class ConversationMessage {
 
   public void setBody(String body) {
     this.body = body;
+  }
+
+  public ConversationMessage clientMessageId(String clientMessageId) {
+    this.clientMessageId = clientMessageId;
+    return this;
+  }
+
+   /**
+   * Get clientMessageId
+   * @return clientMessageId
+  **/
+  @ApiModelProperty(value = "")
+  public String getClientMessageId() {
+    return clientMessageId;
+  }
+
+  public void setClientMessageId(String clientMessageId) {
+    this.clientMessageId = clientMessageId;
   }
 
   public ConversationMessage mediaUrls(List<String> mediaUrls) {
@@ -219,6 +240,7 @@ public class ConversationMessage {
     return Objects.equals(this.authorConversationParticipantArn, conversationMessage.authorConversationParticipantArn) &&
         Objects.equals(this.authorConversationParticipantName, conversationMessage.authorConversationParticipantName) &&
         Objects.equals(this.body, conversationMessage.body) &&
+        Objects.equals(this.clientMessageId, conversationMessage.clientMessageId) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
@@ -227,7 +249,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, mediaUrls, messageDts, transportStatuses, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, mediaUrls, messageDts, transportStatuses, uploadKeys);
   }
 
 
@@ -239,6 +261,7 @@ public class ConversationMessage {
     sb.append("    authorConversationParticipantArn: ").append(toIndentedString(authorConversationParticipantArn)).append("\n");
     sb.append("    authorConversationParticipantName: ").append(toIndentedString(authorConversationParticipantName)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    clientMessageId: ").append(toIndentedString(clientMessageId)).append("\n");
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");

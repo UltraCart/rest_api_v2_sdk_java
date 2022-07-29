@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationTwilioAccount;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:18:12.344-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:29:46.161-04:00")
 
 
 
@@ -46,8 +47,8 @@ public class ConversationAgentAuth {
   @SerializedName("merchant_id")
   private String merchantId = null;
 
-  @SerializedName("twilio_phone_numbers")
-  private List<String> twilioPhoneNumbers = null;
+  @SerializedName("twilio_accounts")
+  private List<ConversationTwilioAccount> twilioAccounts = null;
 
   @SerializedName("websocket_url")
   private String websocketUrl = null;
@@ -124,30 +125,30 @@ public class ConversationAgentAuth {
     this.merchantId = merchantId;
   }
 
-  public ConversationAgentAuth twilioPhoneNumbers(List<String> twilioPhoneNumbers) {
-    this.twilioPhoneNumbers = twilioPhoneNumbers;
+  public ConversationAgentAuth twilioAccounts(List<ConversationTwilioAccount> twilioAccounts) {
+    this.twilioAccounts = twilioAccounts;
     return this;
   }
 
-  public ConversationAgentAuth addTwilioPhoneNumbersItem(String twilioPhoneNumbersItem) {
-    if (this.twilioPhoneNumbers == null) {
-      this.twilioPhoneNumbers = new ArrayList<String>();
+  public ConversationAgentAuth addTwilioAccountsItem(ConversationTwilioAccount twilioAccountsItem) {
+    if (this.twilioAccounts == null) {
+      this.twilioAccounts = new ArrayList<ConversationTwilioAccount>();
     }
-    this.twilioPhoneNumbers.add(twilioPhoneNumbersItem);
+    this.twilioAccounts.add(twilioAccountsItem);
     return this;
   }
 
    /**
-   * Get twilioPhoneNumbers
-   * @return twilioPhoneNumbers
+   * Get twilioAccounts
+   * @return twilioAccounts
   **/
   @ApiModelProperty(value = "")
-  public List<String> getTwilioPhoneNumbers() {
-    return twilioPhoneNumbers;
+  public List<ConversationTwilioAccount> getTwilioAccounts() {
+    return twilioAccounts;
   }
 
-  public void setTwilioPhoneNumbers(List<String> twilioPhoneNumbers) {
-    this.twilioPhoneNumbers = twilioPhoneNumbers;
+  public void setTwilioAccounts(List<ConversationTwilioAccount> twilioAccounts) {
+    this.twilioAccounts = twilioAccounts;
   }
 
   public ConversationAgentAuth websocketUrl(String websocketUrl) {
@@ -182,13 +183,13 @@ public class ConversationAgentAuth {
         Objects.equals(this.conversationParticipantName, conversationAgentAuth.conversationParticipantName) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
         Objects.equals(this.merchantId, conversationAgentAuth.merchantId) &&
-        Objects.equals(this.twilioPhoneNumbers, conversationAgentAuth.twilioPhoneNumbers) &&
+        Objects.equals(this.twilioAccounts, conversationAgentAuth.twilioAccounts) &&
         Objects.equals(this.websocketUrl, conversationAgentAuth.websocketUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioAccounts, websocketUrl);
   }
 
 
@@ -201,7 +202,7 @@ public class ConversationAgentAuth {
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    twilioPhoneNumbers: ").append(toIndentedString(twilioPhoneNumbers)).append("\n");
+    sb.append("    twilioAccounts: ").append(toIndentedString(twilioAccounts)).append("\n");
     sb.append("    websocketUrl: ").append(toIndentedString(websocketUrl)).append("\n");
     sb.append("}");
     return sb.toString();

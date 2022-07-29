@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:18:12.344-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:29:46.161-04:00")
 
 
 
@@ -59,8 +59,14 @@ public class ConversationSummary {
   @SerializedName("message_count")
   private Integer messageCount = null;
 
+  @SerializedName("start_dts")
+  private String startDts = null;
+
   @SerializedName("unread_messages")
   private Boolean unreadMessages = null;
+
+  @SerializedName("visible")
+  private Boolean visible = null;
 
   public ConversationSummary closed(Boolean closed) {
     this.closed = closed;
@@ -224,6 +230,24 @@ public class ConversationSummary {
     this.messageCount = messageCount;
   }
 
+  public ConversationSummary startDts(String startDts) {
+    this.startDts = startDts;
+    return this;
+  }
+
+   /**
+   * Start of the conversation date/time
+   * @return startDts
+  **/
+  @ApiModelProperty(value = "Start of the conversation date/time")
+  public String getStartDts() {
+    return startDts;
+  }
+
+  public void setStartDts(String startDts) {
+    this.startDts = startDts;
+  }
+
   public ConversationSummary unreadMessages(Boolean unreadMessages) {
     this.unreadMessages = unreadMessages;
     return this;
@@ -240,6 +264,24 @@ public class ConversationSummary {
 
   public void setUnreadMessages(Boolean unreadMessages) {
     this.unreadMessages = unreadMessages;
+  }
+
+  public ConversationSummary visible(Boolean visible) {
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * Get visible
+   * @return visible
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isVisible() {
+    return visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
   }
 
 
@@ -261,12 +303,14 @@ public class ConversationSummary {
         Objects.equals(this.lastMessageDts, conversationSummary.lastMessageDts) &&
         Objects.equals(this.merchantId, conversationSummary.merchantId) &&
         Objects.equals(this.messageCount, conversationSummary.messageCount) &&
-        Objects.equals(this.unreadMessages, conversationSummary.unreadMessages);
+        Objects.equals(this.startDts, conversationSummary.startDts) &&
+        Objects.equals(this.unreadMessages, conversationSummary.unreadMessages) &&
+        Objects.equals(this.visible, conversationSummary.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, unreadMessages);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, startDts, unreadMessages, visible);
   }
 
 
@@ -284,7 +328,9 @@ public class ConversationSummary {
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
+    sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("}");
     return sb.toString();
   }
