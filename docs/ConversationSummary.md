@@ -16,7 +16,9 @@
 |**lastMessageDts** | **String** | Last message date/time |  [optional] |
 |**merchantId** | **String** |  |  [optional] |
 |**messageCount** | **Integer** |  |  [optional] |
+|**startDts** | **String** | Start of the conversation date/time |  [optional] |
 |**unreadMessages** | **Boolean** |  |  [optional] |
+|**visible** | **Boolean** |  |  [optional] |
 
 
 

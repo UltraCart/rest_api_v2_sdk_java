@@ -140,6 +140,7 @@ docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
+docs/ConversationTwilioAccount.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
 docs/ConversationWebchatQueueStatusQueueEntry.md
@@ -836,6 +837,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationSummary.java
+src/main/java/com/ultracart/admin/v2/models/ConversationTwilioAccount.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatus.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusAgent.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusQueueEntry.java

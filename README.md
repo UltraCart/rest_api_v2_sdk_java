@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-07-28T14:28:45.064-04:00[America/Indianapolis]
+  - Build date: 2022-07-29T12:40:41.031-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.45-RC</version>
+  <version>4.0.46-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.45-RC"
+     implementation "com.ultracart:rest-sdk:4.0.46-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.45-RC.jar`
+* `target/rest-sdk-4.0.46-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -614,6 +614,7 @@ Class | Method | HTTP request | Description
  - [ConversationStartRequest](docs/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
  - [ConversationSummary](docs/ConversationSummary.md)
+ - [ConversationTwilioAccount](docs/ConversationTwilioAccount.md)
  - [ConversationWebchatQueueStatus](docs/ConversationWebchatQueueStatus.md)
  - [ConversationWebchatQueueStatusAgent](docs/ConversationWebchatQueueStatusAgent.md)
  - [ConversationWebchatQueueStatusQueueEntry](docs/ConversationWebchatQueueStatusQueueEntry.md)
@@ -1217,6 +1218,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.46-RC | 07/29/2022 | conversation development |
 | 4.0.45-RC | 07/28/2022 | conversation bug fixes |
 | 4.0.44-RC | 07/28/2022 | conversation message upload keys property |
 | 4.0.43-RC | 07/26/2022 | conversations - queue statistics |

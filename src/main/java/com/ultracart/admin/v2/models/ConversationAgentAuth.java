@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationTwilioAccount;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:28:45.064-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:40:41.031-04:00[America/Indianapolis]")
 public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -67,9 +68,9 @@ public class ConversationAgentAuth {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
-  public static final String SERIALIZED_NAME_TWILIO_PHONE_NUMBERS = "twilio_phone_numbers";
-  @SerializedName(SERIALIZED_NAME_TWILIO_PHONE_NUMBERS)
-  private List<String> twilioPhoneNumbers = null;
+  public static final String SERIALIZED_NAME_TWILIO_ACCOUNTS = "twilio_accounts";
+  @SerializedName(SERIALIZED_NAME_TWILIO_ACCOUNTS)
+  private List<ConversationTwilioAccount> twilioAccounts = null;
 
   public static final String SERIALIZED_NAME_WEBSOCKET_URL = "websocket_url";
   @SerializedName(SERIALIZED_NAME_WEBSOCKET_URL)
@@ -170,34 +171,34 @@ public class ConversationAgentAuth {
   }
 
 
-  public ConversationAgentAuth twilioPhoneNumbers(List<String> twilioPhoneNumbers) {
+  public ConversationAgentAuth twilioAccounts(List<ConversationTwilioAccount> twilioAccounts) {
     
-    this.twilioPhoneNumbers = twilioPhoneNumbers;
+    this.twilioAccounts = twilioAccounts;
     return this;
   }
 
-  public ConversationAgentAuth addTwilioPhoneNumbersItem(String twilioPhoneNumbersItem) {
-    if (this.twilioPhoneNumbers == null) {
-      this.twilioPhoneNumbers = new ArrayList<>();
+  public ConversationAgentAuth addTwilioAccountsItem(ConversationTwilioAccount twilioAccountsItem) {
+    if (this.twilioAccounts == null) {
+      this.twilioAccounts = new ArrayList<>();
     }
-    this.twilioPhoneNumbers.add(twilioPhoneNumbersItem);
+    this.twilioAccounts.add(twilioAccountsItem);
     return this;
   }
 
    /**
-   * Get twilioPhoneNumbers
-   * @return twilioPhoneNumbers
+   * Get twilioAccounts
+   * @return twilioAccounts
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getTwilioPhoneNumbers() {
-    return twilioPhoneNumbers;
+  public List<ConversationTwilioAccount> getTwilioAccounts() {
+    return twilioAccounts;
   }
 
 
-  public void setTwilioPhoneNumbers(List<String> twilioPhoneNumbers) {
-    this.twilioPhoneNumbers = twilioPhoneNumbers;
+  public void setTwilioAccounts(List<ConversationTwilioAccount> twilioAccounts) {
+    this.twilioAccounts = twilioAccounts;
   }
 
 
@@ -238,13 +239,13 @@ public class ConversationAgentAuth {
         Objects.equals(this.conversationParticipantName, conversationAgentAuth.conversationParticipantName) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
         Objects.equals(this.merchantId, conversationAgentAuth.merchantId) &&
-        Objects.equals(this.twilioPhoneNumbers, conversationAgentAuth.twilioPhoneNumbers) &&
+        Objects.equals(this.twilioAccounts, conversationAgentAuth.twilioAccounts) &&
         Objects.equals(this.websocketUrl, conversationAgentAuth.websocketUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioPhoneNumbers, websocketUrl);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioAccounts, websocketUrl);
   }
 
   @Override
@@ -255,7 +256,7 @@ public class ConversationAgentAuth {
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    twilioPhoneNumbers: ").append(toIndentedString(twilioPhoneNumbers)).append("\n");
+    sb.append("    twilioAccounts: ").append(toIndentedString(twilioAccounts)).append("\n");
     sb.append("    websocketUrl: ").append(toIndentedString(websocketUrl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -283,7 +284,7 @@ public class ConversationAgentAuth {
     openapiFields.add("conversation_participant_name");
     openapiFields.add("jwt");
     openapiFields.add("merchant_id");
-    openapiFields.add("twilio_phone_numbers");
+    openapiFields.add("twilio_accounts");
     openapiFields.add("websocket_url");
 
     // a set of required properties/fields (JSON key names)
@@ -324,9 +325,17 @@ public class ConversationAgentAuth {
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("twilio_phone_numbers") != null && !jsonObj.get("twilio_phone_numbers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `twilio_phone_numbers` to be an array in the JSON string but got `%s`", jsonObj.get("twilio_phone_numbers").toString()));
+      JsonArray jsonArraytwilioAccounts = jsonObj.getAsJsonArray("twilio_accounts");
+      if (jsonArraytwilioAccounts != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("twilio_accounts").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `twilio_accounts` to be an array in the JSON string but got `%s`", jsonObj.get("twilio_accounts").toString()));
+        }
+
+        // validate the optional field `twilio_accounts` (array)
+        for (int i = 0; i < jsonArraytwilioAccounts.size(); i++) {
+          ConversationTwilioAccount.validateJsonObject(jsonArraytwilioAccounts.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("websocket_url") != null && !jsonObj.get("websocket_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `websocket_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("websocket_url").toString()));

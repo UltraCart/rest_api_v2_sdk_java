@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderItemOption
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:28:45.064-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:40:41.031-04:00[America/Indianapolis]")
 public class AutoOrderItemOption {
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)

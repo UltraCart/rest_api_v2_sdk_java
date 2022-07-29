@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-28T14:28:45.064-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:40:41.031-04:00[America/Indianapolis]")
 public class ConversationSummary {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -85,9 +85,17 @@ public class ConversationSummary {
   @SerializedName(SERIALIZED_NAME_MESSAGE_COUNT)
   private Integer messageCount;
 
+  public static final String SERIALIZED_NAME_START_DTS = "start_dts";
+  @SerializedName(SERIALIZED_NAME_START_DTS)
+  private String startDts;
+
   public static final String SERIALIZED_NAME_UNREAD_MESSAGES = "unread_messages";
   @SerializedName(SERIALIZED_NAME_UNREAD_MESSAGES)
   private Boolean unreadMessages;
+
+  public static final String SERIALIZED_NAME_VISIBLE = "visible";
+  @SerializedName(SERIALIZED_NAME_VISIBLE)
+  private Boolean visible;
 
   public ConversationSummary() { 
   }
@@ -299,6 +307,29 @@ public class ConversationSummary {
   }
 
 
+  public ConversationSummary startDts(String startDts) {
+    
+    this.startDts = startDts;
+    return this;
+  }
+
+   /**
+   * Start of the conversation date/time
+   * @return startDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Start of the conversation date/time")
+
+  public String getStartDts() {
+    return startDts;
+  }
+
+
+  public void setStartDts(String startDts) {
+    this.startDts = startDts;
+  }
+
+
   public ConversationSummary unreadMessages(Boolean unreadMessages) {
     
     this.unreadMessages = unreadMessages;
@@ -322,6 +353,29 @@ public class ConversationSummary {
   }
 
 
+  public ConversationSummary visible(Boolean visible) {
+    
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * Get visible
+   * @return visible
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getVisible() {
+    return visible;
+  }
+
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -341,12 +395,14 @@ public class ConversationSummary {
         Objects.equals(this.lastMessageDts, conversationSummary.lastMessageDts) &&
         Objects.equals(this.merchantId, conversationSummary.merchantId) &&
         Objects.equals(this.messageCount, conversationSummary.messageCount) &&
-        Objects.equals(this.unreadMessages, conversationSummary.unreadMessages);
+        Objects.equals(this.startDts, conversationSummary.startDts) &&
+        Objects.equals(this.unreadMessages, conversationSummary.unreadMessages) &&
+        Objects.equals(this.visible, conversationSummary.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, unreadMessages);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, startDts, unreadMessages, visible);
   }
 
   @Override
@@ -362,7 +418,9 @@ public class ConversationSummary {
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
+    sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -394,7 +452,9 @@ public class ConversationSummary {
     openapiFields.add("last_message_dts");
     openapiFields.add("merchant_id");
     openapiFields.add("message_count");
+    openapiFields.add("start_dts");
     openapiFields.add("unread_messages");
+    openapiFields.add("visible");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -442,6 +502,9 @@ public class ConversationSummary {
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if (jsonObj.get("start_dts") != null && !jsonObj.get("start_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_dts").toString()));
       }
   }
 

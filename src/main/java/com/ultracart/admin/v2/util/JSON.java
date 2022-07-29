@@ -223,6 +223,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationStartRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationStartResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationSummary.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationTwilioAccount.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationWebchatQueueStatus.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationWebchatQueueStatusAgent.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationWebchatQueueStatusQueueEntry.CustomTypeAdapterFactory())
