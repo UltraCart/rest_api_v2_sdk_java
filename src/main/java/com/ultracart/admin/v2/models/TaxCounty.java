@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * TaxCounty
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:40:41.031-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-01T11:46:50.322-04:00[America/Indianapolis]")
 public class TaxCounty {
   public static final String SERIALIZED_NAME_ACCOUNTING_CODE = "accounting_code";
   @SerializedName(SERIALIZED_NAME_ACCOUNTING_CODE)

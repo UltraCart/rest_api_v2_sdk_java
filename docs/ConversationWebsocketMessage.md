@@ -13,6 +13,7 @@
 |**eventNewMessage** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
 |**eventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  |  [optional] |
 |**eventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  |  [optional] |
+|**eventRrweb** | [**ConversationEventRRWeb**](ConversationEventRRWeb.md) |  |  [optional] |
 |**eventType** | [**EventTypeEnum**](#EventTypeEnum) | Type of event |  [optional] |
 |**eventUpdatedMessage** | [**ConversationMessage**](ConversationMessage.md) |  |  [optional] |
 |**message** | [**ConversationMessage**](ConversationMessage.md) |  |  [optional] |
@@ -31,6 +32,7 @@
 | NEW_MESSAGE | &quot;new message&quot; |
 | UPDATED_MESSAGE | &quot;updated message&quot; |
 | QUEUE_STATUS_UPDATE | &quot;queue status update&quot; |
+| RRWEB | &quot;rrweb&quot; |
 
 
 
@@ -41,6 +43,7 @@
 | MESSAGE | &quot;message&quot; |
 | EVENT | &quot;event&quot; |
 | PING | &quot;ping&quot; |
+| CHECK_QUEUE_POSITION | &quot;check queue position&quot; |
 
 
 

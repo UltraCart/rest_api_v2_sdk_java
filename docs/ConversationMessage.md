@@ -14,7 +14,17 @@
 |**mediaUrls** | **List&lt;String&gt;** |  |  [optional] |
 |**messageDts** | **String** | Message date/time |  [optional] |
 |**transportStatuses** | [**List&lt;ConversationMessageTransportStatus&gt;**](ConversationMessageTransportStatus.md) |  |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) | Message type |  [optional] |
 |**uploadKeys** | **List&lt;String&gt;** |  |  [optional] |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| MESSAGE | &quot;message&quot; |
+| NOTICE | &quot;notice&quot; |
 
 
 

@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:40:41.031-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-01T11:46:50.322-04:00[America/Indianapolis]")
 public class ConversationMessage {
   public static final String SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN = "author_conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN)
@@ -79,6 +79,57 @@ public class ConversationMessage {
   public static final String SERIALIZED_NAME_TRANSPORT_STATUSES = "transport_statuses";
   @SerializedName(SERIALIZED_NAME_TRANSPORT_STATUSES)
   private List<ConversationMessageTransportStatus> transportStatuses = null;
+
+  /**
+   * Message type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    MESSAGE("message"),
+    
+    NOTICE("notice");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_UPLOAD_KEYS = "upload_keys";
   @SerializedName(SERIALIZED_NAME_UPLOAD_KEYS)
@@ -264,6 +315,29 @@ public class ConversationMessage {
   }
 
 
+  public ConversationMessage type(TypeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Message type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Message type")
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+
   public ConversationMessage uploadKeys(List<String> uploadKeys) {
     
     this.uploadKeys = uploadKeys;
@@ -312,12 +386,13 @@ public class ConversationMessage {
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
+        Objects.equals(this.type, conversationMessage.type) &&
         Objects.equals(this.uploadKeys, conversationMessage.uploadKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, mediaUrls, messageDts, transportStatuses, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, mediaUrls, messageDts, transportStatuses, type, uploadKeys);
   }
 
   @Override
@@ -331,6 +406,7 @@ public class ConversationMessage {
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uploadKeys: ").append(toIndentedString(uploadKeys)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -361,6 +437,7 @@ public class ConversationMessage {
     openapiFields.add("media_urls");
     openapiFields.add("message_dts");
     openapiFields.add("transport_statuses");
+    openapiFields.add("type");
     openapiFields.add("upload_keys");
 
     // a set of required properties/fields (JSON key names)
@@ -419,6 +496,9 @@ public class ConversationMessage {
         for (int i = 0; i < jsonArraytransportStatuses.size(); i++) {
           ConversationMessageTransportStatus.validateJsonObject(jsonArraytransportStatuses.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("upload_keys") != null && !jsonObj.get("upload_keys").isJsonArray()) {

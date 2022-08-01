@@ -131,6 +131,7 @@ docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
 docs/ConversationEventQueuePosition.md
+docs/ConversationEventRRWeb.md
 docs/ConversationMessage.md
 docs/ConversationMessageTransportStatus.md
 docs/ConversationMultimediaUploadUrl.md
@@ -828,6 +829,7 @@ src/main/java/com/ultracart/admin/v2/models/Conversation.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuth.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuthResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventQueuePosition.java
+src/main/java/com/ultracart/admin/v2/models/ConversationEventRRWeb.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessageTransportStatus.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMultimediaUploadUrl.java
