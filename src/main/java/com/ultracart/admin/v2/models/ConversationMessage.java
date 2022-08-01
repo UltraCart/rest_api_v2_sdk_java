@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-07-29T12:29:46.161-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-01T11:34:49.616-04:00")
 
 
 
@@ -55,6 +55,56 @@ public class ConversationMessage {
 
   @SerializedName("transport_statuses")
   private List<ConversationMessageTransportStatus> transportStatuses = null;
+
+  /**
+   * Message type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    MESSAGE("message"),
+    
+    NOTICE("notice");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String text) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("type")
+  private TypeEnum type = null;
 
   @SerializedName("upload_keys")
   private List<String> uploadKeys = null;
@@ -201,6 +251,24 @@ public class ConversationMessage {
     this.transportStatuses = transportStatuses;
   }
 
+  public ConversationMessage type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Message type
+   * @return type
+  **/
+  @ApiModelProperty(value = "Message type")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
   public ConversationMessage uploadKeys(List<String> uploadKeys) {
     this.uploadKeys = uploadKeys;
     return this;
@@ -244,12 +312,13 @@ public class ConversationMessage {
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
+        Objects.equals(this.type, conversationMessage.type) &&
         Objects.equals(this.uploadKeys, conversationMessage.uploadKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, mediaUrls, messageDts, transportStatuses, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, mediaUrls, messageDts, transportStatuses, type, uploadKeys);
   }
 
 
@@ -265,6 +334,7 @@ public class ConversationMessage {
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uploadKeys: ").append(toIndentedString(uploadKeys)).append("\n");
     sb.append("}");
     return sb.toString();
