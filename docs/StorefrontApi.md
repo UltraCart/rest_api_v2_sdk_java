@@ -140,6 +140,7 @@ Method | HTTP request | Description
 [**sendEmailTest**](StorefrontApi.md#sendEmailTest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 [**sendPostcardTest**](StorefrontApi.md#sendPostcardTest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 [**sendWebhookTest**](StorefrontApi.md#sendWebhookTest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
+[**sequenceTest**](StorefrontApi.md#sequenceTest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 [**startEmailCampaign**](StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 [**subscribeToEmailList**](StorefrontApi.md#subscribeToEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 [**unfavoriteScreenRecording**](StorefrontApi.md#unfavoriteScreenRecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
@@ -6993,6 +6994,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCommseqWebhookSendTestResponse**](EmailCommseqWebhookSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="sequenceTest"></a>
+# **sequenceTest**
+> EmailCommseqSequenceTestResponse sequenceTest(storefrontOid, commseqUuid, emailCommseqSequenceTestRequest)
+
+Sequence test
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.StorefrontApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
+
+Integer storefrontOid = 56; // Integer | 
+String commseqUuid = "commseqUuid_example"; // String | 
+EmailCommseqSequenceTestRequest emailCommseqSequenceTestRequest = new EmailCommseqSequenceTestRequest(); // EmailCommseqSequenceTestRequest | Commseq test request
+try {
+    EmailCommseqSequenceTestResponse result = apiInstance.sequenceTest(storefrontOid, commseqUuid, emailCommseqSequenceTestRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#sequenceTest");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **Integer**|  |
+ **commseqUuid** | **String**|  |
+ **emailCommseqSequenceTestRequest** | [**EmailCommseqSequenceTestRequest**](EmailCommseqSequenceTestRequest.md)| Commseq test request |
+
+### Return type
+
+[**EmailCommseqSequenceTestResponse**](EmailCommseqSequenceTestResponse.md)
 
 ### Authorization
 

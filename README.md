@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-01T11:34:49.616-04:00
+  - Build date: 2022-08-02T15:08:41.518-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.30</version>
+  <version>3.10.31</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.30"
+compile "com.ultracart:rest-sdk:3.10.31"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.30.jar`
+* `target/rest-sdk-3.10.31.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -390,6 +390,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**sendEmailTest**](docs/StorefrontApi.md#sendEmailTest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**sendPostcardTest**](docs/StorefrontApi.md#sendPostcardTest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 *StorefrontApi* | [**sendWebhookTest**](docs/StorefrontApi.md#sendWebhookTest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
+*StorefrontApi* | [**sequenceTest**](docs/StorefrontApi.md#sequenceTest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 *StorefrontApi* | [**startEmailCampaign**](docs/StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/StorefrontApi.md#subscribeToEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 *StorefrontApi* | [**unfavoriteScreenRecording**](docs/StorefrontApi.md#unfavoriteScreenRecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
@@ -728,6 +729,8 @@ Class | Method | HTTP request | Description
  - [EmailCommseqPostcardsRequest](docs/EmailCommseqPostcardsRequest.md)
  - [EmailCommseqPostcardsResponse](docs/EmailCommseqPostcardsResponse.md)
  - [EmailCommseqResponse](docs/EmailCommseqResponse.md)
+ - [EmailCommseqSequenceTestRequest](docs/EmailCommseqSequenceTestRequest.md)
+ - [EmailCommseqSequenceTestResponse](docs/EmailCommseqSequenceTestResponse.md)
  - [EmailCommseqStat](docs/EmailCommseqStat.md)
  - [EmailCommseqStatResponse](docs/EmailCommseqStatResponse.md)
  - [EmailCommseqStep](docs/EmailCommseqStep.md)
@@ -1203,6 +1206,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.31 | 08/02/2022 | storefront communication sequence test method |
 | 3.10.30 | 08/01/2022 | conversation event refinement |
 | 3.10.29 | 07/29/2022 | conversation development |
 | 3.10.28 | 07/28/2022 | conversation bug fixes |
