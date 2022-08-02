@@ -353,6 +353,8 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqPostcardsRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqPostcardsResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqSequenceTestRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqSequenceTestResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqStat.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqStatResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqStep.CustomTypeAdapterFactory())

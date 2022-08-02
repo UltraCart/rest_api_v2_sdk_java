@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponFreeShippingWithItemsPurchase
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-01T11:46:50.322-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-02T15:19:53.558-04:00[America/Indianapolis]")
 public class CouponFreeShippingWithItemsPurchase {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)

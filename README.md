@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-01T11:46:50.322-04:00[America/Indianapolis]
+  - Build date: 2022-08-02T15:19:53.558-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.47-RC</version>
+  <version>4.0.48-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.47-RC"
+     implementation "com.ultracart:rest-sdk:4.0.48-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.47-RC.jar`
+* `target/rest-sdk-4.0.48-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -407,6 +407,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**sendEmailTest**](docs/StorefrontApi.md#sendEmailTest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**sendPostcardTest**](docs/StorefrontApi.md#sendPostcardTest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 *StorefrontApi* | [**sendWebhookTest**](docs/StorefrontApi.md#sendWebhookTest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
+*StorefrontApi* | [**sequenceTest**](docs/StorefrontApi.md#sequenceTest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 *StorefrontApi* | [**startEmailCampaign**](docs/StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/StorefrontApi.md#subscribeToEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 *StorefrontApi* | [**unfavoriteScreenRecording**](docs/StorefrontApi.md#unfavoriteScreenRecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
@@ -744,6 +745,8 @@ Class | Method | HTTP request | Description
  - [EmailCommseqPostcardsRequest](docs/EmailCommseqPostcardsRequest.md)
  - [EmailCommseqPostcardsResponse](docs/EmailCommseqPostcardsResponse.md)
  - [EmailCommseqResponse](docs/EmailCommseqResponse.md)
+ - [EmailCommseqSequenceTestRequest](docs/EmailCommseqSequenceTestRequest.md)
+ - [EmailCommseqSequenceTestResponse](docs/EmailCommseqSequenceTestResponse.md)
  - [EmailCommseqStat](docs/EmailCommseqStat.md)
  - [EmailCommseqStatResponse](docs/EmailCommseqStatResponse.md)
  - [EmailCommseqStep](docs/EmailCommseqStep.md)
@@ -1219,6 +1222,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.48-RC | 08/02/2022 | storefront communication sequence test method |
 | 4.0.47-RC | 08/01/2022 | conversation event refinement |
 | 4.0.46-RC | 07/29/2022 | conversation development |
 | 4.0.45-RC | 07/28/2022 | conversation bug fixes |

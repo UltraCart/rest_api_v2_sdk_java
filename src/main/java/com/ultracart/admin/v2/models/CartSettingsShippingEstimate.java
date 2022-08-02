@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSettingsShippingEstimate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-01T11:46:50.322-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-02T15:19:53.558-04:00[America/Indianapolis]")
 public class CartSettingsShippingEstimate {
   public static final String SERIALIZED_NAME_ALLOW3RD_PARTY_BILLING = "allow_3rd_party_billing";
   @SerializedName(SERIALIZED_NAME_ALLOW3RD_PARTY_BILLING)
