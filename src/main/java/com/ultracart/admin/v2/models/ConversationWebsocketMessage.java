@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationEventRRWeb;
+import com.ultracart.admin.v2.models.ConversationEventTyping;
 import com.ultracart.admin.v2.models.ConversationMessage;
 import com.ultracart.admin.v2.models.ConversationSummary;
 import com.ultracart.admin.v2.models.ConversationWebchatQueueStatus;
@@ -32,7 +33,7 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-02T15:08:41.518-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T13:16:29.570-04:00")
 
 
 
@@ -119,6 +120,9 @@ public class ConversationWebsocketMessage {
 
   @SerializedName("event_type")
   private EventTypeEnum eventType = null;
+
+  @SerializedName("event_typing")
+  private ConversationEventTyping eventTyping = null;
 
   @SerializedName("event_updated_message")
   private ConversationMessage eventUpdatedMessage = null;
@@ -324,6 +328,24 @@ public class ConversationWebsocketMessage {
     this.eventType = eventType;
   }
 
+  public ConversationWebsocketMessage eventTyping(ConversationEventTyping eventTyping) {
+    this.eventTyping = eventTyping;
+    return this;
+  }
+
+   /**
+   * Get eventTyping
+   * @return eventTyping
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationEventTyping getEventTyping() {
+    return eventTyping;
+  }
+
+  public void setEventTyping(ConversationEventTyping eventTyping) {
+    this.eventTyping = eventTyping;
+  }
+
   public ConversationWebsocketMessage eventUpdatedMessage(ConversationMessage eventUpdatedMessage) {
     this.eventUpdatedMessage = eventUpdatedMessage;
     return this;
@@ -396,6 +418,7 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventQueueStatusUpdate, conversationWebsocketMessage.eventQueueStatusUpdate) &&
         Objects.equals(this.eventRrweb, conversationWebsocketMessage.eventRrweb) &&
         Objects.equals(this.eventType, conversationWebsocketMessage.eventType) &&
+        Objects.equals(this.eventTyping, conversationWebsocketMessage.eventTyping) &&
         Objects.equals(this.eventUpdatedMessage, conversationWebsocketMessage.eventUpdatedMessage) &&
         Objects.equals(this.message, conversationWebsocketMessage.message) &&
         Objects.equals(this.type, conversationWebsocketMessage.type);
@@ -403,7 +426,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventQueuePosition, eventQueueStatusUpdate, eventRrweb, eventType, eventUpdatedMessage, message, type);
+    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventQueuePosition, eventQueueStatusUpdate, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
   }
 
 
@@ -420,6 +443,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventQueueStatusUpdate: ").append(toIndentedString(eventQueueStatusUpdate)).append("\n");
     sb.append("    eventRrweb: ").append(toIndentedString(eventRrweb)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
+    sb.append("    eventTyping: ").append(toIndentedString(eventTyping)).append("\n");
     sb.append("    eventUpdatedMessage: ").append(toIndentedString(eventUpdatedMessage)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
