@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **eventConversationClosed** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
 **eventNewConversation** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
 **eventNewMessage** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
+**eventParticipantUpdate** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
 **eventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  |  [optional]
 **eventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  |  [optional]
 **eventRrweb** | [**ConversationEventRRWeb**](ConversationEventRRWeb.md) |  |  [optional]
@@ -30,6 +31,7 @@ NEW_MESSAGE | &quot;new message&quot;
 UPDATED_MESSAGE | &quot;updated message&quot;
 QUEUE_STATUS_UPDATE | &quot;queue status update&quot;
 RRWEB | &quot;rrweb&quot;
+PARTICIPANT_UPDATE | &quot;participant update&quot;
 
 
 <a name="TypeEnum"></a>

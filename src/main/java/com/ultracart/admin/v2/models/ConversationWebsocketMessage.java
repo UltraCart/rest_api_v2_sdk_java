@@ -33,7 +33,7 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T13:16:29.570-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T14:52:05.531-04:00")
 
 
 
@@ -49,6 +49,9 @@ public class ConversationWebsocketMessage {
 
   @SerializedName("event_new_message")
   private ConversationSummary eventNewMessage = null;
+
+  @SerializedName("event_participant_update")
+  private ConversationSummary eventParticipantUpdate = null;
 
   @SerializedName("event_queue_position")
   private ConversationEventQueuePosition eventQueuePosition = null;
@@ -78,7 +81,9 @@ public class ConversationWebsocketMessage {
     
     QUEUE_STATUS_UPDATE("queue status update"),
     
-    RRWEB("rrweb");
+    RRWEB("rrweb"),
+    
+    PARTICIPANT_UPDATE("participant update");
 
     private String value;
 
@@ -256,6 +261,24 @@ public class ConversationWebsocketMessage {
     this.eventNewMessage = eventNewMessage;
   }
 
+  public ConversationWebsocketMessage eventParticipantUpdate(ConversationSummary eventParticipantUpdate) {
+    this.eventParticipantUpdate = eventParticipantUpdate;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantUpdate
+   * @return eventParticipantUpdate
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationSummary getEventParticipantUpdate() {
+    return eventParticipantUpdate;
+  }
+
+  public void setEventParticipantUpdate(ConversationSummary eventParticipantUpdate) {
+    this.eventParticipantUpdate = eventParticipantUpdate;
+  }
+
   public ConversationWebsocketMessage eventQueuePosition(ConversationEventQueuePosition eventQueuePosition) {
     this.eventQueuePosition = eventQueuePosition;
     return this;
@@ -414,6 +437,7 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventConversationClosed, conversationWebsocketMessage.eventConversationClosed) &&
         Objects.equals(this.eventNewConversation, conversationWebsocketMessage.eventNewConversation) &&
         Objects.equals(this.eventNewMessage, conversationWebsocketMessage.eventNewMessage) &&
+        Objects.equals(this.eventParticipantUpdate, conversationWebsocketMessage.eventParticipantUpdate) &&
         Objects.equals(this.eventQueuePosition, conversationWebsocketMessage.eventQueuePosition) &&
         Objects.equals(this.eventQueueStatusUpdate, conversationWebsocketMessage.eventQueueStatusUpdate) &&
         Objects.equals(this.eventRrweb, conversationWebsocketMessage.eventRrweb) &&
@@ -426,7 +450,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventQueuePosition, eventQueueStatusUpdate, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
+    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
   }
 
 
@@ -439,6 +463,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventConversationClosed: ").append(toIndentedString(eventConversationClosed)).append("\n");
     sb.append("    eventNewConversation: ").append(toIndentedString(eventNewConversation)).append("\n");
     sb.append("    eventNewMessage: ").append(toIndentedString(eventNewMessage)).append("\n");
+    sb.append("    eventParticipantUpdate: ").append(toIndentedString(eventParticipantUpdate)).append("\n");
     sb.append("    eventQueuePosition: ").append(toIndentedString(eventQueuePosition)).append("\n");
     sb.append("    eventQueueStatusUpdate: ").append(toIndentedString(eventQueueStatusUpdate)).append("\n");
     sb.append("    eventRrweb: ").append(toIndentedString(eventRrweb)).append("\n");

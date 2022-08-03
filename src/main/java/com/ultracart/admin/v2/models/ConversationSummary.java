@@ -20,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationParticipant;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T13:16:29.570-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T14:52:05.531-04:00")
 
 
 
@@ -58,6 +61,9 @@ public class ConversationSummary {
 
   @SerializedName("message_count")
   private Integer messageCount = null;
+
+  @SerializedName("participants")
+  private List<ConversationParticipant> participants = null;
 
   @SerializedName("start_dts")
   private String startDts = null;
@@ -230,6 +236,32 @@ public class ConversationSummary {
     this.messageCount = messageCount;
   }
 
+  public ConversationSummary participants(List<ConversationParticipant> participants) {
+    this.participants = participants;
+    return this;
+  }
+
+  public ConversationSummary addParticipantsItem(ConversationParticipant participantsItem) {
+    if (this.participants == null) {
+      this.participants = new ArrayList<ConversationParticipant>();
+    }
+    this.participants.add(participantsItem);
+    return this;
+  }
+
+   /**
+   * Get participants
+   * @return participants
+  **/
+  @ApiModelProperty(value = "")
+  public List<ConversationParticipant> getParticipants() {
+    return participants;
+  }
+
+  public void setParticipants(List<ConversationParticipant> participants) {
+    this.participants = participants;
+  }
+
   public ConversationSummary startDts(String startDts) {
     this.startDts = startDts;
     return this;
@@ -303,6 +335,7 @@ public class ConversationSummary {
         Objects.equals(this.lastMessageDts, conversationSummary.lastMessageDts) &&
         Objects.equals(this.merchantId, conversationSummary.merchantId) &&
         Objects.equals(this.messageCount, conversationSummary.messageCount) &&
+        Objects.equals(this.participants, conversationSummary.participants) &&
         Objects.equals(this.startDts, conversationSummary.startDts) &&
         Objects.equals(this.unreadMessages, conversationSummary.unreadMessages) &&
         Objects.equals(this.visible, conversationSummary.visible);
@@ -310,7 +343,7 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, startDts, unreadMessages, visible);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, participants, startDts, unreadMessages, visible);
   }
 
 
@@ -328,6 +361,7 @@ public class ConversationSummary {
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
+    sb.append("    participants: ").append(toIndentedString(participants)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");

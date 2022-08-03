@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * WebhookEventCategory
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T13:16:29.570-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T14:52:05.531-04:00")
 
 
 

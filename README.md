@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-03T13:16:29.570-04:00
+  - Build date: 2022-08-03T14:52:05.531-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.32</version>
+  <version>3.10.33</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.32"
+compile "com.ultracart:rest-sdk:3.10.33"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.32.jar`
+* `target/rest-sdk-3.10.33.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1207,6 +1207,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.33 | 08/03/2022 | conversation summary participants |
 | 3.10.32 | 08/03/2022 | more conversation events |
 | 3.10.31 | 08/02/2022 | storefront communication sequence test method |
 | 3.10.30 | 08/01/2022 | conversation event refinement |
