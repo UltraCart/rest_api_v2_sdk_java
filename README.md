@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-02T15:19:53.558-04:00[America/Indianapolis]
+  - Build date: 2022-08-03T13:28:27.239-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.48-RC</version>
+  <version>4.0.49-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.48-RC"
+     implementation "com.ultracart:rest-sdk:4.0.49-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.48-RC.jar`
+* `target/rest-sdk-4.0.49-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -607,6 +607,7 @@ Class | Method | HTTP request | Description
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
  - [ConversationEventQueuePosition](docs/ConversationEventQueuePosition.md)
  - [ConversationEventRRWeb](docs/ConversationEventRRWeb.md)
+ - [ConversationEventTyping](docs/ConversationEventTyping.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
  - [ConversationMultimediaUploadUrl](docs/ConversationMultimediaUploadUrl.md)
@@ -1222,6 +1223,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.49-RC | 08/03/2022 | more conversation events |
 | 4.0.48-RC | 08/02/2022 | storefront communication sequence test method |
 | 4.0.47-RC | 08/01/2022 | conversation event refinement |
 | 4.0.46-RC | 07/29/2022 | conversation development |

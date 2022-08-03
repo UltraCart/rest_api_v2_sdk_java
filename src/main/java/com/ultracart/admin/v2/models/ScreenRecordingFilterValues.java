@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingFilterValues
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-02T15:19:53.558-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T13:28:27.239-04:00[America/Indianapolis]")
 public class ScreenRecordingFilterValues {
   public static final String SERIALIZED_NAME_COMMUNICATIONS_CAMPAIGN_NAMES = "communications_campaign_names";
   @SerializedName(SERIALIZED_NAME_COMMUNICATIONS_CAMPAIGN_NAMES)

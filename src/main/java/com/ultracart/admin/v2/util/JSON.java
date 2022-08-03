@@ -215,6 +215,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationAgentAuthResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationEventQueuePosition.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationEventRRWeb.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationEventTyping.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationMessage.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationMessageTransportStatus.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationMultimediaUploadUrl.CustomTypeAdapterFactory())
