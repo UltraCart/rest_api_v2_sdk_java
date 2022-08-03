@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * BrowserUserAgent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T13:28:27.239-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T15:03:12.760-04:00[America/Indianapolis]")
 public class BrowserUserAgent {
   public static final String SERIALIZED_NAME_FAMILY = "family";
   @SerializedName(SERIALIZED_NAME_FAMILY)

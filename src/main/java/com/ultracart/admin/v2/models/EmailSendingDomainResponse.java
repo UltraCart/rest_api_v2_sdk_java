@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSendingDomainResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T13:28:27.239-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T15:03:12.760-04:00[America/Indianapolis]")
 public class EmailSendingDomainResponse {
   public static final String SERIALIZED_NAME_DOMAIN = "domain";
   @SerializedName(SERIALIZED_NAME_DOMAIN)

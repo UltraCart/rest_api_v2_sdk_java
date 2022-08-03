@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemPricingTier
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T13:28:27.239-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T15:03:12.760-04:00[America/Indianapolis]")
 public class ItemPricingTier {
   public static final String SERIALIZED_NAME_DEFAULT_TIER = "default_tier";
   @SerializedName(SERIALIZED_NAME_DEFAULT_TIER)
