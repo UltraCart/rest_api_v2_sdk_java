@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T15:03:12.760-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T09:01:44.899-04:00[America/Indianapolis]")
 public class Conversation {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -65,9 +65,80 @@ public class Conversation {
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
   private String conversationUuid;
 
+  public static final String SERIALIZED_NAME_LAST_CONVERSATION_MESSAGE_BODY = "last_conversation_message_body";
+  @SerializedName(SERIALIZED_NAME_LAST_CONVERSATION_MESSAGE_BODY)
+  private String lastConversationMessageBody;
+
+  public static final String SERIALIZED_NAME_LAST_CONVERSATION_PARTICIPANT_ARN = "last_conversation_participant_arn";
+  @SerializedName(SERIALIZED_NAME_LAST_CONVERSATION_PARTICIPANT_ARN)
+  private String lastConversationParticipantArn;
+
+  public static final String SERIALIZED_NAME_LAST_CONVERSATION_PARTICIPANT_NAME = "last_conversation_participant_name";
+  @SerializedName(SERIALIZED_NAME_LAST_CONVERSATION_PARTICIPANT_NAME)
+  private String lastConversationParticipantName;
+
+  public static final String SERIALIZED_NAME_LAST_MESSAGE_DTS = "last_message_dts";
+  @SerializedName(SERIALIZED_NAME_LAST_MESSAGE_DTS)
+  private String lastMessageDts;
+
+  /**
+   * The communication medium of the customer.
+   */
+  @JsonAdapter(MediumEnum.Adapter.class)
+  public enum MediumEnum {
+    SMS("sms"),
+    
+    WEBSOCKET("websocket");
+
+    private String value;
+
+    MediumEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MediumEnum fromValue(String value) {
+      for (MediumEnum b : MediumEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<MediumEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MediumEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MediumEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return MediumEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_MEDIUM = "medium";
+  @SerializedName(SERIALIZED_NAME_MEDIUM)
+  private MediumEnum medium;
+
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
+
+  public static final String SERIALIZED_NAME_MESSAGE_COUNT = "message_count";
+  @SerializedName(SERIALIZED_NAME_MESSAGE_COUNT)
+  private Integer messageCount;
 
   public static final String SERIALIZED_NAME_MESSAGES = "messages";
   @SerializedName(SERIALIZED_NAME_MESSAGES)
@@ -76,6 +147,18 @@ public class Conversation {
   public static final String SERIALIZED_NAME_PARTICIPANTS = "participants";
   @SerializedName(SERIALIZED_NAME_PARTICIPANTS)
   private List<ConversationParticipant> participants = null;
+
+  public static final String SERIALIZED_NAME_START_DTS = "start_dts";
+  @SerializedName(SERIALIZED_NAME_START_DTS)
+  private String startDts;
+
+  public static final String SERIALIZED_NAME_UNREAD_MESSAGES = "unread_messages";
+  @SerializedName(SERIALIZED_NAME_UNREAD_MESSAGES)
+  private Boolean unreadMessages;
+
+  public static final String SERIALIZED_NAME_VISIBLE = "visible";
+  @SerializedName(SERIALIZED_NAME_VISIBLE)
+  private Boolean visible;
 
   public Conversation() { 
   }
@@ -149,6 +232,121 @@ public class Conversation {
   }
 
 
+  public Conversation lastConversationMessageBody(String lastConversationMessageBody) {
+    
+    this.lastConversationMessageBody = lastConversationMessageBody;
+    return this;
+  }
+
+   /**
+   * Get lastConversationMessageBody
+   * @return lastConversationMessageBody
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLastConversationMessageBody() {
+    return lastConversationMessageBody;
+  }
+
+
+  public void setLastConversationMessageBody(String lastConversationMessageBody) {
+    this.lastConversationMessageBody = lastConversationMessageBody;
+  }
+
+
+  public Conversation lastConversationParticipantArn(String lastConversationParticipantArn) {
+    
+    this.lastConversationParticipantArn = lastConversationParticipantArn;
+    return this;
+  }
+
+   /**
+   * Get lastConversationParticipantArn
+   * @return lastConversationParticipantArn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLastConversationParticipantArn() {
+    return lastConversationParticipantArn;
+  }
+
+
+  public void setLastConversationParticipantArn(String lastConversationParticipantArn) {
+    this.lastConversationParticipantArn = lastConversationParticipantArn;
+  }
+
+
+  public Conversation lastConversationParticipantName(String lastConversationParticipantName) {
+    
+    this.lastConversationParticipantName = lastConversationParticipantName;
+    return this;
+  }
+
+   /**
+   * Get lastConversationParticipantName
+   * @return lastConversationParticipantName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLastConversationParticipantName() {
+    return lastConversationParticipantName;
+  }
+
+
+  public void setLastConversationParticipantName(String lastConversationParticipantName) {
+    this.lastConversationParticipantName = lastConversationParticipantName;
+  }
+
+
+  public Conversation lastMessageDts(String lastMessageDts) {
+    
+    this.lastMessageDts = lastMessageDts;
+    return this;
+  }
+
+   /**
+   * Last message date/time
+   * @return lastMessageDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Last message date/time")
+
+  public String getLastMessageDts() {
+    return lastMessageDts;
+  }
+
+
+  public void setLastMessageDts(String lastMessageDts) {
+    this.lastMessageDts = lastMessageDts;
+  }
+
+
+  public Conversation medium(MediumEnum medium) {
+    
+    this.medium = medium;
+    return this;
+  }
+
+   /**
+   * The communication medium of the customer.
+   * @return medium
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The communication medium of the customer.")
+
+  public MediumEnum getMedium() {
+    return medium;
+  }
+
+
+  public void setMedium(MediumEnum medium) {
+    this.medium = medium;
+  }
+
+
   public Conversation merchantId(String merchantId) {
     
     this.merchantId = merchantId;
@@ -169,6 +367,29 @@ public class Conversation {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+  }
+
+
+  public Conversation messageCount(Integer messageCount) {
+    
+    this.messageCount = messageCount;
+    return this;
+  }
+
+   /**
+   * Get messageCount
+   * @return messageCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getMessageCount() {
+    return messageCount;
+  }
+
+
+  public void setMessageCount(Integer messageCount) {
+    this.messageCount = messageCount;
   }
 
 
@@ -234,6 +455,75 @@ public class Conversation {
   }
 
 
+  public Conversation startDts(String startDts) {
+    
+    this.startDts = startDts;
+    return this;
+  }
+
+   /**
+   * Start of the conversation date/time
+   * @return startDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Start of the conversation date/time")
+
+  public String getStartDts() {
+    return startDts;
+  }
+
+
+  public void setStartDts(String startDts) {
+    this.startDts = startDts;
+  }
+
+
+  public Conversation unreadMessages(Boolean unreadMessages) {
+    
+    this.unreadMessages = unreadMessages;
+    return this;
+  }
+
+   /**
+   * Get unreadMessages
+   * @return unreadMessages
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getUnreadMessages() {
+    return unreadMessages;
+  }
+
+
+  public void setUnreadMessages(Boolean unreadMessages) {
+    this.unreadMessages = unreadMessages;
+  }
+
+
+  public Conversation visible(Boolean visible) {
+    
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * Get visible
+   * @return visible
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getVisible() {
+    return visible;
+  }
+
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -247,14 +537,23 @@ public class Conversation {
     return Objects.equals(this.closed, conversation.closed) &&
         Objects.equals(this.conversationArn, conversation.conversationArn) &&
         Objects.equals(this.conversationUuid, conversation.conversationUuid) &&
+        Objects.equals(this.lastConversationMessageBody, conversation.lastConversationMessageBody) &&
+        Objects.equals(this.lastConversationParticipantArn, conversation.lastConversationParticipantArn) &&
+        Objects.equals(this.lastConversationParticipantName, conversation.lastConversationParticipantName) &&
+        Objects.equals(this.lastMessageDts, conversation.lastMessageDts) &&
+        Objects.equals(this.medium, conversation.medium) &&
         Objects.equals(this.merchantId, conversation.merchantId) &&
+        Objects.equals(this.messageCount, conversation.messageCount) &&
         Objects.equals(this.messages, conversation.messages) &&
-        Objects.equals(this.participants, conversation.participants);
+        Objects.equals(this.participants, conversation.participants) &&
+        Objects.equals(this.startDts, conversation.startDts) &&
+        Objects.equals(this.unreadMessages, conversation.unreadMessages) &&
+        Objects.equals(this.visible, conversation.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, merchantId, messages, participants);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
   }
 
   @Override
@@ -264,9 +563,18 @@ public class Conversation {
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    lastConversationMessageBody: ").append(toIndentedString(lastConversationMessageBody)).append("\n");
+    sb.append("    lastConversationParticipantArn: ").append(toIndentedString(lastConversationParticipantArn)).append("\n");
+    sb.append("    lastConversationParticipantName: ").append(toIndentedString(lastConversationParticipantName)).append("\n");
+    sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
+    sb.append("    medium: ").append(toIndentedString(medium)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    participants: ").append(toIndentedString(participants)).append("\n");
+    sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
+    sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -292,9 +600,18 @@ public class Conversation {
     openapiFields.add("closed");
     openapiFields.add("conversation_arn");
     openapiFields.add("conversation_uuid");
+    openapiFields.add("last_conversation_message_body");
+    openapiFields.add("last_conversation_participant_arn");
+    openapiFields.add("last_conversation_participant_name");
+    openapiFields.add("last_message_dts");
+    openapiFields.add("medium");
     openapiFields.add("merchant_id");
+    openapiFields.add("message_count");
     openapiFields.add("messages");
     openapiFields.add("participants");
+    openapiFields.add("start_dts");
+    openapiFields.add("unread_messages");
+    openapiFields.add("visible");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -328,6 +645,21 @@ public class Conversation {
       if (jsonObj.get("conversation_uuid") != null && !jsonObj.get("conversation_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_uuid").toString()));
       }
+      if (jsonObj.get("last_conversation_message_body") != null && !jsonObj.get("last_conversation_message_body").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_conversation_message_body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_conversation_message_body").toString()));
+      }
+      if (jsonObj.get("last_conversation_participant_arn") != null && !jsonObj.get("last_conversation_participant_arn").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_conversation_participant_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_conversation_participant_arn").toString()));
+      }
+      if (jsonObj.get("last_conversation_participant_name") != null && !jsonObj.get("last_conversation_participant_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_conversation_participant_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_conversation_participant_name").toString()));
+      }
+      if (jsonObj.get("last_message_dts") != null && !jsonObj.get("last_message_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_message_dts").toString()));
+      }
+      if (jsonObj.get("medium") != null && !jsonObj.get("medium").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `medium` to be a primitive type in the JSON string but got `%s`", jsonObj.get("medium").toString()));
+      }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
@@ -354,6 +686,9 @@ public class Conversation {
         for (int i = 0; i < jsonArrayparticipants.size(); i++) {
           ConversationParticipant.validateJsonObject(jsonArrayparticipants.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("start_dts") != null && !jsonObj.get("start_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_dts").toString()));
       }
   }
 

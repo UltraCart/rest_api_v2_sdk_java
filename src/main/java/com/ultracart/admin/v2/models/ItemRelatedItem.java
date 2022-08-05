@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemRelatedItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T15:03:12.760-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T09:01:44.899-04:00[America/Indianapolis]")
 public class ItemRelatedItem {
   public static final String SERIALIZED_NAME_RELATED_MERCHANT_ITEM_ID = "related_merchant_item_id";
   @SerializedName(SERIALIZED_NAME_RELATED_MERCHANT_ITEM_ID)

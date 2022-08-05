@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-03T15:03:12.760-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T09:01:44.899-04:00[America/Indianapolis]")
 public class ConversationSummary {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -79,6 +79,57 @@ public class ConversationSummary {
   public static final String SERIALIZED_NAME_LAST_MESSAGE_DTS = "last_message_dts";
   @SerializedName(SERIALIZED_NAME_LAST_MESSAGE_DTS)
   private String lastMessageDts;
+
+  /**
+   * The communication medium of the customer.
+   */
+  @JsonAdapter(MediumEnum.Adapter.class)
+  public enum MediumEnum {
+    SMS("sms"),
+    
+    WEBSOCKET("websocket");
+
+    private String value;
+
+    MediumEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MediumEnum fromValue(String value) {
+      for (MediumEnum b : MediumEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<MediumEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MediumEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MediumEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return MediumEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_MEDIUM = "medium";
+  @SerializedName(SERIALIZED_NAME_MEDIUM)
+  private MediumEnum medium;
 
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
@@ -268,6 +319,29 @@ public class ConversationSummary {
   }
 
 
+  public ConversationSummary medium(MediumEnum medium) {
+    
+    this.medium = medium;
+    return this;
+  }
+
+   /**
+   * The communication medium of the customer.
+   * @return medium
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The communication medium of the customer.")
+
+  public MediumEnum getMedium() {
+    return medium;
+  }
+
+
+  public void setMedium(MediumEnum medium) {
+    this.medium = medium;
+  }
+
+
   public ConversationSummary merchantId(String merchantId) {
     
     this.merchantId = merchantId;
@@ -431,6 +505,7 @@ public class ConversationSummary {
         Objects.equals(this.lastConversationParticipantArn, conversationSummary.lastConversationParticipantArn) &&
         Objects.equals(this.lastConversationParticipantName, conversationSummary.lastConversationParticipantName) &&
         Objects.equals(this.lastMessageDts, conversationSummary.lastMessageDts) &&
+        Objects.equals(this.medium, conversationSummary.medium) &&
         Objects.equals(this.merchantId, conversationSummary.merchantId) &&
         Objects.equals(this.messageCount, conversationSummary.messageCount) &&
         Objects.equals(this.participants, conversationSummary.participants) &&
@@ -441,7 +516,7 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, participants, startDts, unreadMessages, visible);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
   }
 
   @Override
@@ -455,6 +530,7 @@ public class ConversationSummary {
     sb.append("    lastConversationParticipantArn: ").append(toIndentedString(lastConversationParticipantArn)).append("\n");
     sb.append("    lastConversationParticipantName: ").append(toIndentedString(lastConversationParticipantName)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
+    sb.append("    medium: ").append(toIndentedString(medium)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
     sb.append("    participants: ").append(toIndentedString(participants)).append("\n");
@@ -490,6 +566,7 @@ public class ConversationSummary {
     openapiFields.add("last_conversation_participant_arn");
     openapiFields.add("last_conversation_participant_name");
     openapiFields.add("last_message_dts");
+    openapiFields.add("medium");
     openapiFields.add("merchant_id");
     openapiFields.add("message_count");
     openapiFields.add("participants");
@@ -540,6 +617,9 @@ public class ConversationSummary {
       }
       if (jsonObj.get("last_message_dts") != null && !jsonObj.get("last_message_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_message_dts").toString()));
+      }
+      if (jsonObj.get("medium") != null && !jsonObj.get("medium").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `medium` to be a primitive type in the JSON string but got `%s`", jsonObj.get("medium").toString()));
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
