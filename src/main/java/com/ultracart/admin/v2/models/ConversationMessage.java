@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T08:49:57.652-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:18:55.977-04:00")
 
 
 
@@ -47,8 +47,14 @@ public class ConversationMessage {
   @SerializedName("client_message_id")
   private String clientMessageId = null;
 
+  @SerializedName("conversation_message_uuid")
+  private String conversationMessageUuid = null;
+
   @SerializedName("media_urls")
   private List<String> mediaUrls = null;
+
+  @SerializedName("merchant_id")
+  private String merchantId = null;
 
   @SerializedName("message_dts")
   private String messageDts = null;
@@ -181,6 +187,24 @@ public class ConversationMessage {
     this.clientMessageId = clientMessageId;
   }
 
+  public ConversationMessage conversationMessageUuid(String conversationMessageUuid) {
+    this.conversationMessageUuid = conversationMessageUuid;
+    return this;
+  }
+
+   /**
+   * Get conversationMessageUuid
+   * @return conversationMessageUuid
+  **/
+  @ApiModelProperty(value = "")
+  public String getConversationMessageUuid() {
+    return conversationMessageUuid;
+  }
+
+  public void setConversationMessageUuid(String conversationMessageUuid) {
+    this.conversationMessageUuid = conversationMessageUuid;
+  }
+
   public ConversationMessage mediaUrls(List<String> mediaUrls) {
     this.mediaUrls = mediaUrls;
     return this;
@@ -205,6 +229,24 @@ public class ConversationMessage {
 
   public void setMediaUrls(List<String> mediaUrls) {
     this.mediaUrls = mediaUrls;
+  }
+
+  public ConversationMessage merchantId(String merchantId) {
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * Get merchantId
+   * @return merchantId
+  **/
+  @ApiModelProperty(value = "")
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
   }
 
   public ConversationMessage messageDts(String messageDts) {
@@ -309,7 +351,9 @@ public class ConversationMessage {
         Objects.equals(this.authorConversationParticipantName, conversationMessage.authorConversationParticipantName) &&
         Objects.equals(this.body, conversationMessage.body) &&
         Objects.equals(this.clientMessageId, conversationMessage.clientMessageId) &&
+        Objects.equals(this.conversationMessageUuid, conversationMessage.conversationMessageUuid) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
+        Objects.equals(this.merchantId, conversationMessage.merchantId) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
         Objects.equals(this.type, conversationMessage.type) &&
@@ -318,7 +362,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, mediaUrls, messageDts, transportStatuses, type, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, mediaUrls, merchantId, messageDts, transportStatuses, type, uploadKeys);
   }
 
 
@@ -331,7 +375,9 @@ public class ConversationMessage {
     sb.append("    authorConversationParticipantName: ").append(toIndentedString(authorConversationParticipantName)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    clientMessageId: ").append(toIndentedString(clientMessageId)).append("\n");
+    sb.append("    conversationMessageUuid: ").append(toIndentedString(conversationMessageUuid)).append("\n");
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

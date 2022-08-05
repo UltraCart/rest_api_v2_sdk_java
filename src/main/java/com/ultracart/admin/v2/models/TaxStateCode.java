@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * TaxStateCode
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T08:49:57.652-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:18:55.977-04:00")
 
 
 
