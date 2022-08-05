@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T09:01:44.899-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
 public class ConversationMessage {
   public static final String SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN = "author_conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN)
@@ -68,9 +68,17 @@ public class ConversationMessage {
   @SerializedName(SERIALIZED_NAME_CLIENT_MESSAGE_ID)
   private String clientMessageId;
 
+  public static final String SERIALIZED_NAME_CONVERSATION_MESSAGE_UUID = "conversation_message_uuid";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION_MESSAGE_UUID)
+  private String conversationMessageUuid;
+
   public static final String SERIALIZED_NAME_MEDIA_URLS = "media_urls";
   @SerializedName(SERIALIZED_NAME_MEDIA_URLS)
   private List<String> mediaUrls = null;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
 
   public static final String SERIALIZED_NAME_MESSAGE_DTS = "message_dts";
   @SerializedName(SERIALIZED_NAME_MESSAGE_DTS)
@@ -230,6 +238,29 @@ public class ConversationMessage {
   }
 
 
+  public ConversationMessage conversationMessageUuid(String conversationMessageUuid) {
+    
+    this.conversationMessageUuid = conversationMessageUuid;
+    return this;
+  }
+
+   /**
+   * Get conversationMessageUuid
+   * @return conversationMessageUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getConversationMessageUuid() {
+    return conversationMessageUuid;
+  }
+
+
+  public void setConversationMessageUuid(String conversationMessageUuid) {
+    this.conversationMessageUuid = conversationMessageUuid;
+  }
+
+
   public ConversationMessage mediaUrls(List<String> mediaUrls) {
     
     this.mediaUrls = mediaUrls;
@@ -258,6 +289,29 @@ public class ConversationMessage {
 
   public void setMediaUrls(List<String> mediaUrls) {
     this.mediaUrls = mediaUrls;
+  }
+
+
+  public ConversationMessage merchantId(String merchantId) {
+    
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * Get merchantId
+   * @return merchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
   }
 
 
@@ -383,7 +437,9 @@ public class ConversationMessage {
         Objects.equals(this.authorConversationParticipantName, conversationMessage.authorConversationParticipantName) &&
         Objects.equals(this.body, conversationMessage.body) &&
         Objects.equals(this.clientMessageId, conversationMessage.clientMessageId) &&
+        Objects.equals(this.conversationMessageUuid, conversationMessage.conversationMessageUuid) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
+        Objects.equals(this.merchantId, conversationMessage.merchantId) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
         Objects.equals(this.type, conversationMessage.type) &&
@@ -392,7 +448,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, mediaUrls, messageDts, transportStatuses, type, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, mediaUrls, merchantId, messageDts, transportStatuses, type, uploadKeys);
   }
 
   @Override
@@ -403,7 +459,9 @@ public class ConversationMessage {
     sb.append("    authorConversationParticipantName: ").append(toIndentedString(authorConversationParticipantName)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    clientMessageId: ").append(toIndentedString(clientMessageId)).append("\n");
+    sb.append("    conversationMessageUuid: ").append(toIndentedString(conversationMessageUuid)).append("\n");
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -434,7 +492,9 @@ public class ConversationMessage {
     openapiFields.add("author_conversation_participant_name");
     openapiFields.add("body");
     openapiFields.add("client_message_id");
+    openapiFields.add("conversation_message_uuid");
     openapiFields.add("media_urls");
+    openapiFields.add("merchant_id");
     openapiFields.add("message_dts");
     openapiFields.add("transport_statuses");
     openapiFields.add("type");
@@ -478,9 +538,15 @@ public class ConversationMessage {
       if (jsonObj.get("client_message_id") != null && !jsonObj.get("client_message_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `client_message_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_message_id").toString()));
       }
+      if (jsonObj.get("conversation_message_uuid") != null && !jsonObj.get("conversation_message_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conversation_message_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_message_uuid").toString()));
+      }
       // ensure the json data is an array
       if (jsonObj.get("media_urls") != null && !jsonObj.get("media_urls").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `media_urls` to be an array in the JSON string but got `%s`", jsonObj.get("media_urls").toString()));
+      }
+      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
       if (jsonObj.get("message_dts") != null && !jsonObj.get("message_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message_dts").toString()));

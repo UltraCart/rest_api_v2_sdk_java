@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.ultracart",
     name := "rest-sdk",
-    version := "4.0.51-RC",
+    version := "4.0.52-RC",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

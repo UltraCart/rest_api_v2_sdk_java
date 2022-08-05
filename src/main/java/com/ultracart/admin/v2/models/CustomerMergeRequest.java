@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerMergeRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T09:01:44.899-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
 public class CustomerMergeRequest {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_OID = "customer_profile_oid";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_OID)
