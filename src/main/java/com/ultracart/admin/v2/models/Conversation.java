@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T14:52:05.531-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T08:49:57.652-04:00")
 
 
 
@@ -45,14 +45,88 @@ public class Conversation {
   @SerializedName("conversation_uuid")
   private String conversationUuid = null;
 
+  @SerializedName("last_conversation_message_body")
+  private String lastConversationMessageBody = null;
+
+  @SerializedName("last_conversation_participant_arn")
+  private String lastConversationParticipantArn = null;
+
+  @SerializedName("last_conversation_participant_name")
+  private String lastConversationParticipantName = null;
+
+  @SerializedName("last_message_dts")
+  private String lastMessageDts = null;
+
+  /**
+   * The communication medium of the customer.
+   */
+  @JsonAdapter(MediumEnum.Adapter.class)
+  public enum MediumEnum {
+    SMS("sms"),
+    
+    WEBSOCKET("websocket");
+
+    private String value;
+
+    MediumEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MediumEnum fromValue(String text) {
+      for (MediumEnum b : MediumEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MediumEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MediumEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MediumEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MediumEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("medium")
+  private MediumEnum medium = null;
+
   @SerializedName("merchant_id")
   private String merchantId = null;
+
+  @SerializedName("message_count")
+  private Integer messageCount = null;
 
   @SerializedName("messages")
   private List<ConversationMessage> messages = null;
 
   @SerializedName("participants")
   private List<ConversationParticipant> participants = null;
+
+  @SerializedName("start_dts")
+  private String startDts = null;
+
+  @SerializedName("unread_messages")
+  private Boolean unreadMessages = null;
+
+  @SerializedName("visible")
+  private Boolean visible = null;
 
   public Conversation closed(Boolean closed) {
     this.closed = closed;
@@ -108,6 +182,96 @@ public class Conversation {
     this.conversationUuid = conversationUuid;
   }
 
+  public Conversation lastConversationMessageBody(String lastConversationMessageBody) {
+    this.lastConversationMessageBody = lastConversationMessageBody;
+    return this;
+  }
+
+   /**
+   * Get lastConversationMessageBody
+   * @return lastConversationMessageBody
+  **/
+  @ApiModelProperty(value = "")
+  public String getLastConversationMessageBody() {
+    return lastConversationMessageBody;
+  }
+
+  public void setLastConversationMessageBody(String lastConversationMessageBody) {
+    this.lastConversationMessageBody = lastConversationMessageBody;
+  }
+
+  public Conversation lastConversationParticipantArn(String lastConversationParticipantArn) {
+    this.lastConversationParticipantArn = lastConversationParticipantArn;
+    return this;
+  }
+
+   /**
+   * Get lastConversationParticipantArn
+   * @return lastConversationParticipantArn
+  **/
+  @ApiModelProperty(value = "")
+  public String getLastConversationParticipantArn() {
+    return lastConversationParticipantArn;
+  }
+
+  public void setLastConversationParticipantArn(String lastConversationParticipantArn) {
+    this.lastConversationParticipantArn = lastConversationParticipantArn;
+  }
+
+  public Conversation lastConversationParticipantName(String lastConversationParticipantName) {
+    this.lastConversationParticipantName = lastConversationParticipantName;
+    return this;
+  }
+
+   /**
+   * Get lastConversationParticipantName
+   * @return lastConversationParticipantName
+  **/
+  @ApiModelProperty(value = "")
+  public String getLastConversationParticipantName() {
+    return lastConversationParticipantName;
+  }
+
+  public void setLastConversationParticipantName(String lastConversationParticipantName) {
+    this.lastConversationParticipantName = lastConversationParticipantName;
+  }
+
+  public Conversation lastMessageDts(String lastMessageDts) {
+    this.lastMessageDts = lastMessageDts;
+    return this;
+  }
+
+   /**
+   * Last message date/time
+   * @return lastMessageDts
+  **/
+  @ApiModelProperty(value = "Last message date/time")
+  public String getLastMessageDts() {
+    return lastMessageDts;
+  }
+
+  public void setLastMessageDts(String lastMessageDts) {
+    this.lastMessageDts = lastMessageDts;
+  }
+
+  public Conversation medium(MediumEnum medium) {
+    this.medium = medium;
+    return this;
+  }
+
+   /**
+   * The communication medium of the customer.
+   * @return medium
+  **/
+  @ApiModelProperty(value = "The communication medium of the customer.")
+  public MediumEnum getMedium() {
+    return medium;
+  }
+
+  public void setMedium(MediumEnum medium) {
+    this.medium = medium;
+  }
+
   public Conversation merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
@@ -124,6 +288,24 @@ public class Conversation {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+  }
+
+  public Conversation messageCount(Integer messageCount) {
+    this.messageCount = messageCount;
+    return this;
+  }
+
+   /**
+   * Get messageCount
+   * @return messageCount
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getMessageCount() {
+    return messageCount;
+  }
+
+  public void setMessageCount(Integer messageCount) {
+    this.messageCount = messageCount;
   }
 
   public Conversation messages(List<ConversationMessage> messages) {
@@ -178,6 +360,60 @@ public class Conversation {
     this.participants = participants;
   }
 
+  public Conversation startDts(String startDts) {
+    this.startDts = startDts;
+    return this;
+  }
+
+   /**
+   * Start of the conversation date/time
+   * @return startDts
+  **/
+  @ApiModelProperty(value = "Start of the conversation date/time")
+  public String getStartDts() {
+    return startDts;
+  }
+
+  public void setStartDts(String startDts) {
+    this.startDts = startDts;
+  }
+
+  public Conversation unreadMessages(Boolean unreadMessages) {
+    this.unreadMessages = unreadMessages;
+    return this;
+  }
+
+   /**
+   * Get unreadMessages
+   * @return unreadMessages
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isUnreadMessages() {
+    return unreadMessages;
+  }
+
+  public void setUnreadMessages(Boolean unreadMessages) {
+    this.unreadMessages = unreadMessages;
+  }
+
+  public Conversation visible(Boolean visible) {
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * Get visible
+   * @return visible
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isVisible() {
+    return visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -191,14 +427,23 @@ public class Conversation {
     return Objects.equals(this.closed, conversation.closed) &&
         Objects.equals(this.conversationArn, conversation.conversationArn) &&
         Objects.equals(this.conversationUuid, conversation.conversationUuid) &&
+        Objects.equals(this.lastConversationMessageBody, conversation.lastConversationMessageBody) &&
+        Objects.equals(this.lastConversationParticipantArn, conversation.lastConversationParticipantArn) &&
+        Objects.equals(this.lastConversationParticipantName, conversation.lastConversationParticipantName) &&
+        Objects.equals(this.lastMessageDts, conversation.lastMessageDts) &&
+        Objects.equals(this.medium, conversation.medium) &&
         Objects.equals(this.merchantId, conversation.merchantId) &&
+        Objects.equals(this.messageCount, conversation.messageCount) &&
         Objects.equals(this.messages, conversation.messages) &&
-        Objects.equals(this.participants, conversation.participants);
+        Objects.equals(this.participants, conversation.participants) &&
+        Objects.equals(this.startDts, conversation.startDts) &&
+        Objects.equals(this.unreadMessages, conversation.unreadMessages) &&
+        Objects.equals(this.visible, conversation.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, merchantId, messages, participants);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
   }
 
 
@@ -210,9 +455,18 @@ public class Conversation {
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    lastConversationMessageBody: ").append(toIndentedString(lastConversationMessageBody)).append("\n");
+    sb.append("    lastConversationParticipantArn: ").append(toIndentedString(lastConversationParticipantArn)).append("\n");
+    sb.append("    lastConversationParticipantName: ").append(toIndentedString(lastConversationParticipantName)).append("\n");
+    sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
+    sb.append("    medium: ").append(toIndentedString(medium)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    participants: ").append(toIndentedString(participants)).append("\n");
+    sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
+    sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("}");
     return sb.toString();
   }

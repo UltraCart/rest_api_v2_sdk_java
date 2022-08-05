@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-03T14:52:05.531-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T08:49:57.652-04:00")
 
 
 
@@ -55,6 +55,56 @@ public class ConversationSummary {
 
   @SerializedName("last_message_dts")
   private String lastMessageDts = null;
+
+  /**
+   * The communication medium of the customer.
+   */
+  @JsonAdapter(MediumEnum.Adapter.class)
+  public enum MediumEnum {
+    SMS("sms"),
+    
+    WEBSOCKET("websocket");
+
+    private String value;
+
+    MediumEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MediumEnum fromValue(String text) {
+      for (MediumEnum b : MediumEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MediumEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MediumEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MediumEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MediumEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("medium")
+  private MediumEnum medium = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
@@ -200,6 +250,24 @@ public class ConversationSummary {
     this.lastMessageDts = lastMessageDts;
   }
 
+  public ConversationSummary medium(MediumEnum medium) {
+    this.medium = medium;
+    return this;
+  }
+
+   /**
+   * The communication medium of the customer.
+   * @return medium
+  **/
+  @ApiModelProperty(value = "The communication medium of the customer.")
+  public MediumEnum getMedium() {
+    return medium;
+  }
+
+  public void setMedium(MediumEnum medium) {
+    this.medium = medium;
+  }
+
   public ConversationSummary merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
@@ -333,6 +401,7 @@ public class ConversationSummary {
         Objects.equals(this.lastConversationParticipantArn, conversationSummary.lastConversationParticipantArn) &&
         Objects.equals(this.lastConversationParticipantName, conversationSummary.lastConversationParticipantName) &&
         Objects.equals(this.lastMessageDts, conversationSummary.lastMessageDts) &&
+        Objects.equals(this.medium, conversationSummary.medium) &&
         Objects.equals(this.merchantId, conversationSummary.merchantId) &&
         Objects.equals(this.messageCount, conversationSummary.messageCount) &&
         Objects.equals(this.participants, conversationSummary.participants) &&
@@ -343,7 +412,7 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, merchantId, messageCount, participants, startDts, unreadMessages, visible);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
   }
 
 
@@ -359,6 +428,7 @@ public class ConversationSummary {
     sb.append("    lastConversationParticipantArn: ").append(toIndentedString(lastConversationParticipantArn)).append("\n");
     sb.append("    lastConversationParticipantName: ").append(toIndentedString(lastConversationParticipantName)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
+    sb.append("    medium: ").append(toIndentedString(medium)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
     sb.append("    participants: ").append(toIndentedString(participants)).append("\n");

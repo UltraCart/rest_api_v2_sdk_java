@@ -561,6 +561,7 @@ public class ConversationApi {
     }
     /**
      * Build call for getConversations
+     * @param medium  (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param progressListener Progress listener
@@ -568,7 +569,7 @@ public class ConversationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getConversationsCall(Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getConversationsCall(String medium, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -576,6 +577,8 @@ public class ConversationApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (medium != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("medium", medium));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
         if (offset != null)
@@ -614,10 +617,10 @@ public class ConversationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getConversationsValidateBeforeCall(Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getConversationsValidateBeforeCall(String medium, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getConversationsCall(limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConversationsCall(medium, limit, offset, progressListener, progressRequestListener);
         return call;
 
     }
@@ -625,26 +628,28 @@ public class ConversationApi {
     /**
      * Retrieve a list of conversation summaries newest to oldest
      * Retrieve a list of conversation summaries that are ordered newest to oldest, include the most recent message and whether its been read. 
+     * @param medium  (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @return ConversationsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ConversationsResponse getConversations(Integer limit, Integer offset) throws ApiException {
-        ApiResponse<ConversationsResponse> resp = getConversationsWithHttpInfo(limit, offset);
+    public ConversationsResponse getConversations(String medium, Integer limit, Integer offset) throws ApiException {
+        ApiResponse<ConversationsResponse> resp = getConversationsWithHttpInfo(medium, limit, offset);
         return resp.getData();
     }
 
     /**
      * Retrieve a list of conversation summaries newest to oldest
      * Retrieve a list of conversation summaries that are ordered newest to oldest, include the most recent message and whether its been read. 
+     * @param medium  (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @return ApiResponse&lt;ConversationsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ConversationsResponse> getConversationsWithHttpInfo(Integer limit, Integer offset) throws ApiException {
-        com.squareup.okhttp.Call call = getConversationsValidateBeforeCall(limit, offset, null, null);
+    public ApiResponse<ConversationsResponse> getConversationsWithHttpInfo(String medium, Integer limit, Integer offset) throws ApiException {
+        com.squareup.okhttp.Call call = getConversationsValidateBeforeCall(medium, limit, offset, null, null);
         Type localVarReturnType = new TypeToken<ConversationsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -652,13 +657,14 @@ public class ConversationApi {
     /**
      * Retrieve a list of conversation summaries newest to oldest (asynchronously)
      * Retrieve a list of conversation summaries that are ordered newest to oldest, include the most recent message and whether its been read. 
+     * @param medium  (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getConversationsAsync(Integer limit, Integer offset, final ApiCallback<ConversationsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getConversationsAsync(String medium, Integer limit, Integer offset, final ApiCallback<ConversationsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -679,7 +685,7 @@ public class ConversationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getConversationsValidateBeforeCall(limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConversationsValidateBeforeCall(medium, limit, offset, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

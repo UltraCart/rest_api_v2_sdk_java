@@ -209,7 +209,7 @@ This endpoint does not need any parameter.
 
 <a name="getConversations"></a>
 # **getConversations**
-> ConversationsResponse getConversations(limit, offset)
+> ConversationsResponse getConversations(medium, limit, offset)
 
 Retrieve a list of conversation summaries newest to oldest
 
@@ -228,10 +228,11 @@ Retrieve a list of conversation summaries that are ordered newest to oldest, inc
 final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
 ConversationApi apiInstance = new ConversationApi(apiKey);
 
+String medium = "medium_example"; // String | 
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
 try {
-    ConversationsResponse result = apiInstance.getConversations(limit, offset);
+    ConversationsResponse result = apiInstance.getConversations(medium, limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#getConversations");
@@ -243,6 +244,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **medium** | **String**|  | [optional]
  **limit** | **Integer**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
 
