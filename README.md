@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-05T15:18:55.977-04:00
+  - Build date: 2022-08-10T16:25:07.059-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.35</version>
+  <version>3.10.36</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.35"
+compile "com.ultracart:rest-sdk:3.10.36"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.35.jar`
+* `target/rest-sdk-3.10.36.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -590,6 +590,7 @@ Class | Method | HTTP request | Description
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
  - [ConversationEventQueuePosition](docs/ConversationEventQueuePosition.md)
  - [ConversationEventRRWeb](docs/ConversationEventRRWeb.md)
+ - [ConversationEventReadMessage](docs/ConversationEventReadMessage.md)
  - [ConversationEventTyping](docs/ConversationEventTyping.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
@@ -1207,6 +1208,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.36 | 08/10/2022 | conversation event refactoring |
 | 3.10.35 | 08/05/2022 | conversation adjustments for ES integration |
 | 3.10.34 | 08/05/2022 | conversations query by medium and stats fixes |
 | 3.10.33 | 08/03/2022 | conversation summary participants |

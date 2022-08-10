@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * GiftCertificate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:18:55.977-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:25:07.059-04:00")
 
 
 

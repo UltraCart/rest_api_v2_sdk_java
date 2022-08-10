@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:18:55.977-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:25:07.059-04:00")
 
 
 
@@ -58,6 +58,9 @@ public class ConversationMessage {
 
   @SerializedName("message_dts")
   private String messageDts = null;
+
+  @SerializedName("message_epoch")
+  private Long messageEpoch = null;
 
   @SerializedName("transport_statuses")
   private List<ConversationMessageTransportStatus> transportStatuses = null;
@@ -267,6 +270,24 @@ public class ConversationMessage {
     this.messageDts = messageDts;
   }
 
+  public ConversationMessage messageEpoch(Long messageEpoch) {
+    this.messageEpoch = messageEpoch;
+    return this;
+  }
+
+   /**
+   * Message epoch milliseconds
+   * @return messageEpoch
+  **/
+  @ApiModelProperty(value = "Message epoch milliseconds")
+  public Long getMessageEpoch() {
+    return messageEpoch;
+  }
+
+  public void setMessageEpoch(Long messageEpoch) {
+    this.messageEpoch = messageEpoch;
+  }
+
   public ConversationMessage transportStatuses(List<ConversationMessageTransportStatus> transportStatuses) {
     this.transportStatuses = transportStatuses;
     return this;
@@ -355,6 +376,7 @@ public class ConversationMessage {
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.merchantId, conversationMessage.merchantId) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
+        Objects.equals(this.messageEpoch, conversationMessage.messageEpoch) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
         Objects.equals(this.type, conversationMessage.type) &&
         Objects.equals(this.uploadKeys, conversationMessage.uploadKeys);
@@ -362,7 +384,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, mediaUrls, merchantId, messageDts, transportStatuses, type, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, mediaUrls, merchantId, messageDts, messageEpoch, transportStatuses, type, uploadKeys);
   }
 
 
@@ -379,6 +401,7 @@ public class ConversationMessage {
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
+    sb.append("    messageEpoch: ").append(toIndentedString(messageEpoch)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uploadKeys: ").append(toIndentedString(uploadKeys)).append("\n");

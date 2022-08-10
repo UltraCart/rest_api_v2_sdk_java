@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **mediaUrls** | **List&lt;String&gt;** |  |  [optional]
 **merchantId** | **String** |  |  [optional]
 **messageDts** | **String** | Message date/time |  [optional]
+**messageEpoch** | **Long** | Message epoch milliseconds |  [optional]
 **transportStatuses** | [**List&lt;ConversationMessageTransportStatus&gt;**](ConversationMessageTransportStatus.md) |  |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Message type |  [optional]
 **uploadKeys** | **List&lt;String&gt;** |  |  [optional]

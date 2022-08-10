@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationMessageTransportStatus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:18:55.977-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:25:07.059-04:00")
 
 
 
@@ -35,8 +35,73 @@ public class ConversationMessageTransportStatus {
   @SerializedName("conversation_participant_arn")
   private String conversationParticipantArn = null;
 
+  /**
+   * The status of the message transport
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    ACCEPTED("accepted"),
+    
+    SCHEDULED("scheduled"),
+    
+    QUEUED("queued"),
+    
+    SENDING("sending"),
+    
+    SENT("sent"),
+    
+    READ("read"),
+    
+    TWILIO_CREDENTIALS_MISSING("TWILIO_CREDENTIALS_MISSING"),
+    
+    SENT_TO_TWILIO("SENT_TO_TWILIO"),
+    
+    TWILIO_ERROR("TWILIO_ERROR"),
+    
+    SENT_TO_PINPOINT("SENT_TO_PINPOINT"),
+    
+    PINPOINT_ERROR("PINPOINT_ERROR");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String text) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("status")
-  private String status = null;
+  private StatusEnum status = null;
 
   public ConversationMessageTransportStatus conversationParticipantArn(String conversationParticipantArn) {
     this.conversationParticipantArn = conversationParticipantArn;
@@ -56,21 +121,21 @@ public class ConversationMessageTransportStatus {
     this.conversationParticipantArn = conversationParticipantArn;
   }
 
-  public ConversationMessageTransportStatus status(String status) {
+  public ConversationMessageTransportStatus status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
    /**
-   * Get status
+   * The status of the message transport
    * @return status
   **/
-  @ApiModelProperty(value = "")
-  public String getStatus() {
+  @ApiModelProperty(value = "The status of the message transport")
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 

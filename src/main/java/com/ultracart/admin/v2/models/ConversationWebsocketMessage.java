@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationEventRRWeb;
+import com.ultracart.admin.v2.models.ConversationEventReadMessage;
 import com.ultracart.admin.v2.models.ConversationEventTyping;
 import com.ultracart.admin.v2.models.ConversationMessage;
 import com.ultracart.admin.v2.models.ConversationSummary;
@@ -33,7 +34,7 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:18:55.977-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:25:07.059-04:00")
 
 
 
@@ -59,6 +60,9 @@ public class ConversationWebsocketMessage {
   @SerializedName("event_queue_status_update")
   private ConversationWebchatQueueStatus eventQueueStatusUpdate = null;
 
+  @SerializedName("event_read_message")
+  private ConversationEventReadMessage eventReadMessage = null;
+
   @SerializedName("event_rrweb")
   private ConversationEventRRWeb eventRrweb = null;
 
@@ -83,7 +87,9 @@ public class ConversationWebsocketMessage {
     
     RRWEB("rrweb"),
     
-    PARTICIPANT_UPDATE("participant update");
+    PARTICIPANT_UPDATE("participant update"),
+    
+    READ_MESSAGE("read message");
 
     private String value;
 
@@ -315,6 +321,24 @@ public class ConversationWebsocketMessage {
     this.eventQueueStatusUpdate = eventQueueStatusUpdate;
   }
 
+  public ConversationWebsocketMessage eventReadMessage(ConversationEventReadMessage eventReadMessage) {
+    this.eventReadMessage = eventReadMessage;
+    return this;
+  }
+
+   /**
+   * Get eventReadMessage
+   * @return eventReadMessage
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationEventReadMessage getEventReadMessage() {
+    return eventReadMessage;
+  }
+
+  public void setEventReadMessage(ConversationEventReadMessage eventReadMessage) {
+    this.eventReadMessage = eventReadMessage;
+  }
+
   public ConversationWebsocketMessage eventRrweb(ConversationEventRRWeb eventRrweb) {
     this.eventRrweb = eventRrweb;
     return this;
@@ -440,6 +464,7 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventParticipantUpdate, conversationWebsocketMessage.eventParticipantUpdate) &&
         Objects.equals(this.eventQueuePosition, conversationWebsocketMessage.eventQueuePosition) &&
         Objects.equals(this.eventQueueStatusUpdate, conversationWebsocketMessage.eventQueueStatusUpdate) &&
+        Objects.equals(this.eventReadMessage, conversationWebsocketMessage.eventReadMessage) &&
         Objects.equals(this.eventRrweb, conversationWebsocketMessage.eventRrweb) &&
         Objects.equals(this.eventType, conversationWebsocketMessage.eventType) &&
         Objects.equals(this.eventTyping, conversationWebsocketMessage.eventTyping) &&
@@ -450,7 +475,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
+    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
   }
 
 
@@ -466,6 +491,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventParticipantUpdate: ").append(toIndentedString(eventParticipantUpdate)).append("\n");
     sb.append("    eventQueuePosition: ").append(toIndentedString(eventQueuePosition)).append("\n");
     sb.append("    eventQueueStatusUpdate: ").append(toIndentedString(eventQueueStatusUpdate)).append("\n");
+    sb.append("    eventReadMessage: ").append(toIndentedString(eventReadMessage)).append("\n");
     sb.append("    eventRrweb: ").append(toIndentedString(eventRrweb)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    eventTyping: ").append(toIndentedString(eventTyping)).append("\n");

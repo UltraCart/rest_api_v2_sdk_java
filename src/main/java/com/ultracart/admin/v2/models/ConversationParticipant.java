@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:18:55.977-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:25:07.059-04:00")
 
 
 
@@ -52,6 +52,9 @@ public class ConversationParticipant {
 
   @SerializedName("status")
   private String status = null;
+
+  @SerializedName("unread_messages")
+  private Integer unreadMessages = null;
 
   public ConversationParticipant conversationParticipantArn(String conversationParticipantArn) {
     this.conversationParticipantArn = conversationParticipantArn;
@@ -179,6 +182,24 @@ public class ConversationParticipant {
     this.status = status;
   }
 
+  public ConversationParticipant unreadMessages(Integer unreadMessages) {
+    this.unreadMessages = unreadMessages;
+    return this;
+  }
+
+   /**
+   * Get unreadMessages
+   * @return unreadMessages
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getUnreadMessages() {
+    return unreadMessages;
+  }
+
+  public void setUnreadMessages(Integer unreadMessages) {
+    this.unreadMessages = unreadMessages;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -195,12 +216,13 @@ public class ConversationParticipant {
         Objects.equals(this.joinedDts, conversationParticipant.joinedDts) &&
         Objects.equals(this.lastMessageDts, conversationParticipant.lastMessageDts) &&
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
-        Objects.equals(this.status, conversationParticipant.status);
+        Objects.equals(this.status, conversationParticipant.status) &&
+        Objects.equals(this.unreadMessages, conversationParticipant.unreadMessages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, status);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, status, unreadMessages);
   }
 
 
@@ -216,6 +238,7 @@ public class ConversationParticipant {
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("}");
     return sb.toString();
   }
