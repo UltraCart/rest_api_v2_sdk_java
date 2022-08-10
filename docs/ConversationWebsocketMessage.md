@@ -14,6 +14,7 @@
 |**eventParticipantUpdate** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
 |**eventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  |  [optional] |
 |**eventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  |  [optional] |
+|**eventReadMessage** | [**ConversationEventReadMessage**](ConversationEventReadMessage.md) |  |  [optional] |
 |**eventRrweb** | [**ConversationEventRRWeb**](ConversationEventRRWeb.md) |  |  [optional] |
 |**eventType** | [**EventTypeEnum**](#EventTypeEnum) | Type of event |  [optional] |
 |**eventTyping** | [**ConversationEventTyping**](ConversationEventTyping.md) |  |  [optional] |
@@ -36,6 +37,7 @@
 | QUEUE_STATUS_UPDATE | &quot;queue status update&quot; |
 | RRWEB | &quot;rrweb&quot; |
 | PARTICIPANT_UPDATE | &quot;participant update&quot; |
+| READ_MESSAGE | &quot;read message&quot; |
 
 
 

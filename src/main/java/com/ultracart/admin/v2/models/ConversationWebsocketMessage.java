@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationEventRRWeb;
+import com.ultracart.admin.v2.models.ConversationEventReadMessage;
 import com.ultracart.admin.v2.models.ConversationEventTyping;
 import com.ultracart.admin.v2.models.ConversationMessage;
 import com.ultracart.admin.v2.models.ConversationSummary;
@@ -53,7 +54,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
@@ -83,6 +84,10 @@ public class ConversationWebsocketMessage {
   @SerializedName(SERIALIZED_NAME_EVENT_QUEUE_STATUS_UPDATE)
   private ConversationWebchatQueueStatus eventQueueStatusUpdate;
 
+  public static final String SERIALIZED_NAME_EVENT_READ_MESSAGE = "event_read_message";
+  @SerializedName(SERIALIZED_NAME_EVENT_READ_MESSAGE)
+  private ConversationEventReadMessage eventReadMessage;
+
   public static final String SERIALIZED_NAME_EVENT_RRWEB = "event_rrweb";
   @SerializedName(SERIALIZED_NAME_EVENT_RRWEB)
   private ConversationEventRRWeb eventRrweb;
@@ -108,7 +113,9 @@ public class ConversationWebsocketMessage {
     
     RRWEB("rrweb"),
     
-    PARTICIPANT_UPDATE("participant update");
+    PARTICIPANT_UPDATE("participant update"),
+    
+    READ_MESSAGE("read message");
 
     private String value;
 
@@ -383,6 +390,29 @@ public class ConversationWebsocketMessage {
   }
 
 
+  public ConversationWebsocketMessage eventReadMessage(ConversationEventReadMessage eventReadMessage) {
+    
+    this.eventReadMessage = eventReadMessage;
+    return this;
+  }
+
+   /**
+   * Get eventReadMessage
+   * @return eventReadMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationEventReadMessage getEventReadMessage() {
+    return eventReadMessage;
+  }
+
+
+  public void setEventReadMessage(ConversationEventReadMessage eventReadMessage) {
+    this.eventReadMessage = eventReadMessage;
+  }
+
+
   public ConversationWebsocketMessage eventRrweb(ConversationEventRRWeb eventRrweb) {
     
     this.eventRrweb = eventRrweb;
@@ -538,6 +568,7 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventParticipantUpdate, conversationWebsocketMessage.eventParticipantUpdate) &&
         Objects.equals(this.eventQueuePosition, conversationWebsocketMessage.eventQueuePosition) &&
         Objects.equals(this.eventQueueStatusUpdate, conversationWebsocketMessage.eventQueueStatusUpdate) &&
+        Objects.equals(this.eventReadMessage, conversationWebsocketMessage.eventReadMessage) &&
         Objects.equals(this.eventRrweb, conversationWebsocketMessage.eventRrweb) &&
         Objects.equals(this.eventType, conversationWebsocketMessage.eventType) &&
         Objects.equals(this.eventTyping, conversationWebsocketMessage.eventTyping) &&
@@ -548,7 +579,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
+    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
   }
 
   @Override
@@ -562,6 +593,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventParticipantUpdate: ").append(toIndentedString(eventParticipantUpdate)).append("\n");
     sb.append("    eventQueuePosition: ").append(toIndentedString(eventQueuePosition)).append("\n");
     sb.append("    eventQueueStatusUpdate: ").append(toIndentedString(eventQueueStatusUpdate)).append("\n");
+    sb.append("    eventReadMessage: ").append(toIndentedString(eventReadMessage)).append("\n");
     sb.append("    eventRrweb: ").append(toIndentedString(eventRrweb)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    eventTyping: ").append(toIndentedString(eventTyping)).append("\n");
@@ -597,6 +629,7 @@ public class ConversationWebsocketMessage {
     openapiFields.add("event_participant_update");
     openapiFields.add("event_queue_position");
     openapiFields.add("event_queue_status_update");
+    openapiFields.add("event_read_message");
     openapiFields.add("event_rrweb");
     openapiFields.add("event_type");
     openapiFields.add("event_typing");
@@ -656,6 +689,10 @@ public class ConversationWebsocketMessage {
       // validate the optional field `event_queue_status_update`
       if (jsonObj.getAsJsonObject("event_queue_status_update") != null) {
         ConversationWebchatQueueStatus.validateJsonObject(jsonObj.getAsJsonObject("event_queue_status_update"));
+      }
+      // validate the optional field `event_read_message`
+      if (jsonObj.getAsJsonObject("event_read_message") != null) {
+        ConversationEventReadMessage.validateJsonObject(jsonObj.getAsJsonObject("event_read_message"));
       }
       // validate the optional field `event_rrweb`
       if (jsonObj.getAsJsonObject("event_rrweb") != null) {

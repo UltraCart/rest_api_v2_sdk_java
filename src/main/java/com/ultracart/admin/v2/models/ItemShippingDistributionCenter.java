@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShippingDistributionCenter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
 public class ItemShippingDistributionCenter {
   public static final String SERIALIZED_NAME_ALLOCATED_TO_PLACED_ORDERS = "allocated_to_placed_orders";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_TO_PLACED_ORDERS)

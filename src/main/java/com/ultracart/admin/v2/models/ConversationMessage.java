@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
 public class ConversationMessage {
   public static final String SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN = "author_conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN)
@@ -83,6 +83,10 @@ public class ConversationMessage {
   public static final String SERIALIZED_NAME_MESSAGE_DTS = "message_dts";
   @SerializedName(SERIALIZED_NAME_MESSAGE_DTS)
   private String messageDts;
+
+  public static final String SERIALIZED_NAME_MESSAGE_EPOCH = "message_epoch";
+  @SerializedName(SERIALIZED_NAME_MESSAGE_EPOCH)
+  private Long messageEpoch;
 
   public static final String SERIALIZED_NAME_TRANSPORT_STATUSES = "transport_statuses";
   @SerializedName(SERIALIZED_NAME_TRANSPORT_STATUSES)
@@ -338,6 +342,29 @@ public class ConversationMessage {
   }
 
 
+  public ConversationMessage messageEpoch(Long messageEpoch) {
+    
+    this.messageEpoch = messageEpoch;
+    return this;
+  }
+
+   /**
+   * Message epoch milliseconds
+   * @return messageEpoch
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Message epoch milliseconds")
+
+  public Long getMessageEpoch() {
+    return messageEpoch;
+  }
+
+
+  public void setMessageEpoch(Long messageEpoch) {
+    this.messageEpoch = messageEpoch;
+  }
+
+
   public ConversationMessage transportStatuses(List<ConversationMessageTransportStatus> transportStatuses) {
     
     this.transportStatuses = transportStatuses;
@@ -441,6 +468,7 @@ public class ConversationMessage {
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.merchantId, conversationMessage.merchantId) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
+        Objects.equals(this.messageEpoch, conversationMessage.messageEpoch) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
         Objects.equals(this.type, conversationMessage.type) &&
         Objects.equals(this.uploadKeys, conversationMessage.uploadKeys);
@@ -448,7 +476,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, mediaUrls, merchantId, messageDts, transportStatuses, type, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, mediaUrls, merchantId, messageDts, messageEpoch, transportStatuses, type, uploadKeys);
   }
 
   @Override
@@ -463,6 +491,7 @@ public class ConversationMessage {
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
+    sb.append("    messageEpoch: ").append(toIndentedString(messageEpoch)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uploadKeys: ").append(toIndentedString(uploadKeys)).append("\n");
@@ -496,6 +525,7 @@ public class ConversationMessage {
     openapiFields.add("media_urls");
     openapiFields.add("merchant_id");
     openapiFields.add("message_dts");
+    openapiFields.add("message_epoch");
     openapiFields.add("transport_statuses");
     openapiFields.add("type");
     openapiFields.add("upload_keys");

@@ -47,15 +47,80 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessageTransportStatus
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
 public class ConversationMessageTransportStatus {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
   private String conversationParticipantArn;
 
+  /**
+   * The status of the message transport
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    ACCEPTED("accepted"),
+    
+    SCHEDULED("scheduled"),
+    
+    QUEUED("queued"),
+    
+    SENDING("sending"),
+    
+    SENT("sent"),
+    
+    READ("read"),
+    
+    TWILIO_CREDENTIALS_MISSING("TWILIO_CREDENTIALS_MISSING"),
+    
+    SENT_TO_TWILIO("SENT_TO_TWILIO"),
+    
+    TWILIO_ERROR("TWILIO_ERROR"),
+    
+    SENT_TO_PINPOINT("SENT_TO_PINPOINT"),
+    
+    PINPOINT_ERROR("PINPOINT_ERROR");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StatusEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
+  private StatusEnum status;
 
   public ConversationMessageTransportStatus() { 
   }
@@ -83,25 +148,25 @@ public class ConversationMessageTransportStatus {
   }
 
 
-  public ConversationMessageTransportStatus status(String status) {
+  public ConversationMessageTransportStatus status(StatusEnum status) {
     
     this.status = status;
     return this;
   }
 
    /**
-   * Get status
+   * The status of the message transport
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The status of the message transport")
 
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 

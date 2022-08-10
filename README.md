@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-05T15:29:49.672-04:00[America/Indianapolis]
+  - Build date: 2022-08-10T16:36:11.743-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.52-RC</version>
+  <version>4.0.53-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.52-RC"
+     implementation "com.ultracart:rest-sdk:4.0.53-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.52-RC.jar`
+* `target/rest-sdk-4.0.53-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -607,6 +607,7 @@ Class | Method | HTTP request | Description
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
  - [ConversationEventQueuePosition](docs/ConversationEventQueuePosition.md)
  - [ConversationEventRRWeb](docs/ConversationEventRRWeb.md)
+ - [ConversationEventReadMessage](docs/ConversationEventReadMessage.md)
  - [ConversationEventTyping](docs/ConversationEventTyping.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
@@ -661,6 +662,7 @@ Class | Method | HTTP request | Description
  - [CouponItemSearchResult](docs/CouponItemSearchResult.md)
  - [CouponItemSearchResultsResponse](docs/CouponItemSearchResultsResponse.md)
  - [CouponMultipleAmountsOffItems](docs/CouponMultipleAmountsOffItems.md)
+ - [CouponNoDiscount](docs/CouponNoDiscount.md)
  - [CouponPercentOffItemWithItemsQuantityPurchase](docs/CouponPercentOffItemWithItemsQuantityPurchase.md)
  - [CouponPercentOffItems](docs/CouponPercentOffItems.md)
  - [CouponPercentOffItemsAndFreeShipping](docs/CouponPercentOffItemsAndFreeShipping.md)
@@ -1223,6 +1225,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.53-RC | 08/10/2022 | conversation event refactoring |
 | 4.0.52-RC | 08/05/2022 | conversation adjustments for ES integration |
 | 4.0.51-RC | 08/05/2022 | conversations query by medium and stats fixes |
 | 4.0.50-RC | 08/03/2022 | conversation summary participants |

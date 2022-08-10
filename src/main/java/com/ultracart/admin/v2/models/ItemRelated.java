@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemRelated
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
 public class ItemRelated {
   public static final String SERIALIZED_NAME_NO_SYSTEM_CALCULATED_RELATED_ITEMS = "no_system_calculated_related_items";
   @SerializedName(SERIALIZED_NAME_NO_SYSTEM_CALCULATED_RELATED_ITEMS)

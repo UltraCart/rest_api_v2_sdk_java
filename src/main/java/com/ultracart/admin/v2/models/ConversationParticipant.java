@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
 public class ConversationParticipant {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -76,6 +76,10 @@ public class ConversationParticipant {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
+
+  public static final String SERIALIZED_NAME_UNREAD_MESSAGES = "unread_messages";
+  @SerializedName(SERIALIZED_NAME_UNREAD_MESSAGES)
+  private Integer unreadMessages;
 
   public ConversationParticipant() { 
   }
@@ -241,6 +245,29 @@ public class ConversationParticipant {
   }
 
 
+  public ConversationParticipant unreadMessages(Integer unreadMessages) {
+    
+    this.unreadMessages = unreadMessages;
+    return this;
+  }
+
+   /**
+   * Get unreadMessages
+   * @return unreadMessages
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getUnreadMessages() {
+    return unreadMessages;
+  }
+
+
+  public void setUnreadMessages(Integer unreadMessages) {
+    this.unreadMessages = unreadMessages;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -257,12 +284,13 @@ public class ConversationParticipant {
         Objects.equals(this.joinedDts, conversationParticipant.joinedDts) &&
         Objects.equals(this.lastMessageDts, conversationParticipant.lastMessageDts) &&
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
-        Objects.equals(this.status, conversationParticipant.status);
+        Objects.equals(this.status, conversationParticipant.status) &&
+        Objects.equals(this.unreadMessages, conversationParticipant.unreadMessages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, status);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, status, unreadMessages);
   }
 
   @Override
@@ -276,6 +304,7 @@ public class ConversationParticipant {
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -305,6 +334,7 @@ public class ConversationParticipant {
     openapiFields.add("last_message_dts");
     openapiFields.add("left_dts");
     openapiFields.add("status");
+    openapiFields.add("unread_messages");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -44,6 +44,7 @@ import com.ultracart.admin.v2.models.CouponFreeShippingSpecificItems;
 import com.ultracart.admin.v2.models.CouponFreeShippingWithItemsPurchase;
 import com.ultracart.admin.v2.models.CouponFreeShippingWithSubtotal;
 import com.ultracart.admin.v2.models.CouponMultipleAmountsOffItems;
+import com.ultracart.admin.v2.models.CouponNoDiscount;
 import com.ultracart.admin.v2.models.CouponPercentOffItemWithItemsQuantityPurchase;
 import com.ultracart.admin.v2.models.CouponPercentOffItems;
 import com.ultracart.admin.v2.models.CouponPercentOffItemsAndFreeShipping;
@@ -91,7 +92,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-05T15:29:49.672-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
 public class Coupon {
   public static final String SERIALIZED_NAME_AFFILIATE_OID = "affiliate_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_OID)
@@ -235,7 +236,7 @@ public class Coupon {
 
   public static final String SERIALIZED_NAME_NO_DISCOUNT = "no_discount";
   @SerializedName(SERIALIZED_NAME_NO_DISCOUNT)
-  private Object noDiscount;
+  private CouponNoDiscount noDiscount;
 
   public static final String SERIALIZED_NAME_PERCENT_OFF_ITEM_WITH_ITEMS_QUANTITY_PURCHASE = "percent_off_item_with_items_quantity_purchase";
   @SerializedName(SERIALIZED_NAME_PERCENT_OFF_ITEM_WITH_ITEMS_QUANTITY_PURCHASE)
@@ -1141,7 +1142,7 @@ public class Coupon {
   }
 
 
-  public Coupon noDiscount(Object noDiscount) {
+  public Coupon noDiscount(CouponNoDiscount noDiscount) {
     
     this.noDiscount = noDiscount;
     return this;
@@ -1154,12 +1155,12 @@ public class Coupon {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getNoDiscount() {
+  public CouponNoDiscount getNoDiscount() {
     return noDiscount;
   }
 
 
-  public void setNoDiscount(Object noDiscount) {
+  public void setNoDiscount(CouponNoDiscount noDiscount) {
     this.noDiscount = noDiscount;
   }
 
@@ -2103,6 +2104,10 @@ public class Coupon {
       // validate the optional field `multiple_amounts_off_items`
       if (jsonObj.getAsJsonObject("multiple_amounts_off_items") != null) {
         CouponMultipleAmountsOffItems.validateJsonObject(jsonObj.getAsJsonObject("multiple_amounts_off_items"));
+      }
+      // validate the optional field `no_discount`
+      if (jsonObj.getAsJsonObject("no_discount") != null) {
+        CouponNoDiscount.validateJsonObject(jsonObj.getAsJsonObject("no_discount"));
       }
       // validate the optional field `percent_off_item_with_items_quantity_purchase`
       if (jsonObj.getAsJsonObject("percent_off_item_with_items_quantity_purchase") != null) {
