@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * IntegrationLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:25:07.059-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-11T13:51:05.563-04:00")
 
 
 
