@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-10T16:36:11.743-04:00[America/Indianapolis]
+  - Build date: 2022-08-11T14:02:08.222-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.53-RC</version>
+  <version>4.0.54-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.53-RC"
+     implementation "com.ultracart:rest-sdk:4.0.54-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.53-RC.jar`
+* `target/rest-sdk-4.0.54-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1225,6 +1225,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.54-RC | 08/11/2022 | fix entry_dts type on gift certificate ledger |
 | 4.0.53-RC | 08/10/2022 | conversation event refactoring |
 | 4.0.52-RC | 08/05/2022 | conversation adjustments for ES integration |
 | 4.0.51-RC | 08/05/2022 | conversations query by medium and stats fixes |

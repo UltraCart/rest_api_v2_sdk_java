@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-11T14:02:08.222-04:00[America/Indianapolis]")
 public class CartSummary {
   public static final String SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL = "arbitrary_shipping_handling_total";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL)

@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-10T16:36:11.743-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-11T14:02:08.222-04:00[America/Indianapolis]")
 public class ScreenRecordingSettings {
   public static final String SERIALIZED_NAME_COST_PER_THOUSAND = "cost_per_thousand";
   @SerializedName(SERIALIZED_NAME_COST_PER_THOUSAND)
