@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartPaymentCheck
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-11T14:02:08.222-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:41:22.949-04:00[America/Indianapolis]")
 public class CartPaymentCheck {
   public static final String SERIALIZED_NAME_CHECK_NUMBER = "check_number";
   @SerializedName(SERIALIZED_NAME_CHECK_NUMBER)

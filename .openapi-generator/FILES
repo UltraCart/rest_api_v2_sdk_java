@@ -231,6 +231,7 @@ docs/CustomerEmailListChanges.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
+docs/CustomerMagicLinkResponse.md
 docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
 docs/CustomerPricingTier.md
@@ -625,6 +626,8 @@ docs/SovosConfig.md
 docs/SsoApi.md
 docs/StateProvince.md
 docs/StepWaiting.md
+docs/StoreFront.md
+docs/StoreFrontsResponse.md
 docs/StorefrontApi.md
 docs/TaxApi.md
 docs/TaxCity.md
@@ -932,6 +935,7 @@ src/main/java/com/ultracart/admin/v2/models/CustomerEmailListChanges.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyalty.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyLedger.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyRedemption.java
+src/main/java/com/ultracart/admin/v2/models/CustomerMagicLinkResponse.java
 src/main/java/com/ultracart/admin/v2/models/CustomerMergeRequest.java
 src/main/java/com/ultracart/admin/v2/models/CustomerOrdersSummary.java
 src/main/java/com/ultracart/admin/v2/models/CustomerPricingTier.java
@@ -1319,6 +1323,8 @@ src/main/java/com/ultracart/admin/v2/models/SingleSignOnTokenResponse.java
 src/main/java/com/ultracart/admin/v2/models/SovosConfig.java
 src/main/java/com/ultracart/admin/v2/models/StateProvince.java
 src/main/java/com/ultracart/admin/v2/models/StepWaiting.java
+src/main/java/com/ultracart/admin/v2/models/StoreFront.java
+src/main/java/com/ultracart/admin/v2/models/StoreFrontsResponse.java
 src/main/java/com/ultracart/admin/v2/models/TaxCity.java
 src/main/java/com/ultracart/admin/v2/models/TaxCountry.java
 src/main/java/com/ultracart/admin/v2/models/TaxCountryCode.java
