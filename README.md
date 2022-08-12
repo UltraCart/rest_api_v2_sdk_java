@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-11T13:51:05.563-04:00
+  - Build date: 2022-08-12T11:30:28.794-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.37</version>
+  <version>3.10.38</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.37"
+compile "com.ultracart:rest-sdk:3.10.38"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.37.jar`
+* `target/rest-sdk-3.10.38.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -191,6 +191,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersByQuery**](docs/CustomerApi.md#getCustomersByQuery) | **POST** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**getCustomersForDataTables**](docs/CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
+*CustomerApi* | [**getMagicLink**](docs/CustomerApi.md#getMagicLink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
 *CustomerApi* | [**insertCustomer**](docs/CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**mergeCustomer**](docs/CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 *CustomerApi* | [**searchCustomerProfileValues**](docs/CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
@@ -355,6 +356,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getScreenRecordingsByQuery**](docs/StorefrontApi.md#getScreenRecordingsByQuery) | **POST** /storefront/{storefront_oid}/screen_recordings/query | Query screen recordings
 *StorefrontApi* | [**getScreenRecordingsBySegment**](docs/StorefrontApi.md#getScreenRecordingsBySegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query | Get screen recordings by segment
 *StorefrontApi* | [**getStoreFrontPricingTiers**](docs/StorefrontApi.md#getStoreFrontPricingTiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
+*StorefrontApi* | [**getStoreFronts**](docs/StorefrontApi.md#getStoreFronts) | **GET** /storefront/ | Get storefronts (internal use only for security reasons)
 *StorefrontApi* | [**getThumbnailParameters**](docs/StorefrontApi.md#getThumbnailParameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 *StorefrontApi* | [**getTransactionEmail**](docs/StorefrontApi.md#getTransactionEmail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/StorefrontApi.md#getTransactionEmailList) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -687,6 +689,7 @@ Class | Method | HTTP request | Description
  - [CustomerLoyalty](docs/CustomerLoyalty.md)
  - [CustomerLoyaltyLedger](docs/CustomerLoyaltyLedger.md)
  - [CustomerLoyaltyRedemption](docs/CustomerLoyaltyRedemption.md)
+ - [CustomerMagicLinkResponse](docs/CustomerMagicLinkResponse.md)
  - [CustomerMergeRequest](docs/CustomerMergeRequest.md)
  - [CustomerOrdersSummary](docs/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/CustomerPricingTier.md)
@@ -1074,6 +1077,8 @@ Class | Method | HTTP request | Description
  - [SovosConfig](docs/SovosConfig.md)
  - [StateProvince](docs/StateProvince.md)
  - [StepWaiting](docs/StepWaiting.md)
+ - [StoreFront](docs/StoreFront.md)
+ - [StoreFrontsResponse](docs/StoreFrontsResponse.md)
  - [TaxCity](docs/TaxCity.md)
  - [TaxCountry](docs/TaxCountry.md)
  - [TaxCountryCode](docs/TaxCountryCode.md)
@@ -1208,6 +1213,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.38 | 08/12/2022 | internal code to allow merchant login as customer |
 | 3.10.37 | 08/11/2022 | fix entry_dts type on gift certificate ledger |
 | 3.10.36 | 08/10/2022 | conversation event refactoring |
 | 3.10.35 | 08/05/2022 | conversation adjustments for ES integration |

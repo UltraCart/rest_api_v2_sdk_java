@@ -33,6 +33,7 @@ import com.ultracart.admin.v2.models.BaseResponse;
 import com.ultracart.admin.v2.models.Customer;
 import com.ultracart.admin.v2.models.CustomerEditorValues;
 import com.ultracart.admin.v2.models.CustomerEmailListChanges;
+import com.ultracart.admin.v2.models.CustomerMagicLinkResponse;
 import com.ultracart.admin.v2.models.CustomerMergeRequest;
 import com.ultracart.admin.v2.models.CustomerQuery;
 import com.ultracart.admin.v2.models.CustomerResponse;
@@ -1784,6 +1785,139 @@ public class CustomerApi {
 
         com.squareup.okhttp.Call call = getEmailVerificationTokenValidateBeforeCall(tokenRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmailVerifyTokenResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getMagicLink
+     * @param customerProfileOid The customer_profile_oid of the customer. (required)
+     * @param storefrontHostName The storefront to log into. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getMagicLinkCall(Integer customerProfileOid, String storefrontHostName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name}"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()))
+            .replaceAll("\\{" + "storefront_host_name" + "\\}", apiClient.escapeString(storefrontHostName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getMagicLinkValidateBeforeCall(Integer customerProfileOid, String storefrontHostName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling getMagicLink(Async)");
+        }
+        
+        // verify the required parameter 'storefrontHostName' is set
+        if (storefrontHostName == null) {
+            throw new ApiException("Missing the required parameter 'storefrontHostName' when calling getMagicLink(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getMagicLinkCall(customerProfileOid, storefrontHostName, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * getMagicLink
+     * Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+     * @param customerProfileOid The customer_profile_oid of the customer. (required)
+     * @param storefrontHostName The storefront to log into. (required)
+     * @return CustomerMagicLinkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerMagicLinkResponse getMagicLink(Integer customerProfileOid, String storefrontHostName) throws ApiException {
+        ApiResponse<CustomerMagicLinkResponse> resp = getMagicLinkWithHttpInfo(customerProfileOid, storefrontHostName);
+        return resp.getData();
+    }
+
+    /**
+     * getMagicLink
+     * Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+     * @param customerProfileOid The customer_profile_oid of the customer. (required)
+     * @param storefrontHostName The storefront to log into. (required)
+     * @return ApiResponse&lt;CustomerMagicLinkResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerMagicLinkResponse> getMagicLinkWithHttpInfo(Integer customerProfileOid, String storefrontHostName) throws ApiException {
+        com.squareup.okhttp.Call call = getMagicLinkValidateBeforeCall(customerProfileOid, storefrontHostName, null, null);
+        Type localVarReturnType = new TypeToken<CustomerMagicLinkResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * getMagicLink (asynchronously)
+     * Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+     * @param customerProfileOid The customer_profile_oid of the customer. (required)
+     * @param storefrontHostName The storefront to log into. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMagicLinkAsync(Integer customerProfileOid, String storefrontHostName, final ApiCallback<CustomerMagicLinkResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMagicLinkValidateBeforeCall(customerProfileOid, storefrontHostName, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerMagicLinkResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
