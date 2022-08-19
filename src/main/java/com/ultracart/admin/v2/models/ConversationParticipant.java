@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:41:22.949-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:17:59.539-04:00[America/Indianapolis]")
 public class ConversationParticipant {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -72,6 +72,10 @@ public class ConversationParticipant {
   public static final String SERIALIZED_NAME_LEFT_DTS = "left_dts";
   @SerializedName(SERIALIZED_NAME_LEFT_DTS)
   private String leftDts;
+
+  public static final String SERIALIZED_NAME_PROFILE_IMAGE_URL = "profile_image_url";
+  @SerializedName(SERIALIZED_NAME_PROFILE_IMAGE_URL)
+  private String profileImageUrl;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -222,6 +226,29 @@ public class ConversationParticipant {
   }
 
 
+  public ConversationParticipant profileImageUrl(String profileImageUrl) {
+    
+    this.profileImageUrl = profileImageUrl;
+    return this;
+  }
+
+   /**
+   * Get profileImageUrl
+   * @return profileImageUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProfileImageUrl() {
+    return profileImageUrl;
+  }
+
+
+  public void setProfileImageUrl(String profileImageUrl) {
+    this.profileImageUrl = profileImageUrl;
+  }
+
+
   public ConversationParticipant status(String status) {
     
     this.status = status;
@@ -284,13 +311,14 @@ public class ConversationParticipant {
         Objects.equals(this.joinedDts, conversationParticipant.joinedDts) &&
         Objects.equals(this.lastMessageDts, conversationParticipant.lastMessageDts) &&
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
+        Objects.equals(this.profileImageUrl, conversationParticipant.profileImageUrl) &&
         Objects.equals(this.status, conversationParticipant.status) &&
         Objects.equals(this.unreadMessages, conversationParticipant.unreadMessages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, status, unreadMessages);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, profileImageUrl, status, unreadMessages);
   }
 
   @Override
@@ -303,6 +331,7 @@ public class ConversationParticipant {
     sb.append("    joinedDts: ").append(toIndentedString(joinedDts)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
+    sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("}");
@@ -333,6 +362,7 @@ public class ConversationParticipant {
     openapiFields.add("joined_dts");
     openapiFields.add("last_message_dts");
     openapiFields.add("left_dts");
+    openapiFields.add("profile_image_url");
     openapiFields.add("status");
     openapiFields.add("unread_messages");
 
@@ -379,6 +409,9 @@ public class ConversationParticipant {
       }
       if (jsonObj.get("left_dts") != null && !jsonObj.get("left_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `left_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_dts").toString()));
+      }
+      if (jsonObj.get("profile_image_url") != null && !jsonObj.get("profile_image_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `profile_image_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profile_image_url").toString()));
       }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

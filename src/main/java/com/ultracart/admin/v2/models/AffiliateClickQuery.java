@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AffiliateClickQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:41:22.949-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:17:59.539-04:00[America/Indianapolis]")
 public class AffiliateClickQuery {
   public static final String SERIALIZED_NAME_AFFILIATE_LINK_OID = "affiliate_link_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_LINK_OID)

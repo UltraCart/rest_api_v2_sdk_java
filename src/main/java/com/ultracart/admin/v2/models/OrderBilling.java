@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderBilling
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:41:22.949-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:17:59.539-04:00[America/Indianapolis]")
 public class OrderBilling {
   public static final String SERIALIZED_NAME_ADDRESS1 = "address1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)
@@ -62,6 +62,14 @@ public class OrderBilling {
   public static final String SERIALIZED_NAME_CC_EMAILS = "cc_emails";
   @SerializedName(SERIALIZED_NAME_CC_EMAILS)
   private List<String> ccEmails = null;
+
+  public static final String SERIALIZED_NAME_CELL_PHONE = "cell_phone";
+  @SerializedName(SERIALIZED_NAME_CELL_PHONE)
+  private String cellPhone;
+
+  public static final String SERIALIZED_NAME_CELL_PHONE_E164 = "cell_phone_e164";
+  @SerializedName(SERIALIZED_NAME_CELL_PHONE_E164)
+  private String cellPhoneE164;
 
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
@@ -192,6 +200,52 @@ public class OrderBilling {
 
   public void setCcEmails(List<String> ccEmails) {
     this.ccEmails = ccEmails;
+  }
+
+
+  public OrderBilling cellPhone(String cellPhone) {
+    
+    this.cellPhone = cellPhone;
+    return this;
+  }
+
+   /**
+   * Cell phone
+   * @return cellPhone
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Cell phone")
+
+  public String getCellPhone() {
+    return cellPhone;
+  }
+
+
+  public void setCellPhone(String cellPhone) {
+    this.cellPhone = cellPhone;
+  }
+
+
+  public OrderBilling cellPhoneE164(String cellPhoneE164) {
+    
+    this.cellPhoneE164 = cellPhoneE164;
+    return this;
+  }
+
+   /**
+   * Cell phone (E164 format)
+   * @return cellPhoneE164
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Cell phone (E164 format)")
+
+  public String getCellPhoneE164() {
+    return cellPhoneE164;
+  }
+
+
+  public void setCellPhoneE164(String cellPhoneE164) {
+    this.cellPhoneE164 = cellPhoneE164;
   }
 
 
@@ -507,6 +561,8 @@ public class OrderBilling {
     return Objects.equals(this.address1, orderBilling.address1) &&
         Objects.equals(this.address2, orderBilling.address2) &&
         Objects.equals(this.ccEmails, orderBilling.ccEmails) &&
+        Objects.equals(this.cellPhone, orderBilling.cellPhone) &&
+        Objects.equals(this.cellPhoneE164, orderBilling.cellPhoneE164) &&
         Objects.equals(this.city, orderBilling.city) &&
         Objects.equals(this.company, orderBilling.company) &&
         Objects.equals(this.countryCode, orderBilling.countryCode) &&
@@ -524,7 +580,7 @@ public class OrderBilling {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, ccEmails, city, company, countryCode, dayPhone, dayPhoneE164, email, eveningPhone, eveningPhoneE164, firstName, lastName, postalCode, stateRegion, title);
+    return Objects.hash(address1, address2, ccEmails, cellPhone, cellPhoneE164, city, company, countryCode, dayPhone, dayPhoneE164, email, eveningPhone, eveningPhoneE164, firstName, lastName, postalCode, stateRegion, title);
   }
 
   @Override
@@ -534,6 +590,8 @@ public class OrderBilling {
     sb.append("    address1: ").append(toIndentedString(address1)).append("\n");
     sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    ccEmails: ").append(toIndentedString(ccEmails)).append("\n");
+    sb.append("    cellPhone: ").append(toIndentedString(cellPhone)).append("\n");
+    sb.append("    cellPhoneE164: ").append(toIndentedString(cellPhoneE164)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
@@ -572,6 +630,8 @@ public class OrderBilling {
     openapiFields.add("address1");
     openapiFields.add("address2");
     openapiFields.add("cc_emails");
+    openapiFields.add("cell_phone");
+    openapiFields.add("cell_phone_e164");
     openapiFields.add("city");
     openapiFields.add("company");
     openapiFields.add("country_code");
@@ -621,6 +681,12 @@ public class OrderBilling {
       // ensure the json data is an array
       if (jsonObj.get("cc_emails") != null && !jsonObj.get("cc_emails").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `cc_emails` to be an array in the JSON string but got `%s`", jsonObj.get("cc_emails").toString()));
+      }
+      if (jsonObj.get("cell_phone") != null && !jsonObj.get("cell_phone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cell_phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cell_phone").toString()));
+      }
+      if (jsonObj.get("cell_phone_e164") != null && !jsonObj.get("cell_phone_e164").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cell_phone_e164` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cell_phone_e164").toString()));
       }
       if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));

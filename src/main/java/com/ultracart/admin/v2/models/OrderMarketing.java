@@ -47,11 +47,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderMarketing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:41:22.949-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:17:59.539-04:00[America/Indianapolis]")
 public class OrderMarketing {
   public static final String SERIALIZED_NAME_ADVERTISING_SOURCE = "advertising_source";
   @SerializedName(SERIALIZED_NAME_ADVERTISING_SOURCE)
   private String advertisingSource;
+
+  public static final String SERIALIZED_NAME_CELL_PHONE_OPT_IN = "cell_phone_opt_in";
+  @SerializedName(SERIALIZED_NAME_CELL_PHONE_OPT_IN)
+  private Boolean cellPhoneOptIn;
 
   public static final String SERIALIZED_NAME_MAILING_LIST = "mailing_list";
   @SerializedName(SERIALIZED_NAME_MAILING_LIST)
@@ -84,6 +88,29 @@ public class OrderMarketing {
 
   public void setAdvertisingSource(String advertisingSource) {
     this.advertisingSource = advertisingSource;
+  }
+
+
+  public OrderMarketing cellPhoneOptIn(Boolean cellPhoneOptIn) {
+    
+    this.cellPhoneOptIn = cellPhoneOptIn;
+    return this;
+  }
+
+   /**
+   * True if the customer has opted into SMS marketing
+   * @return cellPhoneOptIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the customer has opted into SMS marketing")
+
+  public Boolean getCellPhoneOptIn() {
+    return cellPhoneOptIn;
+  }
+
+
+  public void setCellPhoneOptIn(Boolean cellPhoneOptIn) {
+    this.cellPhoneOptIn = cellPhoneOptIn;
   }
 
 
@@ -144,13 +171,14 @@ public class OrderMarketing {
     }
     OrderMarketing orderMarketing = (OrderMarketing) o;
     return Objects.equals(this.advertisingSource, orderMarketing.advertisingSource) &&
+        Objects.equals(this.cellPhoneOptIn, orderMarketing.cellPhoneOptIn) &&
         Objects.equals(this.mailingList, orderMarketing.mailingList) &&
         Objects.equals(this.referralCode, orderMarketing.referralCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, mailingList, referralCode);
+    return Objects.hash(advertisingSource, cellPhoneOptIn, mailingList, referralCode);
   }
 
   @Override
@@ -158,6 +186,7 @@ public class OrderMarketing {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderMarketing {\n");
     sb.append("    advertisingSource: ").append(toIndentedString(advertisingSource)).append("\n");
+    sb.append("    cellPhoneOptIn: ").append(toIndentedString(cellPhoneOptIn)).append("\n");
     sb.append("    mailingList: ").append(toIndentedString(mailingList)).append("\n");
     sb.append("    referralCode: ").append(toIndentedString(referralCode)).append("\n");
     sb.append("}");
@@ -183,6 +212,7 @@ public class OrderMarketing {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("advertising_source");
+    openapiFields.add("cell_phone_opt_in");
     openapiFields.add("mailing_list");
     openapiFields.add("referral_code");
 

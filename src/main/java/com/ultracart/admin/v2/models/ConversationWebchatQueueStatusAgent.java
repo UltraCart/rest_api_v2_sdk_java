@@ -47,11 +47,60 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatQueueStatusAgent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:41:22.949-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:17:59.539-04:00[America/Indianapolis]")
 public class ConversationWebchatQueueStatusAgent {
+  /**
+   * Status of the agent
+   */
+  @JsonAdapter(AgentStatusEnum.Adapter.class)
+  public enum AgentStatusEnum {
+    AVAILABLE("available"),
+    
+    BUSY("busy"),
+    
+    UNAVAILABLE("unavailable");
+
+    private String value;
+
+    AgentStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AgentStatusEnum fromValue(String value) {
+      for (AgentStatusEnum b : AgentStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AgentStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AgentStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AgentStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AgentStatusEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_AGENT_STATUS = "agent_status";
   @SerializedName(SERIALIZED_NAME_AGENT_STATUS)
-  private String agentStatus;
+  private AgentStatusEnum agentStatus;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -69,28 +118,32 @@ public class ConversationWebchatQueueStatusAgent {
   @SerializedName(SERIALIZED_NAME_NEXT_ROUND_ROBIN)
   private Boolean nextRoundRobin;
 
+  public static final String SERIALIZED_NAME_PROFILE_IMAGE_URL = "profile_image_url";
+  @SerializedName(SERIALIZED_NAME_PROFILE_IMAGE_URL)
+  private String profileImageUrl;
+
   public ConversationWebchatQueueStatusAgent() { 
   }
 
-  public ConversationWebchatQueueStatusAgent agentStatus(String agentStatus) {
+  public ConversationWebchatQueueStatusAgent agentStatus(AgentStatusEnum agentStatus) {
     
     this.agentStatus = agentStatus;
     return this;
   }
 
    /**
-   * Get agentStatus
+   * Status of the agent
    * @return agentStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Status of the agent")
 
-  public String getAgentStatus() {
+  public AgentStatusEnum getAgentStatus() {
     return agentStatus;
   }
 
 
-  public void setAgentStatus(String agentStatus) {
+  public void setAgentStatus(AgentStatusEnum agentStatus) {
     this.agentStatus = agentStatus;
   }
 
@@ -187,6 +240,29 @@ public class ConversationWebchatQueueStatusAgent {
   }
 
 
+  public ConversationWebchatQueueStatusAgent profileImageUrl(String profileImageUrl) {
+    
+    this.profileImageUrl = profileImageUrl;
+    return this;
+  }
+
+   /**
+   * Profile image URL
+   * @return profileImageUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Profile image URL")
+
+  public String getProfileImageUrl() {
+    return profileImageUrl;
+  }
+
+
+  public void setProfileImageUrl(String profileImageUrl) {
+    this.profileImageUrl = profileImageUrl;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -201,12 +277,13 @@ public class ConversationWebchatQueueStatusAgent {
         Objects.equals(this.conversationParticipantArn, conversationWebchatQueueStatusAgent.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationWebchatQueueStatusAgent.conversationParticipantName) &&
         Objects.equals(this.lastChatDts, conversationWebchatQueueStatusAgent.lastChatDts) &&
-        Objects.equals(this.nextRoundRobin, conversationWebchatQueueStatusAgent.nextRoundRobin);
+        Objects.equals(this.nextRoundRobin, conversationWebchatQueueStatusAgent.nextRoundRobin) &&
+        Objects.equals(this.profileImageUrl, conversationWebchatQueueStatusAgent.profileImageUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentStatus, conversationParticipantArn, conversationParticipantName, lastChatDts, nextRoundRobin);
+    return Objects.hash(agentStatus, conversationParticipantArn, conversationParticipantName, lastChatDts, nextRoundRobin, profileImageUrl);
   }
 
   @Override
@@ -218,6 +295,7 @@ public class ConversationWebchatQueueStatusAgent {
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    lastChatDts: ").append(toIndentedString(lastChatDts)).append("\n");
     sb.append("    nextRoundRobin: ").append(toIndentedString(nextRoundRobin)).append("\n");
+    sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -245,6 +323,7 @@ public class ConversationWebchatQueueStatusAgent {
     openapiFields.add("conversation_participant_name");
     openapiFields.add("last_chat_dts");
     openapiFields.add("next_round_robin");
+    openapiFields.add("profile_image_url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -283,6 +362,9 @@ public class ConversationWebchatQueueStatusAgent {
       }
       if (jsonObj.get("last_chat_dts") != null && !jsonObj.get("last_chat_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_chat_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_chat_dts").toString()));
+      }
+      if (jsonObj.get("profile_image_url") != null && !jsonObj.get("profile_image_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `profile_image_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profile_image_url").toString()));
       }
   }
 

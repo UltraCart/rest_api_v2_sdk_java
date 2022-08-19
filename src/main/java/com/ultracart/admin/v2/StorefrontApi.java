@@ -15943,7 +15943,7 @@ public class StorefrontApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/storefront/";
+        String localVarPath = "/storefront";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
