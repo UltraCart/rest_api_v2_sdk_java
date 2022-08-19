@@ -27,13 +27,16 @@ import java.io.IOException;
 /**
  * CartMarketing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:30:28.794-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:06:41.109-04:00")
 
 
 
 public class CartMarketing {
   @SerializedName("advertising_source")
   private String advertisingSource = null;
+
+  @SerializedName("cell_phone_opt_in")
+  private Boolean cellPhoneOptIn = null;
 
   @SerializedName("mailing_list_opt_in")
   private Boolean mailingListOptIn = null;
@@ -54,6 +57,24 @@ public class CartMarketing {
 
   public void setAdvertisingSource(String advertisingSource) {
     this.advertisingSource = advertisingSource;
+  }
+
+  public CartMarketing cellPhoneOptIn(Boolean cellPhoneOptIn) {
+    this.cellPhoneOptIn = cellPhoneOptIn;
+    return this;
+  }
+
+   /**
+   * True if the customer agrees to receiving marketing SMS messages
+   * @return cellPhoneOptIn
+  **/
+  @ApiModelProperty(value = "True if the customer agrees to receiving marketing SMS messages")
+  public Boolean isCellPhoneOptIn() {
+    return cellPhoneOptIn;
+  }
+
+  public void setCellPhoneOptIn(Boolean cellPhoneOptIn) {
+    this.cellPhoneOptIn = cellPhoneOptIn;
   }
 
   public CartMarketing mailingListOptIn(Boolean mailingListOptIn) {
@@ -85,12 +106,13 @@ public class CartMarketing {
     }
     CartMarketing cartMarketing = (CartMarketing) o;
     return Objects.equals(this.advertisingSource, cartMarketing.advertisingSource) &&
+        Objects.equals(this.cellPhoneOptIn, cartMarketing.cellPhoneOptIn) &&
         Objects.equals(this.mailingListOptIn, cartMarketing.mailingListOptIn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, mailingListOptIn);
+    return Objects.hash(advertisingSource, cellPhoneOptIn, mailingListOptIn);
   }
 
 
@@ -100,6 +122,7 @@ public class CartMarketing {
     sb.append("class CartMarketing {\n");
     
     sb.append("    advertisingSource: ").append(toIndentedString(advertisingSource)).append("\n");
+    sb.append("    cellPhoneOptIn: ").append(toIndentedString(cellPhoneOptIn)).append("\n");
     sb.append("    mailingListOptIn: ").append(toIndentedString(mailingListOptIn)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -27,13 +27,16 @@ import java.io.IOException;
 /**
  * OrderMarketing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:30:28.794-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:06:41.109-04:00")
 
 
 
 public class OrderMarketing {
   @SerializedName("advertising_source")
   private String advertisingSource = null;
+
+  @SerializedName("cell_phone_opt_in")
+  private Boolean cellPhoneOptIn = null;
 
   @SerializedName("mailing_list")
   private Boolean mailingList = null;
@@ -57,6 +60,24 @@ public class OrderMarketing {
 
   public void setAdvertisingSource(String advertisingSource) {
     this.advertisingSource = advertisingSource;
+  }
+
+  public OrderMarketing cellPhoneOptIn(Boolean cellPhoneOptIn) {
+    this.cellPhoneOptIn = cellPhoneOptIn;
+    return this;
+  }
+
+   /**
+   * True if the customer has opted into SMS marketing
+   * @return cellPhoneOptIn
+  **/
+  @ApiModelProperty(value = "True if the customer has opted into SMS marketing")
+  public Boolean isCellPhoneOptIn() {
+    return cellPhoneOptIn;
+  }
+
+  public void setCellPhoneOptIn(Boolean cellPhoneOptIn) {
+    this.cellPhoneOptIn = cellPhoneOptIn;
   }
 
   public OrderMarketing mailingList(Boolean mailingList) {
@@ -106,13 +127,14 @@ public class OrderMarketing {
     }
     OrderMarketing orderMarketing = (OrderMarketing) o;
     return Objects.equals(this.advertisingSource, orderMarketing.advertisingSource) &&
+        Objects.equals(this.cellPhoneOptIn, orderMarketing.cellPhoneOptIn) &&
         Objects.equals(this.mailingList, orderMarketing.mailingList) &&
         Objects.equals(this.referralCode, orderMarketing.referralCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, mailingList, referralCode);
+    return Objects.hash(advertisingSource, cellPhoneOptIn, mailingList, referralCode);
   }
 
 
@@ -122,6 +144,7 @@ public class OrderMarketing {
     sb.append("class OrderMarketing {\n");
     
     sb.append("    advertisingSource: ").append(toIndentedString(advertisingSource)).append("\n");
+    sb.append("    cellPhoneOptIn: ").append(toIndentedString(cellPhoneOptIn)).append("\n");
     sb.append("    mailingList: ").append(toIndentedString(mailingList)).append("\n");
     sb.append("    referralCode: ").append(toIndentedString(referralCode)).append("\n");
     sb.append("}");

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **joinedDts** | **String** | Joined conversation date/time |  [optional]
 **lastMessageDts** | **String** | Last message date/time |  [optional]
 **leftDts** | **String** | Left conversation date/time |  [optional]
+**profileImageUrl** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
 **unreadMessages** | **Integer** |  |  [optional]
 

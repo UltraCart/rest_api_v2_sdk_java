@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * OrderBilling
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:30:28.794-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:06:41.109-04:00")
 
 
 
@@ -42,6 +42,12 @@ public class OrderBilling {
 
   @SerializedName("cc_emails")
   private List<String> ccEmails = null;
+
+  @SerializedName("cell_phone")
+  private String cellPhone = null;
+
+  @SerializedName("cell_phone_e164")
+  private String cellPhoneE164 = null;
 
   @SerializedName("city")
   private String city = null;
@@ -142,6 +148,42 @@ public class OrderBilling {
 
   public void setCcEmails(List<String> ccEmails) {
     this.ccEmails = ccEmails;
+  }
+
+  public OrderBilling cellPhone(String cellPhone) {
+    this.cellPhone = cellPhone;
+    return this;
+  }
+
+   /**
+   * Cell phone
+   * @return cellPhone
+  **/
+  @ApiModelProperty(value = "Cell phone")
+  public String getCellPhone() {
+    return cellPhone;
+  }
+
+  public void setCellPhone(String cellPhone) {
+    this.cellPhone = cellPhone;
+  }
+
+  public OrderBilling cellPhoneE164(String cellPhoneE164) {
+    this.cellPhoneE164 = cellPhoneE164;
+    return this;
+  }
+
+   /**
+   * Cell phone (E164 format)
+   * @return cellPhoneE164
+  **/
+  @ApiModelProperty(value = "Cell phone (E164 format)")
+  public String getCellPhoneE164() {
+    return cellPhoneE164;
+  }
+
+  public void setCellPhoneE164(String cellPhoneE164) {
+    this.cellPhoneE164 = cellPhoneE164;
   }
 
   public OrderBilling city(String city) {
@@ -391,6 +433,8 @@ public class OrderBilling {
     return Objects.equals(this.address1, orderBilling.address1) &&
         Objects.equals(this.address2, orderBilling.address2) &&
         Objects.equals(this.ccEmails, orderBilling.ccEmails) &&
+        Objects.equals(this.cellPhone, orderBilling.cellPhone) &&
+        Objects.equals(this.cellPhoneE164, orderBilling.cellPhoneE164) &&
         Objects.equals(this.city, orderBilling.city) &&
         Objects.equals(this.company, orderBilling.company) &&
         Objects.equals(this.countryCode, orderBilling.countryCode) &&
@@ -408,7 +452,7 @@ public class OrderBilling {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, ccEmails, city, company, countryCode, dayPhone, dayPhoneE164, email, eveningPhone, eveningPhoneE164, firstName, lastName, postalCode, stateRegion, title);
+    return Objects.hash(address1, address2, ccEmails, cellPhone, cellPhoneE164, city, company, countryCode, dayPhone, dayPhoneE164, email, eveningPhone, eveningPhoneE164, firstName, lastName, postalCode, stateRegion, title);
   }
 
 
@@ -420,6 +464,8 @@ public class OrderBilling {
     sb.append("    address1: ").append(toIndentedString(address1)).append("\n");
     sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    ccEmails: ").append(toIndentedString(ccEmails)).append("\n");
+    sb.append("    cellPhone: ").append(toIndentedString(cellPhone)).append("\n");
+    sb.append("    cellPhoneE164: ").append(toIndentedString(cellPhoneE164)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");

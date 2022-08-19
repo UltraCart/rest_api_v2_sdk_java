@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:30:28.794-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:06:41.109-04:00")
 
 
 
@@ -49,6 +49,9 @@ public class ConversationParticipant {
 
   @SerializedName("left_dts")
   private String leftDts = null;
+
+  @SerializedName("profile_image_url")
+  private String profileImageUrl = null;
 
   @SerializedName("status")
   private String status = null;
@@ -164,6 +167,24 @@ public class ConversationParticipant {
     this.leftDts = leftDts;
   }
 
+  public ConversationParticipant profileImageUrl(String profileImageUrl) {
+    this.profileImageUrl = profileImageUrl;
+    return this;
+  }
+
+   /**
+   * Get profileImageUrl
+   * @return profileImageUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getProfileImageUrl() {
+    return profileImageUrl;
+  }
+
+  public void setProfileImageUrl(String profileImageUrl) {
+    this.profileImageUrl = profileImageUrl;
+  }
+
   public ConversationParticipant status(String status) {
     this.status = status;
     return this;
@@ -216,13 +237,14 @@ public class ConversationParticipant {
         Objects.equals(this.joinedDts, conversationParticipant.joinedDts) &&
         Objects.equals(this.lastMessageDts, conversationParticipant.lastMessageDts) &&
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
+        Objects.equals(this.profileImageUrl, conversationParticipant.profileImageUrl) &&
         Objects.equals(this.status, conversationParticipant.status) &&
         Objects.equals(this.unreadMessages, conversationParticipant.unreadMessages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, status, unreadMessages);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, profileImageUrl, status, unreadMessages);
   }
 
 
@@ -237,6 +259,7 @@ public class ConversationParticipant {
     sb.append("    joinedDts: ").append(toIndentedString(joinedDts)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
+    sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("}");

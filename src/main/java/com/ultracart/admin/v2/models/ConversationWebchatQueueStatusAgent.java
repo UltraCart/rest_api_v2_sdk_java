@@ -27,13 +27,62 @@ import java.io.IOException;
 /**
  * ConversationWebchatQueueStatusAgent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-12T11:30:28.794-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:06:41.109-04:00")
 
 
 
 public class ConversationWebchatQueueStatusAgent {
+  /**
+   * Status of the agent
+   */
+  @JsonAdapter(AgentStatusEnum.Adapter.class)
+  public enum AgentStatusEnum {
+    AVAILABLE("available"),
+    
+    BUSY("busy"),
+    
+    UNAVAILABLE("unavailable");
+
+    private String value;
+
+    AgentStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AgentStatusEnum fromValue(String text) {
+      for (AgentStatusEnum b : AgentStatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<AgentStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AgentStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AgentStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AgentStatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("agent_status")
-  private String agentStatus = null;
+  private AgentStatusEnum agentStatus = null;
 
   @SerializedName("conversation_participant_arn")
   private String conversationParticipantArn = null;
@@ -47,21 +96,24 @@ public class ConversationWebchatQueueStatusAgent {
   @SerializedName("next_round_robin")
   private Boolean nextRoundRobin = null;
 
-  public ConversationWebchatQueueStatusAgent agentStatus(String agentStatus) {
+  @SerializedName("profile_image_url")
+  private String profileImageUrl = null;
+
+  public ConversationWebchatQueueStatusAgent agentStatus(AgentStatusEnum agentStatus) {
     this.agentStatus = agentStatus;
     return this;
   }
 
    /**
-   * Get agentStatus
+   * Status of the agent
    * @return agentStatus
   **/
-  @ApiModelProperty(value = "")
-  public String getAgentStatus() {
+  @ApiModelProperty(value = "Status of the agent")
+  public AgentStatusEnum getAgentStatus() {
     return agentStatus;
   }
 
-  public void setAgentStatus(String agentStatus) {
+  public void setAgentStatus(AgentStatusEnum agentStatus) {
     this.agentStatus = agentStatus;
   }
 
@@ -137,6 +189,24 @@ public class ConversationWebchatQueueStatusAgent {
     this.nextRoundRobin = nextRoundRobin;
   }
 
+  public ConversationWebchatQueueStatusAgent profileImageUrl(String profileImageUrl) {
+    this.profileImageUrl = profileImageUrl;
+    return this;
+  }
+
+   /**
+   * Profile image URL
+   * @return profileImageUrl
+  **/
+  @ApiModelProperty(value = "Profile image URL")
+  public String getProfileImageUrl() {
+    return profileImageUrl;
+  }
+
+  public void setProfileImageUrl(String profileImageUrl) {
+    this.profileImageUrl = profileImageUrl;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +221,13 @@ public class ConversationWebchatQueueStatusAgent {
         Objects.equals(this.conversationParticipantArn, conversationWebchatQueueStatusAgent.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationWebchatQueueStatusAgent.conversationParticipantName) &&
         Objects.equals(this.lastChatDts, conversationWebchatQueueStatusAgent.lastChatDts) &&
-        Objects.equals(this.nextRoundRobin, conversationWebchatQueueStatusAgent.nextRoundRobin);
+        Objects.equals(this.nextRoundRobin, conversationWebchatQueueStatusAgent.nextRoundRobin) &&
+        Objects.equals(this.profileImageUrl, conversationWebchatQueueStatusAgent.profileImageUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentStatus, conversationParticipantArn, conversationParticipantName, lastChatDts, nextRoundRobin);
+    return Objects.hash(agentStatus, conversationParticipantArn, conversationParticipantName, lastChatDts, nextRoundRobin, profileImageUrl);
   }
 
 
@@ -170,6 +241,7 @@ public class ConversationWebchatQueueStatusAgent {
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    lastChatDts: ").append(toIndentedString(lastChatDts)).append("\n");
     sb.append("    nextRoundRobin: ").append(toIndentedString(nextRoundRobin)).append("\n");
+    sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
