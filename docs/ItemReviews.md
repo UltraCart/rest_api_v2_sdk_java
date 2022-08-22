@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**hasApprovedReview** | **Boolean** | True if the item has an approved review |  [optional] |
 |**hasReview** | **Boolean** | True if the item has a review |  [optional] |
+|**individualReviews** | [**List&lt;ItemReview&gt;**](ItemReview.md) |  |  [optional] |
 |**reviewCount** | **Integer** | Number of approved reviews |  [optional] |
 |**reviewOverall** | **BigDecimal** | Overall score of reviews |  [optional] |
 |**reviewTemplateName** | **String** | Review template name |  [optional] |

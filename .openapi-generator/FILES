@@ -455,6 +455,7 @@ docs/ItemResponse.md
 docs/ItemRestriction.md
 docs/ItemRestrictionItem.md
 docs/ItemRevguard.md
+docs/ItemReview.md
 docs/ItemReviews.md
 docs/ItemSalesforce.md
 docs/ItemShipping.md
@@ -1155,6 +1156,7 @@ src/main/java/com/ultracart/admin/v2/models/ItemResponse.java
 src/main/java/com/ultracart/admin/v2/models/ItemRestriction.java
 src/main/java/com/ultracart/admin/v2/models/ItemRestrictionItem.java
 src/main/java/com/ultracart/admin/v2/models/ItemRevguard.java
+src/main/java/com/ultracart/admin/v2/models/ItemReview.java
 src/main/java/com/ultracart/admin/v2/models/ItemReviews.java
 src/main/java/com/ultracart/admin/v2/models/ItemSalesforce.java
 src/main/java/com/ultracart/admin/v2/models/ItemShipping.java
