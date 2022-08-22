@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-19T15:06:41.109-04:00
+  - Build date: 2022-08-22T10:13:58.216-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.39</version>
+  <version>3.10.40</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.39"
+compile "com.ultracart:rest-sdk:3.10.40"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.39.jar`
+* `target/rest-sdk-3.10.40.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -909,6 +909,7 @@ Class | Method | HTTP request | Description
  - [ItemRestriction](docs/ItemRestriction.md)
  - [ItemRestrictionItem](docs/ItemRestrictionItem.md)
  - [ItemRevguard](docs/ItemRevguard.md)
+ - [ItemReview](docs/ItemReview.md)
  - [ItemReviews](docs/ItemReviews.md)
  - [ItemSalesforce](docs/ItemSalesforce.md)
  - [ItemShipping](docs/ItemShipping.md)
@@ -1213,6 +1214,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.40 | 08/22/2022 | exposing individual reviews within item.review object |
 | 3.10.39 | 08/19/2022 | order api - added cell phone fields for sms |
 | 3.10.38 | 08/12/2022 | internal code to allow merchant login as customer |
 | 3.10.37 | 08/11/2022 | fix entry_dts type on gift certificate ledger |

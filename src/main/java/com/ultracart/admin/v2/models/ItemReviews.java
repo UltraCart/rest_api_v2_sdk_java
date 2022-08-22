@@ -20,15 +20,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ItemReview;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ItemReviews
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-19T15:06:41.109-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:13:58.216-04:00")
 
 
 
@@ -38,6 +41,9 @@ public class ItemReviews {
 
   @SerializedName("has_review")
   private Boolean hasReview = null;
+
+  @SerializedName("individual_reviews")
+  private List<ItemReview> individualReviews = null;
 
   @SerializedName("review_count")
   private Integer reviewCount = null;
@@ -94,6 +100,32 @@ public class ItemReviews {
 
   public void setHasReview(Boolean hasReview) {
     this.hasReview = hasReview;
+  }
+
+  public ItemReviews individualReviews(List<ItemReview> individualReviews) {
+    this.individualReviews = individualReviews;
+    return this;
+  }
+
+  public ItemReviews addIndividualReviewsItem(ItemReview individualReviewsItem) {
+    if (this.individualReviews == null) {
+      this.individualReviews = new ArrayList<ItemReview>();
+    }
+    this.individualReviews.add(individualReviewsItem);
+    return this;
+  }
+
+   /**
+   * Get individualReviews
+   * @return individualReviews
+  **/
+  @ApiModelProperty(value = "")
+  public List<ItemReview> getIndividualReviews() {
+    return individualReviews;
+  }
+
+  public void setIndividualReviews(List<ItemReview> individualReviews) {
+    this.individualReviews = individualReviews;
   }
 
   public ItemReviews reviewCount(Integer reviewCount) {
@@ -234,6 +266,7 @@ public class ItemReviews {
     ItemReviews itemReviews = (ItemReviews) o;
     return Objects.equals(this.hasApprovedReview, itemReviews.hasApprovedReview) &&
         Objects.equals(this.hasReview, itemReviews.hasReview) &&
+        Objects.equals(this.individualReviews, itemReviews.individualReviews) &&
         Objects.equals(this.reviewCount, itemReviews.reviewCount) &&
         Objects.equals(this.reviewOverall, itemReviews.reviewOverall) &&
         Objects.equals(this.reviewTemplateName, itemReviews.reviewTemplateName) &&
@@ -245,7 +278,7 @@ public class ItemReviews {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hasApprovedReview, hasReview, reviewCount, reviewOverall, reviewTemplateName, reviewTemplateOid, reviewable, shareReviewsWithMerchantItemId, shareReviewsWithMerchantItemOid);
+    return Objects.hash(hasApprovedReview, hasReview, individualReviews, reviewCount, reviewOverall, reviewTemplateName, reviewTemplateOid, reviewable, shareReviewsWithMerchantItemId, shareReviewsWithMerchantItemOid);
   }
 
 
@@ -256,6 +289,7 @@ public class ItemReviews {
     
     sb.append("    hasApprovedReview: ").append(toIndentedString(hasApprovedReview)).append("\n");
     sb.append("    hasReview: ").append(toIndentedString(hasReview)).append("\n");
+    sb.append("    individualReviews: ").append(toIndentedString(individualReviews)).append("\n");
     sb.append("    reviewCount: ").append(toIndentedString(reviewCount)).append("\n");
     sb.append("    reviewOverall: ").append(toIndentedString(reviewOverall)).append("\n");
     sb.append("    reviewTemplateName: ").append(toIndentedString(reviewTemplateName)).append("\n");
