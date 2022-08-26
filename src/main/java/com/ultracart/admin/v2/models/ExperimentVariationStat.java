@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ExperimentVariationStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:25:24.226-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
 public class ExperimentVariationStat {
   public static final String SERIALIZED_NAME_ADD_TO_CART_COUNT = "add_to_cart_count";
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART_COUNT)
@@ -89,6 +89,10 @@ public class ExperimentVariationStat {
   public static final String SERIALIZED_NAME_SESSION_COUNT = "session_count";
   @SerializedName(SERIALIZED_NAME_SESSION_COUNT)
   private Integer sessionCount;
+
+  public static final String SERIALIZED_NAME_SMS_OPT_IN_COUNT = "sms_opt_in_count";
+  @SerializedName(SERIALIZED_NAME_SMS_OPT_IN_COUNT)
+  private Integer smsOptInCount;
 
   public static final String SERIALIZED_NAME_STAT_DTS = "stat_dts";
   @SerializedName(SERIALIZED_NAME_STAT_DTS)
@@ -327,6 +331,29 @@ public class ExperimentVariationStat {
   }
 
 
+  public ExperimentVariationStat smsOptInCount(Integer smsOptInCount) {
+    
+    this.smsOptInCount = smsOptInCount;
+    return this;
+  }
+
+   /**
+   * Total SMS opt in count for this variation
+   * @return smsOptInCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Total SMS opt in count for this variation")
+
+  public Integer getSmsOptInCount() {
+    return smsOptInCount;
+  }
+
+
+  public void setSmsOptInCount(Integer smsOptInCount) {
+    this.smsOptInCount = smsOptInCount;
+  }
+
+
   public ExperimentVariationStat statDts(String statDts) {
     
     this.statDts = statDts;
@@ -370,12 +397,13 @@ public class ExperimentVariationStat {
         Objects.equals(this.pageViewCount, experimentVariationStat.pageViewCount) &&
         Objects.equals(this.revenue, experimentVariationStat.revenue) &&
         Objects.equals(this.sessionCount, experimentVariationStat.sessionCount) &&
+        Objects.equals(this.smsOptInCount, experimentVariationStat.smsOptInCount) &&
         Objects.equals(this.statDts, experimentVariationStat.statDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, bounceCount, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, pageViewCount, revenue, sessionCount, statDts);
+    return Objects.hash(addToCartCount, bounceCount, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, pageViewCount, revenue, sessionCount, smsOptInCount, statDts);
   }
 
   @Override
@@ -392,6 +420,7 @@ public class ExperimentVariationStat {
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    revenue: ").append(toIndentedString(revenue)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
+    sb.append("    smsOptInCount: ").append(toIndentedString(smsOptInCount)).append("\n");
     sb.append("    statDts: ").append(toIndentedString(statDts)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -425,6 +454,7 @@ public class ExperimentVariationStat {
     openapiFields.add("page_view_count");
     openapiFields.add("revenue");
     openapiFields.add("session_count");
+    openapiFields.add("sms_opt_in_count");
     openapiFields.add("stat_dts");
 
     // a set of required properties/fields (JSON key names)

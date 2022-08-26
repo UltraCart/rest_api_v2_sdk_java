@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponRestriction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:25:24.226-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
 public class CouponRestriction {
   public static final String SERIALIZED_NAME_INVALID_FOR_THIS = "invalidForThis";
   @SerializedName(SERIALIZED_NAME_INVALID_FOR_THIS)

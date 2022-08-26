@@ -24,6 +24,7 @@
 |**paused** | **Boolean** | True if traffic should be paused to this variation |  [optional] |
 |**revenue** | **BigDecimal** | Total revenue for this variation |  [optional] |
 |**sessionCount** | **Integer** | Total sessions for this variation |  [optional] |
+|**smsOptIns** | **Integer** | SMS Opt Ins for this variation |  [optional] |
 |**trafficPercentage** | **BigDecimal** | Percentage of the traffic this variation is currently receiving |  [optional] |
 |**url** | **String** | Url of the variation if this experiment is a url experiment. |  [optional] |
 |**variationName** | **String** | Name of the variation |  [optional] |

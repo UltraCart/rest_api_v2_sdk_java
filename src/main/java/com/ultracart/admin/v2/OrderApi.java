@@ -2962,6 +2962,7 @@ public class OrderApi {
      * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
      * @param manualRefund Consider a manual refund done externally (optional, default to false)
      * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2977,7 +2978,7 @@ public class OrderApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call refundOrderCall(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call refundOrderCall(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3023,6 +3024,10 @@ public class OrderApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("reverse_affiliate_transactions", reverseAffiliateTransactions));
         }
 
+        if (issueStoreCredit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("issue_store_credit", issueStoreCredit));
+        }
+
         if (expand != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
         }
@@ -3048,7 +3053,7 @@ public class OrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call refundOrderValidateBeforeCall(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call refundOrderValidateBeforeCall(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
@@ -3061,7 +3066,7 @@ public class OrderApi {
         }
         
 
-        okhttp3.Call localVarCall = refundOrderCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand, _callback);
+        okhttp3.Call localVarCall = refundOrderCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand, _callback);
         return localVarCall;
 
     }
@@ -3076,6 +3081,7 @@ public class OrderApi {
      * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
      * @param manualRefund Consider a manual refund done externally (optional, default to false)
      * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return OrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3090,8 +3096,8 @@ public class OrderApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public OrderResponse refundOrder(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand) throws ApiException {
-        ApiResponse<OrderResponse> localVarResp = refundOrderWithHttpInfo(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
+    public OrderResponse refundOrder(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = refundOrderWithHttpInfo(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand);
         return localVarResp.getData();
     }
 
@@ -3105,6 +3111,7 @@ public class OrderApi {
      * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
      * @param manualRefund Consider a manual refund done externally (optional, default to false)
      * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;OrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3119,8 +3126,8 @@ public class OrderApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<OrderResponse> refundOrderWithHttpInfo(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand) throws ApiException {
-        okhttp3.Call localVarCall = refundOrderValidateBeforeCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand, null);
+    public ApiResponse<OrderResponse> refundOrderWithHttpInfo(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand) throws ApiException {
+        okhttp3.Call localVarCall = refundOrderValidateBeforeCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand, null);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3135,6 +3142,7 @@ public class OrderApi {
      * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
      * @param manualRefund Consider a manual refund done externally (optional, default to false)
      * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3150,9 +3158,9 @@ public class OrderApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call refundOrderAsync(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand, final ApiCallback<OrderResponse> _callback) throws ApiException {
+    public okhttp3.Call refundOrderAsync(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand, final ApiCallback<OrderResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = refundOrderValidateBeforeCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand, _callback);
+        okhttp3.Call localVarCall = refundOrderValidateBeforeCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand, _callback);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

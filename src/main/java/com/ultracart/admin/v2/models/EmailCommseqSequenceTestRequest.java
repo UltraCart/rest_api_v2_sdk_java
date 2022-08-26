@@ -49,8 +49,16 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseqSequenceTestRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:25:24.226-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
 public class EmailCommseqSequenceTestRequest {
+  public static final String SERIALIZED_NAME_ADDRESS1 = "address_1";
+  @SerializedName(SERIALIZED_NAME_ADDRESS1)
+  private String address1;
+
+  public static final String SERIALIZED_NAME_ADDRESS2 = "address_2";
+  @SerializedName(SERIALIZED_NAME_ADDRESS2)
+  private String address2;
+
   public static final String SERIALIZED_NAME_CART_ID = "cart_id";
   @SerializedName(SERIALIZED_NAME_CART_ID)
   private String cartId;
@@ -59,9 +67,17 @@ public class EmailCommseqSequenceTestRequest {
   @SerializedName(SERIALIZED_NAME_CART_ITEM_IDS)
   private List<String> cartItemIds = null;
 
+  public static final String SERIALIZED_NAME_CITY = "city";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
+
   public static final String SERIALIZED_NAME_ESP_COMMSEQ_UUID = "esp_commseq_uuid";
   @SerializedName(SERIALIZED_NAME_ESP_COMMSEQ_UUID)
   private String espCommseqUuid;
+
+  public static final String SERIALIZED_NAME_MAIL_CARD = "mail_card";
+  @SerializedName(SERIALIZED_NAME_MAIL_CARD)
+  private Boolean mailCard;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -75,6 +91,10 @@ public class EmailCommseqSequenceTestRequest {
   @SerializedName(SERIALIZED_NAME_PLEASE_REVIEW)
   private Boolean pleaseReview;
 
+  public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
+  @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
+  private String postalCode;
+
   public static final String SERIALIZED_NAME_SEND_TO_EMAIL = "send_to_email";
   @SerializedName(SERIALIZED_NAME_SEND_TO_EMAIL)
   private String sendToEmail;
@@ -83,8 +103,58 @@ public class EmailCommseqSequenceTestRequest {
   @SerializedName(SERIALIZED_NAME_SEND_TO_LOGGED_IN_USER)
   private Boolean sendToLoggedInUser;
 
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private String state;
+
   public EmailCommseqSequenceTestRequest() { 
   }
+
+  public EmailCommseqSequenceTestRequest address1(String address1) {
+    
+    this.address1 = address1;
+    return this;
+  }
+
+   /**
+   * Get address1
+   * @return address1
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAddress1() {
+    return address1;
+  }
+
+
+  public void setAddress1(String address1) {
+    this.address1 = address1;
+  }
+
+
+  public EmailCommseqSequenceTestRequest address2(String address2) {
+    
+    this.address2 = address2;
+    return this;
+  }
+
+   /**
+   * Get address2
+   * @return address2
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAddress2() {
+    return address2;
+  }
+
+
+  public void setAddress2(String address2) {
+    this.address2 = address2;
+  }
+
 
   public EmailCommseqSequenceTestRequest cartId(String cartId) {
     
@@ -140,6 +210,29 @@ public class EmailCommseqSequenceTestRequest {
   }
 
 
+  public EmailCommseqSequenceTestRequest city(String city) {
+    
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * Get city
+   * @return city
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCity() {
+    return city;
+  }
+
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+
   public EmailCommseqSequenceTestRequest espCommseqUuid(String espCommseqUuid) {
     
     this.espCommseqUuid = espCommseqUuid;
@@ -160,6 +253,29 @@ public class EmailCommseqSequenceTestRequest {
 
   public void setEspCommseqUuid(String espCommseqUuid) {
     this.espCommseqUuid = espCommseqUuid;
+  }
+
+
+  public EmailCommseqSequenceTestRequest mailCard(Boolean mailCard) {
+    
+    this.mailCard = mailCard;
+    return this;
+  }
+
+   /**
+   * Get mailCard
+   * @return mailCard
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getMailCard() {
+    return mailCard;
+  }
+
+
+  public void setMailCard(Boolean mailCard) {
+    this.mailCard = mailCard;
   }
 
 
@@ -232,6 +348,29 @@ public class EmailCommseqSequenceTestRequest {
   }
 
 
+  public EmailCommseqSequenceTestRequest postalCode(String postalCode) {
+    
+    this.postalCode = postalCode;
+    return this;
+  }
+
+   /**
+   * Get postalCode
+   * @return postalCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
+  }
+
+
   public EmailCommseqSequenceTestRequest sendToEmail(String sendToEmail) {
     
     this.sendToEmail = sendToEmail;
@@ -278,6 +417,29 @@ public class EmailCommseqSequenceTestRequest {
   }
 
 
+  public EmailCommseqSequenceTestRequest state(String state) {
+    
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getState() {
+    return state;
+  }
+
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -288,33 +450,45 @@ public class EmailCommseqSequenceTestRequest {
       return false;
     }
     EmailCommseqSequenceTestRequest emailCommseqSequenceTestRequest = (EmailCommseqSequenceTestRequest) o;
-    return Objects.equals(this.cartId, emailCommseqSequenceTestRequest.cartId) &&
+    return Objects.equals(this.address1, emailCommseqSequenceTestRequest.address1) &&
+        Objects.equals(this.address2, emailCommseqSequenceTestRequest.address2) &&
+        Objects.equals(this.cartId, emailCommseqSequenceTestRequest.cartId) &&
         Objects.equals(this.cartItemIds, emailCommseqSequenceTestRequest.cartItemIds) &&
+        Objects.equals(this.city, emailCommseqSequenceTestRequest.city) &&
         Objects.equals(this.espCommseqUuid, emailCommseqSequenceTestRequest.espCommseqUuid) &&
+        Objects.equals(this.mailCard, emailCommseqSequenceTestRequest.mailCard) &&
         Objects.equals(this.name, emailCommseqSequenceTestRequest.name) &&
         Objects.equals(this.orderId, emailCommseqSequenceTestRequest.orderId) &&
         Objects.equals(this.pleaseReview, emailCommseqSequenceTestRequest.pleaseReview) &&
+        Objects.equals(this.postalCode, emailCommseqSequenceTestRequest.postalCode) &&
         Objects.equals(this.sendToEmail, emailCommseqSequenceTestRequest.sendToEmail) &&
-        Objects.equals(this.sendToLoggedInUser, emailCommseqSequenceTestRequest.sendToLoggedInUser);
+        Objects.equals(this.sendToLoggedInUser, emailCommseqSequenceTestRequest.sendToLoggedInUser) &&
+        Objects.equals(this.state, emailCommseqSequenceTestRequest.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cartId, cartItemIds, espCommseqUuid, name, orderId, pleaseReview, sendToEmail, sendToLoggedInUser);
+    return Objects.hash(address1, address2, cartId, cartItemIds, city, espCommseqUuid, mailCard, name, orderId, pleaseReview, postalCode, sendToEmail, sendToLoggedInUser, state);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailCommseqSequenceTestRequest {\n");
+    sb.append("    address1: ").append(toIndentedString(address1)).append("\n");
+    sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    cartId: ").append(toIndentedString(cartId)).append("\n");
     sb.append("    cartItemIds: ").append(toIndentedString(cartItemIds)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    espCommseqUuid: ").append(toIndentedString(espCommseqUuid)).append("\n");
+    sb.append("    mailCard: ").append(toIndentedString(mailCard)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pleaseReview: ").append(toIndentedString(pleaseReview)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    sendToEmail: ").append(toIndentedString(sendToEmail)).append("\n");
     sb.append("    sendToLoggedInUser: ").append(toIndentedString(sendToLoggedInUser)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -337,14 +511,20 @@ public class EmailCommseqSequenceTestRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("address_1");
+    openapiFields.add("address_2");
     openapiFields.add("cart_id");
     openapiFields.add("cart_item_ids");
+    openapiFields.add("city");
     openapiFields.add("esp_commseq_uuid");
+    openapiFields.add("mail_card");
     openapiFields.add("name");
     openapiFields.add("order_id");
     openapiFields.add("please_review");
+    openapiFields.add("postal_code");
     openapiFields.add("send_to_email");
     openapiFields.add("send_to_logged_in_user");
+    openapiFields.add("state");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -372,12 +552,21 @@ public class EmailCommseqSequenceTestRequest {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EmailCommseqSequenceTestRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      if (jsonObj.get("address_1") != null && !jsonObj.get("address_1").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address_1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address_1").toString()));
+      }
+      if (jsonObj.get("address_2") != null && !jsonObj.get("address_2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address_2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address_2").toString()));
+      }
       if (jsonObj.get("cart_id") != null && !jsonObj.get("cart_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cart_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cart_id").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("cart_item_ids") != null && !jsonObj.get("cart_item_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `cart_item_ids` to be an array in the JSON string but got `%s`", jsonObj.get("cart_item_ids").toString()));
+      }
+      if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
       if (jsonObj.get("esp_commseq_uuid") != null && !jsonObj.get("esp_commseq_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `esp_commseq_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("esp_commseq_uuid").toString()));
@@ -388,8 +577,14 @@ public class EmailCommseqSequenceTestRequest {
       if (jsonObj.get("order_id") != null && !jsonObj.get("order_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `order_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_id").toString()));
       }
+      if (jsonObj.get("postal_code") != null && !jsonObj.get("postal_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal_code").toString()));
+      }
       if (jsonObj.get("send_to_email") != null && !jsonObj.get("send_to_email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `send_to_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("send_to_email").toString()));
+      }
+      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
   }
 

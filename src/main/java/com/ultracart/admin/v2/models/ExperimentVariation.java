@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ExperimentVariation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:25:24.226-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
 public class ExperimentVariation {
   public static final String SERIALIZED_NAME_ADD_TO_CART_COUNT = "add_to_cart_count";
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART_COUNT)
@@ -120,6 +120,10 @@ public class ExperimentVariation {
   public static final String SERIALIZED_NAME_SESSION_COUNT = "session_count";
   @SerializedName(SERIALIZED_NAME_SESSION_COUNT)
   private Integer sessionCount;
+
+  public static final String SERIALIZED_NAME_SMS_OPT_INS = "sms_opt_ins";
+  @SerializedName(SERIALIZED_NAME_SMS_OPT_INS)
+  private Integer smsOptIns;
 
   public static final String SERIALIZED_NAME_TRAFFIC_PERCENTAGE = "traffic_percentage";
   @SerializedName(SERIALIZED_NAME_TRAFFIC_PERCENTAGE)
@@ -543,6 +547,29 @@ public class ExperimentVariation {
   }
 
 
+  public ExperimentVariation smsOptIns(Integer smsOptIns) {
+    
+    this.smsOptIns = smsOptIns;
+    return this;
+  }
+
+   /**
+   * SMS Opt Ins for this variation
+   * @return smsOptIns
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SMS Opt Ins for this variation")
+
+  public Integer getSmsOptIns() {
+    return smsOptIns;
+  }
+
+
+  public void setSmsOptIns(Integer smsOptIns) {
+    this.smsOptIns = smsOptIns;
+  }
+
+
   public ExperimentVariation trafficPercentage(BigDecimal trafficPercentage) {
     
     this.trafficPercentage = trafficPercentage;
@@ -685,6 +712,7 @@ public class ExperimentVariation {
         Objects.equals(this.paused, experimentVariation.paused) &&
         Objects.equals(this.revenue, experimentVariation.revenue) &&
         Objects.equals(this.sessionCount, experimentVariation.sessionCount) &&
+        Objects.equals(this.smsOptIns, experimentVariation.smsOptIns) &&
         Objects.equals(this.trafficPercentage, experimentVariation.trafficPercentage) &&
         Objects.equals(this.url, experimentVariation.url) &&
         Objects.equals(this.variationName, experimentVariation.variationName) &&
@@ -694,7 +722,7 @@ public class ExperimentVariation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, dailyStatistics, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, originalTrafficPercentage, pageViewCount, paused, revenue, sessionCount, trafficPercentage, url, variationName, variationNumber, winner);
+    return Objects.hash(addToCartCount, averageDurationSeconds, averageObjectivePerSession, averageOrderValue, bounceCount, conversionRate, dailyStatistics, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, originalTrafficPercentage, pageViewCount, paused, revenue, sessionCount, smsOptIns, trafficPercentage, url, variationName, variationNumber, winner);
   }
 
   @Override
@@ -718,6 +746,7 @@ public class ExperimentVariation {
     sb.append("    paused: ").append(toIndentedString(paused)).append("\n");
     sb.append("    revenue: ").append(toIndentedString(revenue)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
+    sb.append("    smsOptIns: ").append(toIndentedString(smsOptIns)).append("\n");
     sb.append("    trafficPercentage: ").append(toIndentedString(trafficPercentage)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    variationName: ").append(toIndentedString(variationName)).append("\n");
@@ -762,6 +791,7 @@ public class ExperimentVariation {
     openapiFields.add("paused");
     openapiFields.add("revenue");
     openapiFields.add("session_count");
+    openapiFields.add("sms_opt_ins");
     openapiFields.add("traffic_percentage");
     openapiFields.add("url");
     openapiFields.add("variation_name");
