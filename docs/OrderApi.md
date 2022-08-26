@@ -964,7 +964,7 @@ Name | Type | Description  | Notes
 
 <a name="refundOrder"></a>
 # **refundOrder**
-> OrderResponse refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand)
+> OrderResponse refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand)
 
 Refund an order
 
@@ -990,9 +990,10 @@ Boolean skipCustomerNotification = false; // Boolean | Skip customer email notif
 Boolean autoOrderCancel = false; // Boolean | Cancel associated auto orders
 Boolean manualRefund = false; // Boolean | Consider a manual refund done externally
 Boolean reverseAffiliateTransactions = true; // Boolean | Reverse affiliate transactions
+Boolean issueStoreCredit = false; // Boolean | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    OrderResponse result = apiInstance.refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
+    OrderResponse result = apiInstance.refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#refundOrder");
@@ -1011,6 +1012,7 @@ Name | Type | Description  | Notes
  **autoOrderCancel** | **Boolean**| Cancel associated auto orders | [optional] [default to false]
  **manualRefund** | **Boolean**| Consider a manual refund done externally | [optional] [default to false]
  **reverseAffiliateTransactions** | **Boolean**| Reverse affiliate transactions | [optional] [default to true]
+ **issueStoreCredit** | **Boolean**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

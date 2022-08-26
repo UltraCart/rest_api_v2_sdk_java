@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:13:58.216-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:15:48.949-04:00")
 
 
 

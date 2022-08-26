@@ -29,19 +29,31 @@ import java.util.List;
 /**
  * EmailCommseqSequenceTestRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:13:58.216-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:15:48.949-04:00")
 
 
 
 public class EmailCommseqSequenceTestRequest {
+  @SerializedName("address_1")
+  private String address1 = null;
+
+  @SerializedName("address_2")
+  private String address2 = null;
+
   @SerializedName("cart_id")
   private String cartId = null;
 
   @SerializedName("cart_item_ids")
   private List<String> cartItemIds = null;
 
+  @SerializedName("city")
+  private String city = null;
+
   @SerializedName("esp_commseq_uuid")
   private String espCommseqUuid = null;
+
+  @SerializedName("mail_card")
+  private Boolean mailCard = null;
 
   @SerializedName("name")
   private String name = null;
@@ -52,11 +64,53 @@ public class EmailCommseqSequenceTestRequest {
   @SerializedName("please_review")
   private Boolean pleaseReview = null;
 
+  @SerializedName("postal_code")
+  private String postalCode = null;
+
   @SerializedName("send_to_email")
   private String sendToEmail = null;
 
   @SerializedName("send_to_logged_in_user")
   private Boolean sendToLoggedInUser = null;
+
+  @SerializedName("state")
+  private String state = null;
+
+  public EmailCommseqSequenceTestRequest address1(String address1) {
+    this.address1 = address1;
+    return this;
+  }
+
+   /**
+   * Get address1
+   * @return address1
+  **/
+  @ApiModelProperty(value = "")
+  public String getAddress1() {
+    return address1;
+  }
+
+  public void setAddress1(String address1) {
+    this.address1 = address1;
+  }
+
+  public EmailCommseqSequenceTestRequest address2(String address2) {
+    this.address2 = address2;
+    return this;
+  }
+
+   /**
+   * Get address2
+   * @return address2
+  **/
+  @ApiModelProperty(value = "")
+  public String getAddress2() {
+    return address2;
+  }
+
+  public void setAddress2(String address2) {
+    this.address2 = address2;
+  }
 
   public EmailCommseqSequenceTestRequest cartId(String cartId) {
     this.cartId = cartId;
@@ -102,6 +156,24 @@ public class EmailCommseqSequenceTestRequest {
     this.cartItemIds = cartItemIds;
   }
 
+  public EmailCommseqSequenceTestRequest city(String city) {
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * Get city
+   * @return city
+  **/
+  @ApiModelProperty(value = "")
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
   public EmailCommseqSequenceTestRequest espCommseqUuid(String espCommseqUuid) {
     this.espCommseqUuid = espCommseqUuid;
     return this;
@@ -118,6 +190,24 @@ public class EmailCommseqSequenceTestRequest {
 
   public void setEspCommseqUuid(String espCommseqUuid) {
     this.espCommseqUuid = espCommseqUuid;
+  }
+
+  public EmailCommseqSequenceTestRequest mailCard(Boolean mailCard) {
+    this.mailCard = mailCard;
+    return this;
+  }
+
+   /**
+   * Get mailCard
+   * @return mailCard
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isMailCard() {
+    return mailCard;
+  }
+
+  public void setMailCard(Boolean mailCard) {
+    this.mailCard = mailCard;
   }
 
   public EmailCommseqSequenceTestRequest name(String name) {
@@ -174,6 +264,24 @@ public class EmailCommseqSequenceTestRequest {
     this.pleaseReview = pleaseReview;
   }
 
+  public EmailCommseqSequenceTestRequest postalCode(String postalCode) {
+    this.postalCode = postalCode;
+    return this;
+  }
+
+   /**
+   * Get postalCode
+   * @return postalCode
+  **/
+  @ApiModelProperty(value = "")
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
+  }
+
   public EmailCommseqSequenceTestRequest sendToEmail(String sendToEmail) {
     this.sendToEmail = sendToEmail;
     return this;
@@ -210,6 +318,24 @@ public class EmailCommseqSequenceTestRequest {
     this.sendToLoggedInUser = sendToLoggedInUser;
   }
 
+  public EmailCommseqSequenceTestRequest state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(value = "")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -220,19 +346,25 @@ public class EmailCommseqSequenceTestRequest {
       return false;
     }
     EmailCommseqSequenceTestRequest emailCommseqSequenceTestRequest = (EmailCommseqSequenceTestRequest) o;
-    return Objects.equals(this.cartId, emailCommseqSequenceTestRequest.cartId) &&
+    return Objects.equals(this.address1, emailCommseqSequenceTestRequest.address1) &&
+        Objects.equals(this.address2, emailCommseqSequenceTestRequest.address2) &&
+        Objects.equals(this.cartId, emailCommseqSequenceTestRequest.cartId) &&
         Objects.equals(this.cartItemIds, emailCommseqSequenceTestRequest.cartItemIds) &&
+        Objects.equals(this.city, emailCommseqSequenceTestRequest.city) &&
         Objects.equals(this.espCommseqUuid, emailCommseqSequenceTestRequest.espCommseqUuid) &&
+        Objects.equals(this.mailCard, emailCommseqSequenceTestRequest.mailCard) &&
         Objects.equals(this.name, emailCommseqSequenceTestRequest.name) &&
         Objects.equals(this.orderId, emailCommseqSequenceTestRequest.orderId) &&
         Objects.equals(this.pleaseReview, emailCommseqSequenceTestRequest.pleaseReview) &&
+        Objects.equals(this.postalCode, emailCommseqSequenceTestRequest.postalCode) &&
         Objects.equals(this.sendToEmail, emailCommseqSequenceTestRequest.sendToEmail) &&
-        Objects.equals(this.sendToLoggedInUser, emailCommseqSequenceTestRequest.sendToLoggedInUser);
+        Objects.equals(this.sendToLoggedInUser, emailCommseqSequenceTestRequest.sendToLoggedInUser) &&
+        Objects.equals(this.state, emailCommseqSequenceTestRequest.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cartId, cartItemIds, espCommseqUuid, name, orderId, pleaseReview, sendToEmail, sendToLoggedInUser);
+    return Objects.hash(address1, address2, cartId, cartItemIds, city, espCommseqUuid, mailCard, name, orderId, pleaseReview, postalCode, sendToEmail, sendToLoggedInUser, state);
   }
 
 
@@ -241,14 +373,20 @@ public class EmailCommseqSequenceTestRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailCommseqSequenceTestRequest {\n");
     
+    sb.append("    address1: ").append(toIndentedString(address1)).append("\n");
+    sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    cartId: ").append(toIndentedString(cartId)).append("\n");
     sb.append("    cartItemIds: ").append(toIndentedString(cartItemIds)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    espCommseqUuid: ").append(toIndentedString(espCommseqUuid)).append("\n");
+    sb.append("    mailCard: ").append(toIndentedString(mailCard)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pleaseReview: ").append(toIndentedString(pleaseReview)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    sendToEmail: ").append(toIndentedString(sendToEmail)).append("\n");
     sb.append("    sendToLoggedInUser: ").append(toIndentedString(sendToLoggedInUser)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }

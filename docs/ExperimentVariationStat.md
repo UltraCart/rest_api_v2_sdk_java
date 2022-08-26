@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **pageViewCount** | **Integer** | Total page view count for this variation |  [optional]
 **revenue** | [**BigDecimal**](BigDecimal.md) | Total revenue for this variation |  [optional]
 **sessionCount** | **Integer** | Total sessions for this variation |  [optional]
+**smsOptInCount** | **Integer** | Total SMS opt in count for this variation |  [optional]
 **statDts** | **String** | Date/time that the statistic was created |  [optional]
 
 

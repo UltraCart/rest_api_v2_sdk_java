@@ -18,7 +18,7 @@ import com.ultracart.admin.v2.swagger.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:13:58.216-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:15:48.949-04:00")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

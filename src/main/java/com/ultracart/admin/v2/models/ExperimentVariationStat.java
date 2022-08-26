@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ExperimentVariationStat
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-22T10:13:58.216-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:15:48.949-04:00")
 
 
 
@@ -62,6 +62,9 @@ public class ExperimentVariationStat {
 
   @SerializedName("session_count")
   private Integer sessionCount = null;
+
+  @SerializedName("sms_opt_in_count")
+  private Integer smsOptInCount = null;
 
   @SerializedName("stat_dts")
   private String statDts = null;
@@ -246,6 +249,24 @@ public class ExperimentVariationStat {
     this.sessionCount = sessionCount;
   }
 
+  public ExperimentVariationStat smsOptInCount(Integer smsOptInCount) {
+    this.smsOptInCount = smsOptInCount;
+    return this;
+  }
+
+   /**
+   * Total SMS opt in count for this variation
+   * @return smsOptInCount
+  **/
+  @ApiModelProperty(value = "Total SMS opt in count for this variation")
+  public Integer getSmsOptInCount() {
+    return smsOptInCount;
+  }
+
+  public void setSmsOptInCount(Integer smsOptInCount) {
+    this.smsOptInCount = smsOptInCount;
+  }
+
   public ExperimentVariationStat statDts(String statDts) {
     this.statDts = statDts;
     return this;
@@ -284,12 +305,13 @@ public class ExperimentVariationStat {
         Objects.equals(this.pageViewCount, experimentVariationStat.pageViewCount) &&
         Objects.equals(this.revenue, experimentVariationStat.revenue) &&
         Objects.equals(this.sessionCount, experimentVariationStat.sessionCount) &&
+        Objects.equals(this.smsOptInCount, experimentVariationStat.smsOptInCount) &&
         Objects.equals(this.statDts, experimentVariationStat.statDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, bounceCount, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, pageViewCount, revenue, sessionCount, statDts);
+    return Objects.hash(addToCartCount, bounceCount, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, pageViewCount, revenue, sessionCount, smsOptInCount, statDts);
   }
 
 
@@ -308,6 +330,7 @@ public class ExperimentVariationStat {
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    revenue: ").append(toIndentedString(revenue)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
+    sb.append("    smsOptInCount: ").append(toIndentedString(smsOptInCount)).append("\n");
     sb.append("    statDts: ").append(toIndentedString(statDts)).append("\n");
     sb.append("}");
     return sb.toString();

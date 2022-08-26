@@ -2450,13 +2450,14 @@ public class OrderApi {
      * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
      * @param manualRefund Consider a manual refund done externally (optional, default to false)
      * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call refundOrderCall(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call refundOrderCall(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = order;
 
         // create path and map variables
@@ -2475,6 +2476,8 @@ public class OrderApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("manual_refund", manualRefund));
         if (reverseAffiliateTransactions != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("reverse_affiliate_transactions", reverseAffiliateTransactions));
+        if (issueStoreCredit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("issue_store_credit", issueStoreCredit));
         if (expand != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
 
@@ -2511,7 +2514,7 @@ public class OrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call refundOrderValidateBeforeCall(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call refundOrderValidateBeforeCall(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'order' is set
         if (order == null) {
@@ -2524,7 +2527,7 @@ public class OrderApi {
         }
         
 
-        com.squareup.okhttp.Call call = refundOrderCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = refundOrderCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2539,12 +2542,13 @@ public class OrderApi {
      * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
      * @param manualRefund Consider a manual refund done externally (optional, default to false)
      * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return OrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrderResponse refundOrder(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand) throws ApiException {
-        ApiResponse<OrderResponse> resp = refundOrderWithHttpInfo(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
+    public OrderResponse refundOrder(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = refundOrderWithHttpInfo(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand);
         return resp.getData();
     }
 
@@ -2558,12 +2562,13 @@ public class OrderApi {
      * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
      * @param manualRefund Consider a manual refund done externally (optional, default to false)
      * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;OrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrderResponse> refundOrderWithHttpInfo(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = refundOrderValidateBeforeCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand, null, null);
+    public ApiResponse<OrderResponse> refundOrderWithHttpInfo(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = refundOrderValidateBeforeCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand, null, null);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2578,12 +2583,13 @@ public class OrderApi {
      * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
      * @param manualRefund Consider a manual refund done externally (optional, default to false)
      * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call refundOrderAsync(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call refundOrderAsync(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2604,7 +2610,7 @@ public class OrderApi {
             };
         }
 
-        com.squareup.okhttp.Call call = refundOrderValidateBeforeCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = refundOrderValidateBeforeCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
