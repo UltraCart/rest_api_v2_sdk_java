@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:15:48.949-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:16:26.936-04:00")
 
 
 
@@ -97,6 +97,12 @@ public class EmailCampaign {
 
   @SerializedName("screenshot_large_full_url")
   private String screenshotLargeFullUrl = null;
+
+  @SerializedName("sms_esp_twilio_uuid")
+  private String smsEspTwilioUuid = null;
+
+  @SerializedName("sms_phone_number")
+  private String smsPhoneNumber = null;
 
   @SerializedName("status")
   private String status = null;
@@ -493,6 +499,42 @@ public class EmailCampaign {
     this.screenshotLargeFullUrl = screenshotLargeFullUrl;
   }
 
+  public EmailCampaign smsEspTwilioUuid(String smsEspTwilioUuid) {
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+    return this;
+  }
+
+   /**
+   * Twilio Account UUID.  Null for none
+   * @return smsEspTwilioUuid
+  **/
+  @ApiModelProperty(value = "Twilio Account UUID.  Null for none")
+  public String getSmsEspTwilioUuid() {
+    return smsEspTwilioUuid;
+  }
+
+  public void setSmsEspTwilioUuid(String smsEspTwilioUuid) {
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+  }
+
+  public EmailCampaign smsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * Twilio SMS Phone Number.  Null for none
+   * @return smsPhoneNumber
+  **/
+  @ApiModelProperty(value = "Twilio SMS Phone Number.  Null for none")
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
   public EmailCampaign status(String status) {
     this.status = status;
     return this;
@@ -578,6 +620,8 @@ public class EmailCampaign {
         Objects.equals(this.revenuePerCustomerFormatted, emailCampaign.revenuePerCustomerFormatted) &&
         Objects.equals(this.scheduledDts, emailCampaign.scheduledDts) &&
         Objects.equals(this.screenshotLargeFullUrl, emailCampaign.screenshotLargeFullUrl) &&
+        Objects.equals(this.smsEspTwilioUuid, emailCampaign.smsEspTwilioUuid) &&
+        Objects.equals(this.smsPhoneNumber, emailCampaign.smsPhoneNumber) &&
         Objects.equals(this.status, emailCampaign.status) &&
         Objects.equals(this.statusDts, emailCampaign.statusDts) &&
         Objects.equals(this.storefrontOid, emailCampaign.storefrontOid);
@@ -585,7 +629,7 @@ public class EmailCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, status, statusDts, storefrontOid);
+    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid);
   }
 
 
@@ -615,6 +659,8 @@ public class EmailCampaign {
     sb.append("    revenuePerCustomerFormatted: ").append(toIndentedString(revenuePerCustomerFormatted)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");
     sb.append("    screenshotLargeFullUrl: ").append(toIndentedString(screenshotLargeFullUrl)).append("\n");
+    sb.append("    smsEspTwilioUuid: ").append(toIndentedString(smsEspTwilioUuid)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");

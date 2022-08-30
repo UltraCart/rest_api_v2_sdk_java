@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **revenuePerCustomerFormatted** | **String** | Revenue per customer associated with campaign |  [optional]
 **scheduledDts** | **String** | Scheduled date |  [optional]
 **screenshotLargeFullUrl** | **String** | URL to a large full length screenshot |  [optional]
+**smsEspTwilioUuid** | **String** | Twilio Account UUID.  Null for none |  [optional]
+**smsPhoneNumber** | **String** | Twilio SMS Phone Number.  Null for none |  [optional]
 **status** | **String** | Status of the campaign of draft, archived, and sent |  [optional]
 **statusDts** | **String** | Timestamp when the last status change happened |  [optional]
 **storefrontOid** | **Integer** | Storefront oid |  [optional]

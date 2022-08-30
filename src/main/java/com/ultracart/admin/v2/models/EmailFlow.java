@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailFlow
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:15:48.949-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:16:26.936-04:00")
 
 
 
@@ -97,6 +97,12 @@ public class EmailFlow {
 
   @SerializedName("screenshot_large_full_url")
   private String screenshotLargeFullUrl = null;
+
+  @SerializedName("sms_esp_twilio_uuid")
+  private String smsEspTwilioUuid = null;
+
+  @SerializedName("sms_phone_number")
+  private String smsPhoneNumber = null;
 
   @SerializedName("status")
   private String status = null;
@@ -512,6 +518,42 @@ public class EmailFlow {
     this.screenshotLargeFullUrl = screenshotLargeFullUrl;
   }
 
+  public EmailFlow smsEspTwilioUuid(String smsEspTwilioUuid) {
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+    return this;
+  }
+
+   /**
+   * Twilio Account UUID.  Null for none
+   * @return smsEspTwilioUuid
+  **/
+  @ApiModelProperty(value = "Twilio Account UUID.  Null for none")
+  public String getSmsEspTwilioUuid() {
+    return smsEspTwilioUuid;
+  }
+
+  public void setSmsEspTwilioUuid(String smsEspTwilioUuid) {
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+  }
+
+  public EmailFlow smsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * Twilio SMS Phone Number.  Null for none
+   * @return smsPhoneNumber
+  **/
+  @ApiModelProperty(value = "Twilio SMS Phone Number.  Null for none")
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
   public EmailFlow status(String status) {
     this.status = status;
     return this;
@@ -652,6 +694,8 @@ public class EmailFlow {
         Objects.equals(this.revenueFormatted, emailFlow.revenueFormatted) &&
         Objects.equals(this.revenuePerCustomerFormatted, emailFlow.revenuePerCustomerFormatted) &&
         Objects.equals(this.screenshotLargeFullUrl, emailFlow.screenshotLargeFullUrl) &&
+        Objects.equals(this.smsEspTwilioUuid, emailFlow.smsEspTwilioUuid) &&
+        Objects.equals(this.smsPhoneNumber, emailFlow.smsPhoneNumber) &&
         Objects.equals(this.status, emailFlow.status) &&
         Objects.equals(this.statusDts, emailFlow.statusDts) &&
         Objects.equals(this.storefrontOid, emailFlow.storefrontOid) &&
@@ -662,7 +706,7 @@ public class EmailFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, merchantId, name, openRateFormatted, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, merchantId, name, openRateFormatted, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
   }
 
 
@@ -693,6 +737,8 @@ public class EmailFlow {
     sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
     sb.append("    revenuePerCustomerFormatted: ").append(toIndentedString(revenuePerCustomerFormatted)).append("\n");
     sb.append("    screenshotLargeFullUrl: ").append(toIndentedString(screenshotLargeFullUrl)).append("\n");
+    sb.append("    smsEspTwilioUuid: ").append(toIndentedString(smsEspTwilioUuid)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");

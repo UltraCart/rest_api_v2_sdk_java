@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:15:48.949-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:16:26.936-04:00")
 
 
 
@@ -58,6 +58,12 @@ public class EmailSettings {
 
   @SerializedName("postcard_from_state")
   private String postcardFromState = null;
+
+  @SerializedName("sms_esp_twilio_uuid")
+  private String smsEspTwilioUuid = null;
+
+  @SerializedName("sms_phone_number")
+  private String smsPhoneNumber = null;
 
   @SerializedName("transactional_esp_domain_user")
   private String transactionalEspDomainUser = null;
@@ -230,6 +236,42 @@ public class EmailSettings {
     this.postcardFromState = postcardFromState;
   }
 
+  public EmailSettings smsEspTwilioUuid(String smsEspTwilioUuid) {
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+    return this;
+  }
+
+   /**
+   * Get smsEspTwilioUuid
+   * @return smsEspTwilioUuid
+  **/
+  @ApiModelProperty(value = "")
+  public String getSmsEspTwilioUuid() {
+    return smsEspTwilioUuid;
+  }
+
+  public void setSmsEspTwilioUuid(String smsEspTwilioUuid) {
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+  }
+
+  public EmailSettings smsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * Get smsPhoneNumber
+   * @return smsPhoneNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
   public EmailSettings transactionalEspDomainUser(String transactionalEspDomainUser) {
     this.transactionalEspDomainUser = transactionalEspDomainUser;
     return this;
@@ -303,6 +345,8 @@ public class EmailSettings {
         Objects.equals(this.postcardFromName, emailSettings.postcardFromName) &&
         Objects.equals(this.postcardFromPostalCode, emailSettings.postcardFromPostalCode) &&
         Objects.equals(this.postcardFromState, emailSettings.postcardFromState) &&
+        Objects.equals(this.smsEspTwilioUuid, emailSettings.smsEspTwilioUuid) &&
+        Objects.equals(this.smsPhoneNumber, emailSettings.smsPhoneNumber) &&
         Objects.equals(this.transactionalEspDomainUser, emailSettings.transactionalEspDomainUser) &&
         Objects.equals(this.transactionalEspDomainUuid, emailSettings.transactionalEspDomainUuid) &&
         Objects.equals(this.transactionalEspFriendlyName, emailSettings.transactionalEspFriendlyName);
@@ -310,7 +354,7 @@ public class EmailSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
+    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
   }
 
 
@@ -328,6 +372,8 @@ public class EmailSettings {
     sb.append("    postcardFromName: ").append(toIndentedString(postcardFromName)).append("\n");
     sb.append("    postcardFromPostalCode: ").append(toIndentedString(postcardFromPostalCode)).append("\n");
     sb.append("    postcardFromState: ").append(toIndentedString(postcardFromState)).append("\n");
+    sb.append("    smsEspTwilioUuid: ").append(toIndentedString(smsEspTwilioUuid)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    transactionalEspDomainUser: ").append(toIndentedString(transactionalEspDomainUser)).append("\n");
     sb.append("    transactionalEspDomainUuid: ").append(toIndentedString(transactionalEspDomainUuid)).append("\n");
     sb.append("    transactionalEspFriendlyName: ").append(toIndentedString(transactionalEspFriendlyName)).append("\n");

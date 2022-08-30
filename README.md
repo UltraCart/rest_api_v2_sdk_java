@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-08-26T11:15:48.949-04:00
+  - Build date: 2022-08-30T15:16:26.936-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.41</version>
+  <version>3.10.42</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.41"
+compile "com.ultracart:rest-sdk:3.10.42"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.41.jar`
+* `target/rest-sdk-3.10.42.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1214,6 +1214,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.42 | 08/30/2022 | storefront comm fields for sms configuration |
 | 3.10.41 | 08/26/2022 | postcard address fields for comm sequence testing |
 | 3.10.40 | 08/22/2022 | exposing individual reviews within item.review object |
 | 3.10.39 | 08/19/2022 | order api - added cell phone fields for sms |
