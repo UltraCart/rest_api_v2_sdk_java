@@ -16,6 +16,8 @@
 |**postcardFromName** | **String** |  |  [optional] |
 |**postcardFromPostalCode** | **String** |  |  [optional] |
 |**postcardFromState** | **String** |  |  [optional] |
+|**smsEspTwilioUuid** | **String** |  |  [optional] |
+|**smsPhoneNumber** | **String** |  |  [optional] |
 |**transactionalEspDomainUser** | **String** |  |  [optional] |
 |**transactionalEspDomainUuid** | **String** |  |  [optional] |
 |**transactionalEspFriendlyName** | **String** |  |  [optional] |

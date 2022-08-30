@@ -29,6 +29,8 @@
 |**revenueFormatted** | **String** | Revenue, formatted |  [optional] |
 |**revenuePerCustomerFormatted** | **String** | Revenue per customer, formatted |  [optional] |
 |**screenshotLargeFullUrl** | **String** | URL to a large full length screenshot |  [optional] |
+|**smsEspTwilioUuid** | **String** | Twilio Account UUID.  Null for none |  [optional] |
+|**smsPhoneNumber** | **String** | Twilio SMS Phone Number.  Null for none |  [optional] |
 |**status** | **String** | Status of the campaign of draft, archived, active, and inactive |  [optional] |
 |**statusDts** | **String** | Timestamp when the last status change happened |  [optional] |
 |**storefrontOid** | **Integer** | Storefront oid |  [optional] |

@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerOrderItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:27:05.032-04:00[America/Indianapolis]")
 public class ChannelPartnerOrderItem {
   public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST = "arbitrary_unit_cost";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST)

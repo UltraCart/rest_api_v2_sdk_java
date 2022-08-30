@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:27:05.032-04:00[America/Indianapolis]")
 public class EmailSettings {
   public static final String SERIALIZED_NAME_MARKETING_ESP_DOMAIN_USER = "marketing_esp_domain_user";
   @SerializedName(SERIALIZED_NAME_MARKETING_ESP_DOMAIN_USER)
@@ -84,6 +84,14 @@ public class EmailSettings {
   public static final String SERIALIZED_NAME_POSTCARD_FROM_STATE = "postcard_from_state";
   @SerializedName(SERIALIZED_NAME_POSTCARD_FROM_STATE)
   private String postcardFromState;
+
+  public static final String SERIALIZED_NAME_SMS_ESP_TWILIO_UUID = "sms_esp_twilio_uuid";
+  @SerializedName(SERIALIZED_NAME_SMS_ESP_TWILIO_UUID)
+  private String smsEspTwilioUuid;
+
+  public static final String SERIALIZED_NAME_SMS_PHONE_NUMBER = "sms_phone_number";
+  @SerializedName(SERIALIZED_NAME_SMS_PHONE_NUMBER)
+  private String smsPhoneNumber;
 
   public static final String SERIALIZED_NAME_TRANSACTIONAL_ESP_DOMAIN_USER = "transactional_esp_domain_user";
   @SerializedName(SERIALIZED_NAME_TRANSACTIONAL_ESP_DOMAIN_USER)
@@ -307,6 +315,52 @@ public class EmailSettings {
   }
 
 
+  public EmailSettings smsEspTwilioUuid(String smsEspTwilioUuid) {
+    
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+    return this;
+  }
+
+   /**
+   * Get smsEspTwilioUuid
+   * @return smsEspTwilioUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSmsEspTwilioUuid() {
+    return smsEspTwilioUuid;
+  }
+
+
+  public void setSmsEspTwilioUuid(String smsEspTwilioUuid) {
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+  }
+
+
+  public EmailSettings smsPhoneNumber(String smsPhoneNumber) {
+    
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * Get smsPhoneNumber
+   * @return smsPhoneNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
+
   public EmailSettings transactionalEspDomainUser(String transactionalEspDomainUser) {
     
     this.transactionalEspDomainUser = transactionalEspDomainUser;
@@ -395,6 +449,8 @@ public class EmailSettings {
         Objects.equals(this.postcardFromName, emailSettings.postcardFromName) &&
         Objects.equals(this.postcardFromPostalCode, emailSettings.postcardFromPostalCode) &&
         Objects.equals(this.postcardFromState, emailSettings.postcardFromState) &&
+        Objects.equals(this.smsEspTwilioUuid, emailSettings.smsEspTwilioUuid) &&
+        Objects.equals(this.smsPhoneNumber, emailSettings.smsPhoneNumber) &&
         Objects.equals(this.transactionalEspDomainUser, emailSettings.transactionalEspDomainUser) &&
         Objects.equals(this.transactionalEspDomainUuid, emailSettings.transactionalEspDomainUuid) &&
         Objects.equals(this.transactionalEspFriendlyName, emailSettings.transactionalEspFriendlyName);
@@ -402,7 +458,7 @@ public class EmailSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
+    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
   }
 
   @Override
@@ -418,6 +474,8 @@ public class EmailSettings {
     sb.append("    postcardFromName: ").append(toIndentedString(postcardFromName)).append("\n");
     sb.append("    postcardFromPostalCode: ").append(toIndentedString(postcardFromPostalCode)).append("\n");
     sb.append("    postcardFromState: ").append(toIndentedString(postcardFromState)).append("\n");
+    sb.append("    smsEspTwilioUuid: ").append(toIndentedString(smsEspTwilioUuid)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    transactionalEspDomainUser: ").append(toIndentedString(transactionalEspDomainUser)).append("\n");
     sb.append("    transactionalEspDomainUuid: ").append(toIndentedString(transactionalEspDomainUuid)).append("\n");
     sb.append("    transactionalEspFriendlyName: ").append(toIndentedString(transactionalEspFriendlyName)).append("\n");
@@ -452,6 +510,8 @@ public class EmailSettings {
     openapiFields.add("postcard_from_name");
     openapiFields.add("postcard_from_postal_code");
     openapiFields.add("postcard_from_state");
+    openapiFields.add("sms_esp_twilio_uuid");
+    openapiFields.add("sms_phone_number");
     openapiFields.add("transactional_esp_domain_user");
     openapiFields.add("transactional_esp_domain_uuid");
     openapiFields.add("transactional_esp_friendly_name");
@@ -508,6 +568,12 @@ public class EmailSettings {
       }
       if (jsonObj.get("postcard_from_state") != null && !jsonObj.get("postcard_from_state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `postcard_from_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postcard_from_state").toString()));
+      }
+      if (jsonObj.get("sms_esp_twilio_uuid") != null && !jsonObj.get("sms_esp_twilio_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms_esp_twilio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms_esp_twilio_uuid").toString()));
+      }
+      if (jsonObj.get("sms_phone_number") != null && !jsonObj.get("sms_phone_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms_phone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms_phone_number").toString()));
       }
       if (jsonObj.get("transactional_esp_domain_user") != null && !jsonObj.get("transactional_esp_domain_user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transactional_esp_domain_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactional_esp_domain_user").toString()));

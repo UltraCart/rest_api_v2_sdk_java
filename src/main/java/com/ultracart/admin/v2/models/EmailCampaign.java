@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:27:05.032-04:00[America/Indianapolis]")
 public class EmailCampaign {
   public static final String SERIALIZED_NAME_CLICK_RATE_FORMATTED = "click_rate_formatted";
   @SerializedName(SERIALIZED_NAME_CLICK_RATE_FORMATTED)
@@ -135,6 +135,14 @@ public class EmailCampaign {
   public static final String SERIALIZED_NAME_SCREENSHOT_LARGE_FULL_URL = "screenshot_large_full_url";
   @SerializedName(SERIALIZED_NAME_SCREENSHOT_LARGE_FULL_URL)
   private String screenshotLargeFullUrl;
+
+  public static final String SERIALIZED_NAME_SMS_ESP_TWILIO_UUID = "sms_esp_twilio_uuid";
+  @SerializedName(SERIALIZED_NAME_SMS_ESP_TWILIO_UUID)
+  private String smsEspTwilioUuid;
+
+  public static final String SERIALIZED_NAME_SMS_PHONE_NUMBER = "sms_phone_number";
+  @SerializedName(SERIALIZED_NAME_SMS_PHONE_NUMBER)
+  private String smsPhoneNumber;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -642,6 +650,52 @@ public class EmailCampaign {
   }
 
 
+  public EmailCampaign smsEspTwilioUuid(String smsEspTwilioUuid) {
+    
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+    return this;
+  }
+
+   /**
+   * Twilio Account UUID.  Null for none
+   * @return smsEspTwilioUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Twilio Account UUID.  Null for none")
+
+  public String getSmsEspTwilioUuid() {
+    return smsEspTwilioUuid;
+  }
+
+
+  public void setSmsEspTwilioUuid(String smsEspTwilioUuid) {
+    this.smsEspTwilioUuid = smsEspTwilioUuid;
+  }
+
+
+  public EmailCampaign smsPhoneNumber(String smsPhoneNumber) {
+    
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * Twilio SMS Phone Number.  Null for none
+   * @return smsPhoneNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Twilio SMS Phone Number.  Null for none")
+
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
+
   public EmailCampaign status(String status) {
     
     this.status = status;
@@ -742,6 +796,8 @@ public class EmailCampaign {
         Objects.equals(this.revenuePerCustomerFormatted, emailCampaign.revenuePerCustomerFormatted) &&
         Objects.equals(this.scheduledDts, emailCampaign.scheduledDts) &&
         Objects.equals(this.screenshotLargeFullUrl, emailCampaign.screenshotLargeFullUrl) &&
+        Objects.equals(this.smsEspTwilioUuid, emailCampaign.smsEspTwilioUuid) &&
+        Objects.equals(this.smsPhoneNumber, emailCampaign.smsPhoneNumber) &&
         Objects.equals(this.status, emailCampaign.status) &&
         Objects.equals(this.statusDts, emailCampaign.statusDts) &&
         Objects.equals(this.storefrontOid, emailCampaign.storefrontOid);
@@ -749,7 +805,7 @@ public class EmailCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, status, statusDts, storefrontOid);
+    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid);
   }
 
   @Override
@@ -777,6 +833,8 @@ public class EmailCampaign {
     sb.append("    revenuePerCustomerFormatted: ").append(toIndentedString(revenuePerCustomerFormatted)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");
     sb.append("    screenshotLargeFullUrl: ").append(toIndentedString(screenshotLargeFullUrl)).append("\n");
+    sb.append("    smsEspTwilioUuid: ").append(toIndentedString(smsEspTwilioUuid)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
@@ -823,6 +881,8 @@ public class EmailCampaign {
     openapiFields.add("revenue_per_customer_formatted");
     openapiFields.add("scheduled_dts");
     openapiFields.add("screenshot_large_full_url");
+    openapiFields.add("sms_esp_twilio_uuid");
+    openapiFields.add("sms_phone_number");
     openapiFields.add("status");
     openapiFields.add("status_dts");
     openapiFields.add("storefront_oid");
@@ -909,6 +969,12 @@ public class EmailCampaign {
       }
       if (jsonObj.get("screenshot_large_full_url") != null && !jsonObj.get("screenshot_large_full_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `screenshot_large_full_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screenshot_large_full_url").toString()));
+      }
+      if (jsonObj.get("sms_esp_twilio_uuid") != null && !jsonObj.get("sms_esp_twilio_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms_esp_twilio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms_esp_twilio_uuid").toString()));
+      }
+      if (jsonObj.get("sms_phone_number") != null && !jsonObj.get("sms_phone_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms_phone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms_phone_number").toString()));
       }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

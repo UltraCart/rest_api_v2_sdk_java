@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerOrdersSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:27:05.032-04:00[America/Indianapolis]")
 public class CustomerOrdersSummary {
   public static final String SERIALIZED_NAME_FIRST_ORDER_DTS = "first_order_dts";
   @SerializedName(SERIALIZED_NAME_FIRST_ORDER_DTS)

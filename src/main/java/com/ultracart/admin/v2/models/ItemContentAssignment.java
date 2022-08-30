@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemContentAssignment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-26T11:26:37.598-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:27:05.032-04:00[America/Indianapolis]")
 public class ItemContentAssignment {
   public static final String SERIALIZED_NAME_DEFAULT_ASSIGNMENT = "default_assignment";
   @SerializedName(SERIALIZED_NAME_DEFAULT_ASSIGNMENT)
