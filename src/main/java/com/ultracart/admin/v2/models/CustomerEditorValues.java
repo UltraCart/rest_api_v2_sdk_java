@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerEditorValues
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:27:05.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-02T10:25:50.319-04:00[America/Indianapolis]")
 public class CustomerEditorValues {
   public static final String SERIALIZED_NAME_AFFILIATES = "affiliates";
   @SerializedName(SERIALIZED_NAME_AFFILIATES)
@@ -72,6 +72,10 @@ public class CustomerEditorValues {
   public static final String SERIALIZED_NAME_COUNTRIES = "countries";
   @SerializedName(SERIALIZED_NAME_COUNTRIES)
   private List<Country> countries = null;
+
+  public static final String SERIALIZED_NAME_LOYALTY_LEDGER_DESCRIPTIONS = "loyalty_ledger_descriptions";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_LEDGER_DESCRIPTIONS)
+  private List<String> loyaltyLedgerDescriptions = null;
 
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_TYPE = "loyalty_program_type";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_TYPE)
@@ -251,6 +255,37 @@ public class CustomerEditorValues {
   }
 
 
+  public CustomerEditorValues loyaltyLedgerDescriptions(List<String> loyaltyLedgerDescriptions) {
+    
+    this.loyaltyLedgerDescriptions = loyaltyLedgerDescriptions;
+    return this;
+  }
+
+  public CustomerEditorValues addLoyaltyLedgerDescriptionsItem(String loyaltyLedgerDescriptionsItem) {
+    if (this.loyaltyLedgerDescriptions == null) {
+      this.loyaltyLedgerDescriptions = new ArrayList<>();
+    }
+    this.loyaltyLedgerDescriptions.add(loyaltyLedgerDescriptionsItem);
+    return this;
+  }
+
+   /**
+   * loyalty_ledger_descriptions
+   * @return loyaltyLedgerDescriptions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "loyalty_ledger_descriptions")
+
+  public List<String> getLoyaltyLedgerDescriptions() {
+    return loyaltyLedgerDescriptions;
+  }
+
+
+  public void setLoyaltyLedgerDescriptions(List<String> loyaltyLedgerDescriptions) {
+    this.loyaltyLedgerDescriptions = loyaltyLedgerDescriptions;
+  }
+
+
   public CustomerEditorValues loyaltyProgramType(String loyaltyProgramType) {
     
     this.loyaltyProgramType = loyaltyProgramType;
@@ -413,6 +448,7 @@ public class CustomerEditorValues {
         Objects.equals(this.cardExpYears, customerEditorValues.cardExpYears) &&
         Objects.equals(this.cardTypes, customerEditorValues.cardTypes) &&
         Objects.equals(this.countries, customerEditorValues.countries) &&
+        Objects.equals(this.loyaltyLedgerDescriptions, customerEditorValues.loyaltyLedgerDescriptions) &&
         Objects.equals(this.loyaltyProgramType, customerEditorValues.loyaltyProgramType) &&
         Objects.equals(this.qbClasses, customerEditorValues.qbClasses) &&
         Objects.equals(this.salesRepCodes, customerEditorValues.salesRepCodes) &&
@@ -422,7 +458,7 @@ public class CustomerEditorValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, loyaltyProgramType, qbClasses, salesRepCodes, stateOptionalCountries, terms);
+    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, loyaltyLedgerDescriptions, loyaltyProgramType, qbClasses, salesRepCodes, stateOptionalCountries, terms);
   }
 
   @Override
@@ -434,6 +470,7 @@ public class CustomerEditorValues {
     sb.append("    cardExpYears: ").append(toIndentedString(cardExpYears)).append("\n");
     sb.append("    cardTypes: ").append(toIndentedString(cardTypes)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
+    sb.append("    loyaltyLedgerDescriptions: ").append(toIndentedString(loyaltyLedgerDescriptions)).append("\n");
     sb.append("    loyaltyProgramType: ").append(toIndentedString(loyaltyProgramType)).append("\n");
     sb.append("    qbClasses: ").append(toIndentedString(qbClasses)).append("\n");
     sb.append("    salesRepCodes: ").append(toIndentedString(salesRepCodes)).append("\n");
@@ -466,6 +503,7 @@ public class CustomerEditorValues {
     openapiFields.add("card_exp_years");
     openapiFields.add("card_types");
     openapiFields.add("countries");
+    openapiFields.add("loyalty_ledger_descriptions");
     openapiFields.add("loyalty_program_type");
     openapiFields.add("qb_classes");
     openapiFields.add("sales_rep_codes");
@@ -533,6 +571,10 @@ public class CustomerEditorValues {
         for (int i = 0; i < jsonArraycountries.size(); i++) {
           Country.validateJsonObject(jsonArraycountries.get(i).getAsJsonObject());
         };
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("loyalty_ledger_descriptions") != null && !jsonObj.get("loyalty_ledger_descriptions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `loyalty_ledger_descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("loyalty_ledger_descriptions").toString()));
       }
       if (jsonObj.get("loyalty_program_type") != null && !jsonObj.get("loyalty_program_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `loyalty_program_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loyalty_program_type").toString()));
