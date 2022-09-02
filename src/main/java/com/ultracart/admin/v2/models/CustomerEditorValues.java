@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CustomerEditorValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:16:26.936-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-02T10:14:50.766-04:00")
 
 
 
@@ -50,6 +50,9 @@ public class CustomerEditorValues {
 
   @SerializedName("countries")
   private List<Country> countries = null;
+
+  @SerializedName("loyalty_ledger_descriptions")
+  private List<String> loyaltyLedgerDescriptions = null;
 
   @SerializedName("loyalty_program_type")
   private String loyaltyProgramType = null;
@@ -196,6 +199,32 @@ public class CustomerEditorValues {
     this.countries = countries;
   }
 
+  public CustomerEditorValues loyaltyLedgerDescriptions(List<String> loyaltyLedgerDescriptions) {
+    this.loyaltyLedgerDescriptions = loyaltyLedgerDescriptions;
+    return this;
+  }
+
+  public CustomerEditorValues addLoyaltyLedgerDescriptionsItem(String loyaltyLedgerDescriptionsItem) {
+    if (this.loyaltyLedgerDescriptions == null) {
+      this.loyaltyLedgerDescriptions = new ArrayList<String>();
+    }
+    this.loyaltyLedgerDescriptions.add(loyaltyLedgerDescriptionsItem);
+    return this;
+  }
+
+   /**
+   * loyalty_ledger_descriptions
+   * @return loyaltyLedgerDescriptions
+  **/
+  @ApiModelProperty(value = "loyalty_ledger_descriptions")
+  public List<String> getLoyaltyLedgerDescriptions() {
+    return loyaltyLedgerDescriptions;
+  }
+
+  public void setLoyaltyLedgerDescriptions(List<String> loyaltyLedgerDescriptions) {
+    this.loyaltyLedgerDescriptions = loyaltyLedgerDescriptions;
+  }
+
   public CustomerEditorValues loyaltyProgramType(String loyaltyProgramType) {
     this.loyaltyProgramType = loyaltyProgramType;
     return this;
@@ -333,6 +362,7 @@ public class CustomerEditorValues {
         Objects.equals(this.cardExpYears, customerEditorValues.cardExpYears) &&
         Objects.equals(this.cardTypes, customerEditorValues.cardTypes) &&
         Objects.equals(this.countries, customerEditorValues.countries) &&
+        Objects.equals(this.loyaltyLedgerDescriptions, customerEditorValues.loyaltyLedgerDescriptions) &&
         Objects.equals(this.loyaltyProgramType, customerEditorValues.loyaltyProgramType) &&
         Objects.equals(this.qbClasses, customerEditorValues.qbClasses) &&
         Objects.equals(this.salesRepCodes, customerEditorValues.salesRepCodes) &&
@@ -342,7 +372,7 @@ public class CustomerEditorValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, loyaltyProgramType, qbClasses, salesRepCodes, stateOptionalCountries, terms);
+    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, loyaltyLedgerDescriptions, loyaltyProgramType, qbClasses, salesRepCodes, stateOptionalCountries, terms);
   }
 
 
@@ -356,6 +386,7 @@ public class CustomerEditorValues {
     sb.append("    cardExpYears: ").append(toIndentedString(cardExpYears)).append("\n");
     sb.append("    cardTypes: ").append(toIndentedString(cardTypes)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
+    sb.append("    loyaltyLedgerDescriptions: ").append(toIndentedString(loyaltyLedgerDescriptions)).append("\n");
     sb.append("    loyaltyProgramType: ").append(toIndentedString(loyaltyProgramType)).append("\n");
     sb.append("    qbClasses: ").append(toIndentedString(qbClasses)).append("\n");
     sb.append("    salesRepCodes: ").append(toIndentedString(salesRepCodes)).append("\n");

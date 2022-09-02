@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CartSettingsGift
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-08-30T15:16:26.936-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-02T10:14:50.766-04:00")
 
 
 
