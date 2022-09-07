@@ -568,6 +568,8 @@ docs/RegisterAffiliateClickRequest.md
 docs/RegisterAffiliateClickResponse.md
 docs/ResponseMetadata.md
 docs/ResultSet.md
+docs/RulerValidationRequest.md
+docs/RulerValidationResponse.md
 docs/ScreenRecording.md
 docs/ScreenRecordingAdPlatform.md
 docs/ScreenRecordingFilter.md
@@ -1267,6 +1269,8 @@ src/main/java/com/ultracart/admin/v2/models/RegisterAffiliateClickRequest.java
 src/main/java/com/ultracart/admin/v2/models/RegisterAffiliateClickResponse.java
 src/main/java/com/ultracart/admin/v2/models/ResponseMetadata.java
 src/main/java/com/ultracart/admin/v2/models/ResultSet.java
+src/main/java/com/ultracart/admin/v2/models/RulerValidationRequest.java
+src/main/java/com/ultracart/admin/v2/models/RulerValidationResponse.java
 src/main/java/com/ultracart/admin/v2/models/ScreenRecording.java
 src/main/java/com/ultracart/admin/v2/models/ScreenRecordingAdPlatform.java
 src/main/java/com/ultracart/admin/v2/models/ScreenRecordingFilter.java

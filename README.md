@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-09-02T10:25:50.319-04:00[America/Indianapolis]
+  - Build date: 2022-09-07T11:40:07.280-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.60-RC</version>
+  <version>4.0.61-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.60-RC"
+     implementation "com.ultracart:rest-sdk:4.0.61-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.60-RC.jar`
+* `target/rest-sdk-4.0.61-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -436,6 +436,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateScreenRecordingTags**](docs/StorefrontApi.md#updateScreenRecordingTags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 *StorefrontApi* | [**updateTransactionEmail**](docs/StorefrontApi.md#updateTransactionEmail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 *StorefrontApi* | [**updateTwilioAccount**](docs/StorefrontApi.md#updateTwilioAccount) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
+*StorefrontApi* | [**validateRuler**](docs/StorefrontApi.md#validateRuler) | **POST** /storefront/ruler/validate | Validate AWS Event Ruler
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/TaxApi.md#deleteTaxProviderSelfCity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/TaxApi.md#deleteTaxProviderSelfCountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/TaxApi.md#deleteTaxProviderSelfCounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
@@ -1037,6 +1038,8 @@ Class | Method | HTTP request | Description
  - [RegisterAffiliateClickResponse](docs/RegisterAffiliateClickResponse.md)
  - [ResponseMetadata](docs/ResponseMetadata.md)
  - [ResultSet](docs/ResultSet.md)
+ - [RulerValidationRequest](docs/RulerValidationRequest.md)
+ - [RulerValidationResponse](docs/RulerValidationResponse.md)
  - [ScreenRecording](docs/ScreenRecording.md)
  - [ScreenRecordingAdPlatform](docs/ScreenRecordingAdPlatform.md)
  - [ScreenRecordingFilter](docs/ScreenRecordingFilter.md)
@@ -1231,6 +1234,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.61-RC | 09/07/2022 | sf comms - using aws event ruler for bigquery segmentation validation |
 | 4.0.60-RC | 09/02/2022 | customer editor added loyal ledger descriptions |
 | 4.0.59-RC | 08/30/2022 | storefront comm fields for sms configuration |
 | 4.0.58-RC | 08/26/2022 | postcard address fields for comm sequence testing |

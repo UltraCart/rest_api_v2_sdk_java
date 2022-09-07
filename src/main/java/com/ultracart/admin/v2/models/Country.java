@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Country
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-02T10:25:50.319-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-07T11:40:07.280-04:00[America/Indianapolis]")
 public class Country {
   public static final String SERIALIZED_NAME_ISO2_CODE = "iso_2_code";
   @SerializedName(SERIALIZED_NAME_ISO2_CODE)
