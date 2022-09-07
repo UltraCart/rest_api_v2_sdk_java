@@ -133,6 +133,8 @@ import com.ultracart.admin.v2.models.LookupRequest;
 import com.ultracart.admin.v2.models.LookupResponse;
 import com.ultracart.admin.v2.models.PricingTiersResponse;
 import com.ultracart.admin.v2.models.PublishLibraryItemRequest;
+import com.ultracart.admin.v2.models.RulerValidationRequest;
+import com.ultracart.admin.v2.models.RulerValidationResponse;
 import com.ultracart.admin.v2.models.ScreenRecordingHeatmapIndexRequest;
 import com.ultracart.admin.v2.models.ScreenRecordingHeatmapIndexResponse;
 import com.ultracart.admin.v2.models.ScreenRecordingHeatmapRequest;
@@ -21921,6 +21923,128 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = updateTwilioAccountValidateBeforeCall(espTwilioUuid, twilio, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TwilioResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for validateRuler
+     * @param rulerValidateRequest Ruler Validate Request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call validateRulerCall(RulerValidationRequest rulerValidateRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = rulerValidateRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/ruler/validate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call validateRulerValidateBeforeCall(RulerValidationRequest rulerValidateRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'rulerValidateRequest' is set
+        if (rulerValidateRequest == null) {
+            throw new ApiException("Missing the required parameter 'rulerValidateRequest' when calling validateRuler(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = validateRulerCall(rulerValidateRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Validate AWS Event Ruler
+     * 
+     * @param rulerValidateRequest Ruler Validate Request (required)
+     * @return RulerValidationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RulerValidationResponse validateRuler(RulerValidationRequest rulerValidateRequest) throws ApiException {
+        ApiResponse<RulerValidationResponse> resp = validateRulerWithHttpInfo(rulerValidateRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Validate AWS Event Ruler
+     * 
+     * @param rulerValidateRequest Ruler Validate Request (required)
+     * @return ApiResponse&lt;RulerValidationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RulerValidationResponse> validateRulerWithHttpInfo(RulerValidationRequest rulerValidateRequest) throws ApiException {
+        com.squareup.okhttp.Call call = validateRulerValidateBeforeCall(rulerValidateRequest, null, null);
+        Type localVarReturnType = new TypeToken<RulerValidationResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Validate AWS Event Ruler (asynchronously)
+     * 
+     * @param rulerValidateRequest Ruler Validate Request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call validateRulerAsync(RulerValidationRequest rulerValidateRequest, final ApiCallback<RulerValidationResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = validateRulerValidateBeforeCall(rulerValidateRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RulerValidationResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
