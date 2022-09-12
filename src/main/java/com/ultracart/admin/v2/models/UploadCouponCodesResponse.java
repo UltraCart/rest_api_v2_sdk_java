@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * UploadCouponCodesResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-07T11:22:29.322-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-12T09:08:25.634-04:00")
 
 
 

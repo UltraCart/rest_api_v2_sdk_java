@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-09-07T11:22:29.322-04:00
+  - Build date: 2022-09-12T09:08:25.634-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.44</version>
+  <version>3.10.45</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.44"
+compile "com.ultracart:rest-sdk:3.10.45"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.44.jar`
+* `target/rest-sdk-3.10.45.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1217,6 +1217,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.45 | 09/12/2022 | storefront comm - send back reviews.io configured flag on getEmailSettings |
 | 3.10.44 | 09/07/2022 | sf comms - using aws event ruler for bigquery segmentation validation |
 | 3.10.43 | 09/02/2022 | customer editor added loyal ledger descriptions |
 | 3.10.42 | 08/30/2022 | storefront comm fields for sms configuration |

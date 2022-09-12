@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-07T11:22:29.322-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-12T09:08:25.634-04:00")
 
 
 
@@ -58,6 +58,9 @@ public class EmailSettings {
 
   @SerializedName("postcard_from_state")
   private String postcardFromState = null;
+
+  @SerializedName("reviews_io_configured")
+  private Boolean reviewsIoConfigured = null;
 
   @SerializedName("sms_esp_twilio_uuid")
   private String smsEspTwilioUuid = null;
@@ -236,6 +239,24 @@ public class EmailSettings {
     this.postcardFromState = postcardFromState;
   }
 
+  public EmailSettings reviewsIoConfigured(Boolean reviewsIoConfigured) {
+    this.reviewsIoConfigured = reviewsIoConfigured;
+    return this;
+  }
+
+   /**
+   * True if the Reviews.io integration is configured
+   * @return reviewsIoConfigured
+  **/
+  @ApiModelProperty(value = "True if the Reviews.io integration is configured")
+  public Boolean isReviewsIoConfigured() {
+    return reviewsIoConfigured;
+  }
+
+  public void setReviewsIoConfigured(Boolean reviewsIoConfigured) {
+    this.reviewsIoConfigured = reviewsIoConfigured;
+  }
+
   public EmailSettings smsEspTwilioUuid(String smsEspTwilioUuid) {
     this.smsEspTwilioUuid = smsEspTwilioUuid;
     return this;
@@ -345,6 +366,7 @@ public class EmailSettings {
         Objects.equals(this.postcardFromName, emailSettings.postcardFromName) &&
         Objects.equals(this.postcardFromPostalCode, emailSettings.postcardFromPostalCode) &&
         Objects.equals(this.postcardFromState, emailSettings.postcardFromState) &&
+        Objects.equals(this.reviewsIoConfigured, emailSettings.reviewsIoConfigured) &&
         Objects.equals(this.smsEspTwilioUuid, emailSettings.smsEspTwilioUuid) &&
         Objects.equals(this.smsPhoneNumber, emailSettings.smsPhoneNumber) &&
         Objects.equals(this.transactionalEspDomainUser, emailSettings.transactionalEspDomainUser) &&
@@ -354,7 +376,7 @@ public class EmailSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
+    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, reviewsIoConfigured, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
   }
 
 
@@ -372,6 +394,7 @@ public class EmailSettings {
     sb.append("    postcardFromName: ").append(toIndentedString(postcardFromName)).append("\n");
     sb.append("    postcardFromPostalCode: ").append(toIndentedString(postcardFromPostalCode)).append("\n");
     sb.append("    postcardFromState: ").append(toIndentedString(postcardFromState)).append("\n");
+    sb.append("    reviewsIoConfigured: ").append(toIndentedString(reviewsIoConfigured)).append("\n");
     sb.append("    smsEspTwilioUuid: ").append(toIndentedString(smsEspTwilioUuid)).append("\n");
     sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    transactionalEspDomainUser: ").append(toIndentedString(transactionalEspDomainUser)).append("\n");
