@@ -16,6 +16,7 @@
 |**postcardFromName** | **String** |  |  [optional] |
 |**postcardFromPostalCode** | **String** |  |  [optional] |
 |**postcardFromState** | **String** |  |  [optional] |
+|**reviewsIoConfigured** | **Boolean** | True if the Reviews.io integration is configured |  [optional] |
 |**smsEspTwilioUuid** | **String** |  |  [optional] |
 |**smsPhoneNumber** | **String** |  |  [optional] |
 |**transactionalEspDomainUser** | **String** |  |  [optional] |

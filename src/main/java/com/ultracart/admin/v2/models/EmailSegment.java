@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSegment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-07T11:40:07.280-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-12T09:21:23.610-04:00[America/Indianapolis]")
 public class EmailSegment {
   public static final String SERIALIZED_NAME_ALLOW_CSV_DOWNLOAD = "allow_csv_download";
   @SerializedName(SERIALIZED_NAME_ALLOW_CSV_DOWNLOAD)

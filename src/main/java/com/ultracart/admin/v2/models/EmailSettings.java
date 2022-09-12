@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-07T11:40:07.280-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-12T09:21:23.610-04:00[America/Indianapolis]")
 public class EmailSettings {
   public static final String SERIALIZED_NAME_MARKETING_ESP_DOMAIN_USER = "marketing_esp_domain_user";
   @SerializedName(SERIALIZED_NAME_MARKETING_ESP_DOMAIN_USER)
@@ -84,6 +84,10 @@ public class EmailSettings {
   public static final String SERIALIZED_NAME_POSTCARD_FROM_STATE = "postcard_from_state";
   @SerializedName(SERIALIZED_NAME_POSTCARD_FROM_STATE)
   private String postcardFromState;
+
+  public static final String SERIALIZED_NAME_REVIEWS_IO_CONFIGURED = "reviews_io_configured";
+  @SerializedName(SERIALIZED_NAME_REVIEWS_IO_CONFIGURED)
+  private Boolean reviewsIoConfigured;
 
   public static final String SERIALIZED_NAME_SMS_ESP_TWILIO_UUID = "sms_esp_twilio_uuid";
   @SerializedName(SERIALIZED_NAME_SMS_ESP_TWILIO_UUID)
@@ -315,6 +319,29 @@ public class EmailSettings {
   }
 
 
+  public EmailSettings reviewsIoConfigured(Boolean reviewsIoConfigured) {
+    
+    this.reviewsIoConfigured = reviewsIoConfigured;
+    return this;
+  }
+
+   /**
+   * True if the Reviews.io integration is configured
+   * @return reviewsIoConfigured
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the Reviews.io integration is configured")
+
+  public Boolean getReviewsIoConfigured() {
+    return reviewsIoConfigured;
+  }
+
+
+  public void setReviewsIoConfigured(Boolean reviewsIoConfigured) {
+    this.reviewsIoConfigured = reviewsIoConfigured;
+  }
+
+
   public EmailSettings smsEspTwilioUuid(String smsEspTwilioUuid) {
     
     this.smsEspTwilioUuid = smsEspTwilioUuid;
@@ -449,6 +476,7 @@ public class EmailSettings {
         Objects.equals(this.postcardFromName, emailSettings.postcardFromName) &&
         Objects.equals(this.postcardFromPostalCode, emailSettings.postcardFromPostalCode) &&
         Objects.equals(this.postcardFromState, emailSettings.postcardFromState) &&
+        Objects.equals(this.reviewsIoConfigured, emailSettings.reviewsIoConfigured) &&
         Objects.equals(this.smsEspTwilioUuid, emailSettings.smsEspTwilioUuid) &&
         Objects.equals(this.smsPhoneNumber, emailSettings.smsPhoneNumber) &&
         Objects.equals(this.transactionalEspDomainUser, emailSettings.transactionalEspDomainUser) &&
@@ -458,7 +486,7 @@ public class EmailSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
+    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, reviewsIoConfigured, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
   }
 
   @Override
@@ -474,6 +502,7 @@ public class EmailSettings {
     sb.append("    postcardFromName: ").append(toIndentedString(postcardFromName)).append("\n");
     sb.append("    postcardFromPostalCode: ").append(toIndentedString(postcardFromPostalCode)).append("\n");
     sb.append("    postcardFromState: ").append(toIndentedString(postcardFromState)).append("\n");
+    sb.append("    reviewsIoConfigured: ").append(toIndentedString(reviewsIoConfigured)).append("\n");
     sb.append("    smsEspTwilioUuid: ").append(toIndentedString(smsEspTwilioUuid)).append("\n");
     sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    transactionalEspDomainUser: ").append(toIndentedString(transactionalEspDomainUser)).append("\n");
@@ -510,6 +539,7 @@ public class EmailSettings {
     openapiFields.add("postcard_from_name");
     openapiFields.add("postcard_from_postal_code");
     openapiFields.add("postcard_from_state");
+    openapiFields.add("reviews_io_configured");
     openapiFields.add("sms_esp_twilio_uuid");
     openapiFields.add("sms_phone_number");
     openapiFields.add("transactional_esp_domain_user");
