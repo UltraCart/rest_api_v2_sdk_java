@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-09-12T09:21:23.610-04:00[America/Indianapolis]
+  - Build date: 2022-09-13T10:45:42.521-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.62-RC</version>
+  <version>4.0.63-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.62-RC"
+     implementation "com.ultracart:rest-sdk:4.0.63-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.62-RC.jar`
+* `target/rest-sdk-4.0.63-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -312,6 +312,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseq**](docs/StorefrontApi.md#getEmailCommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/StorefrontApi.md#getEmailCommseqEmailStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqPostcardStats**](docs/StorefrontApi.md#getEmailCommseqPostcardStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
+*StorefrontApi* | [**getEmailCommseqPostcardTracking**](docs/StorefrontApi.md#getEmailCommseqPostcardTracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
 *StorefrontApi* | [**getEmailCommseqStatOverall**](docs/StorefrontApi.md#getEmailCommseqStatOverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 *StorefrontApi* | [**getEmailCommseqStepStats**](docs/StorefrontApi.md#getEmailCommseqStepStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 *StorefrontApi* | [**getEmailCommseqStepWaiting**](docs/StorefrontApi.md#getEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
@@ -807,6 +808,8 @@ Class | Method | HTTP request | Description
  - [EmailPlanAdditional](docs/EmailPlanAdditional.md)
  - [EmailPlanResponse](docs/EmailPlanResponse.md)
  - [EmailPostcardStat](docs/EmailPostcardStat.md)
+ - [EmailPostcardTracking](docs/EmailPostcardTracking.md)
+ - [EmailPostcardTrackingResponse](docs/EmailPostcardTrackingResponse.md)
  - [EmailSegment](docs/EmailSegment.md)
  - [EmailSegmentArchiveResponse](docs/EmailSegmentArchiveResponse.md)
  - [EmailSegmentCustomer](docs/EmailSegmentCustomer.md)
@@ -1234,6 +1237,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.63-RC | 09/13/2022 | storefront comms - postcard tracking |
 | 4.0.62-RC | 09/12/2022 | storefront comm - send back reviews.io configured flag on getEmailSettings |
 | 4.0.61-RC | 09/07/2022 | sf comms - using aws event ruler for bigquery segmentation validation |
 | 4.0.60-RC | 09/02/2022 | customer editor added loyal ledger descriptions |

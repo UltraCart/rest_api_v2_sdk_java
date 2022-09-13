@@ -331,6 +331,8 @@ docs/EmailPlan.md
 docs/EmailPlanAdditional.md
 docs/EmailPlanResponse.md
 docs/EmailPostcardStat.md
+docs/EmailPostcardTracking.md
+docs/EmailPostcardTrackingResponse.md
 docs/EmailSegment.md
 docs/EmailSegmentArchiveResponse.md
 docs/EmailSegmentCustomer.md
@@ -1038,6 +1040,8 @@ src/main/java/com/ultracart/admin/v2/models/EmailPlan.java
 src/main/java/com/ultracart/admin/v2/models/EmailPlanAdditional.java
 src/main/java/com/ultracart/admin/v2/models/EmailPlanResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailPostcardStat.java
+src/main/java/com/ultracart/admin/v2/models/EmailPostcardTracking.java
+src/main/java/com/ultracart/admin/v2/models/EmailPostcardTrackingResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailSegment.java
 src/main/java/com/ultracart/admin/v2/models/EmailSegmentArchiveResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailSegmentCustomer.java

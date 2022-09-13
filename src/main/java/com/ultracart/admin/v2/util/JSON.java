@@ -412,6 +412,8 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailPlanAdditional.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailPlanResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailPostcardStat.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailPostcardTracking.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailPostcardTrackingResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailSegment.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailSegmentArchiveResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailSegmentCustomer.CustomTypeAdapterFactory())
