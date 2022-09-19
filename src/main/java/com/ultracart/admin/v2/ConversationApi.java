@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.ConversationAgentAuthResponse;
+import com.ultracart.admin.v2.models.ConversationMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
 import com.ultracart.admin.v2.models.ConversationResponse;
 import com.ultracart.admin.v2.models.ConversationStartRequest;
@@ -87,6 +88,115 @@ public class ConversationApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for getAgentKeepAlive
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAgentKeepAliveCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/keepalive";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAgentKeepAliveValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getAgentKeepAliveCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Agent keep alive
+     * Called periodically by the conversation API to keep the session alive. 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void getAgentKeepAlive() throws ApiException {
+        getAgentKeepAliveWithHttpInfo();
+    }
+
+    /**
+     * Agent keep alive
+     * Called periodically by the conversation API to keep the session alive. 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> getAgentKeepAliveWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getAgentKeepAliveValidateBeforeCall(null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Agent keep alive (asynchronously)
+     * Called periodically by the conversation API to keep the session alive. 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAgentKeepAliveAsync(final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAgentKeepAliveValidateBeforeCall(progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
     /**
      * Build call for getAgentWebsocketAuthorization
      * @param progressListener Progress listener
@@ -203,12 +313,13 @@ public class ConversationApi {
     /**
      * Build call for getConversation
      * @param conversationUuid  (required)
+     * @param limit  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getConversationCall(String conversationUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getConversationCall(String conversationUuid, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -217,6 +328,8 @@ public class ConversationApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -251,7 +364,7 @@ public class ConversationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getConversationValidateBeforeCall(String conversationUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getConversationValidateBeforeCall(String conversationUuid, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'conversationUuid' is set
         if (conversationUuid == null) {
@@ -259,7 +372,7 @@ public class ConversationApi {
         }
         
 
-        com.squareup.okhttp.Call call = getConversationCall(conversationUuid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConversationCall(conversationUuid, limit, progressListener, progressRequestListener);
         return call;
 
     }
@@ -268,11 +381,12 @@ public class ConversationApi {
      * Retrieve a conversation
      * Retrieve a conversation including the participants and messages 
      * @param conversationUuid  (required)
+     * @param limit  (optional)
      * @return ConversationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ConversationResponse getConversation(String conversationUuid) throws ApiException {
-        ApiResponse<ConversationResponse> resp = getConversationWithHttpInfo(conversationUuid);
+    public ConversationResponse getConversation(String conversationUuid, Integer limit) throws ApiException {
+        ApiResponse<ConversationResponse> resp = getConversationWithHttpInfo(conversationUuid, limit);
         return resp.getData();
     }
 
@@ -280,11 +394,12 @@ public class ConversationApi {
      * Retrieve a conversation
      * Retrieve a conversation including the participants and messages 
      * @param conversationUuid  (required)
+     * @param limit  (optional)
      * @return ApiResponse&lt;ConversationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ConversationResponse> getConversationWithHttpInfo(String conversationUuid) throws ApiException {
-        com.squareup.okhttp.Call call = getConversationValidateBeforeCall(conversationUuid, null, null);
+    public ApiResponse<ConversationResponse> getConversationWithHttpInfo(String conversationUuid, Integer limit) throws ApiException {
+        com.squareup.okhttp.Call call = getConversationValidateBeforeCall(conversationUuid, limit, null, null);
         Type localVarReturnType = new TypeToken<ConversationResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -293,11 +408,12 @@ public class ConversationApi {
      * Retrieve a conversation (asynchronously)
      * Retrieve a conversation including the participants and messages 
      * @param conversationUuid  (required)
+     * @param limit  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getConversationAsync(String conversationUuid, final ApiCallback<ConversationResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getConversationAsync(String conversationUuid, Integer limit, final ApiCallback<ConversationResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -318,8 +434,147 @@ public class ConversationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getConversationValidateBeforeCall(conversationUuid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConversationValidateBeforeCall(conversationUuid, limit, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getConversationMessages
+     * @param conversationUuid  (required)
+     * @param since  (required)
+     * @param limit  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getConversationMessagesCall(String conversationUuid, Long since, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/conversations/{conversation_uuid}/messages/{since}"
+            .replaceAll("\\{" + "conversation_uuid" + "\\}", apiClient.escapeString(conversationUuid.toString()))
+            .replaceAll("\\{" + "since" + "\\}", apiClient.escapeString(since.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getConversationMessagesValidateBeforeCall(String conversationUuid, Long since, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conversationUuid' is set
+        if (conversationUuid == null) {
+            throw new ApiException("Missing the required parameter 'conversationUuid' when calling getConversationMessages(Async)");
+        }
+        
+        // verify the required parameter 'since' is set
+        if (since == null) {
+            throw new ApiException("Missing the required parameter 'since' when calling getConversationMessages(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getConversationMessagesCall(conversationUuid, since, limit, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve conversation messages
+     * Retrieve conversation messages since a particular time 
+     * @param conversationUuid  (required)
+     * @param since  (required)
+     * @param limit  (optional)
+     * @return ConversationMessagesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationMessagesResponse getConversationMessages(String conversationUuid, Long since, Integer limit) throws ApiException {
+        ApiResponse<ConversationMessagesResponse> resp = getConversationMessagesWithHttpInfo(conversationUuid, since, limit);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve conversation messages
+     * Retrieve conversation messages since a particular time 
+     * @param conversationUuid  (required)
+     * @param since  (required)
+     * @param limit  (optional)
+     * @return ApiResponse&lt;ConversationMessagesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationMessagesResponse> getConversationMessagesWithHttpInfo(String conversationUuid, Long since, Integer limit) throws ApiException {
+        com.squareup.okhttp.Call call = getConversationMessagesValidateBeforeCall(conversationUuid, since, limit, null, null);
+        Type localVarReturnType = new TypeToken<ConversationMessagesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve conversation messages (asynchronously)
+     * Retrieve conversation messages since a particular time 
+     * @param conversationUuid  (required)
+     * @param since  (required)
+     * @param limit  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getConversationMessagesAsync(String conversationUuid, Long since, Integer limit, final ApiCallback<ConversationMessagesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getConversationMessagesValidateBeforeCall(conversationUuid, since, limit, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationMessagesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

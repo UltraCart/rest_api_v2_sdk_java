@@ -4,8 +4,10 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getAgentKeepAlive**](ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**getAgentWebsocketAuthorization**](ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 [**getConversation**](ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+[**getConversationMessages**](ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 [**getConversationMultimediaUploadUrl**](ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 [**getConversationWebchatQueueStatuses**](ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 [**getConversations**](ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
@@ -14,6 +16,51 @@ Method | HTTP request | Description
 [**startConversation**](ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 [**updateConversationWebchatQueueStatus**](ConversationApi.md#updateConversationWebchatQueueStatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
 
+
+<a name="getAgentKeepAlive"></a>
+# **getAgentKeepAlive**
+> getAgentKeepAlive()
+
+Agent keep alive
+
+Called periodically by the conversation API to keep the session alive. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+try {
+    apiInstance.getAgentKeepAlive();
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getAgentKeepAlive");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="getAgentWebsocketAuthorization"></a>
 # **getAgentWebsocketAuthorization**
@@ -63,7 +110,7 @@ This endpoint does not need any parameter.
 
 <a name="getConversation"></a>
 # **getConversation**
-> ConversationResponse getConversation(conversationUuid)
+> ConversationResponse getConversation(conversationUuid, limit)
 
 Retrieve a conversation
 
@@ -83,8 +130,9 @@ final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12
 ConversationApi apiInstance = new ConversationApi(apiKey);
 
 String conversationUuid = "conversationUuid_example"; // String | 
+Integer limit = 56; // Integer | 
 try {
-    ConversationResponse result = apiInstance.getConversation(conversationUuid);
+    ConversationResponse result = apiInstance.getConversation(conversationUuid, limit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#getConversation");
@@ -97,10 +145,65 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **conversationUuid** | **String**|  |
+ **limit** | **Integer**|  | [optional]
 
 ### Return type
 
 [**ConversationResponse**](ConversationResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getConversationMessages"></a>
+# **getConversationMessages**
+> ConversationMessagesResponse getConversationMessages(conversationUuid, since, limit)
+
+Retrieve conversation messages
+
+Retrieve conversation messages since a particular time 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+String conversationUuid = "conversationUuid_example"; // String | 
+Long since = 789L; // Long | 
+Integer limit = 56; // Integer | 
+try {
+    ConversationMessagesResponse result = apiInstance.getConversationMessages(conversationUuid, since, limit);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getConversationMessages");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationUuid** | **String**|  |
+ **since** | **Long**|  |
+ **limit** | **Integer**|  | [optional]
+
+### Return type
+
+[**ConversationMessagesResponse**](ConversationMessagesResponse.md)
 
 ### Authorization
 

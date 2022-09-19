@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-09-13T10:33:02.578-04:00
+  - Build date: 2022-09-19T11:56:38.761-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.46</version>
+  <version>3.10.47</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.46"
+compile "com.ultracart:rest-sdk:3.10.47"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.46.jar`
+* `target/rest-sdk-3.10.47.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -151,8 +151,10 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/CheckoutApi.md#setupBrowserKey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/CheckoutApi.md#updateCart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
+*ConversationApi* | [**getAgentKeepAlive**](docs/ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+*ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
@@ -598,6 +600,7 @@ Class | Method | HTTP request | Description
  - [ConversationEventTyping](docs/ConversationEventTyping.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
+ - [ConversationMessagesResponse](docs/ConversationMessagesResponse.md)
  - [ConversationMultimediaUploadUrl](docs/ConversationMultimediaUploadUrl.md)
  - [ConversationMultimediaUploadUrlResponse](docs/ConversationMultimediaUploadUrlResponse.md)
  - [ConversationParticipant](docs/ConversationParticipant.md)
@@ -1220,6 +1223,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.47 | 09/19/2022 | conversations pagination |
 | 3.10.46 | 09/13/2022 | storefront comms - postcard tracking |
 | 3.10.45 | 09/12/2022 | storefront comm - send back reviews.io configured flag on getEmailSettings |
 | 3.10.44 | 09/07/2022 | sf comms - using aws event ruler for bigquery segmentation validation |
