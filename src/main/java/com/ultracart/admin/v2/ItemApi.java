@@ -398,12 +398,6 @@ public class ItemApi {
     /**
      * Build call for getDigitalItem
      * @param digitalItemOid The digital item oid to retrieve. (required)
-     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -418,7 +412,7 @@ public class ItemApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getDigitalItemCall(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDigitalItemCall(Integer digitalItemOid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -444,30 +438,6 @@ public class ItemApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_limit", limit));
-        }
-
-        if (offset != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_offset", offset));
-        }
-
-        if (since != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_since", since));
-        }
-
-        if (sort != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_sort", sort));
-        }
-
-        if (expand != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
-        }
-
-        if (placeholders != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_placeholders", placeholders));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -489,7 +459,7 @@ public class ItemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDigitalItemValidateBeforeCall(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDigitalItemValidateBeforeCall(Integer digitalItemOid, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'digitalItemOid' is set
         if (digitalItemOid == null) {
@@ -497,7 +467,7 @@ public class ItemApi {
         }
         
 
-        okhttp3.Call localVarCall = getDigitalItemCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, _callback);
+        okhttp3.Call localVarCall = getDigitalItemCall(digitalItemOid, _callback);
         return localVarCall;
 
     }
@@ -506,12 +476,6 @@ public class ItemApi {
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
      * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
      * @param digitalItemOid The digital item oid to retrieve. (required)
-     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ItemDigitalItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -525,8 +489,8 @@ public class ItemApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ItemDigitalItemResponse getDigitalItem(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
-        ApiResponse<ItemDigitalItemResponse> localVarResp = getDigitalItemWithHttpInfo(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+    public ItemDigitalItemResponse getDigitalItem(Integer digitalItemOid) throws ApiException {
+        ApiResponse<ItemDigitalItemResponse> localVarResp = getDigitalItemWithHttpInfo(digitalItemOid);
         return localVarResp.getData();
     }
 
@@ -534,12 +498,6 @@ public class ItemApi {
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
      * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
      * @param digitalItemOid The digital item oid to retrieve. (required)
-     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;ItemDigitalItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -553,8 +511,8 @@ public class ItemApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<ItemDigitalItemResponse> getDigitalItemWithHttpInfo(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
-        okhttp3.Call localVarCall = getDigitalItemValidateBeforeCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, null);
+    public ApiResponse<ItemDigitalItemResponse> getDigitalItemWithHttpInfo(Integer digitalItemOid) throws ApiException {
+        okhttp3.Call localVarCall = getDigitalItemValidateBeforeCall(digitalItemOid, null);
         Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -563,12 +521,6 @@ public class ItemApi {
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items (asynchronously)
      * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
      * @param digitalItemOid The digital item oid to retrieve. (required)
-     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -583,9 +535,9 @@ public class ItemApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getDigitalItemAsync(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemDigitalItemResponse> _callback) throws ApiException {
+    public okhttp3.Call getDigitalItemAsync(Integer digitalItemOid, final ApiCallback<ItemDigitalItemResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDigitalItemValidateBeforeCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, _callback);
+        okhttp3.Call localVarCall = getDigitalItemValidateBeforeCall(digitalItemOid, _callback);
         Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

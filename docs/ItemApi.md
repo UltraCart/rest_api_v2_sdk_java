@@ -152,7 +152,7 @@ null (empty response body)
 
 <a name="getDigitalItem"></a>
 # **getDigitalItem**
-> ItemDigitalItemResponse getDigitalItem(digitalItemOid, limit, offset, since, sort, expand, placeholders)
+> ItemDigitalItemResponse getDigitalItem(digitalItemOid)
 
 Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 
@@ -177,14 +177,8 @@ import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java
 ItemApi apiInstance = new ItemApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
 Integer digitalItemOid = 56; // Integer | The digital item oid to retrieve.
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 2000)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String since = "since_example"; // String | Fetch items that have been created/modified since this date/time.
-String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 try {
-    ItemDigitalItemResponse result = apiInstance.getDigitalItem(digitalItemOidlimitoffsetsincesortexpandplaceholders);
+    ItemDigitalItemResponse result = apiInstance.getDigitalItem(digitalItemOid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ItemApi#getDigitalItem");
@@ -198,12 +192,6 @@ try {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **digitalItemOid** | **Integer**| The digital item oid to retrieve. | |
-| **limit** | **Integer**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100] |
-| **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
-| **since** | **String**| Fetch items that have been created/modified since this date/time. | [optional] |
-| **sort** | **String**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] |
-| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
-| **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] |
 
 ### Return type
 

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerPrivacy
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-22T11:16:07.594-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-22T14:56:25.411-04:00[America/Indianapolis]")
 public class CustomerPrivacy {
   public static final String SERIALIZED_NAME_LAST_UPDATE_DTS = "last_update_dts";
   @SerializedName(SERIALIZED_NAME_LAST_UPDATE_DTS)

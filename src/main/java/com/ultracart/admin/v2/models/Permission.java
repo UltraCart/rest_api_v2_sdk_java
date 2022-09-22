@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Permission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-22T11:16:07.594-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-22T14:56:25.411-04:00[America/Indianapolis]")
 public class Permission {
   public static final String SERIALIZED_NAME_PERMISSION_GROUP = "permission_group";
   @SerializedName(SERIALIZED_NAME_PERMISSION_GROUP)
