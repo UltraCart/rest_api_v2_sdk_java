@@ -330,18 +330,12 @@ public class ItemApi {
     /**
      * Build call for getDigitalItem
      * @param digitalItemOid The digital item oid to retrieve. (required)
-     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDigitalItemCall(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getDigitalItemCall(Integer digitalItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -350,18 +344,6 @@ public class ItemApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
-        if (offset != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("_offset", offset));
-        if (since != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("_since", since));
-        if (sort != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("_sort", sort));
-        if (expand != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
-        if (placeholders != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("_placeholders", placeholders));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -396,7 +378,7 @@ public class ItemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDigitalItemValidateBeforeCall(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDigitalItemValidateBeforeCall(Integer digitalItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'digitalItemOid' is set
         if (digitalItemOid == null) {
@@ -404,7 +386,7 @@ public class ItemApi {
         }
         
 
-        com.squareup.okhttp.Call call = getDigitalItemCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getDigitalItemCall(digitalItemOid, progressListener, progressRequestListener);
         return call;
 
     }
@@ -413,17 +395,11 @@ public class ItemApi {
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
      * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
      * @param digitalItemOid The digital item oid to retrieve. (required)
-     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ItemDigitalItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ItemDigitalItemResponse getDigitalItem(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
-        ApiResponse<ItemDigitalItemResponse> resp = getDigitalItemWithHttpInfo(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+    public ItemDigitalItemResponse getDigitalItem(Integer digitalItemOid) throws ApiException {
+        ApiResponse<ItemDigitalItemResponse> resp = getDigitalItemWithHttpInfo(digitalItemOid);
         return resp.getData();
     }
 
@@ -431,17 +407,11 @@ public class ItemApi {
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
      * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
      * @param digitalItemOid The digital item oid to retrieve. (required)
-     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return ApiResponse&lt;ItemDigitalItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ItemDigitalItemResponse> getDigitalItemWithHttpInfo(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
-        com.squareup.okhttp.Call call = getDigitalItemValidateBeforeCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, null, null);
+    public ApiResponse<ItemDigitalItemResponse> getDigitalItemWithHttpInfo(Integer digitalItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = getDigitalItemValidateBeforeCall(digitalItemOid, null, null);
         Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -450,17 +420,11 @@ public class ItemApi {
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items (asynchronously)
      * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
      * @param digitalItemOid The digital item oid to retrieve. (required)
-     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param since Fetch items that have been created/modified since this date/time. (optional)
-     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDigitalItemAsync(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemDigitalItemResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDigitalItemAsync(Integer digitalItemOid, final ApiCallback<ItemDigitalItemResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -481,7 +445,7 @@ public class ItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getDigitalItemValidateBeforeCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getDigitalItemValidateBeforeCall(digitalItemOid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

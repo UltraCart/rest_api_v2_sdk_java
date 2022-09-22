@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * EmailHistogramPropertyValuesResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-22T11:03:52.833-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-22T14:44:46.079-04:00")
 
 
 
