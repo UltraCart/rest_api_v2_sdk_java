@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailStepStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-19T12:15:47.119-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-22T11:16:07.594-04:00[America/Indianapolis]")
 public class EmailStepStat {
   public static final String SERIALIZED_NAME_LEFT_CONVERSION_COUNT = "left_conversion_count";
   @SerializedName(SERIALIZED_NAME_LEFT_CONVERSION_COUNT)

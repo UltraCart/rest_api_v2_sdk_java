@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-09-19T12:15:47.119-04:00[America/Indianapolis]
+  - Build date: 2022-09-22T11:16:07.594-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.64-RC</version>
+  <version>4.0.65-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.64-RC"
+     implementation "com.ultracart:rest-sdk:4.0.65-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.64-RC.jar`
+* `target/rest-sdk-4.0.65-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -236,12 +236,17 @@ Class | Method | HTTP request | Description
 *IntegrationLogApi* | [**getIntegrationLogFilePdf**](docs/IntegrationLogApi.md#getIntegrationLogFilePdf) | **GET** /integration_log/query/{pk}/{sk}/{uuid}/pdf | Retrieve an integration log file converted to PDF
 *IntegrationLogApi* | [**getIntegrationLogSummariesQuery**](docs/IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
+*ItemApi* | [**deleteDigitalItem**](docs/ItemApi.md#deleteDigitalItem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 *ItemApi* | [**deleteItem**](docs/ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+*ItemApi* | [**getDigitalItem**](docs/ItemApi.md#getDigitalItem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+*ItemApi* | [**getDigitalItems**](docs/ItemApi.md#getDigitalItems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 *ItemApi* | [**getItem**](docs/ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+*ItemApi* | [**insertDigitalItem**](docs/ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 *ItemApi* | [**insertItem**](docs/ItemApi.md#insertItem) | **POST** /item/items | Create an item
+*ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 *ItemApi* | [**updateItems**](docs/ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -899,6 +904,9 @@ Class | Method | HTTP request | Description
  - [ItemContentMultimediaThumbnail](docs/ItemContentMultimediaThumbnail.md)
  - [ItemDigitalDelivery](docs/ItemDigitalDelivery.md)
  - [ItemDigitalItem](docs/ItemDigitalItem.md)
+ - [ItemDigitalItemPdfMeta](docs/ItemDigitalItemPdfMeta.md)
+ - [ItemDigitalItemResponse](docs/ItemDigitalItemResponse.md)
+ - [ItemDigitalItemsResponse](docs/ItemDigitalItemsResponse.md)
  - [ItemEbay](docs/ItemEbay.md)
  - [ItemEbayCategorySpecific](docs/ItemEbayCategorySpecific.md)
  - [ItemEbayMarketListing](docs/ItemEbayMarketListing.md)
@@ -1240,6 +1248,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.65-RC | 09/22/2022 | testing digital file mgmt calls |
 | 4.0.64-RC | 09/19/2022 | conversations pagination |
 | 4.0.63-RC | 09/13/2022 | storefront comms - postcard tracking |
 | 4.0.62-RC | 09/12/2022 | storefront comm - send back reviews.io configured flag on getEmailSettings |

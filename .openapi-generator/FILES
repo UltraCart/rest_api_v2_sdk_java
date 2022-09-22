@@ -424,6 +424,9 @@ docs/ItemContentMultimedia.md
 docs/ItemContentMultimediaThumbnail.md
 docs/ItemDigitalDelivery.md
 docs/ItemDigitalItem.md
+docs/ItemDigitalItemPdfMeta.md
+docs/ItemDigitalItemResponse.md
+docs/ItemDigitalItemsResponse.md
 docs/ItemEbay.md
 docs/ItemEbayCategorySpecific.md
 docs/ItemEbayMarketListing.md
@@ -1130,6 +1133,9 @@ src/main/java/com/ultracart/admin/v2/models/ItemContentMultimedia.java
 src/main/java/com/ultracart/admin/v2/models/ItemContentMultimediaThumbnail.java
 src/main/java/com/ultracart/admin/v2/models/ItemDigitalDelivery.java
 src/main/java/com/ultracart/admin/v2/models/ItemDigitalItem.java
+src/main/java/com/ultracart/admin/v2/models/ItemDigitalItemPdfMeta.java
+src/main/java/com/ultracart/admin/v2/models/ItemDigitalItemResponse.java
+src/main/java/com/ultracart/admin/v2/models/ItemDigitalItemsResponse.java
 src/main/java/com/ultracart/admin/v2/models/ItemEbay.java
 src/main/java/com/ultracart/admin/v2/models/ItemEbayCategorySpecific.java
 src/main/java/com/ultracart/admin/v2/models/ItemEbayMarketListing.java

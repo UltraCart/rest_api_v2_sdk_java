@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ItemDigitalItemPdfMeta;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -47,8 +48,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemDigitalItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-19T12:15:47.119-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-22T11:16:07.594-04:00[America/Indianapolis]")
 public class ItemDigitalItem {
+  public static final String SERIALIZED_NAME_CLICK_WRAP_AGREEMENT = "click_wrap_agreement";
+  @SerializedName(SERIALIZED_NAME_CLICK_WRAP_AGREEMENT)
+  private String clickWrapAgreement;
+
   public static final String SERIALIZED_NAME_CREATION_DTS = "creation_dts";
   @SerializedName(SERIALIZED_NAME_CREATION_DTS)
   private String creationDts;
@@ -57,9 +62,17 @@ public class ItemDigitalItem {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_DIGITAL_ITEM_OID = "digital_item_oid";
+  @SerializedName(SERIALIZED_NAME_DIGITAL_ITEM_OID)
+  private Integer digitalItemOid;
+
   public static final String SERIALIZED_NAME_FILE_SIZE = "file_size";
   @SerializedName(SERIALIZED_NAME_FILE_SIZE)
   private Long fileSize;
+
+  public static final String SERIALIZED_NAME_IMPORT_FROM_URL = "import_from_url";
+  @SerializedName(SERIALIZED_NAME_IMPORT_FROM_URL)
+  private String importFromUrl;
 
   public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
@@ -69,8 +82,35 @@ public class ItemDigitalItem {
   @SerializedName(SERIALIZED_NAME_ORIGINAL_FILENAME)
   private String originalFilename;
 
+  public static final String SERIALIZED_NAME_PDF_META = "pdf_meta";
+  @SerializedName(SERIALIZED_NAME_PDF_META)
+  private ItemDigitalItemPdfMeta pdfMeta;
+
   public ItemDigitalItem() { 
   }
+
+  public ItemDigitalItem clickWrapAgreement(String clickWrapAgreement) {
+    
+    this.clickWrapAgreement = clickWrapAgreement;
+    return this;
+  }
+
+   /**
+   * Click wrap agreement is presented to the customer before they can purchase your product.
+   * @return clickWrapAgreement
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Click wrap agreement is presented to the customer before they can purchase your product.")
+
+  public String getClickWrapAgreement() {
+    return clickWrapAgreement;
+  }
+
+
+  public void setClickWrapAgreement(String clickWrapAgreement) {
+    this.clickWrapAgreement = clickWrapAgreement;
+  }
+
 
   public ItemDigitalItem creationDts(String creationDts) {
     
@@ -118,6 +158,29 @@ public class ItemDigitalItem {
   }
 
 
+  public ItemDigitalItem digitalItemOid(Integer digitalItemOid) {
+    
+    this.digitalItemOid = digitalItemOid;
+    return this;
+  }
+
+   /**
+   * The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect.
+   * @return digitalItemOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect.")
+
+  public Integer getDigitalItemOid() {
+    return digitalItemOid;
+  }
+
+
+  public void setDigitalItemOid(Integer digitalItemOid) {
+    this.digitalItemOid = digitalItemOid;
+  }
+
+
   public ItemDigitalItem fileSize(Long fileSize) {
     
     this.fileSize = fileSize;
@@ -138,6 +201,29 @@ public class ItemDigitalItem {
 
   public void setFileSize(Long fileSize) {
     this.fileSize = fileSize;
+  }
+
+
+  public ItemDigitalItem importFromUrl(String importFromUrl) {
+    
+    this.importFromUrl = importFromUrl;
+    return this;
+  }
+
+   /**
+   * This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation.
+   * @return importFromUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation.")
+
+  public String getImportFromUrl() {
+    return importFromUrl;
+  }
+
+
+  public void setImportFromUrl(String importFromUrl) {
+    this.importFromUrl = importFromUrl;
   }
 
 
@@ -187,6 +273,29 @@ public class ItemDigitalItem {
   }
 
 
+  public ItemDigitalItem pdfMeta(ItemDigitalItemPdfMeta pdfMeta) {
+    
+    this.pdfMeta = pdfMeta;
+    return this;
+  }
+
+   /**
+   * Get pdfMeta
+   * @return pdfMeta
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ItemDigitalItemPdfMeta getPdfMeta() {
+    return pdfMeta;
+  }
+
+
+  public void setPdfMeta(ItemDigitalItemPdfMeta pdfMeta) {
+    this.pdfMeta = pdfMeta;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -197,27 +306,35 @@ public class ItemDigitalItem {
       return false;
     }
     ItemDigitalItem itemDigitalItem = (ItemDigitalItem) o;
-    return Objects.equals(this.creationDts, itemDigitalItem.creationDts) &&
+    return Objects.equals(this.clickWrapAgreement, itemDigitalItem.clickWrapAgreement) &&
+        Objects.equals(this.creationDts, itemDigitalItem.creationDts) &&
         Objects.equals(this.description, itemDigitalItem.description) &&
+        Objects.equals(this.digitalItemOid, itemDigitalItem.digitalItemOid) &&
         Objects.equals(this.fileSize, itemDigitalItem.fileSize) &&
+        Objects.equals(this.importFromUrl, itemDigitalItem.importFromUrl) &&
         Objects.equals(this.mimeType, itemDigitalItem.mimeType) &&
-        Objects.equals(this.originalFilename, itemDigitalItem.originalFilename);
+        Objects.equals(this.originalFilename, itemDigitalItem.originalFilename) &&
+        Objects.equals(this.pdfMeta, itemDigitalItem.pdfMeta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDts, description, fileSize, mimeType, originalFilename);
+    return Objects.hash(clickWrapAgreement, creationDts, description, digitalItemOid, fileSize, importFromUrl, mimeType, originalFilename, pdfMeta);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemDigitalItem {\n");
+    sb.append("    clickWrapAgreement: ").append(toIndentedString(clickWrapAgreement)).append("\n");
     sb.append("    creationDts: ").append(toIndentedString(creationDts)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    digitalItemOid: ").append(toIndentedString(digitalItemOid)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
+    sb.append("    importFromUrl: ").append(toIndentedString(importFromUrl)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    originalFilename: ").append(toIndentedString(originalFilename)).append("\n");
+    sb.append("    pdfMeta: ").append(toIndentedString(pdfMeta)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -240,11 +357,15 @@ public class ItemDigitalItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("click_wrap_agreement");
     openapiFields.add("creation_dts");
     openapiFields.add("description");
+    openapiFields.add("digital_item_oid");
     openapiFields.add("file_size");
+    openapiFields.add("import_from_url");
     openapiFields.add("mime_type");
     openapiFields.add("original_filename");
+    openapiFields.add("pdf_meta");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -272,17 +393,27 @@ public class ItemDigitalItem {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ItemDigitalItem` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      if (jsonObj.get("click_wrap_agreement") != null && !jsonObj.get("click_wrap_agreement").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `click_wrap_agreement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("click_wrap_agreement").toString()));
+      }
       if (jsonObj.get("creation_dts") != null && !jsonObj.get("creation_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `creation_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("creation_dts").toString()));
       }
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      if (jsonObj.get("import_from_url") != null && !jsonObj.get("import_from_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `import_from_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_from_url").toString()));
+      }
       if (jsonObj.get("mime_type") != null && !jsonObj.get("mime_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));
       }
       if (jsonObj.get("original_filename") != null && !jsonObj.get("original_filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `original_filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original_filename").toString()));
+      }
+      // validate the optional field `pdf_meta`
+      if (jsonObj.getAsJsonObject("pdf_meta") != null) {
+        ItemDigitalItemPdfMeta.validateJsonObject(jsonObj.getAsJsonObject("pdf_meta"));
       }
   }
 
