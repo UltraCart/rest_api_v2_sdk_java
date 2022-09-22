@@ -30,6 +30,9 @@ import java.io.IOException;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import java.io.File;
 import com.ultracart.admin.v2.models.Item;
+import com.ultracart.admin.v2.models.ItemDigitalItem;
+import com.ultracart.admin.v2.models.ItemDigitalItemResponse;
+import com.ultracart.admin.v2.models.ItemDigitalItemsResponse;
 import com.ultracart.admin.v2.models.ItemResponse;
 import com.ultracart.admin.v2.models.ItemsRequest;
 import com.ultracart.admin.v2.models.ItemsResponse;
@@ -86,6 +89,125 @@ public class ItemApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for deleteDigitalItem
+     * @param digitalItemOid The digital item oid to delete. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteDigitalItemCall(Integer digitalItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/digital_library/{digital_item_oid}"
+            .replaceAll("\\{" + "digital_item_oid" + "\\}", apiClient.escapeString(digitalItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteDigitalItemValidateBeforeCall(Integer digitalItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'digitalItemOid' is set
+        if (digitalItemOid == null) {
+            throw new ApiException("Missing the required parameter 'digitalItemOid' when calling deleteDigitalItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteDigitalItemCall(digitalItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a digital item, which is a file within the digital library, not an actual merchant item
+     * Delete a digital item on the UltraCart account. 
+     * @param digitalItemOid The digital item oid to delete. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteDigitalItem(Integer digitalItemOid) throws ApiException {
+        deleteDigitalItemWithHttpInfo(digitalItemOid);
+    }
+
+    /**
+     * Delete a digital item, which is a file within the digital library, not an actual merchant item
+     * Delete a digital item on the UltraCart account. 
+     * @param digitalItemOid The digital item oid to delete. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteDigitalItemWithHttpInfo(Integer digitalItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteDigitalItemValidateBeforeCall(digitalItemOid, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a digital item, which is a file within the digital library, not an actual merchant item (asynchronously)
+     * Delete a digital item on the UltraCart account. 
+     * @param digitalItemOid The digital item oid to delete. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteDigitalItemAsync(Integer digitalItemOid, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteDigitalItemValidateBeforeCall(digitalItemOid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
     /**
      * Build call for deleteItem
      * @param merchantItemOid The item oid to delete. (required)
@@ -203,6 +325,314 @@ public class ItemApi {
 
         com.squareup.okhttp.Call call = deleteItemValidateBeforeCall(merchantItemOid, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for getDigitalItem
+     * @param digitalItemOid The digital item oid to retrieve. (required)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getDigitalItemCall(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/digital_library/{digital_item_oid}"
+            .replaceAll("\\{" + "digital_item_oid" + "\\}", apiClient.escapeString(digitalItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_offset", offset));
+        if (since != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_since", since));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_sort", sort));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_placeholders", placeholders));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDigitalItemValidateBeforeCall(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'digitalItemOid' is set
+        if (digitalItemOid == null) {
+            throw new ApiException("Missing the required parameter 'digitalItemOid' when calling getDigitalItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getDigitalItemCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+     * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+     * @param digitalItemOid The digital item oid to retrieve. (required)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ItemDigitalItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemDigitalItemResponse getDigitalItem(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemDigitalItemResponse> resp = getDigitalItemWithHttpInfo(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+     * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+     * @param digitalItemOid The digital item oid to retrieve. (required)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ApiResponse&lt;ItemDigitalItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemDigitalItemResponse> getDigitalItemWithHttpInfo(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = getDigitalItemValidateBeforeCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, null, null);
+        Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items (asynchronously)
+     * Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+     * @param digitalItemOid The digital item oid to retrieve. (required)
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getDigitalItemAsync(Integer digitalItemOid, Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemDigitalItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDigitalItemValidateBeforeCall(digitalItemOid, limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getDigitalItems
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getDigitalItemsCall(Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/digital_library";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_offset", offset));
+        if (since != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_since", since));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_sort", sort));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_placeholders", placeholders));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDigitalItemsValidateBeforeCall(Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getDigitalItemsCall(limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve digital items from the digital library which are digital files that may be attached to normal items
+     * Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ItemDigitalItemsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemDigitalItemsResponse getDigitalItems(Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemDigitalItemsResponse> resp = getDigitalItemsWithHttpInfo(limit, offset, since, sort, expand, placeholders);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve digital items from the digital library which are digital files that may be attached to normal items
+     * Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ApiResponse&lt;ItemDigitalItemsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemDigitalItemsResponse> getDigitalItemsWithHttpInfo(Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = getDigitalItemsValidateBeforeCall(limit, offset, since, sort, expand, placeholders, null, null);
+        Type localVarReturnType = new TypeToken<ItemDigitalItemsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve digital items from the digital library which are digital files that may be attached to normal items (asynchronously)
+     * Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+     * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch items that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getDigitalItemsAsync(Integer limit, Integer offset, String since, String sort, String expand, Boolean placeholders, final ApiCallback<ItemDigitalItemsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDigitalItemsValidateBeforeCall(limit, offset, since, sort, expand, placeholders, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemDigitalItemsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -756,6 +1186,128 @@ public class ItemApi {
         return call;
     }
     /**
+     * Build call for insertDigitalItem
+     * @param digitalItem Digital item to create (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertDigitalItemCall(ItemDigitalItem digitalItem, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = digitalItem;
+
+        // create path and map variables
+        String localVarPath = "/item/digital_library";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertDigitalItemValidateBeforeCall(ItemDigitalItem digitalItem, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'digitalItem' is set
+        if (digitalItem == null) {
+            throw new ApiException("Missing the required parameter 'digitalItem' when calling insertDigitalItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertDigitalItemCall(digitalItem, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create a file within the digital library
+     * Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+     * @param digitalItem Digital item to create (required)
+     * @return ItemDigitalItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemDigitalItemResponse insertDigitalItem(ItemDigitalItem digitalItem) throws ApiException {
+        ApiResponse<ItemDigitalItemResponse> resp = insertDigitalItemWithHttpInfo(digitalItem);
+        return resp.getData();
+    }
+
+    /**
+     * Create a file within the digital library
+     * Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+     * @param digitalItem Digital item to create (required)
+     * @return ApiResponse&lt;ItemDigitalItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemDigitalItemResponse> insertDigitalItemWithHttpInfo(ItemDigitalItem digitalItem) throws ApiException {
+        com.squareup.okhttp.Call call = insertDigitalItemValidateBeforeCall(digitalItem, null, null);
+        Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a file within the digital library (asynchronously)
+     * Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+     * @param digitalItem Digital item to create (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertDigitalItemAsync(ItemDigitalItem digitalItem, final ApiCallback<ItemDigitalItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertDigitalItemValidateBeforeCall(digitalItem, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for insertItem
      * @param item Item to create (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -886,6 +1438,138 @@ public class ItemApi {
 
         com.squareup.okhttp.Call call = insertItemValidateBeforeCall(item, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateDigitalItem
+     * @param digitalItemOid The digital item oid to update. (required)
+     * @param digitalItem Digital item to update (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateDigitalItemCall(Integer digitalItemOid, ItemDigitalItem digitalItem, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = digitalItem;
+
+        // create path and map variables
+        String localVarPath = "/item/digital_library/{digital_item_oid}"
+            .replaceAll("\\{" + "digital_item_oid" + "\\}", apiClient.escapeString(digitalItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateDigitalItemValidateBeforeCall(Integer digitalItemOid, ItemDigitalItem digitalItem, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'digitalItemOid' is set
+        if (digitalItemOid == null) {
+            throw new ApiException("Missing the required parameter 'digitalItemOid' when calling updateDigitalItem(Async)");
+        }
+        
+        // verify the required parameter 'digitalItem' is set
+        if (digitalItem == null) {
+            throw new ApiException("Missing the required parameter 'digitalItem' when calling updateDigitalItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateDigitalItemCall(digitalItemOid, digitalItem, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates a file within the digital library
+     * Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+     * @param digitalItemOid The digital item oid to update. (required)
+     * @param digitalItem Digital item to update (required)
+     * @return ItemDigitalItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemDigitalItemResponse updateDigitalItem(Integer digitalItemOid, ItemDigitalItem digitalItem) throws ApiException {
+        ApiResponse<ItemDigitalItemResponse> resp = updateDigitalItemWithHttpInfo(digitalItemOid, digitalItem);
+        return resp.getData();
+    }
+
+    /**
+     * Updates a file within the digital library
+     * Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+     * @param digitalItemOid The digital item oid to update. (required)
+     * @param digitalItem Digital item to update (required)
+     * @return ApiResponse&lt;ItemDigitalItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemDigitalItemResponse> updateDigitalItemWithHttpInfo(Integer digitalItemOid, ItemDigitalItem digitalItem) throws ApiException {
+        com.squareup.okhttp.Call call = updateDigitalItemValidateBeforeCall(digitalItemOid, digitalItem, null, null);
+        Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates a file within the digital library (asynchronously)
+     * Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+     * @param digitalItemOid The digital item oid to update. (required)
+     * @param digitalItem Digital item to update (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateDigitalItemAsync(Integer digitalItemOid, ItemDigitalItem digitalItem, final ApiCallback<ItemDigitalItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateDigitalItemValidateBeforeCall(digitalItemOid, digitalItem, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemDigitalItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
