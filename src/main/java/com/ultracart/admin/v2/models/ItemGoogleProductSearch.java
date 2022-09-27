@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemGoogleProductSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-22T14:56:25.411-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-27T09:24:10.452-04:00[America/Indianapolis]")
 public class ItemGoogleProductSearch {
   public static final String SERIALIZED_NAME_ADWORDS_GROUPING = "adwords_grouping";
   @SerializedName(SERIALIZED_NAME_ADWORDS_GROUPING)

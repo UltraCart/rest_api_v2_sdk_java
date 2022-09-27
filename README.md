@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-09-22T14:56:25.411-04:00[America/Indianapolis]
+  - Build date: 2022-09-27T09:24:10.452-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.66-RC</version>
+  <version>4.0.67-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.66-RC"
+     implementation "com.ultracart:rest-sdk:4.0.67-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.66-RC.jar`
+* `target/rest-sdk-4.0.67-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -244,6 +244,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getItemByMerchantItemId**](docs/ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+*ItemApi* | [**getUnassociatedDigitalItems**](docs/ItemApi.md#getUnassociatedDigitalItems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 *ItemApi* | [**insertDigitalItem**](docs/ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 *ItemApi* | [**insertItem**](docs/ItemApi.md#insertItem) | **POST** /item/items | Create an item
 *ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
@@ -287,9 +288,12 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**checkDownloadEmailSegment**](docs/StorefrontApi.md#checkDownloadEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 *StorefrontApi* | [**cloneEmailCampaign**](docs/StorefrontApi.md#cloneEmailCampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/StorefrontApi.md#cloneEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
+*StorefrontApi* | [**createAdminPanelFsDirectory**](docs/StorefrontApi.md#createAdminPanelFsDirectory) | **POST** /storefront/{id}/adminPanel/fs/dir | Create file manager directory for admin panel
+*StorefrontApi* | [**createAdminPanelFsFileUpload**](docs/StorefrontApi.md#createAdminPanelFsFileUpload) | **POST** /storefront/{id}/adminPanel/fs/file | Upload file manager file for admin panel
 *StorefrontApi* | [**createEmailSendingDomain**](docs/StorefrontApi.md#createEmailSendingDomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 *StorefrontApi* | [**createEmailSendingDomain2**](docs/StorefrontApi.md#createEmailSendingDomain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
 *StorefrontApi* | [**createTwilioAccount**](docs/StorefrontApi.md#createTwilioAccount) | **POST** /storefront/twilio/accounts | Create Twilio account
+*StorefrontApi* | [**deleteAdminPanelFsFile**](docs/StorefrontApi.md#deleteAdminPanelFsFile) | **DELETE** /storefront/{id}/adminPanel/fs/file | Delete file manager directory for admin panel
 *StorefrontApi* | [**deleteEmailCampaignFolder**](docs/StorefrontApi.md#deleteEmailCampaignFolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 *StorefrontApi* | [**deleteEmailCommseqStat**](docs/StorefrontApi.md#deleteEmailCommseqStat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 *StorefrontApi* | [**deleteEmailEmail**](docs/StorefrontApi.md#deleteEmailEmail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -307,6 +311,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**duplicateLibraryItem**](docs/StorefrontApi.md#duplicateLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 *StorefrontApi* | [**favoriteScreenRecording**](docs/StorefrontApi.md#favoriteScreenRecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 *StorefrontApi* | [**geocodeAddress**](docs/StorefrontApi.md#geocodeAddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
+*StorefrontApi* | [**getAdminPanelFsDirectory**](docs/StorefrontApi.md#getAdminPanelFsDirectory) | **GET** /storefront/{id}/adminPanel/fs/dir | Get file manager directory for admin panel
 *StorefrontApi* | [**getCountries**](docs/StorefrontApi.md#getCountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 *StorefrontApi* | [**getEditorToken**](docs/StorefrontApi.md#getEditorToken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 *StorefrontApi* | [**getEmailBaseTemplates**](docs/StorefrontApi.md#getEmailBaseTemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
@@ -858,6 +863,7 @@ Class | Method | HTTP request | Description
  - [ExperimentVariation](docs/ExperimentVariation.md)
  - [ExperimentVariationStat](docs/ExperimentVariationStat.md)
  - [ExperimentsResponse](docs/ExperimentsResponse.md)
+ - [FileManagerPage](docs/FileManagerPage.md)
  - [FulfillmentInventory](docs/FulfillmentInventory.md)
  - [FulfillmentShipment](docs/FulfillmentShipment.md)
  - [GeoPoint](docs/GeoPoint.md)
@@ -1248,6 +1254,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.67-RC | 09/27/2022 | added digital library call for unassociated content |
 | 4.0.66-RC | 09/22/2022 | digital item mgmt testing |
 | 4.0.65-RC | 09/22/2022 | testing digital file mgmt calls |
 | 4.0.64-RC | 09/19/2022 | conversations pagination |
