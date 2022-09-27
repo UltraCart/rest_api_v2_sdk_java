@@ -123,6 +123,7 @@ import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Experiment;
 import com.ultracart.admin.v2.models.ExperimentResponse;
 import com.ultracart.admin.v2.models.ExperimentsResponse;
+import com.ultracart.admin.v2.models.FileManagerPage;
 import com.ultracart.admin.v2.models.GeocodeRequest;
 import com.ultracart.admin.v2.models.GeocodeResponse;
 import com.ultracart.admin.v2.models.LibraryFilterValuesResponse;
@@ -1288,6 +1289,270 @@ public class StorefrontApi {
         return call;
     }
     /**
+     * Build call for createAdminPanelFsDirectory
+     * @param id  (required)
+     * @param name  (optional)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createAdminPanelFsDirectoryCall(Integer id, String name, Integer parentStorefrontFsDirectoryOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{id}/adminPanel/fs/dir"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (name != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("name", name));
+        if (parentStorefrontFsDirectoryOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createAdminPanelFsDirectoryValidateBeforeCall(Integer id, String name, Integer parentStorefrontFsDirectoryOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling createAdminPanelFsDirectory(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = createAdminPanelFsDirectoryCall(id, name, parentStorefrontFsDirectoryOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create file manager directory for admin panel
+     * 
+     * @param id  (required)
+     * @param name  (optional)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @return FileManagerPage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FileManagerPage createAdminPanelFsDirectory(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
+        ApiResponse<FileManagerPage> resp = createAdminPanelFsDirectoryWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
+        return resp.getData();
+    }
+
+    /**
+     * Create file manager directory for admin panel
+     * 
+     * @param id  (required)
+     * @param name  (optional)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FileManagerPage> createAdminPanelFsDirectoryWithHttpInfo(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
+        com.squareup.okhttp.Call call = createAdminPanelFsDirectoryValidateBeforeCall(id, name, parentStorefrontFsDirectoryOid, null, null);
+        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create file manager directory for admin panel (asynchronously)
+     * 
+     * @param id  (required)
+     * @param name  (optional)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createAdminPanelFsDirectoryAsync(Integer id, String name, Integer parentStorefrontFsDirectoryOid, final ApiCallback<FileManagerPage> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createAdminPanelFsDirectoryValidateBeforeCall(id, name, parentStorefrontFsDirectoryOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createAdminPanelFsFileUpload
+     * @param id  (required)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createAdminPanelFsFileUploadCall(Integer id, Integer parentStorefrontFsDirectoryOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{id}/adminPanel/fs/file"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (parentStorefrontFsDirectoryOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createAdminPanelFsFileUploadValidateBeforeCall(Integer id, Integer parentStorefrontFsDirectoryOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling createAdminPanelFsFileUpload(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = createAdminPanelFsFileUploadCall(id, parentStorefrontFsDirectoryOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Upload file manager file for admin panel
+     * 
+     * @param id  (required)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @return FileManagerPage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FileManagerPage createAdminPanelFsFileUpload(Integer id, Integer parentStorefrontFsDirectoryOid) throws ApiException {
+        ApiResponse<FileManagerPage> resp = createAdminPanelFsFileUploadWithHttpInfo(id, parentStorefrontFsDirectoryOid);
+        return resp.getData();
+    }
+
+    /**
+     * Upload file manager file for admin panel
+     * 
+     * @param id  (required)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FileManagerPage> createAdminPanelFsFileUploadWithHttpInfo(Integer id, Integer parentStorefrontFsDirectoryOid) throws ApiException {
+        com.squareup.okhttp.Call call = createAdminPanelFsFileUploadValidateBeforeCall(id, parentStorefrontFsDirectoryOid, null, null);
+        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Upload file manager file for admin panel (asynchronously)
+     * 
+     * @param id  (required)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createAdminPanelFsFileUploadAsync(Integer id, Integer parentStorefrontFsDirectoryOid, final ApiCallback<FileManagerPage> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createAdminPanelFsFileUploadValidateBeforeCall(id, parentStorefrontFsDirectoryOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for createEmailSendingDomain
      * @param domain  (required)
      * @param progressListener Progress listener
@@ -1651,6 +1916,141 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = createTwilioAccountValidateBeforeCall(twilio, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TwilioResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteAdminPanelFsFile
+     * @param id  (required)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @param storefrontFsFileOid  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteAdminPanelFsFileCall(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{id}/adminPanel/fs/file"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (parentStorefrontFsDirectoryOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid));
+        if (storefrontFsFileOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("storefront_fs_file_oid", storefrontFsFileOid));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteAdminPanelFsFileValidateBeforeCall(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteAdminPanelFsFile(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteAdminPanelFsFileCall(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete file manager directory for admin panel
+     * 
+     * @param id  (required)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @param storefrontFsFileOid  (optional)
+     * @return FileManagerPage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FileManagerPage deleteAdminPanelFsFile(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
+        ApiResponse<FileManagerPage> resp = deleteAdminPanelFsFileWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+        return resp.getData();
+    }
+
+    /**
+     * Delete file manager directory for admin panel
+     * 
+     * @param id  (required)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @param storefrontFsFileOid  (optional)
+     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FileManagerPage> deleteAdminPanelFsFileWithHttpInfo(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteAdminPanelFsFileValidateBeforeCall(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, null, null);
+        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete file manager directory for admin panel (asynchronously)
+     * 
+     * @param id  (required)
+     * @param parentStorefrontFsDirectoryOid  (optional)
+     * @param storefrontFsFileOid  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteAdminPanelFsFileAsync(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid, final ApiCallback<FileManagerPage> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteAdminPanelFsFileValidateBeforeCall(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3842,6 +4242,147 @@ public class StorefrontApi {
 
         com.squareup.okhttp.Call call = geocodeAddressValidateBeforeCall(storefrontOid, geocodeRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GeocodeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getAdminPanelFsDirectory
+     * @param id  (required)
+     * @param path  (optional)
+     * @param storefrontFsDirectoryOid  (optional)
+     * @param storefrontThemeOid  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAdminPanelFsDirectoryCall(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{id}/adminPanel/fs/dir"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (path != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
+        if (storefrontFsDirectoryOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("storefront_fs_directory_oid", storefrontFsDirectoryOid));
+        if (storefrontThemeOid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("storefront_theme_oid", storefrontThemeOid));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAdminPanelFsDirectoryValidateBeforeCall(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAdminPanelFsDirectory(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getAdminPanelFsDirectoryCall(id, path, storefrontFsDirectoryOid, storefrontThemeOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get file manager directory for admin panel
+     * 
+     * @param id  (required)
+     * @param path  (optional)
+     * @param storefrontFsDirectoryOid  (optional)
+     * @param storefrontThemeOid  (optional)
+     * @return FileManagerPage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FileManagerPage getAdminPanelFsDirectory(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
+        ApiResponse<FileManagerPage> resp = getAdminPanelFsDirectoryWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get file manager directory for admin panel
+     * 
+     * @param id  (required)
+     * @param path  (optional)
+     * @param storefrontFsDirectoryOid  (optional)
+     * @param storefrontThemeOid  (optional)
+     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FileManagerPage> getAdminPanelFsDirectoryWithHttpInfo(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
+        com.squareup.okhttp.Call call = getAdminPanelFsDirectoryValidateBeforeCall(id, path, storefrontFsDirectoryOid, storefrontThemeOid, null, null);
+        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get file manager directory for admin panel (asynchronously)
+     * 
+     * @param id  (required)
+     * @param path  (optional)
+     * @param storefrontFsDirectoryOid  (optional)
+     * @param storefrontThemeOid  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAdminPanelFsDirectoryAsync(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid, final ApiCallback<FileManagerPage> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAdminPanelFsDirectoryValidateBeforeCall(id, path, storefrontFsDirectoryOid, storefrontThemeOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

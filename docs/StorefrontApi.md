@@ -12,9 +12,12 @@ Method | HTTP request | Description
 [**checkDownloadEmailSegment**](StorefrontApi.md#checkDownloadEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 [**cloneEmailCampaign**](StorefrontApi.md#cloneEmailCampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**cloneEmailFlow**](StorefrontApi.md#cloneEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
+[**createAdminPanelFsDirectory**](StorefrontApi.md#createAdminPanelFsDirectory) | **POST** /storefront/{id}/adminPanel/fs/dir | Create file manager directory for admin panel
+[**createAdminPanelFsFileUpload**](StorefrontApi.md#createAdminPanelFsFileUpload) | **POST** /storefront/{id}/adminPanel/fs/file | Upload file manager file for admin panel
 [**createEmailSendingDomain**](StorefrontApi.md#createEmailSendingDomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 [**createEmailSendingDomain2**](StorefrontApi.md#createEmailSendingDomain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
 [**createTwilioAccount**](StorefrontApi.md#createTwilioAccount) | **POST** /storefront/twilio/accounts | Create Twilio account
+[**deleteAdminPanelFsFile**](StorefrontApi.md#deleteAdminPanelFsFile) | **DELETE** /storefront/{id}/adminPanel/fs/file | Delete file manager directory for admin panel
 [**deleteEmailCampaignFolder**](StorefrontApi.md#deleteEmailCampaignFolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 [**deleteEmailCommseqStat**](StorefrontApi.md#deleteEmailCommseqStat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 [**deleteEmailEmail**](StorefrontApi.md#deleteEmailEmail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -32,6 +35,7 @@ Method | HTTP request | Description
 [**duplicateLibraryItem**](StorefrontApi.md#duplicateLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 [**favoriteScreenRecording**](StorefrontApi.md#favoriteScreenRecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 [**geocodeAddress**](StorefrontApi.md#geocodeAddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
+[**getAdminPanelFsDirectory**](StorefrontApi.md#getAdminPanelFsDirectory) | **GET** /storefront/{id}/adminPanel/fs/dir | Get file manager directory for admin panel
 [**getCountries**](StorefrontApi.md#getCountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 [**getEditorToken**](StorefrontApi.md#getEditorToken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 [**getEmailBaseTemplates**](StorefrontApi.md#getEmailBaseTemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
@@ -576,6 +580,108 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="createAdminPanelFsDirectory"></a>
+# **createAdminPanelFsDirectory**
+> FileManagerPage createAdminPanelFsDirectory(id, name, parentStorefrontFsDirectoryOid)
+
+Create file manager directory for admin panel
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.StorefrontApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
+
+Integer id = 56; // Integer | 
+String name = "name_example"; // String | 
+Integer parentStorefrontFsDirectoryOid = 56; // Integer | 
+try {
+    FileManagerPage result = apiInstance.createAdminPanelFsDirectory(id, name, parentStorefrontFsDirectoryOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#createAdminPanelFsDirectory");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**|  |
+ **name** | **String**|  | [optional]
+ **parentStorefrontFsDirectoryOid** | **Integer**|  | [optional]
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createAdminPanelFsFileUpload"></a>
+# **createAdminPanelFsFileUpload**
+> FileManagerPage createAdminPanelFsFileUpload(id, parentStorefrontFsDirectoryOid)
+
+Upload file manager file for admin panel
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.StorefrontApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
+
+Integer id = 56; // Integer | 
+Integer parentStorefrontFsDirectoryOid = 56; // Integer | 
+try {
+    FileManagerPage result = apiInstance.createAdminPanelFsFileUpload(id, parentStorefrontFsDirectoryOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#createAdminPanelFsFileUpload");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**|  |
+ **parentStorefrontFsDirectoryOid** | **Integer**|  | [optional]
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
 <a name="createEmailSendingDomain"></a>
 # **createEmailSendingDomain**
 > EmailSendingDomainResponse createEmailSendingDomain(domain)
@@ -710,6 +816,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TwilioResponse**](TwilioResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteAdminPanelFsFile"></a>
+# **deleteAdminPanelFsFile**
+> FileManagerPage deleteAdminPanelFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid)
+
+Delete file manager directory for admin panel
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.StorefrontApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
+
+Integer id = 56; // Integer | 
+Integer parentStorefrontFsDirectoryOid = 56; // Integer | 
+Integer storefrontFsFileOid = 56; // Integer | 
+try {
+    FileManagerPage result = apiInstance.deleteAdminPanelFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#deleteAdminPanelFsFile");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**|  |
+ **parentStorefrontFsDirectoryOid** | **Integer**|  | [optional]
+ **storefrontFsFileOid** | **Integer**|  | [optional]
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
 
 ### Authorization
 
@@ -1549,6 +1707,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GeocodeResponse**](GeocodeResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getAdminPanelFsDirectory"></a>
+# **getAdminPanelFsDirectory**
+> FileManagerPage getAdminPanelFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid)
+
+Get file manager directory for admin panel
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.StorefrontApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
+
+Integer id = 56; // Integer | 
+String path = "path_example"; // String | 
+Integer storefrontFsDirectoryOid = 56; // Integer | 
+Integer storefrontThemeOid = 56; // Integer | 
+try {
+    FileManagerPage result = apiInstance.getAdminPanelFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#getAdminPanelFsDirectory");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**|  |
+ **path** | **String**|  | [optional]
+ **storefrontFsDirectoryOid** | **Integer**|  | [optional]
+ **storefrontThemeOid** | **Integer**|  | [optional]
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
 
 ### Authorization
 

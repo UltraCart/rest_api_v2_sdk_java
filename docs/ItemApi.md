@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**getItemByMerchantItemId**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 [**getPricingTiers**](ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**getUnassociatedDigitalItems**](ItemApi.md#getUnassociatedDigitalItems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 [**insertDigitalItem**](ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**updateDigitalItem**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
@@ -440,6 +441,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PricingTiersResponse**](PricingTiersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getUnassociatedDigitalItems"></a>
+# **getUnassociatedDigitalItems**
+> ItemDigitalItemsResponse getUnassociatedDigitalItems(limit, offset, since, sort, expand, placeholders)
+
+Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+
+Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ItemApi apiInstance = new ItemApi(apiKey);
+
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 2000)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String since = "since_example"; // String | Fetch items that have been created/modified since this date/time.
+String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+try {
+    ItemDigitalItemsResponse result = apiInstance.getUnassociatedDigitalItems(limit, offset, since, sort, expand, placeholders);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#getUnassociatedDigitalItems");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Integer**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
+ **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **String**| Fetch items that have been created/modified since this date/time. | [optional]
+ **sort** | **String**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**ItemDigitalItemsResponse**](ItemDigitalItemsResponse.md)
 
 ### Authorization
 
