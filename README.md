@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-09-29T14:44:41.257-04:00
+  - Build date: 2022-09-29T15:13:26.071-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.52</version>
+  <version>3.10.53</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.52"
+compile "com.ultracart:rest-sdk:3.10.53"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.52.jar`
+* `target/rest-sdk-3.10.53.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1244,6 +1244,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.53 | 09/29/2022 | page_paths search category for search2 method |
 | 3.10.52 | 09/29/2022 | storefront file mgr calls tweaks |
 | 3.10.51 | 09/29/2022 | storefront methods for file manager ui |
 | 3.10.50 | 09/27/2022 | added digital library call for unassociated content |

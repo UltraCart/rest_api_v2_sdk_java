@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CouponFreeShippingWithItemsPurchase
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T14:44:41.257-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T15:13:26.071-04:00")
 
 
 
