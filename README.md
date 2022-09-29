@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-09-29T14:56:15.183-04:00[America/Indianapolis]
+  - Build date: 2022-09-29T15:24:19.342-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.69-RC</version>
+  <version>4.0.70-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.69-RC"
+     implementation "com.ultracart:rest-sdk:4.0.70-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.69-RC.jar`
+* `target/rest-sdk-4.0.70-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1261,6 +1261,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.70-RC | 09/29/2022 | page_paths search category for search2 method |
 | 4.0.69-RC | 09/29/2022 | storefront file mgr calls tweaks |
 | 4.0.68-RC | 09/29/2022 | storefront methods for file manager ui |
 | 4.0.67-RC | 09/27/2022 | added digital library call for unassociated content |
