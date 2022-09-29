@@ -123,7 +123,7 @@ import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Experiment;
 import com.ultracart.admin.v2.models.ExperimentResponse;
 import com.ultracart.admin.v2.models.ExperimentsResponse;
-import com.ultracart.admin.v2.models.FileManagerPage;
+import com.ultracart.admin.v2.models.FileManagerPageResponse;
 import com.ultracart.admin.v2.models.FileManagerUploadRequest;
 import com.ultracart.admin.v2.models.FileManagerUploadUrlResponse;
 import com.ultracart.admin.v2.models.GeocodeRequest;
@@ -1611,11 +1611,11 @@ public class StorefrontApi {
      * @param id  (required)
      * @param name  (optional)
      * @param parentStorefrontFsDirectoryOid  (optional)
-     * @return FileManagerPage
+     * @return FileManagerPageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileManagerPage createFsDirectory(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
-        ApiResponse<FileManagerPage> resp = createFsDirectoryWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
+    public FileManagerPageResponse createFsDirectory(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
+        ApiResponse<FileManagerPageResponse> resp = createFsDirectoryWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
         return resp.getData();
     }
 
@@ -1625,12 +1625,12 @@ public class StorefrontApi {
      * @param id  (required)
      * @param name  (optional)
      * @param parentStorefrontFsDirectoryOid  (optional)
-     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @return ApiResponse&lt;FileManagerPageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileManagerPage> createFsDirectoryWithHttpInfo(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
+    public ApiResponse<FileManagerPageResponse> createFsDirectoryWithHttpInfo(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
         com.squareup.okhttp.Call call = createFsDirectoryValidateBeforeCall(id, name, parentStorefrontFsDirectoryOid, null, null);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1644,7 +1644,7 @@ public class StorefrontApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createFsDirectoryAsync(Integer id, String name, Integer parentStorefrontFsDirectoryOid, final ApiCallback<FileManagerPage> callback) throws ApiException {
+    public com.squareup.okhttp.Call createFsDirectoryAsync(Integer id, String name, Integer parentStorefrontFsDirectoryOid, final ApiCallback<FileManagerPageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1666,7 +1666,7 @@ public class StorefrontApi {
         }
 
         com.squareup.okhttp.Call call = createFsDirectoryValidateBeforeCall(id, name, parentStorefrontFsDirectoryOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3057,11 +3057,11 @@ public class StorefrontApi {
      * @param id  (required)
      * @param parentStorefrontFsDirectoryOid  (optional)
      * @param storefrontFsFileOid  (optional)
-     * @return FileManagerPage
+     * @return FileManagerPageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileManagerPage deleteFsFile(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
-        ApiResponse<FileManagerPage> resp = deleteFsFileWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+    public FileManagerPageResponse deleteFsFile(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
+        ApiResponse<FileManagerPageResponse> resp = deleteFsFileWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
         return resp.getData();
     }
 
@@ -3071,12 +3071,12 @@ public class StorefrontApi {
      * @param id  (required)
      * @param parentStorefrontFsDirectoryOid  (optional)
      * @param storefrontFsFileOid  (optional)
-     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @return ApiResponse&lt;FileManagerPageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileManagerPage> deleteFsFileWithHttpInfo(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
+    public ApiResponse<FileManagerPageResponse> deleteFsFileWithHttpInfo(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
         com.squareup.okhttp.Call call = deleteFsFileValidateBeforeCall(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, null, null);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3090,7 +3090,7 @@ public class StorefrontApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFsFileAsync(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid, final ApiCallback<FileManagerPage> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFsFileAsync(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid, final ApiCallback<FileManagerPageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3112,7 +3112,7 @@ public class StorefrontApi {
         }
 
         com.squareup.okhttp.Call call = deleteFsFileValidateBeforeCall(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -11818,11 +11818,11 @@ public class StorefrontApi {
      * @param path  (optional)
      * @param storefrontFsDirectoryOid  (optional)
      * @param storefrontThemeOid  (optional)
-     * @return FileManagerPage
+     * @return FileManagerPageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileManagerPage getFsDirectory(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
-        ApiResponse<FileManagerPage> resp = getFsDirectoryWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+    public FileManagerPageResponse getFsDirectory(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
+        ApiResponse<FileManagerPageResponse> resp = getFsDirectoryWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
         return resp.getData();
     }
 
@@ -11833,12 +11833,12 @@ public class StorefrontApi {
      * @param path  (optional)
      * @param storefrontFsDirectoryOid  (optional)
      * @param storefrontThemeOid  (optional)
-     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @return ApiResponse&lt;FileManagerPageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileManagerPage> getFsDirectoryWithHttpInfo(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
+    public ApiResponse<FileManagerPageResponse> getFsDirectoryWithHttpInfo(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
         com.squareup.okhttp.Call call = getFsDirectoryValidateBeforeCall(id, path, storefrontFsDirectoryOid, storefrontThemeOid, null, null);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -11853,7 +11853,7 @@ public class StorefrontApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFsDirectoryAsync(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid, final ApiCallback<FileManagerPage> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFsDirectoryAsync(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid, final ApiCallback<FileManagerPageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11875,7 +11875,7 @@ public class StorefrontApi {
         }
 
         com.squareup.okhttp.Call call = getFsDirectoryValidateBeforeCall(id, path, storefrontFsDirectoryOid, storefrontThemeOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

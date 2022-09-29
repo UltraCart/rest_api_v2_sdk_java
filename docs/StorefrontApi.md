@@ -679,7 +679,7 @@ Name | Type | Description  | Notes
 
 <a name="createFsDirectory"></a>
 # **createFsDirectory**
-> FileManagerPage createFsDirectory(id, name, parentStorefrontFsDirectoryOid)
+> FileManagerPageResponse createFsDirectory(id, name, parentStorefrontFsDirectoryOid)
 
 Create file manager directory
 
@@ -700,7 +700,7 @@ Integer id = 56; // Integer |
 String name = "name_example"; // String | 
 Integer parentStorefrontFsDirectoryOid = 56; // Integer | 
 try {
-    FileManagerPage result = apiInstance.createFsDirectory(id, name, parentStorefrontFsDirectoryOid);
+    FileManagerPageResponse result = apiInstance.createFsDirectory(id, name, parentStorefrontFsDirectoryOid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorefrontApi#createFsDirectory");
@@ -718,7 +718,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -1227,7 +1227,7 @@ null (empty response body)
 
 <a name="deleteFsFile"></a>
 # **deleteFsFile**
-> FileManagerPage deleteFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid)
+> FileManagerPageResponse deleteFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid)
 
 Delete file manager directory
 
@@ -1248,7 +1248,7 @@ Integer id = 56; // Integer |
 Integer parentStorefrontFsDirectoryOid = 56; // Integer | 
 Integer storefrontFsFileOid = 56; // Integer | 
 try {
-    FileManagerPage result = apiInstance.deleteFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+    FileManagerPageResponse result = apiInstance.deleteFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorefrontApi#deleteFsFile");
@@ -1266,7 +1266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -4562,7 +4562,7 @@ Name | Type | Description  | Notes
 
 <a name="getFsDirectory"></a>
 # **getFsDirectory**
-> FileManagerPage getFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid)
+> FileManagerPageResponse getFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid)
 
 Get file manager directory
 
@@ -4584,7 +4584,7 @@ String path = "path_example"; // String |
 Integer storefrontFsDirectoryOid = 56; // Integer | 
 Integer storefrontThemeOid = 56; // Integer | 
 try {
-    FileManagerPage result = apiInstance.getFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+    FileManagerPageResponse result = apiInstance.getFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorefrontApi#getFsDirectory");
@@ -4603,7 +4603,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
