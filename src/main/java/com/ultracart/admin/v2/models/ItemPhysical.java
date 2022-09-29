@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemPhysical
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T11:08:59.700-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T14:56:15.183-04:00[America/Indianapolis]")
 public class ItemPhysical {
   public static final String SERIALIZED_NAME_HEIGHT = "height";
   @SerializedName(SERIALIZED_NAME_HEIGHT)

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * RulerValidationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T11:08:59.700-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T14:56:15.183-04:00[America/Indianapolis]")
 public class RulerValidationRequest {
   public static final String SERIALIZED_NAME_RULER = "ruler";
   @SerializedName(SERIALIZED_NAME_RULER)

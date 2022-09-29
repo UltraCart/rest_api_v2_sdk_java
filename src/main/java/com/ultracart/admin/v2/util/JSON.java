@@ -458,6 +458,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.FileManagerDirectory.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.FileManagerFile.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.FileManagerPage.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.FileManagerPageResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.FileManagerUploadRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.FileManagerUploadUrlResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.FulfillmentInventory.CustomTypeAdapterFactory())

@@ -123,7 +123,7 @@ import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Experiment;
 import com.ultracart.admin.v2.models.ExperimentResponse;
 import com.ultracart.admin.v2.models.ExperimentsResponse;
-import com.ultracart.admin.v2.models.FileManagerPage;
+import com.ultracart.admin.v2.models.FileManagerPageResponse;
 import com.ultracart.admin.v2.models.FileManagerUploadRequest;
 import com.ultracart.admin.v2.models.FileManagerUploadUrlResponse;
 import com.ultracart.admin.v2.models.GeocodeRequest;
@@ -1892,7 +1892,7 @@ public class StorefrontApi {
      * @param id  (required)
      * @param name  (optional)
      * @param parentStorefrontFsDirectoryOid  (optional)
-     * @return FileManagerPage
+     * @return FileManagerPageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1905,8 +1905,8 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public FileManagerPage createFsDirectory(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
-        ApiResponse<FileManagerPage> localVarResp = createFsDirectoryWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
+    public FileManagerPageResponse createFsDirectory(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
+        ApiResponse<FileManagerPageResponse> localVarResp = createFsDirectoryWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
         return localVarResp.getData();
     }
 
@@ -1916,7 +1916,7 @@ public class StorefrontApi {
      * @param id  (required)
      * @param name  (optional)
      * @param parentStorefrontFsDirectoryOid  (optional)
-     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @return ApiResponse&lt;FileManagerPageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1929,9 +1929,9 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<FileManagerPage> createFsDirectoryWithHttpInfo(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
+    public ApiResponse<FileManagerPageResponse> createFsDirectoryWithHttpInfo(Integer id, String name, Integer parentStorefrontFsDirectoryOid) throws ApiException {
         okhttp3.Call localVarCall = createFsDirectoryValidateBeforeCall(id, name, parentStorefrontFsDirectoryOid, null);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1955,10 +1955,10 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call createFsDirectoryAsync(Integer id, String name, Integer parentStorefrontFsDirectoryOid, final ApiCallback<FileManagerPage> _callback) throws ApiException {
+    public okhttp3.Call createFsDirectoryAsync(Integer id, String name, Integer parentStorefrontFsDirectoryOid, final ApiCallback<FileManagerPageResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createFsDirectoryValidateBeforeCall(id, name, parentStorefrontFsDirectoryOid, _callback);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3598,7 +3598,7 @@ public class StorefrontApi {
      * @param id  (required)
      * @param parentStorefrontFsDirectoryOid  (optional)
      * @param storefrontFsFileOid  (optional)
-     * @return FileManagerPage
+     * @return FileManagerPageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3611,8 +3611,8 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public FileManagerPage deleteFsFile(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
-        ApiResponse<FileManagerPage> localVarResp = deleteFsFileWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+    public FileManagerPageResponse deleteFsFile(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
+        ApiResponse<FileManagerPageResponse> localVarResp = deleteFsFileWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
         return localVarResp.getData();
     }
 
@@ -3622,7 +3622,7 @@ public class StorefrontApi {
      * @param id  (required)
      * @param parentStorefrontFsDirectoryOid  (optional)
      * @param storefrontFsFileOid  (optional)
-     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @return ApiResponse&lt;FileManagerPageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3635,9 +3635,9 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<FileManagerPage> deleteFsFileWithHttpInfo(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
+    public ApiResponse<FileManagerPageResponse> deleteFsFileWithHttpInfo(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid) throws ApiException {
         okhttp3.Call localVarCall = deleteFsFileValidateBeforeCall(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, null);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3661,10 +3661,10 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFsFileAsync(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid, final ApiCallback<FileManagerPage> _callback) throws ApiException {
+    public okhttp3.Call deleteFsFileAsync(Integer id, Integer parentStorefrontFsDirectoryOid, Integer storefrontFsFileOid, final ApiCallback<FileManagerPageResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteFsFileValidateBeforeCall(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, _callback);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -13977,7 +13977,7 @@ public class StorefrontApi {
      * @param path  (optional)
      * @param storefrontFsDirectoryOid  (optional)
      * @param storefrontThemeOid  (optional)
-     * @return FileManagerPage
+     * @return FileManagerPageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -13990,8 +13990,8 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public FileManagerPage getFsDirectory(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
-        ApiResponse<FileManagerPage> localVarResp = getFsDirectoryWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+    public FileManagerPageResponse getFsDirectory(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
+        ApiResponse<FileManagerPageResponse> localVarResp = getFsDirectoryWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
         return localVarResp.getData();
     }
 
@@ -14002,7 +14002,7 @@ public class StorefrontApi {
      * @param path  (optional)
      * @param storefrontFsDirectoryOid  (optional)
      * @param storefrontThemeOid  (optional)
-     * @return ApiResponse&lt;FileManagerPage&gt;
+     * @return ApiResponse&lt;FileManagerPageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -14015,9 +14015,9 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<FileManagerPage> getFsDirectoryWithHttpInfo(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
+    public ApiResponse<FileManagerPageResponse> getFsDirectoryWithHttpInfo(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid) throws ApiException {
         okhttp3.Call localVarCall = getFsDirectoryValidateBeforeCall(id, path, storefrontFsDirectoryOid, storefrontThemeOid, null);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -14042,10 +14042,10 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getFsDirectoryAsync(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid, final ApiCallback<FileManagerPage> _callback) throws ApiException {
+    public okhttp3.Call getFsDirectoryAsync(Integer id, String path, Integer storefrontFsDirectoryOid, Integer storefrontThemeOid, final ApiCallback<FileManagerPageResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFsDirectoryValidateBeforeCall(id, path, storefrontFsDirectoryOid, storefrontThemeOid, _callback);
-        Type localVarReturnType = new TypeToken<FileManagerPage>(){}.getType();
+        Type localVarReturnType = new TypeToken<FileManagerPageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

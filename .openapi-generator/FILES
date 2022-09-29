@@ -377,6 +377,7 @@ docs/ExperimentsResponse.md
 docs/FileManagerDirectory.md
 docs/FileManagerFile.md
 docs/FileManagerPage.md
+docs/FileManagerPageResponse.md
 docs/FileManagerUploadRequest.md
 docs/FileManagerUploadUrlResponse.md
 docs/FulfillmentApi.md
@@ -1095,6 +1096,7 @@ src/main/java/com/ultracart/admin/v2/models/ExperimentsResponse.java
 src/main/java/com/ultracart/admin/v2/models/FileManagerDirectory.java
 src/main/java/com/ultracart/admin/v2/models/FileManagerFile.java
 src/main/java/com/ultracart/admin/v2/models/FileManagerPage.java
+src/main/java/com/ultracart/admin/v2/models/FileManagerPageResponse.java
 src/main/java/com/ultracart/admin/v2/models/FileManagerUploadRequest.java
 src/main/java/com/ultracart/admin/v2/models/FileManagerUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/FulfillmentInventory.java

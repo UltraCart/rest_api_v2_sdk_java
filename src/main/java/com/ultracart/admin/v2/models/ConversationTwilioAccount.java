@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationTwilioAccount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T11:08:59.700-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T14:56:15.183-04:00[America/Indianapolis]")
 public class ConversationTwilioAccount {
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
