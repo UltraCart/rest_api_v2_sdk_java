@@ -20,9 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.FileManagerDirectory;
+import com.ultracart.admin.v2.models.FileManagerFile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,11 +51,19 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FileManagerPage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-27T09:24:10.452-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T11:08:59.700-04:00[America/Indianapolis]")
 public class FileManagerPage {
   public static final String SERIALIZED_NAME_CURRENT_STOREFRONT_FS_DIRECTORY_OID = "current_storefront_fs_directory_oid";
   @SerializedName(SERIALIZED_NAME_CURRENT_STOREFRONT_FS_DIRECTORY_OID)
   private Integer currentStorefrontFsDirectoryOid;
+
+  public static final String SERIALIZED_NAME_DIRECTORIES = "directories";
+  @SerializedName(SERIALIZED_NAME_DIRECTORIES)
+  private List<FileManagerDirectory> directories = null;
+
+  public static final String SERIALIZED_NAME_FILES = "files";
+  @SerializedName(SERIALIZED_NAME_FILES)
+  private List<FileManagerFile> files = null;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -64,6 +76,10 @@ public class FileManagerPage {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_PATH_LIST = "path_list";
+  @SerializedName(SERIALIZED_NAME_PATH_LIST)
+  private List<FileManagerDirectory> pathList = null;
 
   public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefront_oid";
   @SerializedName(SERIALIZED_NAME_STOREFRONT_OID)
@@ -92,6 +108,68 @@ public class FileManagerPage {
 
   public void setCurrentStorefrontFsDirectoryOid(Integer currentStorefrontFsDirectoryOid) {
     this.currentStorefrontFsDirectoryOid = currentStorefrontFsDirectoryOid;
+  }
+
+
+  public FileManagerPage directories(List<FileManagerDirectory> directories) {
+    
+    this.directories = directories;
+    return this;
+  }
+
+  public FileManagerPage addDirectoriesItem(FileManagerDirectory directoriesItem) {
+    if (this.directories == null) {
+      this.directories = new ArrayList<>();
+    }
+    this.directories.add(directoriesItem);
+    return this;
+  }
+
+   /**
+   * Get directories
+   * @return directories
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<FileManagerDirectory> getDirectories() {
+    return directories;
+  }
+
+
+  public void setDirectories(List<FileManagerDirectory> directories) {
+    this.directories = directories;
+  }
+
+
+  public FileManagerPage files(List<FileManagerFile> files) {
+    
+    this.files = files;
+    return this;
+  }
+
+  public FileManagerPage addFilesItem(FileManagerFile filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
+    }
+    this.files.add(filesItem);
+    return this;
+  }
+
+   /**
+   * Get files
+   * @return files
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<FileManagerFile> getFiles() {
+    return files;
+  }
+
+
+  public void setFiles(List<FileManagerFile> files) {
+    this.files = files;
   }
 
 
@@ -164,6 +242,37 @@ public class FileManagerPage {
   }
 
 
+  public FileManagerPage pathList(List<FileManagerDirectory> pathList) {
+    
+    this.pathList = pathList;
+    return this;
+  }
+
+  public FileManagerPage addPathListItem(FileManagerDirectory pathListItem) {
+    if (this.pathList == null) {
+      this.pathList = new ArrayList<>();
+    }
+    this.pathList.add(pathListItem);
+    return this;
+  }
+
+   /**
+   * Get pathList
+   * @return pathList
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<FileManagerDirectory> getPathList() {
+    return pathList;
+  }
+
+
+  public void setPathList(List<FileManagerDirectory> pathList) {
+    this.pathList = pathList;
+  }
+
+
   public FileManagerPage storefrontOid(Integer storefrontOid) {
     
     this.storefrontOid = storefrontOid;
@@ -198,15 +307,18 @@ public class FileManagerPage {
     }
     FileManagerPage fileManagerPage = (FileManagerPage) o;
     return Objects.equals(this.currentStorefrontFsDirectoryOid, fileManagerPage.currentStorefrontFsDirectoryOid) &&
+        Objects.equals(this.directories, fileManagerPage.directories) &&
+        Objects.equals(this.files, fileManagerPage.files) &&
         Objects.equals(this.hostname, fileManagerPage.hostname) &&
         Objects.equals(this.parentStorefrontFsDirectoryOid, fileManagerPage.parentStorefrontFsDirectoryOid) &&
         Objects.equals(this.path, fileManagerPage.path) &&
+        Objects.equals(this.pathList, fileManagerPage.pathList) &&
         Objects.equals(this.storefrontOid, fileManagerPage.storefrontOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentStorefrontFsDirectoryOid, hostname, parentStorefrontFsDirectoryOid, path, storefrontOid);
+    return Objects.hash(currentStorefrontFsDirectoryOid, directories, files, hostname, parentStorefrontFsDirectoryOid, path, pathList, storefrontOid);
   }
 
   @Override
@@ -214,9 +326,12 @@ public class FileManagerPage {
     StringBuilder sb = new StringBuilder();
     sb.append("class FileManagerPage {\n");
     sb.append("    currentStorefrontFsDirectoryOid: ").append(toIndentedString(currentStorefrontFsDirectoryOid)).append("\n");
+    sb.append("    directories: ").append(toIndentedString(directories)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    parentStorefrontFsDirectoryOid: ").append(toIndentedString(parentStorefrontFsDirectoryOid)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    pathList: ").append(toIndentedString(pathList)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -241,9 +356,12 @@ public class FileManagerPage {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("current_storefront_fs_directory_oid");
+    openapiFields.add("directories");
+    openapiFields.add("files");
     openapiFields.add("hostname");
     openapiFields.add("parent_storefront_fs_directory_oid");
     openapiFields.add("path");
+    openapiFields.add("path_list");
     openapiFields.add("storefront_oid");
 
     // a set of required properties/fields (JSON key names)
@@ -272,11 +390,47 @@ public class FileManagerPage {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FileManagerPage` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      JsonArray jsonArraydirectories = jsonObj.getAsJsonArray("directories");
+      if (jsonArraydirectories != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("directories").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `directories` to be an array in the JSON string but got `%s`", jsonObj.get("directories").toString()));
+        }
+
+        // validate the optional field `directories` (array)
+        for (int i = 0; i < jsonArraydirectories.size(); i++) {
+          FileManagerDirectory.validateJsonObject(jsonArraydirectories.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArrayfiles = jsonObj.getAsJsonArray("files");
+      if (jsonArrayfiles != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("files").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `files` to be an array in the JSON string but got `%s`", jsonObj.get("files").toString()));
+        }
+
+        // validate the optional field `files` (array)
+        for (int i = 0; i < jsonArrayfiles.size(); i++) {
+          FileManagerFile.validateJsonObject(jsonArrayfiles.get(i).getAsJsonObject());
+        };
+      }
       if (jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
       }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+      JsonArray jsonArraypathList = jsonObj.getAsJsonArray("path_list");
+      if (jsonArraypathList != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("path_list").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `path_list` to be an array in the JSON string but got `%s`", jsonObj.get("path_list").toString()));
+        }
+
+        // validate the optional field `path_list` (array)
+        for (int i = 0; i < jsonArraypathList.size(); i++) {
+          FileManagerDirectory.validateJsonObject(jsonArraypathList.get(i).getAsJsonObject());
+        };
       }
   }
 

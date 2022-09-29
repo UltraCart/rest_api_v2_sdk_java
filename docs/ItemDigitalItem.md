@@ -11,6 +11,7 @@
 |**creationDts** | **String** | File creation date |  [optional] |
 |**description** | **String** | Description of the digital item |  [optional] |
 |**digitalItemOid** | **Integer** | The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect. |  [optional] |
+|**externalId** | **String** | External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs. |  [optional] |
 |**fileSize** | **Long** | File size |  [optional] |
 |**importFromUrl** | **String** | This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation. |  [optional] |
 |**mimeType** | **String** | Mime type associated with the file |  [optional] |

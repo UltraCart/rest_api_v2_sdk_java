@@ -374,7 +374,11 @@ docs/ExperimentResponse.md
 docs/ExperimentVariation.md
 docs/ExperimentVariationStat.md
 docs/ExperimentsResponse.md
+docs/FileManagerDirectory.md
+docs/FileManagerFile.md
 docs/FileManagerPage.md
+docs/FileManagerUploadRequest.md
+docs/FileManagerUploadUrlResponse.md
 docs/FulfillmentApi.md
 docs/FulfillmentInventory.md
 docs/FulfillmentShipment.md
@@ -1088,7 +1092,11 @@ src/main/java/com/ultracart/admin/v2/models/ExperimentResponse.java
 src/main/java/com/ultracart/admin/v2/models/ExperimentVariation.java
 src/main/java/com/ultracart/admin/v2/models/ExperimentVariationStat.java
 src/main/java/com/ultracart/admin/v2/models/ExperimentsResponse.java
+src/main/java/com/ultracart/admin/v2/models/FileManagerDirectory.java
+src/main/java/com/ultracart/admin/v2/models/FileManagerFile.java
 src/main/java/com/ultracart/admin/v2/models/FileManagerPage.java
+src/main/java/com/ultracart/admin/v2/models/FileManagerUploadRequest.java
+src/main/java/com/ultracart/admin/v2/models/FileManagerUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/FulfillmentInventory.java
 src/main/java/com/ultracart/admin/v2/models/FulfillmentShipment.java
 src/main/java/com/ultracart/admin/v2/models/GeoPoint.java

@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemDigitalItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-27T09:24:10.452-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T11:08:59.700-04:00[America/Indianapolis]")
 public class ItemDigitalItem {
   public static final String SERIALIZED_NAME_CLICK_WRAP_AGREEMENT = "click_wrap_agreement";
   @SerializedName(SERIALIZED_NAME_CLICK_WRAP_AGREEMENT)
@@ -65,6 +65,10 @@ public class ItemDigitalItem {
   public static final String SERIALIZED_NAME_DIGITAL_ITEM_OID = "digital_item_oid";
   @SerializedName(SERIALIZED_NAME_DIGITAL_ITEM_OID)
   private Integer digitalItemOid;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+  private String externalId;
 
   public static final String SERIALIZED_NAME_FILE_SIZE = "file_size";
   @SerializedName(SERIALIZED_NAME_FILE_SIZE)
@@ -178,6 +182,29 @@ public class ItemDigitalItem {
 
   public void setDigitalItemOid(Integer digitalItemOid) {
     this.digitalItemOid = digitalItemOid;
+  }
+
+
+  public ItemDigitalItem externalId(String externalId) {
+    
+    this.externalId = externalId;
+    return this;
+  }
+
+   /**
+   * External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.
+   * @return externalId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.")
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
   }
 
 
@@ -310,6 +337,7 @@ public class ItemDigitalItem {
         Objects.equals(this.creationDts, itemDigitalItem.creationDts) &&
         Objects.equals(this.description, itemDigitalItem.description) &&
         Objects.equals(this.digitalItemOid, itemDigitalItem.digitalItemOid) &&
+        Objects.equals(this.externalId, itemDigitalItem.externalId) &&
         Objects.equals(this.fileSize, itemDigitalItem.fileSize) &&
         Objects.equals(this.importFromUrl, itemDigitalItem.importFromUrl) &&
         Objects.equals(this.mimeType, itemDigitalItem.mimeType) &&
@@ -319,7 +347,7 @@ public class ItemDigitalItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickWrapAgreement, creationDts, description, digitalItemOid, fileSize, importFromUrl, mimeType, originalFilename, pdfMeta);
+    return Objects.hash(clickWrapAgreement, creationDts, description, digitalItemOid, externalId, fileSize, importFromUrl, mimeType, originalFilename, pdfMeta);
   }
 
   @Override
@@ -330,6 +358,7 @@ public class ItemDigitalItem {
     sb.append("    creationDts: ").append(toIndentedString(creationDts)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    digitalItemOid: ").append(toIndentedString(digitalItemOid)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
     sb.append("    importFromUrl: ").append(toIndentedString(importFromUrl)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
@@ -361,6 +390,7 @@ public class ItemDigitalItem {
     openapiFields.add("creation_dts");
     openapiFields.add("description");
     openapiFields.add("digital_item_oid");
+    openapiFields.add("external_id");
     openapiFields.add("file_size");
     openapiFields.add("import_from_url");
     openapiFields.add("mime_type");
@@ -401,6 +431,9 @@ public class ItemDigitalItem {
       }
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if (jsonObj.get("external_id") != null && !jsonObj.get("external_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_id").toString()));
       }
       if (jsonObj.get("import_from_url") != null && !jsonObj.get("import_from_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `import_from_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_from_url").toString()));
