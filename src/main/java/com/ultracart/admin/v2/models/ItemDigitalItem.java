@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ItemDigitalItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-27T09:12:23.632-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T10:55:33.118-04:00")
 
 
 
@@ -44,6 +44,9 @@ public class ItemDigitalItem {
 
   @SerializedName("digital_item_oid")
   private Integer digitalItemOid = null;
+
+  @SerializedName("external_id")
+  private String externalId = null;
 
   @SerializedName("file_size")
   private Long fileSize = null;
@@ -130,6 +133,24 @@ public class ItemDigitalItem {
 
   public void setDigitalItemOid(Integer digitalItemOid) {
     this.digitalItemOid = digitalItemOid;
+  }
+
+  public ItemDigitalItem externalId(String externalId) {
+    this.externalId = externalId;
+    return this;
+  }
+
+   /**
+   * External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.
+   * @return externalId
+  **/
+  @ApiModelProperty(value = "External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.")
+  public String getExternalId() {
+    return externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
   }
 
   public ItemDigitalItem fileSize(Long fileSize) {
@@ -236,6 +257,7 @@ public class ItemDigitalItem {
         Objects.equals(this.creationDts, itemDigitalItem.creationDts) &&
         Objects.equals(this.description, itemDigitalItem.description) &&
         Objects.equals(this.digitalItemOid, itemDigitalItem.digitalItemOid) &&
+        Objects.equals(this.externalId, itemDigitalItem.externalId) &&
         Objects.equals(this.fileSize, itemDigitalItem.fileSize) &&
         Objects.equals(this.importFromUrl, itemDigitalItem.importFromUrl) &&
         Objects.equals(this.mimeType, itemDigitalItem.mimeType) &&
@@ -245,7 +267,7 @@ public class ItemDigitalItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickWrapAgreement, creationDts, description, digitalItemOid, fileSize, importFromUrl, mimeType, originalFilename, pdfMeta);
+    return Objects.hash(clickWrapAgreement, creationDts, description, digitalItemOid, externalId, fileSize, importFromUrl, mimeType, originalFilename, pdfMeta);
   }
 
 
@@ -258,6 +280,7 @@ public class ItemDigitalItem {
     sb.append("    creationDts: ").append(toIndentedString(creationDts)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    digitalItemOid: ").append(toIndentedString(digitalItemOid)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
     sb.append("    importFromUrl: ").append(toIndentedString(importFromUrl)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");

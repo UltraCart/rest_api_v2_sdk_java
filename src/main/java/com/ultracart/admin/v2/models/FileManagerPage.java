@@ -20,20 +20,30 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.FileManagerDirectory;
+import com.ultracart.admin.v2.models.FileManagerFile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * FileManagerPage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-27T09:12:23.632-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T10:55:33.118-04:00")
 
 
 
 public class FileManagerPage {
   @SerializedName("current_storefront_fs_directory_oid")
   private Integer currentStorefrontFsDirectoryOid = null;
+
+  @SerializedName("directories")
+  private List<FileManagerDirectory> directories = null;
+
+  @SerializedName("files")
+  private List<FileManagerFile> files = null;
 
   @SerializedName("hostname")
   private String hostname = null;
@@ -43,6 +53,9 @@ public class FileManagerPage {
 
   @SerializedName("path")
   private String path = null;
+
+  @SerializedName("path_list")
+  private List<FileManagerDirectory> pathList = null;
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
@@ -63,6 +76,58 @@ public class FileManagerPage {
 
   public void setCurrentStorefrontFsDirectoryOid(Integer currentStorefrontFsDirectoryOid) {
     this.currentStorefrontFsDirectoryOid = currentStorefrontFsDirectoryOid;
+  }
+
+  public FileManagerPage directories(List<FileManagerDirectory> directories) {
+    this.directories = directories;
+    return this;
+  }
+
+  public FileManagerPage addDirectoriesItem(FileManagerDirectory directoriesItem) {
+    if (this.directories == null) {
+      this.directories = new ArrayList<FileManagerDirectory>();
+    }
+    this.directories.add(directoriesItem);
+    return this;
+  }
+
+   /**
+   * Get directories
+   * @return directories
+  **/
+  @ApiModelProperty(value = "")
+  public List<FileManagerDirectory> getDirectories() {
+    return directories;
+  }
+
+  public void setDirectories(List<FileManagerDirectory> directories) {
+    this.directories = directories;
+  }
+
+  public FileManagerPage files(List<FileManagerFile> files) {
+    this.files = files;
+    return this;
+  }
+
+  public FileManagerPage addFilesItem(FileManagerFile filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<FileManagerFile>();
+    }
+    this.files.add(filesItem);
+    return this;
+  }
+
+   /**
+   * Get files
+   * @return files
+  **/
+  @ApiModelProperty(value = "")
+  public List<FileManagerFile> getFiles() {
+    return files;
+  }
+
+  public void setFiles(List<FileManagerFile> files) {
+    this.files = files;
   }
 
   public FileManagerPage hostname(String hostname) {
@@ -119,6 +184,32 @@ public class FileManagerPage {
     this.path = path;
   }
 
+  public FileManagerPage pathList(List<FileManagerDirectory> pathList) {
+    this.pathList = pathList;
+    return this;
+  }
+
+  public FileManagerPage addPathListItem(FileManagerDirectory pathListItem) {
+    if (this.pathList == null) {
+      this.pathList = new ArrayList<FileManagerDirectory>();
+    }
+    this.pathList.add(pathListItem);
+    return this;
+  }
+
+   /**
+   * Get pathList
+   * @return pathList
+  **/
+  @ApiModelProperty(value = "")
+  public List<FileManagerDirectory> getPathList() {
+    return pathList;
+  }
+
+  public void setPathList(List<FileManagerDirectory> pathList) {
+    this.pathList = pathList;
+  }
+
   public FileManagerPage storefrontOid(Integer storefrontOid) {
     this.storefrontOid = storefrontOid;
     return this;
@@ -148,15 +239,18 @@ public class FileManagerPage {
     }
     FileManagerPage fileManagerPage = (FileManagerPage) o;
     return Objects.equals(this.currentStorefrontFsDirectoryOid, fileManagerPage.currentStorefrontFsDirectoryOid) &&
+        Objects.equals(this.directories, fileManagerPage.directories) &&
+        Objects.equals(this.files, fileManagerPage.files) &&
         Objects.equals(this.hostname, fileManagerPage.hostname) &&
         Objects.equals(this.parentStorefrontFsDirectoryOid, fileManagerPage.parentStorefrontFsDirectoryOid) &&
         Objects.equals(this.path, fileManagerPage.path) &&
+        Objects.equals(this.pathList, fileManagerPage.pathList) &&
         Objects.equals(this.storefrontOid, fileManagerPage.storefrontOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentStorefrontFsDirectoryOid, hostname, parentStorefrontFsDirectoryOid, path, storefrontOid);
+    return Objects.hash(currentStorefrontFsDirectoryOid, directories, files, hostname, parentStorefrontFsDirectoryOid, path, pathList, storefrontOid);
   }
 
 
@@ -166,9 +260,12 @@ public class FileManagerPage {
     sb.append("class FileManagerPage {\n");
     
     sb.append("    currentStorefrontFsDirectoryOid: ").append(toIndentedString(currentStorefrontFsDirectoryOid)).append("\n");
+    sb.append("    directories: ").append(toIndentedString(directories)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    parentStorefrontFsDirectoryOid: ").append(toIndentedString(parentStorefrontFsDirectoryOid)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    pathList: ").append(toIndentedString(pathList)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("}");
     return sb.toString();
