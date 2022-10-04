@@ -30,7 +30,7 @@ import java.io.IOException;
 /**
  * FileManagerUploadUrlResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T15:13:26.071-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-04T13:10:59.916-04:00")
 
 
 
@@ -46,6 +46,9 @@ public class FileManagerUploadUrlResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("url")
+  private String url = null;
 
   @SerializedName("warning")
   private Warning warning = null;
@@ -122,6 +125,24 @@ public class FileManagerUploadUrlResponse {
     this.success = success;
   }
 
+  public FileManagerUploadUrlResponse url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @ApiModelProperty(value = "")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
   public FileManagerUploadUrlResponse warning(Warning warning) {
     this.warning = warning;
     return this;
@@ -154,12 +175,13 @@ public class FileManagerUploadUrlResponse {
         Objects.equals(this.key, fileManagerUploadUrlResponse.key) &&
         Objects.equals(this.metadata, fileManagerUploadUrlResponse.metadata) &&
         Objects.equals(this.success, fileManagerUploadUrlResponse.success) &&
+        Objects.equals(this.url, fileManagerUploadUrlResponse.url) &&
         Objects.equals(this.warning, fileManagerUploadUrlResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, key, metadata, success, warning);
+    return Objects.hash(error, key, metadata, success, url, warning);
   }
 
 
@@ -172,6 +194,7 @@ public class FileManagerUploadUrlResponse {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();

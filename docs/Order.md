@@ -55,6 +55,7 @@ QUOTE_SENT | &quot;Quote Sent&quot;
 LEAST_COST_ROUTING | &quot;Least Cost Routing&quot;
 UNKNOWN | &quot;Unknown&quot;
 PRE_ORDERED | &quot;Pre-ordered&quot;
+ADVANCED_ORDER_ROUTING | &quot;Advanced Order Routing&quot;
 
 
 
