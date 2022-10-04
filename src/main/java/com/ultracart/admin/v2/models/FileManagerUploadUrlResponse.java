@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FileManagerUploadUrlResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T15:24:19.342-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-04T13:22:48.517-04:00[America/Indianapolis]")
 public class FileManagerUploadUrlResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
@@ -67,6 +67,10 @@ public class FileManagerUploadUrlResponse {
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
   private Boolean success;
+
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
 
   public static final String SERIALIZED_NAME_WARNING = "warning";
   @SerializedName(SERIALIZED_NAME_WARNING)
@@ -167,6 +171,29 @@ public class FileManagerUploadUrlResponse {
   }
 
 
+  public FileManagerUploadUrlResponse url(String url) {
+    
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUrl() {
+    return url;
+  }
+
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+
   public FileManagerUploadUrlResponse warning(Warning warning) {
     
     this.warning = warning;
@@ -204,12 +231,13 @@ public class FileManagerUploadUrlResponse {
         Objects.equals(this.key, fileManagerUploadUrlResponse.key) &&
         Objects.equals(this.metadata, fileManagerUploadUrlResponse.metadata) &&
         Objects.equals(this.success, fileManagerUploadUrlResponse.success) &&
+        Objects.equals(this.url, fileManagerUploadUrlResponse.url) &&
         Objects.equals(this.warning, fileManagerUploadUrlResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, key, metadata, success, warning);
+    return Objects.hash(error, key, metadata, success, url, warning);
   }
 
   @Override
@@ -220,6 +248,7 @@ public class FileManagerUploadUrlResponse {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -247,6 +276,7 @@ public class FileManagerUploadUrlResponse {
     openapiFields.add("key");
     openapiFields.add("metadata");
     openapiFields.add("success");
+    openapiFields.add("url");
     openapiFields.add("warning");
 
     // a set of required properties/fields (JSON key names)
@@ -285,6 +315,9 @@ public class FileManagerUploadUrlResponse {
       // validate the optional field `metadata`
       if (jsonObj.getAsJsonObject("metadata") != null) {
         ResponseMetadata.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+      }
+      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       // validate the optional field `warning`
       if (jsonObj.getAsJsonObject("warning") != null) {

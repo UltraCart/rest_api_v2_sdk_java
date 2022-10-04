@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderReplacement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-29T15:24:19.342-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-04T13:22:48.517-04:00[America/Indianapolis]")
 public class OrderReplacement {
   public static final String SERIALIZED_NAME_ADDITIONAL_MERCHANT_NOTES_NEW_ORDER = "additional_merchant_notes_new_order";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_MERCHANT_NOTES_NEW_ORDER)
