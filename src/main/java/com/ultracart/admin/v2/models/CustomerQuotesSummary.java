@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerQuotesSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-04T13:22:48.517-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-05T11:32:05.355-04:00[America/Indianapolis]")
 public class CustomerQuotesSummary {
   public static final String SERIALIZED_NAME_FIRST_QUOTE_DTS = "first_quote_dts";
   @SerializedName(SERIALIZED_NAME_FIRST_QUOTE_DTS)

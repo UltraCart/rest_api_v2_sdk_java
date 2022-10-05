@@ -24,6 +24,9 @@
 |**storefrontFsDirectoryOid** | **Integer** |  |  [optional] |
 |**storefrontFsFileOid** | **Integer** |  |  [optional] |
 |**storefrontOid** | **Integer** |  |  [optional] |
+|**thumbnail16Url** | **String** | CDN thumbnail 16x16 size |  [optional] |
+|**thumbnail32Url** | **String** | CDN thumbnail 32x32 size |  [optional] |
+|**thumbnail64Url** | **String** | CDN thumbnail 64x64 size |  [optional] |
 |**type** | **String** |  |  [optional] |
 |**validVelocity** | **String** |  |  [optional] |
 

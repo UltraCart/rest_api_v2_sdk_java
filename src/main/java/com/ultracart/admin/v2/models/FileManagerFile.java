@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FileManagerFile
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-04T13:22:48.517-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-05T11:32:05.355-04:00[America/Indianapolis]")
 public class FileManagerFile {
   public static final String SERIALIZED_NAME_FAVORITE = "favorite";
   @SerializedName(SERIALIZED_NAME_FAVORITE)
@@ -116,6 +116,18 @@ public class FileManagerFile {
   public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefront_oid";
   @SerializedName(SERIALIZED_NAME_STOREFRONT_OID)
   private Integer storefrontOid;
+
+  public static final String SERIALIZED_NAME_THUMBNAIL16_URL = "thumbnail_16_url";
+  @SerializedName(SERIALIZED_NAME_THUMBNAIL16_URL)
+  private String thumbnail16Url;
+
+  public static final String SERIALIZED_NAME_THUMBNAIL32_URL = "thumbnail_32_url";
+  @SerializedName(SERIALIZED_NAME_THUMBNAIL32_URL)
+  private String thumbnail32Url;
+
+  public static final String SERIALIZED_NAME_THUMBNAIL64_URL = "thumbnail_64_url";
+  @SerializedName(SERIALIZED_NAME_THUMBNAIL64_URL)
+  private String thumbnail64Url;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -519,6 +531,75 @@ public class FileManagerFile {
   }
 
 
+  public FileManagerFile thumbnail16Url(String thumbnail16Url) {
+    
+    this.thumbnail16Url = thumbnail16Url;
+    return this;
+  }
+
+   /**
+   * CDN thumbnail 16x16 size
+   * @return thumbnail16Url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "CDN thumbnail 16x16 size")
+
+  public String getThumbnail16Url() {
+    return thumbnail16Url;
+  }
+
+
+  public void setThumbnail16Url(String thumbnail16Url) {
+    this.thumbnail16Url = thumbnail16Url;
+  }
+
+
+  public FileManagerFile thumbnail32Url(String thumbnail32Url) {
+    
+    this.thumbnail32Url = thumbnail32Url;
+    return this;
+  }
+
+   /**
+   * CDN thumbnail 32x32 size
+   * @return thumbnail32Url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "CDN thumbnail 32x32 size")
+
+  public String getThumbnail32Url() {
+    return thumbnail32Url;
+  }
+
+
+  public void setThumbnail32Url(String thumbnail32Url) {
+    this.thumbnail32Url = thumbnail32Url;
+  }
+
+
+  public FileManagerFile thumbnail64Url(String thumbnail64Url) {
+    
+    this.thumbnail64Url = thumbnail64Url;
+    return this;
+  }
+
+   /**
+   * CDN thumbnail 64x64 size
+   * @return thumbnail64Url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "CDN thumbnail 64x64 size")
+
+  public String getThumbnail64Url() {
+    return thumbnail64Url;
+  }
+
+
+  public void setThumbnail64Url(String thumbnail64Url) {
+    this.thumbnail64Url = thumbnail64Url;
+  }
+
+
   public FileManagerFile type(String type) {
     
     this.type = type;
@@ -592,13 +673,16 @@ public class FileManagerFile {
         Objects.equals(this.storefrontFsDirectoryOid, fileManagerFile.storefrontFsDirectoryOid) &&
         Objects.equals(this.storefrontFsFileOid, fileManagerFile.storefrontFsFileOid) &&
         Objects.equals(this.storefrontOid, fileManagerFile.storefrontOid) &&
+        Objects.equals(this.thumbnail16Url, fileManagerFile.thumbnail16Url) &&
+        Objects.equals(this.thumbnail32Url, fileManagerFile.thumbnail32Url) &&
+        Objects.equals(this.thumbnail64Url, fileManagerFile.thumbnail64Url) &&
         Objects.equals(this.type, fileManagerFile.type) &&
         Objects.equals(this.validVelocity, fileManagerFile.validVelocity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(favorite, hostname, i18nViolation, icon, internalVersion, lastModified, mergeConflict, name, parentStorefrontFsDirectoryOid, partOfActiveTheme, path, rawSize, selected, size, storefrontFsDirectoryOid, storefrontFsFileOid, storefrontOid, type, validVelocity);
+    return Objects.hash(favorite, hostname, i18nViolation, icon, internalVersion, lastModified, mergeConflict, name, parentStorefrontFsDirectoryOid, partOfActiveTheme, path, rawSize, selected, size, storefrontFsDirectoryOid, storefrontFsFileOid, storefrontOid, thumbnail16Url, thumbnail32Url, thumbnail64Url, type, validVelocity);
   }
 
   @Override
@@ -622,6 +706,9 @@ public class FileManagerFile {
     sb.append("    storefrontFsDirectoryOid: ").append(toIndentedString(storefrontFsDirectoryOid)).append("\n");
     sb.append("    storefrontFsFileOid: ").append(toIndentedString(storefrontFsFileOid)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    thumbnail16Url: ").append(toIndentedString(thumbnail16Url)).append("\n");
+    sb.append("    thumbnail32Url: ").append(toIndentedString(thumbnail32Url)).append("\n");
+    sb.append("    thumbnail64Url: ").append(toIndentedString(thumbnail64Url)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validVelocity: ").append(toIndentedString(validVelocity)).append("\n");
     sb.append("}");
@@ -663,6 +750,9 @@ public class FileManagerFile {
     openapiFields.add("storefront_fs_directory_oid");
     openapiFields.add("storefront_fs_file_oid");
     openapiFields.add("storefront_oid");
+    openapiFields.add("thumbnail_16_url");
+    openapiFields.add("thumbnail_32_url");
+    openapiFields.add("thumbnail_64_url");
     openapiFields.add("type");
     openapiFields.add("valid_velocity");
 
@@ -709,6 +799,15 @@ public class FileManagerFile {
       }
       if (jsonObj.get("size") != null && !jsonObj.get("size").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `size` to be a primitive type in the JSON string but got `%s`", jsonObj.get("size").toString()));
+      }
+      if (jsonObj.get("thumbnail_16_url") != null && !jsonObj.get("thumbnail_16_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `thumbnail_16_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbnail_16_url").toString()));
+      }
+      if (jsonObj.get("thumbnail_32_url") != null && !jsonObj.get("thumbnail_32_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `thumbnail_32_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbnail_32_url").toString()));
+      }
+      if (jsonObj.get("thumbnail_64_url") != null && !jsonObj.get("thumbnail_64_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `thumbnail_64_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbnail_64_url").toString()));
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

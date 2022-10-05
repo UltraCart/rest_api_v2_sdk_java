@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartPaymentAmazon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-04T13:22:48.517-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-05T11:32:05.355-04:00[America/Indianapolis]")
 public class CartPaymentAmazon {
   public static final String SERIALIZED_NAME_AMAZON_ORDER_REFERENCE_ID = "amazon_order_reference_id";
   @SerializedName(SERIALIZED_NAME_AMAZON_ORDER_REFERENCE_ID)
