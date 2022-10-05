@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * FileManagerFile
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-04T13:10:59.916-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-05T11:20:08.865-04:00")
 
 
 
@@ -82,6 +82,15 @@ public class FileManagerFile {
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
+
+  @SerializedName("thumbnail_16_url")
+  private String thumbnail16Url = null;
+
+  @SerializedName("thumbnail_32_url")
+  private String thumbnail32Url = null;
+
+  @SerializedName("thumbnail_64_url")
+  private String thumbnail64Url = null;
 
   @SerializedName("type")
   private String type = null;
@@ -395,6 +404,60 @@ public class FileManagerFile {
     this.storefrontOid = storefrontOid;
   }
 
+  public FileManagerFile thumbnail16Url(String thumbnail16Url) {
+    this.thumbnail16Url = thumbnail16Url;
+    return this;
+  }
+
+   /**
+   * CDN thumbnail 16x16 size
+   * @return thumbnail16Url
+  **/
+  @ApiModelProperty(value = "CDN thumbnail 16x16 size")
+  public String getThumbnail16Url() {
+    return thumbnail16Url;
+  }
+
+  public void setThumbnail16Url(String thumbnail16Url) {
+    this.thumbnail16Url = thumbnail16Url;
+  }
+
+  public FileManagerFile thumbnail32Url(String thumbnail32Url) {
+    this.thumbnail32Url = thumbnail32Url;
+    return this;
+  }
+
+   /**
+   * CDN thumbnail 32x32 size
+   * @return thumbnail32Url
+  **/
+  @ApiModelProperty(value = "CDN thumbnail 32x32 size")
+  public String getThumbnail32Url() {
+    return thumbnail32Url;
+  }
+
+  public void setThumbnail32Url(String thumbnail32Url) {
+    this.thumbnail32Url = thumbnail32Url;
+  }
+
+  public FileManagerFile thumbnail64Url(String thumbnail64Url) {
+    this.thumbnail64Url = thumbnail64Url;
+    return this;
+  }
+
+   /**
+   * CDN thumbnail 64x64 size
+   * @return thumbnail64Url
+  **/
+  @ApiModelProperty(value = "CDN thumbnail 64x64 size")
+  public String getThumbnail64Url() {
+    return thumbnail64Url;
+  }
+
+  public void setThumbnail64Url(String thumbnail64Url) {
+    this.thumbnail64Url = thumbnail64Url;
+  }
+
   public FileManagerFile type(String type) {
     this.type = type;
     return this;
@@ -458,13 +521,16 @@ public class FileManagerFile {
         Objects.equals(this.storefrontFsDirectoryOid, fileManagerFile.storefrontFsDirectoryOid) &&
         Objects.equals(this.storefrontFsFileOid, fileManagerFile.storefrontFsFileOid) &&
         Objects.equals(this.storefrontOid, fileManagerFile.storefrontOid) &&
+        Objects.equals(this.thumbnail16Url, fileManagerFile.thumbnail16Url) &&
+        Objects.equals(this.thumbnail32Url, fileManagerFile.thumbnail32Url) &&
+        Objects.equals(this.thumbnail64Url, fileManagerFile.thumbnail64Url) &&
         Objects.equals(this.type, fileManagerFile.type) &&
         Objects.equals(this.validVelocity, fileManagerFile.validVelocity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(favorite, hostname, i18nViolation, icon, internalVersion, lastModified, mergeConflict, name, parentStorefrontFsDirectoryOid, partOfActiveTheme, path, rawSize, selected, size, storefrontFsDirectoryOid, storefrontFsFileOid, storefrontOid, type, validVelocity);
+    return Objects.hash(favorite, hostname, i18nViolation, icon, internalVersion, lastModified, mergeConflict, name, parentStorefrontFsDirectoryOid, partOfActiveTheme, path, rawSize, selected, size, storefrontFsDirectoryOid, storefrontFsFileOid, storefrontOid, thumbnail16Url, thumbnail32Url, thumbnail64Url, type, validVelocity);
   }
 
 
@@ -490,6 +556,9 @@ public class FileManagerFile {
     sb.append("    storefrontFsDirectoryOid: ").append(toIndentedString(storefrontFsDirectoryOid)).append("\n");
     sb.append("    storefrontFsFileOid: ").append(toIndentedString(storefrontFsFileOid)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    thumbnail16Url: ").append(toIndentedString(thumbnail16Url)).append("\n");
+    sb.append("    thumbnail32Url: ").append(toIndentedString(thumbnail32Url)).append("\n");
+    sb.append("    thumbnail64Url: ").append(toIndentedString(thumbnail64Url)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validVelocity: ").append(toIndentedString(validVelocity)).append("\n");
     sb.append("}");
