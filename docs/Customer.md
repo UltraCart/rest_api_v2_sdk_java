@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **lastModifiedDts** | **String** | Last modified date |  [optional]
 **loyalty** | [**CustomerLoyalty**](CustomerLoyalty.md) |  |  [optional]
 **maximumItemCount** | **Integer** | Maximum item count |  [optional]
+**merchantId** | **String** | Merchant ID |  [optional]
 **minimumItemCount** | **Integer** | Minimum item count |  [optional]
 **minimumSubtotal** | [**BigDecimal**](BigDecimal.md) | Minimum subtotal |  [optional]
 **noCoupons** | **Boolean** | No coupons |  [optional]

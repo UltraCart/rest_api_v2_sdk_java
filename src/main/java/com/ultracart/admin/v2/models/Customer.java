@@ -46,7 +46,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-05T11:20:08.865-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-07T11:02:43.207-04:00")
 
 
 
@@ -134,6 +134,9 @@ public class Customer {
 
   @SerializedName("maximum_item_count")
   private Integer maximumItemCount = null;
+
+  @SerializedName("merchant_id")
+  private String merchantId = null;
 
   @SerializedName("minimum_item_count")
   private Integer minimumItemCount = null;
@@ -762,6 +765,24 @@ public class Customer {
 
   public void setMaximumItemCount(Integer maximumItemCount) {
     this.maximumItemCount = maximumItemCount;
+  }
+
+  public Customer merchantId(String merchantId) {
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * Merchant ID
+   * @return merchantId
+  **/
+  @ApiModelProperty(value = "Merchant ID")
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
   }
 
   public Customer minimumItemCount(Integer minimumItemCount) {
@@ -1408,6 +1429,7 @@ public class Customer {
         Objects.equals(this.lastModifiedDts, customer.lastModifiedDts) &&
         Objects.equals(this.loyalty, customer.loyalty) &&
         Objects.equals(this.maximumItemCount, customer.maximumItemCount) &&
+        Objects.equals(this.merchantId, customer.merchantId) &&
         Objects.equals(this.minimumItemCount, customer.minimumItemCount) &&
         Objects.equals(this.minimumSubtotal, customer.minimumSubtotal) &&
         Objects.equals(this.noCoupons, customer.noCoupons) &&
@@ -1443,7 +1465,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1480,6 +1502,7 @@ public class Customer {
     sb.append("    lastModifiedDts: ").append(toIndentedString(lastModifiedDts)).append("\n");
     sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
     sb.append("    maximumItemCount: ").append(toIndentedString(maximumItemCount)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    minimumItemCount: ").append(toIndentedString(minimumItemCount)).append("\n");
     sb.append("    minimumSubtotal: ").append(toIndentedString(minimumSubtotal)).append("\n");
     sb.append("    noCoupons: ").append(toIndentedString(noCoupons)).append("\n");
