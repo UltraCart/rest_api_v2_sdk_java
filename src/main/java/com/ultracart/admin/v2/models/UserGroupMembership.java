@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * UserGroupMembership
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-05T11:32:05.355-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-07T11:20:57.348-04:00[America/Indianapolis]")
 public class UserGroupMembership {
   public static final String SERIALIZED_NAME_GROUP_OID = "group_oid";
   @SerializedName(SERIALIZED_NAME_GROUP_OID)

@@ -53,9 +53,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemDigitalItemsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-05T11:32:05.355-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-07T11:20:57.348-04:00[America/Indianapolis]")
 public class ItemDigitalItemsResponse {
-  public static final String SERIALIZED_NAME_DIGITAL_ITEMS = "digitalItems";
+  public static final String SERIALIZED_NAME_DIGITAL_ITEMS = "digital_items";
   @SerializedName(SERIALIZED_NAME_DIGITAL_ITEMS)
   private List<ItemDigitalItem> digitalItems = null;
 
@@ -254,7 +254,7 @@ public class ItemDigitalItemsResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("digitalItems");
+    openapiFields.add("digital_items");
     openapiFields.add("error");
     openapiFields.add("metadata");
     openapiFields.add("success");
@@ -286,14 +286,14 @@ public class ItemDigitalItemsResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ItemDigitalItemsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      JsonArray jsonArraydigitalItems = jsonObj.getAsJsonArray("digitalItems");
+      JsonArray jsonArraydigitalItems = jsonObj.getAsJsonArray("digital_items");
       if (jsonArraydigitalItems != null) {
         // ensure the json data is an array
-        if (!jsonObj.get("digitalItems").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `digitalItems` to be an array in the JSON string but got `%s`", jsonObj.get("digitalItems").toString()));
+        if (!jsonObj.get("digital_items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `digital_items` to be an array in the JSON string but got `%s`", jsonObj.get("digital_items").toString()));
         }
 
-        // validate the optional field `digitalItems` (array)
+        // validate the optional field `digital_items` (array)
         for (int i = 0; i < jsonArraydigitalItems.size(); i++) {
           ItemDigitalItem.validateJsonObject(jsonArraydigitalItems.get(i).getAsJsonObject());
         };

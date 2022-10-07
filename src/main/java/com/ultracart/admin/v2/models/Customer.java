@@ -66,7 +66,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-05T11:32:05.355-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-07T11:20:57.348-04:00[America/Indianapolis]")
 public class Customer {
   public static final String SERIALIZED_NAME_ACTIVITY = "activity";
   @SerializedName(SERIALIZED_NAME_ACTIVITY)
@@ -179,6 +179,10 @@ public class Customer {
   public static final String SERIALIZED_NAME_MAXIMUM_ITEM_COUNT = "maximum_item_count";
   @SerializedName(SERIALIZED_NAME_MAXIMUM_ITEM_COUNT)
   private Integer maximumItemCount;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
 
   public static final String SERIALIZED_NAME_MINIMUM_ITEM_COUNT = "minimum_item_count";
   @SerializedName(SERIALIZED_NAME_MINIMUM_ITEM_COUNT)
@@ -983,6 +987,29 @@ public class Customer {
   }
 
 
+  public Customer merchantId(String merchantId) {
+    
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * Merchant ID
+   * @return merchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Merchant ID")
+
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
+
   public Customer minimumItemCount(Integer minimumItemCount) {
     
     this.minimumItemCount = minimumItemCount;
@@ -1782,6 +1809,7 @@ public class Customer {
         Objects.equals(this.lastModifiedDts, customer.lastModifiedDts) &&
         Objects.equals(this.loyalty, customer.loyalty) &&
         Objects.equals(this.maximumItemCount, customer.maximumItemCount) &&
+        Objects.equals(this.merchantId, customer.merchantId) &&
         Objects.equals(this.minimumItemCount, customer.minimumItemCount) &&
         Objects.equals(this.minimumSubtotal, customer.minimumSubtotal) &&
         Objects.equals(this.noCoupons, customer.noCoupons) &&
@@ -1817,7 +1845,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
   @Override
@@ -1852,6 +1880,7 @@ public class Customer {
     sb.append("    lastModifiedDts: ").append(toIndentedString(lastModifiedDts)).append("\n");
     sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
     sb.append("    maximumItemCount: ").append(toIndentedString(maximumItemCount)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    minimumItemCount: ").append(toIndentedString(minimumItemCount)).append("\n");
     sb.append("    minimumSubtotal: ").append(toIndentedString(minimumSubtotal)).append("\n");
     sb.append("    noCoupons: ").append(toIndentedString(noCoupons)).append("\n");
@@ -1933,6 +1962,7 @@ public class Customer {
     openapiFields.add("last_modified_dts");
     openapiFields.add("loyalty");
     openapiFields.add("maximum_item_count");
+    openapiFields.add("merchant_id");
     openapiFields.add("minimum_item_count");
     openapiFields.add("minimum_subtotal");
     openapiFields.add("no_coupons");
@@ -2070,6 +2100,9 @@ public class Customer {
       // validate the optional field `loyalty`
       if (jsonObj.getAsJsonObject("loyalty") != null) {
         CustomerLoyalty.validateJsonObject(jsonObj.getAsJsonObject("loyalty"));
+      }
+      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
       JsonArray jsonArrayorders = jsonObj.getAsJsonArray("orders");
       if (jsonArrayorders != null) {
