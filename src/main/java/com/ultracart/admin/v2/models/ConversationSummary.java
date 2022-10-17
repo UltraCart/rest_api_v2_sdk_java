@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-07T11:02:43.207-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-17T14:32:12.844-04:00")
 
 
 
@@ -52,6 +52,9 @@ public class ConversationSummary {
 
   @SerializedName("last_conversation_participant_name")
   private String lastConversationParticipantName = null;
+
+  @SerializedName("last_interactive_message_dts")
+  private String lastInteractiveMessageDts = null;
 
   @SerializedName("last_message_dts")
   private String lastMessageDts = null;
@@ -232,6 +235,24 @@ public class ConversationSummary {
     this.lastConversationParticipantName = lastConversationParticipantName;
   }
 
+  public ConversationSummary lastInteractiveMessageDts(String lastInteractiveMessageDts) {
+    this.lastInteractiveMessageDts = lastInteractiveMessageDts;
+    return this;
+  }
+
+   /**
+   * Last interactive message date/time
+   * @return lastInteractiveMessageDts
+  **/
+  @ApiModelProperty(value = "Last interactive message date/time")
+  public String getLastInteractiveMessageDts() {
+    return lastInteractiveMessageDts;
+  }
+
+  public void setLastInteractiveMessageDts(String lastInteractiveMessageDts) {
+    this.lastInteractiveMessageDts = lastInteractiveMessageDts;
+  }
+
   public ConversationSummary lastMessageDts(String lastMessageDts) {
     this.lastMessageDts = lastMessageDts;
     return this;
@@ -400,6 +421,7 @@ public class ConversationSummary {
         Objects.equals(this.lastConversationMessageBody, conversationSummary.lastConversationMessageBody) &&
         Objects.equals(this.lastConversationParticipantArn, conversationSummary.lastConversationParticipantArn) &&
         Objects.equals(this.lastConversationParticipantName, conversationSummary.lastConversationParticipantName) &&
+        Objects.equals(this.lastInteractiveMessageDts, conversationSummary.lastInteractiveMessageDts) &&
         Objects.equals(this.lastMessageDts, conversationSummary.lastMessageDts) &&
         Objects.equals(this.medium, conversationSummary.medium) &&
         Objects.equals(this.merchantId, conversationSummary.merchantId) &&
@@ -412,7 +434,7 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
   }
 
 
@@ -427,6 +449,7 @@ public class ConversationSummary {
     sb.append("    lastConversationMessageBody: ").append(toIndentedString(lastConversationMessageBody)).append("\n");
     sb.append("    lastConversationParticipantArn: ").append(toIndentedString(lastConversationParticipantArn)).append("\n");
     sb.append("    lastConversationParticipantName: ").append(toIndentedString(lastConversationParticipantName)).append("\n");
+    sb.append("    lastInteractiveMessageDts: ").append(toIndentedString(lastInteractiveMessageDts)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    medium: ").append(toIndentedString(medium)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
