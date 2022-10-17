@@ -13,6 +13,7 @@
 |**lastConversationMessageBody** | **String** |  |  [optional] |
 |**lastConversationParticipantArn** | **String** |  |  [optional] |
 |**lastConversationParticipantName** | **String** |  |  [optional] |
+|**lastInteractiveMessageDts** | **String** | Last interactive message date/time |  [optional] |
 |**lastMessageDts** | **String** | Last message date/time |  [optional] |
 |**medium** | [**MediumEnum**](#MediumEnum) | The communication medium of the customer. |  [optional] |
 |**merchantId** | **String** |  |  [optional] |

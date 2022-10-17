@@ -55,7 +55,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingFilter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-07T11:20:57.348-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-17T14:45:06.636-04:00[America/Indianapolis]")
 public class ScreenRecordingFilter {
   public static final String SERIALIZED_NAME_AFFILIATE_EMAIL = "affiliate_email";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_EMAIL)

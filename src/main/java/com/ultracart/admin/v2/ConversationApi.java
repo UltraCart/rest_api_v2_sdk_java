@@ -981,6 +981,7 @@ public class ConversationApi {
     /**
      * Build call for getConversations
      * @param medium  (optional)
+     * @param before  (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param _callback Callback for upload/download progress
@@ -997,7 +998,7 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getConversationsCall(String medium, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getConversationsCall(String medium, String before, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1024,6 +1025,10 @@ public class ConversationApi {
 
         if (medium != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("medium", medium));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
         }
 
         if (limit != null) {
@@ -1055,10 +1060,10 @@ public class ConversationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getConversationsValidateBeforeCall(String medium, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getConversationsValidateBeforeCall(String medium, String before, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getConversationsCall(medium, limit, offset, _callback);
+        okhttp3.Call localVarCall = getConversationsCall(medium, before, limit, offset, _callback);
         return localVarCall;
 
     }
@@ -1067,6 +1072,7 @@ public class ConversationApi {
      * Retrieve a list of conversation summaries newest to oldest
      * Retrieve a list of conversation summaries that are ordered newest to oldest, include the most recent message and whether its been read. 
      * @param medium  (optional)
+     * @param before  (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @return ConversationsResponse
@@ -1082,8 +1088,8 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ConversationsResponse getConversations(String medium, Integer limit, Integer offset) throws ApiException {
-        ApiResponse<ConversationsResponse> localVarResp = getConversationsWithHttpInfo(medium, limit, offset);
+    public ConversationsResponse getConversations(String medium, String before, Integer limit, Integer offset) throws ApiException {
+        ApiResponse<ConversationsResponse> localVarResp = getConversationsWithHttpInfo(medium, before, limit, offset);
         return localVarResp.getData();
     }
 
@@ -1091,6 +1097,7 @@ public class ConversationApi {
      * Retrieve a list of conversation summaries newest to oldest
      * Retrieve a list of conversation summaries that are ordered newest to oldest, include the most recent message and whether its been read. 
      * @param medium  (optional)
+     * @param before  (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @return ApiResponse&lt;ConversationsResponse&gt;
@@ -1106,8 +1113,8 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<ConversationsResponse> getConversationsWithHttpInfo(String medium, Integer limit, Integer offset) throws ApiException {
-        okhttp3.Call localVarCall = getConversationsValidateBeforeCall(medium, limit, offset, null);
+    public ApiResponse<ConversationsResponse> getConversationsWithHttpInfo(String medium, String before, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = getConversationsValidateBeforeCall(medium, before, limit, offset, null);
         Type localVarReturnType = new TypeToken<ConversationsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1116,6 +1123,7 @@ public class ConversationApi {
      * Retrieve a list of conversation summaries newest to oldest (asynchronously)
      * Retrieve a list of conversation summaries that are ordered newest to oldest, include the most recent message and whether its been read. 
      * @param medium  (optional)
+     * @param before  (optional)
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param _callback The callback to be executed when the API call finishes
@@ -1132,9 +1140,9 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getConversationsAsync(String medium, Integer limit, Integer offset, final ApiCallback<ConversationsResponse> _callback) throws ApiException {
+    public okhttp3.Call getConversationsAsync(String medium, String before, Integer limit, Integer offset, final ApiCallback<ConversationsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getConversationsValidateBeforeCall(medium, limit, offset, _callback);
+        okhttp3.Call localVarCall = getConversationsValidateBeforeCall(medium, before, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<ConversationsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

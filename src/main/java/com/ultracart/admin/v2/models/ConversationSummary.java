@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-07T11:20:57.348-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-17T14:45:06.636-04:00[America/Indianapolis]")
 public class ConversationSummary {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -75,6 +75,10 @@ public class ConversationSummary {
   public static final String SERIALIZED_NAME_LAST_CONVERSATION_PARTICIPANT_NAME = "last_conversation_participant_name";
   @SerializedName(SERIALIZED_NAME_LAST_CONVERSATION_PARTICIPANT_NAME)
   private String lastConversationParticipantName;
+
+  public static final String SERIALIZED_NAME_LAST_INTERACTIVE_MESSAGE_DTS = "last_interactive_message_dts";
+  @SerializedName(SERIALIZED_NAME_LAST_INTERACTIVE_MESSAGE_DTS)
+  private String lastInteractiveMessageDts;
 
   public static final String SERIALIZED_NAME_LAST_MESSAGE_DTS = "last_message_dts";
   @SerializedName(SERIALIZED_NAME_LAST_MESSAGE_DTS)
@@ -296,6 +300,29 @@ public class ConversationSummary {
   }
 
 
+  public ConversationSummary lastInteractiveMessageDts(String lastInteractiveMessageDts) {
+    
+    this.lastInteractiveMessageDts = lastInteractiveMessageDts;
+    return this;
+  }
+
+   /**
+   * Last interactive message date/time
+   * @return lastInteractiveMessageDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Last interactive message date/time")
+
+  public String getLastInteractiveMessageDts() {
+    return lastInteractiveMessageDts;
+  }
+
+
+  public void setLastInteractiveMessageDts(String lastInteractiveMessageDts) {
+    this.lastInteractiveMessageDts = lastInteractiveMessageDts;
+  }
+
+
   public ConversationSummary lastMessageDts(String lastMessageDts) {
     
     this.lastMessageDts = lastMessageDts;
@@ -504,6 +531,7 @@ public class ConversationSummary {
         Objects.equals(this.lastConversationMessageBody, conversationSummary.lastConversationMessageBody) &&
         Objects.equals(this.lastConversationParticipantArn, conversationSummary.lastConversationParticipantArn) &&
         Objects.equals(this.lastConversationParticipantName, conversationSummary.lastConversationParticipantName) &&
+        Objects.equals(this.lastInteractiveMessageDts, conversationSummary.lastInteractiveMessageDts) &&
         Objects.equals(this.lastMessageDts, conversationSummary.lastMessageDts) &&
         Objects.equals(this.medium, conversationSummary.medium) &&
         Objects.equals(this.merchantId, conversationSummary.merchantId) &&
@@ -516,7 +544,7 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
+    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
   }
 
   @Override
@@ -529,6 +557,7 @@ public class ConversationSummary {
     sb.append("    lastConversationMessageBody: ").append(toIndentedString(lastConversationMessageBody)).append("\n");
     sb.append("    lastConversationParticipantArn: ").append(toIndentedString(lastConversationParticipantArn)).append("\n");
     sb.append("    lastConversationParticipantName: ").append(toIndentedString(lastConversationParticipantName)).append("\n");
+    sb.append("    lastInteractiveMessageDts: ").append(toIndentedString(lastInteractiveMessageDts)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    medium: ").append(toIndentedString(medium)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
@@ -565,6 +594,7 @@ public class ConversationSummary {
     openapiFields.add("last_conversation_message_body");
     openapiFields.add("last_conversation_participant_arn");
     openapiFields.add("last_conversation_participant_name");
+    openapiFields.add("last_interactive_message_dts");
     openapiFields.add("last_message_dts");
     openapiFields.add("medium");
     openapiFields.add("merchant_id");
@@ -614,6 +644,9 @@ public class ConversationSummary {
       }
       if (jsonObj.get("last_conversation_participant_name") != null && !jsonObj.get("last_conversation_participant_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_conversation_participant_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_conversation_participant_name").toString()));
+      }
+      if (jsonObj.get("last_interactive_message_dts") != null && !jsonObj.get("last_interactive_message_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_interactive_message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_interactive_message_dts").toString()));
       }
       if (jsonObj.get("last_message_dts") != null && !jsonObj.get("last_message_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_message_dts").toString()));

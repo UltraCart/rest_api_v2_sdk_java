@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderManagement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-07T11:20:57.348-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-17T14:45:06.636-04:00[America/Indianapolis]")
 public class AutoOrderManagement {
   public static final String SERIALIZED_NAME_UPDATE_BILLING_URL = "update_billing_url";
   @SerializedName(SERIALIZED_NAME_UPDATE_BILLING_URL)

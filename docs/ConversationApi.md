@@ -407,7 +407,7 @@ This endpoint does not need any parameter.
 
 <a name="getConversations"></a>
 # **getConversations**
-> ConversationsResponse getConversations(medium, limit, offset)
+> ConversationsResponse getConversations(medium, before, limit, offset)
 
 Retrieve a list of conversation summaries newest to oldest
 
@@ -432,10 +432,11 @@ import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java
 ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
 String medium = "medium_example"; // String | 
+String before = "before_example"; // String | 
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
 try {
-    ConversationsResponse result = apiInstance.getConversations(mediumlimitoffset);
+    ConversationsResponse result = apiInstance.getConversations(mediumbeforelimitoffset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#getConversations");
@@ -449,6 +450,7 @@ try {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **medium** | **String**|  | [optional] |
+| **before** | **String**|  | [optional] |
 | **limit** | **Integer**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100] |
 | **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
 
