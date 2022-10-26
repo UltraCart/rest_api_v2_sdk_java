@@ -145,6 +145,7 @@ Method | HTTP request | Description
 [**searchSharedItems**](StorefrontApi.md#searchSharedItems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 [**sendEmailTest**](StorefrontApi.md#sendEmailTest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 [**sendPostcardTest**](StorefrontApi.md#sendPostcardTest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
+[**sendSmsTest**](StorefrontApi.md#sendSmsTest) | **POST** /storefront/{storefront_oid}/email/sms/{commseq_uuid}/{commseq_step_uuid}/test | Send SMS test
 [**sendWebhookTest**](StorefrontApi.md#sendWebhookTest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
 [**sequenceTest**](StorefrontApi.md#sequenceTest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 [**startEmailCampaign**](StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
@@ -7254,6 +7255,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCommseqPostcardSendTestResponse**](EmailCommseqPostcardSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="sendSmsTest"></a>
+# **sendSmsTest**
+> EmailCommseqSmsSendTestResponse sendSmsTest(storefrontOid, commseqUuid, commseqStepUuid, emailCommseqSmsTestRequest)
+
+Send SMS test
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.StorefrontApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+StorefrontApi apiInstance = new StorefrontApi(apiKey);
+
+Integer storefrontOid = 56; // Integer | 
+String commseqUuid = "commseqUuid_example"; // String | 
+String commseqStepUuid = "commseqStepUuid_example"; // String | 
+EmailCommseqSmsSendTestRequest emailCommseqSmsTestRequest = new EmailCommseqSmsSendTestRequest(); // EmailCommseqSmsSendTestRequest | Email commseq sms test request
+try {
+    EmailCommseqSmsSendTestResponse result = apiInstance.sendSmsTest(storefrontOid, commseqUuid, commseqStepUuid, emailCommseqSmsTestRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#sendSmsTest");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **Integer**|  |
+ **commseqUuid** | **String**|  |
+ **commseqStepUuid** | **String**|  |
+ **emailCommseqSmsTestRequest** | [**EmailCommseqSmsSendTestRequest**](EmailCommseqSmsSendTestRequest.md)| Email commseq sms test request |
+
+### Return type
+
+[**EmailCommseqSmsSendTestResponse**](EmailCommseqSmsSendTestResponse.md)
 
 ### Authorization
 

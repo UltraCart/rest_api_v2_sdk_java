@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * EmailCommseqSequenceTestRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-17T14:32:12.844-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-26T09:34:51.532-04:00")
 
 
 
@@ -66,6 +66,9 @@ public class EmailCommseqSequenceTestRequest {
 
   @SerializedName("postal_code")
   private String postalCode = null;
+
+  @SerializedName("send_to_cellphone_e164")
+  private String sendToCellphoneE164 = null;
 
   @SerializedName("send_to_email")
   private String sendToEmail = null;
@@ -282,6 +285,24 @@ public class EmailCommseqSequenceTestRequest {
     this.postalCode = postalCode;
   }
 
+  public EmailCommseqSequenceTestRequest sendToCellphoneE164(String sendToCellphoneE164) {
+    this.sendToCellphoneE164 = sendToCellphoneE164;
+    return this;
+  }
+
+   /**
+   * Get sendToCellphoneE164
+   * @return sendToCellphoneE164
+  **/
+  @ApiModelProperty(value = "")
+  public String getSendToCellphoneE164() {
+    return sendToCellphoneE164;
+  }
+
+  public void setSendToCellphoneE164(String sendToCellphoneE164) {
+    this.sendToCellphoneE164 = sendToCellphoneE164;
+  }
+
   public EmailCommseqSequenceTestRequest sendToEmail(String sendToEmail) {
     this.sendToEmail = sendToEmail;
     return this;
@@ -357,6 +378,7 @@ public class EmailCommseqSequenceTestRequest {
         Objects.equals(this.orderId, emailCommseqSequenceTestRequest.orderId) &&
         Objects.equals(this.pleaseReview, emailCommseqSequenceTestRequest.pleaseReview) &&
         Objects.equals(this.postalCode, emailCommseqSequenceTestRequest.postalCode) &&
+        Objects.equals(this.sendToCellphoneE164, emailCommseqSequenceTestRequest.sendToCellphoneE164) &&
         Objects.equals(this.sendToEmail, emailCommseqSequenceTestRequest.sendToEmail) &&
         Objects.equals(this.sendToLoggedInUser, emailCommseqSequenceTestRequest.sendToLoggedInUser) &&
         Objects.equals(this.state, emailCommseqSequenceTestRequest.state);
@@ -364,7 +386,7 @@ public class EmailCommseqSequenceTestRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, cartId, cartItemIds, city, espCommseqUuid, mailCard, name, orderId, pleaseReview, postalCode, sendToEmail, sendToLoggedInUser, state);
+    return Objects.hash(address1, address2, cartId, cartItemIds, city, espCommseqUuid, mailCard, name, orderId, pleaseReview, postalCode, sendToCellphoneE164, sendToEmail, sendToLoggedInUser, state);
   }
 
 
@@ -384,6 +406,7 @@ public class EmailCommseqSequenceTestRequest {
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pleaseReview: ").append(toIndentedString(pleaseReview)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    sendToCellphoneE164: ").append(toIndentedString(sendToCellphoneE164)).append("\n");
     sb.append("    sendToEmail: ").append(toIndentedString(sendToEmail)).append("\n");
     sb.append("    sendToLoggedInUser: ").append(toIndentedString(sendToLoggedInUser)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
