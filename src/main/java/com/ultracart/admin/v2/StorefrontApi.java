@@ -56,6 +56,8 @@ import com.ultracart.admin.v2.models.EmailCommseqPostcardsResponse;
 import com.ultracart.admin.v2.models.EmailCommseqResponse;
 import com.ultracart.admin.v2.models.EmailCommseqSequenceTestRequest;
 import com.ultracart.admin.v2.models.EmailCommseqSequenceTestResponse;
+import com.ultracart.admin.v2.models.EmailCommseqSmsSendTestRequest;
+import com.ultracart.admin.v2.models.EmailCommseqSmsSendTestResponse;
 import com.ultracart.admin.v2.models.EmailCommseqStatResponse;
 import com.ultracart.admin.v2.models.EmailCommseqStepLogsResponse;
 import com.ultracart.admin.v2.models.EmailCommseqWebhookSendTestRequest;
@@ -22230,6 +22232,182 @@ public class StorefrontApi {
 
         okhttp3.Call localVarCall = sendPostcardTestValidateBeforeCall(storefrontOid, commseqPostcardUuid, emailCommseqPostcardTestRequest, _callback);
         Type localVarReturnType = new TypeToken<EmailCommseqPostcardSendTestResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for sendSmsTest
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param emailCommseqSmsTestRequest Email commseq sms test request (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendSmsTestCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, EmailCommseqSmsSendTestRequest emailCommseqSmsTestRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = emailCommseqSmsTestRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/sms/{commseq_uuid}/{commseq_step_uuid}/test"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", localVarApiClient.escapeString(commseqUuid.toString()))
+            .replaceAll("\\{" + "commseq_step_uuid" + "\\}", localVarApiClient.escapeString(commseqStepUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call sendSmsTestValidateBeforeCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, EmailCommseqSmsSendTestRequest emailCommseqSmsTestRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling sendSmsTest(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling sendSmsTest(Async)");
+        }
+        
+        // verify the required parameter 'commseqStepUuid' is set
+        if (commseqStepUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqStepUuid' when calling sendSmsTest(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqSmsTestRequest' is set
+        if (emailCommseqSmsTestRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqSmsTestRequest' when calling sendSmsTest(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = sendSmsTestCall(storefrontOid, commseqUuid, commseqStepUuid, emailCommseqSmsTestRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Send SMS test
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param emailCommseqSmsTestRequest Email commseq sms test request (required)
+     * @return EmailCommseqSmsSendTestResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public EmailCommseqSmsSendTestResponse sendSmsTest(Integer storefrontOid, String commseqUuid, String commseqStepUuid, EmailCommseqSmsSendTestRequest emailCommseqSmsTestRequest) throws ApiException {
+        ApiResponse<EmailCommseqSmsSendTestResponse> localVarResp = sendSmsTestWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, emailCommseqSmsTestRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Send SMS test
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param emailCommseqSmsTestRequest Email commseq sms test request (required)
+     * @return ApiResponse&lt;EmailCommseqSmsSendTestResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailCommseqSmsSendTestResponse> sendSmsTestWithHttpInfo(Integer storefrontOid, String commseqUuid, String commseqStepUuid, EmailCommseqSmsSendTestRequest emailCommseqSmsTestRequest) throws ApiException {
+        okhttp3.Call localVarCall = sendSmsTestValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, emailCommseqSmsTestRequest, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqSmsSendTestResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Send SMS test (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param emailCommseqSmsTestRequest Email commseq sms test request (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendSmsTestAsync(Integer storefrontOid, String commseqUuid, String commseqStepUuid, EmailCommseqSmsSendTestRequest emailCommseqSmsTestRequest, final ApiCallback<EmailCommseqSmsSendTestResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = sendSmsTestValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, emailCommseqSmsTestRequest, _callback);
+        Type localVarReturnType = new TypeToken<EmailCommseqSmsSendTestResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

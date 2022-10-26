@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseqSequenceTestRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-17T14:45:06.636-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-26T09:48:11.285-04:00[America/Indianapolis]")
 public class EmailCommseqSequenceTestRequest {
   public static final String SERIALIZED_NAME_ADDRESS1 = "address_1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)
@@ -94,6 +94,10 @@ public class EmailCommseqSequenceTestRequest {
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
   private String postalCode;
+
+  public static final String SERIALIZED_NAME_SEND_TO_CELLPHONE_E164 = "send_to_cellphone_e164";
+  @SerializedName(SERIALIZED_NAME_SEND_TO_CELLPHONE_E164)
+  private String sendToCellphoneE164;
 
   public static final String SERIALIZED_NAME_SEND_TO_EMAIL = "send_to_email";
   @SerializedName(SERIALIZED_NAME_SEND_TO_EMAIL)
@@ -371,6 +375,29 @@ public class EmailCommseqSequenceTestRequest {
   }
 
 
+  public EmailCommseqSequenceTestRequest sendToCellphoneE164(String sendToCellphoneE164) {
+    
+    this.sendToCellphoneE164 = sendToCellphoneE164;
+    return this;
+  }
+
+   /**
+   * Get sendToCellphoneE164
+   * @return sendToCellphoneE164
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSendToCellphoneE164() {
+    return sendToCellphoneE164;
+  }
+
+
+  public void setSendToCellphoneE164(String sendToCellphoneE164) {
+    this.sendToCellphoneE164 = sendToCellphoneE164;
+  }
+
+
   public EmailCommseqSequenceTestRequest sendToEmail(String sendToEmail) {
     
     this.sendToEmail = sendToEmail;
@@ -461,6 +488,7 @@ public class EmailCommseqSequenceTestRequest {
         Objects.equals(this.orderId, emailCommseqSequenceTestRequest.orderId) &&
         Objects.equals(this.pleaseReview, emailCommseqSequenceTestRequest.pleaseReview) &&
         Objects.equals(this.postalCode, emailCommseqSequenceTestRequest.postalCode) &&
+        Objects.equals(this.sendToCellphoneE164, emailCommseqSequenceTestRequest.sendToCellphoneE164) &&
         Objects.equals(this.sendToEmail, emailCommseqSequenceTestRequest.sendToEmail) &&
         Objects.equals(this.sendToLoggedInUser, emailCommseqSequenceTestRequest.sendToLoggedInUser) &&
         Objects.equals(this.state, emailCommseqSequenceTestRequest.state);
@@ -468,7 +496,7 @@ public class EmailCommseqSequenceTestRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, cartId, cartItemIds, city, espCommseqUuid, mailCard, name, orderId, pleaseReview, postalCode, sendToEmail, sendToLoggedInUser, state);
+    return Objects.hash(address1, address2, cartId, cartItemIds, city, espCommseqUuid, mailCard, name, orderId, pleaseReview, postalCode, sendToCellphoneE164, sendToEmail, sendToLoggedInUser, state);
   }
 
   @Override
@@ -486,6 +514,7 @@ public class EmailCommseqSequenceTestRequest {
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    pleaseReview: ").append(toIndentedString(pleaseReview)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    sendToCellphoneE164: ").append(toIndentedString(sendToCellphoneE164)).append("\n");
     sb.append("    sendToEmail: ").append(toIndentedString(sendToEmail)).append("\n");
     sb.append("    sendToLoggedInUser: ").append(toIndentedString(sendToLoggedInUser)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
@@ -522,6 +551,7 @@ public class EmailCommseqSequenceTestRequest {
     openapiFields.add("order_id");
     openapiFields.add("please_review");
     openapiFields.add("postal_code");
+    openapiFields.add("send_to_cellphone_e164");
     openapiFields.add("send_to_email");
     openapiFields.add("send_to_logged_in_user");
     openapiFields.add("state");
@@ -579,6 +609,9 @@ public class EmailCommseqSequenceTestRequest {
       }
       if (jsonObj.get("postal_code") != null && !jsonObj.get("postal_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal_code").toString()));
+      }
+      if (jsonObj.get("send_to_cellphone_e164") != null && !jsonObj.get("send_to_cellphone_e164").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `send_to_cellphone_e164` to be a primitive type in the JSON string but got `%s`", jsonObj.get("send_to_cellphone_e164").toString()));
       }
       if (jsonObj.get("send_to_email") != null && !jsonObj.get("send_to_email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `send_to_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("send_to_email").toString()));

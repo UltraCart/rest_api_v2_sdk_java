@@ -18,6 +18,7 @@
 |**orderId** | **String** |  |  [optional] |
 |**pleaseReview** | **Boolean** |  |  [optional] |
 |**postalCode** | **String** |  |  [optional] |
+|**sendToCellphoneE164** | **String** |  |  [optional] |
 |**sendToEmail** | **String** |  |  [optional] |
 |**sendToLoggedInUser** | **Boolean** |  |  [optional] |
 |**state** | **String** |  |  [optional] |

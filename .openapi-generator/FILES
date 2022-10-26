@@ -279,6 +279,8 @@ docs/EmailCommseqPostcardsResponse.md
 docs/EmailCommseqResponse.md
 docs/EmailCommseqSequenceTestRequest.md
 docs/EmailCommseqSequenceTestResponse.md
+docs/EmailCommseqSmsSendTestRequest.md
+docs/EmailCommseqSmsSendTestResponse.md
 docs/EmailCommseqStat.md
 docs/EmailCommseqStatResponse.md
 docs/EmailCommseqStep.md
@@ -998,6 +1000,8 @@ src/main/java/com/ultracart/admin/v2/models/EmailCommseqPostcardsResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqSequenceTestRequest.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqSequenceTestResponse.java
+src/main/java/com/ultracart/admin/v2/models/EmailCommseqSmsSendTestRequest.java
+src/main/java/com/ultracart/admin/v2/models/EmailCommseqSmsSendTestResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqStat.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqStatResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqStep.java
