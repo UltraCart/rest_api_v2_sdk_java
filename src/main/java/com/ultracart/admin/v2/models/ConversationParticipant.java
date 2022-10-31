@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-26T09:48:11.285-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T14:14:26.056-04:00[America/Indianapolis]")
 public class ConversationParticipant {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -80,6 +80,10 @@ public class ConversationParticipant {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
+
+  public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
+  @SerializedName(SERIALIZED_NAME_TIMEZONE)
+  private String timezone;
 
   public static final String SERIALIZED_NAME_UNREAD_MESSAGES = "unread_messages";
   @SerializedName(SERIALIZED_NAME_UNREAD_MESSAGES)
@@ -272,6 +276,29 @@ public class ConversationParticipant {
   }
 
 
+  public ConversationParticipant timezone(String timezone) {
+    
+    this.timezone = timezone;
+    return this;
+  }
+
+   /**
+   * Get timezone
+   * @return timezone
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTimezone() {
+    return timezone;
+  }
+
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
+
+
   public ConversationParticipant unreadMessages(Integer unreadMessages) {
     
     this.unreadMessages = unreadMessages;
@@ -313,12 +340,13 @@ public class ConversationParticipant {
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
         Objects.equals(this.profileImageUrl, conversationParticipant.profileImageUrl) &&
         Objects.equals(this.status, conversationParticipant.status) &&
+        Objects.equals(this.timezone, conversationParticipant.timezone) &&
         Objects.equals(this.unreadMessages, conversationParticipant.unreadMessages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, profileImageUrl, status, unreadMessages);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, profileImageUrl, status, timezone, unreadMessages);
   }
 
   @Override
@@ -333,6 +361,7 @@ public class ConversationParticipant {
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -364,6 +393,7 @@ public class ConversationParticipant {
     openapiFields.add("left_dts");
     openapiFields.add("profile_image_url");
     openapiFields.add("status");
+    openapiFields.add("timezone");
     openapiFields.add("unread_messages");
 
     // a set of required properties/fields (JSON key names)
@@ -415,6 +445,9 @@ public class ConversationParticipant {
       }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      if (jsonObj.get("timezone") != null && !jsonObj.get("timezone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `timezone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timezone").toString()));
       }
   }
 

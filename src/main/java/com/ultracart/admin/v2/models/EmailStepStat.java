@@ -48,8 +48,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailStepStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-26T09:48:11.285-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T14:14:26.056-04:00[America/Indianapolis]")
 public class EmailStepStat {
+  public static final String SERIALIZED_NAME_LEFT_CLICK_COUNT_FORMATTED = "left_click_count_formatted";
+  @SerializedName(SERIALIZED_NAME_LEFT_CLICK_COUNT_FORMATTED)
+  private String leftClickCountFormatted;
+
   public static final String SERIALIZED_NAME_LEFT_CONVERSION_COUNT = "left_conversion_count";
   @SerializedName(SERIALIZED_NAME_LEFT_CONVERSION_COUNT)
   private Integer leftConversionCount;
@@ -65,6 +69,14 @@ public class EmailStepStat {
   public static final String SERIALIZED_NAME_LEFT_CUSTOMER_COUNT_FORMATTED = "left_customer_count_formatted";
   @SerializedName(SERIALIZED_NAME_LEFT_CUSTOMER_COUNT_FORMATTED)
   private String leftCustomerCountFormatted;
+
+  public static final String SERIALIZED_NAME_LEFT_DELIVERED_COUNT = "left_delivered_count";
+  @SerializedName(SERIALIZED_NAME_LEFT_DELIVERED_COUNT)
+  private Integer leftDeliveredCount;
+
+  public static final String SERIALIZED_NAME_LEFT_DELIVERED_COUNT_FORMATTED = "left_delivered_count_formatted";
+  @SerializedName(SERIALIZED_NAME_LEFT_DELIVERED_COUNT_FORMATTED)
+  private String leftDeliveredCountFormatted;
 
   public static final String SERIALIZED_NAME_LEFT_ORDER_COUNT = "left_order_count";
   @SerializedName(SERIALIZED_NAME_LEFT_ORDER_COUNT)
@@ -89,6 +101,30 @@ public class EmailStepStat {
   public static final String SERIALIZED_NAME_LEFT_REVENUE_FORMATTED = "left_revenue_formatted";
   @SerializedName(SERIALIZED_NAME_LEFT_REVENUE_FORMATTED)
   private String leftRevenueFormatted;
+
+  public static final String SERIALIZED_NAME_LEFT_SEND_COUNT = "left_send_count";
+  @SerializedName(SERIALIZED_NAME_LEFT_SEND_COUNT)
+  private Integer leftSendCount;
+
+  public static final String SERIALIZED_NAME_LEFT_SEND_COUNT_FORMATTED = "left_send_count_formatted";
+  @SerializedName(SERIALIZED_NAME_LEFT_SEND_COUNT_FORMATTED)
+  private String leftSendCountFormatted;
+
+  public static final String SERIALIZED_NAME_LEFT_SKIPPED_COUNT = "left_skipped_count";
+  @SerializedName(SERIALIZED_NAME_LEFT_SKIPPED_COUNT)
+  private Integer leftSkippedCount;
+
+  public static final String SERIALIZED_NAME_LEFT_SKIPPED_COUNT_FORMATTED = "left_skipped_count_formatted";
+  @SerializedName(SERIALIZED_NAME_LEFT_SKIPPED_COUNT_FORMATTED)
+  private String leftSkippedCountFormatted;
+
+  public static final String SERIALIZED_NAME_LEFT_UNSUBSCRIBE_COUNT = "left_unsubscribe_count";
+  @SerializedName(SERIALIZED_NAME_LEFT_UNSUBSCRIBE_COUNT)
+  private Integer leftUnsubscribeCount;
+
+  public static final String SERIALIZED_NAME_LEFT_UNSUBSCRIBE_COUNT_FORMATTED = "left_unsubscribe_count_formatted";
+  @SerializedName(SERIALIZED_NAME_LEFT_UNSUBSCRIBE_COUNT_FORMATTED)
+  private String leftUnsubscribeCountFormatted;
 
   public static final String SERIALIZED_NAME_RIGHT_CONVERSION_COUNT = "right_conversion_count";
   @SerializedName(SERIALIZED_NAME_RIGHT_CONVERSION_COUNT)
@@ -133,6 +169,29 @@ public class EmailStepStat {
   public EmailStepStat() { 
   }
 
+  public EmailStepStat leftClickCountFormatted(String leftClickCountFormatted) {
+    
+    this.leftClickCountFormatted = leftClickCountFormatted;
+    return this;
+  }
+
+   /**
+   * click count formatted (left side)
+   * @return leftClickCountFormatted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "click count formatted (left side)")
+
+  public String getLeftClickCountFormatted() {
+    return leftClickCountFormatted;
+  }
+
+
+  public void setLeftClickCountFormatted(String leftClickCountFormatted) {
+    this.leftClickCountFormatted = leftClickCountFormatted;
+  }
+
+
   public EmailStepStat leftConversionCount(Integer leftConversionCount) {
     
     this.leftConversionCount = leftConversionCount;
@@ -140,11 +199,11 @@ public class EmailStepStat {
   }
 
    /**
-   * conversion count (left/default side)
+   * click count (left side)
    * @return leftConversionCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "conversion count (left/default side)")
+  @ApiModelProperty(value = "click count (left side)")
 
   public Integer getLeftConversionCount() {
     return leftConversionCount;
@@ -222,6 +281,52 @@ public class EmailStepStat {
 
   public void setLeftCustomerCountFormatted(String leftCustomerCountFormatted) {
     this.leftCustomerCountFormatted = leftCustomerCountFormatted;
+  }
+
+
+  public EmailStepStat leftDeliveredCount(Integer leftDeliveredCount) {
+    
+    this.leftDeliveredCount = leftDeliveredCount;
+    return this;
+  }
+
+   /**
+   * delivered count (left side)
+   * @return leftDeliveredCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "delivered count (left side)")
+
+  public Integer getLeftDeliveredCount() {
+    return leftDeliveredCount;
+  }
+
+
+  public void setLeftDeliveredCount(Integer leftDeliveredCount) {
+    this.leftDeliveredCount = leftDeliveredCount;
+  }
+
+
+  public EmailStepStat leftDeliveredCountFormatted(String leftDeliveredCountFormatted) {
+    
+    this.leftDeliveredCountFormatted = leftDeliveredCountFormatted;
+    return this;
+  }
+
+   /**
+   * delivered count formatted (left side)
+   * @return leftDeliveredCountFormatted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "delivered count formatted (left side)")
+
+  public String getLeftDeliveredCountFormatted() {
+    return leftDeliveredCountFormatted;
+  }
+
+
+  public void setLeftDeliveredCountFormatted(String leftDeliveredCountFormatted) {
+    this.leftDeliveredCountFormatted = leftDeliveredCountFormatted;
   }
 
 
@@ -360,6 +465,144 @@ public class EmailStepStat {
 
   public void setLeftRevenueFormatted(String leftRevenueFormatted) {
     this.leftRevenueFormatted = leftRevenueFormatted;
+  }
+
+
+  public EmailStepStat leftSendCount(Integer leftSendCount) {
+    
+    this.leftSendCount = leftSendCount;
+    return this;
+  }
+
+   /**
+   * send count (left side)
+   * @return leftSendCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "send count (left side)")
+
+  public Integer getLeftSendCount() {
+    return leftSendCount;
+  }
+
+
+  public void setLeftSendCount(Integer leftSendCount) {
+    this.leftSendCount = leftSendCount;
+  }
+
+
+  public EmailStepStat leftSendCountFormatted(String leftSendCountFormatted) {
+    
+    this.leftSendCountFormatted = leftSendCountFormatted;
+    return this;
+  }
+
+   /**
+   * send count formatted (left side)
+   * @return leftSendCountFormatted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "send count formatted (left side)")
+
+  public String getLeftSendCountFormatted() {
+    return leftSendCountFormatted;
+  }
+
+
+  public void setLeftSendCountFormatted(String leftSendCountFormatted) {
+    this.leftSendCountFormatted = leftSendCountFormatted;
+  }
+
+
+  public EmailStepStat leftSkippedCount(Integer leftSkippedCount) {
+    
+    this.leftSkippedCount = leftSkippedCount;
+    return this;
+  }
+
+   /**
+   * conversion count (left side)
+   * @return leftSkippedCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "conversion count (left side)")
+
+  public Integer getLeftSkippedCount() {
+    return leftSkippedCount;
+  }
+
+
+  public void setLeftSkippedCount(Integer leftSkippedCount) {
+    this.leftSkippedCount = leftSkippedCount;
+  }
+
+
+  public EmailStepStat leftSkippedCountFormatted(String leftSkippedCountFormatted) {
+    
+    this.leftSkippedCountFormatted = leftSkippedCountFormatted;
+    return this;
+  }
+
+   /**
+   * skipped count formatted (left side)
+   * @return leftSkippedCountFormatted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "skipped count formatted (left side)")
+
+  public String getLeftSkippedCountFormatted() {
+    return leftSkippedCountFormatted;
+  }
+
+
+  public void setLeftSkippedCountFormatted(String leftSkippedCountFormatted) {
+    this.leftSkippedCountFormatted = leftSkippedCountFormatted;
+  }
+
+
+  public EmailStepStat leftUnsubscribeCount(Integer leftUnsubscribeCount) {
+    
+    this.leftUnsubscribeCount = leftUnsubscribeCount;
+    return this;
+  }
+
+   /**
+   * unsubscribe count (left side)
+   * @return leftUnsubscribeCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "unsubscribe count (left side)")
+
+  public Integer getLeftUnsubscribeCount() {
+    return leftUnsubscribeCount;
+  }
+
+
+  public void setLeftUnsubscribeCount(Integer leftUnsubscribeCount) {
+    this.leftUnsubscribeCount = leftUnsubscribeCount;
+  }
+
+
+  public EmailStepStat leftUnsubscribeCountFormatted(String leftUnsubscribeCountFormatted) {
+    
+    this.leftUnsubscribeCountFormatted = leftUnsubscribeCountFormatted;
+    return this;
+  }
+
+   /**
+   * unsubscribe count formatted (left side)
+   * @return leftUnsubscribeCountFormatted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "unsubscribe count formatted (left side)")
+
+  public String getLeftUnsubscribeCountFormatted() {
+    return leftUnsubscribeCountFormatted;
+  }
+
+
+  public void setLeftUnsubscribeCountFormatted(String leftUnsubscribeCountFormatted) {
+    this.leftUnsubscribeCountFormatted = leftUnsubscribeCountFormatted;
   }
 
 
@@ -603,16 +846,25 @@ public class EmailStepStat {
       return false;
     }
     EmailStepStat emailStepStat = (EmailStepStat) o;
-    return Objects.equals(this.leftConversionCount, emailStepStat.leftConversionCount) &&
+    return Objects.equals(this.leftClickCountFormatted, emailStepStat.leftClickCountFormatted) &&
+        Objects.equals(this.leftConversionCount, emailStepStat.leftConversionCount) &&
         Objects.equals(this.leftConversionCountFormatted, emailStepStat.leftConversionCountFormatted) &&
         Objects.equals(this.leftCustomerCount, emailStepStat.leftCustomerCount) &&
         Objects.equals(this.leftCustomerCountFormatted, emailStepStat.leftCustomerCountFormatted) &&
+        Objects.equals(this.leftDeliveredCount, emailStepStat.leftDeliveredCount) &&
+        Objects.equals(this.leftDeliveredCountFormatted, emailStepStat.leftDeliveredCountFormatted) &&
         Objects.equals(this.leftOrderCount, emailStepStat.leftOrderCount) &&
         Objects.equals(this.leftOrderCountFormatted, emailStepStat.leftOrderCountFormatted) &&
         Objects.equals(this.leftProfit, emailStepStat.leftProfit) &&
         Objects.equals(this.leftProfitFormatted, emailStepStat.leftProfitFormatted) &&
         Objects.equals(this.leftRevenue, emailStepStat.leftRevenue) &&
         Objects.equals(this.leftRevenueFormatted, emailStepStat.leftRevenueFormatted) &&
+        Objects.equals(this.leftSendCount, emailStepStat.leftSendCount) &&
+        Objects.equals(this.leftSendCountFormatted, emailStepStat.leftSendCountFormatted) &&
+        Objects.equals(this.leftSkippedCount, emailStepStat.leftSkippedCount) &&
+        Objects.equals(this.leftSkippedCountFormatted, emailStepStat.leftSkippedCountFormatted) &&
+        Objects.equals(this.leftUnsubscribeCount, emailStepStat.leftUnsubscribeCount) &&
+        Objects.equals(this.leftUnsubscribeCountFormatted, emailStepStat.leftUnsubscribeCountFormatted) &&
         Objects.equals(this.rightConversionCount, emailStepStat.rightConversionCount) &&
         Objects.equals(this.rightConversionCountFormatted, emailStepStat.rightConversionCountFormatted) &&
         Objects.equals(this.rightCustomerCount, emailStepStat.rightCustomerCount) &&
@@ -627,23 +879,32 @@ public class EmailStepStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(leftConversionCount, leftConversionCountFormatted, leftCustomerCount, leftCustomerCountFormatted, leftOrderCount, leftOrderCountFormatted, leftProfit, leftProfitFormatted, leftRevenue, leftRevenueFormatted, rightConversionCount, rightConversionCountFormatted, rightCustomerCount, rightCustomerCountFormatted, rightOrderCount, rightOrderCountFormatted, rightProfit, rightProfitFormatted, rightRevenue, rightRevenueFormatted);
+    return Objects.hash(leftClickCountFormatted, leftConversionCount, leftConversionCountFormatted, leftCustomerCount, leftCustomerCountFormatted, leftDeliveredCount, leftDeliveredCountFormatted, leftOrderCount, leftOrderCountFormatted, leftProfit, leftProfitFormatted, leftRevenue, leftRevenueFormatted, leftSendCount, leftSendCountFormatted, leftSkippedCount, leftSkippedCountFormatted, leftUnsubscribeCount, leftUnsubscribeCountFormatted, rightConversionCount, rightConversionCountFormatted, rightCustomerCount, rightCustomerCountFormatted, rightOrderCount, rightOrderCountFormatted, rightProfit, rightProfitFormatted, rightRevenue, rightRevenueFormatted);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailStepStat {\n");
+    sb.append("    leftClickCountFormatted: ").append(toIndentedString(leftClickCountFormatted)).append("\n");
     sb.append("    leftConversionCount: ").append(toIndentedString(leftConversionCount)).append("\n");
     sb.append("    leftConversionCountFormatted: ").append(toIndentedString(leftConversionCountFormatted)).append("\n");
     sb.append("    leftCustomerCount: ").append(toIndentedString(leftCustomerCount)).append("\n");
     sb.append("    leftCustomerCountFormatted: ").append(toIndentedString(leftCustomerCountFormatted)).append("\n");
+    sb.append("    leftDeliveredCount: ").append(toIndentedString(leftDeliveredCount)).append("\n");
+    sb.append("    leftDeliveredCountFormatted: ").append(toIndentedString(leftDeliveredCountFormatted)).append("\n");
     sb.append("    leftOrderCount: ").append(toIndentedString(leftOrderCount)).append("\n");
     sb.append("    leftOrderCountFormatted: ").append(toIndentedString(leftOrderCountFormatted)).append("\n");
     sb.append("    leftProfit: ").append(toIndentedString(leftProfit)).append("\n");
     sb.append("    leftProfitFormatted: ").append(toIndentedString(leftProfitFormatted)).append("\n");
     sb.append("    leftRevenue: ").append(toIndentedString(leftRevenue)).append("\n");
     sb.append("    leftRevenueFormatted: ").append(toIndentedString(leftRevenueFormatted)).append("\n");
+    sb.append("    leftSendCount: ").append(toIndentedString(leftSendCount)).append("\n");
+    sb.append("    leftSendCountFormatted: ").append(toIndentedString(leftSendCountFormatted)).append("\n");
+    sb.append("    leftSkippedCount: ").append(toIndentedString(leftSkippedCount)).append("\n");
+    sb.append("    leftSkippedCountFormatted: ").append(toIndentedString(leftSkippedCountFormatted)).append("\n");
+    sb.append("    leftUnsubscribeCount: ").append(toIndentedString(leftUnsubscribeCount)).append("\n");
+    sb.append("    leftUnsubscribeCountFormatted: ").append(toIndentedString(leftUnsubscribeCountFormatted)).append("\n");
     sb.append("    rightConversionCount: ").append(toIndentedString(rightConversionCount)).append("\n");
     sb.append("    rightConversionCountFormatted: ").append(toIndentedString(rightConversionCountFormatted)).append("\n");
     sb.append("    rightCustomerCount: ").append(toIndentedString(rightCustomerCount)).append("\n");
@@ -676,16 +937,25 @@ public class EmailStepStat {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("left_click_count_formatted");
     openapiFields.add("left_conversion_count");
     openapiFields.add("left_conversion_count_formatted");
     openapiFields.add("left_customer_count");
     openapiFields.add("left_customer_count_formatted");
+    openapiFields.add("left_delivered_count");
+    openapiFields.add("left_delivered_count_formatted");
     openapiFields.add("left_order_count");
     openapiFields.add("left_order_count_formatted");
     openapiFields.add("left_profit");
     openapiFields.add("left_profit_formatted");
     openapiFields.add("left_revenue");
     openapiFields.add("left_revenue_formatted");
+    openapiFields.add("left_send_count");
+    openapiFields.add("left_send_count_formatted");
+    openapiFields.add("left_skipped_count");
+    openapiFields.add("left_skipped_count_formatted");
+    openapiFields.add("left_unsubscribe_count");
+    openapiFields.add("left_unsubscribe_count_formatted");
     openapiFields.add("right_conversion_count");
     openapiFields.add("right_conversion_count_formatted");
     openapiFields.add("right_customer_count");
@@ -723,11 +993,17 @@ public class EmailStepStat {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EmailStepStat` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      if (jsonObj.get("left_click_count_formatted") != null && !jsonObj.get("left_click_count_formatted").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `left_click_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_click_count_formatted").toString()));
+      }
       if (jsonObj.get("left_conversion_count_formatted") != null && !jsonObj.get("left_conversion_count_formatted").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `left_conversion_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_conversion_count_formatted").toString()));
       }
       if (jsonObj.get("left_customer_count_formatted") != null && !jsonObj.get("left_customer_count_formatted").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `left_customer_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_customer_count_formatted").toString()));
+      }
+      if (jsonObj.get("left_delivered_count_formatted") != null && !jsonObj.get("left_delivered_count_formatted").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `left_delivered_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_delivered_count_formatted").toString()));
       }
       if (jsonObj.get("left_order_count_formatted") != null && !jsonObj.get("left_order_count_formatted").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `left_order_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_order_count_formatted").toString()));
@@ -737,6 +1013,15 @@ public class EmailStepStat {
       }
       if (jsonObj.get("left_revenue_formatted") != null && !jsonObj.get("left_revenue_formatted").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `left_revenue_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_revenue_formatted").toString()));
+      }
+      if (jsonObj.get("left_send_count_formatted") != null && !jsonObj.get("left_send_count_formatted").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `left_send_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_send_count_formatted").toString()));
+      }
+      if (jsonObj.get("left_skipped_count_formatted") != null && !jsonObj.get("left_skipped_count_formatted").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `left_skipped_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_skipped_count_formatted").toString()));
+      }
+      if (jsonObj.get("left_unsubscribe_count_formatted") != null && !jsonObj.get("left_unsubscribe_count_formatted").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `left_unsubscribe_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("left_unsubscribe_count_formatted").toString()));
       }
       if (jsonObj.get("right_conversion_count_formatted") != null && !jsonObj.get("right_conversion_count_formatted").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `right_conversion_count_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("right_conversion_count_formatted").toString()));

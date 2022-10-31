@@ -15,6 +15,7 @@
 |**leftDts** | **String** | Left conversation date/time |  [optional] |
 |**profileImageUrl** | **String** |  |  [optional] |
 |**status** | **String** |  |  [optional] |
+|**timezone** | **String** |  |  [optional] |
 |**unreadMessages** | **Integer** |  |  [optional] |
 
 

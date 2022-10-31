@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * TransactionEmailOption
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-26T09:48:11.285-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T14:14:26.056-04:00[America/Indianapolis]")
 public class TransactionEmailOption {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
