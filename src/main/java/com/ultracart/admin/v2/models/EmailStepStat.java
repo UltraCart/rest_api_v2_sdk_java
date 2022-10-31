@@ -28,11 +28,14 @@ import java.math.BigDecimal;
 /**
  * EmailStepStat
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-31T14:02:03.086-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:06:36.777-04:00")
 
 
 
 public class EmailStepStat {
+  @SerializedName("left_click_count")
+  private Integer leftClickCount = null;
+
   @SerializedName("left_click_count_formatted")
   private String leftClickCountFormatted = null;
 
@@ -120,6 +123,24 @@ public class EmailStepStat {
   @SerializedName("right_revenue_formatted")
   private String rightRevenueFormatted = null;
 
+  public EmailStepStat leftClickCount(Integer leftClickCount) {
+    this.leftClickCount = leftClickCount;
+    return this;
+  }
+
+   /**
+   * click count (left side)
+   * @return leftClickCount
+  **/
+  @ApiModelProperty(value = "click count (left side)")
+  public Integer getLeftClickCount() {
+    return leftClickCount;
+  }
+
+  public void setLeftClickCount(Integer leftClickCount) {
+    this.leftClickCount = leftClickCount;
+  }
+
   public EmailStepStat leftClickCountFormatted(String leftClickCountFormatted) {
     this.leftClickCountFormatted = leftClickCountFormatted;
     return this;
@@ -144,10 +165,10 @@ public class EmailStepStat {
   }
 
    /**
-   * click count (left side)
+   * conversion count (left/default side)
    * @return leftConversionCount
   **/
-  @ApiModelProperty(value = "click count (left side)")
+  @ApiModelProperty(value = "conversion count (left/default side)")
   public Integer getLeftConversionCount() {
     return leftConversionCount;
   }
@@ -652,7 +673,8 @@ public class EmailStepStat {
       return false;
     }
     EmailStepStat emailStepStat = (EmailStepStat) o;
-    return Objects.equals(this.leftClickCountFormatted, emailStepStat.leftClickCountFormatted) &&
+    return Objects.equals(this.leftClickCount, emailStepStat.leftClickCount) &&
+        Objects.equals(this.leftClickCountFormatted, emailStepStat.leftClickCountFormatted) &&
         Objects.equals(this.leftConversionCount, emailStepStat.leftConversionCount) &&
         Objects.equals(this.leftConversionCountFormatted, emailStepStat.leftConversionCountFormatted) &&
         Objects.equals(this.leftCustomerCount, emailStepStat.leftCustomerCount) &&
@@ -685,7 +707,7 @@ public class EmailStepStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(leftClickCountFormatted, leftConversionCount, leftConversionCountFormatted, leftCustomerCount, leftCustomerCountFormatted, leftDeliveredCount, leftDeliveredCountFormatted, leftOrderCount, leftOrderCountFormatted, leftProfit, leftProfitFormatted, leftRevenue, leftRevenueFormatted, leftSendCount, leftSendCountFormatted, leftSkippedCount, leftSkippedCountFormatted, leftUnsubscribeCount, leftUnsubscribeCountFormatted, rightConversionCount, rightConversionCountFormatted, rightCustomerCount, rightCustomerCountFormatted, rightOrderCount, rightOrderCountFormatted, rightProfit, rightProfitFormatted, rightRevenue, rightRevenueFormatted);
+    return Objects.hash(leftClickCount, leftClickCountFormatted, leftConversionCount, leftConversionCountFormatted, leftCustomerCount, leftCustomerCountFormatted, leftDeliveredCount, leftDeliveredCountFormatted, leftOrderCount, leftOrderCountFormatted, leftProfit, leftProfitFormatted, leftRevenue, leftRevenueFormatted, leftSendCount, leftSendCountFormatted, leftSkippedCount, leftSkippedCountFormatted, leftUnsubscribeCount, leftUnsubscribeCountFormatted, rightConversionCount, rightConversionCountFormatted, rightCustomerCount, rightCustomerCountFormatted, rightOrderCount, rightOrderCountFormatted, rightProfit, rightProfitFormatted, rightRevenue, rightRevenueFormatted);
   }
 
 
@@ -694,6 +716,7 @@ public class EmailStepStat {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailStepStat {\n");
     
+    sb.append("    leftClickCount: ").append(toIndentedString(leftClickCount)).append("\n");
     sb.append("    leftClickCountFormatted: ").append(toIndentedString(leftClickCountFormatted)).append("\n");
     sb.append("    leftConversionCount: ").append(toIndentedString(leftConversionCount)).append("\n");
     sb.append("    leftConversionCountFormatted: ").append(toIndentedString(leftConversionCountFormatted)).append("\n");

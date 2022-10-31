@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-10-31T14:02:03.086-04:00
+  - Build date: 2022-10-31T15:06:36.777-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.59</version>
+  <version>3.10.60</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.59"
+compile "com.ultracart:rest-sdk:3.10.60"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.59.jar`
+* `target/rest-sdk-3.10.60.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1247,6 +1247,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.60 | 10/31/2022 | communication bug fix on dup annonation |
 | 3.10.59 | 10/31/2022 | communications - addl statistics on EmailStepStat object |
 | 3.10.58 | 10/26/2022 | esp - methods for sms testing |
 | 3.10.57 | 10/17/2022 | conversations - add last_interactive_message_dts |
