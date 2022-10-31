@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-26T09:34:51.532-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-31T14:02:03.086-04:00")
 
 
 
@@ -55,6 +55,9 @@ public class ConversationParticipant {
 
   @SerializedName("status")
   private String status = null;
+
+  @SerializedName("timezone")
+  private String timezone = null;
 
   @SerializedName("unread_messages")
   private Integer unreadMessages = null;
@@ -203,6 +206,24 @@ public class ConversationParticipant {
     this.status = status;
   }
 
+  public ConversationParticipant timezone(String timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+   /**
+   * Get timezone
+   * @return timezone
+  **/
+  @ApiModelProperty(value = "")
+  public String getTimezone() {
+    return timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
+
   public ConversationParticipant unreadMessages(Integer unreadMessages) {
     this.unreadMessages = unreadMessages;
     return this;
@@ -239,12 +260,13 @@ public class ConversationParticipant {
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
         Objects.equals(this.profileImageUrl, conversationParticipant.profileImageUrl) &&
         Objects.equals(this.status, conversationParticipant.status) &&
+        Objects.equals(this.timezone, conversationParticipant.timezone) &&
         Objects.equals(this.unreadMessages, conversationParticipant.unreadMessages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, profileImageUrl, status, unreadMessages);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, profileImageUrl, status, timezone, unreadMessages);
   }
 
 
@@ -261,6 +283,7 @@ public class ConversationParticipant {
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemEnrollment123
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-26T09:34:51.532-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-31T14:02:03.086-04:00")
 
 
 
