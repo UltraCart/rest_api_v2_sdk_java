@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSettingsPaymentAmazon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T14:14:26.056-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:18:34.183-04:00[America/Indianapolis]")
 public class CartSettingsPaymentAmazon {
   public static final String SERIALIZED_NAME_AMAZON_BUTTON_URL = "amazon_button_url";
   @SerializedName(SERIALIZED_NAME_AMAZON_BUTTON_URL)

@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-10-31T14:14:26.056-04:00[America/Indianapolis]
+  - Build date: 2022-10-31T15:18:34.183-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.76-RC</version>
+  <version>4.0.77-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.76-RC"
+     implementation "com.ultracart:rest-sdk:4.0.77-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.76-RC.jar`
+* `target/rest-sdk-4.0.77-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1264,6 +1264,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.77-RC | 10/31/2022 | communication bug fix on dup annonation |
 | 4.0.76-RC | 10/31/2022 | communications - addl statistics on EmailStepStat object |
 | 4.0.75-RC | 10/26/2022 | esp - methods for sms testing |
 | 4.0.74-RC | 10/17/2022 | conversations - add last_interactive_message_dts |

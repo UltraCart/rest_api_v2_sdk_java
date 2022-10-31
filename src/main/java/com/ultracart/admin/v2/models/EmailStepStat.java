@@ -48,8 +48,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailStepStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T14:14:26.056-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:18:34.183-04:00[America/Indianapolis]")
 public class EmailStepStat {
+  public static final String SERIALIZED_NAME_LEFT_CLICK_COUNT = "left_click_count";
+  @SerializedName(SERIALIZED_NAME_LEFT_CLICK_COUNT)
+  private Integer leftClickCount;
+
   public static final String SERIALIZED_NAME_LEFT_CLICK_COUNT_FORMATTED = "left_click_count_formatted";
   @SerializedName(SERIALIZED_NAME_LEFT_CLICK_COUNT_FORMATTED)
   private String leftClickCountFormatted;
@@ -169,6 +173,29 @@ public class EmailStepStat {
   public EmailStepStat() { 
   }
 
+  public EmailStepStat leftClickCount(Integer leftClickCount) {
+    
+    this.leftClickCount = leftClickCount;
+    return this;
+  }
+
+   /**
+   * click count (left side)
+   * @return leftClickCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "click count (left side)")
+
+  public Integer getLeftClickCount() {
+    return leftClickCount;
+  }
+
+
+  public void setLeftClickCount(Integer leftClickCount) {
+    this.leftClickCount = leftClickCount;
+  }
+
+
   public EmailStepStat leftClickCountFormatted(String leftClickCountFormatted) {
     
     this.leftClickCountFormatted = leftClickCountFormatted;
@@ -199,11 +226,11 @@ public class EmailStepStat {
   }
 
    /**
-   * click count (left side)
+   * conversion count (left/default side)
    * @return leftConversionCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "click count (left side)")
+  @ApiModelProperty(value = "conversion count (left/default side)")
 
   public Integer getLeftConversionCount() {
     return leftConversionCount;
@@ -846,7 +873,8 @@ public class EmailStepStat {
       return false;
     }
     EmailStepStat emailStepStat = (EmailStepStat) o;
-    return Objects.equals(this.leftClickCountFormatted, emailStepStat.leftClickCountFormatted) &&
+    return Objects.equals(this.leftClickCount, emailStepStat.leftClickCount) &&
+        Objects.equals(this.leftClickCountFormatted, emailStepStat.leftClickCountFormatted) &&
         Objects.equals(this.leftConversionCount, emailStepStat.leftConversionCount) &&
         Objects.equals(this.leftConversionCountFormatted, emailStepStat.leftConversionCountFormatted) &&
         Objects.equals(this.leftCustomerCount, emailStepStat.leftCustomerCount) &&
@@ -879,13 +907,14 @@ public class EmailStepStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(leftClickCountFormatted, leftConversionCount, leftConversionCountFormatted, leftCustomerCount, leftCustomerCountFormatted, leftDeliveredCount, leftDeliveredCountFormatted, leftOrderCount, leftOrderCountFormatted, leftProfit, leftProfitFormatted, leftRevenue, leftRevenueFormatted, leftSendCount, leftSendCountFormatted, leftSkippedCount, leftSkippedCountFormatted, leftUnsubscribeCount, leftUnsubscribeCountFormatted, rightConversionCount, rightConversionCountFormatted, rightCustomerCount, rightCustomerCountFormatted, rightOrderCount, rightOrderCountFormatted, rightProfit, rightProfitFormatted, rightRevenue, rightRevenueFormatted);
+    return Objects.hash(leftClickCount, leftClickCountFormatted, leftConversionCount, leftConversionCountFormatted, leftCustomerCount, leftCustomerCountFormatted, leftDeliveredCount, leftDeliveredCountFormatted, leftOrderCount, leftOrderCountFormatted, leftProfit, leftProfitFormatted, leftRevenue, leftRevenueFormatted, leftSendCount, leftSendCountFormatted, leftSkippedCount, leftSkippedCountFormatted, leftUnsubscribeCount, leftUnsubscribeCountFormatted, rightConversionCount, rightConversionCountFormatted, rightCustomerCount, rightCustomerCountFormatted, rightOrderCount, rightOrderCountFormatted, rightProfit, rightProfitFormatted, rightRevenue, rightRevenueFormatted);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailStepStat {\n");
+    sb.append("    leftClickCount: ").append(toIndentedString(leftClickCount)).append("\n");
     sb.append("    leftClickCountFormatted: ").append(toIndentedString(leftClickCountFormatted)).append("\n");
     sb.append("    leftConversionCount: ").append(toIndentedString(leftConversionCount)).append("\n");
     sb.append("    leftConversionCountFormatted: ").append(toIndentedString(leftConversionCountFormatted)).append("\n");
@@ -937,6 +966,7 @@ public class EmailStepStat {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("left_click_count");
     openapiFields.add("left_click_count_formatted");
     openapiFields.add("left_conversion_count");
     openapiFields.add("left_conversion_count_formatted");

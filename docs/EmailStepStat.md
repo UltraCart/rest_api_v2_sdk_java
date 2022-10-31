@@ -7,8 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**leftClickCount** | **Integer** | click count (left side) |  [optional] |
 |**leftClickCountFormatted** | **String** | click count formatted (left side) |  [optional] |
-|**leftConversionCount** | **Integer** | click count (left side) |  [optional] |
+|**leftConversionCount** | **Integer** | conversion count (left/default side) |  [optional] |
 |**leftConversionCountFormatted** | **String** | conversion count formatted (left/default side) |  [optional] |
 |**leftCustomerCount** | **Integer** | customer count (left/default side) |  [optional] |
 |**leftCustomerCountFormatted** | **String** | customer count formatted (left/default side) |  [optional] |
