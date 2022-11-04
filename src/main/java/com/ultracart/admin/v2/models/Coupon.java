@@ -63,6 +63,7 @@ import com.ultracart.admin.v2.models.CouponTieredAmountOffSubtotal;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffItems;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffShipping;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffSubtotal;
+import com.ultracart.admin.v2.models.CouponTieredPercentOffSubtotalBasedOnMSRP;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -72,7 +73,7 @@ import java.util.List;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:06:36.777-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-04T09:49:54.472-04:00")
 
 
 
@@ -253,6 +254,9 @@ public class Coupon {
 
   @SerializedName("tiered_percent_off_subtotal")
   private CouponTieredPercentOffSubtotal tieredPercentOffSubtotal = null;
+
+  @SerializedName("tiered_percent_off_subtotal_based_on_msrp")
+  private CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp = null;
 
   @SerializedName("usable_by")
   private String usableBy = null;
@@ -1343,6 +1347,24 @@ public class Coupon {
     this.tieredPercentOffSubtotal = tieredPercentOffSubtotal;
   }
 
+  public Coupon tieredPercentOffSubtotalBasedOnMsrp(CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp) {
+    this.tieredPercentOffSubtotalBasedOnMsrp = tieredPercentOffSubtotalBasedOnMsrp;
+    return this;
+  }
+
+   /**
+   * Get tieredPercentOffSubtotalBasedOnMsrp
+   * @return tieredPercentOffSubtotalBasedOnMsrp
+  **/
+  @ApiModelProperty(value = "")
+  public CouponTieredPercentOffSubtotalBasedOnMSRP getTieredPercentOffSubtotalBasedOnMsrp() {
+    return tieredPercentOffSubtotalBasedOnMsrp;
+  }
+
+  public void setTieredPercentOffSubtotalBasedOnMsrp(CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp) {
+    this.tieredPercentOffSubtotalBasedOnMsrp = tieredPercentOffSubtotalBasedOnMsrp;
+  }
+
   public Coupon usableBy(String usableBy) {
     this.usableBy = usableBy;
     return this;
@@ -1430,12 +1452,13 @@ public class Coupon {
         Objects.equals(this.tieredPercentOffItems, coupon.tieredPercentOffItems) &&
         Objects.equals(this.tieredPercentOffShipping, coupon.tieredPercentOffShipping) &&
         Objects.equals(this.tieredPercentOffSubtotal, coupon.tieredPercentOffSubtotal) &&
+        Objects.equals(this.tieredPercentOffSubtotalBasedOnMsrp, coupon.tieredPercentOffSubtotalBasedOnMsrp) &&
         Objects.equals(this.usableBy, coupon.usableBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
   }
 
 
@@ -1503,6 +1526,7 @@ public class Coupon {
     sb.append("    tieredPercentOffItems: ").append(toIndentedString(tieredPercentOffItems)).append("\n");
     sb.append("    tieredPercentOffShipping: ").append(toIndentedString(tieredPercentOffShipping)).append("\n");
     sb.append("    tieredPercentOffSubtotal: ").append(toIndentedString(tieredPercentOffSubtotal)).append("\n");
+    sb.append("    tieredPercentOffSubtotalBasedOnMsrp: ").append(toIndentedString(tieredPercentOffSubtotalBasedOnMsrp)).append("\n");
     sb.append("    usableBy: ").append(toIndentedString(usableBy)).append("\n");
     sb.append("}");
     return sb.toString();
