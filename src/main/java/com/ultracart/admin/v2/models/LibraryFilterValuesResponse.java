@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * LibraryFilterValuesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:18:34.183-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-04T10:02:29.437-04:00[America/Indianapolis]")
 public class LibraryFilterValuesResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)

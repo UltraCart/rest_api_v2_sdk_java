@@ -297,6 +297,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CouponTieredPercentOffItems.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CouponTieredPercentOffShipping.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CouponTieredPercentOffSubtotal.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CouponTieredPercentOffSubtotalBasedOnMSRP.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CouponType.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CouponsRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CouponsResponse.CustomTypeAdapterFactory())

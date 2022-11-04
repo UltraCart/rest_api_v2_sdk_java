@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-10-31T15:18:34.183-04:00[America/Indianapolis]
+  - Build date: 2022-11-04T10:02:29.437-04:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.77-RC</version>
+  <version>4.0.78-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.77-RC"
+     implementation "com.ultracart:rest-sdk:4.0.78-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.77-RC.jar`
+* `target/rest-sdk-4.0.78-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -708,6 +708,7 @@ Class | Method | HTTP request | Description
  - [CouponTieredPercentOffItems](docs/CouponTieredPercentOffItems.md)
  - [CouponTieredPercentOffShipping](docs/CouponTieredPercentOffShipping.md)
  - [CouponTieredPercentOffSubtotal](docs/CouponTieredPercentOffSubtotal.md)
+ - [CouponTieredPercentOffSubtotalBasedOnMSRP](docs/CouponTieredPercentOffSubtotalBasedOnMSRP.md)
  - [CouponType](docs/CouponType.md)
  - [CouponsRequest](docs/CouponsRequest.md)
  - [CouponsResponse](docs/CouponsResponse.md)
@@ -1264,6 +1265,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.78-RC | 11/04/2022 | new coupon type percent based on msrp |
 | 4.0.77-RC | 10/31/2022 | communication bug fix on dup annonation |
 | 4.0.76-RC | 10/31/2022 | communications - addl statistics on EmailStepStat object |
 | 4.0.75-RC | 10/26/2022 | esp - methods for sms testing |

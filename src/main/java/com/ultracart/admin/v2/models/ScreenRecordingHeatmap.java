@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingHeatmap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:18:34.183-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-04T10:02:29.437-04:00[America/Indianapolis]")
 public class ScreenRecordingHeatmap {
   public static final String SERIALIZED_NAME_LARGE_CLICK_THUMBNAIL_URL = "large_click_thumbnail_url";
   @SerializedName(SERIALIZED_NAME_LARGE_CLICK_THUMBNAIL_URL)

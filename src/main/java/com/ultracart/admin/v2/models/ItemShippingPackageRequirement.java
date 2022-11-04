@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShippingPackageRequirement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:18:34.183-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-04T10:02:29.437-04:00[America/Indianapolis]")
 public class ItemShippingPackageRequirement {
   public static final String SERIALIZED_NAME_PACKAGE_NAME = "package_name";
   @SerializedName(SERIALIZED_NAME_PACKAGE_NAME)

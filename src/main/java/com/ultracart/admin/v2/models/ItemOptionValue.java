@@ -54,7 +54,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemOptionValue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:18:34.183-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-04T10:02:29.437-04:00[America/Indianapolis]")
 public class ItemOptionValue {
   /**
    * Additional dimensions application

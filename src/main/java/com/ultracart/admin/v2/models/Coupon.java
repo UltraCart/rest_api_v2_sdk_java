@@ -63,6 +63,7 @@ import com.ultracart.admin.v2.models.CouponTieredAmountOffSubtotal;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffItems;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffShipping;
 import com.ultracart.admin.v2.models.CouponTieredPercentOffSubtotal;
+import com.ultracart.admin.v2.models.CouponTieredPercentOffSubtotalBasedOnMSRP;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -92,7 +93,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-31T15:18:34.183-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-04T10:02:29.437-04:00[America/Indianapolis]")
 public class Coupon {
   public static final String SERIALIZED_NAME_AFFILIATE_OID = "affiliate_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_OID)
@@ -329,6 +330,10 @@ public class Coupon {
   public static final String SERIALIZED_NAME_TIERED_PERCENT_OFF_SUBTOTAL = "tiered_percent_off_subtotal";
   @SerializedName(SERIALIZED_NAME_TIERED_PERCENT_OFF_SUBTOTAL)
   private CouponTieredPercentOffSubtotal tieredPercentOffSubtotal;
+
+  public static final String SERIALIZED_NAME_TIERED_PERCENT_OFF_SUBTOTAL_BASED_ON_MSRP = "tiered_percent_off_subtotal_based_on_msrp";
+  @SerializedName(SERIALIZED_NAME_TIERED_PERCENT_OFF_SUBTOTAL_BASED_ON_MSRP)
+  private CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp;
 
   public static final String SERIALIZED_NAME_USABLE_BY = "usable_by";
   @SerializedName(SERIALIZED_NAME_USABLE_BY)
@@ -1718,6 +1723,29 @@ public class Coupon {
   }
 
 
+  public Coupon tieredPercentOffSubtotalBasedOnMsrp(CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp) {
+    
+    this.tieredPercentOffSubtotalBasedOnMsrp = tieredPercentOffSubtotalBasedOnMsrp;
+    return this;
+  }
+
+   /**
+   * Get tieredPercentOffSubtotalBasedOnMsrp
+   * @return tieredPercentOffSubtotalBasedOnMsrp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CouponTieredPercentOffSubtotalBasedOnMSRP getTieredPercentOffSubtotalBasedOnMsrp() {
+    return tieredPercentOffSubtotalBasedOnMsrp;
+  }
+
+
+  public void setTieredPercentOffSubtotalBasedOnMsrp(CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp) {
+    this.tieredPercentOffSubtotalBasedOnMsrp = tieredPercentOffSubtotalBasedOnMsrp;
+  }
+
+
   public Coupon usableBy(String usableBy) {
     
     this.usableBy = usableBy;
@@ -1810,12 +1838,13 @@ public class Coupon {
         Objects.equals(this.tieredPercentOffItems, coupon.tieredPercentOffItems) &&
         Objects.equals(this.tieredPercentOffShipping, coupon.tieredPercentOffShipping) &&
         Objects.equals(this.tieredPercentOffSubtotal, coupon.tieredPercentOffSubtotal) &&
+        Objects.equals(this.tieredPercentOffSubtotalBasedOnMsrp, coupon.tieredPercentOffSubtotalBasedOnMsrp) &&
         Objects.equals(this.usableBy, coupon.usableBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
   }
 
   @Override
@@ -1881,6 +1910,7 @@ public class Coupon {
     sb.append("    tieredPercentOffItems: ").append(toIndentedString(tieredPercentOffItems)).append("\n");
     sb.append("    tieredPercentOffShipping: ").append(toIndentedString(tieredPercentOffShipping)).append("\n");
     sb.append("    tieredPercentOffSubtotal: ").append(toIndentedString(tieredPercentOffSubtotal)).append("\n");
+    sb.append("    tieredPercentOffSubtotalBasedOnMsrp: ").append(toIndentedString(tieredPercentOffSubtotalBasedOnMsrp)).append("\n");
     sb.append("    usableBy: ").append(toIndentedString(usableBy)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1963,6 +1993,7 @@ public class Coupon {
     openapiFields.add("tiered_percent_off_items");
     openapiFields.add("tiered_percent_off_shipping");
     openapiFields.add("tiered_percent_off_subtotal");
+    openapiFields.add("tiered_percent_off_subtotal_based_on_msrp");
     openapiFields.add("usable_by");
 
     // a set of required properties/fields (JSON key names)
@@ -2210,6 +2241,10 @@ public class Coupon {
       // validate the optional field `tiered_percent_off_subtotal`
       if (jsonObj.getAsJsonObject("tiered_percent_off_subtotal") != null) {
         CouponTieredPercentOffSubtotal.validateJsonObject(jsonObj.getAsJsonObject("tiered_percent_off_subtotal"));
+      }
+      // validate the optional field `tiered_percent_off_subtotal_based_on_msrp`
+      if (jsonObj.getAsJsonObject("tiered_percent_off_subtotal_based_on_msrp") != null) {
+        CouponTieredPercentOffSubtotalBasedOnMSRP.validateJsonObject(jsonObj.getAsJsonObject("tiered_percent_off_subtotal_based_on_msrp"));
       }
       if (jsonObj.get("usable_by") != null && !jsonObj.get("usable_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `usable_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usable_by").toString()));
