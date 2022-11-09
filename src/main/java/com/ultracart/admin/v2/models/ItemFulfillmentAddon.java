@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemFulfillmentAddon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-04T10:02:29.437-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:30:26.529-05:00[America/Indianapolis]")
 public class ItemFulfillmentAddon {
   public static final String SERIALIZED_NAME_ADD_ITEM_ID = "add_item_id";
   @SerializedName(SERIALIZED_NAME_ADD_ITEM_ID)
@@ -56,6 +56,10 @@ public class ItemFulfillmentAddon {
   public static final String SERIALIZED_NAME_ADD_ITEM_OID = "add_item_oid";
   @SerializedName(SERIALIZED_NAME_ADD_ITEM_OID)
   private Integer addItemOid;
+
+  public static final String SERIALIZED_NAME_INITIAL_ORDER_ONLY = "initial_order_only";
+  @SerializedName(SERIALIZED_NAME_INITIAL_ORDER_ONLY)
+  private Boolean initialOrderOnly;
 
   public static final String SERIALIZED_NAME_ONCE_PER_ORDER = "once_per_order";
   @SerializedName(SERIALIZED_NAME_ONCE_PER_ORDER)
@@ -114,6 +118,29 @@ public class ItemFulfillmentAddon {
   }
 
 
+  public ItemFulfillmentAddon initialOrderOnly(Boolean initialOrderOnly) {
+    
+    this.initialOrderOnly = initialOrderOnly;
+    return this;
+  }
+
+   /**
+   * Initial Order Only
+   * @return initialOrderOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Initial Order Only")
+
+  public Boolean getInitialOrderOnly() {
+    return initialOrderOnly;
+  }
+
+
+  public void setInitialOrderOnly(Boolean initialOrderOnly) {
+    this.initialOrderOnly = initialOrderOnly;
+  }
+
+
   public ItemFulfillmentAddon oncePerOrder(Boolean oncePerOrder) {
     
     this.oncePerOrder = oncePerOrder;
@@ -121,11 +148,11 @@ public class ItemFulfillmentAddon {
   }
 
    /**
-   * Quantity
+   * Once Per Order
    * @return oncePerOrder
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Quantity")
+  @ApiModelProperty(value = "Once Per Order")
 
   public Boolean getOncePerOrder() {
     return oncePerOrder;
@@ -172,13 +199,14 @@ public class ItemFulfillmentAddon {
     ItemFulfillmentAddon itemFulfillmentAddon = (ItemFulfillmentAddon) o;
     return Objects.equals(this.addItemId, itemFulfillmentAddon.addItemId) &&
         Objects.equals(this.addItemOid, itemFulfillmentAddon.addItemOid) &&
+        Objects.equals(this.initialOrderOnly, itemFulfillmentAddon.initialOrderOnly) &&
         Objects.equals(this.oncePerOrder, itemFulfillmentAddon.oncePerOrder) &&
         Objects.equals(this.quantity, itemFulfillmentAddon.quantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addItemId, addItemOid, oncePerOrder, quantity);
+    return Objects.hash(addItemId, addItemOid, initialOrderOnly, oncePerOrder, quantity);
   }
 
   @Override
@@ -187,6 +215,7 @@ public class ItemFulfillmentAddon {
     sb.append("class ItemFulfillmentAddon {\n");
     sb.append("    addItemId: ").append(toIndentedString(addItemId)).append("\n");
     sb.append("    addItemOid: ").append(toIndentedString(addItemOid)).append("\n");
+    sb.append("    initialOrderOnly: ").append(toIndentedString(initialOrderOnly)).append("\n");
     sb.append("    oncePerOrder: ").append(toIndentedString(oncePerOrder)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("}");
@@ -213,6 +242,7 @@ public class ItemFulfillmentAddon {
     openapiFields = new HashSet<String>();
     openapiFields.add("add_item_id");
     openapiFields.add("add_item_oid");
+    openapiFields.add("initial_order_only");
     openapiFields.add("once_per_order");
     openapiFields.add("quantity");
 

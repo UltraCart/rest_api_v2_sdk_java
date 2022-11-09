@@ -38,6 +38,7 @@
 | RRWEB | &quot;rrweb&quot; |
 | PARTICIPANT_UPDATE | &quot;participant update&quot; |
 | READ_MESSAGE | &quot;read message&quot; |
+| TYPING | &quot;typing&quot; |
 
 
 

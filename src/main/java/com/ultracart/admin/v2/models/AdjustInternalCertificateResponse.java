@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AdjustInternalCertificateResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-04T10:02:29.437-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:30:26.529-05:00[America/Indianapolis]")
 public class AdjustInternalCertificateResponse {
   public static final String SERIALIZED_NAME_ADJUSTMENT_AMOUNT = "adjustment_amount";
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_AMOUNT)
