@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemFulfillmentAddon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-04T09:49:54.472-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:18:50.422-05:00")
 
 
 
@@ -37,6 +37,9 @@ public class ItemFulfillmentAddon {
 
   @SerializedName("add_item_oid")
   private Integer addItemOid = null;
+
+  @SerializedName("initial_order_only")
+  private Boolean initialOrderOnly = null;
 
   @SerializedName("once_per_order")
   private Boolean oncePerOrder = null;
@@ -80,16 +83,34 @@ public class ItemFulfillmentAddon {
     this.addItemOid = addItemOid;
   }
 
+  public ItemFulfillmentAddon initialOrderOnly(Boolean initialOrderOnly) {
+    this.initialOrderOnly = initialOrderOnly;
+    return this;
+  }
+
+   /**
+   * Initial Order Only
+   * @return initialOrderOnly
+  **/
+  @ApiModelProperty(value = "Initial Order Only")
+  public Boolean isInitialOrderOnly() {
+    return initialOrderOnly;
+  }
+
+  public void setInitialOrderOnly(Boolean initialOrderOnly) {
+    this.initialOrderOnly = initialOrderOnly;
+  }
+
   public ItemFulfillmentAddon oncePerOrder(Boolean oncePerOrder) {
     this.oncePerOrder = oncePerOrder;
     return this;
   }
 
    /**
-   * Quantity
+   * Once Per Order
    * @return oncePerOrder
   **/
-  @ApiModelProperty(value = "Quantity")
+  @ApiModelProperty(value = "Once Per Order")
   public Boolean isOncePerOrder() {
     return oncePerOrder;
   }
@@ -128,13 +149,14 @@ public class ItemFulfillmentAddon {
     ItemFulfillmentAddon itemFulfillmentAddon = (ItemFulfillmentAddon) o;
     return Objects.equals(this.addItemId, itemFulfillmentAddon.addItemId) &&
         Objects.equals(this.addItemOid, itemFulfillmentAddon.addItemOid) &&
+        Objects.equals(this.initialOrderOnly, itemFulfillmentAddon.initialOrderOnly) &&
         Objects.equals(this.oncePerOrder, itemFulfillmentAddon.oncePerOrder) &&
         Objects.equals(this.quantity, itemFulfillmentAddon.quantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addItemId, addItemOid, oncePerOrder, quantity);
+    return Objects.hash(addItemId, addItemOid, initialOrderOnly, oncePerOrder, quantity);
   }
 
 
@@ -145,6 +167,7 @@ public class ItemFulfillmentAddon {
     
     sb.append("    addItemId: ").append(toIndentedString(addItemId)).append("\n");
     sb.append("    addItemOid: ").append(toIndentedString(addItemOid)).append("\n");
+    sb.append("    initialOrderOnly: ").append(toIndentedString(initialOrderOnly)).append("\n");
     sb.append("    oncePerOrder: ").append(toIndentedString(oncePerOrder)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("}");

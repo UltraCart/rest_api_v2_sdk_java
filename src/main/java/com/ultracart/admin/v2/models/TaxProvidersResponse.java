@@ -35,7 +35,7 @@ import java.io.IOException;
 /**
  * TaxProvidersResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-04T09:49:54.472-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:18:50.422-05:00")
 
 
 

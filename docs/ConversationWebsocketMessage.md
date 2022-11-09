@@ -34,6 +34,7 @@ QUEUE_STATUS_UPDATE | &quot;queue status update&quot;
 RRWEB | &quot;rrweb&quot;
 PARTICIPANT_UPDATE | &quot;participant update&quot;
 READ_MESSAGE | &quot;read message&quot;
+TYPING | &quot;typing&quot;
 
 
 <a name="TypeEnum"></a>
