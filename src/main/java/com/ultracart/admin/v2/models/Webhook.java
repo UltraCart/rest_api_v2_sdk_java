@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Webhook
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:30:26.529-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:51:09.923-05:00[America/Indianapolis]")
 public class Webhook {
   public static final String SERIALIZED_NAME_API_USER_OID = "api_user_oid";
   @SerializedName(SERIALIZED_NAME_API_USER_OID)
@@ -168,6 +168,10 @@ public class Webhook {
   public static final String SERIALIZED_NAME_BASIC_USERNAME = "basic_username";
   @SerializedName(SERIALIZED_NAME_BASIC_USERNAME)
   private String basicUsername;
+
+  public static final String SERIALIZED_NAME_COMPRESS_EVENTS = "compress_events";
+  @SerializedName(SERIALIZED_NAME_COMPRESS_EVENTS)
+  private Boolean compressEvents;
 
   public static final String SERIALIZED_NAME_CONSECUTIVE_FAILURES = "consecutive_failures";
   @SerializedName(SERIALIZED_NAME_CONSECUTIVE_FAILURES)
@@ -355,6 +359,29 @@ public class Webhook {
 
   public void setBasicUsername(String basicUsername) {
     this.basicUsername = basicUsername;
+  }
+
+
+  public Webhook compressEvents(Boolean compressEvents) {
+    
+    this.compressEvents = compressEvents;
+    return this;
+  }
+
+   /**
+   * Compress events with GZIP then base 64 encode them as a string
+   * @return compressEvents
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Compress events with GZIP then base 64 encode them as a string")
+
+  public Boolean getCompressEvents() {
+    return compressEvents;
+  }
+
+
+  public void setCompressEvents(Boolean compressEvents) {
+    this.compressEvents = compressEvents;
   }
 
 
@@ -658,6 +685,7 @@ public class Webhook {
         Objects.equals(this.authenticationType, webhook.authenticationType) &&
         Objects.equals(this.basicPassword, webhook.basicPassword) &&
         Objects.equals(this.basicUsername, webhook.basicUsername) &&
+        Objects.equals(this.compressEvents, webhook.compressEvents) &&
         Objects.equals(this.consecutiveFailures, webhook.consecutiveFailures) &&
         Objects.equals(this.disabled, webhook.disabled) &&
         Objects.equals(this.eventCategories, webhook.eventCategories) &&
@@ -674,7 +702,7 @@ public class Webhook {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, consecutiveFailures, disabled, eventCategories, iamAccessKey, iamSecretKey, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
+    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, compressEvents, consecutiveFailures, disabled, eventCategories, iamAccessKey, iamSecretKey, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
   }
 
   @Override
@@ -687,6 +715,7 @@ public class Webhook {
     sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
     sb.append("    basicPassword: ").append(toIndentedString(basicPassword)).append("\n");
     sb.append("    basicUsername: ").append(toIndentedString(basicUsername)).append("\n");
+    sb.append("    compressEvents: ").append(toIndentedString(compressEvents)).append("\n");
     sb.append("    consecutiveFailures: ").append(toIndentedString(consecutiveFailures)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    eventCategories: ").append(toIndentedString(eventCategories)).append("\n");
@@ -727,6 +756,7 @@ public class Webhook {
     openapiFields.add("authentication_type");
     openapiFields.add("basic_password");
     openapiFields.add("basic_username");
+    openapiFields.add("compress_events");
     openapiFields.add("consecutive_failures");
     openapiFields.add("disabled");
     openapiFields.add("event_categories");

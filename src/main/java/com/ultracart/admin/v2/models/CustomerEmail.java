@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerEmail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:30:26.529-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:51:09.923-05:00[America/Indianapolis]")
 public class CustomerEmail {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_EMAIL_OID = "customer_profile_email_oid";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_EMAIL_OID)

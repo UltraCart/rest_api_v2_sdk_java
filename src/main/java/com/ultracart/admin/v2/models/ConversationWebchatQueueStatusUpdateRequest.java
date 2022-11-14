@@ -47,34 +47,83 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatQueueStatusUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:30:26.529-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:51:09.923-05:00[America/Indianapolis]")
 public class ConversationWebchatQueueStatusUpdateRequest {
+  /**
+   * Status of the agent
+   */
+  @JsonAdapter(AgentStatusEnum.Adapter.class)
+  public enum AgentStatusEnum {
+    AVAILABLE("available"),
+    
+    BUSY("busy"),
+    
+    UNAVAILABLE("unavailable");
+
+    private String value;
+
+    AgentStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AgentStatusEnum fromValue(String value) {
+      for (AgentStatusEnum b : AgentStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AgentStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AgentStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AgentStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AgentStatusEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_AGENT_STATUS = "agent_status";
   @SerializedName(SERIALIZED_NAME_AGENT_STATUS)
-  private String agentStatus;
+  private AgentStatusEnum agentStatus;
 
   public ConversationWebchatQueueStatusUpdateRequest() { 
   }
 
-  public ConversationWebchatQueueStatusUpdateRequest agentStatus(String agentStatus) {
+  public ConversationWebchatQueueStatusUpdateRequest agentStatus(AgentStatusEnum agentStatus) {
     
     this.agentStatus = agentStatus;
     return this;
   }
 
    /**
-   * Get agentStatus
+   * Status of the agent
    * @return agentStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Status of the agent")
 
-  public String getAgentStatus() {
+  public AgentStatusEnum getAgentStatus() {
     return agentStatus;
   }
 
 
-  public void setAgentStatus(String agentStatus) {
+  public void setAgentStatus(AgentStatusEnum agentStatus) {
     this.agentStatus = agentStatus;
   }
 
