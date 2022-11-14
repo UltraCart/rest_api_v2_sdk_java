@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Webhook
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:18:50.422-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:38:20.366-05:00")
 
 
 
@@ -145,6 +145,9 @@ public class Webhook {
 
   @SerializedName("basic_username")
   private String basicUsername = null;
+
+  @SerializedName("compress_events")
+  private Boolean compressEvents = null;
 
   @SerializedName("consecutive_failures")
   private Integer consecutiveFailures = null;
@@ -288,6 +291,24 @@ public class Webhook {
 
   public void setBasicUsername(String basicUsername) {
     this.basicUsername = basicUsername;
+  }
+
+  public Webhook compressEvents(Boolean compressEvents) {
+    this.compressEvents = compressEvents;
+    return this;
+  }
+
+   /**
+   * Compress events with GZIP then base 64 encode them as a string
+   * @return compressEvents
+  **/
+  @ApiModelProperty(value = "Compress events with GZIP then base 64 encode them as a string")
+  public Boolean isCompressEvents() {
+    return compressEvents;
+  }
+
+  public void setCompressEvents(Boolean compressEvents) {
+    this.compressEvents = compressEvents;
   }
 
   public Webhook consecutiveFailures(Integer consecutiveFailures) {
@@ -530,6 +551,7 @@ public class Webhook {
         Objects.equals(this.authenticationType, webhook.authenticationType) &&
         Objects.equals(this.basicPassword, webhook.basicPassword) &&
         Objects.equals(this.basicUsername, webhook.basicUsername) &&
+        Objects.equals(this.compressEvents, webhook.compressEvents) &&
         Objects.equals(this.consecutiveFailures, webhook.consecutiveFailures) &&
         Objects.equals(this.disabled, webhook.disabled) &&
         Objects.equals(this.eventCategories, webhook.eventCategories) &&
@@ -546,7 +568,7 @@ public class Webhook {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, consecutiveFailures, disabled, eventCategories, iamAccessKey, iamSecretKey, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
+    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, compressEvents, consecutiveFailures, disabled, eventCategories, iamAccessKey, iamSecretKey, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
   }
 
 
@@ -561,6 +583,7 @@ public class Webhook {
     sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
     sb.append("    basicPassword: ").append(toIndentedString(basicPassword)).append("\n");
     sb.append("    basicUsername: ").append(toIndentedString(basicUsername)).append("\n");
+    sb.append("    compressEvents: ").append(toIndentedString(compressEvents)).append("\n");
     sb.append("    consecutiveFailures: ").append(toIndentedString(consecutiveFailures)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    eventCategories: ").append(toIndentedString(eventCategories)).append("\n");

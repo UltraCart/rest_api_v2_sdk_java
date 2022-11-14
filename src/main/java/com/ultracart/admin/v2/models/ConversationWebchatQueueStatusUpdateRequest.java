@@ -27,29 +27,78 @@ import java.io.IOException;
 /**
  * ConversationWebchatQueueStatusUpdateRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-09T16:18:50.422-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:38:20.366-05:00")
 
 
 
 public class ConversationWebchatQueueStatusUpdateRequest {
-  @SerializedName("agent_status")
-  private String agentStatus = null;
+  /**
+   * Status of the agent
+   */
+  @JsonAdapter(AgentStatusEnum.Adapter.class)
+  public enum AgentStatusEnum {
+    AVAILABLE("available"),
+    
+    BUSY("busy"),
+    
+    UNAVAILABLE("unavailable");
 
-  public ConversationWebchatQueueStatusUpdateRequest agentStatus(String agentStatus) {
+    private String value;
+
+    AgentStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AgentStatusEnum fromValue(String text) {
+      for (AgentStatusEnum b : AgentStatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<AgentStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AgentStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AgentStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AgentStatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("agent_status")
+  private AgentStatusEnum agentStatus = null;
+
+  public ConversationWebchatQueueStatusUpdateRequest agentStatus(AgentStatusEnum agentStatus) {
     this.agentStatus = agentStatus;
     return this;
   }
 
    /**
-   * Get agentStatus
+   * Status of the agent
    * @return agentStatus
   **/
-  @ApiModelProperty(value = "")
-  public String getAgentStatus() {
+  @ApiModelProperty(value = "Status of the agent")
+  public AgentStatusEnum getAgentStatus() {
     return agentStatus;
   }
 
-  public void setAgentStatus(String agentStatus) {
+  public void setAgentStatus(AgentStatusEnum agentStatus) {
     this.agentStatus = agentStatus;
   }
 
