@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerTag
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:26:34.823-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:57:28.765-05:00[America/Indianapolis]")
 public class CustomerTag {
   public static final String SERIALIZED_NAME_TAG_VALUE = "tag_value";
   @SerializedName(SERIALIZED_NAME_TAG_VALUE)
