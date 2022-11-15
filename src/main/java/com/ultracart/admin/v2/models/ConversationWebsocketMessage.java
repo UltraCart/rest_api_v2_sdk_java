@@ -20,6 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationEventAddCoupon;
+import com.ultracart.admin.v2.models.ConversationEventAddItem;
 import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationEventRRWeb;
 import com.ultracart.admin.v2.models.ConversationEventReadMessage;
@@ -54,11 +56,19 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:34:56.995-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:26:34.823-05:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
   private String conversationUuid;
+
+  public static final String SERIALIZED_NAME_EVENT_ADD_COUPON = "event_add_coupon";
+  @SerializedName(SERIALIZED_NAME_EVENT_ADD_COUPON)
+  private ConversationEventAddCoupon eventAddCoupon;
+
+  public static final String SERIALIZED_NAME_EVENT_ADD_ITEM = "event_add_item";
+  @SerializedName(SERIALIZED_NAME_EVENT_ADD_ITEM)
+  private ConversationEventAddItem eventAddItem;
 
   public static final String SERIALIZED_NAME_EVENT_CONVERSATION_CLOSED = "event_conversation_closed";
   @SerializedName(SERIALIZED_NAME_EVENT_CONVERSATION_CLOSED)
@@ -117,7 +127,11 @@ public class ConversationWebsocketMessage {
     
     READ_MESSAGE("read message"),
     
-    TYPING("typing");
+    TYPING("typing"),
+    
+    ADD_COUPON("add coupon"),
+    
+    ADD_ITEM("add item");
 
     private String value;
 
@@ -251,6 +265,52 @@ public class ConversationWebsocketMessage {
 
   public void setConversationUuid(String conversationUuid) {
     this.conversationUuid = conversationUuid;
+  }
+
+
+  public ConversationWebsocketMessage eventAddCoupon(ConversationEventAddCoupon eventAddCoupon) {
+    
+    this.eventAddCoupon = eventAddCoupon;
+    return this;
+  }
+
+   /**
+   * Get eventAddCoupon
+   * @return eventAddCoupon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationEventAddCoupon getEventAddCoupon() {
+    return eventAddCoupon;
+  }
+
+
+  public void setEventAddCoupon(ConversationEventAddCoupon eventAddCoupon) {
+    this.eventAddCoupon = eventAddCoupon;
+  }
+
+
+  public ConversationWebsocketMessage eventAddItem(ConversationEventAddItem eventAddItem) {
+    
+    this.eventAddItem = eventAddItem;
+    return this;
+  }
+
+   /**
+   * Get eventAddItem
+   * @return eventAddItem
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationEventAddItem getEventAddItem() {
+    return eventAddItem;
+  }
+
+
+  public void setEventAddItem(ConversationEventAddItem eventAddItem) {
+    this.eventAddItem = eventAddItem;
   }
 
 
@@ -564,6 +624,8 @@ public class ConversationWebsocketMessage {
     }
     ConversationWebsocketMessage conversationWebsocketMessage = (ConversationWebsocketMessage) o;
     return Objects.equals(this.conversationUuid, conversationWebsocketMessage.conversationUuid) &&
+        Objects.equals(this.eventAddCoupon, conversationWebsocketMessage.eventAddCoupon) &&
+        Objects.equals(this.eventAddItem, conversationWebsocketMessage.eventAddItem) &&
         Objects.equals(this.eventConversationClosed, conversationWebsocketMessage.eventConversationClosed) &&
         Objects.equals(this.eventNewConversation, conversationWebsocketMessage.eventNewConversation) &&
         Objects.equals(this.eventNewMessage, conversationWebsocketMessage.eventNewMessage) &&
@@ -581,7 +643,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
+    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
   }
 
   @Override
@@ -589,6 +651,8 @@ public class ConversationWebsocketMessage {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationWebsocketMessage {\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    eventAddCoupon: ").append(toIndentedString(eventAddCoupon)).append("\n");
+    sb.append("    eventAddItem: ").append(toIndentedString(eventAddItem)).append("\n");
     sb.append("    eventConversationClosed: ").append(toIndentedString(eventConversationClosed)).append("\n");
     sb.append("    eventNewConversation: ").append(toIndentedString(eventNewConversation)).append("\n");
     sb.append("    eventNewMessage: ").append(toIndentedString(eventNewMessage)).append("\n");
@@ -625,6 +689,8 @@ public class ConversationWebsocketMessage {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("conversation_uuid");
+    openapiFields.add("event_add_coupon");
+    openapiFields.add("event_add_item");
     openapiFields.add("event_conversation_closed");
     openapiFields.add("event_new_conversation");
     openapiFields.add("event_new_message");
@@ -667,6 +733,14 @@ public class ConversationWebsocketMessage {
       }
       if (jsonObj.get("conversation_uuid") != null && !jsonObj.get("conversation_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_uuid").toString()));
+      }
+      // validate the optional field `event_add_coupon`
+      if (jsonObj.getAsJsonObject("event_add_coupon") != null) {
+        ConversationEventAddCoupon.validateJsonObject(jsonObj.getAsJsonObject("event_add_coupon"));
+      }
+      // validate the optional field `event_add_item`
+      if (jsonObj.getAsJsonObject("event_add_item") != null) {
+        ConversationEventAddItem.validateJsonObject(jsonObj.getAsJsonObject("event_add_item"));
       }
       // validate the optional field `event_conversation_closed`
       if (jsonObj.getAsJsonObject("event_conversation_closed") != null) {

@@ -213,6 +213,8 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.Conversation.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationAgentAuth.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationAgentAuthResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationEventAddCoupon.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationEventAddItem.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationEventQueuePosition.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationEventRRWeb.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationEventReadMessage.CustomTypeAdapterFactory())

@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerEstimateTaxResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:34:56.995-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:26:34.823-05:00[America/Indianapolis]")
 public class ChannelPartnerEstimateTaxResponse {
   public static final String SERIALIZED_NAME_ARBITRARY_TAX = "arbitrary_tax";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_TAX)

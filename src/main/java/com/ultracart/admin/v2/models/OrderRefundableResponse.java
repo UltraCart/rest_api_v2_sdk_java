@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderRefundableResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:34:56.995-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:26:34.823-05:00[America/Indianapolis]")
 public class OrderRefundableResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
@@ -128,11 +128,11 @@ public class OrderRefundableResponse {
   }
 
    /**
-   * Whether the order is refundable or not.
+   * Whether the order is refundable or not.  Null should be interpreted as false.
    * @return refundable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the order is refundable or not.")
+  @ApiModelProperty(value = "Whether the order is refundable or not.  Null should be interpreted as false.")
 
   public Boolean getRefundable() {
     return refundable;
