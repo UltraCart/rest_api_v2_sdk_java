@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**baseLanguageIsoCode** | **String** | The base language iso code for the StoreFront that everything is translated into |  [optional] |
 |**closed** | **Boolean** |  |  [optional] |
 |**conversationArn** | **String** |  |  [optional] |
 |**conversationUuid** | **String** |  |  [optional] |

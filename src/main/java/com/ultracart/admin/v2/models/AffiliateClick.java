@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AffiliateClick
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:51:09.923-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:08:00.037-05:00[America/Indianapolis]")
 public class AffiliateClick {
   public static final String SERIALIZED_NAME_AFFILIATE_CLICK_OID = "affiliate_click_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_CLICK_OID)
@@ -90,9 +90,17 @@ public class AffiliateClick {
   @SerializedName(SERIALIZED_NAME_REFERRER_QUERY_STRING)
   private String referrerQueryString;
 
+  public static final String SERIALIZED_NAME_SCREEN_RECORDING_UUID = "screen_recording_uuid";
+  @SerializedName(SERIALIZED_NAME_SCREEN_RECORDING_UUID)
+  private String screenRecordingUuid;
+
   public static final String SERIALIZED_NAME_SUB_ID = "sub_id";
   @SerializedName(SERIALIZED_NAME_SUB_ID)
   private String subId;
+
+  public static final String SERIALIZED_NAME_UCACID = "ucacid";
+  @SerializedName(SERIALIZED_NAME_UCACID)
+  private String ucacid;
 
   public AffiliateClick() { 
   }
@@ -327,6 +335,29 @@ public class AffiliateClick {
   }
 
 
+  public AffiliateClick screenRecordingUuid(String screenRecordingUuid) {
+    
+    this.screenRecordingUuid = screenRecordingUuid;
+    return this;
+  }
+
+   /**
+   * Screen recording UUID
+   * @return screenRecordingUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Screen recording UUID")
+
+  public String getScreenRecordingUuid() {
+    return screenRecordingUuid;
+  }
+
+
+  public void setScreenRecordingUuid(String screenRecordingUuid) {
+    this.screenRecordingUuid = screenRecordingUuid;
+  }
+
+
   public AffiliateClick subId(String subId) {
     
     this.subId = subId;
@@ -350,6 +381,29 @@ public class AffiliateClick {
   }
 
 
+  public AffiliateClick ucacid(String ucacid) {
+    
+    this.ucacid = ucacid;
+    return this;
+  }
+
+   /**
+   * UC Analytics Identifier
+   * @return ucacid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UC Analytics Identifier")
+
+  public String getUcacid() {
+    return ucacid;
+  }
+
+
+  public void setUcacid(String ucacid) {
+    this.ucacid = ucacid;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -370,12 +424,14 @@ public class AffiliateClick {
         Objects.equals(this.link, affiliateClick.link) &&
         Objects.equals(this.referrer, affiliateClick.referrer) &&
         Objects.equals(this.referrerQueryString, affiliateClick.referrerQueryString) &&
-        Objects.equals(this.subId, affiliateClick.subId);
+        Objects.equals(this.screenRecordingUuid, affiliateClick.screenRecordingUuid) &&
+        Objects.equals(this.subId, affiliateClick.subId) &&
+        Objects.equals(this.ucacid, affiliateClick.ucacid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateClickOid, affiliateLinkOid, affiliateOid, clickDts, ipAddress, landingPage, landingPageQueryString, link, referrer, referrerQueryString, subId);
+    return Objects.hash(affiliateClickOid, affiliateLinkOid, affiliateOid, clickDts, ipAddress, landingPage, landingPageQueryString, link, referrer, referrerQueryString, screenRecordingUuid, subId, ucacid);
   }
 
   @Override
@@ -392,7 +448,9 @@ public class AffiliateClick {
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    referrerQueryString: ").append(toIndentedString(referrerQueryString)).append("\n");
+    sb.append("    screenRecordingUuid: ").append(toIndentedString(screenRecordingUuid)).append("\n");
     sb.append("    subId: ").append(toIndentedString(subId)).append("\n");
+    sb.append("    ucacid: ").append(toIndentedString(ucacid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -425,7 +483,9 @@ public class AffiliateClick {
     openapiFields.add("link");
     openapiFields.add("referrer");
     openapiFields.add("referrer_query_string");
+    openapiFields.add("screen_recording_uuid");
     openapiFields.add("sub_id");
+    openapiFields.add("ucacid");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -475,8 +535,14 @@ public class AffiliateClick {
       if (jsonObj.get("referrer_query_string") != null && !jsonObj.get("referrer_query_string").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referrer_query_string` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referrer_query_string").toString()));
       }
+      if (jsonObj.get("screen_recording_uuid") != null && !jsonObj.get("screen_recording_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `screen_recording_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screen_recording_uuid").toString()));
+      }
       if (jsonObj.get("sub_id") != null && !jsonObj.get("sub_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sub_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sub_id").toString()));
+      }
+      if (jsonObj.get("ucacid") != null && !jsonObj.get("ucacid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ucacid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ucacid").toString()));
       }
   }
 

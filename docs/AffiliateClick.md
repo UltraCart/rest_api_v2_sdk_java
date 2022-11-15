@@ -17,7 +17,9 @@
 |**link** | [**AffiliateLink**](AffiliateLink.md) |  |  [optional] |
 |**referrer** | **String** | URL that referred the click (Browser Header Referer) |  [optional] |
 |**referrerQueryString** | **String** | Query string that was on the referrer URL. |  [optional] |
+|**screenRecordingUuid** | **String** | Screen recording UUID |  [optional] |
 |**subId** | **String** | Sub ID value passed on the click |  [optional] |
+|**ucacid** | **String** | UC Analytics Identifier |  [optional] |
 
 
 

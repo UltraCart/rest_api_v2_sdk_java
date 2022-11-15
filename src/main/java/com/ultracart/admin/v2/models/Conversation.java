@@ -51,8 +51,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:51:09.923-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:08:00.037-05:00[America/Indianapolis]")
 public class Conversation {
+  public static final String SERIALIZED_NAME_BASE_LANGUAGE_ISO_CODE = "base_language_iso_code";
+  @SerializedName(SERIALIZED_NAME_BASE_LANGUAGE_ISO_CODE)
+  private String baseLanguageIsoCode;
+
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
   private Boolean closed;
@@ -166,6 +170,29 @@ public class Conversation {
 
   public Conversation() { 
   }
+
+  public Conversation baseLanguageIsoCode(String baseLanguageIsoCode) {
+    
+    this.baseLanguageIsoCode = baseLanguageIsoCode;
+    return this;
+  }
+
+   /**
+   * The base language iso code for the StoreFront that everything is translated into
+   * @return baseLanguageIsoCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The base language iso code for the StoreFront that everything is translated into")
+
+  public String getBaseLanguageIsoCode() {
+    return baseLanguageIsoCode;
+  }
+
+
+  public void setBaseLanguageIsoCode(String baseLanguageIsoCode) {
+    this.baseLanguageIsoCode = baseLanguageIsoCode;
+  }
+
 
   public Conversation closed(Boolean closed) {
     
@@ -561,7 +588,8 @@ public class Conversation {
       return false;
     }
     Conversation conversation = (Conversation) o;
-    return Objects.equals(this.closed, conversation.closed) &&
+    return Objects.equals(this.baseLanguageIsoCode, conversation.baseLanguageIsoCode) &&
+        Objects.equals(this.closed, conversation.closed) &&
         Objects.equals(this.conversationArn, conversation.conversationArn) &&
         Objects.equals(this.conversationUuid, conversation.conversationUuid) &&
         Objects.equals(this.lastConversationMessageBody, conversation.lastConversationMessageBody) &&
@@ -581,13 +609,14 @@ public class Conversation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
+    return Objects.hash(baseLanguageIsoCode, closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Conversation {\n");
+    sb.append("    baseLanguageIsoCode: ").append(toIndentedString(baseLanguageIsoCode)).append("\n");
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
@@ -626,6 +655,7 @@ public class Conversation {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("base_language_iso_code");
     openapiFields.add("closed");
     openapiFields.add("conversation_arn");
     openapiFields.add("conversation_uuid");
@@ -668,6 +698,9 @@ public class Conversation {
         if (!Conversation.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Conversation` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("base_language_iso_code") != null && !jsonObj.get("base_language_iso_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `base_language_iso_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("base_language_iso_code").toString()));
       }
       if (jsonObj.get("conversation_arn") != null && !jsonObj.get("conversation_arn").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_arn").toString()));

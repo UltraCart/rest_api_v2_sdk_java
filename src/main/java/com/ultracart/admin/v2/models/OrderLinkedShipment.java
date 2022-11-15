@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderLinkedShipment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:51:09.923-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:08:00.037-05:00[America/Indianapolis]")
 public class OrderLinkedShipment {
   public static final String SERIALIZED_NAME_HAS_LINKED_SHIPMENT = "has_linked_shipment";
   @SerializedName(SERIALIZED_NAME_HAS_LINKED_SHIPMENT)
