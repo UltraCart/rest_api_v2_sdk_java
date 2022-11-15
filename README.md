@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-11-14T11:38:20.366-05:00
+  - Build date: 2022-11-15T08:55:39.752-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.63</version>
+  <version>3.10.64</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.63"
+compile "com.ultracart:rest-sdk:3.10.64"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.63.jar`
+* `target/rest-sdk-3.10.64.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1248,6 +1248,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.64 | 11/15/2022 | increase order property length to 10k char |
 | 3.10.63 | 11/14/2022 | conversations - add allowed values for update agent status |
 | 3.10.62 | 11/09/2022 | conversations - add an enum of event typing |
 | 3.10.61 | 11/04/2022 | new coupon type percent based on msrp |

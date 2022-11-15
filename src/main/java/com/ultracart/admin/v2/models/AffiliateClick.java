@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * AffiliateClick
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:38:20.366-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T08:55:39.752-05:00")
 
 
 
@@ -63,8 +63,14 @@ public class AffiliateClick {
   @SerializedName("referrer_query_string")
   private String referrerQueryString = null;
 
+  @SerializedName("screen_recording_uuid")
+  private String screenRecordingUuid = null;
+
   @SerializedName("sub_id")
   private String subId = null;
+
+  @SerializedName("ucacid")
+  private String ucacid = null;
 
   public AffiliateClick affiliateClickOid(Integer affiliateClickOid) {
     this.affiliateClickOid = affiliateClickOid;
@@ -246,6 +252,24 @@ public class AffiliateClick {
     this.referrerQueryString = referrerQueryString;
   }
 
+  public AffiliateClick screenRecordingUuid(String screenRecordingUuid) {
+    this.screenRecordingUuid = screenRecordingUuid;
+    return this;
+  }
+
+   /**
+   * Screen recording UUID
+   * @return screenRecordingUuid
+  **/
+  @ApiModelProperty(value = "Screen recording UUID")
+  public String getScreenRecordingUuid() {
+    return screenRecordingUuid;
+  }
+
+  public void setScreenRecordingUuid(String screenRecordingUuid) {
+    this.screenRecordingUuid = screenRecordingUuid;
+  }
+
   public AffiliateClick subId(String subId) {
     this.subId = subId;
     return this;
@@ -262,6 +286,24 @@ public class AffiliateClick {
 
   public void setSubId(String subId) {
     this.subId = subId;
+  }
+
+  public AffiliateClick ucacid(String ucacid) {
+    this.ucacid = ucacid;
+    return this;
+  }
+
+   /**
+   * UC Analytics Identifier
+   * @return ucacid
+  **/
+  @ApiModelProperty(value = "UC Analytics Identifier")
+  public String getUcacid() {
+    return ucacid;
+  }
+
+  public void setUcacid(String ucacid) {
+    this.ucacid = ucacid;
   }
 
 
@@ -284,12 +326,14 @@ public class AffiliateClick {
         Objects.equals(this.link, affiliateClick.link) &&
         Objects.equals(this.referrer, affiliateClick.referrer) &&
         Objects.equals(this.referrerQueryString, affiliateClick.referrerQueryString) &&
-        Objects.equals(this.subId, affiliateClick.subId);
+        Objects.equals(this.screenRecordingUuid, affiliateClick.screenRecordingUuid) &&
+        Objects.equals(this.subId, affiliateClick.subId) &&
+        Objects.equals(this.ucacid, affiliateClick.ucacid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateClickOid, affiliateLinkOid, affiliateOid, clickDts, ipAddress, landingPage, landingPageQueryString, link, referrer, referrerQueryString, subId);
+    return Objects.hash(affiliateClickOid, affiliateLinkOid, affiliateOid, clickDts, ipAddress, landingPage, landingPageQueryString, link, referrer, referrerQueryString, screenRecordingUuid, subId, ucacid);
   }
 
 
@@ -308,7 +352,9 @@ public class AffiliateClick {
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    referrerQueryString: ").append(toIndentedString(referrerQueryString)).append("\n");
+    sb.append("    screenRecordingUuid: ").append(toIndentedString(screenRecordingUuid)).append("\n");
     sb.append("    subId: ").append(toIndentedString(subId)).append("\n");
+    sb.append("    ucacid: ").append(toIndentedString(ucacid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

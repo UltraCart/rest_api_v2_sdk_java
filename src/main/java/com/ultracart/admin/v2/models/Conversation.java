@@ -31,11 +31,14 @@ import java.util.List;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-14T11:38:20.366-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T08:55:39.752-05:00")
 
 
 
 public class Conversation {
+  @SerializedName("base_language_iso_code")
+  private String baseLanguageIsoCode = null;
+
   @SerializedName("closed")
   private Boolean closed = null;
 
@@ -130,6 +133,24 @@ public class Conversation {
 
   @SerializedName("visible")
   private Boolean visible = null;
+
+  public Conversation baseLanguageIsoCode(String baseLanguageIsoCode) {
+    this.baseLanguageIsoCode = baseLanguageIsoCode;
+    return this;
+  }
+
+   /**
+   * The base language iso code for the StoreFront that everything is translated into
+   * @return baseLanguageIsoCode
+  **/
+  @ApiModelProperty(value = "The base language iso code for the StoreFront that everything is translated into")
+  public String getBaseLanguageIsoCode() {
+    return baseLanguageIsoCode;
+  }
+
+  public void setBaseLanguageIsoCode(String baseLanguageIsoCode) {
+    this.baseLanguageIsoCode = baseLanguageIsoCode;
+  }
 
   public Conversation closed(Boolean closed) {
     this.closed = closed;
@@ -445,7 +466,8 @@ public class Conversation {
       return false;
     }
     Conversation conversation = (Conversation) o;
-    return Objects.equals(this.closed, conversation.closed) &&
+    return Objects.equals(this.baseLanguageIsoCode, conversation.baseLanguageIsoCode) &&
+        Objects.equals(this.closed, conversation.closed) &&
         Objects.equals(this.conversationArn, conversation.conversationArn) &&
         Objects.equals(this.conversationUuid, conversation.conversationUuid) &&
         Objects.equals(this.lastConversationMessageBody, conversation.lastConversationMessageBody) &&
@@ -465,7 +487,7 @@ public class Conversation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
+    return Objects.hash(baseLanguageIsoCode, closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
   }
 
 
@@ -474,6 +496,7 @@ public class Conversation {
     StringBuilder sb = new StringBuilder();
     sb.append("class Conversation {\n");
     
+    sb.append("    baseLanguageIsoCode: ").append(toIndentedString(baseLanguageIsoCode)).append("\n");
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
