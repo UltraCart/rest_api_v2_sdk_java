@@ -30,7 +30,7 @@ import java.io.IOException;
 /**
  * OrderRefundableResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:22:40.263-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:14:03.470-05:00")
 
 
 
@@ -92,10 +92,10 @@ public class OrderRefundableResponse {
   }
 
    /**
-   * Whether the order is refundable or not.
+   * Whether the order is refundable or not.  Null should be interpreted as false.
    * @return refundable
   **/
-  @ApiModelProperty(value = "Whether the order is refundable or not.")
+  @ApiModelProperty(value = "Whether the order is refundable or not.  Null should be interpreted as false.")
   public Boolean isRefundable() {
     return refundable;
   }

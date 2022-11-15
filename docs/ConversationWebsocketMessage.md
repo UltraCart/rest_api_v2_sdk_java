@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conversationUuid** | **String** | Conversation UUID if the websocket message is tied to a specific conversation |  [optional]
+**eventAddCoupon** | [**ConversationEventAddCoupon**](ConversationEventAddCoupon.md) |  |  [optional]
+**eventAddItem** | [**ConversationEventAddItem**](ConversationEventAddItem.md) |  |  [optional]
 **eventConversationClosed** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
 **eventNewConversation** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
 **eventNewMessage** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
@@ -35,6 +37,8 @@ RRWEB | &quot;rrweb&quot;
 PARTICIPANT_UPDATE | &quot;participant update&quot;
 READ_MESSAGE | &quot;read message&quot;
 TYPING | &quot;typing&quot;
+ADD_COUPON | &quot;add coupon&quot;
+ADD_ITEM | &quot;add item&quot;
 
 
 <a name="TypeEnum"></a>

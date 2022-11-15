@@ -20,6 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationEventAddCoupon;
+import com.ultracart.admin.v2.models.ConversationEventAddItem;
 import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationEventRRWeb;
 import com.ultracart.admin.v2.models.ConversationEventReadMessage;
@@ -34,13 +36,19 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:22:40.263-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:14:03.470-05:00")
 
 
 
 public class ConversationWebsocketMessage {
   @SerializedName("conversation_uuid")
   private String conversationUuid = null;
+
+  @SerializedName("event_add_coupon")
+  private ConversationEventAddCoupon eventAddCoupon = null;
+
+  @SerializedName("event_add_item")
+  private ConversationEventAddItem eventAddItem = null;
 
   @SerializedName("event_conversation_closed")
   private ConversationSummary eventConversationClosed = null;
@@ -91,7 +99,11 @@ public class ConversationWebsocketMessage {
     
     READ_MESSAGE("read message"),
     
-    TYPING("typing");
+    TYPING("typing"),
+    
+    ADD_COUPON("add coupon"),
+    
+    ADD_ITEM("add item");
 
     private String value;
 
@@ -213,6 +225,42 @@ public class ConversationWebsocketMessage {
 
   public void setConversationUuid(String conversationUuid) {
     this.conversationUuid = conversationUuid;
+  }
+
+  public ConversationWebsocketMessage eventAddCoupon(ConversationEventAddCoupon eventAddCoupon) {
+    this.eventAddCoupon = eventAddCoupon;
+    return this;
+  }
+
+   /**
+   * Get eventAddCoupon
+   * @return eventAddCoupon
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationEventAddCoupon getEventAddCoupon() {
+    return eventAddCoupon;
+  }
+
+  public void setEventAddCoupon(ConversationEventAddCoupon eventAddCoupon) {
+    this.eventAddCoupon = eventAddCoupon;
+  }
+
+  public ConversationWebsocketMessage eventAddItem(ConversationEventAddItem eventAddItem) {
+    this.eventAddItem = eventAddItem;
+    return this;
+  }
+
+   /**
+   * Get eventAddItem
+   * @return eventAddItem
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationEventAddItem getEventAddItem() {
+    return eventAddItem;
+  }
+
+  public void setEventAddItem(ConversationEventAddItem eventAddItem) {
+    this.eventAddItem = eventAddItem;
   }
 
   public ConversationWebsocketMessage eventConversationClosed(ConversationSummary eventConversationClosed) {
@@ -460,6 +508,8 @@ public class ConversationWebsocketMessage {
     }
     ConversationWebsocketMessage conversationWebsocketMessage = (ConversationWebsocketMessage) o;
     return Objects.equals(this.conversationUuid, conversationWebsocketMessage.conversationUuid) &&
+        Objects.equals(this.eventAddCoupon, conversationWebsocketMessage.eventAddCoupon) &&
+        Objects.equals(this.eventAddItem, conversationWebsocketMessage.eventAddItem) &&
         Objects.equals(this.eventConversationClosed, conversationWebsocketMessage.eventConversationClosed) &&
         Objects.equals(this.eventNewConversation, conversationWebsocketMessage.eventNewConversation) &&
         Objects.equals(this.eventNewMessage, conversationWebsocketMessage.eventNewMessage) &&
@@ -477,7 +527,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
+    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
   }
 
 
@@ -487,6 +537,8 @@ public class ConversationWebsocketMessage {
     sb.append("class ConversationWebsocketMessage {\n");
     
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    eventAddCoupon: ").append(toIndentedString(eventAddCoupon)).append("\n");
+    sb.append("    eventAddItem: ").append(toIndentedString(eventAddItem)).append("\n");
     sb.append("    eventConversationClosed: ").append(toIndentedString(eventConversationClosed)).append("\n");
     sb.append("    eventNewConversation: ").append(toIndentedString(eventNewConversation)).append("\n");
     sb.append("    eventNewMessage: ").append(toIndentedString(eventNewMessage)).append("\n");

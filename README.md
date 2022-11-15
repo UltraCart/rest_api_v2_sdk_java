@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-11-15T09:22:40.263-05:00
+  - Build date: 2022-11-15T16:14:03.470-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.65</version>
+  <version>3.10.66</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.65"
+compile "com.ultracart:rest-sdk:3.10.66"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.65.jar`
+* `target/rest-sdk-3.10.66.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -608,6 +608,8 @@ Class | Method | HTTP request | Description
  - [Conversation](docs/Conversation.md)
  - [ConversationAgentAuth](docs/ConversationAgentAuth.md)
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
+ - [ConversationEventAddCoupon](docs/ConversationEventAddCoupon.md)
+ - [ConversationEventAddItem](docs/ConversationEventAddItem.md)
  - [ConversationEventQueuePosition](docs/ConversationEventQueuePosition.md)
  - [ConversationEventRRWeb](docs/ConversationEventRRWeb.md)
  - [ConversationEventReadMessage](docs/ConversationEventReadMessage.md)
@@ -1250,6 +1252,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.66 | 11/15/2022 | conversations - enw events for add coupon and items |
 | 3.10.65 | 11/15/2022 | order api new method is order refundable |
 | 3.10.64 | 11/15/2022 | increase order property length to 10k char |
 | 3.10.63 | 11/14/2022 | conversations - add allowed values for update agent status |
