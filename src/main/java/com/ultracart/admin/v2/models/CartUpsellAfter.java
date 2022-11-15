@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CartUpsellAfter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:14:03.470-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:45:30.901-05:00")
 
 
 
