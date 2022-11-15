@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-11-15T09:08:00.037-05:00[America/Indianapolis]
+  - Build date: 2022-11-15T09:34:56.995-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.81-RC</version>
+  <version>4.0.82-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.81-RC"
+     implementation "com.ultracart:rest-sdk:4.0.82-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.81-RC.jar`
+* `target/rest-sdk-4.0.82-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -270,6 +270,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrdersBatch**](docs/OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
 *OrderApi* | [**insertOrder**](docs/OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order
+*OrderApi* | [**isRefundableOrder**](docs/OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 *OrderApi* | [**processPayment**](docs/OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
 *OrderApi* | [**replacement**](docs/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
@@ -1046,6 +1047,7 @@ Class | Method | HTTP request | Description
  - [OrderQuery](docs/OrderQuery.md)
  - [OrderQueryBatch](docs/OrderQueryBatch.md)
  - [OrderQuote](docs/OrderQuote.md)
+ - [OrderRefundableResponse](docs/OrderRefundableResponse.md)
  - [OrderReplacement](docs/OrderReplacement.md)
  - [OrderReplacementItem](docs/OrderReplacementItem.md)
  - [OrderReplacementResponse](docs/OrderReplacementResponse.md)
@@ -1265,6 +1267,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.82-RC | 11/15/2022 | order api new method is order refundable |
 | 4.0.81-RC | 11/15/2022 | increase order property length to 10k char |
 | 4.0.80-RC | 11/14/2022 | conversations - add allowed values for update agent status |
 | 4.0.79-RC | 11/09/2022 | conversations - add an enum of event typing |

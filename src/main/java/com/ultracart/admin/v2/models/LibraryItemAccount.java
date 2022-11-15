@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * LibraryItemAccount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:08:00.037-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T09:34:56.995-05:00[America/Indianapolis]")
 public class LibraryItemAccount {
   public static final String SERIALIZED_NAME_LIBRARY_ITEM_ACCOUNT_OID = "library_item_account_oid";
   @SerializedName(SERIALIZED_NAME_LIBRARY_ITEM_ACCOUNT_OID)

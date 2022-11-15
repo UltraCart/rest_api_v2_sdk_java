@@ -560,6 +560,7 @@ docs/OrderProperty.md
 docs/OrderQuery.md
 docs/OrderQueryBatch.md
 docs/OrderQuote.md
+docs/OrderRefundableResponse.md
 docs/OrderReplacement.md
 docs/OrderReplacementItem.md
 docs/OrderReplacementResponse.md
@@ -1276,6 +1277,7 @@ src/main/java/com/ultracart/admin/v2/models/OrderProperty.java
 src/main/java/com/ultracart/admin/v2/models/OrderQuery.java
 src/main/java/com/ultracart/admin/v2/models/OrderQueryBatch.java
 src/main/java/com/ultracart/admin/v2/models/OrderQuote.java
+src/main/java/com/ultracart/admin/v2/models/OrderRefundableResponse.java
 src/main/java/com/ultracart/admin/v2/models/OrderReplacement.java
 src/main/java/com/ultracart/admin/v2/models/OrderReplacementItem.java
 src/main/java/com/ultracart/admin/v2/models/OrderReplacementResponse.java
