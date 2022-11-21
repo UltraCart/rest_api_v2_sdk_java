@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailStepWaitingResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T13:52:41.854-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:49:21.142-05:00[America/Indianapolis]")
 public class EmailStepWaitingResponse {
   public static final String SERIALIZED_NAME_STEP_WAITINGS = "step_waitings";
   @SerializedName(SERIALIZED_NAME_STEP_WAITINGS)

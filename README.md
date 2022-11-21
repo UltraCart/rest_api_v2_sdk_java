@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-11-21T13:52:41.854-05:00[America/Indianapolis]
+  - Build date: 2022-11-21T14:49:21.142-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.86-RC</version>
+  <version>4.0.87-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.86-RC"
+     implementation "com.ultracart:rest-sdk:4.0.87-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.86-RC.jar`
+* `target/rest-sdk-4.0.87-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1276,6 +1276,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.87-RC | 11/21/2022 | coupon - addl optional minimums for percent off msrp items coupon |
 | 4.0.86-RC | 11/21/2022 | conversation context method |
 | 4.0.85-RC | 11/21/2022 | adjusted conversation event model |
 | 4.0.84-RC | 11/15/2022 | conversation methods bug fix |

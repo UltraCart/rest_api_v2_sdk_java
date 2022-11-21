@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseqSequenceTestRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T13:52:41.854-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:49:21.142-05:00[America/Indianapolis]")
 public class EmailCommseqSequenceTestRequest {
   public static final String SERIALIZED_NAME_ADDRESS1 = "address_1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)

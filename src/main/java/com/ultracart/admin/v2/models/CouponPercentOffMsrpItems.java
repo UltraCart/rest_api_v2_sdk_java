@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponPercentOffMsrpItems
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T13:52:41.854-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:49:21.142-05:00[America/Indianapolis]")
 public class CouponPercentOffMsrpItems {
   public static final String SERIALIZED_NAME_DISCOUNT_PERCENT = "discount_percent";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_PERCENT)
@@ -67,6 +67,14 @@ public class CouponPercentOffMsrpItems {
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Integer limit;
+
+  public static final String SERIALIZED_NAME_MINIMUM_CUMULATIVE_MSRP = "minimum_cumulative_msrp";
+  @SerializedName(SERIALIZED_NAME_MINIMUM_CUMULATIVE_MSRP)
+  private BigDecimal minimumCumulativeMsrp;
+
+  public static final String SERIALIZED_NAME_MINIMUM_SUBTOTAL = "minimum_subtotal";
+  @SerializedName(SERIALIZED_NAME_MINIMUM_SUBTOTAL)
+  private BigDecimal minimumSubtotal;
 
   public CouponPercentOffMsrpItems() { 
   }
@@ -179,6 +187,52 @@ public class CouponPercentOffMsrpItems {
   }
 
 
+  public CouponPercentOffMsrpItems minimumCumulativeMsrp(BigDecimal minimumCumulativeMsrp) {
+    
+    this.minimumCumulativeMsrp = minimumCumulativeMsrp;
+    return this;
+  }
+
+   /**
+   * The (optional) minimum cumulative msrp of qualifying items.
+   * @return minimumCumulativeMsrp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The (optional) minimum cumulative msrp of qualifying items.")
+
+  public BigDecimal getMinimumCumulativeMsrp() {
+    return minimumCumulativeMsrp;
+  }
+
+
+  public void setMinimumCumulativeMsrp(BigDecimal minimumCumulativeMsrp) {
+    this.minimumCumulativeMsrp = minimumCumulativeMsrp;
+  }
+
+
+  public CouponPercentOffMsrpItems minimumSubtotal(BigDecimal minimumSubtotal) {
+    
+    this.minimumSubtotal = minimumSubtotal;
+    return this;
+  }
+
+   /**
+   * The (optional) minimum subtotal of qualifying items.
+   * @return minimumSubtotal
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The (optional) minimum subtotal of qualifying items.")
+
+  public BigDecimal getMinimumSubtotal() {
+    return minimumSubtotal;
+  }
+
+
+  public void setMinimumSubtotal(BigDecimal minimumSubtotal) {
+    this.minimumSubtotal = minimumSubtotal;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -192,12 +246,14 @@ public class CouponPercentOffMsrpItems {
     return Objects.equals(this.discountPercent, couponPercentOffMsrpItems.discountPercent) &&
         Objects.equals(this.excludedItems, couponPercentOffMsrpItems.excludedItems) &&
         Objects.equals(this.items, couponPercentOffMsrpItems.items) &&
-        Objects.equals(this.limit, couponPercentOffMsrpItems.limit);
+        Objects.equals(this.limit, couponPercentOffMsrpItems.limit) &&
+        Objects.equals(this.minimumCumulativeMsrp, couponPercentOffMsrpItems.minimumCumulativeMsrp) &&
+        Objects.equals(this.minimumSubtotal, couponPercentOffMsrpItems.minimumSubtotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, excludedItems, items, limit);
+    return Objects.hash(discountPercent, excludedItems, items, limit, minimumCumulativeMsrp, minimumSubtotal);
   }
 
   @Override
@@ -208,6 +264,8 @@ public class CouponPercentOffMsrpItems {
     sb.append("    excludedItems: ").append(toIndentedString(excludedItems)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    minimumCumulativeMsrp: ").append(toIndentedString(minimumCumulativeMsrp)).append("\n");
+    sb.append("    minimumSubtotal: ").append(toIndentedString(minimumSubtotal)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -234,6 +292,8 @@ public class CouponPercentOffMsrpItems {
     openapiFields.add("excluded_items");
     openapiFields.add("items");
     openapiFields.add("limit");
+    openapiFields.add("minimum_cumulative_msrp");
+    openapiFields.add("minimum_subtotal");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
