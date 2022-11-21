@@ -7,7 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**itemId** | **String** |  |  [optional] |
+|**agentArn** | **String** |  |  [optional] |
+|**agentName** | **String** |  |  [optional] |
+|**items** | [**List&lt;CartItem&gt;**](CartItem.md) |  |  [optional] |
 
 
 

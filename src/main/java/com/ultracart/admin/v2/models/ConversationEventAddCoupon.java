@@ -47,14 +47,68 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationEventAddCoupon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:57:28.765-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T12:55:24.276-05:00[America/Indianapolis]")
 public class ConversationEventAddCoupon {
+  public static final String SERIALIZED_NAME_AGENT_ARN = "agent_arn";
+  @SerializedName(SERIALIZED_NAME_AGENT_ARN)
+  private String agentArn;
+
+  public static final String SERIALIZED_NAME_AGENT_NAME = "agent_name";
+  @SerializedName(SERIALIZED_NAME_AGENT_NAME)
+  private String agentName;
+
   public static final String SERIALIZED_NAME_COUPON_CODE = "coupon_code";
   @SerializedName(SERIALIZED_NAME_COUPON_CODE)
   private String couponCode;
 
   public ConversationEventAddCoupon() { 
   }
+
+  public ConversationEventAddCoupon agentArn(String agentArn) {
+    
+    this.agentArn = agentArn;
+    return this;
+  }
+
+   /**
+   * Get agentArn
+   * @return agentArn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAgentArn() {
+    return agentArn;
+  }
+
+
+  public void setAgentArn(String agentArn) {
+    this.agentArn = agentArn;
+  }
+
+
+  public ConversationEventAddCoupon agentName(String agentName) {
+    
+    this.agentName = agentName;
+    return this;
+  }
+
+   /**
+   * Get agentName
+   * @return agentName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAgentName() {
+    return agentName;
+  }
+
+
+  public void setAgentName(String agentName) {
+    this.agentName = agentName;
+  }
+
 
   public ConversationEventAddCoupon couponCode(String couponCode) {
     
@@ -89,18 +143,22 @@ public class ConversationEventAddCoupon {
       return false;
     }
     ConversationEventAddCoupon conversationEventAddCoupon = (ConversationEventAddCoupon) o;
-    return Objects.equals(this.couponCode, conversationEventAddCoupon.couponCode);
+    return Objects.equals(this.agentArn, conversationEventAddCoupon.agentArn) &&
+        Objects.equals(this.agentName, conversationEventAddCoupon.agentName) &&
+        Objects.equals(this.couponCode, conversationEventAddCoupon.couponCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(couponCode);
+    return Objects.hash(agentArn, agentName, couponCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationEventAddCoupon {\n");
+    sb.append("    agentArn: ").append(toIndentedString(agentArn)).append("\n");
+    sb.append("    agentName: ").append(toIndentedString(agentName)).append("\n");
     sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -124,6 +182,8 @@ public class ConversationEventAddCoupon {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("agent_arn");
+    openapiFields.add("agent_name");
     openapiFields.add("coupon_code");
 
     // a set of required properties/fields (JSON key names)
@@ -151,6 +211,12 @@ public class ConversationEventAddCoupon {
         if (!ConversationEventAddCoupon.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationEventAddCoupon` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("agent_arn") != null && !jsonObj.get("agent_arn").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `agent_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_arn").toString()));
+      }
+      if (jsonObj.get("agent_name") != null && !jsonObj.get("agent_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `agent_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_name").toString()));
       }
       if (jsonObj.get("coupon_code") != null && !jsonObj.get("coupon_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `coupon_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("coupon_code").toString()));

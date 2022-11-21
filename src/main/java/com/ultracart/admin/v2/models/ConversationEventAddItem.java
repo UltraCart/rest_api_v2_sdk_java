@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CartItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,35 +50,97 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationEventAddItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:57:28.765-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T12:55:24.276-05:00[America/Indianapolis]")
 public class ConversationEventAddItem {
-  public static final String SERIALIZED_NAME_ITEM_ID = "item_id";
-  @SerializedName(SERIALIZED_NAME_ITEM_ID)
-  private String itemId;
+  public static final String SERIALIZED_NAME_AGENT_ARN = "agent_arn";
+  @SerializedName(SERIALIZED_NAME_AGENT_ARN)
+  private String agentArn;
+
+  public static final String SERIALIZED_NAME_AGENT_NAME = "agent_name";
+  @SerializedName(SERIALIZED_NAME_AGENT_NAME)
+  private String agentName;
+
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  private List<CartItem> items = null;
 
   public ConversationEventAddItem() { 
   }
 
-  public ConversationEventAddItem itemId(String itemId) {
+  public ConversationEventAddItem agentArn(String agentArn) {
     
-    this.itemId = itemId;
+    this.agentArn = agentArn;
     return this;
   }
 
    /**
-   * Get itemId
-   * @return itemId
+   * Get agentArn
+   * @return agentArn
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getItemId() {
-    return itemId;
+  public String getAgentArn() {
+    return agentArn;
   }
 
 
-  public void setItemId(String itemId) {
-    this.itemId = itemId;
+  public void setAgentArn(String agentArn) {
+    this.agentArn = agentArn;
+  }
+
+
+  public ConversationEventAddItem agentName(String agentName) {
+    
+    this.agentName = agentName;
+    return this;
+  }
+
+   /**
+   * Get agentName
+   * @return agentName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAgentName() {
+    return agentName;
+  }
+
+
+  public void setAgentName(String agentName) {
+    this.agentName = agentName;
+  }
+
+
+  public ConversationEventAddItem items(List<CartItem> items) {
+    
+    this.items = items;
+    return this;
+  }
+
+  public ConversationEventAddItem addItemsItem(CartItem itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+   /**
+   * Get items
+   * @return items
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<CartItem> getItems() {
+    return items;
+  }
+
+
+  public void setItems(List<CartItem> items) {
+    this.items = items;
   }
 
 
@@ -89,19 +154,23 @@ public class ConversationEventAddItem {
       return false;
     }
     ConversationEventAddItem conversationEventAddItem = (ConversationEventAddItem) o;
-    return Objects.equals(this.itemId, conversationEventAddItem.itemId);
+    return Objects.equals(this.agentArn, conversationEventAddItem.agentArn) &&
+        Objects.equals(this.agentName, conversationEventAddItem.agentName) &&
+        Objects.equals(this.items, conversationEventAddItem.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemId);
+    return Objects.hash(agentArn, agentName, items);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationEventAddItem {\n");
-    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    agentArn: ").append(toIndentedString(agentArn)).append("\n");
+    sb.append("    agentName: ").append(toIndentedString(agentName)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -124,7 +193,9 @@ public class ConversationEventAddItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("item_id");
+    openapiFields.add("agent_arn");
+    openapiFields.add("agent_name");
+    openapiFields.add("items");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -152,8 +223,23 @@ public class ConversationEventAddItem {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationEventAddItem` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("item_id") != null && !jsonObj.get("item_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item_id").toString()));
+      if (jsonObj.get("agent_arn") != null && !jsonObj.get("agent_arn").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `agent_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_arn").toString()));
+      }
+      if (jsonObj.get("agent_name") != null && !jsonObj.get("agent_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `agent_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_name").toString()));
+      }
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+        }
+
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          CartItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
+        };
       }
   }
 

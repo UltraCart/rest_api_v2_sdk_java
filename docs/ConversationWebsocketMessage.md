@@ -21,6 +21,7 @@
 |**eventType** | [**EventTypeEnum**](#EventTypeEnum) | Type of event |  [optional] |
 |**eventTyping** | [**ConversationEventTyping**](ConversationEventTyping.md) |  |  [optional] |
 |**eventUpdatedMessage** | [**ConversationMessage**](ConversationMessage.md) |  |  [optional] |
+|**eventWebchatContext** | [**ConversationEventWebchatContext**](ConversationEventWebchatContext.md) |  |  [optional] |
 |**message** | [**ConversationMessage**](ConversationMessage.md) |  |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Type of message |  [optional] |
 

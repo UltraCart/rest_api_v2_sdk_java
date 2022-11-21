@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponNoDiscount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:57:28.765-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T12:55:24.276-05:00[America/Indianapolis]")
 public class CouponNoDiscount {
   public static final String SERIALIZED_NAME_IGNORE_THIS_PROPERTY = "ignore_this_property";
   @SerializedName(SERIALIZED_NAME_IGNORE_THIS_PROPERTY)

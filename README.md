@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-11-15T16:57:28.765-05:00[America/Indianapolis]
+  - Build date: 2022-11-21T12:55:24.276-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.84-RC</version>
+  <version>4.0.85-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.84-RC"
+     implementation "com.ultracart:rest-sdk:4.0.85-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.84-RC.jar`
+* `target/rest-sdk-4.0.85-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -631,6 +631,7 @@ Class | Method | HTTP request | Description
  - [ConversationEventRRWeb](docs/ConversationEventRRWeb.md)
  - [ConversationEventReadMessage](docs/ConversationEventReadMessage.md)
  - [ConversationEventTyping](docs/ConversationEventTyping.md)
+ - [ConversationEventWebchatContext](docs/ConversationEventWebchatContext.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
  - [ConversationMessagesResponse](docs/ConversationMessagesResponse.md)
@@ -1269,6 +1270,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.85-RC | 11/21/2022 | adjusted conversation event model |
 | 4.0.84-RC | 11/15/2022 | conversation methods bug fix |
 | 4.0.83-RC | 11/15/2022 | conversations - enw events for add coupon and items |
 | 4.0.82-RC | 11/15/2022 | order api new method is order refundable |
