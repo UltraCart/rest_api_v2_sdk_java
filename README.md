@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-11-21T12:55:24.276-05:00[America/Indianapolis]
+  - Build date: 2022-11-21T13:52:41.854-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.85-RC</version>
+  <version>4.0.86-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.85-RC"
+     implementation "com.ultracart:rest-sdk:4.0.86-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.85-RC.jar`
+* `target/rest-sdk-4.0.86-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -171,6 +171,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getAgentKeepAlive**](docs/ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+*ConversationApi* | [**getConversationContext**](docs/ConversationApi.md#getConversationContext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
@@ -643,6 +644,7 @@ Class | Method | HTTP request | Description
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
  - [ConversationSummary](docs/ConversationSummary.md)
  - [ConversationTwilioAccount](docs/ConversationTwilioAccount.md)
+ - [ConversationWebchatContext](docs/ConversationWebchatContext.md)
  - [ConversationWebchatQueueStatus](docs/ConversationWebchatQueueStatus.md)
  - [ConversationWebchatQueueStatusAgent](docs/ConversationWebchatQueueStatusAgent.md)
  - [ConversationWebchatQueueStatusQueueEntry](docs/ConversationWebchatQueueStatusQueueEntry.md)
@@ -895,6 +897,10 @@ Class | Method | HTTP request | Description
  - [GroupUserMembership](docs/GroupUserMembership.md)
  - [GroupsResponse](docs/GroupsResponse.md)
  - [HTTPHeader](docs/HTTPHeader.md)
+ - [HitPageView](docs/HitPageView.md)
+ - [HitPageViewMetaData](docs/HitPageViewMetaData.md)
+ - [HitSessionStart](docs/HitSessionStart.md)
+ - [HitSessionUtm](docs/HitSessionUtm.md)
  - [IntegrationLog](docs/IntegrationLog.md)
  - [IntegrationLogFile](docs/IntegrationLogFile.md)
  - [IntegrationLogLog](docs/IntegrationLogLog.md)
@@ -1270,6 +1276,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.86-RC | 11/21/2022 | conversation context method |
 | 4.0.85-RC | 11/21/2022 | adjusted conversation event model |
 | 4.0.84-RC | 11/15/2022 | conversation methods bug fix |
 | 4.0.83-RC | 11/15/2022 | conversations - enw events for add coupon and items |

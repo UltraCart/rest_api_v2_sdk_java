@@ -148,6 +148,7 @@ docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
 docs/ConversationTwilioAccount.md
+docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
 docs/ConversationWebchatQueueStatusQueueEntry.md
@@ -404,6 +405,10 @@ docs/GroupResponse.md
 docs/GroupUserMembership.md
 docs/GroupsResponse.md
 docs/HTTPHeader.md
+docs/HitPageView.md
+docs/HitPageViewMetaData.md
+docs/HitSessionStart.md
+docs/HitSessionUtm.md
 docs/IntegrationLog.md
 docs/IntegrationLogApi.md
 docs/IntegrationLogFile.md
@@ -876,6 +881,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationStartRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationSummary.java
 src/main/java/com/ultracart/admin/v2/models/ConversationTwilioAccount.java
+src/main/java/com/ultracart/admin/v2/models/ConversationWebchatContext.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatus.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusAgent.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusQueueEntry.java
@@ -1128,6 +1134,10 @@ src/main/java/com/ultracart/admin/v2/models/GroupResponse.java
 src/main/java/com/ultracart/admin/v2/models/GroupUserMembership.java
 src/main/java/com/ultracart/admin/v2/models/GroupsResponse.java
 src/main/java/com/ultracart/admin/v2/models/HTTPHeader.java
+src/main/java/com/ultracart/admin/v2/models/HitPageView.java
+src/main/java/com/ultracart/admin/v2/models/HitPageViewMetaData.java
+src/main/java/com/ultracart/admin/v2/models/HitSessionStart.java
+src/main/java/com/ultracart/admin/v2/models/HitSessionUtm.java
 src/main/java/com/ultracart/admin/v2/models/IntegrationLog.java
 src/main/java/com/ultracart/admin/v2/models/IntegrationLogFile.java
 src/main/java/com/ultracart/admin/v2/models/IntegrationLogLog.java
