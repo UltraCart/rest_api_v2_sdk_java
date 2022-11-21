@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CouponPercentOffMsrpItems
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T13:40:30.359-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:37:23.421-05:00")
 
 
 
@@ -46,6 +46,12 @@ public class CouponPercentOffMsrpItems {
 
   @SerializedName("limit")
   private Integer limit = null;
+
+  @SerializedName("minimum_cumulative_msrp")
+  private BigDecimal minimumCumulativeMsrp = null;
+
+  @SerializedName("minimum_subtotal")
+  private BigDecimal minimumSubtotal = null;
 
   public CouponPercentOffMsrpItems discountPercent(BigDecimal discountPercent) {
     this.discountPercent = discountPercent;
@@ -135,6 +141,42 @@ public class CouponPercentOffMsrpItems {
     this.limit = limit;
   }
 
+  public CouponPercentOffMsrpItems minimumCumulativeMsrp(BigDecimal minimumCumulativeMsrp) {
+    this.minimumCumulativeMsrp = minimumCumulativeMsrp;
+    return this;
+  }
+
+   /**
+   * The (optional) minimum cumulative msrp of qualifying items.
+   * @return minimumCumulativeMsrp
+  **/
+  @ApiModelProperty(value = "The (optional) minimum cumulative msrp of qualifying items.")
+  public BigDecimal getMinimumCumulativeMsrp() {
+    return minimumCumulativeMsrp;
+  }
+
+  public void setMinimumCumulativeMsrp(BigDecimal minimumCumulativeMsrp) {
+    this.minimumCumulativeMsrp = minimumCumulativeMsrp;
+  }
+
+  public CouponPercentOffMsrpItems minimumSubtotal(BigDecimal minimumSubtotal) {
+    this.minimumSubtotal = minimumSubtotal;
+    return this;
+  }
+
+   /**
+   * The (optional) minimum subtotal of qualifying items.
+   * @return minimumSubtotal
+  **/
+  @ApiModelProperty(value = "The (optional) minimum subtotal of qualifying items.")
+  public BigDecimal getMinimumSubtotal() {
+    return minimumSubtotal;
+  }
+
+  public void setMinimumSubtotal(BigDecimal minimumSubtotal) {
+    this.minimumSubtotal = minimumSubtotal;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +190,14 @@ public class CouponPercentOffMsrpItems {
     return Objects.equals(this.discountPercent, couponPercentOffMsrpItems.discountPercent) &&
         Objects.equals(this.excludedItems, couponPercentOffMsrpItems.excludedItems) &&
         Objects.equals(this.items, couponPercentOffMsrpItems.items) &&
-        Objects.equals(this.limit, couponPercentOffMsrpItems.limit);
+        Objects.equals(this.limit, couponPercentOffMsrpItems.limit) &&
+        Objects.equals(this.minimumCumulativeMsrp, couponPercentOffMsrpItems.minimumCumulativeMsrp) &&
+        Objects.equals(this.minimumSubtotal, couponPercentOffMsrpItems.minimumSubtotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, excludedItems, items, limit);
+    return Objects.hash(discountPercent, excludedItems, items, limit, minimumCumulativeMsrp, minimumSubtotal);
   }
 
 
@@ -166,6 +210,8 @@ public class CouponPercentOffMsrpItems {
     sb.append("    excludedItems: ").append(toIndentedString(excludedItems)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    minimumCumulativeMsrp: ").append(toIndentedString(minimumCumulativeMsrp)).append("\n");
+    sb.append("    minimumSubtotal: ").append(toIndentedString(minimumSubtotal)).append("\n");
     sb.append("}");
     return sb.toString();
   }
