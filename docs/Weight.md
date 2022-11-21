@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 KG | &quot;KG&quot;
+G | &quot;G&quot;
 LB | &quot;LB&quot;
 OZ | &quot;OZ&quot;
 

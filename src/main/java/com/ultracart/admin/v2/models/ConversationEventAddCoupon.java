@@ -27,13 +27,55 @@ import java.io.IOException;
 /**
  * ConversationEventAddCoupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:45:30.901-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T12:43:14.548-05:00")
 
 
 
 public class ConversationEventAddCoupon {
+  @SerializedName("agent_arn")
+  private String agentArn = null;
+
+  @SerializedName("agent_name")
+  private String agentName = null;
+
   @SerializedName("coupon_code")
   private String couponCode = null;
+
+  public ConversationEventAddCoupon agentArn(String agentArn) {
+    this.agentArn = agentArn;
+    return this;
+  }
+
+   /**
+   * Get agentArn
+   * @return agentArn
+  **/
+  @ApiModelProperty(value = "")
+  public String getAgentArn() {
+    return agentArn;
+  }
+
+  public void setAgentArn(String agentArn) {
+    this.agentArn = agentArn;
+  }
+
+  public ConversationEventAddCoupon agentName(String agentName) {
+    this.agentName = agentName;
+    return this;
+  }
+
+   /**
+   * Get agentName
+   * @return agentName
+  **/
+  @ApiModelProperty(value = "")
+  public String getAgentName() {
+    return agentName;
+  }
+
+  public void setAgentName(String agentName) {
+    this.agentName = agentName;
+  }
 
   public ConversationEventAddCoupon couponCode(String couponCode) {
     this.couponCode = couponCode;
@@ -63,12 +105,14 @@ public class ConversationEventAddCoupon {
       return false;
     }
     ConversationEventAddCoupon conversationEventAddCoupon = (ConversationEventAddCoupon) o;
-    return Objects.equals(this.couponCode, conversationEventAddCoupon.couponCode);
+    return Objects.equals(this.agentArn, conversationEventAddCoupon.agentArn) &&
+        Objects.equals(this.agentName, conversationEventAddCoupon.agentName) &&
+        Objects.equals(this.couponCode, conversationEventAddCoupon.couponCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(couponCode);
+    return Objects.hash(agentArn, agentName, couponCode);
   }
 
 
@@ -77,6 +121,8 @@ public class ConversationEventAddCoupon {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationEventAddCoupon {\n");
     
+    sb.append("    agentArn: ").append(toIndentedString(agentArn)).append("\n");
+    sb.append("    agentName: ").append(toIndentedString(agentName)).append("\n");
     sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
     sb.append("}");
     return sb.toString();

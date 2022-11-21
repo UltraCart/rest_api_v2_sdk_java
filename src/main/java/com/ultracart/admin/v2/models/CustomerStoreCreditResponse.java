@@ -31,7 +31,7 @@ import java.io.IOException;
 /**
  * CustomerStoreCreditResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:45:30.901-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T12:43:14.548-05:00")
 
 
 

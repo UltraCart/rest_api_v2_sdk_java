@@ -20,37 +20,90 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CartItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ConversationEventAddItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:45:30.901-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T12:43:14.548-05:00")
 
 
 
 public class ConversationEventAddItem {
-  @SerializedName("item_id")
-  private String itemId = null;
+  @SerializedName("agent_arn")
+  private String agentArn = null;
 
-  public ConversationEventAddItem itemId(String itemId) {
-    this.itemId = itemId;
+  @SerializedName("agent_name")
+  private String agentName = null;
+
+  @SerializedName("items")
+  private List<CartItem> items = null;
+
+  public ConversationEventAddItem agentArn(String agentArn) {
+    this.agentArn = agentArn;
     return this;
   }
 
    /**
-   * Get itemId
-   * @return itemId
+   * Get agentArn
+   * @return agentArn
   **/
   @ApiModelProperty(value = "")
-  public String getItemId() {
-    return itemId;
+  public String getAgentArn() {
+    return agentArn;
   }
 
-  public void setItemId(String itemId) {
-    this.itemId = itemId;
+  public void setAgentArn(String agentArn) {
+    this.agentArn = agentArn;
+  }
+
+  public ConversationEventAddItem agentName(String agentName) {
+    this.agentName = agentName;
+    return this;
+  }
+
+   /**
+   * Get agentName
+   * @return agentName
+  **/
+  @ApiModelProperty(value = "")
+  public String getAgentName() {
+    return agentName;
+  }
+
+  public void setAgentName(String agentName) {
+    this.agentName = agentName;
+  }
+
+  public ConversationEventAddItem items(List<CartItem> items) {
+    this.items = items;
+    return this;
+  }
+
+  public ConversationEventAddItem addItemsItem(CartItem itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<CartItem>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+   /**
+   * Get items
+   * @return items
+  **/
+  @ApiModelProperty(value = "")
+  public List<CartItem> getItems() {
+    return items;
+  }
+
+  public void setItems(List<CartItem> items) {
+    this.items = items;
   }
 
 
@@ -63,12 +116,14 @@ public class ConversationEventAddItem {
       return false;
     }
     ConversationEventAddItem conversationEventAddItem = (ConversationEventAddItem) o;
-    return Objects.equals(this.itemId, conversationEventAddItem.itemId);
+    return Objects.equals(this.agentArn, conversationEventAddItem.agentArn) &&
+        Objects.equals(this.agentName, conversationEventAddItem.agentName) &&
+        Objects.equals(this.items, conversationEventAddItem.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemId);
+    return Objects.hash(agentArn, agentName, items);
   }
 
 
@@ -77,7 +132,9 @@ public class ConversationEventAddItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationEventAddItem {\n");
     
-    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    agentArn: ").append(toIndentedString(agentArn)).append("\n");
+    sb.append("    agentName: ").append(toIndentedString(agentName)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }

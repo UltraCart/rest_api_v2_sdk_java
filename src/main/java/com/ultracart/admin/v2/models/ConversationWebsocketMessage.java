@@ -26,6 +26,7 @@ import com.ultracart.admin.v2.models.ConversationEventQueuePosition;
 import com.ultracart.admin.v2.models.ConversationEventRRWeb;
 import com.ultracart.admin.v2.models.ConversationEventReadMessage;
 import com.ultracart.admin.v2.models.ConversationEventTyping;
+import com.ultracart.admin.v2.models.ConversationEventWebchatContext;
 import com.ultracart.admin.v2.models.ConversationMessage;
 import com.ultracart.admin.v2.models.ConversationSummary;
 import com.ultracart.admin.v2.models.ConversationWebchatQueueStatus;
@@ -36,7 +37,7 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-15T16:45:30.901-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T12:43:14.548-05:00")
 
 
 
@@ -151,6 +152,9 @@ public class ConversationWebsocketMessage {
 
   @SerializedName("event_updated_message")
   private ConversationMessage eventUpdatedMessage = null;
+
+  @SerializedName("event_webchat_context")
+  private ConversationEventWebchatContext eventWebchatContext = null;
 
   @SerializedName("message")
   private ConversationMessage message = null;
@@ -461,6 +465,24 @@ public class ConversationWebsocketMessage {
     this.eventUpdatedMessage = eventUpdatedMessage;
   }
 
+  public ConversationWebsocketMessage eventWebchatContext(ConversationEventWebchatContext eventWebchatContext) {
+    this.eventWebchatContext = eventWebchatContext;
+    return this;
+  }
+
+   /**
+   * Get eventWebchatContext
+   * @return eventWebchatContext
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationEventWebchatContext getEventWebchatContext() {
+    return eventWebchatContext;
+  }
+
+  public void setEventWebchatContext(ConversationEventWebchatContext eventWebchatContext) {
+    this.eventWebchatContext = eventWebchatContext;
+  }
+
   public ConversationWebsocketMessage message(ConversationMessage message) {
     this.message = message;
     return this;
@@ -521,13 +543,14 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventType, conversationWebsocketMessage.eventType) &&
         Objects.equals(this.eventTyping, conversationWebsocketMessage.eventTyping) &&
         Objects.equals(this.eventUpdatedMessage, conversationWebsocketMessage.eventUpdatedMessage) &&
+        Objects.equals(this.eventWebchatContext, conversationWebsocketMessage.eventWebchatContext) &&
         Objects.equals(this.message, conversationWebsocketMessage.message) &&
         Objects.equals(this.type, conversationWebsocketMessage.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, message, type);
+    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
   }
 
 
@@ -550,6 +573,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    eventTyping: ").append(toIndentedString(eventTyping)).append("\n");
     sb.append("    eventUpdatedMessage: ").append(toIndentedString(eventUpdatedMessage)).append("\n");
+    sb.append("    eventWebchatContext: ").append(toIndentedString(eventWebchatContext)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
