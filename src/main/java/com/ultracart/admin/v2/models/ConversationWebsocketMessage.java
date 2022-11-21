@@ -37,7 +37,7 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T12:43:14.548-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T13:40:30.359-05:00")
 
 
 
@@ -104,7 +104,9 @@ public class ConversationWebsocketMessage {
     
     ADD_COUPON("add coupon"),
     
-    ADD_ITEM("add item");
+    ADD_ITEM("add item"),
+    
+    WEBCHAT_CONTEXT("webchat context");
 
     private String value;
 

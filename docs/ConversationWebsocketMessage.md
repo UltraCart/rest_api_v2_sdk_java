@@ -40,6 +40,7 @@ READ_MESSAGE | &quot;read message&quot;
 TYPING | &quot;typing&quot;
 ADD_COUPON | &quot;add coupon&quot;
 ADD_ITEM | &quot;add item&quot;
+WEBCHAT_CONTEXT | &quot;webchat context&quot;
 
 
 <a name="TypeEnum"></a>
