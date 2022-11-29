@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:37:23.421-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-29T09:07:19.377-05:00")
 
 
 
@@ -49,6 +49,9 @@ public class ConversationMessage {
 
   @SerializedName("conversation_message_uuid")
   private String conversationMessageUuid = null;
+
+  @SerializedName("delay_until_dts")
+  private String delayUntilDts = null;
 
   @SerializedName("media_urls")
   private List<String> mediaUrls = null;
@@ -206,6 +209,24 @@ public class ConversationMessage {
 
   public void setConversationMessageUuid(String conversationMessageUuid) {
     this.conversationMessageUuid = conversationMessageUuid;
+  }
+
+  public ConversationMessage delayUntilDts(String delayUntilDts) {
+    this.delayUntilDts = delayUntilDts;
+    return this;
+  }
+
+   /**
+   * Delay message transmission until date/time
+   * @return delayUntilDts
+  **/
+  @ApiModelProperty(value = "Delay message transmission until date/time")
+  public String getDelayUntilDts() {
+    return delayUntilDts;
+  }
+
+  public void setDelayUntilDts(String delayUntilDts) {
+    this.delayUntilDts = delayUntilDts;
   }
 
   public ConversationMessage mediaUrls(List<String> mediaUrls) {
@@ -373,6 +394,7 @@ public class ConversationMessage {
         Objects.equals(this.body, conversationMessage.body) &&
         Objects.equals(this.clientMessageId, conversationMessage.clientMessageId) &&
         Objects.equals(this.conversationMessageUuid, conversationMessage.conversationMessageUuid) &&
+        Objects.equals(this.delayUntilDts, conversationMessage.delayUntilDts) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.merchantId, conversationMessage.merchantId) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
@@ -384,7 +406,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, mediaUrls, merchantId, messageDts, messageEpoch, transportStatuses, type, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, delayUntilDts, mediaUrls, merchantId, messageDts, messageEpoch, transportStatuses, type, uploadKeys);
   }
 
 
@@ -398,6 +420,7 @@ public class ConversationMessage {
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    clientMessageId: ").append(toIndentedString(clientMessageId)).append("\n");
     sb.append("    conversationMessageUuid: ").append(toIndentedString(conversationMessageUuid)).append("\n");
+    sb.append("    delayUntilDts: ").append(toIndentedString(delayUntilDts)).append("\n");
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
