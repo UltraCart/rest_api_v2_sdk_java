@@ -20,10 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.AutoOrder;
 import com.ultracart.admin.v2.models.Cart;
 import com.ultracart.admin.v2.models.HitPageView;
 import com.ultracart.admin.v2.models.HitSessionStart;
 import com.ultracart.admin.v2.models.HitSessionUtm;
+import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -33,16 +35,22 @@ import java.util.List;
 /**
  * ConversationWebchatContext
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-30T14:04:17.595-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-30T15:49:22.635-05:00")
 
 
 
 public class ConversationWebchatContext {
+  @SerializedName("auto_orders")
+  private List<AutoOrder> autoOrders = null;
+
   @SerializedName("cart")
   private Cart cart = null;
 
   @SerializedName("current_url")
   private String currentUrl = null;
+
+  @SerializedName("orders")
+  private List<Order> orders = null;
 
   @SerializedName("page_view")
   private List<HitPageView> pageView = null;
@@ -52,6 +60,32 @@ public class ConversationWebchatContext {
 
   @SerializedName("session_utm")
   private HitSessionUtm sessionUtm = null;
+
+  public ConversationWebchatContext autoOrders(List<AutoOrder> autoOrders) {
+    this.autoOrders = autoOrders;
+    return this;
+  }
+
+  public ConversationWebchatContext addAutoOrdersItem(AutoOrder autoOrdersItem) {
+    if (this.autoOrders == null) {
+      this.autoOrders = new ArrayList<AutoOrder>();
+    }
+    this.autoOrders.add(autoOrdersItem);
+    return this;
+  }
+
+   /**
+   * Get autoOrders
+   * @return autoOrders
+  **/
+  @ApiModelProperty(value = "")
+  public List<AutoOrder> getAutoOrders() {
+    return autoOrders;
+  }
+
+  public void setAutoOrders(List<AutoOrder> autoOrders) {
+    this.autoOrders = autoOrders;
+  }
 
   public ConversationWebchatContext cart(Cart cart) {
     this.cart = cart;
@@ -87,6 +121,32 @@ public class ConversationWebchatContext {
 
   public void setCurrentUrl(String currentUrl) {
     this.currentUrl = currentUrl;
+  }
+
+  public ConversationWebchatContext orders(List<Order> orders) {
+    this.orders = orders;
+    return this;
+  }
+
+  public ConversationWebchatContext addOrdersItem(Order ordersItem) {
+    if (this.orders == null) {
+      this.orders = new ArrayList<Order>();
+    }
+    this.orders.add(ordersItem);
+    return this;
+  }
+
+   /**
+   * Get orders
+   * @return orders
+  **/
+  @ApiModelProperty(value = "")
+  public List<Order> getOrders() {
+    return orders;
+  }
+
+  public void setOrders(List<Order> orders) {
+    this.orders = orders;
   }
 
   public ConversationWebchatContext pageView(List<HitPageView> pageView) {
@@ -161,8 +221,10 @@ public class ConversationWebchatContext {
       return false;
     }
     ConversationWebchatContext conversationWebchatContext = (ConversationWebchatContext) o;
-    return Objects.equals(this.cart, conversationWebchatContext.cart) &&
+    return Objects.equals(this.autoOrders, conversationWebchatContext.autoOrders) &&
+        Objects.equals(this.cart, conversationWebchatContext.cart) &&
         Objects.equals(this.currentUrl, conversationWebchatContext.currentUrl) &&
+        Objects.equals(this.orders, conversationWebchatContext.orders) &&
         Objects.equals(this.pageView, conversationWebchatContext.pageView) &&
         Objects.equals(this.sessionStart, conversationWebchatContext.sessionStart) &&
         Objects.equals(this.sessionUtm, conversationWebchatContext.sessionUtm);
@@ -170,7 +232,7 @@ public class ConversationWebchatContext {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cart, currentUrl, pageView, sessionStart, sessionUtm);
+    return Objects.hash(autoOrders, cart, currentUrl, orders, pageView, sessionStart, sessionUtm);
   }
 
 
@@ -179,8 +241,10 @@ public class ConversationWebchatContext {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationWebchatContext {\n");
     
+    sb.append("    autoOrders: ").append(toIndentedString(autoOrders)).append("\n");
     sb.append("    cart: ").append(toIndentedString(cart)).append("\n");
     sb.append("    currentUrl: ").append(toIndentedString(currentUrl)).append("\n");
+    sb.append("    orders: ").append(toIndentedString(orders)).append("\n");
     sb.append("    pageView: ").append(toIndentedString(pageView)).append("\n");
     sb.append("    sessionStart: ").append(toIndentedString(sessionStart)).append("\n");
     sb.append("    sessionUtm: ").append(toIndentedString(sessionUtm)).append("\n");
