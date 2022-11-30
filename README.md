@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-11-29T09:07:19.377-05:00
+  - Build date: 2022-11-30T14:04:17.595-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.71</version>
+  <version>3.10.72</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.71"
+compile "com.ultracart:rest-sdk:3.10.72"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.71.jar`
+* `target/rest-sdk-3.10.72.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1260,6 +1260,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.72 | 11/30/2022 | order item - addl fields for linking kits to kit components |
 | 3.10.71 | 11/29/2022 | converstation marked convo read method |
 | 3.10.70 | 11/21/2022 | coupon - addl optional minimums for percent off msrp items coupon |
 | 3.10.69 | 11/21/2022 | conversation context method |
