@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'com.ultracart'
-version = '4.0.89-RC'
+version = '4.0.90-RC'
 
 buildscript {
     repositories {

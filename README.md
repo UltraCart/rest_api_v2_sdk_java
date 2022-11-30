@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-11-30T14:17:19.374-05:00[America/Indianapolis]
+  - Build date: 2022-11-30T16:03:10.019-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.89-RC</version>
+  <version>4.0.90-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.89-RC"
+     implementation "com.ultracart:rest-sdk:4.0.90-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.89-RC.jar`
+* `target/rest-sdk-4.0.90-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1277,6 +1277,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.90-RC | 11/30/2022 | conversations - add order and auto order information to webchat context |
 | 4.0.89-RC | 11/30/2022 | order item - addl fields for linking kits to kit components |
 | 4.0.88-RC | 11/29/2022 | converstation marked convo read method |
 | 4.0.87-RC | 11/21/2022 | coupon - addl optional minimums for percent off msrp items coupon |

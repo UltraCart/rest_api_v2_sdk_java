@@ -20,10 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.AutoOrder;
 import com.ultracart.admin.v2.models.Cart;
 import com.ultracart.admin.v2.models.HitPageView;
 import com.ultracart.admin.v2.models.HitSessionStart;
 import com.ultracart.admin.v2.models.HitSessionUtm;
+import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -53,8 +55,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatContext
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T14:17:19.374-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T16:03:10.019-05:00[America/Indianapolis]")
 public class ConversationWebchatContext {
+  public static final String SERIALIZED_NAME_AUTO_ORDERS = "auto_orders";
+  @SerializedName(SERIALIZED_NAME_AUTO_ORDERS)
+  private List<AutoOrder> autoOrders = null;
+
   public static final String SERIALIZED_NAME_CART = "cart";
   @SerializedName(SERIALIZED_NAME_CART)
   private Cart cart;
@@ -62,6 +68,10 @@ public class ConversationWebchatContext {
   public static final String SERIALIZED_NAME_CURRENT_URL = "current_url";
   @SerializedName(SERIALIZED_NAME_CURRENT_URL)
   private String currentUrl;
+
+  public static final String SERIALIZED_NAME_ORDERS = "orders";
+  @SerializedName(SERIALIZED_NAME_ORDERS)
+  private List<Order> orders = null;
 
   public static final String SERIALIZED_NAME_PAGE_VIEW = "page_view";
   @SerializedName(SERIALIZED_NAME_PAGE_VIEW)
@@ -77,6 +87,37 @@ public class ConversationWebchatContext {
 
   public ConversationWebchatContext() { 
   }
+
+  public ConversationWebchatContext autoOrders(List<AutoOrder> autoOrders) {
+    
+    this.autoOrders = autoOrders;
+    return this;
+  }
+
+  public ConversationWebchatContext addAutoOrdersItem(AutoOrder autoOrdersItem) {
+    if (this.autoOrders == null) {
+      this.autoOrders = new ArrayList<>();
+    }
+    this.autoOrders.add(autoOrdersItem);
+    return this;
+  }
+
+   /**
+   * Get autoOrders
+   * @return autoOrders
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<AutoOrder> getAutoOrders() {
+    return autoOrders;
+  }
+
+
+  public void setAutoOrders(List<AutoOrder> autoOrders) {
+    this.autoOrders = autoOrders;
+  }
+
 
   public ConversationWebchatContext cart(Cart cart) {
     
@@ -121,6 +162,37 @@ public class ConversationWebchatContext {
 
   public void setCurrentUrl(String currentUrl) {
     this.currentUrl = currentUrl;
+  }
+
+
+  public ConversationWebchatContext orders(List<Order> orders) {
+    
+    this.orders = orders;
+    return this;
+  }
+
+  public ConversationWebchatContext addOrdersItem(Order ordersItem) {
+    if (this.orders == null) {
+      this.orders = new ArrayList<>();
+    }
+    this.orders.add(ordersItem);
+    return this;
+  }
+
+   /**
+   * Get orders
+   * @return orders
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Order> getOrders() {
+    return orders;
+  }
+
+
+  public void setOrders(List<Order> orders) {
+    this.orders = orders;
   }
 
 
@@ -211,8 +283,10 @@ public class ConversationWebchatContext {
       return false;
     }
     ConversationWebchatContext conversationWebchatContext = (ConversationWebchatContext) o;
-    return Objects.equals(this.cart, conversationWebchatContext.cart) &&
+    return Objects.equals(this.autoOrders, conversationWebchatContext.autoOrders) &&
+        Objects.equals(this.cart, conversationWebchatContext.cart) &&
         Objects.equals(this.currentUrl, conversationWebchatContext.currentUrl) &&
+        Objects.equals(this.orders, conversationWebchatContext.orders) &&
         Objects.equals(this.pageView, conversationWebchatContext.pageView) &&
         Objects.equals(this.sessionStart, conversationWebchatContext.sessionStart) &&
         Objects.equals(this.sessionUtm, conversationWebchatContext.sessionUtm);
@@ -220,15 +294,17 @@ public class ConversationWebchatContext {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cart, currentUrl, pageView, sessionStart, sessionUtm);
+    return Objects.hash(autoOrders, cart, currentUrl, orders, pageView, sessionStart, sessionUtm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationWebchatContext {\n");
+    sb.append("    autoOrders: ").append(toIndentedString(autoOrders)).append("\n");
     sb.append("    cart: ").append(toIndentedString(cart)).append("\n");
     sb.append("    currentUrl: ").append(toIndentedString(currentUrl)).append("\n");
+    sb.append("    orders: ").append(toIndentedString(orders)).append("\n");
     sb.append("    pageView: ").append(toIndentedString(pageView)).append("\n");
     sb.append("    sessionStart: ").append(toIndentedString(sessionStart)).append("\n");
     sb.append("    sessionUtm: ").append(toIndentedString(sessionUtm)).append("\n");
@@ -254,8 +330,10 @@ public class ConversationWebchatContext {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("auto_orders");
     openapiFields.add("cart");
     openapiFields.add("current_url");
+    openapiFields.add("orders");
     openapiFields.add("page_view");
     openapiFields.add("session_start");
     openapiFields.add("session_utm");
@@ -286,12 +364,36 @@ public class ConversationWebchatContext {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationWebchatContext` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      JsonArray jsonArrayautoOrders = jsonObj.getAsJsonArray("auto_orders");
+      if (jsonArrayautoOrders != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("auto_orders").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `auto_orders` to be an array in the JSON string but got `%s`", jsonObj.get("auto_orders").toString()));
+        }
+
+        // validate the optional field `auto_orders` (array)
+        for (int i = 0; i < jsonArrayautoOrders.size(); i++) {
+          AutoOrder.validateJsonObject(jsonArrayautoOrders.get(i).getAsJsonObject());
+        };
+      }
       // validate the optional field `cart`
       if (jsonObj.getAsJsonObject("cart") != null) {
         Cart.validateJsonObject(jsonObj.getAsJsonObject("cart"));
       }
       if (jsonObj.get("current_url") != null && !jsonObj.get("current_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `current_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current_url").toString()));
+      }
+      JsonArray jsonArrayorders = jsonObj.getAsJsonArray("orders");
+      if (jsonArrayorders != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("orders").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `orders` to be an array in the JSON string but got `%s`", jsonObj.get("orders").toString()));
+        }
+
+        // validate the optional field `orders` (array)
+        for (int i = 0; i < jsonArrayorders.size(); i++) {
+          Order.validateJsonObject(jsonArrayorders.get(i).getAsJsonObject());
+        };
       }
       JsonArray jsonArraypageView = jsonObj.getAsJsonArray("page_view");
       if (jsonArraypageView != null) {
