@@ -57,7 +57,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-29T09:19:28.040-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T14:17:19.374-05:00[America/Indianapolis]")
 public class OrderItem {
   public static final String SERIALIZED_NAME_ACCOUNTING_CODE = "accounting_code";
   @SerializedName(SERIALIZED_NAME_ACCOUNTING_CODE)
@@ -147,6 +147,10 @@ public class OrderItem {
   @SerializedName(SERIALIZED_NAME_HEIGHT)
   private Distance height;
 
+  public static final String SERIALIZED_NAME_ITEM_INDEX = "item_index";
+  @SerializedName(SERIALIZED_NAME_ITEM_INDEX)
+  private Integer itemIndex;
+
   public static final String SERIALIZED_NAME_ITEM_REFERENCE_OID = "item_reference_oid";
   @SerializedName(SERIALIZED_NAME_ITEM_REFERENCE_OID)
   private Integer itemReferenceOid;
@@ -194,6 +198,14 @@ public class OrderItem {
   public static final String SERIALIZED_NAME_PACKED_BY_USER = "packed_by_user";
   @SerializedName(SERIALIZED_NAME_PACKED_BY_USER)
   private String packedByUser;
+
+  public static final String SERIALIZED_NAME_PARENT_ITEM_INDEX = "parent_item_index";
+  @SerializedName(SERIALIZED_NAME_PARENT_ITEM_INDEX)
+  private Integer parentItemIndex;
+
+  public static final String SERIALIZED_NAME_PARENT_MERCHANT_ITEM_ID = "parent_merchant_item_id";
+  @SerializedName(SERIALIZED_NAME_PARENT_MERCHANT_ITEM_ID)
+  private String parentMerchantItemId;
 
   public static final String SERIALIZED_NAME_PERISHABLE_CLASS = "perishable_class";
   @SerializedName(SERIALIZED_NAME_PERISHABLE_CLASS)
@@ -851,6 +863,29 @@ public class OrderItem {
   }
 
 
+  public OrderItem itemIndex(Integer itemIndex) {
+    
+    this.itemIndex = itemIndex;
+    return this;
+  }
+
+   /**
+   * Index of the item on the order (one based index)
+   * @return itemIndex
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Index of the item on the order (one based index)")
+
+  public Integer getItemIndex() {
+    return itemIndex;
+  }
+
+
+  public void setItemIndex(Integer itemIndex) {
+    this.itemIndex = itemIndex;
+  }
+
+
   public OrderItem itemReferenceOid(Integer itemReferenceOid) {
     
     this.itemReferenceOid = itemReferenceOid;
@@ -1132,6 +1167,52 @@ public class OrderItem {
 
   public void setPackedByUser(String packedByUser) {
     this.packedByUser = packedByUser;
+  }
+
+
+  public OrderItem parentItemIndex(Integer parentItemIndex) {
+    
+    this.parentItemIndex = parentItemIndex;
+    return this;
+  }
+
+   /**
+   * If this item is a kit component, this is the item index of the parent item (kit)
+   * @return parentItemIndex
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If this item is a kit component, this is the item index of the parent item (kit)")
+
+  public Integer getParentItemIndex() {
+    return parentItemIndex;
+  }
+
+
+  public void setParentItemIndex(Integer parentItemIndex) {
+    this.parentItemIndex = parentItemIndex;
+  }
+
+
+  public OrderItem parentMerchantItemId(String parentMerchantItemId) {
+    
+    this.parentMerchantItemId = parentMerchantItemId;
+    return this;
+  }
+
+   /**
+   * If this item is a kit component, this is the item id of the parent item (kit)
+   * @return parentMerchantItemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If this item is a kit component, this is the item id of the parent item (kit)")
+
+  public String getParentMerchantItemId() {
+    return parentMerchantItemId;
+  }
+
+
+  public void setParentMerchantItemId(String parentMerchantItemId) {
+    this.parentMerchantItemId = parentMerchantItemId;
   }
 
 
@@ -1689,6 +1770,7 @@ public class OrderItem {
         Objects.equals(this.freeShipping, orderItem.freeShipping) &&
         Objects.equals(this.hazmat, orderItem.hazmat) &&
         Objects.equals(this.height, orderItem.height) &&
+        Objects.equals(this.itemIndex, orderItem.itemIndex) &&
         Objects.equals(this.itemReferenceOid, orderItem.itemReferenceOid) &&
         Objects.equals(this.kit, orderItem.kit) &&
         Objects.equals(this.kitComponent, orderItem.kitComponent) &&
@@ -1701,6 +1783,8 @@ public class OrderItem {
         Objects.equals(this.noShippingDiscount, orderItem.noShippingDiscount) &&
         Objects.equals(this.options, orderItem.options) &&
         Objects.equals(this.packedByUser, orderItem.packedByUser) &&
+        Objects.equals(this.parentItemIndex, orderItem.parentItemIndex) &&
+        Objects.equals(this.parentMerchantItemId, orderItem.parentMerchantItemId) &&
         Objects.equals(this.perishableClass, orderItem.perishableClass) &&
         Objects.equals(this.pricingTierName, orderItem.pricingTierName) &&
         Objects.equals(this.properties, orderItem.properties) &&
@@ -1727,7 +1811,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemIndex, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, parentItemIndex, parentMerchantItemId, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
   @Override
@@ -1756,6 +1840,7 @@ public class OrderItem {
     sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");
     sb.append("    hazmat: ").append(toIndentedString(hazmat)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    itemIndex: ").append(toIndentedString(itemIndex)).append("\n");
     sb.append("    itemReferenceOid: ").append(toIndentedString(itemReferenceOid)).append("\n");
     sb.append("    kit: ").append(toIndentedString(kit)).append("\n");
     sb.append("    kitComponent: ").append(toIndentedString(kitComponent)).append("\n");
@@ -1768,6 +1853,8 @@ public class OrderItem {
     sb.append("    noShippingDiscount: ").append(toIndentedString(noShippingDiscount)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    packedByUser: ").append(toIndentedString(packedByUser)).append("\n");
+    sb.append("    parentItemIndex: ").append(toIndentedString(parentItemIndex)).append("\n");
+    sb.append("    parentMerchantItemId: ").append(toIndentedString(parentMerchantItemId)).append("\n");
     sb.append("    perishableClass: ").append(toIndentedString(perishableClass)).append("\n");
     sb.append("    pricingTierName: ").append(toIndentedString(pricingTierName)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
@@ -1834,6 +1921,7 @@ public class OrderItem {
     openapiFields.add("free_shipping");
     openapiFields.add("hazmat");
     openapiFields.add("height");
+    openapiFields.add("item_index");
     openapiFields.add("item_reference_oid");
     openapiFields.add("kit");
     openapiFields.add("kit_component");
@@ -1846,6 +1934,8 @@ public class OrderItem {
     openapiFields.add("no_shipping_discount");
     openapiFields.add("options");
     openapiFields.add("packed_by_user");
+    openapiFields.add("parent_item_index");
+    openapiFields.add("parent_merchant_item_id");
     openapiFields.add("perishable_class");
     openapiFields.add("pricing_tier_name");
     openapiFields.add("properties");
@@ -1977,6 +2067,9 @@ public class OrderItem {
       }
       if (jsonObj.get("packed_by_user") != null && !jsonObj.get("packed_by_user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `packed_by_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("packed_by_user").toString()));
+      }
+      if (jsonObj.get("parent_merchant_item_id") != null && !jsonObj.get("parent_merchant_item_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parent_merchant_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parent_merchant_item_id").toString()));
       }
       if (jsonObj.get("perishable_class") != null && !jsonObj.get("perishable_class").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `perishable_class` to be a primitive type in the JSON string but got `%s`", jsonObj.get("perishable_class").toString()));

@@ -29,6 +29,7 @@
 |**freeShipping** | **Boolean** | True if the item receives free shipping |  [optional] |
 |**hazmat** | **Boolean** | Hazardous materials indicator |  [optional] |
 |**height** | [**Distance**](Distance.md) |  |  [optional] |
+|**itemIndex** | **Integer** | Index of the item on the order (one based index) |  [optional] |
 |**itemReferenceOid** | **Integer** | Item reference object identifier used to linked to auto order item record |  [optional] |
 |**kit** | **Boolean** | True if this item is a kit |  [optional] |
 |**kitComponent** | **Boolean** | True if this item is a kit component |  [optional] |
@@ -41,6 +42,8 @@
 |**noShippingDiscount** | **Boolean** | True if this item is excluded from shipping discounts |  [optional] |
 |**options** | [**List&lt;OrderItemOption&gt;**](OrderItemOption.md) | Options |  [optional] |
 |**packedByUser** | **String** | Packed by user |  [optional] |
+|**parentItemIndex** | **Integer** | If this item is a kit component, this is the item index of the parent item (kit) |  [optional] |
+|**parentMerchantItemId** | **String** | If this item is a kit component, this is the item id of the parent item (kit) |  [optional] |
 |**perishableClass** | **String** | Perishable class of the item |  [optional] |
 |**pricingTierName** | **String** | Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned |  [optional] |
 |**properties** | [**List&lt;OrderItemProperty&gt;**](OrderItemProperty.md) | Properties |  [optional] |

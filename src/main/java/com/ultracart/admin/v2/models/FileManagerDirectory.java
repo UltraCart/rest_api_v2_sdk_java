@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FileManagerDirectory
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-29T09:19:28.040-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T14:17:19.374-05:00[America/Indianapolis]")
 public class FileManagerDirectory {
   public static final String SERIALIZED_NAME_ACTIVE_THEME_DIRECTORY = "active_theme_directory";
   @SerializedName(SERIALIZED_NAME_ACTIVE_THEME_DIRECTORY)
