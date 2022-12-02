@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCustomerEditorUrlResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T16:03:10.019-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-02T15:02:29.645-05:00[America/Indianapolis]")
 public class EmailCustomerEditorUrlResponse {
   public static final String SERIALIZED_NAME_EDITOR_URL = "editor_url";
   @SerializedName(SERIALIZED_NAME_EDITOR_URL)

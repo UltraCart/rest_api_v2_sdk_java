@@ -10,6 +10,7 @@
 |**closed** | **Boolean** |  |  [optional] |
 |**conversationArn** | **String** |  |  [optional] |
 |**conversationUuid** | **String** |  |  [optional] |
+|**customerFirstMessageUnrespondedToDts** | **String** | Date/time of the first customer message that is unresponded to. |  [optional] |
 |**lastConversationMessageBody** | **String** |  |  [optional] |
 |**lastConversationParticipantArn** | **String** |  |  [optional] |
 |**lastConversationParticipantName** | **String** |  |  [optional] |

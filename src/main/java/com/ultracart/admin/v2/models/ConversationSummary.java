@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T16:03:10.019-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-02T15:02:29.645-05:00[America/Indianapolis]")
 public class ConversationSummary {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -63,6 +63,10 @@ public class ConversationSummary {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
   private String conversationUuid;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_FIRST_MESSAGE_UNRESPONDED_TO_DTS = "customer_first_message_unresponded_to_dts";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_FIRST_MESSAGE_UNRESPONDED_TO_DTS)
+  private String customerFirstMessageUnrespondedToDts;
 
   public static final String SERIALIZED_NAME_LAST_CONVERSATION_MESSAGE_BODY = "last_conversation_message_body";
   @SerializedName(SERIALIZED_NAME_LAST_CONVERSATION_MESSAGE_BODY)
@@ -228,6 +232,29 @@ public class ConversationSummary {
 
   public void setConversationUuid(String conversationUuid) {
     this.conversationUuid = conversationUuid;
+  }
+
+
+  public ConversationSummary customerFirstMessageUnrespondedToDts(String customerFirstMessageUnrespondedToDts) {
+    
+    this.customerFirstMessageUnrespondedToDts = customerFirstMessageUnrespondedToDts;
+    return this;
+  }
+
+   /**
+   * Date/time of the first customer message that is unresponded to.
+   * @return customerFirstMessageUnrespondedToDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date/time of the first customer message that is unresponded to.")
+
+  public String getCustomerFirstMessageUnrespondedToDts() {
+    return customerFirstMessageUnrespondedToDts;
+  }
+
+
+  public void setCustomerFirstMessageUnrespondedToDts(String customerFirstMessageUnrespondedToDts) {
+    this.customerFirstMessageUnrespondedToDts = customerFirstMessageUnrespondedToDts;
   }
 
 
@@ -528,6 +555,7 @@ public class ConversationSummary {
     return Objects.equals(this.closed, conversationSummary.closed) &&
         Objects.equals(this.conversationArn, conversationSummary.conversationArn) &&
         Objects.equals(this.conversationUuid, conversationSummary.conversationUuid) &&
+        Objects.equals(this.customerFirstMessageUnrespondedToDts, conversationSummary.customerFirstMessageUnrespondedToDts) &&
         Objects.equals(this.lastConversationMessageBody, conversationSummary.lastConversationMessageBody) &&
         Objects.equals(this.lastConversationParticipantArn, conversationSummary.lastConversationParticipantArn) &&
         Objects.equals(this.lastConversationParticipantName, conversationSummary.lastConversationParticipantName) &&
@@ -544,7 +572,7 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
+    return Objects.hash(closed, conversationArn, conversationUuid, customerFirstMessageUnrespondedToDts, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
   }
 
   @Override
@@ -554,6 +582,7 @@ public class ConversationSummary {
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    customerFirstMessageUnrespondedToDts: ").append(toIndentedString(customerFirstMessageUnrespondedToDts)).append("\n");
     sb.append("    lastConversationMessageBody: ").append(toIndentedString(lastConversationMessageBody)).append("\n");
     sb.append("    lastConversationParticipantArn: ").append(toIndentedString(lastConversationParticipantArn)).append("\n");
     sb.append("    lastConversationParticipantName: ").append(toIndentedString(lastConversationParticipantName)).append("\n");
@@ -591,6 +620,7 @@ public class ConversationSummary {
     openapiFields.add("closed");
     openapiFields.add("conversation_arn");
     openapiFields.add("conversation_uuid");
+    openapiFields.add("customer_first_message_unresponded_to_dts");
     openapiFields.add("last_conversation_message_body");
     openapiFields.add("last_conversation_participant_arn");
     openapiFields.add("last_conversation_participant_name");
@@ -635,6 +665,9 @@ public class ConversationSummary {
       }
       if (jsonObj.get("conversation_uuid") != null && !jsonObj.get("conversation_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_uuid").toString()));
+      }
+      if (jsonObj.get("customer_first_message_unresponded_to_dts") != null && !jsonObj.get("customer_first_message_unresponded_to_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customer_first_message_unresponded_to_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_first_message_unresponded_to_dts").toString()));
       }
       if (jsonObj.get("last_conversation_message_body") != null && !jsonObj.get("last_conversation_message_body").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_conversation_message_body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_conversation_message_body").toString()));
