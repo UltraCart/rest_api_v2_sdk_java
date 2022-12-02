@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-30T15:49:22.635-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-02T14:49:18.945-05:00")
 
 
 
@@ -47,6 +47,9 @@ public class Conversation {
 
   @SerializedName("conversation_uuid")
   private String conversationUuid = null;
+
+  @SerializedName("customer_first_message_unresponded_to_dts")
+  private String customerFirstMessageUnrespondedToDts = null;
 
   @SerializedName("last_conversation_message_body")
   private String lastConversationMessageBody = null;
@@ -204,6 +207,24 @@ public class Conversation {
 
   public void setConversationUuid(String conversationUuid) {
     this.conversationUuid = conversationUuid;
+  }
+
+  public Conversation customerFirstMessageUnrespondedToDts(String customerFirstMessageUnrespondedToDts) {
+    this.customerFirstMessageUnrespondedToDts = customerFirstMessageUnrespondedToDts;
+    return this;
+  }
+
+   /**
+   * Date/time of the first customer message that is unresponded to.
+   * @return customerFirstMessageUnrespondedToDts
+  **/
+  @ApiModelProperty(value = "Date/time of the first customer message that is unresponded to.")
+  public String getCustomerFirstMessageUnrespondedToDts() {
+    return customerFirstMessageUnrespondedToDts;
+  }
+
+  public void setCustomerFirstMessageUnrespondedToDts(String customerFirstMessageUnrespondedToDts) {
+    this.customerFirstMessageUnrespondedToDts = customerFirstMessageUnrespondedToDts;
   }
 
   public Conversation lastConversationMessageBody(String lastConversationMessageBody) {
@@ -470,6 +491,7 @@ public class Conversation {
         Objects.equals(this.closed, conversation.closed) &&
         Objects.equals(this.conversationArn, conversation.conversationArn) &&
         Objects.equals(this.conversationUuid, conversation.conversationUuid) &&
+        Objects.equals(this.customerFirstMessageUnrespondedToDts, conversation.customerFirstMessageUnrespondedToDts) &&
         Objects.equals(this.lastConversationMessageBody, conversation.lastConversationMessageBody) &&
         Objects.equals(this.lastConversationParticipantArn, conversation.lastConversationParticipantArn) &&
         Objects.equals(this.lastConversationParticipantName, conversation.lastConversationParticipantName) &&
@@ -487,7 +509,7 @@ public class Conversation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseLanguageIsoCode, closed, conversationArn, conversationUuid, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
+    return Objects.hash(baseLanguageIsoCode, closed, conversationArn, conversationUuid, customerFirstMessageUnrespondedToDts, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
   }
 
 
@@ -500,6 +522,7 @@ public class Conversation {
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    customerFirstMessageUnrespondedToDts: ").append(toIndentedString(customerFirstMessageUnrespondedToDts)).append("\n");
     sb.append("    lastConversationMessageBody: ").append(toIndentedString(lastConversationMessageBody)).append("\n");
     sb.append("    lastConversationParticipantArn: ").append(toIndentedString(lastConversationParticipantArn)).append("\n");
     sb.append("    lastConversationParticipantName: ").append(toIndentedString(lastConversationParticipantName)).append("\n");
