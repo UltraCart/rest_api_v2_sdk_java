@@ -103,6 +103,7 @@ docs/CartTaxes.md
 docs/CartUpsellAfter.md
 docs/CartValidationRequest.md
 docs/CartValidationResponse.md
+docs/ChannelPartner.md
 docs/ChannelPartnerApi.md
 docs/ChannelPartnerCancelResponse.md
 docs/ChannelPartnerEstimateShippingResponse.md
@@ -231,6 +232,7 @@ docs/CustomerApi.md
 docs/CustomerAttachment.md
 docs/CustomerBilling.md
 docs/CustomerCard.md
+docs/CustomerEDI.md
 docs/CustomerEditorValues.md
 docs/CustomerEmail.md
 docs/CustomerEmailListChanges.md
@@ -840,6 +842,7 @@ src/main/java/com/ultracart/admin/v2/models/CartTaxes.java
 src/main/java/com/ultracart/admin/v2/models/CartUpsellAfter.java
 src/main/java/com/ultracart/admin/v2/models/CartValidationRequest.java
 src/main/java/com/ultracart/admin/v2/models/CartValidationResponse.java
+src/main/java/com/ultracart/admin/v2/models/ChannelPartner.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerCancelResponse.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerEstimateShippingResponse.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerEstimateTaxResponse.java
@@ -962,6 +965,7 @@ src/main/java/com/ultracart/admin/v2/models/CustomerAffiliate.java
 src/main/java/com/ultracart/admin/v2/models/CustomerAttachment.java
 src/main/java/com/ultracart/admin/v2/models/CustomerBilling.java
 src/main/java/com/ultracart/admin/v2/models/CustomerCard.java
+src/main/java/com/ultracart/admin/v2/models/CustomerEDI.java
 src/main/java/com/ultracart/admin/v2/models/CustomerEditorValues.java
 src/main/java/com/ultracart/admin/v2/models/CustomerEmail.java
 src/main/java/com/ultracart/admin/v2/models/CustomerEmailListChanges.java

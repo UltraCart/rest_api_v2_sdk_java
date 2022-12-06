@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CustomerActivity;
 import com.ultracart.admin.v2.models.CustomerAttachment;
 import com.ultracart.admin.v2.models.CustomerBilling;
 import com.ultracart.admin.v2.models.CustomerCard;
+import com.ultracart.admin.v2.models.CustomerEDI;
 import com.ultracart.admin.v2.models.CustomerEmail;
 import com.ultracart.admin.v2.models.CustomerLoyalty;
 import com.ultracart.admin.v2.models.CustomerOrdersSummary;
@@ -66,7 +67,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-02T15:02:29.645-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:59:46.322-05:00[America/Indianapolis]")
 public class Customer {
   public static final String SERIALIZED_NAME_ACTIVITY = "activity";
   @SerializedName(SERIALIZED_NAME_ACTIVITY)
@@ -143,6 +144,10 @@ public class Customer {
   public static final String SERIALIZED_NAME_DHL_DUTY_ACCOUNT_NUMBER = "dhl_duty_account_number";
   @SerializedName(SERIALIZED_NAME_DHL_DUTY_ACCOUNT_NUMBER)
   private String dhlDutyAccountNumber;
+
+  public static final String SERIALIZED_NAME_EDI = "edi";
+  @SerializedName(SERIALIZED_NAME_EDI)
+  private CustomerEDI edi;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -777,6 +782,29 @@ public class Customer {
 
   public void setDhlDutyAccountNumber(String dhlDutyAccountNumber) {
     this.dhlDutyAccountNumber = dhlDutyAccountNumber;
+  }
+
+
+  public Customer edi(CustomerEDI edi) {
+    
+    this.edi = edi;
+    return this;
+  }
+
+   /**
+   * Get edi
+   * @return edi
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CustomerEDI getEdi() {
+    return edi;
+  }
+
+
+  public void setEdi(CustomerEDI edi) {
+    this.edi = edi;
   }
 
 
@@ -1800,6 +1828,7 @@ public class Customer {
         Objects.equals(this.customerProfileOid, customer.customerProfileOid) &&
         Objects.equals(this.dhlAccountNumber, customer.dhlAccountNumber) &&
         Objects.equals(this.dhlDutyAccountNumber, customer.dhlDutyAccountNumber) &&
+        Objects.equals(this.edi, customer.edi) &&
         Objects.equals(this.email, customer.email) &&
         Objects.equals(this.exemptShippingHandlingCharge, customer.exemptShippingHandlingCharge) &&
         Objects.equals(this.fedexAccountNumber, customer.fedexAccountNumber) &&
@@ -1845,7 +1874,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, edi, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
   @Override
@@ -1871,6 +1900,7 @@ public class Customer {
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    dhlAccountNumber: ").append(toIndentedString(dhlAccountNumber)).append("\n");
     sb.append("    dhlDutyAccountNumber: ").append(toIndentedString(dhlDutyAccountNumber)).append("\n");
+    sb.append("    edi: ").append(toIndentedString(edi)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    exemptShippingHandlingCharge: ").append(toIndentedString(exemptShippingHandlingCharge)).append("\n");
     sb.append("    fedexAccountNumber: ").append(toIndentedString(fedexAccountNumber)).append("\n");
@@ -1953,6 +1983,7 @@ public class Customer {
     openapiFields.add("customer_profile_oid");
     openapiFields.add("dhl_account_number");
     openapiFields.add("dhl_duty_account_number");
+    openapiFields.add("edi");
     openapiFields.add("email");
     openapiFields.add("exempt_shipping_handling_charge");
     openapiFields.add("fedex_account_number");
@@ -2084,6 +2115,10 @@ public class Customer {
       }
       if (jsonObj.get("dhl_duty_account_number") != null && !jsonObj.get("dhl_duty_account_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dhl_duty_account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dhl_duty_account_number").toString()));
+      }
+      // validate the optional field `edi`
+      if (jsonObj.getAsJsonObject("edi") != null) {
+        CustomerEDI.validateJsonObject(jsonObj.getAsJsonObject("edi"));
       }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));

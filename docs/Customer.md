@@ -26,6 +26,7 @@
 |**customerProfileOid** | **Integer** | Customer profile object identifier |  [optional] |
 |**dhlAccountNumber** | **String** | DHL account number |  [optional] |
 |**dhlDutyAccountNumber** | **String** | DHL duty account number |  [optional] |
+|**edi** | [**CustomerEDI**](CustomerEDI.md) |  |  [optional] |
 |**email** | **String** | Email address of this customer profile |  [optional] |
 |**exemptShippingHandlingCharge** | **Boolean** | Exempt shipping handling charge |  [optional] |
 |**fedexAccountNumber** | **String** | FedEx account number |  [optional] |
