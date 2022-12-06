@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * CustomerStoreCreditLedgerEntry
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-02T14:49:18.945-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:45:45.381-05:00")
 
 
 

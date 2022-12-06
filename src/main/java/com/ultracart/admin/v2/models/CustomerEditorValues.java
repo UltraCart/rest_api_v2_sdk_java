@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ChannelPartner;
 import com.ultracart.admin.v2.models.Country;
 import com.ultracart.admin.v2.models.CustomerAffiliate;
 import io.swagger.annotations.ApiModel;
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * CustomerEditorValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-02T14:49:18.945-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:45:45.381-05:00")
 
 
 
@@ -50,6 +51,9 @@ public class CustomerEditorValues {
 
   @SerializedName("countries")
   private List<Country> countries = null;
+
+  @SerializedName("edi_channel_partners")
+  private List<ChannelPartner> ediChannelPartners = null;
 
   @SerializedName("loyalty_ledger_descriptions")
   private List<String> loyaltyLedgerDescriptions = null;
@@ -197,6 +201,32 @@ public class CustomerEditorValues {
 
   public void setCountries(List<Country> countries) {
     this.countries = countries;
+  }
+
+  public CustomerEditorValues ediChannelPartners(List<ChannelPartner> ediChannelPartners) {
+    this.ediChannelPartners = ediChannelPartners;
+    return this;
+  }
+
+  public CustomerEditorValues addEdiChannelPartnersItem(ChannelPartner ediChannelPartnersItem) {
+    if (this.ediChannelPartners == null) {
+      this.ediChannelPartners = new ArrayList<ChannelPartner>();
+    }
+    this.ediChannelPartners.add(ediChannelPartnersItem);
+    return this;
+  }
+
+   /**
+   * EDI channel partners
+   * @return ediChannelPartners
+  **/
+  @ApiModelProperty(value = "EDI channel partners")
+  public List<ChannelPartner> getEdiChannelPartners() {
+    return ediChannelPartners;
+  }
+
+  public void setEdiChannelPartners(List<ChannelPartner> ediChannelPartners) {
+    this.ediChannelPartners = ediChannelPartners;
   }
 
   public CustomerEditorValues loyaltyLedgerDescriptions(List<String> loyaltyLedgerDescriptions) {
@@ -362,6 +392,7 @@ public class CustomerEditorValues {
         Objects.equals(this.cardExpYears, customerEditorValues.cardExpYears) &&
         Objects.equals(this.cardTypes, customerEditorValues.cardTypes) &&
         Objects.equals(this.countries, customerEditorValues.countries) &&
+        Objects.equals(this.ediChannelPartners, customerEditorValues.ediChannelPartners) &&
         Objects.equals(this.loyaltyLedgerDescriptions, customerEditorValues.loyaltyLedgerDescriptions) &&
         Objects.equals(this.loyaltyProgramType, customerEditorValues.loyaltyProgramType) &&
         Objects.equals(this.qbClasses, customerEditorValues.qbClasses) &&
@@ -372,7 +403,7 @@ public class CustomerEditorValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, loyaltyLedgerDescriptions, loyaltyProgramType, qbClasses, salesRepCodes, stateOptionalCountries, terms);
+    return Objects.hash(affiliates, cardExpMonths, cardExpYears, cardTypes, countries, ediChannelPartners, loyaltyLedgerDescriptions, loyaltyProgramType, qbClasses, salesRepCodes, stateOptionalCountries, terms);
   }
 
 
@@ -386,6 +417,7 @@ public class CustomerEditorValues {
     sb.append("    cardExpYears: ").append(toIndentedString(cardExpYears)).append("\n");
     sb.append("    cardTypes: ").append(toIndentedString(cardTypes)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
+    sb.append("    ediChannelPartners: ").append(toIndentedString(ediChannelPartners)).append("\n");
     sb.append("    loyaltyLedgerDescriptions: ").append(toIndentedString(loyaltyLedgerDescriptions)).append("\n");
     sb.append("    loyaltyProgramType: ").append(toIndentedString(loyaltyProgramType)).append("\n");
     sb.append("    qbClasses: ").append(toIndentedString(qbClasses)).append("\n");

@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-02T14:49:18.945-05:00
+  - Build date: 2022-12-06T08:45:45.381-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.74</version>
+  <version>3.10.75</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.74"
+compile "com.ultracart:rest-sdk:3.10.75"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.74.jar`
+* `target/rest-sdk-3.10.75.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -587,6 +587,7 @@ Class | Method | HTTP request | Description
  - [CartUpsellAfter](docs/CartUpsellAfter.md)
  - [CartValidationRequest](docs/CartValidationRequest.md)
  - [CartValidationResponse](docs/CartValidationResponse.md)
+ - [ChannelPartner](docs/ChannelPartner.md)
  - [ChannelPartnerCancelResponse](docs/ChannelPartnerCancelResponse.md)
  - [ChannelPartnerEstimateShippingResponse](docs/ChannelPartnerEstimateShippingResponse.md)
  - [ChannelPartnerEstimateTaxResponse](docs/ChannelPartnerEstimateTaxResponse.md)
@@ -709,6 +710,7 @@ Class | Method | HTTP request | Description
  - [CustomerAttachment](docs/CustomerAttachment.md)
  - [CustomerBilling](docs/CustomerBilling.md)
  - [CustomerCard](docs/CustomerCard.md)
+ - [CustomerEDI](docs/CustomerEDI.md)
  - [CustomerEditorValues](docs/CustomerEditorValues.md)
  - [CustomerEmail](docs/CustomerEmail.md)
  - [CustomerEmailListChanges](docs/CustomerEmailListChanges.md)
@@ -1260,6 +1262,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.75 | 12/06/2022 | customer api - expose edi information and editor values |
 | 3.10.74 | 12/02/2022 | conversations - customer last unresponded dts |
 | 3.10.73 | 11/30/2022 | conversations - add order and auto order information to webchat context |
 | 3.10.72 | 11/30/2022 | order item - addl fields for linking kits to kit components |

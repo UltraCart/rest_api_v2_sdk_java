@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CustomerActivity;
 import com.ultracart.admin.v2.models.CustomerAttachment;
 import com.ultracart.admin.v2.models.CustomerBilling;
 import com.ultracart.admin.v2.models.CustomerCard;
+import com.ultracart.admin.v2.models.CustomerEDI;
 import com.ultracart.admin.v2.models.CustomerEmail;
 import com.ultracart.admin.v2.models.CustomerLoyalty;
 import com.ultracart.admin.v2.models.CustomerOrdersSummary;
@@ -46,7 +47,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-02T14:49:18.945-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:45:45.381-05:00")
 
 
 
@@ -107,6 +108,9 @@ public class Customer {
 
   @SerializedName("dhl_duty_account_number")
   private String dhlDutyAccountNumber = null;
+
+  @SerializedName("edi")
+  private CustomerEDI edi = null;
 
   @SerializedName("email")
   private String email = null;
@@ -603,6 +607,24 @@ public class Customer {
 
   public void setDhlDutyAccountNumber(String dhlDutyAccountNumber) {
     this.dhlDutyAccountNumber = dhlDutyAccountNumber;
+  }
+
+  public Customer edi(CustomerEDI edi) {
+    this.edi = edi;
+    return this;
+  }
+
+   /**
+   * Get edi
+   * @return edi
+  **/
+  @ApiModelProperty(value = "")
+  public CustomerEDI getEdi() {
+    return edi;
+  }
+
+  public void setEdi(CustomerEDI edi) {
+    this.edi = edi;
   }
 
   public Customer email(String email) {
@@ -1420,6 +1442,7 @@ public class Customer {
         Objects.equals(this.customerProfileOid, customer.customerProfileOid) &&
         Objects.equals(this.dhlAccountNumber, customer.dhlAccountNumber) &&
         Objects.equals(this.dhlDutyAccountNumber, customer.dhlDutyAccountNumber) &&
+        Objects.equals(this.edi, customer.edi) &&
         Objects.equals(this.email, customer.email) &&
         Objects.equals(this.exemptShippingHandlingCharge, customer.exemptShippingHandlingCharge) &&
         Objects.equals(this.fedexAccountNumber, customer.fedexAccountNumber) &&
@@ -1465,7 +1488,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, edi, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1493,6 +1516,7 @@ public class Customer {
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    dhlAccountNumber: ").append(toIndentedString(dhlAccountNumber)).append("\n");
     sb.append("    dhlDutyAccountNumber: ").append(toIndentedString(dhlDutyAccountNumber)).append("\n");
+    sb.append("    edi: ").append(toIndentedString(edi)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    exemptShippingHandlingCharge: ").append(toIndentedString(exemptShippingHandlingCharge)).append("\n");
     sb.append("    fedexAccountNumber: ").append(toIndentedString(fedexAccountNumber)).append("\n");
