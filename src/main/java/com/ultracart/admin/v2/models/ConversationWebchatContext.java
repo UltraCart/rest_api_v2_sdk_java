@@ -55,7 +55,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatContext
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:59:46.322-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:37:16.947-05:00[America/Indianapolis]")
 public class ConversationWebchatContext {
   public static final String SERIALIZED_NAME_AUTO_ORDERS = "auto_orders";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDERS)
@@ -80,6 +80,10 @@ public class ConversationWebchatContext {
   public static final String SERIALIZED_NAME_SESSION_START = "session_start";
   @SerializedName(SERIALIZED_NAME_SESSION_START)
   private HitSessionStart sessionStart;
+
+  public static final String SERIALIZED_NAME_SESSION_START_DTS = "session_start_dts";
+  @SerializedName(SERIALIZED_NAME_SESSION_START_DTS)
+  private String sessionStartDts;
 
   public static final String SERIALIZED_NAME_SESSION_UTM = "session_utm";
   @SerializedName(SERIALIZED_NAME_SESSION_UTM)
@@ -250,6 +254,29 @@ public class ConversationWebchatContext {
   }
 
 
+  public ConversationWebchatContext sessionStartDts(String sessionStartDts) {
+    
+    this.sessionStartDts = sessionStartDts;
+    return this;
+  }
+
+   /**
+   * Date/time that the session was started (if known)
+   * @return sessionStartDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date/time that the session was started (if known)")
+
+  public String getSessionStartDts() {
+    return sessionStartDts;
+  }
+
+
+  public void setSessionStartDts(String sessionStartDts) {
+    this.sessionStartDts = sessionStartDts;
+  }
+
+
   public ConversationWebchatContext sessionUtm(HitSessionUtm sessionUtm) {
     
     this.sessionUtm = sessionUtm;
@@ -289,12 +316,13 @@ public class ConversationWebchatContext {
         Objects.equals(this.orders, conversationWebchatContext.orders) &&
         Objects.equals(this.pageView, conversationWebchatContext.pageView) &&
         Objects.equals(this.sessionStart, conversationWebchatContext.sessionStart) &&
+        Objects.equals(this.sessionStartDts, conversationWebchatContext.sessionStartDts) &&
         Objects.equals(this.sessionUtm, conversationWebchatContext.sessionUtm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrders, cart, currentUrl, orders, pageView, sessionStart, sessionUtm);
+    return Objects.hash(autoOrders, cart, currentUrl, orders, pageView, sessionStart, sessionStartDts, sessionUtm);
   }
 
   @Override
@@ -307,6 +335,7 @@ public class ConversationWebchatContext {
     sb.append("    orders: ").append(toIndentedString(orders)).append("\n");
     sb.append("    pageView: ").append(toIndentedString(pageView)).append("\n");
     sb.append("    sessionStart: ").append(toIndentedString(sessionStart)).append("\n");
+    sb.append("    sessionStartDts: ").append(toIndentedString(sessionStartDts)).append("\n");
     sb.append("    sessionUtm: ").append(toIndentedString(sessionUtm)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -336,6 +365,7 @@ public class ConversationWebchatContext {
     openapiFields.add("orders");
     openapiFields.add("page_view");
     openapiFields.add("session_start");
+    openapiFields.add("session_start_dts");
     openapiFields.add("session_utm");
 
     // a set of required properties/fields (JSON key names)
@@ -410,6 +440,9 @@ public class ConversationWebchatContext {
       // validate the optional field `session_start`
       if (jsonObj.getAsJsonObject("session_start") != null) {
         HitSessionStart.validateJsonObject(jsonObj.getAsJsonObject("session_start"));
+      }
+      if (jsonObj.get("session_start_dts") != null && !jsonObj.get("session_start_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `session_start_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("session_start_dts").toString()));
       }
       // validate the optional field `session_utm`
       if (jsonObj.getAsJsonObject("session_utm") != null) {

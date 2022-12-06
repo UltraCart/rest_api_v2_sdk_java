@@ -13,7 +13,7 @@
 
 package com.ultracart.admin.v2.util;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:59:46.322-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:37:16.947-05:00[America/Indianapolis]")
 public class Pair {
     private String name = "";
     private String value = "";

@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartCustomerProfile
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:59:46.322-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:37:16.947-05:00[America/Indianapolis]")
 public class CartCustomerProfile {
   public static final String SERIALIZED_NAME_ALLOW3RD_PARTY_BILLING = "allow_3rd_party_billing";
   @SerializedName(SERIALIZED_NAME_ALLOW3RD_PARTY_BILLING)
@@ -133,6 +133,10 @@ public class CartCustomerProfile {
   public static final String SERIALIZED_NAME_SHIPPING_ADDRESSES = "shipping_addresses";
   @SerializedName(SERIALIZED_NAME_SHIPPING_ADDRESSES)
   private List<CartCustomerProfileAddress> shippingAddresses = null;
+
+  public static final String SERIALIZED_NAME_SIGNUP_DTS = "signup_dts";
+  @SerializedName(SERIALIZED_NAME_SIGNUP_DTS)
+  private String signupDts;
 
   public static final String SERIALIZED_NAME_TAX_EXEMPT = "tax_exempt";
   @SerializedName(SERIALIZED_NAME_TAX_EXEMPT)
@@ -421,11 +425,11 @@ public class CartCustomerProfile {
   }
 
    /**
-   * The minimum aount that this profile has to purchase to qualify for free shipping
+   * The minimum amount that this profile has to purchase to qualify for free shipping
    * @return freeShippingMinimum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The minimum aount that this profile has to purchase to qualify for free shipping")
+  @ApiModelProperty(value = "The minimum amount that this profile has to purchase to qualify for free shipping")
 
   public BigDecimal getFreeShippingMinimum() {
     return freeShippingMinimum;
@@ -637,6 +641,29 @@ public class CartCustomerProfile {
   }
 
 
+  public CartCustomerProfile signupDts(String signupDts) {
+    
+    this.signupDts = signupDts;
+    return this;
+  }
+
+   /**
+   * Signup date
+   * @return signupDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Signup date")
+
+  public String getSignupDts() {
+    return signupDts;
+  }
+
+
+  public void setSignupDts(String signupDts) {
+    this.signupDts = signupDts;
+  }
+
+
   public CartCustomerProfile taxExempt(Boolean taxExempt) {
     
     this.taxExempt = taxExempt;
@@ -713,13 +740,14 @@ public class CartCustomerProfile {
         Objects.equals(this.noRealtimeCharge, cartCustomerProfile.noRealtimeCharge) &&
         Objects.equals(this.pricingTiers, cartCustomerProfile.pricingTiers) &&
         Objects.equals(this.shippingAddresses, cartCustomerProfile.shippingAddresses) &&
+        Objects.equals(this.signupDts, cartCustomerProfile.signupDts) &&
         Objects.equals(this.taxExempt, cartCustomerProfile.taxExempt) &&
         Objects.equals(this.upsAccountNumber, cartCustomerProfile.upsAccountNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, billingAddresses, creditCards, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, fedexAccountNumber, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, pricingTiers, shippingAddresses, taxExempt, upsAccountNumber);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, billingAddresses, creditCards, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, fedexAccountNumber, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, pricingTiers, shippingAddresses, signupDts, taxExempt, upsAccountNumber);
   }
 
   @Override
@@ -746,6 +774,7 @@ public class CartCustomerProfile {
     sb.append("    noRealtimeCharge: ").append(toIndentedString(noRealtimeCharge)).append("\n");
     sb.append("    pricingTiers: ").append(toIndentedString(pricingTiers)).append("\n");
     sb.append("    shippingAddresses: ").append(toIndentedString(shippingAddresses)).append("\n");
+    sb.append("    signupDts: ").append(toIndentedString(signupDts)).append("\n");
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    upsAccountNumber: ").append(toIndentedString(upsAccountNumber)).append("\n");
     sb.append("}");
@@ -790,6 +819,7 @@ public class CartCustomerProfile {
     openapiFields.add("no_realtime_charge");
     openapiFields.add("pricing_tiers");
     openapiFields.add("shipping_addresses");
+    openapiFields.add("signup_dts");
     openapiFields.add("tax_exempt");
     openapiFields.add("ups_account_number");
 
@@ -870,6 +900,9 @@ public class CartCustomerProfile {
         for (int i = 0; i < jsonArrayshippingAddresses.size(); i++) {
           CartCustomerProfileAddress.validateJsonObject(jsonArrayshippingAddresses.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("signup_dts") != null && !jsonObj.get("signup_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signup_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signup_dts").toString()));
       }
       if (jsonObj.get("ups_account_number") != null && !jsonObj.get("ups_account_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ups_account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ups_account_number").toString()));

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPaymentInsurance
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:59:46.322-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:37:16.947-05:00[America/Indianapolis]")
 public class OrderPaymentInsurance {
   public static final String SERIALIZED_NAME_APPLICATION_ID = "application_id";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)

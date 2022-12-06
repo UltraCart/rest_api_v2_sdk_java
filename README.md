@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-06T08:59:46.322-05:00[America/Indianapolis]
+  - Build date: 2022-12-06T13:37:16.947-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.92-RC</version>
+  <version>4.0.93-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.92-RC"
+     implementation "com.ultracart:rest-sdk:4.0.93-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.92-RC.jar`
+* `target/rest-sdk-4.0.93-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1279,6 +1279,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.93-RC | 12/06/2022 | convo - add session_start_dts to webchat context, cart - add customer_profile.signup_dts |
 | 4.0.92-RC | 12/06/2022 | customer api - expose edi information and editor values |
 | 4.0.91-RC | 12/02/2022 | conversations - customer last unresponded dts |
 | 4.0.90-RC | 11/30/2022 | conversations - add order and auto order information to webchat context |

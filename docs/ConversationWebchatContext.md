@@ -13,6 +13,7 @@
 |**orders** | [**List&lt;Order&gt;**](Order.md) |  |  [optional] |
 |**pageView** | [**List&lt;HitPageView&gt;**](HitPageView.md) |  |  [optional] |
 |**sessionStart** | [**HitSessionStart**](HitSessionStart.md) |  |  [optional] |
+|**sessionStartDts** | **String** | Date/time that the session was started (if known) |  [optional] |
 |**sessionUtm** | [**HitSessionUtm**](HitSessionUtm.md) |  |  [optional] |
 
 
