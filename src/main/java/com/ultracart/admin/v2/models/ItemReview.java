@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemReview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:45:45.381-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:23:28.240-05:00")
 
 
 

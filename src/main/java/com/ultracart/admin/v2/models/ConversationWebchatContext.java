@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * ConversationWebchatContext
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:45:45.381-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:23:28.240-05:00")
 
 
 
@@ -57,6 +57,9 @@ public class ConversationWebchatContext {
 
   @SerializedName("session_start")
   private HitSessionStart sessionStart = null;
+
+  @SerializedName("session_start_dts")
+  private String sessionStartDts = null;
 
   @SerializedName("session_utm")
   private HitSessionUtm sessionUtm = null;
@@ -193,6 +196,24 @@ public class ConversationWebchatContext {
     this.sessionStart = sessionStart;
   }
 
+  public ConversationWebchatContext sessionStartDts(String sessionStartDts) {
+    this.sessionStartDts = sessionStartDts;
+    return this;
+  }
+
+   /**
+   * Date/time that the session was started (if known)
+   * @return sessionStartDts
+  **/
+  @ApiModelProperty(value = "Date/time that the session was started (if known)")
+  public String getSessionStartDts() {
+    return sessionStartDts;
+  }
+
+  public void setSessionStartDts(String sessionStartDts) {
+    this.sessionStartDts = sessionStartDts;
+  }
+
   public ConversationWebchatContext sessionUtm(HitSessionUtm sessionUtm) {
     this.sessionUtm = sessionUtm;
     return this;
@@ -227,12 +248,13 @@ public class ConversationWebchatContext {
         Objects.equals(this.orders, conversationWebchatContext.orders) &&
         Objects.equals(this.pageView, conversationWebchatContext.pageView) &&
         Objects.equals(this.sessionStart, conversationWebchatContext.sessionStart) &&
+        Objects.equals(this.sessionStartDts, conversationWebchatContext.sessionStartDts) &&
         Objects.equals(this.sessionUtm, conversationWebchatContext.sessionUtm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrders, cart, currentUrl, orders, pageView, sessionStart, sessionUtm);
+    return Objects.hash(autoOrders, cart, currentUrl, orders, pageView, sessionStart, sessionStartDts, sessionUtm);
   }
 
 
@@ -247,6 +269,7 @@ public class ConversationWebchatContext {
     sb.append("    orders: ").append(toIndentedString(orders)).append("\n");
     sb.append("    pageView: ").append(toIndentedString(pageView)).append("\n");
     sb.append("    sessionStart: ").append(toIndentedString(sessionStart)).append("\n");
+    sb.append("    sessionStartDts: ").append(toIndentedString(sessionStartDts)).append("\n");
     sb.append("    sessionUtm: ").append(toIndentedString(sessionUtm)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **email** | **String** | Email |  [optional]
 **fedexAccountNumber** | **String** | FedEx account number on file |  [optional]
 **freeShipping** | **Boolean** | True if this profile always qualifies for free shipping |  [optional]
-**freeShippingMinimum** | [**BigDecimal**](BigDecimal.md) | The minimum aount that this profile has to purchase to qualify for free shipping |  [optional]
+**freeShippingMinimum** | [**BigDecimal**](BigDecimal.md) | The minimum amount that this profile has to purchase to qualify for free shipping |  [optional]
 **maximumItemCount** | **Integer** | Maximum item count this profile can purchase |  [optional]
 **minimumItemCount** | **Integer** | Minimum item count this profile must purchase |  [optional]
 **minimumSubtotal** | [**BigDecimal**](BigDecimal.md) | Minimum subtotal this profile must purchase |  [optional]
@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **noRealtimeCharge** | **Boolean** | True if this customers orders are not charged in real-time |  [optional]
 **pricingTiers** | **List&lt;String&gt;** | Pricing tier names this profile qualifies for |  [optional]
 **shippingAddresses** | [**List&lt;CartCustomerProfileAddress&gt;**](CartCustomerProfileAddress.md) | Shipping addresses on file for this profile |  [optional]
+**signupDts** | **String** | Signup date |  [optional]
 **taxExempt** | **Boolean** | True if this profile is exempt from sales tax |  [optional]
 **upsAccountNumber** | **String** | UPS account number on file |  [optional]
 

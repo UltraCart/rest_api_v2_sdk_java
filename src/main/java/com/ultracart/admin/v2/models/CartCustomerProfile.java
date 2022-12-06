@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * CartCustomerProfile
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T08:45:45.381-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:23:28.240-05:00")
 
 
 
@@ -96,6 +96,9 @@ public class CartCustomerProfile {
 
   @SerializedName("shipping_addresses")
   private List<CartCustomerProfileAddress> shippingAddresses = null;
+
+  @SerializedName("signup_dts")
+  private String signupDts = null;
 
   @SerializedName("tax_exempt")
   private Boolean taxExempt = null;
@@ -323,10 +326,10 @@ public class CartCustomerProfile {
   }
 
    /**
-   * The minimum aount that this profile has to purchase to qualify for free shipping
+   * The minimum amount that this profile has to purchase to qualify for free shipping
    * @return freeShippingMinimum
   **/
-  @ApiModelProperty(value = "The minimum aount that this profile has to purchase to qualify for free shipping")
+  @ApiModelProperty(value = "The minimum amount that this profile has to purchase to qualify for free shipping")
   public BigDecimal getFreeShippingMinimum() {
     return freeShippingMinimum;
   }
@@ -495,6 +498,24 @@ public class CartCustomerProfile {
     this.shippingAddresses = shippingAddresses;
   }
 
+  public CartCustomerProfile signupDts(String signupDts) {
+    this.signupDts = signupDts;
+    return this;
+  }
+
+   /**
+   * Signup date
+   * @return signupDts
+  **/
+  @ApiModelProperty(value = "Signup date")
+  public String getSignupDts() {
+    return signupDts;
+  }
+
+  public void setSignupDts(String signupDts) {
+    this.signupDts = signupDts;
+  }
+
   public CartCustomerProfile taxExempt(Boolean taxExempt) {
     this.taxExempt = taxExempt;
     return this;
@@ -561,13 +582,14 @@ public class CartCustomerProfile {
         Objects.equals(this.noRealtimeCharge, cartCustomerProfile.noRealtimeCharge) &&
         Objects.equals(this.pricingTiers, cartCustomerProfile.pricingTiers) &&
         Objects.equals(this.shippingAddresses, cartCustomerProfile.shippingAddresses) &&
+        Objects.equals(this.signupDts, cartCustomerProfile.signupDts) &&
         Objects.equals(this.taxExempt, cartCustomerProfile.taxExempt) &&
         Objects.equals(this.upsAccountNumber, cartCustomerProfile.upsAccountNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, billingAddresses, creditCards, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, fedexAccountNumber, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, pricingTiers, shippingAddresses, taxExempt, upsAccountNumber);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, billingAddresses, creditCards, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, email, fedexAccountNumber, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, pricingTiers, shippingAddresses, signupDts, taxExempt, upsAccountNumber);
   }
 
 
@@ -596,6 +618,7 @@ public class CartCustomerProfile {
     sb.append("    noRealtimeCharge: ").append(toIndentedString(noRealtimeCharge)).append("\n");
     sb.append("    pricingTiers: ").append(toIndentedString(pricingTiers)).append("\n");
     sb.append("    shippingAddresses: ").append(toIndentedString(shippingAddresses)).append("\n");
+    sb.append("    signupDts: ").append(toIndentedString(signupDts)).append("\n");
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    upsAccountNumber: ").append(toIndentedString(upsAccountNumber)).append("\n");
     sb.append("}");
