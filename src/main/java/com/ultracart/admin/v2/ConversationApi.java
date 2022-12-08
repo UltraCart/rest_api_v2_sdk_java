@@ -28,6 +28,10 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.ConversationAgentAuthResponse;
+import com.ultracart.admin.v2.models.ConversationCannedMessage;
+import com.ultracart.admin.v2.models.ConversationCannedMessageResponse;
+import com.ultracart.admin.v2.models.ConversationCannedMessagesResponse;
+import com.ultracart.admin.v2.models.ConversationCannedMessagesSearch;
 import com.ultracart.admin.v2.models.ConversationMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
 import com.ultracart.admin.v2.models.ConversationResponse;
@@ -437,6 +441,119 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = getConversationValidateBeforeCall(conversationUuid, limit, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getConversationCannedMessages
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getConversationCannedMessagesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/canned_messages";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getConversationCannedMessagesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getConversationCannedMessagesCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve a list of canned messages ordered by short_code
+     * Retrieve a list of canned messages ordered by short_code 
+     * @return ConversationCannedMessagesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationCannedMessagesResponse getConversationCannedMessages() throws ApiException {
+        ApiResponse<ConversationCannedMessagesResponse> resp = getConversationCannedMessagesWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a list of canned messages ordered by short_code
+     * Retrieve a list of canned messages ordered by short_code 
+     * @return ApiResponse&lt;ConversationCannedMessagesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationCannedMessagesResponse> getConversationCannedMessagesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getConversationCannedMessagesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationCannedMessagesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a list of canned messages ordered by short_code (asynchronously)
+     * Retrieve a list of canned messages ordered by short_code 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getConversationCannedMessagesAsync(final ApiCallback<ConversationCannedMessagesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getConversationCannedMessagesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationCannedMessagesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1076,6 +1193,128 @@ public class ConversationApi {
         return call;
     }
     /**
+     * Build call for insertConversationCannedMessage
+     * @param cannedMessage Canned message (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertConversationCannedMessageCall(ConversationCannedMessage cannedMessage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = cannedMessage;
+
+        // create path and map variables
+        String localVarPath = "/conversation/canned_messages";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertConversationCannedMessageValidateBeforeCall(ConversationCannedMessage cannedMessage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'cannedMessage' is set
+        if (cannedMessage == null) {
+            throw new ApiException("Missing the required parameter 'cannedMessage' when calling insertConversationCannedMessage(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertConversationCannedMessageCall(cannedMessage, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a canned message
+     * Insert a canned message 
+     * @param cannedMessage Canned message (required)
+     * @return ConversationCannedMessageResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationCannedMessageResponse insertConversationCannedMessage(ConversationCannedMessage cannedMessage) throws ApiException {
+        ApiResponse<ConversationCannedMessageResponse> resp = insertConversationCannedMessageWithHttpInfo(cannedMessage);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a canned message
+     * Insert a canned message 
+     * @param cannedMessage Canned message (required)
+     * @return ApiResponse&lt;ConversationCannedMessageResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationCannedMessageResponse> insertConversationCannedMessageWithHttpInfo(ConversationCannedMessage cannedMessage) throws ApiException {
+        com.squareup.okhttp.Call call = insertConversationCannedMessageValidateBeforeCall(cannedMessage, null, null);
+        Type localVarReturnType = new TypeToken<ConversationCannedMessageResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a canned message (asynchronously)
+     * Insert a canned message 
+     * @param cannedMessage Canned message (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertConversationCannedMessageAsync(ConversationCannedMessage cannedMessage, final ApiCallback<ConversationCannedMessageResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertConversationCannedMessageValidateBeforeCall(cannedMessage, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationCannedMessageResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for joinConversation
      * @param conversationUuid  (required)
      * @param progressListener Progress listener
@@ -1433,6 +1672,128 @@ public class ConversationApi {
         return call;
     }
     /**
+     * Build call for searchConversationCannedMessages
+     * @param searchRequest Search request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call searchConversationCannedMessagesCall(ConversationCannedMessagesSearch searchRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = searchRequest;
+
+        // create path and map variables
+        String localVarPath = "/conversation/canned_messages/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call searchConversationCannedMessagesValidateBeforeCall(ConversationCannedMessagesSearch searchRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'searchRequest' is set
+        if (searchRequest == null) {
+            throw new ApiException("Missing the required parameter 'searchRequest' when calling searchConversationCannedMessages(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = searchConversationCannedMessagesCall(searchRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Search for canned messages by short_code
+     * Search for canned messages by short_code 
+     * @param searchRequest Search request (required)
+     * @return ConversationCannedMessagesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationCannedMessagesResponse searchConversationCannedMessages(ConversationCannedMessagesSearch searchRequest) throws ApiException {
+        ApiResponse<ConversationCannedMessagesResponse> resp = searchConversationCannedMessagesWithHttpInfo(searchRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Search for canned messages by short_code
+     * Search for canned messages by short_code 
+     * @param searchRequest Search request (required)
+     * @return ApiResponse&lt;ConversationCannedMessagesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationCannedMessagesResponse> searchConversationCannedMessagesWithHttpInfo(ConversationCannedMessagesSearch searchRequest) throws ApiException {
+        com.squareup.okhttp.Call call = searchConversationCannedMessagesValidateBeforeCall(searchRequest, null, null);
+        Type localVarReturnType = new TypeToken<ConversationCannedMessagesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Search for canned messages by short_code (asynchronously)
+     * Search for canned messages by short_code 
+     * @param searchRequest Search request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call searchConversationCannedMessagesAsync(ConversationCannedMessagesSearch searchRequest, final ApiCallback<ConversationCannedMessagesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = searchConversationCannedMessagesValidateBeforeCall(searchRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationCannedMessagesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for startConversation
      * @param startRequest Start request (required)
      * @param progressListener Progress listener
@@ -1551,6 +1912,138 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = startConversationValidateBeforeCall(startRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationStartResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateConversationCannedMessage
+     * @param conversationCannedMessageOid  (required)
+     * @param cannedMessage Canned message (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateConversationCannedMessageCall(Integer conversationCannedMessageOid, ConversationCannedMessage cannedMessage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = cannedMessage;
+
+        // create path and map variables
+        String localVarPath = "/conversation/canned_messages/{conversation_canned_message_oid}"
+            .replaceAll("\\{" + "conversation_canned_message_oid" + "\\}", apiClient.escapeString(conversationCannedMessageOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateConversationCannedMessageValidateBeforeCall(Integer conversationCannedMessageOid, ConversationCannedMessage cannedMessage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conversationCannedMessageOid' is set
+        if (conversationCannedMessageOid == null) {
+            throw new ApiException("Missing the required parameter 'conversationCannedMessageOid' when calling updateConversationCannedMessage(Async)");
+        }
+        
+        // verify the required parameter 'cannedMessage' is set
+        if (cannedMessage == null) {
+            throw new ApiException("Missing the required parameter 'cannedMessage' when calling updateConversationCannedMessage(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateConversationCannedMessageCall(conversationCannedMessageOid, cannedMessage, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update a canned message
+     * Update a canned message 
+     * @param conversationCannedMessageOid  (required)
+     * @param cannedMessage Canned message (required)
+     * @return ConversationCannedMessageResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationCannedMessageResponse updateConversationCannedMessage(Integer conversationCannedMessageOid, ConversationCannedMessage cannedMessage) throws ApiException {
+        ApiResponse<ConversationCannedMessageResponse> resp = updateConversationCannedMessageWithHttpInfo(conversationCannedMessageOid, cannedMessage);
+        return resp.getData();
+    }
+
+    /**
+     * Update a canned message
+     * Update a canned message 
+     * @param conversationCannedMessageOid  (required)
+     * @param cannedMessage Canned message (required)
+     * @return ApiResponse&lt;ConversationCannedMessageResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationCannedMessageResponse> updateConversationCannedMessageWithHttpInfo(Integer conversationCannedMessageOid, ConversationCannedMessage cannedMessage) throws ApiException {
+        com.squareup.okhttp.Call call = updateConversationCannedMessageValidateBeforeCall(conversationCannedMessageOid, cannedMessage, null, null);
+        Type localVarReturnType = new TypeToken<ConversationCannedMessageResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a canned message (asynchronously)
+     * Update a canned message 
+     * @param conversationCannedMessageOid  (required)
+     * @param cannedMessage Canned message (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateConversationCannedMessageAsync(Integer conversationCannedMessageOid, ConversationCannedMessage cannedMessage, final ApiCallback<ConversationCannedMessageResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateConversationCannedMessageValidateBeforeCall(conversationCannedMessageOid, cannedMessage, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationCannedMessageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
