@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * AutoOrderQueryBatch
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:23:28.240-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:55:21.387-05:00")
 
 
 

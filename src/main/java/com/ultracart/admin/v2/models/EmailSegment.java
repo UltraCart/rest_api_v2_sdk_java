@@ -24,13 +24,14 @@ import com.ultracart.admin.v2.models.EmailListSegmentUsedBy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * EmailSegment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:23:28.240-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:55:21.387-05:00")
 
 
 
@@ -70,6 +71,9 @@ public class EmailSegment {
 
   @SerializedName("rank_json")
   private String rankJson = null;
+
+  @SerializedName("rebuild_percentage")
+  private BigDecimal rebuildPercentage = null;
 
   @SerializedName("rebuild_required")
   private Boolean rebuildRequired = null;
@@ -314,6 +318,24 @@ public class EmailSegment {
     this.rankJson = rankJson;
   }
 
+  public EmailSegment rebuildPercentage(BigDecimal rebuildPercentage) {
+    this.rebuildPercentage = rebuildPercentage;
+    return this;
+  }
+
+   /**
+   * Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.
+   * @return rebuildPercentage
+  **/
+  @ApiModelProperty(value = "Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.")
+  public BigDecimal getRebuildPercentage() {
+    return rebuildPercentage;
+  }
+
+  public void setRebuildPercentage(BigDecimal rebuildPercentage) {
+    this.rebuildPercentage = rebuildPercentage;
+  }
+
   public EmailSegment rebuildRequired(Boolean rebuildRequired) {
     this.rebuildRequired = rebuildRequired;
     return this;
@@ -538,6 +560,7 @@ public class EmailSegment {
         Objects.equals(this.merchantId, emailSegment.merchantId) &&
         Objects.equals(this.name, emailSegment.name) &&
         Objects.equals(this.rankJson, emailSegment.rankJson) &&
+        Objects.equals(this.rebuildPercentage, emailSegment.rebuildPercentage) &&
         Objects.equals(this.rebuildRequired, emailSegment.rebuildRequired) &&
         Objects.equals(this.storefrontOid, emailSegment.storefrontOid) &&
         Objects.equals(this.thirdpartyJoinAddTags, emailSegment.thirdpartyJoinAddTags) &&
@@ -551,7 +574,7 @@ public class EmailSegment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, thirdpartyJoinAddTags, thirdpartyJoinRemoveTags, thirdpartyLeaveAddTags, thirdpartyLeaveRemoveTags, thirdpartyListId, thirdpartyProviderName, usedBy);
+    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildPercentage, rebuildRequired, storefrontOid, thirdpartyJoinAddTags, thirdpartyJoinRemoveTags, thirdpartyLeaveAddTags, thirdpartyLeaveRemoveTags, thirdpartyListId, thirdpartyProviderName, usedBy);
   }
 
 
@@ -572,6 +595,7 @@ public class EmailSegment {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rankJson: ").append(toIndentedString(rankJson)).append("\n");
+    sb.append("    rebuildPercentage: ").append(toIndentedString(rebuildPercentage)).append("\n");
     sb.append("    rebuildRequired: ").append(toIndentedString(rebuildRequired)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    thirdpartyJoinAddTags: ").append(toIndentedString(thirdpartyJoinAddTags)).append("\n");
