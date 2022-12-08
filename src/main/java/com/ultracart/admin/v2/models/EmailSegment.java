@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.EmailListSegmentUsedBy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSegment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:37:16.947-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T10:08:44.056-05:00[America/Indianapolis]")
 public class EmailSegment {
   public static final String SERIALIZED_NAME_ALLOW_CSV_DOWNLOAD = "allow_csv_download";
   @SerializedName(SERIALIZED_NAME_ALLOW_CSV_DOWNLOAD)
@@ -99,6 +100,10 @@ public class EmailSegment {
   public static final String SERIALIZED_NAME_RANK_JSON = "rank_json";
   @SerializedName(SERIALIZED_NAME_RANK_JSON)
   private String rankJson;
+
+  public static final String SERIALIZED_NAME_REBUILD_PERCENTAGE = "rebuild_percentage";
+  @SerializedName(SERIALIZED_NAME_REBUILD_PERCENTAGE)
+  private BigDecimal rebuildPercentage;
 
   public static final String SERIALIZED_NAME_REBUILD_REQUIRED = "rebuild_required";
   @SerializedName(SERIALIZED_NAME_REBUILD_REQUIRED)
@@ -415,6 +420,29 @@ public class EmailSegment {
   }
 
 
+  public EmailSegment rebuildPercentage(BigDecimal rebuildPercentage) {
+    
+    this.rebuildPercentage = rebuildPercentage;
+    return this;
+  }
+
+   /**
+   * Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.
+   * @return rebuildPercentage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.")
+
+  public BigDecimal getRebuildPercentage() {
+    return rebuildPercentage;
+  }
+
+
+  public void setRebuildPercentage(BigDecimal rebuildPercentage) {
+    this.rebuildPercentage = rebuildPercentage;
+  }
+
+
   public EmailSegment rebuildRequired(Boolean rebuildRequired) {
     
     this.rebuildRequired = rebuildRequired;
@@ -684,6 +712,7 @@ public class EmailSegment {
         Objects.equals(this.merchantId, emailSegment.merchantId) &&
         Objects.equals(this.name, emailSegment.name) &&
         Objects.equals(this.rankJson, emailSegment.rankJson) &&
+        Objects.equals(this.rebuildPercentage, emailSegment.rebuildPercentage) &&
         Objects.equals(this.rebuildRequired, emailSegment.rebuildRequired) &&
         Objects.equals(this.storefrontOid, emailSegment.storefrontOid) &&
         Objects.equals(this.thirdpartyJoinAddTags, emailSegment.thirdpartyJoinAddTags) &&
@@ -697,7 +726,7 @@ public class EmailSegment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildRequired, storefrontOid, thirdpartyJoinAddTags, thirdpartyJoinRemoveTags, thirdpartyLeaveAddTags, thirdpartyLeaveRemoveTags, thirdpartyListId, thirdpartyProviderName, usedBy);
+    return Objects.hash(allowCsvDownload, allowFacebookAudiences, createdDts, deleted, emailSegmentUuid, espListSegmentFolderUuid, facebookCustomAudience, filterProfileEquationJson, memberCount, merchantId, name, rankJson, rebuildPercentage, rebuildRequired, storefrontOid, thirdpartyJoinAddTags, thirdpartyJoinRemoveTags, thirdpartyLeaveAddTags, thirdpartyLeaveRemoveTags, thirdpartyListId, thirdpartyProviderName, usedBy);
   }
 
   @Override
@@ -716,6 +745,7 @@ public class EmailSegment {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rankJson: ").append(toIndentedString(rankJson)).append("\n");
+    sb.append("    rebuildPercentage: ").append(toIndentedString(rebuildPercentage)).append("\n");
     sb.append("    rebuildRequired: ").append(toIndentedString(rebuildRequired)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    thirdpartyJoinAddTags: ").append(toIndentedString(thirdpartyJoinAddTags)).append("\n");
@@ -759,6 +789,7 @@ public class EmailSegment {
     openapiFields.add("merchant_id");
     openapiFields.add("name");
     openapiFields.add("rank_json");
+    openapiFields.add("rebuild_percentage");
     openapiFields.add("rebuild_required");
     openapiFields.add("storefront_oid");
     openapiFields.add("thirdparty_join_add_tags");

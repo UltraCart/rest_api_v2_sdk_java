@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseq
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-06T13:37:16.947-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T10:08:44.056-05:00[America/Indianapolis]")
 public class EmailCommseq {
   public static final String SERIALIZED_NAME_EMAIL_COMMUNICATION_SEQUENCE_STEPS = "email_communication_sequence_steps";
   @SerializedName(SERIALIZED_NAME_EMAIL_COMMUNICATION_SEQUENCE_STEPS)
