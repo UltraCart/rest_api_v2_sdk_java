@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemChargeback
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T10:08:44.056-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:42:41.031-05:00[America/Indianapolis]")
 public class ItemChargeback {
   public static final String SERIALIZED_NAME_ADDENDUMS = "addendums";
   @SerializedName(SERIALIZED_NAME_ADDENDUMS)

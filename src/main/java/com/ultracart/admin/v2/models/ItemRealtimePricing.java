@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemRealtimePricing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T10:08:44.056-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:42:41.031-05:00[America/Indianapolis]")
 public class ItemRealtimePricing {
   public static final String SERIALIZED_NAME_REALTIME_PRICING_PARAMETER = "realtime_pricing_parameter";
   @SerializedName(SERIALIZED_NAME_REALTIME_PRICING_PARAMETER)

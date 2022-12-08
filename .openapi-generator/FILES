@@ -131,6 +131,10 @@ docs/Conversation.md
 docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
+docs/ConversationCannedMessage.md
+docs/ConversationCannedMessageResponse.md
+docs/ConversationCannedMessagesResponse.md
+docs/ConversationCannedMessagesSearch.md
 docs/ConversationEventAddCoupon.md
 docs/ConversationEventAddItem.md
 docs/ConversationEventQueuePosition.md
@@ -866,6 +870,10 @@ src/main/java/com/ultracart/admin/v2/models/CityStateZip.java
 src/main/java/com/ultracart/admin/v2/models/Conversation.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuth.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuthResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessage.java
+src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessageResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesSearch.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventAddCoupon.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventAddItem.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventQueuePosition.java
