@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ItemInstantPaymentNotifications
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:30:45.226-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-09T11:47:41.999-05:00")
 
 
 

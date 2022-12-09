@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:30:45.226-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-09T11:47:41.999-05:00")
 
 
 
@@ -43,6 +43,9 @@ public class ConversationParticipant {
 
   @SerializedName("joined_dts")
   private String joinedDts = null;
+
+  @SerializedName("language_iso_code")
+  private String languageIsoCode = null;
 
   @SerializedName("last_message_dts")
   private String lastMessageDts = null;
@@ -132,6 +135,24 @@ public class ConversationParticipant {
 
   public void setJoinedDts(String joinedDts) {
     this.joinedDts = joinedDts;
+  }
+
+  public ConversationParticipant languageIsoCode(String languageIsoCode) {
+    this.languageIsoCode = languageIsoCode;
+    return this;
+  }
+
+   /**
+   * Get languageIsoCode
+   * @return languageIsoCode
+  **/
+  @ApiModelProperty(value = "")
+  public String getLanguageIsoCode() {
+    return languageIsoCode;
+  }
+
+  public void setLanguageIsoCode(String languageIsoCode) {
+    this.languageIsoCode = languageIsoCode;
   }
 
   public ConversationParticipant lastMessageDts(String lastMessageDts) {
@@ -256,6 +277,7 @@ public class ConversationParticipant {
         Objects.equals(this.conversationParticipantName, conversationParticipant.conversationParticipantName) &&
         Objects.equals(this.conversationParticipantUuid, conversationParticipant.conversationParticipantUuid) &&
         Objects.equals(this.joinedDts, conversationParticipant.joinedDts) &&
+        Objects.equals(this.languageIsoCode, conversationParticipant.languageIsoCode) &&
         Objects.equals(this.lastMessageDts, conversationParticipant.lastMessageDts) &&
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
         Objects.equals(this.profileImageUrl, conversationParticipant.profileImageUrl) &&
@@ -266,7 +288,7 @@ public class ConversationParticipant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, profileImageUrl, status, timezone, unreadMessages);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, languageIsoCode, lastMessageDts, leftDts, profileImageUrl, status, timezone, unreadMessages);
   }
 
 
@@ -279,6 +301,7 @@ public class ConversationParticipant {
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    conversationParticipantUuid: ").append(toIndentedString(conversationParticipantUuid)).append("\n");
     sb.append("    joinedDts: ").append(toIndentedString(joinedDts)).append("\n");
+    sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");

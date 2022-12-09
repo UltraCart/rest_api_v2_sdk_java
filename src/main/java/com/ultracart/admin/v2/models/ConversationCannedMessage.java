@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ConversationCannedMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:30:45.226-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-09T11:47:41.999-05:00")
 
 
 
@@ -40,8 +40,8 @@ public class ConversationCannedMessage {
   @SerializedName("conversation_canned_message_oid")
   private Integer conversationCannedMessageOid = null;
 
-  @SerializedName("conversation_webchat_queue_uuids")
-  private List<String> conversationWebchatQueueUuids = null;
+  @SerializedName("conversation_department_oids")
+  private List<String> conversationDepartmentOids = null;
 
   @SerializedName("short_code")
   private String shortCode = null;
@@ -82,30 +82,30 @@ public class ConversationCannedMessage {
     this.conversationCannedMessageOid = conversationCannedMessageOid;
   }
 
-  public ConversationCannedMessage conversationWebchatQueueUuids(List<String> conversationWebchatQueueUuids) {
-    this.conversationWebchatQueueUuids = conversationWebchatQueueUuids;
+  public ConversationCannedMessage conversationDepartmentOids(List<String> conversationDepartmentOids) {
+    this.conversationDepartmentOids = conversationDepartmentOids;
     return this;
   }
 
-  public ConversationCannedMessage addConversationWebchatQueueUuidsItem(String conversationWebchatQueueUuidsItem) {
-    if (this.conversationWebchatQueueUuids == null) {
-      this.conversationWebchatQueueUuids = new ArrayList<String>();
+  public ConversationCannedMessage addConversationDepartmentOidsItem(String conversationDepartmentOidsItem) {
+    if (this.conversationDepartmentOids == null) {
+      this.conversationDepartmentOids = new ArrayList<String>();
     }
-    this.conversationWebchatQueueUuids.add(conversationWebchatQueueUuidsItem);
+    this.conversationDepartmentOids.add(conversationDepartmentOidsItem);
     return this;
   }
 
    /**
-   * Get conversationWebchatQueueUuids
-   * @return conversationWebchatQueueUuids
+   * Get conversationDepartmentOids
+   * @return conversationDepartmentOids
   **/
   @ApiModelProperty(value = "")
-  public List<String> getConversationWebchatQueueUuids() {
-    return conversationWebchatQueueUuids;
+  public List<String> getConversationDepartmentOids() {
+    return conversationDepartmentOids;
   }
 
-  public void setConversationWebchatQueueUuids(List<String> conversationWebchatQueueUuids) {
-    this.conversationWebchatQueueUuids = conversationWebchatQueueUuids;
+  public void setConversationDepartmentOids(List<String> conversationDepartmentOids) {
+    this.conversationDepartmentOids = conversationDepartmentOids;
   }
 
   public ConversationCannedMessage shortCode(String shortCode) {
@@ -138,13 +138,13 @@ public class ConversationCannedMessage {
     ConversationCannedMessage conversationCannedMessage = (ConversationCannedMessage) o;
     return Objects.equals(this.cannedMessage, conversationCannedMessage.cannedMessage) &&
         Objects.equals(this.conversationCannedMessageOid, conversationCannedMessage.conversationCannedMessageOid) &&
-        Objects.equals(this.conversationWebchatQueueUuids, conversationCannedMessage.conversationWebchatQueueUuids) &&
+        Objects.equals(this.conversationDepartmentOids, conversationCannedMessage.conversationDepartmentOids) &&
         Objects.equals(this.shortCode, conversationCannedMessage.shortCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cannedMessage, conversationCannedMessageOid, conversationWebchatQueueUuids, shortCode);
+    return Objects.hash(cannedMessage, conversationCannedMessageOid, conversationDepartmentOids, shortCode);
   }
 
 
@@ -155,7 +155,7 @@ public class ConversationCannedMessage {
     
     sb.append("    cannedMessage: ").append(toIndentedString(cannedMessage)).append("\n");
     sb.append("    conversationCannedMessageOid: ").append(toIndentedString(conversationCannedMessageOid)).append("\n");
-    sb.append("    conversationWebchatQueueUuids: ").append(toIndentedString(conversationWebchatQueueUuids)).append("\n");
+    sb.append("    conversationDepartmentOids: ").append(toIndentedString(conversationDepartmentOids)).append("\n");
     sb.append("    shortCode: ").append(toIndentedString(shortCode)).append("\n");
     sb.append("}");
     return sb.toString();
