@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-08T15:42:41.031-05:00[America/Indianapolis]
+  - Build date: 2022-12-09T12:00:33.817-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.95-RC</version>
+  <version>4.0.96-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.95-RC"
+     implementation "com.ultracart:rest-sdk:4.0.96-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.95-RC.jar`
+* `target/rest-sdk-4.0.96-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -644,6 +644,7 @@ Class | Method | HTTP request | Description
  - [ConversationEventTyping](docs/ConversationEventTyping.md)
  - [ConversationEventWebchatContext](docs/ConversationEventWebchatContext.md)
  - [ConversationMessage](docs/ConversationMessage.md)
+ - [ConversationMessageTranslation](docs/ConversationMessageTranslation.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
  - [ConversationMessagesResponse](docs/ConversationMessagesResponse.md)
  - [ConversationMultimediaUploadUrl](docs/ConversationMultimediaUploadUrl.md)
@@ -1287,6 +1288,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.96-RC | 12/09/2022 | conversations - message translation |
 | 4.0.95-RC | 12/08/2022 | conversation canned messages |
 | 4.0.94-RC | 12/08/2022 | communications - expose the rebuild percentage |
 | 4.0.93-RC | 12/06/2022 | convo - add session_start_dts to webchat context, cart - add customer_profile.signup_dts |

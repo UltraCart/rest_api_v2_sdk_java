@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemFulfillmentAddon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:42:41.031-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-09T12:00:33.817-05:00[America/Indianapolis]")
 public class ItemFulfillmentAddon {
   public static final String SERIALIZED_NAME_ADD_ITEM_ID = "add_item_id";
   @SerializedName(SERIALIZED_NAME_ADD_ITEM_ID)

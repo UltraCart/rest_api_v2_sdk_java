@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationMessageTranslation;
 import com.ultracart.admin.v2.models.ConversationMessageTransportStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:42:41.031-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-09T12:00:33.817-05:00[America/Indianapolis]")
 public class ConversationMessage {
   public static final String SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN = "author_conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN)
@@ -76,6 +77,10 @@ public class ConversationMessage {
   @SerializedName(SERIALIZED_NAME_DELAY_UNTIL_DTS)
   private String delayUntilDts;
 
+  public static final String SERIALIZED_NAME_LANGUAGE_ISO_CODE = "language_iso_code";
+  @SerializedName(SERIALIZED_NAME_LANGUAGE_ISO_CODE)
+  private String languageIsoCode;
+
   public static final String SERIALIZED_NAME_MEDIA_URLS = "media_urls";
   @SerializedName(SERIALIZED_NAME_MEDIA_URLS)
   private List<String> mediaUrls = null;
@@ -91,6 +96,10 @@ public class ConversationMessage {
   public static final String SERIALIZED_NAME_MESSAGE_EPOCH = "message_epoch";
   @SerializedName(SERIALIZED_NAME_MESSAGE_EPOCH)
   private Long messageEpoch;
+
+  public static final String SERIALIZED_NAME_TRANSLATIONS = "translations";
+  @SerializedName(SERIALIZED_NAME_TRANSLATIONS)
+  private List<ConversationMessageTranslation> translations = null;
 
   public static final String SERIALIZED_NAME_TRANSPORT_STATUSES = "transport_statuses";
   @SerializedName(SERIALIZED_NAME_TRANSPORT_STATUSES)
@@ -292,6 +301,29 @@ public class ConversationMessage {
   }
 
 
+  public ConversationMessage languageIsoCode(String languageIsoCode) {
+    
+    this.languageIsoCode = languageIsoCode;
+    return this;
+  }
+
+   /**
+   * Get languageIsoCode
+   * @return languageIsoCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLanguageIsoCode() {
+    return languageIsoCode;
+  }
+
+
+  public void setLanguageIsoCode(String languageIsoCode) {
+    this.languageIsoCode = languageIsoCode;
+  }
+
+
   public ConversationMessage mediaUrls(List<String> mediaUrls) {
     
     this.mediaUrls = mediaUrls;
@@ -389,6 +421,37 @@ public class ConversationMessage {
 
   public void setMessageEpoch(Long messageEpoch) {
     this.messageEpoch = messageEpoch;
+  }
+
+
+  public ConversationMessage translations(List<ConversationMessageTranslation> translations) {
+    
+    this.translations = translations;
+    return this;
+  }
+
+  public ConversationMessage addTranslationsItem(ConversationMessageTranslation translationsItem) {
+    if (this.translations == null) {
+      this.translations = new ArrayList<>();
+    }
+    this.translations.add(translationsItem);
+    return this;
+  }
+
+   /**
+   * Get translations
+   * @return translations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ConversationMessageTranslation> getTranslations() {
+    return translations;
+  }
+
+
+  public void setTranslations(List<ConversationMessageTranslation> translations) {
+    this.translations = translations;
   }
 
 
@@ -493,10 +556,12 @@ public class ConversationMessage {
         Objects.equals(this.clientMessageId, conversationMessage.clientMessageId) &&
         Objects.equals(this.conversationMessageUuid, conversationMessage.conversationMessageUuid) &&
         Objects.equals(this.delayUntilDts, conversationMessage.delayUntilDts) &&
+        Objects.equals(this.languageIsoCode, conversationMessage.languageIsoCode) &&
         Objects.equals(this.mediaUrls, conversationMessage.mediaUrls) &&
         Objects.equals(this.merchantId, conversationMessage.merchantId) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
         Objects.equals(this.messageEpoch, conversationMessage.messageEpoch) &&
+        Objects.equals(this.translations, conversationMessage.translations) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
         Objects.equals(this.type, conversationMessage.type) &&
         Objects.equals(this.uploadKeys, conversationMessage.uploadKeys);
@@ -504,7 +569,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, delayUntilDts, mediaUrls, merchantId, messageDts, messageEpoch, transportStatuses, type, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, delayUntilDts, languageIsoCode, mediaUrls, merchantId, messageDts, messageEpoch, translations, transportStatuses, type, uploadKeys);
   }
 
   @Override
@@ -517,10 +582,12 @@ public class ConversationMessage {
     sb.append("    clientMessageId: ").append(toIndentedString(clientMessageId)).append("\n");
     sb.append("    conversationMessageUuid: ").append(toIndentedString(conversationMessageUuid)).append("\n");
     sb.append("    delayUntilDts: ").append(toIndentedString(delayUntilDts)).append("\n");
+    sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    messageEpoch: ").append(toIndentedString(messageEpoch)).append("\n");
+    sb.append("    translations: ").append(toIndentedString(translations)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uploadKeys: ").append(toIndentedString(uploadKeys)).append("\n");
@@ -552,10 +619,12 @@ public class ConversationMessage {
     openapiFields.add("client_message_id");
     openapiFields.add("conversation_message_uuid");
     openapiFields.add("delay_until_dts");
+    openapiFields.add("language_iso_code");
     openapiFields.add("media_urls");
     openapiFields.add("merchant_id");
     openapiFields.add("message_dts");
     openapiFields.add("message_epoch");
+    openapiFields.add("translations");
     openapiFields.add("transport_statuses");
     openapiFields.add("type");
     openapiFields.add("upload_keys");
@@ -604,6 +673,9 @@ public class ConversationMessage {
       if (jsonObj.get("delay_until_dts") != null && !jsonObj.get("delay_until_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `delay_until_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delay_until_dts").toString()));
       }
+      if (jsonObj.get("language_iso_code") != null && !jsonObj.get("language_iso_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `language_iso_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language_iso_code").toString()));
+      }
       // ensure the json data is an array
       if (jsonObj.get("media_urls") != null && !jsonObj.get("media_urls").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `media_urls` to be an array in the JSON string but got `%s`", jsonObj.get("media_urls").toString()));
@@ -613,6 +685,18 @@ public class ConversationMessage {
       }
       if (jsonObj.get("message_dts") != null && !jsonObj.get("message_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message_dts").toString()));
+      }
+      JsonArray jsonArraytranslations = jsonObj.getAsJsonArray("translations");
+      if (jsonArraytranslations != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("translations").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `translations` to be an array in the JSON string but got `%s`", jsonObj.get("translations").toString()));
+        }
+
+        // validate the optional field `translations` (array)
+        for (int i = 0; i < jsonArraytranslations.size(); i++) {
+          ConversationMessageTranslation.validateJsonObject(jsonArraytranslations.get(i).getAsJsonObject());
+        };
       }
       JsonArray jsonArraytransportStatuses = jsonObj.getAsJsonArray("transport_statuses");
       if (jsonArraytransportStatuses != null) {

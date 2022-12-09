@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationCannedMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:42:41.031-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-09T12:00:33.817-05:00[America/Indianapolis]")
 public class ConversationCannedMessage {
   public static final String SERIALIZED_NAME_CANNED_MESSAGE = "canned_message";
   @SerializedName(SERIALIZED_NAME_CANNED_MESSAGE)
@@ -59,9 +59,9 @@ public class ConversationCannedMessage {
   @SerializedName(SERIALIZED_NAME_CONVERSATION_CANNED_MESSAGE_OID)
   private Integer conversationCannedMessageOid;
 
-  public static final String SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUIDS = "conversation_webchat_queue_uuids";
-  @SerializedName(SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUIDS)
-  private List<String> conversationWebchatQueueUuids = null;
+  public static final String SERIALIZED_NAME_CONVERSATION_DEPARTMENT_OIDS = "conversation_department_oids";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION_DEPARTMENT_OIDS)
+  private List<String> conversationDepartmentOids = null;
 
   public static final String SERIALIZED_NAME_SHORT_CODE = "short_code";
   @SerializedName(SERIALIZED_NAME_SHORT_CODE)
@@ -116,34 +116,34 @@ public class ConversationCannedMessage {
   }
 
 
-  public ConversationCannedMessage conversationWebchatQueueUuids(List<String> conversationWebchatQueueUuids) {
+  public ConversationCannedMessage conversationDepartmentOids(List<String> conversationDepartmentOids) {
     
-    this.conversationWebchatQueueUuids = conversationWebchatQueueUuids;
+    this.conversationDepartmentOids = conversationDepartmentOids;
     return this;
   }
 
-  public ConversationCannedMessage addConversationWebchatQueueUuidsItem(String conversationWebchatQueueUuidsItem) {
-    if (this.conversationWebchatQueueUuids == null) {
-      this.conversationWebchatQueueUuids = new ArrayList<>();
+  public ConversationCannedMessage addConversationDepartmentOidsItem(String conversationDepartmentOidsItem) {
+    if (this.conversationDepartmentOids == null) {
+      this.conversationDepartmentOids = new ArrayList<>();
     }
-    this.conversationWebchatQueueUuids.add(conversationWebchatQueueUuidsItem);
+    this.conversationDepartmentOids.add(conversationDepartmentOidsItem);
     return this;
   }
 
    /**
-   * Get conversationWebchatQueueUuids
-   * @return conversationWebchatQueueUuids
+   * Get conversationDepartmentOids
+   * @return conversationDepartmentOids
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getConversationWebchatQueueUuids() {
-    return conversationWebchatQueueUuids;
+  public List<String> getConversationDepartmentOids() {
+    return conversationDepartmentOids;
   }
 
 
-  public void setConversationWebchatQueueUuids(List<String> conversationWebchatQueueUuids) {
-    this.conversationWebchatQueueUuids = conversationWebchatQueueUuids;
+  public void setConversationDepartmentOids(List<String> conversationDepartmentOids) {
+    this.conversationDepartmentOids = conversationDepartmentOids;
   }
 
 
@@ -182,13 +182,13 @@ public class ConversationCannedMessage {
     ConversationCannedMessage conversationCannedMessage = (ConversationCannedMessage) o;
     return Objects.equals(this.cannedMessage, conversationCannedMessage.cannedMessage) &&
         Objects.equals(this.conversationCannedMessageOid, conversationCannedMessage.conversationCannedMessageOid) &&
-        Objects.equals(this.conversationWebchatQueueUuids, conversationCannedMessage.conversationWebchatQueueUuids) &&
+        Objects.equals(this.conversationDepartmentOids, conversationCannedMessage.conversationDepartmentOids) &&
         Objects.equals(this.shortCode, conversationCannedMessage.shortCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cannedMessage, conversationCannedMessageOid, conversationWebchatQueueUuids, shortCode);
+    return Objects.hash(cannedMessage, conversationCannedMessageOid, conversationDepartmentOids, shortCode);
   }
 
   @Override
@@ -197,7 +197,7 @@ public class ConversationCannedMessage {
     sb.append("class ConversationCannedMessage {\n");
     sb.append("    cannedMessage: ").append(toIndentedString(cannedMessage)).append("\n");
     sb.append("    conversationCannedMessageOid: ").append(toIndentedString(conversationCannedMessageOid)).append("\n");
-    sb.append("    conversationWebchatQueueUuids: ").append(toIndentedString(conversationWebchatQueueUuids)).append("\n");
+    sb.append("    conversationDepartmentOids: ").append(toIndentedString(conversationDepartmentOids)).append("\n");
     sb.append("    shortCode: ").append(toIndentedString(shortCode)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -223,7 +223,7 @@ public class ConversationCannedMessage {
     openapiFields = new HashSet<String>();
     openapiFields.add("canned_message");
     openapiFields.add("conversation_canned_message_oid");
-    openapiFields.add("conversation_webchat_queue_uuids");
+    openapiFields.add("conversation_department_oids");
     openapiFields.add("short_code");
 
     // a set of required properties/fields (JSON key names)
@@ -256,8 +256,8 @@ public class ConversationCannedMessage {
         throw new IllegalArgumentException(String.format("Expected the field `canned_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("canned_message").toString()));
       }
       // ensure the json data is an array
-      if (jsonObj.get("conversation_webchat_queue_uuids") != null && !jsonObj.get("conversation_webchat_queue_uuids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conversation_webchat_queue_uuids` to be an array in the JSON string but got `%s`", jsonObj.get("conversation_webchat_queue_uuids").toString()));
+      if (jsonObj.get("conversation_department_oids") != null && !jsonObj.get("conversation_department_oids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conversation_department_oids` to be an array in the JSON string but got `%s`", jsonObj.get("conversation_department_oids").toString()));
       }
       if (jsonObj.get("short_code") != null && !jsonObj.get("short_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `short_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("short_code").toString()));

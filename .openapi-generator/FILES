@@ -143,6 +143,7 @@ docs/ConversationEventReadMessage.md
 docs/ConversationEventTyping.md
 docs/ConversationEventWebchatContext.md
 docs/ConversationMessage.md
+docs/ConversationMessageTranslation.md
 docs/ConversationMessageTransportStatus.md
 docs/ConversationMessagesResponse.md
 docs/ConversationMultimediaUploadUrl.md
@@ -882,6 +883,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationEventReadMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventTyping.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventWebchatContext.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessage.java
+src/main/java/com/ultracart/admin/v2/models/ConversationMessageTranslation.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessageTransportStatus.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessagesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMultimediaUploadUrl.java

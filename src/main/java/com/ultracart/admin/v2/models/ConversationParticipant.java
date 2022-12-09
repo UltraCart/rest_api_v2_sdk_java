@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-08T15:42:41.031-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-09T12:00:33.817-05:00[America/Indianapolis]")
 public class ConversationParticipant {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -64,6 +64,10 @@ public class ConversationParticipant {
   public static final String SERIALIZED_NAME_JOINED_DTS = "joined_dts";
   @SerializedName(SERIALIZED_NAME_JOINED_DTS)
   private String joinedDts;
+
+  public static final String SERIALIZED_NAME_LANGUAGE_ISO_CODE = "language_iso_code";
+  @SerializedName(SERIALIZED_NAME_LANGUAGE_ISO_CODE)
+  private String languageIsoCode;
 
   public static final String SERIALIZED_NAME_LAST_MESSAGE_DTS = "last_message_dts";
   @SerializedName(SERIALIZED_NAME_LAST_MESSAGE_DTS)
@@ -181,6 +185,29 @@ public class ConversationParticipant {
 
   public void setJoinedDts(String joinedDts) {
     this.joinedDts = joinedDts;
+  }
+
+
+  public ConversationParticipant languageIsoCode(String languageIsoCode) {
+    
+    this.languageIsoCode = languageIsoCode;
+    return this;
+  }
+
+   /**
+   * Get languageIsoCode
+   * @return languageIsoCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLanguageIsoCode() {
+    return languageIsoCode;
+  }
+
+
+  public void setLanguageIsoCode(String languageIsoCode) {
+    this.languageIsoCode = languageIsoCode;
   }
 
 
@@ -336,6 +363,7 @@ public class ConversationParticipant {
         Objects.equals(this.conversationParticipantName, conversationParticipant.conversationParticipantName) &&
         Objects.equals(this.conversationParticipantUuid, conversationParticipant.conversationParticipantUuid) &&
         Objects.equals(this.joinedDts, conversationParticipant.joinedDts) &&
+        Objects.equals(this.languageIsoCode, conversationParticipant.languageIsoCode) &&
         Objects.equals(this.lastMessageDts, conversationParticipant.lastMessageDts) &&
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
         Objects.equals(this.profileImageUrl, conversationParticipant.profileImageUrl) &&
@@ -346,7 +374,7 @@ public class ConversationParticipant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, lastMessageDts, leftDts, profileImageUrl, status, timezone, unreadMessages);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, languageIsoCode, lastMessageDts, leftDts, profileImageUrl, status, timezone, unreadMessages);
   }
 
   @Override
@@ -357,6 +385,7 @@ public class ConversationParticipant {
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    conversationParticipantUuid: ").append(toIndentedString(conversationParticipantUuid)).append("\n");
     sb.append("    joinedDts: ").append(toIndentedString(joinedDts)).append("\n");
+    sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
@@ -389,6 +418,7 @@ public class ConversationParticipant {
     openapiFields.add("conversation_participant_name");
     openapiFields.add("conversation_participant_uuid");
     openapiFields.add("joined_dts");
+    openapiFields.add("language_iso_code");
     openapiFields.add("last_message_dts");
     openapiFields.add("left_dts");
     openapiFields.add("profile_image_url");
@@ -433,6 +463,9 @@ public class ConversationParticipant {
       }
       if (jsonObj.get("joined_dts") != null && !jsonObj.get("joined_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `joined_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("joined_dts").toString()));
+      }
+      if (jsonObj.get("language_iso_code") != null && !jsonObj.get("language_iso_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `language_iso_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language_iso_code").toString()));
       }
       if (jsonObj.get("last_message_dts") != null && !jsonObj.get("last_message_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_message_dts").toString()));
