@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ConversationCannedMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-09T11:47:41.999-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-13T10:02:12.903-05:00")
 
 
 
@@ -41,7 +41,7 @@ public class ConversationCannedMessage {
   private Integer conversationCannedMessageOid = null;
 
   @SerializedName("conversation_department_oids")
-  private List<String> conversationDepartmentOids = null;
+  private List<Integer> conversationDepartmentOids = null;
 
   @SerializedName("short_code")
   private String shortCode = null;
@@ -82,14 +82,14 @@ public class ConversationCannedMessage {
     this.conversationCannedMessageOid = conversationCannedMessageOid;
   }
 
-  public ConversationCannedMessage conversationDepartmentOids(List<String> conversationDepartmentOids) {
+  public ConversationCannedMessage conversationDepartmentOids(List<Integer> conversationDepartmentOids) {
     this.conversationDepartmentOids = conversationDepartmentOids;
     return this;
   }
 
-  public ConversationCannedMessage addConversationDepartmentOidsItem(String conversationDepartmentOidsItem) {
+  public ConversationCannedMessage addConversationDepartmentOidsItem(Integer conversationDepartmentOidsItem) {
     if (this.conversationDepartmentOids == null) {
-      this.conversationDepartmentOids = new ArrayList<String>();
+      this.conversationDepartmentOids = new ArrayList<Integer>();
     }
     this.conversationDepartmentOids.add(conversationDepartmentOidsItem);
     return this;
@@ -100,11 +100,11 @@ public class ConversationCannedMessage {
    * @return conversationDepartmentOids
   **/
   @ApiModelProperty(value = "")
-  public List<String> getConversationDepartmentOids() {
+  public List<Integer> getConversationDepartmentOids() {
     return conversationDepartmentOids;
   }
 
-  public void setConversationDepartmentOids(List<String> conversationDepartmentOids) {
+  public void setConversationDepartmentOids(List<Integer> conversationDepartmentOids) {
     this.conversationDepartmentOids = conversationDepartmentOids;
   }
 

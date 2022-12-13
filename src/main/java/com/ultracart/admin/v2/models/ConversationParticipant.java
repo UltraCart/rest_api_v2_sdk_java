@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-09T11:47:41.999-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-13T10:02:12.903-05:00")
 
 
 
@@ -40,6 +40,9 @@ public class ConversationParticipant {
 
   @SerializedName("conversation_participant_uuid")
   private String conversationParticipantUuid = null;
+
+  @SerializedName("email")
+  private String email = null;
 
   @SerializedName("joined_dts")
   private String joinedDts = null;
@@ -55,6 +58,9 @@ public class ConversationParticipant {
 
   @SerializedName("profile_image_url")
   private String profileImageUrl = null;
+
+  @SerializedName("sms_phone_number")
+  private String smsPhoneNumber = null;
 
   @SerializedName("status")
   private String status = null;
@@ -117,6 +123,24 @@ public class ConversationParticipant {
 
   public void setConversationParticipantUuid(String conversationParticipantUuid) {
     this.conversationParticipantUuid = conversationParticipantUuid;
+  }
+
+  public ConversationParticipant email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public ConversationParticipant joinedDts(String joinedDts) {
@@ -209,6 +233,24 @@ public class ConversationParticipant {
     this.profileImageUrl = profileImageUrl;
   }
 
+  public ConversationParticipant smsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * Get smsPhoneNumber
+   * @return smsPhoneNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
   public ConversationParticipant status(String status) {
     this.status = status;
     return this;
@@ -276,11 +318,13 @@ public class ConversationParticipant {
     return Objects.equals(this.conversationParticipantArn, conversationParticipant.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationParticipant.conversationParticipantName) &&
         Objects.equals(this.conversationParticipantUuid, conversationParticipant.conversationParticipantUuid) &&
+        Objects.equals(this.email, conversationParticipant.email) &&
         Objects.equals(this.joinedDts, conversationParticipant.joinedDts) &&
         Objects.equals(this.languageIsoCode, conversationParticipant.languageIsoCode) &&
         Objects.equals(this.lastMessageDts, conversationParticipant.lastMessageDts) &&
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
         Objects.equals(this.profileImageUrl, conversationParticipant.profileImageUrl) &&
+        Objects.equals(this.smsPhoneNumber, conversationParticipant.smsPhoneNumber) &&
         Objects.equals(this.status, conversationParticipant.status) &&
         Objects.equals(this.timezone, conversationParticipant.timezone) &&
         Objects.equals(this.unreadMessages, conversationParticipant.unreadMessages);
@@ -288,7 +332,7 @@ public class ConversationParticipant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, languageIsoCode, lastMessageDts, leftDts, profileImageUrl, status, timezone, unreadMessages);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, email, joinedDts, languageIsoCode, lastMessageDts, leftDts, profileImageUrl, smsPhoneNumber, status, timezone, unreadMessages);
   }
 
 
@@ -300,11 +344,13 @@ public class ConversationParticipant {
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    conversationParticipantUuid: ").append(toIndentedString(conversationParticipantUuid)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    joinedDts: ").append(toIndentedString(joinedDts)).append("\n");
     sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");

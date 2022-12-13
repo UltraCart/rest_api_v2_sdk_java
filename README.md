@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-09T11:47:41.999-05:00
+  - Build date: 2022-12-13T10:02:12.903-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.79</version>
+  <version>3.10.80</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.79"
+compile "com.ultracart:rest-sdk:3.10.80"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.79.jar`
+* `target/rest-sdk-3.10.80.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -156,17 +156,23 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationCannedMessages**](docs/ConversationApi.md#getConversationCannedMessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
 *ConversationApi* | [**getConversationContext**](docs/ConversationApi.md#getConversationContext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
+*ConversationApi* | [**getConversationDepartments**](docs/ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
+*ConversationApi* | [**getConversationEngagements**](docs/ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**insertConversationCannedMessage**](docs/ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
+*ConversationApi* | [**insertConversationDepartment**](docs/ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
+*ConversationApi* | [**insertConversationEngagement**](docs/ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
 *ConversationApi* | [**joinConversation**](docs/ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**markReadConversation**](docs/ConversationApi.md#markReadConversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
 *ConversationApi* | [**searchConversationCannedMessages**](docs/ConversationApi.md#searchConversationCannedMessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
 *ConversationApi* | [**startConversation**](docs/ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateConversationCannedMessage**](docs/ConversationApi.md#updateConversationCannedMessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
+*ConversationApi* | [**updateConversationDepartment**](docs/ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
+*ConversationApi* | [**updateConversationEngagement**](docs/ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
 *ConversationApi* | [**updateConversationWebchatQueueStatus**](docs/ConversationApi.md#updateConversationWebchatQueueStatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
 *CouponApi* | [**deleteCoupon**](docs/CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
@@ -619,6 +625,14 @@ Class | Method | HTTP request | Description
  - [ConversationCannedMessageResponse](docs/ConversationCannedMessageResponse.md)
  - [ConversationCannedMessagesResponse](docs/ConversationCannedMessagesResponse.md)
  - [ConversationCannedMessagesSearch](docs/ConversationCannedMessagesSearch.md)
+ - [ConversationDepartment](docs/ConversationDepartment.md)
+ - [ConversationDepartmentResponse](docs/ConversationDepartmentResponse.md)
+ - [ConversationDepartmentSettings](docs/ConversationDepartmentSettings.md)
+ - [ConversationDepartmentsResponse](docs/ConversationDepartmentsResponse.md)
+ - [ConversationEngagement](docs/ConversationEngagement.md)
+ - [ConversationEngagementEquation](docs/ConversationEngagementEquation.md)
+ - [ConversationEngagementResponse](docs/ConversationEngagementResponse.md)
+ - [ConversationEngagementsResponse](docs/ConversationEngagementsResponse.md)
  - [ConversationEventAddCoupon](docs/ConversationEventAddCoupon.md)
  - [ConversationEventAddItem](docs/ConversationEventAddItem.md)
  - [ConversationEventQueuePosition](docs/ConversationEventQueuePosition.md)
@@ -626,6 +640,7 @@ Class | Method | HTTP request | Description
  - [ConversationEventReadMessage](docs/ConversationEventReadMessage.md)
  - [ConversationEventTyping](docs/ConversationEventTyping.md)
  - [ConversationEventWebchatContext](docs/ConversationEventWebchatContext.md)
+ - [ConversationJoinRequest](docs/ConversationJoinRequest.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTranslation](docs/ConversationMessageTranslation.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
@@ -1271,6 +1286,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.80 | 12/13/2022 | conversations - add email and sms_phone to participant object |
 | 3.10.79 | 12/09/2022 | conversations - message translation |
 | 3.10.78 | 12/08/2022 | conversation canned messages |
 | 3.10.77 | 12/08/2022 | communications - expose the rebuild percentage |

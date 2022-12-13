@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationWebchatQueueStatusQueueEntry
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-09T11:47:41.999-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-13T10:02:12.903-05:00")
 
 
 
@@ -46,6 +46,9 @@ public class ConversationWebchatQueueStatusQueueEntry {
 
   @SerializedName("join_dts")
   private String joinDts = null;
+
+  @SerializedName("participant_language_iso_code")
+  private String participantLanguageIsoCode = null;
 
   @SerializedName("question")
   private String question = null;
@@ -140,6 +143,24 @@ public class ConversationWebchatQueueStatusQueueEntry {
     this.joinDts = joinDts;
   }
 
+  public ConversationWebchatQueueStatusQueueEntry participantLanguageIsoCode(String participantLanguageIsoCode) {
+    this.participantLanguageIsoCode = participantLanguageIsoCode;
+    return this;
+  }
+
+   /**
+   * Get participantLanguageIsoCode
+   * @return participantLanguageIsoCode
+  **/
+  @ApiModelProperty(value = "")
+  public String getParticipantLanguageIsoCode() {
+    return participantLanguageIsoCode;
+  }
+
+  public void setParticipantLanguageIsoCode(String participantLanguageIsoCode) {
+    this.participantLanguageIsoCode = participantLanguageIsoCode;
+  }
+
   public ConversationWebchatQueueStatusQueueEntry question(String question) {
     this.question = question;
     return this;
@@ -173,12 +194,13 @@ public class ConversationWebchatQueueStatusQueueEntry {
         Objects.equals(this.conversationWebchatQueueUuid, conversationWebchatQueueStatusQueueEntry.conversationWebchatQueueUuid) &&
         Objects.equals(this.email, conversationWebchatQueueStatusQueueEntry.email) &&
         Objects.equals(this.joinDts, conversationWebchatQueueStatusQueueEntry.joinDts) &&
+        Objects.equals(this.participantLanguageIsoCode, conversationWebchatQueueStatusQueueEntry.participantLanguageIsoCode) &&
         Objects.equals(this.question, conversationWebchatQueueStatusQueueEntry.question);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationWebchatQueueUuid, email, joinDts, question);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationWebchatQueueUuid, email, joinDts, participantLanguageIsoCode, question);
   }
 
 
@@ -192,6 +214,7 @@ public class ConversationWebchatQueueStatusQueueEntry {
     sb.append("    conversationWebchatQueueUuid: ").append(toIndentedString(conversationWebchatQueueUuid)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    joinDts: ").append(toIndentedString(joinDts)).append("\n");
+    sb.append("    participantLanguageIsoCode: ").append(toIndentedString(participantLanguageIsoCode)).append("\n");
     sb.append("    question: ").append(toIndentedString(question)).append("\n");
     sb.append("}");
     return sb.toString();

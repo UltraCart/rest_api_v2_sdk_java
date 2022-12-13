@@ -32,6 +32,13 @@ import com.ultracart.admin.v2.models.ConversationCannedMessage;
 import com.ultracart.admin.v2.models.ConversationCannedMessageResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesSearch;
+import com.ultracart.admin.v2.models.ConversationDepartment;
+import com.ultracart.admin.v2.models.ConversationDepartmentResponse;
+import com.ultracart.admin.v2.models.ConversationDepartmentsResponse;
+import com.ultracart.admin.v2.models.ConversationEngagement;
+import com.ultracart.admin.v2.models.ConversationEngagementResponse;
+import com.ultracart.admin.v2.models.ConversationEngagementsResponse;
+import com.ultracart.admin.v2.models.ConversationJoinRequest;
 import com.ultracart.admin.v2.models.ConversationMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
 import com.ultracart.admin.v2.models.ConversationResponse;
@@ -681,6 +688,232 @@ public class ConversationApi {
         return call;
     }
     /**
+     * Build call for getConversationDepartments
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getConversationDepartmentsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/departments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getConversationDepartmentsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getConversationDepartmentsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve a list of departments ordered by name
+     * Retrieve a list of departments ordered by name 
+     * @return ConversationDepartmentsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationDepartmentsResponse getConversationDepartments() throws ApiException {
+        ApiResponse<ConversationDepartmentsResponse> resp = getConversationDepartmentsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a list of departments ordered by name
+     * Retrieve a list of departments ordered by name 
+     * @return ApiResponse&lt;ConversationDepartmentsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationDepartmentsResponse> getConversationDepartmentsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getConversationDepartmentsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a list of departments ordered by name (asynchronously)
+     * Retrieve a list of departments ordered by name 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getConversationDepartmentsAsync(final ApiCallback<ConversationDepartmentsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getConversationDepartmentsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getConversationEngagements
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getConversationEngagementsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/engagements";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getConversationEngagementsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getConversationEngagementsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve a list of engagements ordered by name
+     * Retrieve a list of engagements ordered by name 
+     * @return ConversationEngagementsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationEngagementsResponse getConversationEngagements() throws ApiException {
+        ApiResponse<ConversationEngagementsResponse> resp = getConversationEngagementsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a list of engagements ordered by name
+     * Retrieve a list of engagements ordered by name 
+     * @return ApiResponse&lt;ConversationEngagementsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationEngagementsResponse> getConversationEngagementsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getConversationEngagementsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationEngagementsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a list of engagements ordered by name (asynchronously)
+     * Retrieve a list of engagements ordered by name 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getConversationEngagementsAsync(final ApiCallback<ConversationEngagementsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getConversationEngagementsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationEngagementsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getConversationMessages
      * @param conversationUuid  (required)
      * @param since  (required)
@@ -1315,15 +1548,260 @@ public class ConversationApi {
         return call;
     }
     /**
-     * Build call for joinConversation
-     * @param conversationUuid  (required)
+     * Build call for insertConversationDepartment
+     * @param department Department (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call joinConversationCall(String conversationUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call insertConversationDepartmentCall(ConversationDepartment department, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = department;
+
+        // create path and map variables
+        String localVarPath = "/conversation/departments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertConversationDepartmentValidateBeforeCall(ConversationDepartment department, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'department' is set
+        if (department == null) {
+            throw new ApiException("Missing the required parameter 'department' when calling insertConversationDepartment(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertConversationDepartmentCall(department, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a department
+     * Insert a department 
+     * @param department Department (required)
+     * @return ConversationDepartmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationDepartmentResponse insertConversationDepartment(ConversationDepartment department) throws ApiException {
+        ApiResponse<ConversationDepartmentResponse> resp = insertConversationDepartmentWithHttpInfo(department);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a department
+     * Insert a department 
+     * @param department Department (required)
+     * @return ApiResponse&lt;ConversationDepartmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationDepartmentResponse> insertConversationDepartmentWithHttpInfo(ConversationDepartment department) throws ApiException {
+        com.squareup.okhttp.Call call = insertConversationDepartmentValidateBeforeCall(department, null, null);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a department (asynchronously)
+     * Insert a department 
+     * @param department Department (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertConversationDepartmentAsync(ConversationDepartment department, final ApiCallback<ConversationDepartmentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertConversationDepartmentValidateBeforeCall(department, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertConversationEngagement
+     * @param engagement Engagement (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertConversationEngagementCall(ConversationEngagement engagement, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = engagement;
+
+        // create path and map variables
+        String localVarPath = "/conversation/engagements";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertConversationEngagementValidateBeforeCall(ConversationEngagement engagement, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'engagement' is set
+        if (engagement == null) {
+            throw new ApiException("Missing the required parameter 'engagement' when calling insertConversationEngagement(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertConversationEngagementCall(engagement, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a engagement
+     * Insert a engagement 
+     * @param engagement Engagement (required)
+     * @return ConversationEngagementResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationEngagementResponse insertConversationEngagement(ConversationEngagement engagement) throws ApiException {
+        ApiResponse<ConversationEngagementResponse> resp = insertConversationEngagementWithHttpInfo(engagement);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a engagement
+     * Insert a engagement 
+     * @param engagement Engagement (required)
+     * @return ApiResponse&lt;ConversationEngagementResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationEngagementResponse> insertConversationEngagementWithHttpInfo(ConversationEngagement engagement) throws ApiException {
+        com.squareup.okhttp.Call call = insertConversationEngagementValidateBeforeCall(engagement, null, null);
+        Type localVarReturnType = new TypeToken<ConversationEngagementResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a engagement (asynchronously)
+     * Insert a engagement 
+     * @param engagement Engagement (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertConversationEngagementAsync(ConversationEngagement engagement, final ApiCallback<ConversationEngagementResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertConversationEngagementValidateBeforeCall(engagement, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationEngagementResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for joinConversation
+     * @param conversationUuid  (required)
+     * @param joinRequest Join request (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call joinConversationCall(String conversationUuid, ConversationJoinRequest joinRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = joinRequest;
 
         // create path and map variables
         String localVarPath = "/conversation/conversations/{conversation_uuid}/join"
@@ -1365,7 +1843,7 @@ public class ConversationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call joinConversationValidateBeforeCall(String conversationUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call joinConversationValidateBeforeCall(String conversationUuid, ConversationJoinRequest joinRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'conversationUuid' is set
         if (conversationUuid == null) {
@@ -1373,7 +1851,7 @@ public class ConversationApi {
         }
         
 
-        com.squareup.okhttp.Call call = joinConversationCall(conversationUuid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = joinConversationCall(conversationUuid, joinRequest, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1382,21 +1860,23 @@ public class ConversationApi {
      * Join a conversation
      * Join a conversation 
      * @param conversationUuid  (required)
+     * @param joinRequest Join request (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void joinConversation(String conversationUuid) throws ApiException {
-        joinConversationWithHttpInfo(conversationUuid);
+    public void joinConversation(String conversationUuid, ConversationJoinRequest joinRequest) throws ApiException {
+        joinConversationWithHttpInfo(conversationUuid, joinRequest);
     }
 
     /**
      * Join a conversation
      * Join a conversation 
      * @param conversationUuid  (required)
+     * @param joinRequest Join request (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> joinConversationWithHttpInfo(String conversationUuid) throws ApiException {
-        com.squareup.okhttp.Call call = joinConversationValidateBeforeCall(conversationUuid, null, null);
+    public ApiResponse<Void> joinConversationWithHttpInfo(String conversationUuid, ConversationJoinRequest joinRequest) throws ApiException {
+        com.squareup.okhttp.Call call = joinConversationValidateBeforeCall(conversationUuid, joinRequest, null, null);
         return apiClient.execute(call);
     }
 
@@ -1404,11 +1884,12 @@ public class ConversationApi {
      * Join a conversation (asynchronously)
      * Join a conversation 
      * @param conversationUuid  (required)
+     * @param joinRequest Join request (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call joinConversationAsync(String conversationUuid, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call joinConversationAsync(String conversationUuid, ConversationJoinRequest joinRequest, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1429,7 +1910,7 @@ public class ConversationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = joinConversationValidateBeforeCall(conversationUuid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = joinConversationValidateBeforeCall(conversationUuid, joinRequest, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -2044,6 +2525,270 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = updateConversationCannedMessageValidateBeforeCall(conversationCannedMessageOid, cannedMessage, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationCannedMessageResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateConversationDepartment
+     * @param conversationDepartmentOid  (required)
+     * @param department Department (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateConversationDepartmentCall(Integer conversationDepartmentOid, ConversationDepartment department, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = department;
+
+        // create path and map variables
+        String localVarPath = "/conversation/departments/{conversation_department_oid}"
+            .replaceAll("\\{" + "conversation_department_oid" + "\\}", apiClient.escapeString(conversationDepartmentOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateConversationDepartmentValidateBeforeCall(Integer conversationDepartmentOid, ConversationDepartment department, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conversationDepartmentOid' is set
+        if (conversationDepartmentOid == null) {
+            throw new ApiException("Missing the required parameter 'conversationDepartmentOid' when calling updateConversationDepartment(Async)");
+        }
+        
+        // verify the required parameter 'department' is set
+        if (department == null) {
+            throw new ApiException("Missing the required parameter 'department' when calling updateConversationDepartment(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateConversationDepartmentCall(conversationDepartmentOid, department, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update a department
+     * Update a department 
+     * @param conversationDepartmentOid  (required)
+     * @param department Department (required)
+     * @return ConversationDepartmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationDepartmentResponse updateConversationDepartment(Integer conversationDepartmentOid, ConversationDepartment department) throws ApiException {
+        ApiResponse<ConversationDepartmentResponse> resp = updateConversationDepartmentWithHttpInfo(conversationDepartmentOid, department);
+        return resp.getData();
+    }
+
+    /**
+     * Update a department
+     * Update a department 
+     * @param conversationDepartmentOid  (required)
+     * @param department Department (required)
+     * @return ApiResponse&lt;ConversationDepartmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationDepartmentResponse> updateConversationDepartmentWithHttpInfo(Integer conversationDepartmentOid, ConversationDepartment department) throws ApiException {
+        com.squareup.okhttp.Call call = updateConversationDepartmentValidateBeforeCall(conversationDepartmentOid, department, null, null);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a department (asynchronously)
+     * Update a department 
+     * @param conversationDepartmentOid  (required)
+     * @param department Department (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateConversationDepartmentAsync(Integer conversationDepartmentOid, ConversationDepartment department, final ApiCallback<ConversationDepartmentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateConversationDepartmentValidateBeforeCall(conversationDepartmentOid, department, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateConversationEngagement
+     * @param conversationEngagementOid  (required)
+     * @param engagement Engagement (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateConversationEngagementCall(Integer conversationEngagementOid, ConversationEngagement engagement, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = engagement;
+
+        // create path and map variables
+        String localVarPath = "/conversation/engagements/{conversation_engagement_oid}"
+            .replaceAll("\\{" + "conversation_engagement_oid" + "\\}", apiClient.escapeString(conversationEngagementOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateConversationEngagementValidateBeforeCall(Integer conversationEngagementOid, ConversationEngagement engagement, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conversationEngagementOid' is set
+        if (conversationEngagementOid == null) {
+            throw new ApiException("Missing the required parameter 'conversationEngagementOid' when calling updateConversationEngagement(Async)");
+        }
+        
+        // verify the required parameter 'engagement' is set
+        if (engagement == null) {
+            throw new ApiException("Missing the required parameter 'engagement' when calling updateConversationEngagement(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateConversationEngagementCall(conversationEngagementOid, engagement, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update a engagement
+     * Update a engagement 
+     * @param conversationEngagementOid  (required)
+     * @param engagement Engagement (required)
+     * @return ConversationEngagementResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationEngagementResponse updateConversationEngagement(Integer conversationEngagementOid, ConversationEngagement engagement) throws ApiException {
+        ApiResponse<ConversationEngagementResponse> resp = updateConversationEngagementWithHttpInfo(conversationEngagementOid, engagement);
+        return resp.getData();
+    }
+
+    /**
+     * Update a engagement
+     * Update a engagement 
+     * @param conversationEngagementOid  (required)
+     * @param engagement Engagement (required)
+     * @return ApiResponse&lt;ConversationEngagementResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationEngagementResponse> updateConversationEngagementWithHttpInfo(Integer conversationEngagementOid, ConversationEngagement engagement) throws ApiException {
+        com.squareup.okhttp.Call call = updateConversationEngagementValidateBeforeCall(conversationEngagementOid, engagement, null, null);
+        Type localVarReturnType = new TypeToken<ConversationEngagementResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a engagement (asynchronously)
+     * Update a engagement 
+     * @param conversationEngagementOid  (required)
+     * @param engagement Engagement (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateConversationEngagementAsync(Integer conversationEngagementOid, ConversationEngagement engagement, final ApiCallback<ConversationEngagementResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateConversationEngagementValidateBeforeCall(conversationEngagementOid, engagement, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationEngagementResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
