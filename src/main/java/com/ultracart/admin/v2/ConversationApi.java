@@ -32,6 +32,13 @@ import com.ultracart.admin.v2.models.ConversationCannedMessage;
 import com.ultracart.admin.v2.models.ConversationCannedMessageResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesSearch;
+import com.ultracart.admin.v2.models.ConversationDepartment;
+import com.ultracart.admin.v2.models.ConversationDepartmentResponse;
+import com.ultracart.admin.v2.models.ConversationDepartmentsResponse;
+import com.ultracart.admin.v2.models.ConversationEngagement;
+import com.ultracart.admin.v2.models.ConversationEngagementResponse;
+import com.ultracart.admin.v2.models.ConversationEngagementsResponse;
+import com.ultracart.admin.v2.models.ConversationJoinRequest;
 import com.ultracart.admin.v2.models.ConversationMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
 import com.ultracart.admin.v2.models.ConversationResponse;
@@ -819,6 +826,280 @@ public class ConversationApi {
         return localVarCall;
     }
     /**
+     * Build call for getConversationDepartments
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getConversationDepartmentsCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/departments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getConversationDepartmentsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getConversationDepartmentsCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve a list of departments ordered by name
+     * Retrieve a list of departments ordered by name 
+     * @return ConversationDepartmentsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationDepartmentsResponse getConversationDepartments() throws ApiException {
+        ApiResponse<ConversationDepartmentsResponse> localVarResp = getConversationDepartmentsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve a list of departments ordered by name
+     * Retrieve a list of departments ordered by name 
+     * @return ApiResponse&lt;ConversationDepartmentsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationDepartmentsResponse> getConversationDepartmentsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getConversationDepartmentsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a list of departments ordered by name (asynchronously)
+     * Retrieve a list of departments ordered by name 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getConversationDepartmentsAsync(final ApiCallback<ConversationDepartmentsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getConversationDepartmentsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getConversationEngagements
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getConversationEngagementsCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/engagements";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getConversationEngagementsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getConversationEngagementsCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve a list of engagements ordered by name
+     * Retrieve a list of engagements ordered by name 
+     * @return ConversationEngagementsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationEngagementsResponse getConversationEngagements() throws ApiException {
+        ApiResponse<ConversationEngagementsResponse> localVarResp = getConversationEngagementsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve a list of engagements ordered by name
+     * Retrieve a list of engagements ordered by name 
+     * @return ApiResponse&lt;ConversationEngagementsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationEngagementsResponse> getConversationEngagementsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getConversationEngagementsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ConversationEngagementsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a list of engagements ordered by name (asynchronously)
+     * Retrieve a list of engagements ordered by name 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getConversationEngagementsAsync(final ApiCallback<ConversationEngagementsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getConversationEngagementsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ConversationEngagementsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getConversationMessages
      * @param conversationUuid  (required)
      * @param since  (required)
@@ -1583,14 +1864,15 @@ public class ConversationApi {
         return localVarCall;
     }
     /**
-     * Build call for joinConversation
-     * @param conversationUuid  (required)
+     * Build call for insertConversationDepartment
+     * @param department Department (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -1598,7 +1880,7 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call joinConversationCall(String conversationUuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call insertConversationDepartmentCall(ConversationDepartment department, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1612,7 +1894,299 @@ public class ConversationApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = department;
+
+        // create path and map variables
+        String localVarPath = "/conversation/departments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertConversationDepartmentValidateBeforeCall(ConversationDepartment department, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'department' is set
+        if (department == null) {
+            throw new ApiException("Missing the required parameter 'department' when calling insertConversationDepartment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertConversationDepartmentCall(department, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Insert a department
+     * Insert a department 
+     * @param department Department (required)
+     * @return ConversationDepartmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationDepartmentResponse insertConversationDepartment(ConversationDepartment department) throws ApiException {
+        ApiResponse<ConversationDepartmentResponse> localVarResp = insertConversationDepartmentWithHttpInfo(department);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Insert a department
+     * Insert a department 
+     * @param department Department (required)
+     * @return ApiResponse&lt;ConversationDepartmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationDepartmentResponse> insertConversationDepartmentWithHttpInfo(ConversationDepartment department) throws ApiException {
+        okhttp3.Call localVarCall = insertConversationDepartmentValidateBeforeCall(department, null);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Insert a department (asynchronously)
+     * Insert a department 
+     * @param department Department (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertConversationDepartmentAsync(ConversationDepartment department, final ApiCallback<ConversationDepartmentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertConversationDepartmentValidateBeforeCall(department, _callback);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertConversationEngagement
+     * @param engagement Engagement (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertConversationEngagementCall(ConversationEngagement engagement, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = engagement;
+
+        // create path and map variables
+        String localVarPath = "/conversation/engagements";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertConversationEngagementValidateBeforeCall(ConversationEngagement engagement, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'engagement' is set
+        if (engagement == null) {
+            throw new ApiException("Missing the required parameter 'engagement' when calling insertConversationEngagement(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertConversationEngagementCall(engagement, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Insert a engagement
+     * Insert a engagement 
+     * @param engagement Engagement (required)
+     * @return ConversationEngagementResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationEngagementResponse insertConversationEngagement(ConversationEngagement engagement) throws ApiException {
+        ApiResponse<ConversationEngagementResponse> localVarResp = insertConversationEngagementWithHttpInfo(engagement);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Insert a engagement
+     * Insert a engagement 
+     * @param engagement Engagement (required)
+     * @return ApiResponse&lt;ConversationEngagementResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationEngagementResponse> insertConversationEngagementWithHttpInfo(ConversationEngagement engagement) throws ApiException {
+        okhttp3.Call localVarCall = insertConversationEngagementValidateBeforeCall(engagement, null);
+        Type localVarReturnType = new TypeToken<ConversationEngagementResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Insert a engagement (asynchronously)
+     * Insert a engagement 
+     * @param engagement Engagement (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertConversationEngagementAsync(ConversationEngagement engagement, final ApiCallback<ConversationEngagementResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertConversationEngagementValidateBeforeCall(engagement, _callback);
+        Type localVarReturnType = new TypeToken<ConversationEngagementResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for joinConversation
+     * @param conversationUuid  (required)
+     * @param joinRequest Join request (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call joinConversationCall(String conversationUuid, ConversationJoinRequest joinRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = joinRequest;
 
         // create path and map variables
         String localVarPath = "/conversation/conversations/{conversation_uuid}/join"
@@ -1633,7 +2207,7 @@ public class ConversationApi {
         }
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1645,7 +2219,7 @@ public class ConversationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call joinConversationValidateBeforeCall(String conversationUuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call joinConversationValidateBeforeCall(String conversationUuid, ConversationJoinRequest joinRequest, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'conversationUuid' is set
         if (conversationUuid == null) {
@@ -1653,7 +2227,7 @@ public class ConversationApi {
         }
         
 
-        okhttp3.Call localVarCall = joinConversationCall(conversationUuid, _callback);
+        okhttp3.Call localVarCall = joinConversationCall(conversationUuid, joinRequest, _callback);
         return localVarCall;
 
     }
@@ -1662,6 +2236,7 @@ public class ConversationApi {
      * Join a conversation
      * Join a conversation 
      * @param conversationUuid  (required)
+     * @param joinRequest Join request (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1673,14 +2248,15 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public void joinConversation(String conversationUuid) throws ApiException {
-        joinConversationWithHttpInfo(conversationUuid);
+    public void joinConversation(String conversationUuid, ConversationJoinRequest joinRequest) throws ApiException {
+        joinConversationWithHttpInfo(conversationUuid, joinRequest);
     }
 
     /**
      * Join a conversation
      * Join a conversation 
      * @param conversationUuid  (required)
+     * @param joinRequest Join request (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1693,8 +2269,8 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Void> joinConversationWithHttpInfo(String conversationUuid) throws ApiException {
-        okhttp3.Call localVarCall = joinConversationValidateBeforeCall(conversationUuid, null);
+    public ApiResponse<Void> joinConversationWithHttpInfo(String conversationUuid, ConversationJoinRequest joinRequest) throws ApiException {
+        okhttp3.Call localVarCall = joinConversationValidateBeforeCall(conversationUuid, joinRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -1702,6 +2278,7 @@ public class ConversationApi {
      * Join a conversation (asynchronously)
      * Join a conversation 
      * @param conversationUuid  (required)
+     * @param joinRequest Join request (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1715,9 +2292,9 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call joinConversationAsync(String conversationUuid, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call joinConversationAsync(String conversationUuid, ConversationJoinRequest joinRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = joinConversationValidateBeforeCall(conversationUuid, _callback);
+        okhttp3.Call localVarCall = joinConversationValidateBeforeCall(conversationUuid, joinRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -2444,6 +3021,318 @@ public class ConversationApi {
 
         okhttp3.Call localVarCall = updateConversationCannedMessageValidateBeforeCall(conversationCannedMessageOid, cannedMessage, _callback);
         Type localVarReturnType = new TypeToken<ConversationCannedMessageResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateConversationDepartment
+     * @param conversationDepartmentOid  (required)
+     * @param department Department (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateConversationDepartmentCall(Integer conversationDepartmentOid, ConversationDepartment department, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = department;
+
+        // create path and map variables
+        String localVarPath = "/conversation/departments/{conversation_department_oid}"
+            .replaceAll("\\{" + "conversation_department_oid" + "\\}", localVarApiClient.escapeString(conversationDepartmentOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateConversationDepartmentValidateBeforeCall(Integer conversationDepartmentOid, ConversationDepartment department, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'conversationDepartmentOid' is set
+        if (conversationDepartmentOid == null) {
+            throw new ApiException("Missing the required parameter 'conversationDepartmentOid' when calling updateConversationDepartment(Async)");
+        }
+        
+        // verify the required parameter 'department' is set
+        if (department == null) {
+            throw new ApiException("Missing the required parameter 'department' when calling updateConversationDepartment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateConversationDepartmentCall(conversationDepartmentOid, department, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a department
+     * Update a department 
+     * @param conversationDepartmentOid  (required)
+     * @param department Department (required)
+     * @return ConversationDepartmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationDepartmentResponse updateConversationDepartment(Integer conversationDepartmentOid, ConversationDepartment department) throws ApiException {
+        ApiResponse<ConversationDepartmentResponse> localVarResp = updateConversationDepartmentWithHttpInfo(conversationDepartmentOid, department);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a department
+     * Update a department 
+     * @param conversationDepartmentOid  (required)
+     * @param department Department (required)
+     * @return ApiResponse&lt;ConversationDepartmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationDepartmentResponse> updateConversationDepartmentWithHttpInfo(Integer conversationDepartmentOid, ConversationDepartment department) throws ApiException {
+        okhttp3.Call localVarCall = updateConversationDepartmentValidateBeforeCall(conversationDepartmentOid, department, null);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a department (asynchronously)
+     * Update a department 
+     * @param conversationDepartmentOid  (required)
+     * @param department Department (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateConversationDepartmentAsync(Integer conversationDepartmentOid, ConversationDepartment department, final ApiCallback<ConversationDepartmentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateConversationDepartmentValidateBeforeCall(conversationDepartmentOid, department, _callback);
+        Type localVarReturnType = new TypeToken<ConversationDepartmentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateConversationEngagement
+     * @param conversationEngagementOid  (required)
+     * @param engagement Engagement (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateConversationEngagementCall(Integer conversationEngagementOid, ConversationEngagement engagement, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = engagement;
+
+        // create path and map variables
+        String localVarPath = "/conversation/engagements/{conversation_engagement_oid}"
+            .replaceAll("\\{" + "conversation_engagement_oid" + "\\}", localVarApiClient.escapeString(conversationEngagementOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateConversationEngagementValidateBeforeCall(Integer conversationEngagementOid, ConversationEngagement engagement, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'conversationEngagementOid' is set
+        if (conversationEngagementOid == null) {
+            throw new ApiException("Missing the required parameter 'conversationEngagementOid' when calling updateConversationEngagement(Async)");
+        }
+        
+        // verify the required parameter 'engagement' is set
+        if (engagement == null) {
+            throw new ApiException("Missing the required parameter 'engagement' when calling updateConversationEngagement(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateConversationEngagementCall(conversationEngagementOid, engagement, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a engagement
+     * Update a engagement 
+     * @param conversationEngagementOid  (required)
+     * @param engagement Engagement (required)
+     * @return ConversationEngagementResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationEngagementResponse updateConversationEngagement(Integer conversationEngagementOid, ConversationEngagement engagement) throws ApiException {
+        ApiResponse<ConversationEngagementResponse> localVarResp = updateConversationEngagementWithHttpInfo(conversationEngagementOid, engagement);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a engagement
+     * Update a engagement 
+     * @param conversationEngagementOid  (required)
+     * @param engagement Engagement (required)
+     * @return ApiResponse&lt;ConversationEngagementResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationEngagementResponse> updateConversationEngagementWithHttpInfo(Integer conversationEngagementOid, ConversationEngagement engagement) throws ApiException {
+        okhttp3.Call localVarCall = updateConversationEngagementValidateBeforeCall(conversationEngagementOid, engagement, null);
+        Type localVarReturnType = new TypeToken<ConversationEngagementResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a engagement (asynchronously)
+     * Update a engagement 
+     * @param conversationEngagementOid  (required)
+     * @param engagement Engagement (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateConversationEngagementAsync(Integer conversationEngagementOid, ConversationEngagement engagement, final ApiCallback<ConversationEngagementResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateConversationEngagementValidateBeforeCall(conversationEngagementOid, engagement, _callback);
+        Type localVarReturnType = new TypeToken<ConversationEngagementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

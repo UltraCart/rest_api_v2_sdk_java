@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemDigitalDelivery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-09T12:00:33.817-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-13T10:18:15.535-05:00[America/Indianapolis]")
 public class ItemDigitalDelivery {
   public static final String SERIALIZED_NAME_ACTIVATION_CODE_DESCRIPTION = "activation_code_description";
   @SerializedName(SERIALIZED_NAME_ACTIVATION_CODE_DESCRIPTION)

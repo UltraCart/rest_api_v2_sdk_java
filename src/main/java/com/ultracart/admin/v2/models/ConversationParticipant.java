@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationParticipant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-09T12:00:33.817-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-13T10:18:15.535-05:00[America/Indianapolis]")
 public class ConversationParticipant {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -60,6 +60,10 @@ public class ConversationParticipant {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_UUID = "conversation_participant_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_UUID)
   private String conversationParticipantUuid;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_JOINED_DTS = "joined_dts";
   @SerializedName(SERIALIZED_NAME_JOINED_DTS)
@@ -80,6 +84,10 @@ public class ConversationParticipant {
   public static final String SERIALIZED_NAME_PROFILE_IMAGE_URL = "profile_image_url";
   @SerializedName(SERIALIZED_NAME_PROFILE_IMAGE_URL)
   private String profileImageUrl;
+
+  public static final String SERIALIZED_NAME_SMS_PHONE_NUMBER = "sms_phone_number";
+  @SerializedName(SERIALIZED_NAME_SMS_PHONE_NUMBER)
+  private String smsPhoneNumber;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -162,6 +170,29 @@ public class ConversationParticipant {
 
   public void setConversationParticipantUuid(String conversationParticipantUuid) {
     this.conversationParticipantUuid = conversationParticipantUuid;
+  }
+
+
+  public ConversationParticipant email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -280,6 +311,29 @@ public class ConversationParticipant {
   }
 
 
+  public ConversationParticipant smsPhoneNumber(String smsPhoneNumber) {
+    
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * Get smsPhoneNumber
+   * @return smsPhoneNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
+
   public ConversationParticipant status(String status) {
     
     this.status = status;
@@ -362,11 +416,13 @@ public class ConversationParticipant {
     return Objects.equals(this.conversationParticipantArn, conversationParticipant.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationParticipant.conversationParticipantName) &&
         Objects.equals(this.conversationParticipantUuid, conversationParticipant.conversationParticipantUuid) &&
+        Objects.equals(this.email, conversationParticipant.email) &&
         Objects.equals(this.joinedDts, conversationParticipant.joinedDts) &&
         Objects.equals(this.languageIsoCode, conversationParticipant.languageIsoCode) &&
         Objects.equals(this.lastMessageDts, conversationParticipant.lastMessageDts) &&
         Objects.equals(this.leftDts, conversationParticipant.leftDts) &&
         Objects.equals(this.profileImageUrl, conversationParticipant.profileImageUrl) &&
+        Objects.equals(this.smsPhoneNumber, conversationParticipant.smsPhoneNumber) &&
         Objects.equals(this.status, conversationParticipant.status) &&
         Objects.equals(this.timezone, conversationParticipant.timezone) &&
         Objects.equals(this.unreadMessages, conversationParticipant.unreadMessages);
@@ -374,7 +430,7 @@ public class ConversationParticipant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, joinedDts, languageIsoCode, lastMessageDts, leftDts, profileImageUrl, status, timezone, unreadMessages);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationParticipantUuid, email, joinedDts, languageIsoCode, lastMessageDts, leftDts, profileImageUrl, smsPhoneNumber, status, timezone, unreadMessages);
   }
 
   @Override
@@ -384,11 +440,13 @@ public class ConversationParticipant {
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    conversationParticipantUuid: ").append(toIndentedString(conversationParticipantUuid)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    joinedDts: ").append(toIndentedString(joinedDts)).append("\n");
     sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    lastMessageDts: ").append(toIndentedString(lastMessageDts)).append("\n");
     sb.append("    leftDts: ").append(toIndentedString(leftDts)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
@@ -417,11 +475,13 @@ public class ConversationParticipant {
     openapiFields.add("conversation_participant_arn");
     openapiFields.add("conversation_participant_name");
     openapiFields.add("conversation_participant_uuid");
+    openapiFields.add("email");
     openapiFields.add("joined_dts");
     openapiFields.add("language_iso_code");
     openapiFields.add("last_message_dts");
     openapiFields.add("left_dts");
     openapiFields.add("profile_image_url");
+    openapiFields.add("sms_phone_number");
     openapiFields.add("status");
     openapiFields.add("timezone");
     openapiFields.add("unread_messages");
@@ -461,6 +521,9 @@ public class ConversationParticipant {
       if (jsonObj.get("conversation_participant_uuid") != null && !jsonObj.get("conversation_participant_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_participant_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_participant_uuid").toString()));
       }
+      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
       if (jsonObj.get("joined_dts") != null && !jsonObj.get("joined_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `joined_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("joined_dts").toString()));
       }
@@ -475,6 +538,9 @@ public class ConversationParticipant {
       }
       if (jsonObj.get("profile_image_url") != null && !jsonObj.get("profile_image_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `profile_image_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profile_image_url").toString()));
+      }
+      if (jsonObj.get("sms_phone_number") != null && !jsonObj.get("sms_phone_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms_phone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms_phone_number").toString()));
       }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

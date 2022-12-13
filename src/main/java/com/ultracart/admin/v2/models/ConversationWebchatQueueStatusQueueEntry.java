@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatQueueStatusQueueEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-09T12:00:33.817-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-13T10:18:15.535-05:00[America/Indianapolis]")
 public class ConversationWebchatQueueStatusQueueEntry {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -68,6 +68,10 @@ public class ConversationWebchatQueueStatusQueueEntry {
   public static final String SERIALIZED_NAME_JOIN_DTS = "join_dts";
   @SerializedName(SERIALIZED_NAME_JOIN_DTS)
   private String joinDts;
+
+  public static final String SERIALIZED_NAME_PARTICIPANT_LANGUAGE_ISO_CODE = "participant_language_iso_code";
+  @SerializedName(SERIALIZED_NAME_PARTICIPANT_LANGUAGE_ISO_CODE)
+  private String participantLanguageIsoCode;
 
   public static final String SERIALIZED_NAME_QUESTION = "question";
   @SerializedName(SERIALIZED_NAME_QUESTION)
@@ -191,6 +195,29 @@ public class ConversationWebchatQueueStatusQueueEntry {
   }
 
 
+  public ConversationWebchatQueueStatusQueueEntry participantLanguageIsoCode(String participantLanguageIsoCode) {
+    
+    this.participantLanguageIsoCode = participantLanguageIsoCode;
+    return this;
+  }
+
+   /**
+   * Get participantLanguageIsoCode
+   * @return participantLanguageIsoCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getParticipantLanguageIsoCode() {
+    return participantLanguageIsoCode;
+  }
+
+
+  public void setParticipantLanguageIsoCode(String participantLanguageIsoCode) {
+    this.participantLanguageIsoCode = participantLanguageIsoCode;
+  }
+
+
   public ConversationWebchatQueueStatusQueueEntry question(String question) {
     
     this.question = question;
@@ -229,12 +256,13 @@ public class ConversationWebchatQueueStatusQueueEntry {
         Objects.equals(this.conversationWebchatQueueUuid, conversationWebchatQueueStatusQueueEntry.conversationWebchatQueueUuid) &&
         Objects.equals(this.email, conversationWebchatQueueStatusQueueEntry.email) &&
         Objects.equals(this.joinDts, conversationWebchatQueueStatusQueueEntry.joinDts) &&
+        Objects.equals(this.participantLanguageIsoCode, conversationWebchatQueueStatusQueueEntry.participantLanguageIsoCode) &&
         Objects.equals(this.question, conversationWebchatQueueStatusQueueEntry.question);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationWebchatQueueUuid, email, joinDts, question);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, conversationWebchatQueueUuid, email, joinDts, participantLanguageIsoCode, question);
   }
 
   @Override
@@ -246,6 +274,7 @@ public class ConversationWebchatQueueStatusQueueEntry {
     sb.append("    conversationWebchatQueueUuid: ").append(toIndentedString(conversationWebchatQueueUuid)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    joinDts: ").append(toIndentedString(joinDts)).append("\n");
+    sb.append("    participantLanguageIsoCode: ").append(toIndentedString(participantLanguageIsoCode)).append("\n");
     sb.append("    question: ").append(toIndentedString(question)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -274,6 +303,7 @@ public class ConversationWebchatQueueStatusQueueEntry {
     openapiFields.add("conversation_webchat_queue_uuid");
     openapiFields.add("email");
     openapiFields.add("join_dts");
+    openapiFields.add("participant_language_iso_code");
     openapiFields.add("question");
 
     // a set of required properties/fields (JSON key names)
@@ -316,6 +346,9 @@ public class ConversationWebchatQueueStatusQueueEntry {
       }
       if (jsonObj.get("join_dts") != null && !jsonObj.get("join_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `join_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("join_dts").toString()));
+      }
+      if (jsonObj.get("participant_language_iso_code") != null && !jsonObj.get("participant_language_iso_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `participant_language_iso_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("participant_language_iso_code").toString()));
       }
       if (jsonObj.get("question") != null && !jsonObj.get("question").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `question` to be a primitive type in the JSON string but got `%s`", jsonObj.get("question").toString()));

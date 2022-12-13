@@ -9,17 +9,23 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getConversation**](ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation |
 | [**getConversationCannedMessages**](ConversationApi.md#getConversationCannedMessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code |
 | [**getConversationContext**](ConversationApi.md#getConversationContext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context |
+| [**getConversationDepartments**](ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name |
+| [**getConversationEngagements**](ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name |
 | [**getConversationMessages**](ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages |
 | [**getConversationMultimediaUploadUrl**](ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL |
 | [**getConversationWebchatQueueStatuses**](ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses |
 | [**getConversations**](ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest |
 | [**insertConversationCannedMessage**](ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message |
+| [**insertConversationDepartment**](ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department |
+| [**insertConversationEngagement**](ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement |
 | [**joinConversation**](ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation |
 | [**leaveConversation**](ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation |
 | [**markReadConversation**](ConversationApi.md#markReadConversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read |
 | [**searchConversationCannedMessages**](ConversationApi.md#searchConversationCannedMessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code |
 | [**startConversation**](ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation |
 | [**updateConversationCannedMessage**](ConversationApi.md#updateConversationCannedMessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message |
+| [**updateConversationDepartment**](ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department |
+| [**updateConversationEngagement**](ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement |
 | [**updateConversationWebchatQueueStatus**](ConversationApi.md#updateConversationWebchatQueueStatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue |
 
 
@@ -321,6 +327,130 @@ try {
 ### Return type
 
 [**ConversationWebchatContext**](ConversationWebchatContext.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getConversationDepartments"></a>
+# **getConversationDepartments**
+> ConversationDepartmentsResponse getConversationDepartments()
+
+Retrieve a list of departments ordered by name
+
+Retrieve a list of departments ordered by name 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.ConversationApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+try {
+    ConversationDepartmentsResponse result = apiInstance.getConversationDepartments();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getConversationDepartments");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationDepartmentsResponse**](ConversationDepartmentsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getConversationEngagements"></a>
+# **getConversationEngagements**
+> ConversationEngagementsResponse getConversationEngagements()
+
+Retrieve a list of engagements ordered by name
+
+Retrieve a list of engagements ordered by name 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.ConversationApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+try {
+    ConversationEngagementsResponse result = apiInstance.getConversationEngagements();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getConversationEngagements");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationEngagementsResponse**](ConversationEngagementsResponse.md)
 
 ### Authorization
 
@@ -677,9 +807,141 @@ try {
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="insertConversationDepartment"></a>
+# **insertConversationDepartment**
+> ConversationDepartmentResponse insertConversationDepartment(department)
+
+Insert a department
+
+Insert a department 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.ConversationApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+ConversationDepartment department = new ConversationDepartment(); // ConversationDepartment | Department
+try {
+    ConversationDepartmentResponse result = apiInstance.insertConversationDepartment(department);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#insertConversationDepartment");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **department** | [**ConversationDepartment**](ConversationDepartment.md)| Department | |
+
+### Return type
+
+[**ConversationDepartmentResponse**](ConversationDepartmentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="insertConversationEngagement"></a>
+# **insertConversationEngagement**
+> ConversationEngagementResponse insertConversationEngagement(engagement)
+
+Insert a engagement
+
+Insert a engagement 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.ConversationApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+ConversationEngagement engagement = new ConversationEngagement(); // ConversationEngagement | Engagement
+try {
+    ConversationEngagementResponse result = apiInstance.insertConversationEngagement(engagement);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#insertConversationEngagement");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **engagement** | [**ConversationEngagement**](ConversationEngagement.md)| Engagement | |
+
+### Return type
+
+[**ConversationEngagementResponse**](ConversationEngagementResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="joinConversation"></a>
 # **joinConversation**
-> joinConversation(conversationUuid)
+> joinConversation(conversationUuid, joinRequest)
 
 Join a conversation
 
@@ -704,8 +966,9 @@ import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java
 ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
 String conversationUuid = "conversationUuid_example"; // String | 
+ConversationJoinRequest joinRequest = new ConversationJoinRequest(); // ConversationJoinRequest | Join request
 try {
-    apiInstance.joinConversation(conversationUuid);
+    apiInstance.joinConversation(conversationUuidjoinRequest);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#joinConversation");
     e.printStackTrace();
@@ -718,6 +981,7 @@ try {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **conversationUuid** | **String**|  | |
+| **joinRequest** | [**ConversationJoinRequest**](ConversationJoinRequest.md)| Join request | [optional] |
 
 ### Return type
 
@@ -729,7 +993,7 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -1049,6 +1313,142 @@ try {
 ### Return type
 
 [**ConversationCannedMessageResponse**](ConversationCannedMessageResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateConversationDepartment"></a>
+# **updateConversationDepartment**
+> ConversationDepartmentResponse updateConversationDepartment(conversationDepartmentOid, department)
+
+Update a department
+
+Update a department 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.ConversationApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer conversationDepartmentOid = 56; // Integer | 
+ConversationDepartment department = new ConversationDepartment(); // ConversationDepartment | Department
+try {
+    ConversationDepartmentResponse result = apiInstance.updateConversationDepartment(conversationDepartmentOiddepartment);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#updateConversationDepartment");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **conversationDepartmentOid** | **Integer**|  | |
+| **department** | [**ConversationDepartment**](ConversationDepartment.md)| Department | |
+
+### Return type
+
+[**ConversationDepartmentResponse**](ConversationDepartmentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateConversationEngagement"></a>
+# **updateConversationEngagement**
+> ConversationEngagementResponse updateConversationEngagement(conversationEngagementOid, engagement)
+
+Update a engagement
+
+Update a engagement 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.ConversationApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ConversationApi apiInstance = new ConversationApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer conversationEngagementOid = 56; // Integer | 
+ConversationEngagement engagement = new ConversationEngagement(); // ConversationEngagement | Engagement
+try {
+    ConversationEngagementResponse result = apiInstance.updateConversationEngagement(conversationEngagementOidengagement);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#updateConversationEngagement");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **conversationEngagementOid** | **Integer**|  | |
+| **engagement** | [**ConversationEngagement**](ConversationEngagement.md)| Engagement | |
+
+### Return type
+
+[**ConversationEngagementResponse**](ConversationEngagementResponse.md)
 
 ### Authorization
 

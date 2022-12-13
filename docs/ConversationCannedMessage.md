@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**cannedMessage** | **String** |  |  [optional] |
 |**conversationCannedMessageOid** | **Integer** |  |  [optional] |
-|**conversationDepartmentOids** | **List&lt;String&gt;** |  |  [optional] |
+|**conversationDepartmentOids** | **List&lt;Integer&gt;** |  |  [optional] |
 |**shortCode** | **String** |  |  [optional] |
 
 

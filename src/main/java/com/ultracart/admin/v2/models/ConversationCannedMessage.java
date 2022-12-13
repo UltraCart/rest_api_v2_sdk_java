@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationCannedMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-09T12:00:33.817-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-13T10:18:15.535-05:00[America/Indianapolis]")
 public class ConversationCannedMessage {
   public static final String SERIALIZED_NAME_CANNED_MESSAGE = "canned_message";
   @SerializedName(SERIALIZED_NAME_CANNED_MESSAGE)
@@ -61,7 +61,7 @@ public class ConversationCannedMessage {
 
   public static final String SERIALIZED_NAME_CONVERSATION_DEPARTMENT_OIDS = "conversation_department_oids";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_DEPARTMENT_OIDS)
-  private List<String> conversationDepartmentOids = null;
+  private List<Integer> conversationDepartmentOids = null;
 
   public static final String SERIALIZED_NAME_SHORT_CODE = "short_code";
   @SerializedName(SERIALIZED_NAME_SHORT_CODE)
@@ -116,13 +116,13 @@ public class ConversationCannedMessage {
   }
 
 
-  public ConversationCannedMessage conversationDepartmentOids(List<String> conversationDepartmentOids) {
+  public ConversationCannedMessage conversationDepartmentOids(List<Integer> conversationDepartmentOids) {
     
     this.conversationDepartmentOids = conversationDepartmentOids;
     return this;
   }
 
-  public ConversationCannedMessage addConversationDepartmentOidsItem(String conversationDepartmentOidsItem) {
+  public ConversationCannedMessage addConversationDepartmentOidsItem(Integer conversationDepartmentOidsItem) {
     if (this.conversationDepartmentOids == null) {
       this.conversationDepartmentOids = new ArrayList<>();
     }
@@ -137,12 +137,12 @@ public class ConversationCannedMessage {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getConversationDepartmentOids() {
+  public List<Integer> getConversationDepartmentOids() {
     return conversationDepartmentOids;
   }
 
 
-  public void setConversationDepartmentOids(List<String> conversationDepartmentOids) {
+  public void setConversationDepartmentOids(List<Integer> conversationDepartmentOids) {
     this.conversationDepartmentOids = conversationDepartmentOids;
   }
 
