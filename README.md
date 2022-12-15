@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-13T10:18:15.535-05:00[America/Indianapolis]
+  - Build date: 2022-12-15T11:44:49.612-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.97-RC</version>
+  <version>4.0.98-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.97-RC"
+     implementation "com.ultracart:rest-sdk:4.0.98-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.97-RC.jar`
+* `target/rest-sdk-4.0.98-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -179,6 +179,8 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
+*ConversationApi* | [**getConversationsAutocomplete**](docs/ConversationApi.md#getConversationsAutocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
+*ConversationApi* | [**getConversationsSearch**](docs/ConversationApi.md#getConversationsSearch) | **POST** /conversation/conversations/search | Search conversations
 *ConversationApi* | [**insertConversationCannedMessage**](docs/ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
@@ -638,6 +640,8 @@ Class | Method | HTTP request | Description
  - [Conversation](docs/Conversation.md)
  - [ConversationAgentAuth](docs/ConversationAgentAuth.md)
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
+ - [ConversationAutocompleteRequest](docs/ConversationAutocompleteRequest.md)
+ - [ConversationAutocompleteResponse](docs/ConversationAutocompleteResponse.md)
  - [ConversationCannedMessage](docs/ConversationCannedMessage.md)
  - [ConversationCannedMessageResponse](docs/ConversationCannedMessageResponse.md)
  - [ConversationCannedMessagesResponse](docs/ConversationCannedMessagesResponse.md)
@@ -664,6 +668,8 @@ Class | Method | HTTP request | Description
  - [ConversationMultimediaUploadUrlResponse](docs/ConversationMultimediaUploadUrlResponse.md)
  - [ConversationParticipant](docs/ConversationParticipant.md)
  - [ConversationResponse](docs/ConversationResponse.md)
+ - [ConversationSearchRequest](docs/ConversationSearchRequest.md)
+ - [ConversationSearchResponse](docs/ConversationSearchResponse.md)
  - [ConversationStartRequest](docs/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
  - [ConversationSummary](docs/ConversationSummary.md)
@@ -1301,6 +1307,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.98-RC | 12/15/2022 | conversation searching |
 | 4.0.97-RC | 12/13/2022 | conversations - add email and sms_phone to participant object |
 | 4.0.96-RC | 12/09/2022 | conversations - message translation |
 | 4.0.95-RC | 12/08/2022 | conversation canned messages |

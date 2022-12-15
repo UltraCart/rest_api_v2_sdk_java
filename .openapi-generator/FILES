@@ -131,6 +131,8 @@ docs/Conversation.md
 docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
+docs/ConversationAutocompleteRequest.md
+docs/ConversationAutocompleteResponse.md
 docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
@@ -157,6 +159,8 @@ docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
 docs/ConversationResponse.md
+docs/ConversationSearchRequest.md
+docs/ConversationSearchResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
@@ -878,6 +882,8 @@ src/main/java/com/ultracart/admin/v2/models/CityStateZip.java
 src/main/java/com/ultracart/admin/v2/models/Conversation.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuth.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuthResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationAutocompleteRequest.java
+src/main/java/com/ultracart/admin/v2/models/ConversationAutocompleteResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessageResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesResponse.java
@@ -904,6 +910,8 @@ src/main/java/com/ultracart/admin/v2/models/ConversationMultimediaUploadUrl.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMultimediaUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationParticipant.java
 src/main/java/com/ultracart/admin/v2/models/ConversationResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationSearchRequest.java
+src/main/java/com/ultracart/admin/v2/models/ConversationSearchResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationStartResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationSummary.java

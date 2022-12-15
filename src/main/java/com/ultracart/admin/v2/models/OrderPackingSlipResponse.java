@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPackingSlipResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-13T10:18:15.535-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T11:44:49.612-05:00[America/Indianapolis]")
 public class OrderPackingSlipResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
