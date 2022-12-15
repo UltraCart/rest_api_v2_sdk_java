@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationAutocompleteValue;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
 import com.ultracart.admin.v2.models.Warning;
@@ -32,7 +33,7 @@ import java.util.List;
 /**
  * ConversationAutocompleteResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-15T11:31:29.581-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:32:33.460-05:00")
 
 
 
@@ -47,7 +48,7 @@ public class ConversationAutocompleteResponse {
   private ResponseMetadata metadata = null;
 
   @SerializedName("results")
-  private List<String> results = null;
+  private List<ConversationAutocompleteValue> results = null;
 
   @SerializedName("success")
   private Boolean success = null;
@@ -112,14 +113,14 @@ public class ConversationAutocompleteResponse {
     this.metadata = metadata;
   }
 
-  public ConversationAutocompleteResponse results(List<String> results) {
+  public ConversationAutocompleteResponse results(List<ConversationAutocompleteValue> results) {
     this.results = results;
     return this;
   }
 
-  public ConversationAutocompleteResponse addResultsItem(String resultsItem) {
+  public ConversationAutocompleteResponse addResultsItem(ConversationAutocompleteValue resultsItem) {
     if (this.results == null) {
-      this.results = new ArrayList<String>();
+      this.results = new ArrayList<ConversationAutocompleteValue>();
     }
     this.results.add(resultsItem);
     return this;
@@ -130,11 +131,11 @@ public class ConversationAutocompleteResponse {
    * @return results
   **/
   @ApiModelProperty(value = "")
-  public List<String> getResults() {
+  public List<ConversationAutocompleteValue> getResults() {
     return results;
   }
 
-  public void setResults(List<String> results) {
+  public void setResults(List<ConversationAutocompleteValue> results) {
     this.results = results;
   }
 

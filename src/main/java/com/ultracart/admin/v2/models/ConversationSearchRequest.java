@@ -27,11 +27,17 @@ import java.io.IOException;
 /**
  * ConversationSearchRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-15T11:31:29.581-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:32:33.460-05:00")
 
 
 
 public class ConversationSearchRequest {
+  @SerializedName("date_end")
+  private String dateEnd = null;
+
+  @SerializedName("date_start")
+  private String dateStart = null;
+
   @SerializedName("email_filter")
   private String emailFilter = null;
 
@@ -61,6 +67,42 @@ public class ConversationSearchRequest {
 
   @SerializedName("visible_filter")
   private Boolean visibleFilter = null;
+
+  public ConversationSearchRequest dateEnd(String dateEnd) {
+    this.dateEnd = dateEnd;
+    return this;
+  }
+
+   /**
+   * End of the range
+   * @return dateEnd
+  **/
+  @ApiModelProperty(value = "End of the range")
+  public String getDateEnd() {
+    return dateEnd;
+  }
+
+  public void setDateEnd(String dateEnd) {
+    this.dateEnd = dateEnd;
+  }
+
+  public ConversationSearchRequest dateStart(String dateStart) {
+    this.dateStart = dateStart;
+    return this;
+  }
+
+   /**
+   * Start of the range
+   * @return dateStart
+  **/
+  @ApiModelProperty(value = "Start of the range")
+  public String getDateStart() {
+    return dateStart;
+  }
+
+  public void setDateStart(String dateStart) {
+    this.dateStart = dateStart;
+  }
 
   public ConversationSearchRequest emailFilter(String emailFilter) {
     this.emailFilter = emailFilter;
@@ -252,7 +294,9 @@ public class ConversationSearchRequest {
       return false;
     }
     ConversationSearchRequest conversationSearchRequest = (ConversationSearchRequest) o;
-    return Objects.equals(this.emailFilter, conversationSearchRequest.emailFilter) &&
+    return Objects.equals(this.dateEnd, conversationSearchRequest.dateEnd) &&
+        Objects.equals(this.dateStart, conversationSearchRequest.dateStart) &&
+        Objects.equals(this.emailFilter, conversationSearchRequest.emailFilter) &&
         Objects.equals(this.languageFilter, conversationSearchRequest.languageFilter) &&
         Objects.equals(this.mediumFilter, conversationSearchRequest.mediumFilter) &&
         Objects.equals(this.orderByNewest, conversationSearchRequest.orderByNewest) &&
@@ -266,7 +310,7 @@ public class ConversationSearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailFilter, languageFilter, mediumFilter, orderByNewest, orderByOldest, rangeBegin, rangeEnd, smsPhoneNumberFilter, textSearch, visibleFilter);
+    return Objects.hash(dateEnd, dateStart, emailFilter, languageFilter, mediumFilter, orderByNewest, orderByOldest, rangeBegin, rangeEnd, smsPhoneNumberFilter, textSearch, visibleFilter);
   }
 
 
@@ -275,6 +319,8 @@ public class ConversationSearchRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationSearchRequest {\n");
     
+    sb.append("    dateEnd: ").append(toIndentedString(dateEnd)).append("\n");
+    sb.append("    dateStart: ").append(toIndentedString(dateStart)).append("\n");
     sb.append("    emailFilter: ").append(toIndentedString(emailFilter)).append("\n");
     sb.append("    languageFilter: ").append(toIndentedString(languageFilter)).append("\n");
     sb.append("    mediumFilter: ").append(toIndentedString(mediumFilter)).append("\n");

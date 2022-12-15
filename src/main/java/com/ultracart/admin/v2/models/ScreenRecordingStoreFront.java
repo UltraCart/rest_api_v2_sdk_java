@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ScreenRecordingStoreFront
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-15T11:31:29.581-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:32:33.460-05:00")
 
 
 

@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-15T11:31:29.581-05:00
+  - Build date: 2022-12-15T16:32:33.460-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.81</version>
+  <version>3.10.82</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.81"
+compile "com.ultracart:rest-sdk:3.10.82"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.81.jar`
+* `target/rest-sdk-3.10.82.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -625,6 +625,7 @@ Class | Method | HTTP request | Description
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
  - [ConversationAutocompleteRequest](docs/ConversationAutocompleteRequest.md)
  - [ConversationAutocompleteResponse](docs/ConversationAutocompleteResponse.md)
+ - [ConversationAutocompleteValue](docs/ConversationAutocompleteValue.md)
  - [ConversationCannedMessage](docs/ConversationCannedMessage.md)
  - [ConversationCannedMessageResponse](docs/ConversationCannedMessageResponse.md)
  - [ConversationCannedMessagesResponse](docs/ConversationCannedMessagesResponse.md)
@@ -1292,6 +1293,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.82 | 12/15/2022 | conversation search - added start date filtering |
 | 3.10.81 | 12/15/2022 | conversation searching |
 | 3.10.80 | 12/13/2022 | conversations - add email and sms_phone to participant object |
 | 3.10.79 | 12/09/2022 | conversations - message translation |
