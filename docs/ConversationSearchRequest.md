@@ -7,6 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**dateEnd** | **String** | End of the range |  [optional] |
+|**dateStart** | **String** | Start of the range |  [optional] |
 |**emailFilter** | **String** |  |  [optional] |
 |**languageFilter** | **String** |  |  [optional] |
 |**mediumFilter** | **String** |  |  [optional] |

@@ -47,8 +47,16 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSearchRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T11:44:49.612-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:45:07.795-05:00[America/Indianapolis]")
 public class ConversationSearchRequest {
+  public static final String SERIALIZED_NAME_DATE_END = "date_end";
+  @SerializedName(SERIALIZED_NAME_DATE_END)
+  private String dateEnd;
+
+  public static final String SERIALIZED_NAME_DATE_START = "date_start";
+  @SerializedName(SERIALIZED_NAME_DATE_START)
+  private String dateStart;
+
   public static final String SERIALIZED_NAME_EMAIL_FILTER = "email_filter";
   @SerializedName(SERIALIZED_NAME_EMAIL_FILTER)
   private String emailFilter;
@@ -91,6 +99,52 @@ public class ConversationSearchRequest {
 
   public ConversationSearchRequest() { 
   }
+
+  public ConversationSearchRequest dateEnd(String dateEnd) {
+    
+    this.dateEnd = dateEnd;
+    return this;
+  }
+
+   /**
+   * End of the range
+   * @return dateEnd
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "End of the range")
+
+  public String getDateEnd() {
+    return dateEnd;
+  }
+
+
+  public void setDateEnd(String dateEnd) {
+    this.dateEnd = dateEnd;
+  }
+
+
+  public ConversationSearchRequest dateStart(String dateStart) {
+    
+    this.dateStart = dateStart;
+    return this;
+  }
+
+   /**
+   * Start of the range
+   * @return dateStart
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Start of the range")
+
+  public String getDateStart() {
+    return dateStart;
+  }
+
+
+  public void setDateStart(String dateStart) {
+    this.dateStart = dateStart;
+  }
+
 
   public ConversationSearchRequest emailFilter(String emailFilter) {
     
@@ -332,7 +386,9 @@ public class ConversationSearchRequest {
       return false;
     }
     ConversationSearchRequest conversationSearchRequest = (ConversationSearchRequest) o;
-    return Objects.equals(this.emailFilter, conversationSearchRequest.emailFilter) &&
+    return Objects.equals(this.dateEnd, conversationSearchRequest.dateEnd) &&
+        Objects.equals(this.dateStart, conversationSearchRequest.dateStart) &&
+        Objects.equals(this.emailFilter, conversationSearchRequest.emailFilter) &&
         Objects.equals(this.languageFilter, conversationSearchRequest.languageFilter) &&
         Objects.equals(this.mediumFilter, conversationSearchRequest.mediumFilter) &&
         Objects.equals(this.orderByNewest, conversationSearchRequest.orderByNewest) &&
@@ -346,13 +402,15 @@ public class ConversationSearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailFilter, languageFilter, mediumFilter, orderByNewest, orderByOldest, rangeBegin, rangeEnd, smsPhoneNumberFilter, textSearch, visibleFilter);
+    return Objects.hash(dateEnd, dateStart, emailFilter, languageFilter, mediumFilter, orderByNewest, orderByOldest, rangeBegin, rangeEnd, smsPhoneNumberFilter, textSearch, visibleFilter);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationSearchRequest {\n");
+    sb.append("    dateEnd: ").append(toIndentedString(dateEnd)).append("\n");
+    sb.append("    dateStart: ").append(toIndentedString(dateStart)).append("\n");
     sb.append("    emailFilter: ").append(toIndentedString(emailFilter)).append("\n");
     sb.append("    languageFilter: ").append(toIndentedString(languageFilter)).append("\n");
     sb.append("    mediumFilter: ").append(toIndentedString(mediumFilter)).append("\n");
@@ -385,6 +443,8 @@ public class ConversationSearchRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("date_end");
+    openapiFields.add("date_start");
     openapiFields.add("email_filter");
     openapiFields.add("language_filter");
     openapiFields.add("medium_filter");
@@ -421,6 +481,12 @@ public class ConversationSearchRequest {
         if (!ConversationSearchRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationSearchRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("date_end") != null && !jsonObj.get("date_end").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `date_end` to be a primitive type in the JSON string but got `%s`", jsonObj.get("date_end").toString()));
+      }
+      if (jsonObj.get("date_start") != null && !jsonObj.get("date_start").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `date_start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("date_start").toString()));
       }
       if (jsonObj.get("email_filter") != null && !jsonObj.get("email_filter").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email_filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email_filter").toString()));

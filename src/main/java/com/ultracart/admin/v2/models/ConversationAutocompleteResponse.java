@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationAutocompleteValue;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
 import com.ultracart.admin.v2.models.Warning;
@@ -52,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAutocompleteResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T11:44:49.612-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:45:07.795-05:00[America/Indianapolis]")
 public class ConversationAutocompleteResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
@@ -68,7 +69,7 @@ public class ConversationAutocompleteResponse {
 
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  private List<String> results = null;
+  private List<ConversationAutocompleteValue> results = null;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -154,13 +155,13 @@ public class ConversationAutocompleteResponse {
   }
 
 
-  public ConversationAutocompleteResponse results(List<String> results) {
+  public ConversationAutocompleteResponse results(List<ConversationAutocompleteValue> results) {
     
     this.results = results;
     return this;
   }
 
-  public ConversationAutocompleteResponse addResultsItem(String resultsItem) {
+  public ConversationAutocompleteResponse addResultsItem(ConversationAutocompleteValue resultsItem) {
     if (this.results == null) {
       this.results = new ArrayList<>();
     }
@@ -175,12 +176,12 @@ public class ConversationAutocompleteResponse {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getResults() {
+  public List<ConversationAutocompleteValue> getResults() {
     return results;
   }
 
 
-  public void setResults(List<String> results) {
+  public void setResults(List<ConversationAutocompleteValue> results) {
     this.results = results;
   }
 
@@ -356,9 +357,17 @@ public class ConversationAutocompleteResponse {
       if (jsonObj.getAsJsonObject("metadata") != null) {
         ResponseMetadata.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
+      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+      if (jsonArrayresults != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("results").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
+        }
+
+        // validate the optional field `results` (array)
+        for (int i = 0; i < jsonArrayresults.size(); i++) {
+          ConversationAutocompleteValue.validateJsonObject(jsonArrayresults.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("term") != null && !jsonObj.get("term").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `term` to be a primitive type in the JSON string but got `%s`", jsonObj.get("term").toString()));

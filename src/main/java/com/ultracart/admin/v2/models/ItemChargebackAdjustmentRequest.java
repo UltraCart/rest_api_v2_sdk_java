@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemChargebackAdjustmentRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T11:44:49.612-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:45:07.795-05:00[America/Indianapolis]")
 public class ItemChargebackAdjustmentRequest {
   public static final String SERIALIZED_NAME_CHARGEBACK_ADJUSTMENT_REQUEST_OID = "chargeback_adjustment_request_oid";
   @SerializedName(SERIALIZED_NAME_CHARGEBACK_ADJUSTMENT_REQUEST_OID)

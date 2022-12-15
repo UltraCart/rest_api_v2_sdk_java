@@ -216,6 +216,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationAgentAuthResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationAutocompleteRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationAutocompleteResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationAutocompleteValue.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationCannedMessage.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationCannedMessageResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationCannedMessagesResponse.CustomTypeAdapterFactory())
