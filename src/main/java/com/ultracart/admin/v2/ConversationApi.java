@@ -28,6 +28,8 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.ConversationAgentAuthResponse;
+import com.ultracart.admin.v2.models.ConversationAutocompleteRequest;
+import com.ultracart.admin.v2.models.ConversationAutocompleteResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessage;
 import com.ultracart.admin.v2.models.ConversationCannedMessageResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesResponse;
@@ -42,6 +44,8 @@ import com.ultracart.admin.v2.models.ConversationJoinRequest;
 import com.ultracart.admin.v2.models.ConversationMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
 import com.ultracart.admin.v2.models.ConversationResponse;
+import com.ultracart.admin.v2.models.ConversationSearchRequest;
+import com.ultracart.admin.v2.models.ConversationSearchResponse;
 import com.ultracart.admin.v2.models.ConversationStartRequest;
 import com.ultracart.admin.v2.models.ConversationStartResponse;
 import com.ultracart.admin.v2.models.ConversationWebchatContext;
@@ -1422,6 +1426,250 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = getConversationsValidateBeforeCall(medium, before, limit, offset, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getConversationsAutocomplete
+     * @param autocompleteRequest Autocomplete Request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getConversationsAutocompleteCall(ConversationAutocompleteRequest autocompleteRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = autocompleteRequest;
+
+        // create path and map variables
+        String localVarPath = "/conversation/conversations/autocomplete";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getConversationsAutocompleteValidateBeforeCall(ConversationAutocompleteRequest autocompleteRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'autocompleteRequest' is set
+        if (autocompleteRequest == null) {
+            throw new ApiException("Missing the required parameter 'autocompleteRequest' when calling getConversationsAutocomplete(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getConversationsAutocompleteCall(autocompleteRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve a list of matching terms for a search field
+     * Retrieve a list of matching terms for a search field 
+     * @param autocompleteRequest Autocomplete Request (required)
+     * @return ConversationAutocompleteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationAutocompleteResponse getConversationsAutocomplete(ConversationAutocompleteRequest autocompleteRequest) throws ApiException {
+        ApiResponse<ConversationAutocompleteResponse> resp = getConversationsAutocompleteWithHttpInfo(autocompleteRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a list of matching terms for a search field
+     * Retrieve a list of matching terms for a search field 
+     * @param autocompleteRequest Autocomplete Request (required)
+     * @return ApiResponse&lt;ConversationAutocompleteResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationAutocompleteResponse> getConversationsAutocompleteWithHttpInfo(ConversationAutocompleteRequest autocompleteRequest) throws ApiException {
+        com.squareup.okhttp.Call call = getConversationsAutocompleteValidateBeforeCall(autocompleteRequest, null, null);
+        Type localVarReturnType = new TypeToken<ConversationAutocompleteResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a list of matching terms for a search field (asynchronously)
+     * Retrieve a list of matching terms for a search field 
+     * @param autocompleteRequest Autocomplete Request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getConversationsAutocompleteAsync(ConversationAutocompleteRequest autocompleteRequest, final ApiCallback<ConversationAutocompleteResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getConversationsAutocompleteValidateBeforeCall(autocompleteRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationAutocompleteResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getConversationsSearch
+     * @param searchRequest Search Request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getConversationsSearchCall(ConversationSearchRequest searchRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = searchRequest;
+
+        // create path and map variables
+        String localVarPath = "/conversation/conversations/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getConversationsSearchValidateBeforeCall(ConversationSearchRequest searchRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'searchRequest' is set
+        if (searchRequest == null) {
+            throw new ApiException("Missing the required parameter 'searchRequest' when calling getConversationsSearch(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getConversationsSearchCall(searchRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Search conversations
+     * Search conversations 
+     * @param searchRequest Search Request (required)
+     * @return ConversationSearchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationSearchResponse getConversationsSearch(ConversationSearchRequest searchRequest) throws ApiException {
+        ApiResponse<ConversationSearchResponse> resp = getConversationsSearchWithHttpInfo(searchRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Search conversations
+     * Search conversations 
+     * @param searchRequest Search Request (required)
+     * @return ApiResponse&lt;ConversationSearchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationSearchResponse> getConversationsSearchWithHttpInfo(ConversationSearchRequest searchRequest) throws ApiException {
+        com.squareup.okhttp.Call call = getConversationsSearchValidateBeforeCall(searchRequest, null, null);
+        Type localVarReturnType = new TypeToken<ConversationSearchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Search conversations (asynchronously)
+     * Search conversations 
+     * @param searchRequest Search Request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getConversationsSearchAsync(ConversationSearchRequest searchRequest, final ApiCallback<ConversationSearchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getConversationsSearchValidateBeforeCall(searchRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationSearchResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
