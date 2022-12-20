@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationEngagement
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:32:33.460-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-20T11:32:05.396-05:00")
 
 
 
@@ -53,8 +53,57 @@ public class ConversationEngagement {
   @SerializedName("time_on_page")
   private Integer timeOnPage = null;
 
+  /**
+   * The type of visitor
+   */
+  @JsonAdapter(VisitorTypeEnum.Adapter.class)
+  public enum VisitorTypeEnum {
+    ALL("all"),
+    
+    FIRST_TIME("first time"),
+    
+    RETURNING("returning");
+
+    private String value;
+
+    VisitorTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VisitorTypeEnum fromValue(String text) {
+      for (VisitorTypeEnum b : VisitorTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<VisitorTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VisitorTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VisitorTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VisitorTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("visitor_type")
-  private String visitorType = null;
+  private VisitorTypeEnum visitorType = null;
 
   public ConversationEngagement conversationEngagementOid(Integer conversationEngagementOid) {
     this.conversationEngagementOid = conversationEngagementOid;
@@ -172,21 +221,21 @@ public class ConversationEngagement {
     this.timeOnPage = timeOnPage;
   }
 
-  public ConversationEngagement visitorType(String visitorType) {
+  public ConversationEngagement visitorType(VisitorTypeEnum visitorType) {
     this.visitorType = visitorType;
     return this;
   }
 
    /**
-   * Get visitorType
+   * The type of visitor
    * @return visitorType
   **/
-  @ApiModelProperty(value = "")
-  public String getVisitorType() {
+  @ApiModelProperty(value = "The type of visitor")
+  public VisitorTypeEnum getVisitorType() {
     return visitorType;
   }
 
-  public void setVisitorType(String visitorType) {
+  public void setVisitorType(VisitorTypeEnum visitorType) {
     this.visitorType = visitorType;
   }
 

@@ -15,15 +15,55 @@ package com.ultracart.admin.v2.models;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationEngagementEquationGroup;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ConversationEngagementEquation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:32:33.460-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-20T11:32:05.396-05:00")
 
 
 
 public class ConversationEngagementEquation {
+  @SerializedName("groups")
+  private List<ConversationEngagementEquationGroup> groups = null;
+
+  public ConversationEngagementEquation groups(List<ConversationEngagementEquationGroup> groups) {
+    this.groups = groups;
+    return this;
+  }
+
+  public ConversationEngagementEquation addGroupsItem(ConversationEngagementEquationGroup groupsItem) {
+    if (this.groups == null) {
+      this.groups = new ArrayList<ConversationEngagementEquationGroup>();
+    }
+    this.groups.add(groupsItem);
+    return this;
+  }
+
+   /**
+   * Get groups
+   * @return groups
+  **/
+  @ApiModelProperty(value = "")
+  public List<ConversationEngagementEquationGroup> getGroups() {
+    return groups;
+  }
+
+  public void setGroups(List<ConversationEngagementEquationGroup> groups) {
+    this.groups = groups;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -33,12 +73,13 @@ public class ConversationEngagementEquation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    ConversationEngagementEquation conversationEngagementEquation = (ConversationEngagementEquation) o;
+    return Objects.equals(this.groups, conversationEngagementEquation.groups);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(groups);
   }
 
 
@@ -47,6 +88,7 @@ public class ConversationEngagementEquation {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationEngagementEquation {\n");
     
+    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("}");
     return sb.toString();
   }
