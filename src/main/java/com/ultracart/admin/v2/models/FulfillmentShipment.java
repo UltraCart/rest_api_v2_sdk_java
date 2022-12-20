@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FulfillmentShipment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:45:07.795-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T11:44:45.285-05:00[America/Indianapolis]")
 public class FulfillmentShipment {
   public static final String SERIALIZED_NAME_FULFILLMENT_FEE = "fulfillment_fee";
   @SerializedName(SERIALIZED_NAME_FULFILLMENT_FEE)

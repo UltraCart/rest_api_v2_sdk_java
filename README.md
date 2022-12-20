@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-15T16:45:07.795-05:00[America/Indianapolis]
+  - Build date: 2022-12-20T11:44:45.285-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.99-RC</version>
+  <version>4.0.100-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.99-RC"
+     implementation "com.ultracart:rest-sdk:4.0.100-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.99-RC.jar`
+* `target/rest-sdk-4.0.100-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -651,6 +651,9 @@ Class | Method | HTTP request | Description
  - [ConversationDepartmentResponse](docs/ConversationDepartmentResponse.md)
  - [ConversationDepartmentsResponse](docs/ConversationDepartmentsResponse.md)
  - [ConversationEngagement](docs/ConversationEngagement.md)
+ - [ConversationEngagementEquation](docs/ConversationEngagementEquation.md)
+ - [ConversationEngagementEquationFunction](docs/ConversationEngagementEquationFunction.md)
+ - [ConversationEngagementEquationGroup](docs/ConversationEngagementEquationGroup.md)
  - [ConversationEngagementResponse](docs/ConversationEngagementResponse.md)
  - [ConversationEngagementsResponse](docs/ConversationEngagementsResponse.md)
  - [ConversationEventAddCoupon](docs/ConversationEventAddCoupon.md)
@@ -1308,6 +1311,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.100-RC | 12/20/2022 | conversation engagement update |
 | 4.0.99-RC | 12/15/2022 | conversation search - added start date filtering |
 | 4.0.98-RC | 12/15/2022 | conversation searching |
 | 4.0.97-RC | 12/13/2022 | conversations - add email and sms_phone to participant object |

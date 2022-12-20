@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailGlobalSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:45:07.795-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T11:44:45.285-05:00[America/Indianapolis]")
 public class EmailGlobalSettings {
   public static final String SERIALIZED_NAME_DEDICATED_IP = "dedicated_ip";
   @SerializedName(SERIALIZED_NAME_DEDICATED_IP)

@@ -142,6 +142,9 @@ docs/ConversationDepartment.md
 docs/ConversationDepartmentResponse.md
 docs/ConversationDepartmentsResponse.md
 docs/ConversationEngagement.md
+docs/ConversationEngagementEquation.md
+docs/ConversationEngagementEquationFunction.md
+docs/ConversationEngagementEquationGroup.md
 docs/ConversationEngagementResponse.md
 docs/ConversationEngagementsResponse.md
 docs/ConversationEventAddCoupon.md
@@ -894,6 +897,9 @@ src/main/java/com/ultracart/admin/v2/models/ConversationDepartment.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentsResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEngagement.java
+src/main/java/com/ultracart/admin/v2/models/ConversationEngagementEquation.java
+src/main/java/com/ultracart/admin/v2/models/ConversationEngagementEquationFunction.java
+src/main/java/com/ultracart/admin/v2/models/ConversationEngagementEquationGroup.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEngagementResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEngagementsResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventAddCoupon.java

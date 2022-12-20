@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationEngagementEquation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationEngagement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-15T16:45:07.795-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T11:44:45.285-05:00[America/Indianapolis]")
 public class ConversationEngagement {
   public static final String SERIALIZED_NAME_CONVERSATION_ENGAGEMENT_OID = "conversation_engagement_oid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_ENGAGEMENT_OID)
@@ -69,15 +70,64 @@ public class ConversationEngagement {
 
   public static final String SERIALIZED_NAME_EQUATION = "equation";
   @SerializedName(SERIALIZED_NAME_EQUATION)
-  private Object equation;
+  private ConversationEngagementEquation equation;
 
   public static final String SERIALIZED_NAME_TIME_ON_PAGE = "time_on_page";
   @SerializedName(SERIALIZED_NAME_TIME_ON_PAGE)
   private Integer timeOnPage;
 
+  /**
+   * The type of visitor
+   */
+  @JsonAdapter(VisitorTypeEnum.Adapter.class)
+  public enum VisitorTypeEnum {
+    ALL("all"),
+    
+    FIRST_TIME("first time"),
+    
+    RETURNING("returning");
+
+    private String value;
+
+    VisitorTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VisitorTypeEnum fromValue(String value) {
+      for (VisitorTypeEnum b : VisitorTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<VisitorTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VisitorTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VisitorTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return VisitorTypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_VISITOR_TYPE = "visitor_type";
   @SerializedName(SERIALIZED_NAME_VISITOR_TYPE)
-  private String visitorType;
+  private VisitorTypeEnum visitorType;
 
   public ConversationEngagement() { 
   }
@@ -182,7 +232,7 @@ public class ConversationEngagement {
   }
 
 
-  public ConversationEngagement equation(Object equation) {
+  public ConversationEngagement equation(ConversationEngagementEquation equation) {
     
     this.equation = equation;
     return this;
@@ -195,12 +245,12 @@ public class ConversationEngagement {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getEquation() {
+  public ConversationEngagementEquation getEquation() {
     return equation;
   }
 
 
-  public void setEquation(Object equation) {
+  public void setEquation(ConversationEngagementEquation equation) {
     this.equation = equation;
   }
 
@@ -228,25 +278,25 @@ public class ConversationEngagement {
   }
 
 
-  public ConversationEngagement visitorType(String visitorType) {
+  public ConversationEngagement visitorType(VisitorTypeEnum visitorType) {
     
     this.visitorType = visitorType;
     return this;
   }
 
    /**
-   * Get visitorType
+   * The type of visitor
    * @return visitorType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of visitor")
 
-  public String getVisitorType() {
+  public VisitorTypeEnum getVisitorType() {
     return visitorType;
   }
 
 
-  public void setVisitorType(String visitorType) {
+  public void setVisitorType(VisitorTypeEnum visitorType) {
     this.visitorType = visitorType;
   }
 
@@ -351,6 +401,10 @@ public class ConversationEngagement {
       }
       if (jsonObj.get("engagement_name") != null && !jsonObj.get("engagement_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `engagement_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("engagement_name").toString()));
+      }
+      // validate the optional field `equation`
+      if (jsonObj.getAsJsonObject("equation") != null) {
+        ConversationEngagementEquation.validateJsonObject(jsonObj.getAsJsonObject("equation"));
       }
       if (jsonObj.get("visitor_type") != null && !jsonObj.get("visitor_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `visitor_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("visitor_type").toString()));

@@ -11,9 +11,19 @@
 |**customerGreeting** | **String** |  |  [optional] |
 |**departmentOids** | **List&lt;Integer&gt;** |  |  [optional] |
 |**engagementName** | **String** |  |  [optional] |
-|**equation** | **Object** |  |  [optional] |
+|**equation** | [**ConversationEngagementEquation**](ConversationEngagementEquation.md) |  |  [optional] |
 |**timeOnPage** | **Integer** |  |  [optional] |
-|**visitorType** | **String** |  |  [optional] |
+|**visitorType** | [**VisitorTypeEnum**](#VisitorTypeEnum) | The type of visitor |  [optional] |
+
+
+
+## Enum: VisitorTypeEnum
+
+| Name | Value |
+|---- | -----|
+| ALL | &quot;all&quot; |
+| FIRST_TIME | &quot;first time&quot; |
+| RETURNING | &quot;returning&quot; |
 
 
 
