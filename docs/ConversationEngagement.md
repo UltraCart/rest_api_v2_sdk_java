@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**active** | **Boolean** |  |  [optional]
 **conversationEngagementOid** | **Integer** |  |  [optional]
 **customerGreeting** | **String** |  |  [optional]
 **departmentOids** | **List&lt;Integer&gt;** |  |  [optional]

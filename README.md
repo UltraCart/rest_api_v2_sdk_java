@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-20T11:57:50.778-05:00
+  - Build date: 2022-12-21T16:49:54.939-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.84</version>
+  <version>3.10.85</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.84"
+compile "com.ultracart:rest-sdk:3.10.85"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.84.jar`
+* `target/rest-sdk-3.10.85.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -151,6 +151,9 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/CheckoutApi.md#setupBrowserKey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/CheckoutApi.md#updateCart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
+*ConversationApi* | [**deleteConversationCannedMessage**](docs/ConversationApi.md#deleteConversationCannedMessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
+*ConversationApi* | [**deleteDepartment**](docs/ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
+*ConversationApi* | [**deleteEngagement**](docs/ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
 *ConversationApi* | [**getAgentKeepAlive**](docs/ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
@@ -1295,6 +1298,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.85 | 12/21/2022 | conversation development |
 | 3.10.84 | 12/20/2022 | conversation engagement update |
 | 3.10.83 | 12/20/2022 | conversation engagement update |
 | 3.10.82 | 12/15/2022 | conversation search - added start date filtering |

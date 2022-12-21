@@ -30,11 +30,14 @@ import java.util.List;
 /**
  * ConversationEngagement
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-20T11:57:50.778-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-21T16:49:54.939-05:00")
 
 
 
 public class ConversationEngagement {
+  @SerializedName("active")
+  private Boolean active = null;
+
   @SerializedName("conversation_engagement_oid")
   private Integer conversationEngagementOid = null;
 
@@ -104,6 +107,24 @@ public class ConversationEngagement {
 
   @SerializedName("visitor_type")
   private VisitorTypeEnum visitorType = null;
+
+  public ConversationEngagement active(Boolean active) {
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * Get active
+   * @return active
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isActive() {
+    return active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
 
   public ConversationEngagement conversationEngagementOid(Integer conversationEngagementOid) {
     this.conversationEngagementOid = conversationEngagementOid;
@@ -249,7 +270,8 @@ public class ConversationEngagement {
       return false;
     }
     ConversationEngagement conversationEngagement = (ConversationEngagement) o;
-    return Objects.equals(this.conversationEngagementOid, conversationEngagement.conversationEngagementOid) &&
+    return Objects.equals(this.active, conversationEngagement.active) &&
+        Objects.equals(this.conversationEngagementOid, conversationEngagement.conversationEngagementOid) &&
         Objects.equals(this.customerGreeting, conversationEngagement.customerGreeting) &&
         Objects.equals(this.departmentOids, conversationEngagement.departmentOids) &&
         Objects.equals(this.engagementName, conversationEngagement.engagementName) &&
@@ -260,7 +282,7 @@ public class ConversationEngagement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationEngagementOid, customerGreeting, departmentOids, engagementName, equation, timeOnPage, visitorType);
+    return Objects.hash(active, conversationEngagementOid, customerGreeting, departmentOids, engagementName, equation, timeOnPage, visitorType);
   }
 
 
@@ -269,6 +291,7 @@ public class ConversationEngagement {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationEngagement {\n");
     
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    conversationEngagementOid: ").append(toIndentedString(conversationEngagementOid)).append("\n");
     sb.append("    customerGreeting: ").append(toIndentedString(customerGreeting)).append("\n");
     sb.append("    departmentOids: ").append(toIndentedString(departmentOids)).append("\n");

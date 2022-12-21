@@ -28,16 +28,13 @@ import java.io.IOException;
 /**
  * ConversationDepartment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-20T11:57:50.778-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-21T16:49:54.939-05:00")
 
 
 
 public class ConversationDepartment {
   @SerializedName("conversation_department_oid")
   private Integer conversationDepartmentOid = null;
-
-  @SerializedName("delete_me")
-  private Boolean deleteMe = null;
 
   @SerializedName("department_name")
   private String departmentName = null;
@@ -64,24 +61,6 @@ public class ConversationDepartment {
 
   public void setConversationDepartmentOid(Integer conversationDepartmentOid) {
     this.conversationDepartmentOid = conversationDepartmentOid;
-  }
-
-  public ConversationDepartment deleteMe(Boolean deleteMe) {
-    this.deleteMe = deleteMe;
-    return this;
-  }
-
-   /**
-   * Get deleteMe
-   * @return deleteMe
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isDeleteMe() {
-    return deleteMe;
-  }
-
-  public void setDeleteMe(Boolean deleteMe) {
-    this.deleteMe = deleteMe;
   }
 
   public ConversationDepartment departmentName(String departmentName) {
@@ -149,7 +128,6 @@ public class ConversationDepartment {
     }
     ConversationDepartment conversationDepartment = (ConversationDepartment) o;
     return Objects.equals(this.conversationDepartmentOid, conversationDepartment.conversationDepartmentOid) &&
-        Objects.equals(this.deleteMe, conversationDepartment.deleteMe) &&
         Objects.equals(this.departmentName, conversationDepartment.departmentName) &&
         Objects.equals(this.merchantId, conversationDepartment.merchantId) &&
         Objects.equals(this.settings, conversationDepartment.settings);
@@ -157,7 +135,7 @@ public class ConversationDepartment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationDepartmentOid, deleteMe, departmentName, merchantId, settings);
+    return Objects.hash(conversationDepartmentOid, departmentName, merchantId, settings);
   }
 
 
@@ -167,7 +145,6 @@ public class ConversationDepartment {
     sb.append("class ConversationDepartment {\n");
     
     sb.append("    conversationDepartmentOid: ").append(toIndentedString(conversationDepartmentOid)).append("\n");
-    sb.append("    deleteMe: ").append(toIndentedString(deleteMe)).append("\n");
     sb.append("    departmentName: ").append(toIndentedString(departmentName)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
