@@ -50,8 +50,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationEngagement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T12:10:34.188-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-21T17:03:04.149-05:00[America/Indianapolis]")
 public class ConversationEngagement {
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  private Boolean active;
+
   public static final String SERIALIZED_NAME_CONVERSATION_ENGAGEMENT_OID = "conversation_engagement_oid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_ENGAGEMENT_OID)
   private Integer conversationEngagementOid;
@@ -131,6 +135,29 @@ public class ConversationEngagement {
 
   public ConversationEngagement() { 
   }
+
+  public ConversationEngagement active(Boolean active) {
+    
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * Get active
+   * @return active
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getActive() {
+    return active;
+  }
+
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
 
   public ConversationEngagement conversationEngagementOid(Integer conversationEngagementOid) {
     
@@ -311,7 +338,8 @@ public class ConversationEngagement {
       return false;
     }
     ConversationEngagement conversationEngagement = (ConversationEngagement) o;
-    return Objects.equals(this.conversationEngagementOid, conversationEngagement.conversationEngagementOid) &&
+    return Objects.equals(this.active, conversationEngagement.active) &&
+        Objects.equals(this.conversationEngagementOid, conversationEngagement.conversationEngagementOid) &&
         Objects.equals(this.customerGreeting, conversationEngagement.customerGreeting) &&
         Objects.equals(this.departmentOids, conversationEngagement.departmentOids) &&
         Objects.equals(this.engagementName, conversationEngagement.engagementName) &&
@@ -322,13 +350,14 @@ public class ConversationEngagement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationEngagementOid, customerGreeting, departmentOids, engagementName, equation, timeOnPage, visitorType);
+    return Objects.hash(active, conversationEngagementOid, customerGreeting, departmentOids, engagementName, equation, timeOnPage, visitorType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationEngagement {\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    conversationEngagementOid: ").append(toIndentedString(conversationEngagementOid)).append("\n");
     sb.append("    customerGreeting: ").append(toIndentedString(customerGreeting)).append("\n");
     sb.append("    departmentOids: ").append(toIndentedString(departmentOids)).append("\n");
@@ -358,6 +387,7 @@ public class ConversationEngagement {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("active");
     openapiFields.add("conversation_engagement_oid");
     openapiFields.add("customer_greeting");
     openapiFields.add("department_oids");

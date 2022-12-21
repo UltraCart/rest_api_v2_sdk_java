@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SelfConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T12:10:34.188-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-21T17:03:04.149-05:00[America/Indianapolis]")
 public class SelfConfig {
   public static final String SERIALIZED_NAME_TAX_BILLING = "tax_billing";
   @SerializedName(SERIALIZED_NAME_TAX_BILLING)

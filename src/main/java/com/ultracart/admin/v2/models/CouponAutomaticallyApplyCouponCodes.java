@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponAutomaticallyApplyCouponCodes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T12:10:34.188-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-21T17:03:04.149-05:00[America/Indianapolis]")
 public class CouponAutomaticallyApplyCouponCodes {
   public static final String SERIALIZED_NAME_COUPON_CODES = "coupon_codes";
   @SerializedName(SERIALIZED_NAME_COUPON_CODES)

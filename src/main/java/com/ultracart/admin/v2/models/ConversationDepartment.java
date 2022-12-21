@@ -47,15 +47,11 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationDepartment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T12:10:34.188-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-21T17:03:04.149-05:00[America/Indianapolis]")
 public class ConversationDepartment {
   public static final String SERIALIZED_NAME_CONVERSATION_DEPARTMENT_OID = "conversation_department_oid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_DEPARTMENT_OID)
   private Integer conversationDepartmentOid;
-
-  public static final String SERIALIZED_NAME_DELETE_ME = "delete_me";
-  @SerializedName(SERIALIZED_NAME_DELETE_ME)
-  private Boolean deleteMe;
 
   public static final String SERIALIZED_NAME_DEPARTMENT_NAME = "department_name";
   @SerializedName(SERIALIZED_NAME_DEPARTMENT_NAME)
@@ -92,29 +88,6 @@ public class ConversationDepartment {
 
   public void setConversationDepartmentOid(Integer conversationDepartmentOid) {
     this.conversationDepartmentOid = conversationDepartmentOid;
-  }
-
-
-  public ConversationDepartment deleteMe(Boolean deleteMe) {
-    
-    this.deleteMe = deleteMe;
-    return this;
-  }
-
-   /**
-   * Get deleteMe
-   * @return deleteMe
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getDeleteMe() {
-    return deleteMe;
-  }
-
-
-  public void setDeleteMe(Boolean deleteMe) {
-    this.deleteMe = deleteMe;
   }
 
 
@@ -198,7 +171,6 @@ public class ConversationDepartment {
     }
     ConversationDepartment conversationDepartment = (ConversationDepartment) o;
     return Objects.equals(this.conversationDepartmentOid, conversationDepartment.conversationDepartmentOid) &&
-        Objects.equals(this.deleteMe, conversationDepartment.deleteMe) &&
         Objects.equals(this.departmentName, conversationDepartment.departmentName) &&
         Objects.equals(this.merchantId, conversationDepartment.merchantId) &&
         Objects.equals(this.settings, conversationDepartment.settings);
@@ -206,7 +178,7 @@ public class ConversationDepartment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationDepartmentOid, deleteMe, departmentName, merchantId, settings);
+    return Objects.hash(conversationDepartmentOid, departmentName, merchantId, settings);
   }
 
   @Override
@@ -214,7 +186,6 @@ public class ConversationDepartment {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationDepartment {\n");
     sb.append("    conversationDepartmentOid: ").append(toIndentedString(conversationDepartmentOid)).append("\n");
-    sb.append("    deleteMe: ").append(toIndentedString(deleteMe)).append("\n");
     sb.append("    departmentName: ").append(toIndentedString(departmentName)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
@@ -241,7 +212,6 @@ public class ConversationDepartment {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("conversation_department_oid");
-    openapiFields.add("delete_me");
     openapiFields.add("department_name");
     openapiFields.add("merchant_id");
     openapiFields.add("settings");
