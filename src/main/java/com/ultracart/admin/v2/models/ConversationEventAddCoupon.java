@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationEventAddCoupon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-21T17:03:04.149-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-27T08:48:44.512-05:00[America/Indianapolis]")
 public class ConversationEventAddCoupon {
   public static final String SERIALIZED_NAME_AGENT_ARN = "agent_arn";
   @SerializedName(SERIALIZED_NAME_AGENT_ARN)

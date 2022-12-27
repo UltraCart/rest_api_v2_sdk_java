@@ -213,8 +213,12 @@ docs/CouponFreeShippingWithItemsPurchase.md
 docs/CouponFreeShippingWithSubtotal.md
 docs/CouponItemSearchResult.md
 docs/CouponItemSearchResultsResponse.md
+docs/CouponMoreLoyaltyCashback.md
+docs/CouponMoreLoyaltyPoints.md
 docs/CouponMultipleAmountsOffItems.md
 docs/CouponNoDiscount.md
+docs/CouponPercentMoreLoyaltyCashback.md
+docs/CouponPercentMoreLoyaltyPoints.md
 docs/CouponPercentOffItemWithItemsQuantityPurchase.md
 docs/CouponPercentOffItems.md
 docs/CouponPercentOffItemsAndFreeShipping.md
@@ -967,8 +971,12 @@ src/main/java/com/ultracart/admin/v2/models/CouponFreeShippingWithItemsPurchase.
 src/main/java/com/ultracart/admin/v2/models/CouponFreeShippingWithSubtotal.java
 src/main/java/com/ultracart/admin/v2/models/CouponItemSearchResult.java
 src/main/java/com/ultracart/admin/v2/models/CouponItemSearchResultsResponse.java
+src/main/java/com/ultracart/admin/v2/models/CouponMoreLoyaltyCashback.java
+src/main/java/com/ultracart/admin/v2/models/CouponMoreLoyaltyPoints.java
 src/main/java/com/ultracart/admin/v2/models/CouponMultipleAmountsOffItems.java
 src/main/java/com/ultracart/admin/v2/models/CouponNoDiscount.java
+src/main/java/com/ultracart/admin/v2/models/CouponPercentMoreLoyaltyCashback.java
+src/main/java/com/ultracart/admin/v2/models/CouponPercentMoreLoyaltyPoints.java
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffItemWithItemsQuantityPurchase.java
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffItems.java
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffItemsAndFreeShipping.java

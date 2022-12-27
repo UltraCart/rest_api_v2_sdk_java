@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-21T17:03:04.149-05:00[America/Indianapolis]
+  - Build date: 2022-12-27T08:48:44.512-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.102-RC</version>
+  <version>4.0.103-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.102-RC"
+     implementation "com.ultracart:rest-sdk:4.0.103-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.102-RC.jar`
+* `target/rest-sdk-4.0.103-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -724,8 +724,12 @@ Class | Method | HTTP request | Description
  - [CouponFreeShippingWithSubtotal](docs/CouponFreeShippingWithSubtotal.md)
  - [CouponItemSearchResult](docs/CouponItemSearchResult.md)
  - [CouponItemSearchResultsResponse](docs/CouponItemSearchResultsResponse.md)
+ - [CouponMoreLoyaltyCashback](docs/CouponMoreLoyaltyCashback.md)
+ - [CouponMoreLoyaltyPoints](docs/CouponMoreLoyaltyPoints.md)
  - [CouponMultipleAmountsOffItems](docs/CouponMultipleAmountsOffItems.md)
  - [CouponNoDiscount](docs/CouponNoDiscount.md)
+ - [CouponPercentMoreLoyaltyCashback](docs/CouponPercentMoreLoyaltyCashback.md)
+ - [CouponPercentMoreLoyaltyPoints](docs/CouponPercentMoreLoyaltyPoints.md)
  - [CouponPercentOffItemWithItemsQuantityPurchase](docs/CouponPercentOffItemWithItemsQuantityPurchase.md)
  - [CouponPercentOffItems](docs/CouponPercentOffItems.md)
  - [CouponPercentOffItemsAndFreeShipping](docs/CouponPercentOffItemsAndFreeShipping.md)
@@ -1314,6 +1318,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.103-RC | 12/27/2022 | additional loyalty related coupons |
 | 4.0.102-RC | 12/21/2022 | conversation development |
 | 4.0.101-RC | 12/20/2022 | conversation engagement update |
 | 4.0.100-RC | 12/20/2022 | conversation engagement update |

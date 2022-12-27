@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPaymentECheck
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-21T17:03:04.149-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-27T08:48:44.512-05:00[America/Indianapolis]")
 public class OrderPaymentECheck {
   public static final String SERIALIZED_NAME_BANK_ABA_CODE = "bank_aba_code";
   @SerializedName(SERIALIZED_NAME_BANK_ABA_CODE)
