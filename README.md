@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2022-12-21T16:49:54.939-05:00
+  - Build date: 2022-12-27T08:35:38.934-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.85</version>
+  <version>3.10.86</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.85"
+compile "com.ultracart:rest-sdk:3.10.86"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.85.jar`
+* `target/rest-sdk-3.10.86.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -708,8 +708,12 @@ Class | Method | HTTP request | Description
  - [CouponFreeShippingWithSubtotal](docs/CouponFreeShippingWithSubtotal.md)
  - [CouponItemSearchResult](docs/CouponItemSearchResult.md)
  - [CouponItemSearchResultsResponse](docs/CouponItemSearchResultsResponse.md)
+ - [CouponMoreLoyaltyCashback](docs/CouponMoreLoyaltyCashback.md)
+ - [CouponMoreLoyaltyPoints](docs/CouponMoreLoyaltyPoints.md)
  - [CouponMultipleAmountsOffItems](docs/CouponMultipleAmountsOffItems.md)
  - [CouponNoDiscount](docs/CouponNoDiscount.md)
+ - [CouponPercentMoreLoyaltyCashback](docs/CouponPercentMoreLoyaltyCashback.md)
+ - [CouponPercentMoreLoyaltyPoints](docs/CouponPercentMoreLoyaltyPoints.md)
  - [CouponPercentOffItemWithItemsQuantityPurchase](docs/CouponPercentOffItemWithItemsQuantityPurchase.md)
  - [CouponPercentOffItems](docs/CouponPercentOffItems.md)
  - [CouponPercentOffItemsAndFreeShipping](docs/CouponPercentOffItemsAndFreeShipping.md)
@@ -1298,6 +1302,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.86 | 12/27/2022 | additional loyalty related coupons |
 | 3.10.85 | 12/21/2022 | conversation development |
 | 3.10.84 | 12/20/2022 | conversation engagement update |
 | 3.10.83 | 12/20/2022 | conversation engagement update |

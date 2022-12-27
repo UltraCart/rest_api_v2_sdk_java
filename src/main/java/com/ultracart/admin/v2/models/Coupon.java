@@ -43,8 +43,12 @@ import com.ultracart.admin.v2.models.CouponFreeShipping;
 import com.ultracart.admin.v2.models.CouponFreeShippingSpecificItems;
 import com.ultracart.admin.v2.models.CouponFreeShippingWithItemsPurchase;
 import com.ultracart.admin.v2.models.CouponFreeShippingWithSubtotal;
+import com.ultracart.admin.v2.models.CouponMoreLoyaltyCashback;
+import com.ultracart.admin.v2.models.CouponMoreLoyaltyPoints;
 import com.ultracart.admin.v2.models.CouponMultipleAmountsOffItems;
 import com.ultracart.admin.v2.models.CouponNoDiscount;
+import com.ultracart.admin.v2.models.CouponPercentMoreLoyaltyCashback;
+import com.ultracart.admin.v2.models.CouponPercentMoreLoyaltyPoints;
 import com.ultracart.admin.v2.models.CouponPercentOffItemWithItemsQuantityPurchase;
 import com.ultracart.admin.v2.models.CouponPercentOffItems;
 import com.ultracart.admin.v2.models.CouponPercentOffItemsAndFreeShipping;
@@ -73,7 +77,7 @@ import java.util.List;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-21T16:49:54.939-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-27T08:35:38.934-05:00")
 
 
 
@@ -180,11 +184,23 @@ public class Coupon {
   @SerializedName("merchant_notes")
   private String merchantNotes = null;
 
+  @SerializedName("more_loyalty_cashback")
+  private CouponMoreLoyaltyCashback moreLoyaltyCashback = null;
+
+  @SerializedName("more_loyalty_points")
+  private CouponMoreLoyaltyPoints moreLoyaltyPoints = null;
+
   @SerializedName("multiple_amounts_off_items")
   private CouponMultipleAmountsOffItems multipleAmountsOffItems = null;
 
   @SerializedName("no_discount")
   private CouponNoDiscount noDiscount = null;
+
+  @SerializedName("percent_more_loyalty_cashback")
+  private CouponPercentMoreLoyaltyCashback percentMoreLoyaltyCashback = null;
+
+  @SerializedName("percent_more_loyalty_points")
+  private CouponPercentMoreLoyaltyPoints percentMoreLoyaltyPoints = null;
 
   @SerializedName("percent_off_item_with_items_quantity_purchase")
   private CouponPercentOffItemWithItemsQuantityPurchase percentOffItemWithItemsQuantityPurchase = null;
@@ -873,6 +889,42 @@ public class Coupon {
     this.merchantNotes = merchantNotes;
   }
 
+  public Coupon moreLoyaltyCashback(CouponMoreLoyaltyCashback moreLoyaltyCashback) {
+    this.moreLoyaltyCashback = moreLoyaltyCashback;
+    return this;
+  }
+
+   /**
+   * Get moreLoyaltyCashback
+   * @return moreLoyaltyCashback
+  **/
+  @ApiModelProperty(value = "")
+  public CouponMoreLoyaltyCashback getMoreLoyaltyCashback() {
+    return moreLoyaltyCashback;
+  }
+
+  public void setMoreLoyaltyCashback(CouponMoreLoyaltyCashback moreLoyaltyCashback) {
+    this.moreLoyaltyCashback = moreLoyaltyCashback;
+  }
+
+  public Coupon moreLoyaltyPoints(CouponMoreLoyaltyPoints moreLoyaltyPoints) {
+    this.moreLoyaltyPoints = moreLoyaltyPoints;
+    return this;
+  }
+
+   /**
+   * Get moreLoyaltyPoints
+   * @return moreLoyaltyPoints
+  **/
+  @ApiModelProperty(value = "")
+  public CouponMoreLoyaltyPoints getMoreLoyaltyPoints() {
+    return moreLoyaltyPoints;
+  }
+
+  public void setMoreLoyaltyPoints(CouponMoreLoyaltyPoints moreLoyaltyPoints) {
+    this.moreLoyaltyPoints = moreLoyaltyPoints;
+  }
+
   public Coupon multipleAmountsOffItems(CouponMultipleAmountsOffItems multipleAmountsOffItems) {
     this.multipleAmountsOffItems = multipleAmountsOffItems;
     return this;
@@ -907,6 +959,42 @@ public class Coupon {
 
   public void setNoDiscount(CouponNoDiscount noDiscount) {
     this.noDiscount = noDiscount;
+  }
+
+  public Coupon percentMoreLoyaltyCashback(CouponPercentMoreLoyaltyCashback percentMoreLoyaltyCashback) {
+    this.percentMoreLoyaltyCashback = percentMoreLoyaltyCashback;
+    return this;
+  }
+
+   /**
+   * Get percentMoreLoyaltyCashback
+   * @return percentMoreLoyaltyCashback
+  **/
+  @ApiModelProperty(value = "")
+  public CouponPercentMoreLoyaltyCashback getPercentMoreLoyaltyCashback() {
+    return percentMoreLoyaltyCashback;
+  }
+
+  public void setPercentMoreLoyaltyCashback(CouponPercentMoreLoyaltyCashback percentMoreLoyaltyCashback) {
+    this.percentMoreLoyaltyCashback = percentMoreLoyaltyCashback;
+  }
+
+  public Coupon percentMoreLoyaltyPoints(CouponPercentMoreLoyaltyPoints percentMoreLoyaltyPoints) {
+    this.percentMoreLoyaltyPoints = percentMoreLoyaltyPoints;
+    return this;
+  }
+
+   /**
+   * Get percentMoreLoyaltyPoints
+   * @return percentMoreLoyaltyPoints
+  **/
+  @ApiModelProperty(value = "")
+  public CouponPercentMoreLoyaltyPoints getPercentMoreLoyaltyPoints() {
+    return percentMoreLoyaltyPoints;
+  }
+
+  public void setPercentMoreLoyaltyPoints(CouponPercentMoreLoyaltyPoints percentMoreLoyaltyPoints) {
+    this.percentMoreLoyaltyPoints = percentMoreLoyaltyPoints;
   }
 
   public Coupon percentOffItemWithItemsQuantityPurchase(CouponPercentOffItemWithItemsQuantityPurchase percentOffItemWithItemsQuantityPurchase) {
@@ -1427,8 +1515,12 @@ public class Coupon {
         Objects.equals(this.hideFromCustomer, coupon.hideFromCustomer) &&
         Objects.equals(this.merchantCode, coupon.merchantCode) &&
         Objects.equals(this.merchantNotes, coupon.merchantNotes) &&
+        Objects.equals(this.moreLoyaltyCashback, coupon.moreLoyaltyCashback) &&
+        Objects.equals(this.moreLoyaltyPoints, coupon.moreLoyaltyPoints) &&
         Objects.equals(this.multipleAmountsOffItems, coupon.multipleAmountsOffItems) &&
         Objects.equals(this.noDiscount, coupon.noDiscount) &&
+        Objects.equals(this.percentMoreLoyaltyCashback, coupon.percentMoreLoyaltyCashback) &&
+        Objects.equals(this.percentMoreLoyaltyPoints, coupon.percentMoreLoyaltyPoints) &&
         Objects.equals(this.percentOffItemWithItemsQuantityPurchase, coupon.percentOffItemWithItemsQuantityPurchase) &&
         Objects.equals(this.percentOffItems, coupon.percentOffItems) &&
         Objects.equals(this.percentOffItemsAndFreeShipping, coupon.percentOffItemsAndFreeShipping) &&
@@ -1458,7 +1550,7 @@ public class Coupon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, multipleAmountsOffItems, noDiscount, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, moreLoyaltyCashback, moreLoyaltyPoints, multipleAmountsOffItems, noDiscount, percentMoreLoyaltyCashback, percentMoreLoyaltyPoints, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
   }
 
 
@@ -1501,8 +1593,12 @@ public class Coupon {
     sb.append("    hideFromCustomer: ").append(toIndentedString(hideFromCustomer)).append("\n");
     sb.append("    merchantCode: ").append(toIndentedString(merchantCode)).append("\n");
     sb.append("    merchantNotes: ").append(toIndentedString(merchantNotes)).append("\n");
+    sb.append("    moreLoyaltyCashback: ").append(toIndentedString(moreLoyaltyCashback)).append("\n");
+    sb.append("    moreLoyaltyPoints: ").append(toIndentedString(moreLoyaltyPoints)).append("\n");
     sb.append("    multipleAmountsOffItems: ").append(toIndentedString(multipleAmountsOffItems)).append("\n");
     sb.append("    noDiscount: ").append(toIndentedString(noDiscount)).append("\n");
+    sb.append("    percentMoreLoyaltyCashback: ").append(toIndentedString(percentMoreLoyaltyCashback)).append("\n");
+    sb.append("    percentMoreLoyaltyPoints: ").append(toIndentedString(percentMoreLoyaltyPoints)).append("\n");
     sb.append("    percentOffItemWithItemsQuantityPurchase: ").append(toIndentedString(percentOffItemWithItemsQuantityPurchase)).append("\n");
     sb.append("    percentOffItems: ").append(toIndentedString(percentOffItems)).append("\n");
     sb.append("    percentOffItemsAndFreeShipping: ").append(toIndentedString(percentOffItemsAndFreeShipping)).append("\n");

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemChargebackAdjustmentRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-21T16:49:54.939-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-27T08:35:38.934-05:00")
 
 
 
