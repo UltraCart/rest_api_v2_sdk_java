@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailFlowFolder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-03T13:02:50.267-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-03T16:10:17.964-05:00[America/Indianapolis]")
 public class EmailFlowFolder {
   public static final String SERIALIZED_NAME_ESP_FLOW_FOLDER_UUID = "esp_flow_folder_uuid";
   @SerializedName(SERIALIZED_NAME_ESP_FLOW_FOLDER_UUID)

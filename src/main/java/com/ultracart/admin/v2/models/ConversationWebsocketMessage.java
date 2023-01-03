@@ -28,6 +28,7 @@ import com.ultracart.admin.v2.models.ConversationEventReadMessage;
 import com.ultracart.admin.v2.models.ConversationEventTyping;
 import com.ultracart.admin.v2.models.ConversationEventWebchatContext;
 import com.ultracart.admin.v2.models.ConversationMessage;
+import com.ultracart.admin.v2.models.ConversationParticipant;
 import com.ultracart.admin.v2.models.ConversationSummary;
 import com.ultracart.admin.v2.models.ConversationWebchatQueueStatus;
 import io.swagger.annotations.ApiModel;
@@ -57,7 +58,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-03T13:02:50.267-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-03T16:10:17.964-05:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
@@ -82,6 +83,22 @@ public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_EVENT_NEW_MESSAGE = "event_new_message";
   @SerializedName(SERIALIZED_NAME_EVENT_NEW_MESSAGE)
   private ConversationSummary eventNewMessage;
+
+  public static final String SERIALIZED_NAME_EVENT_PARTICIPANT_JOIN = "event_participant_join";
+  @SerializedName(SERIALIZED_NAME_EVENT_PARTICIPANT_JOIN)
+  private ConversationSummary eventParticipantJoin;
+
+  public static final String SERIALIZED_NAME_EVENT_PARTICIPANT_JOIN_PARTICIPANT = "event_participant_join_participant";
+  @SerializedName(SERIALIZED_NAME_EVENT_PARTICIPANT_JOIN_PARTICIPANT)
+  private ConversationParticipant eventParticipantJoinParticipant;
+
+  public static final String SERIALIZED_NAME_EVENT_PARTICIPANT_LEFT = "event_participant_left";
+  @SerializedName(SERIALIZED_NAME_EVENT_PARTICIPANT_LEFT)
+  private ConversationSummary eventParticipantLeft;
+
+  public static final String SERIALIZED_NAME_EVENT_PARTICIPANT_LEFT_PARTICIPANT = "event_participant_left_participant";
+  @SerializedName(SERIALIZED_NAME_EVENT_PARTICIPANT_LEFT_PARTICIPANT)
+  private ConversationParticipant eventParticipantLeftParticipant;
 
   public static final String SERIALIZED_NAME_EVENT_PARTICIPANT_UPDATE = "event_participant_update";
   @SerializedName(SERIALIZED_NAME_EVENT_PARTICIPANT_UPDATE)
@@ -125,6 +142,10 @@ public class ConversationWebsocketMessage {
     RRWEB("rrweb"),
     
     PARTICIPANT_UPDATE("participant update"),
+    
+    PARTICIPANT_JOIN("participant join"),
+    
+    PARTICIPANT_LEAVE("participant leave"),
     
     READ_MESSAGE("read message"),
     
@@ -387,6 +408,98 @@ public class ConversationWebsocketMessage {
 
   public void setEventNewMessage(ConversationSummary eventNewMessage) {
     this.eventNewMessage = eventNewMessage;
+  }
+
+
+  public ConversationWebsocketMessage eventParticipantJoin(ConversationSummary eventParticipantJoin) {
+    
+    this.eventParticipantJoin = eventParticipantJoin;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantJoin
+   * @return eventParticipantJoin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationSummary getEventParticipantJoin() {
+    return eventParticipantJoin;
+  }
+
+
+  public void setEventParticipantJoin(ConversationSummary eventParticipantJoin) {
+    this.eventParticipantJoin = eventParticipantJoin;
+  }
+
+
+  public ConversationWebsocketMessage eventParticipantJoinParticipant(ConversationParticipant eventParticipantJoinParticipant) {
+    
+    this.eventParticipantJoinParticipant = eventParticipantJoinParticipant;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantJoinParticipant
+   * @return eventParticipantJoinParticipant
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationParticipant getEventParticipantJoinParticipant() {
+    return eventParticipantJoinParticipant;
+  }
+
+
+  public void setEventParticipantJoinParticipant(ConversationParticipant eventParticipantJoinParticipant) {
+    this.eventParticipantJoinParticipant = eventParticipantJoinParticipant;
+  }
+
+
+  public ConversationWebsocketMessage eventParticipantLeft(ConversationSummary eventParticipantLeft) {
+    
+    this.eventParticipantLeft = eventParticipantLeft;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantLeft
+   * @return eventParticipantLeft
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationSummary getEventParticipantLeft() {
+    return eventParticipantLeft;
+  }
+
+
+  public void setEventParticipantLeft(ConversationSummary eventParticipantLeft) {
+    this.eventParticipantLeft = eventParticipantLeft;
+  }
+
+
+  public ConversationWebsocketMessage eventParticipantLeftParticipant(ConversationParticipant eventParticipantLeftParticipant) {
+    
+    this.eventParticipantLeftParticipant = eventParticipantLeftParticipant;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantLeftParticipant
+   * @return eventParticipantLeftParticipant
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationParticipant getEventParticipantLeftParticipant() {
+    return eventParticipantLeftParticipant;
+  }
+
+
+  public void setEventParticipantLeftParticipant(ConversationParticipant eventParticipantLeftParticipant) {
+    this.eventParticipantLeftParticipant = eventParticipantLeftParticipant;
   }
 
 
@@ -659,6 +772,10 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventConversationClosed, conversationWebsocketMessage.eventConversationClosed) &&
         Objects.equals(this.eventNewConversation, conversationWebsocketMessage.eventNewConversation) &&
         Objects.equals(this.eventNewMessage, conversationWebsocketMessage.eventNewMessage) &&
+        Objects.equals(this.eventParticipantJoin, conversationWebsocketMessage.eventParticipantJoin) &&
+        Objects.equals(this.eventParticipantJoinParticipant, conversationWebsocketMessage.eventParticipantJoinParticipant) &&
+        Objects.equals(this.eventParticipantLeft, conversationWebsocketMessage.eventParticipantLeft) &&
+        Objects.equals(this.eventParticipantLeftParticipant, conversationWebsocketMessage.eventParticipantLeftParticipant) &&
         Objects.equals(this.eventParticipantUpdate, conversationWebsocketMessage.eventParticipantUpdate) &&
         Objects.equals(this.eventQueuePosition, conversationWebsocketMessage.eventQueuePosition) &&
         Objects.equals(this.eventQueueStatusUpdate, conversationWebsocketMessage.eventQueueStatusUpdate) &&
@@ -674,7 +791,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
+    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantJoin, eventParticipantJoinParticipant, eventParticipantLeft, eventParticipantLeftParticipant, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
   }
 
   @Override
@@ -687,6 +804,10 @@ public class ConversationWebsocketMessage {
     sb.append("    eventConversationClosed: ").append(toIndentedString(eventConversationClosed)).append("\n");
     sb.append("    eventNewConversation: ").append(toIndentedString(eventNewConversation)).append("\n");
     sb.append("    eventNewMessage: ").append(toIndentedString(eventNewMessage)).append("\n");
+    sb.append("    eventParticipantJoin: ").append(toIndentedString(eventParticipantJoin)).append("\n");
+    sb.append("    eventParticipantJoinParticipant: ").append(toIndentedString(eventParticipantJoinParticipant)).append("\n");
+    sb.append("    eventParticipantLeft: ").append(toIndentedString(eventParticipantLeft)).append("\n");
+    sb.append("    eventParticipantLeftParticipant: ").append(toIndentedString(eventParticipantLeftParticipant)).append("\n");
     sb.append("    eventParticipantUpdate: ").append(toIndentedString(eventParticipantUpdate)).append("\n");
     sb.append("    eventQueuePosition: ").append(toIndentedString(eventQueuePosition)).append("\n");
     sb.append("    eventQueueStatusUpdate: ").append(toIndentedString(eventQueueStatusUpdate)).append("\n");
@@ -726,6 +847,10 @@ public class ConversationWebsocketMessage {
     openapiFields.add("event_conversation_closed");
     openapiFields.add("event_new_conversation");
     openapiFields.add("event_new_message");
+    openapiFields.add("event_participant_join");
+    openapiFields.add("event_participant_join_participant");
+    openapiFields.add("event_participant_left");
+    openapiFields.add("event_participant_left_participant");
     openapiFields.add("event_participant_update");
     openapiFields.add("event_queue_position");
     openapiFields.add("event_queue_status_update");
@@ -786,6 +911,22 @@ public class ConversationWebsocketMessage {
       // validate the optional field `event_new_message`
       if (jsonObj.getAsJsonObject("event_new_message") != null) {
         ConversationSummary.validateJsonObject(jsonObj.getAsJsonObject("event_new_message"));
+      }
+      // validate the optional field `event_participant_join`
+      if (jsonObj.getAsJsonObject("event_participant_join") != null) {
+        ConversationSummary.validateJsonObject(jsonObj.getAsJsonObject("event_participant_join"));
+      }
+      // validate the optional field `event_participant_join_participant`
+      if (jsonObj.getAsJsonObject("event_participant_join_participant") != null) {
+        ConversationParticipant.validateJsonObject(jsonObj.getAsJsonObject("event_participant_join_participant"));
+      }
+      // validate the optional field `event_participant_left`
+      if (jsonObj.getAsJsonObject("event_participant_left") != null) {
+        ConversationSummary.validateJsonObject(jsonObj.getAsJsonObject("event_participant_left"));
+      }
+      // validate the optional field `event_participant_left_participant`
+      if (jsonObj.getAsJsonObject("event_participant_left_participant") != null) {
+        ConversationParticipant.validateJsonObject(jsonObj.getAsJsonObject("event_participant_left_participant"));
       }
       // validate the optional field `event_participant_update`
       if (jsonObj.getAsJsonObject("event_participant_update") != null) {

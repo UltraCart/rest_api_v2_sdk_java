@@ -13,6 +13,10 @@
 |**eventConversationClosed** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
 |**eventNewConversation** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
 |**eventNewMessage** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
+|**eventParticipantJoin** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
+|**eventParticipantJoinParticipant** | [**ConversationParticipant**](ConversationParticipant.md) |  |  [optional] |
+|**eventParticipantLeft** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
+|**eventParticipantLeftParticipant** | [**ConversationParticipant**](ConversationParticipant.md) |  |  [optional] |
 |**eventParticipantUpdate** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
 |**eventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  |  [optional] |
 |**eventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  |  [optional] |
@@ -40,6 +44,8 @@
 | QUEUE_STATUS_UPDATE | &quot;queue status update&quot; |
 | RRWEB | &quot;rrweb&quot; |
 | PARTICIPANT_UPDATE | &quot;participant update&quot; |
+| PARTICIPANT_JOIN | &quot;participant join&quot; |
+| PARTICIPANT_LEAVE | &quot;participant leave&quot; |
 | READ_MESSAGE | &quot;read message&quot; |
 | TYPING | &quot;typing&quot; |
 | ADD_COUPON | &quot;add coupon&quot; |
