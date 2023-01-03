@@ -38,6 +38,7 @@ import com.ultracart.admin.v2.models.OrderItem;
 import com.ultracart.admin.v2.models.OrderLinkedShipment;
 import com.ultracart.admin.v2.models.OrderMarketing;
 import com.ultracart.admin.v2.models.OrderPayment;
+import com.ultracart.admin.v2.models.OrderPointOfSale;
 import com.ultracart.admin.v2.models.OrderProperty;
 import com.ultracart.admin.v2.models.OrderQuote;
 import com.ultracart.admin.v2.models.OrderSalesforce;
@@ -55,7 +56,7 @@ import java.util.List;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-27T08:35:38.934-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-03T12:50:07.163-05:00")
 
 
 
@@ -201,6 +202,9 @@ public class Order {
 
   @SerializedName("payment")
   private OrderPayment payment = null;
+
+  @SerializedName("point_of_sale")
+  private OrderPointOfSale pointOfSale = null;
 
   @SerializedName("properties")
   private List<OrderProperty> properties = null;
@@ -703,6 +707,24 @@ public class Order {
     this.payment = payment;
   }
 
+  public Order pointOfSale(OrderPointOfSale pointOfSale) {
+    this.pointOfSale = pointOfSale;
+    return this;
+  }
+
+   /**
+   * Get pointOfSale
+   * @return pointOfSale
+  **/
+  @ApiModelProperty(value = "")
+  public OrderPointOfSale getPointOfSale() {
+    return pointOfSale;
+  }
+
+  public void setPointOfSale(OrderPointOfSale pointOfSale) {
+    this.pointOfSale = pointOfSale;
+  }
+
   public Order properties(List<OrderProperty> properties) {
     this.properties = properties;
     return this;
@@ -916,6 +938,7 @@ public class Order {
         Objects.equals(this.merchantId, order.merchantId) &&
         Objects.equals(this.orderId, order.orderId) &&
         Objects.equals(this.payment, order.payment) &&
+        Objects.equals(this.pointOfSale, order.pointOfSale) &&
         Objects.equals(this.properties, order.properties) &&
         Objects.equals(this.quote, order.quote) &&
         Objects.equals(this.refundDts, order.refundDts) &&
@@ -929,7 +952,7 @@ public class Order {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, tags, taxes);
+    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, tags, taxes);
   }
 
 
@@ -963,6 +986,7 @@ public class Order {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
+    sb.append("    pointOfSale: ").append(toIndentedString(pointOfSale)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quote: ").append(toIndentedString(quote)).append("\n");
     sb.append("    refundDts: ").append(toIndentedString(refundDts)).append("\n");
