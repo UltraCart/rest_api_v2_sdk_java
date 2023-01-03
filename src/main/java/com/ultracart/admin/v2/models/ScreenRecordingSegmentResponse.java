@@ -31,7 +31,7 @@ import java.io.IOException;
 /**
  * ScreenRecordingSegmentResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-03T12:50:07.163-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-03T15:58:00.972-05:00")
 
 
 

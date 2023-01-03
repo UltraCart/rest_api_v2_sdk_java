@@ -28,6 +28,7 @@ import com.ultracart.admin.v2.models.ConversationEventReadMessage;
 import com.ultracart.admin.v2.models.ConversationEventTyping;
 import com.ultracart.admin.v2.models.ConversationEventWebchatContext;
 import com.ultracart.admin.v2.models.ConversationMessage;
+import com.ultracart.admin.v2.models.ConversationParticipant;
 import com.ultracart.admin.v2.models.ConversationSummary;
 import com.ultracart.admin.v2.models.ConversationWebchatQueueStatus;
 import io.swagger.annotations.ApiModel;
@@ -37,7 +38,7 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-03T12:50:07.163-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-03T15:58:00.972-05:00")
 
 
 
@@ -59,6 +60,18 @@ public class ConversationWebsocketMessage {
 
   @SerializedName("event_new_message")
   private ConversationSummary eventNewMessage = null;
+
+  @SerializedName("event_participant_join")
+  private ConversationSummary eventParticipantJoin = null;
+
+  @SerializedName("event_participant_join_participant")
+  private ConversationParticipant eventParticipantJoinParticipant = null;
+
+  @SerializedName("event_participant_left")
+  private ConversationSummary eventParticipantLeft = null;
+
+  @SerializedName("event_participant_left_participant")
+  private ConversationParticipant eventParticipantLeftParticipant = null;
 
   @SerializedName("event_participant_update")
   private ConversationSummary eventParticipantUpdate = null;
@@ -97,6 +110,10 @@ public class ConversationWebsocketMessage {
     RRWEB("rrweb"),
     
     PARTICIPANT_UPDATE("participant update"),
+    
+    PARTICIPANT_JOIN("participant join"),
+    
+    PARTICIPANT_LEAVE("participant leave"),
     
     READ_MESSAGE("read message"),
     
@@ -323,6 +340,78 @@ public class ConversationWebsocketMessage {
     this.eventNewMessage = eventNewMessage;
   }
 
+  public ConversationWebsocketMessage eventParticipantJoin(ConversationSummary eventParticipantJoin) {
+    this.eventParticipantJoin = eventParticipantJoin;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantJoin
+   * @return eventParticipantJoin
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationSummary getEventParticipantJoin() {
+    return eventParticipantJoin;
+  }
+
+  public void setEventParticipantJoin(ConversationSummary eventParticipantJoin) {
+    this.eventParticipantJoin = eventParticipantJoin;
+  }
+
+  public ConversationWebsocketMessage eventParticipantJoinParticipant(ConversationParticipant eventParticipantJoinParticipant) {
+    this.eventParticipantJoinParticipant = eventParticipantJoinParticipant;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantJoinParticipant
+   * @return eventParticipantJoinParticipant
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationParticipant getEventParticipantJoinParticipant() {
+    return eventParticipantJoinParticipant;
+  }
+
+  public void setEventParticipantJoinParticipant(ConversationParticipant eventParticipantJoinParticipant) {
+    this.eventParticipantJoinParticipant = eventParticipantJoinParticipant;
+  }
+
+  public ConversationWebsocketMessage eventParticipantLeft(ConversationSummary eventParticipantLeft) {
+    this.eventParticipantLeft = eventParticipantLeft;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantLeft
+   * @return eventParticipantLeft
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationSummary getEventParticipantLeft() {
+    return eventParticipantLeft;
+  }
+
+  public void setEventParticipantLeft(ConversationSummary eventParticipantLeft) {
+    this.eventParticipantLeft = eventParticipantLeft;
+  }
+
+  public ConversationWebsocketMessage eventParticipantLeftParticipant(ConversationParticipant eventParticipantLeftParticipant) {
+    this.eventParticipantLeftParticipant = eventParticipantLeftParticipant;
+    return this;
+  }
+
+   /**
+   * Get eventParticipantLeftParticipant
+   * @return eventParticipantLeftParticipant
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationParticipant getEventParticipantLeftParticipant() {
+    return eventParticipantLeftParticipant;
+  }
+
+  public void setEventParticipantLeftParticipant(ConversationParticipant eventParticipantLeftParticipant) {
+    this.eventParticipantLeftParticipant = eventParticipantLeftParticipant;
+  }
+
   public ConversationWebsocketMessage eventParticipantUpdate(ConversationSummary eventParticipantUpdate) {
     this.eventParticipantUpdate = eventParticipantUpdate;
     return this;
@@ -537,6 +626,10 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventConversationClosed, conversationWebsocketMessage.eventConversationClosed) &&
         Objects.equals(this.eventNewConversation, conversationWebsocketMessage.eventNewConversation) &&
         Objects.equals(this.eventNewMessage, conversationWebsocketMessage.eventNewMessage) &&
+        Objects.equals(this.eventParticipantJoin, conversationWebsocketMessage.eventParticipantJoin) &&
+        Objects.equals(this.eventParticipantJoinParticipant, conversationWebsocketMessage.eventParticipantJoinParticipant) &&
+        Objects.equals(this.eventParticipantLeft, conversationWebsocketMessage.eventParticipantLeft) &&
+        Objects.equals(this.eventParticipantLeftParticipant, conversationWebsocketMessage.eventParticipantLeftParticipant) &&
         Objects.equals(this.eventParticipantUpdate, conversationWebsocketMessage.eventParticipantUpdate) &&
         Objects.equals(this.eventQueuePosition, conversationWebsocketMessage.eventQueuePosition) &&
         Objects.equals(this.eventQueueStatusUpdate, conversationWebsocketMessage.eventQueueStatusUpdate) &&
@@ -552,7 +645,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
+    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantJoin, eventParticipantJoinParticipant, eventParticipantLeft, eventParticipantLeftParticipant, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
   }
 
 
@@ -567,6 +660,10 @@ public class ConversationWebsocketMessage {
     sb.append("    eventConversationClosed: ").append(toIndentedString(eventConversationClosed)).append("\n");
     sb.append("    eventNewConversation: ").append(toIndentedString(eventNewConversation)).append("\n");
     sb.append("    eventNewMessage: ").append(toIndentedString(eventNewMessage)).append("\n");
+    sb.append("    eventParticipantJoin: ").append(toIndentedString(eventParticipantJoin)).append("\n");
+    sb.append("    eventParticipantJoinParticipant: ").append(toIndentedString(eventParticipantJoinParticipant)).append("\n");
+    sb.append("    eventParticipantLeft: ").append(toIndentedString(eventParticipantLeft)).append("\n");
+    sb.append("    eventParticipantLeftParticipant: ").append(toIndentedString(eventParticipantLeftParticipant)).append("\n");
     sb.append("    eventParticipantUpdate: ").append(toIndentedString(eventParticipantUpdate)).append("\n");
     sb.append("    eventQueuePosition: ").append(toIndentedString(eventQueuePosition)).append("\n");
     sb.append("    eventQueueStatusUpdate: ").append(toIndentedString(eventQueueStatusUpdate)).append("\n");
