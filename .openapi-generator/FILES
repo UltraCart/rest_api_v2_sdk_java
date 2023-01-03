@@ -588,6 +588,7 @@ docs/OrderPaymentInsurance.md
 docs/OrderPaymentPurchaseOrder.md
 docs/OrderPaymentTransaction.md
 docs/OrderPaymentTransactionDetail.md
+docs/OrderPointOfSale.md
 docs/OrderProcessPaymentRequest.md
 docs/OrderProcessPaymentResponse.md
 docs/OrderProperty.md
@@ -609,6 +610,9 @@ docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
 docs/OrdersResponse.md
 docs/Permission.md
+docs/PointOfSaleLocation.md
+docs/PointOfSaleReader.md
+docs/PointOfSaleRegister.md
 docs/PricingTier.md
 docs/PricingTierNotification.md
 docs/PricingTiersResponse.md
@@ -1339,6 +1343,7 @@ src/main/java/com/ultracart/admin/v2/models/OrderPaymentInsurance.java
 src/main/java/com/ultracart/admin/v2/models/OrderPaymentPurchaseOrder.java
 src/main/java/com/ultracart/admin/v2/models/OrderPaymentTransaction.java
 src/main/java/com/ultracart/admin/v2/models/OrderPaymentTransactionDetail.java
+src/main/java/com/ultracart/admin/v2/models/OrderPointOfSale.java
 src/main/java/com/ultracart/admin/v2/models/OrderProcessPaymentRequest.java
 src/main/java/com/ultracart/admin/v2/models/OrderProcessPaymentResponse.java
 src/main/java/com/ultracart/admin/v2/models/OrderProperty.java
@@ -1360,6 +1365,9 @@ src/main/java/com/ultracart/admin/v2/models/OrderTrackingNumberDetail.java
 src/main/java/com/ultracart/admin/v2/models/OrderTrackingNumberDetails.java
 src/main/java/com/ultracart/admin/v2/models/OrdersResponse.java
 src/main/java/com/ultracart/admin/v2/models/Permission.java
+src/main/java/com/ultracart/admin/v2/models/PointOfSaleLocation.java
+src/main/java/com/ultracart/admin/v2/models/PointOfSaleReader.java
+src/main/java/com/ultracart/admin/v2/models/PointOfSaleRegister.java
 src/main/java/com/ultracart/admin/v2/models/PricingTier.java
 src/main/java/com/ultracart/admin/v2/models/PricingTierNotification.java
 src/main/java/com/ultracart/admin/v2/models/PricingTiersResponse.java

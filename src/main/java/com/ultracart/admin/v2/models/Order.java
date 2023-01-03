@@ -38,6 +38,7 @@ import com.ultracart.admin.v2.models.OrderItem;
 import com.ultracart.admin.v2.models.OrderLinkedShipment;
 import com.ultracart.admin.v2.models.OrderMarketing;
 import com.ultracart.admin.v2.models.OrderPayment;
+import com.ultracart.admin.v2.models.OrderPointOfSale;
 import com.ultracart.admin.v2.models.OrderProperty;
 import com.ultracart.admin.v2.models.OrderQuote;
 import com.ultracart.admin.v2.models.OrderSalesforce;
@@ -75,7 +76,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-27T08:48:44.512-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-03T13:02:50.267-05:00[America/Indianapolis]")
 public class Order {
   public static final String SERIALIZED_NAME_AFFILIATES = "affiliates";
   @SerializedName(SERIALIZED_NAME_AFFILIATES)
@@ -243,6 +244,10 @@ public class Order {
   public static final String SERIALIZED_NAME_PAYMENT = "payment";
   @SerializedName(SERIALIZED_NAME_PAYMENT)
   private OrderPayment payment;
+
+  public static final String SERIALIZED_NAME_POINT_OF_SALE = "point_of_sale";
+  @SerializedName(SERIALIZED_NAME_POINT_OF_SALE)
+  private OrderPointOfSale pointOfSale;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
@@ -882,6 +887,29 @@ public class Order {
   }
 
 
+  public Order pointOfSale(OrderPointOfSale pointOfSale) {
+    
+    this.pointOfSale = pointOfSale;
+    return this;
+  }
+
+   /**
+   * Get pointOfSale
+   * @return pointOfSale
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OrderPointOfSale getPointOfSale() {
+    return pointOfSale;
+  }
+
+
+  public void setPointOfSale(OrderPointOfSale pointOfSale) {
+    this.pointOfSale = pointOfSale;
+  }
+
+
   public Order properties(List<OrderProperty> properties) {
     
     this.properties = properties;
@@ -1140,6 +1168,7 @@ public class Order {
         Objects.equals(this.merchantId, order.merchantId) &&
         Objects.equals(this.orderId, order.orderId) &&
         Objects.equals(this.payment, order.payment) &&
+        Objects.equals(this.pointOfSale, order.pointOfSale) &&
         Objects.equals(this.properties, order.properties) &&
         Objects.equals(this.quote, order.quote) &&
         Objects.equals(this.refundDts, order.refundDts) &&
@@ -1153,7 +1182,7 @@ public class Order {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, tags, taxes);
+    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, tags, taxes);
   }
 
   @Override
@@ -1185,6 +1214,7 @@ public class Order {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
+    sb.append("    pointOfSale: ").append(toIndentedString(pointOfSale)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quote: ").append(toIndentedString(quote)).append("\n");
     sb.append("    refundDts: ").append(toIndentedString(refundDts)).append("\n");
@@ -1241,6 +1271,7 @@ public class Order {
     openapiFields.add("merchant_id");
     openapiFields.add("order_id");
     openapiFields.add("payment");
+    openapiFields.add("point_of_sale");
     openapiFields.add("properties");
     openapiFields.add("quote");
     openapiFields.add("refund_dts");
@@ -1390,6 +1421,10 @@ public class Order {
       // validate the optional field `payment`
       if (jsonObj.getAsJsonObject("payment") != null) {
         OrderPayment.validateJsonObject(jsonObj.getAsJsonObject("payment"));
+      }
+      // validate the optional field `point_of_sale`
+      if (jsonObj.getAsJsonObject("point_of_sale") != null) {
+        OrderPointOfSale.validateJsonObject(jsonObj.getAsJsonObject("point_of_sale"));
       }
       JsonArray jsonArrayproperties = jsonObj.getAsJsonArray("properties");
       if (jsonArrayproperties != null) {
