@@ -23,6 +23,7 @@
 |**espFriendlyName** | **String** | Friendly name of the sending email |  [optional] |
 |**filterProfileEquationJson** | **String** | File profile equation json |  [optional] |
 |**libraryItemOid** | **Integer** | If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated. |  [optional] |
+|**maximumEnrolled** | **Boolean** | The number of maximum customers for the plan are currently enrolled in this flow. |  [optional] |
 |**merchantId** | **String** | Merchant ID |  [optional] |
 |**name** | **String** | Name of email flow |  [optional] |
 |**openRateFormatted** | **String** | Open rate of emails, formatted |  [optional] |

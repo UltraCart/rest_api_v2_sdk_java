@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailFlow
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-03T16:10:17.964-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-05T11:02:37.171-05:00[America/Indianapolis]")
 public class EmailFlow {
   public static final String SERIALIZED_NAME_ALLOW_MULTIPLE_CONCURRENT_ENROLLMENTS = "allow_multiple_concurrent_enrollments";
   @SerializedName(SERIALIZED_NAME_ALLOW_MULTIPLE_CONCURRENT_ENROLLMENTS)
@@ -112,6 +112,10 @@ public class EmailFlow {
   public static final String SERIALIZED_NAME_LIBRARY_ITEM_OID = "library_item_oid";
   @SerializedName(SERIALIZED_NAME_LIBRARY_ITEM_OID)
   private Integer libraryItemOid;
+
+  public static final String SERIALIZED_NAME_MAXIMUM_ENROLLED = "maximum_enrolled";
+  @SerializedName(SERIALIZED_NAME_MAXIMUM_ENROLLED)
+  private Boolean maximumEnrolled;
 
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
@@ -540,6 +544,29 @@ public class EmailFlow {
   }
 
 
+  public EmailFlow maximumEnrolled(Boolean maximumEnrolled) {
+    
+    this.maximumEnrolled = maximumEnrolled;
+    return this;
+  }
+
+   /**
+   * The number of maximum customers for the plan are currently enrolled in this flow.
+   * @return maximumEnrolled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of maximum customers for the plan are currently enrolled in this flow.")
+
+  public Boolean getMaximumEnrolled() {
+    return maximumEnrolled;
+  }
+
+
+  public void setMaximumEnrolled(Boolean maximumEnrolled) {
+    this.maximumEnrolled = maximumEnrolled;
+  }
+
+
   public EmailFlow merchantId(String merchantId) {
     
     this.merchantId = merchantId;
@@ -888,6 +915,7 @@ public class EmailFlow {
         Objects.equals(this.espFriendlyName, emailFlow.espFriendlyName) &&
         Objects.equals(this.filterProfileEquationJson, emailFlow.filterProfileEquationJson) &&
         Objects.equals(this.libraryItemOid, emailFlow.libraryItemOid) &&
+        Objects.equals(this.maximumEnrolled, emailFlow.maximumEnrolled) &&
         Objects.equals(this.merchantId, emailFlow.merchantId) &&
         Objects.equals(this.name, emailFlow.name) &&
         Objects.equals(this.openRateFormatted, emailFlow.openRateFormatted) &&
@@ -906,7 +934,7 @@ public class EmailFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, merchantId, name, openRateFormatted, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, maximumEnrolled, merchantId, name, openRateFormatted, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
   }
 
   @Override
@@ -929,6 +957,7 @@ public class EmailFlow {
     sb.append("    espFriendlyName: ").append(toIndentedString(espFriendlyName)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
+    sb.append("    maximumEnrolled: ").append(toIndentedString(maximumEnrolled)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
@@ -981,6 +1010,7 @@ public class EmailFlow {
     openapiFields.add("esp_friendly_name");
     openapiFields.add("filter_profile_equation_json");
     openapiFields.add("library_item_oid");
+    openapiFields.add("maximum_enrolled");
     openapiFields.add("merchant_id");
     openapiFields.add("name");
     openapiFields.add("open_rate_formatted");
