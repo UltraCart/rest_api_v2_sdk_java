@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-05T11:02:37.171-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-06T11:19:49.553-05:00[America/Indianapolis]")
 public class Conversation {
   public static final String SERIALIZED_NAME_BASE_LANGUAGE_ISO_CODE = "base_language_iso_code";
   @SerializedName(SERIALIZED_NAME_BASE_LANGUAGE_ISO_CODE)

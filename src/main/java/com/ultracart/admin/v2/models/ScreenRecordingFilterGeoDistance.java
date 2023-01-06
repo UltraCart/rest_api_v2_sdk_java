@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingFilterGeoDistance
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-05T11:02:37.171-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-06T11:19:49.553-05:00[America/Indianapolis]")
 public class ScreenRecordingFilterGeoDistance {
   public static final String SERIALIZED_NAME_DISTANCE = "distance";
   @SerializedName(SERIALIZED_NAME_DISTANCE)

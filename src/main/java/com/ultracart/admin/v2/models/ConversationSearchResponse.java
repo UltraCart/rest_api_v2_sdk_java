@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Conversation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSearchResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-05T11:02:37.171-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-06T11:19:49.553-05:00[America/Indianapolis]")
 public class ConversationSearchResponse {
   public static final String SERIALIZED_NAME_RANGE_BEGIN = "range_begin";
   @SerializedName(SERIALIZED_NAME_RANGE_BEGIN)
@@ -56,6 +59,10 @@ public class ConversationSearchResponse {
   public static final String SERIALIZED_NAME_RANGE_END = "range_end";
   @SerializedName(SERIALIZED_NAME_RANGE_END)
   private Integer rangeEnd;
+
+  public static final String SERIALIZED_NAME_RECORDS = "records";
+  @SerializedName(SERIALIZED_NAME_RECORDS)
+  private List<Conversation> records = null;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -110,6 +117,37 @@ public class ConversationSearchResponse {
   }
 
 
+  public ConversationSearchResponse records(List<Conversation> records) {
+    
+    this.records = records;
+    return this;
+  }
+
+  public ConversationSearchResponse addRecordsItem(Conversation recordsItem) {
+    if (this.records == null) {
+      this.records = new ArrayList<>();
+    }
+    this.records.add(recordsItem);
+    return this;
+  }
+
+   /**
+   * Get records
+   * @return records
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Conversation> getRecords() {
+    return records;
+  }
+
+
+  public void setRecords(List<Conversation> records) {
+    this.records = records;
+  }
+
+
   public ConversationSearchResponse total(Integer total) {
     
     this.total = total;
@@ -145,12 +183,13 @@ public class ConversationSearchResponse {
     ConversationSearchResponse conversationSearchResponse = (ConversationSearchResponse) o;
     return Objects.equals(this.rangeBegin, conversationSearchResponse.rangeBegin) &&
         Objects.equals(this.rangeEnd, conversationSearchResponse.rangeEnd) &&
+        Objects.equals(this.records, conversationSearchResponse.records) &&
         Objects.equals(this.total, conversationSearchResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rangeBegin, rangeEnd, total);
+    return Objects.hash(rangeBegin, rangeEnd, records, total);
   }
 
   @Override
@@ -159,6 +198,7 @@ public class ConversationSearchResponse {
     sb.append("class ConversationSearchResponse {\n");
     sb.append("    rangeBegin: ").append(toIndentedString(rangeBegin)).append("\n");
     sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
+    sb.append("    records: ").append(toIndentedString(records)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,6 +224,7 @@ public class ConversationSearchResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("range_begin");
     openapiFields.add("range_end");
+    openapiFields.add("records");
     openapiFields.add("total");
 
     // a set of required properties/fields (JSON key names)
@@ -211,6 +252,18 @@ public class ConversationSearchResponse {
         if (!ConversationSearchResponse.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationSearchResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArrayrecords = jsonObj.getAsJsonArray("records");
+      if (jsonArrayrecords != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("records").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `records` to be an array in the JSON string but got `%s`", jsonObj.get("records").toString()));
+        }
+
+        // validate the optional field `records` (array)
+        for (int i = 0; i < jsonArrayrecords.size(); i++) {
+          Conversation.validateJsonObject(jsonArrayrecords.get(i).getAsJsonObject());
+        };
       }
   }
 
