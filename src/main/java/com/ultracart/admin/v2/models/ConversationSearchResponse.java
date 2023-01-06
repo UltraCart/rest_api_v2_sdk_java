@@ -20,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Conversation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ConversationSearchResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-05T10:49:32.355-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-06T11:07:46.503-05:00")
 
 
 
@@ -37,6 +40,9 @@ public class ConversationSearchResponse {
 
   @SerializedName("range_end")
   private Integer rangeEnd = null;
+
+  @SerializedName("records")
+  private List<Conversation> records = null;
 
   @SerializedName("total")
   private Integer total = null;
@@ -77,6 +83,32 @@ public class ConversationSearchResponse {
     this.rangeEnd = rangeEnd;
   }
 
+  public ConversationSearchResponse records(List<Conversation> records) {
+    this.records = records;
+    return this;
+  }
+
+  public ConversationSearchResponse addRecordsItem(Conversation recordsItem) {
+    if (this.records == null) {
+      this.records = new ArrayList<Conversation>();
+    }
+    this.records.add(recordsItem);
+    return this;
+  }
+
+   /**
+   * Get records
+   * @return records
+  **/
+  @ApiModelProperty(value = "")
+  public List<Conversation> getRecords() {
+    return records;
+  }
+
+  public void setRecords(List<Conversation> records) {
+    this.records = records;
+  }
+
   public ConversationSearchResponse total(Integer total) {
     this.total = total;
     return this;
@@ -107,12 +139,13 @@ public class ConversationSearchResponse {
     ConversationSearchResponse conversationSearchResponse = (ConversationSearchResponse) o;
     return Objects.equals(this.rangeBegin, conversationSearchResponse.rangeBegin) &&
         Objects.equals(this.rangeEnd, conversationSearchResponse.rangeEnd) &&
+        Objects.equals(this.records, conversationSearchResponse.records) &&
         Objects.equals(this.total, conversationSearchResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rangeBegin, rangeEnd, total);
+    return Objects.hash(rangeBegin, rangeEnd, records, total);
   }
 
 
@@ -123,6 +156,7 @@ public class ConversationSearchResponse {
     
     sb.append("    rangeBegin: ").append(toIndentedString(rangeBegin)).append("\n");
     sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
+    sb.append("    records: ").append(toIndentedString(records)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();

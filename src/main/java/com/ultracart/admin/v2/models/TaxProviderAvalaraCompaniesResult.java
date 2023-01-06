@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * TaxProviderAvalaraCompaniesResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-05T10:49:32.355-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-06T11:07:46.503-05:00")
 
 
 
