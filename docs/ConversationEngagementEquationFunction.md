@@ -83,8 +83,8 @@ IS_NOT | &quot;is not&quot;
 Name | Value
 ---- | -----
 CURRENT_PAGE_URL | &quot;current page url&quot;
-CUSTOMER_S_LOCATION | &quot;customer&#39;s location&quot;
-CUSTOMER_S_BROWSING_TIME | &quot;customer&#39;s browsing time&quot;
+CUSTOMERS_LOCATION | &quot;customers location&quot;
+CUSTOMERS_BROWSING_TIME | &quot;customers browsing time&quot;
 NUMBER_OF_VIEWED_PAGES | &quot;number of viewed pages&quot;
 REFERRING_WEBSITE_ADDRESS | &quot;referring website address&quot;
 ANY_PAGE_FROM_SESSION | &quot;any page from session&quot;

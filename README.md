@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-10T10:31:33.025-05:00
+  - Build date: 2023-01-10T11:13:32.699-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.91</version>
+  <version>3.10.92</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.91"
+compile "com.ultracart:rest-sdk:3.10.92"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.91.jar`
+* `target/rest-sdk-3.10.92.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1306,6 +1306,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.92 | 01/10/2023 | bug fix for typescript enum error due to apost |
 | 3.10.91 | 01/10/2023 | integration log tracking of associated auto order oids |
 | 3.10.90 | 01/06/2023 | conversation search response object bug fix |
 | 3.10.89 | 01/05/2023 | communications - added maximum_enrolled flag on flow object |

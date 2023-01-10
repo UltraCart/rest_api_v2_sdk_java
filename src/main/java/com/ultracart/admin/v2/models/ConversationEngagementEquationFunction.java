@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationEngagementEquationFunction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-10T10:31:33.025-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-10T11:13:32.699-05:00")
 
 
 
@@ -380,9 +380,9 @@ public class ConversationEngagementEquationFunction {
   public enum TypeEnum {
     CURRENT_PAGE_URL("current page url"),
     
-    CUSTOMER_S_LOCATION("customer's location"),
+    CUSTOMERS_LOCATION("customers location"),
     
-    CUSTOMER_S_BROWSING_TIME("customer's browsing time"),
+    CUSTOMERS_BROWSING_TIME("customers browsing time"),
     
     NUMBER_OF_VIEWED_PAGES("number of viewed pages"),
     
