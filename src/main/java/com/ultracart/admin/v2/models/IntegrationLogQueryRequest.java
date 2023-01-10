@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * IntegrationLogQueryRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-10T11:13:32.699-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-10T11:51:41.519-05:00")
 
 
 
@@ -51,6 +51,9 @@ public class IntegrationLogQueryRequest {
 
   @SerializedName("file_names")
   private List<String> fileNames = null;
+
+  @SerializedName("integration_log_oid")
+  private Integer integrationLogOid = null;
 
   @SerializedName("item_id")
   private String itemId = null;
@@ -209,6 +212,24 @@ public class IntegrationLogQueryRequest {
 
   public void setFileNames(List<String> fileNames) {
     this.fileNames = fileNames;
+  }
+
+  public IntegrationLogQueryRequest integrationLogOid(Integer integrationLogOid) {
+    this.integrationLogOid = integrationLogOid;
+    return this;
+  }
+
+   /**
+   * Get integrationLogOid
+   * @return integrationLogOid
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getIntegrationLogOid() {
+    return integrationLogOid;
+  }
+
+  public void setIntegrationLogOid(Integer integrationLogOid) {
+    this.integrationLogOid = integrationLogOid;
   }
 
   public IntegrationLogQueryRequest itemId(String itemId) {
@@ -397,6 +418,7 @@ public class IntegrationLogQueryRequest {
         Objects.equals(this.direction, integrationLogQueryRequest.direction) &&
         Objects.equals(this.email, integrationLogQueryRequest.email) &&
         Objects.equals(this.fileNames, integrationLogQueryRequest.fileNames) &&
+        Objects.equals(this.integrationLogOid, integrationLogQueryRequest.integrationLogOid) &&
         Objects.equals(this.itemId, integrationLogQueryRequest.itemId) &&
         Objects.equals(this.itemIpnOid, integrationLogQueryRequest.itemIpnOid) &&
         Objects.equals(this.logDtsBegin, integrationLogQueryRequest.logDtsBegin) &&
@@ -410,7 +432,7 @@ public class IntegrationLogQueryRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, autoOrderIds, autoOrderOids, direction, email, fileNames, itemId, itemIpnOid, logDtsBegin, logDtsEnd, logType, loggerId, loggerName, orderIds, status);
+    return Objects.hash(action, autoOrderIds, autoOrderOids, direction, email, fileNames, integrationLogOid, itemId, itemIpnOid, logDtsBegin, logDtsEnd, logType, loggerId, loggerName, orderIds, status);
   }
 
 
@@ -425,6 +447,7 @@ public class IntegrationLogQueryRequest {
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    fileNames: ").append(toIndentedString(fileNames)).append("\n");
+    sb.append("    integrationLogOid: ").append(toIndentedString(integrationLogOid)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemIpnOid: ").append(toIndentedString(itemIpnOid)).append("\n");
     sb.append("    logDtsBegin: ").append(toIndentedString(logDtsBegin)).append("\n");

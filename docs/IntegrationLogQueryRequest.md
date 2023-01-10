@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **direction** | **String** |  |  [optional]
 **email** | **String** |  |  [optional]
 **fileNames** | **List&lt;String&gt;** |  |  [optional]
+**integrationLogOid** | **Integer** |  |  [optional]
 **itemId** | **String** |  |  [optional]
 **itemIpnOid** | **Integer** |  |  [optional]
 **logDtsBegin** | **String** | Log date/time begin |  [optional]
