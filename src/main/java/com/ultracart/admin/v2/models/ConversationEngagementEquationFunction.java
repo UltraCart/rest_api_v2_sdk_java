@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationEngagementEquationFunction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-10T10:43:53.313-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-10T11:25:46.475-05:00[America/Indianapolis]")
 public class ConversationEngagementEquationFunction {
   /**
    * Logic operation to perform on an any page url function type
@@ -410,9 +410,9 @@ public class ConversationEngagementEquationFunction {
   public enum TypeEnum {
     CURRENT_PAGE_URL("current page url"),
     
-    CUSTOMER_S_LOCATION("customer's location"),
+    CUSTOMERS_LOCATION("customers location"),
     
-    CUSTOMER_S_BROWSING_TIME("customer's browsing time"),
+    CUSTOMERS_BROWSING_TIME("customers browsing time"),
     
     NUMBER_OF_VIEWED_PAGES("number of viewed pages"),
     
