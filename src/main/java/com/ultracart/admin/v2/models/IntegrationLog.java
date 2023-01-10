@@ -51,11 +51,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * IntegrationLog
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-06T11:19:49.553-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-10T10:43:53.313-05:00[America/Indianapolis]")
 public class IntegrationLog {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
   private String action;
+
+  public static final String SERIALIZED_NAME_AUTO_ORDER_OIDS = "auto_order_oids";
+  @SerializedName(SERIALIZED_NAME_AUTO_ORDER_OIDS)
+  private List<Integer> autoOrderOids = null;
 
   public static final String SERIALIZED_NAME_DIRECTION = "direction";
   @SerializedName(SERIALIZED_NAME_DIRECTION)
@@ -148,6 +152,37 @@ public class IntegrationLog {
 
   public void setAction(String action) {
     this.action = action;
+  }
+
+
+  public IntegrationLog autoOrderOids(List<Integer> autoOrderOids) {
+    
+    this.autoOrderOids = autoOrderOids;
+    return this;
+  }
+
+  public IntegrationLog addAutoOrderOidsItem(Integer autoOrderOidsItem) {
+    if (this.autoOrderOids == null) {
+      this.autoOrderOids = new ArrayList<>();
+    }
+    this.autoOrderOids.add(autoOrderOidsItem);
+    return this;
+  }
+
+   /**
+   * Get autoOrderOids
+   * @return autoOrderOids
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Integer> getAutoOrderOids() {
+    return autoOrderOids;
+  }
+
+
+  public void setAutoOrderOids(List<Integer> autoOrderOids) {
+    this.autoOrderOids = autoOrderOids;
   }
 
 
@@ -577,6 +612,7 @@ public class IntegrationLog {
     }
     IntegrationLog integrationLog = (IntegrationLog) o;
     return Objects.equals(this.action, integrationLog.action) &&
+        Objects.equals(this.autoOrderOids, integrationLog.autoOrderOids) &&
         Objects.equals(this.direction, integrationLog.direction) &&
         Objects.equals(this.email, integrationLog.email) &&
         Objects.equals(this.files, integrationLog.files) &&
@@ -598,7 +634,7 @@ public class IntegrationLog {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, direction, email, files, integrationLogOid, itemId, itemIpnOid, logDts, logType, loggerId, loggerName, logs, omitLogMap, orderIds, pk, sk, status, statusCode);
+    return Objects.hash(action, autoOrderOids, direction, email, files, integrationLogOid, itemId, itemIpnOid, logDts, logType, loggerId, loggerName, logs, omitLogMap, orderIds, pk, sk, status, statusCode);
   }
 
   @Override
@@ -606,6 +642,7 @@ public class IntegrationLog {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationLog {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    autoOrderOids: ").append(toIndentedString(autoOrderOids)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
@@ -646,6 +683,7 @@ public class IntegrationLog {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("action");
+    openapiFields.add("auto_order_oids");
     openapiFields.add("direction");
     openapiFields.add("email");
     openapiFields.add("files");
@@ -692,6 +730,10 @@ public class IntegrationLog {
       }
       if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("auto_order_oids") != null && !jsonObj.get("auto_order_oids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `auto_order_oids` to be an array in the JSON string but got `%s`", jsonObj.get("auto_order_oids").toString()));
       }
       if (jsonObj.get("direction") != null && !jsonObj.get("direction").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `direction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("direction").toString()));

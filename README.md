@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-06T11:19:49.553-05:00[America/Indianapolis]
+  - Build date: 2023-01-10T10:43:53.313-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.107-RC</version>
+  <version>4.0.108-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.107-RC"
+     implementation "com.ultracart:rest-sdk:4.0.108-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.107-RC.jar`
+* `target/rest-sdk-4.0.108-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1322,6 +1322,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.108-RC | 01/10/2023 | integration log tracking of associated auto order oids |
 | 4.0.107-RC | 01/06/2023 | conversation search response object bug fix |
 | 4.0.106-RC | 01/05/2023 | communications - added maximum_enrolled flag on flow object |
 | 4.0.105-RC | 01/03/2023 | conversation events for party leave and join |

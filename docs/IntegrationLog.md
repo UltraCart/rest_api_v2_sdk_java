@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**action** | **String** |  |  [optional] |
+|**autoOrderOids** | **List&lt;Integer&gt;** |  |  [optional] |
 |**direction** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
 |**files** | [**List&lt;IntegrationLogFile&gt;**](IntegrationLogFile.md) |  |  [optional] |

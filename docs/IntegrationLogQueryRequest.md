@@ -8,6 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**action** | **String** |  |  [optional] |
+|**autoOrderIds** | **List&lt;String&gt;** |  |  [optional] |
+|**autoOrderOids** | **List&lt;Integer&gt;** |  |  [optional] |
 |**direction** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
 |**fileNames** | **List&lt;String&gt;** |  |  [optional] |
