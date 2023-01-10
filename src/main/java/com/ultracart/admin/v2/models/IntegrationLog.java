@@ -31,13 +31,16 @@ import java.util.List;
 /**
  * IntegrationLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-06T11:07:46.503-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-10T10:31:33.025-05:00")
 
 
 
 public class IntegrationLog {
   @SerializedName("action")
   private String action = null;
+
+  @SerializedName("auto_order_oids")
+  private List<Integer> autoOrderOids = null;
 
   @SerializedName("direction")
   private String direction = null;
@@ -106,6 +109,32 @@ public class IntegrationLog {
 
   public void setAction(String action) {
     this.action = action;
+  }
+
+  public IntegrationLog autoOrderOids(List<Integer> autoOrderOids) {
+    this.autoOrderOids = autoOrderOids;
+    return this;
+  }
+
+  public IntegrationLog addAutoOrderOidsItem(Integer autoOrderOidsItem) {
+    if (this.autoOrderOids == null) {
+      this.autoOrderOids = new ArrayList<Integer>();
+    }
+    this.autoOrderOids.add(autoOrderOidsItem);
+    return this;
+  }
+
+   /**
+   * Get autoOrderOids
+   * @return autoOrderOids
+  **/
+  @ApiModelProperty(value = "")
+  public List<Integer> getAutoOrderOids() {
+    return autoOrderOids;
+  }
+
+  public void setAutoOrderOids(List<Integer> autoOrderOids) {
+    this.autoOrderOids = autoOrderOids;
   }
 
   public IntegrationLog direction(String direction) {
@@ -449,6 +478,7 @@ public class IntegrationLog {
     }
     IntegrationLog integrationLog = (IntegrationLog) o;
     return Objects.equals(this.action, integrationLog.action) &&
+        Objects.equals(this.autoOrderOids, integrationLog.autoOrderOids) &&
         Objects.equals(this.direction, integrationLog.direction) &&
         Objects.equals(this.email, integrationLog.email) &&
         Objects.equals(this.files, integrationLog.files) &&
@@ -470,7 +500,7 @@ public class IntegrationLog {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, direction, email, files, integrationLogOid, itemId, itemIpnOid, logDts, logType, loggerId, loggerName, logs, omitLogMap, orderIds, pk, sk, status, statusCode);
+    return Objects.hash(action, autoOrderOids, direction, email, files, integrationLogOid, itemId, itemIpnOid, logDts, logType, loggerId, loggerName, logs, omitLogMap, orderIds, pk, sk, status, statusCode);
   }
 
 
@@ -480,6 +510,7 @@ public class IntegrationLog {
     sb.append("class IntegrationLog {\n");
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    autoOrderOids: ").append(toIndentedString(autoOrderOids)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
