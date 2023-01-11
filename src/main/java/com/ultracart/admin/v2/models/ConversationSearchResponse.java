@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ultracart.admin.v2.models.Conversation;
+import com.ultracart.admin.v2.models.ConversationSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationSearchResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-10T11:51:41.519-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-11T11:06:07.721-05:00")
 
 
 
@@ -42,7 +42,7 @@ public class ConversationSearchResponse {
   private Integer rangeEnd = null;
 
   @SerializedName("records")
-  private List<Conversation> records = null;
+  private List<ConversationSummary> records = null;
 
   @SerializedName("total")
   private Integer total = null;
@@ -83,14 +83,14 @@ public class ConversationSearchResponse {
     this.rangeEnd = rangeEnd;
   }
 
-  public ConversationSearchResponse records(List<Conversation> records) {
+  public ConversationSearchResponse records(List<ConversationSummary> records) {
     this.records = records;
     return this;
   }
 
-  public ConversationSearchResponse addRecordsItem(Conversation recordsItem) {
+  public ConversationSearchResponse addRecordsItem(ConversationSummary recordsItem) {
     if (this.records == null) {
-      this.records = new ArrayList<Conversation>();
+      this.records = new ArrayList<ConversationSummary>();
     }
     this.records.add(recordsItem);
     return this;
@@ -101,11 +101,11 @@ public class ConversationSearchResponse {
    * @return records
   **/
   @ApiModelProperty(value = "")
-  public List<Conversation> getRecords() {
+  public List<ConversationSummary> getRecords() {
     return records;
   }
 
-  public void setRecords(List<Conversation> records) {
+  public void setRecords(List<ConversationSummary> records) {
     this.records = records;
   }
 

@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * AutoOrderItemFutureSchedule
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-10T11:51:41.519-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-11T11:06:07.721-05:00")
 
 
 

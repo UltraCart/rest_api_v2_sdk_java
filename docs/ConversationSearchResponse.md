@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **rangeBegin** | **Integer** |  |  [optional]
 **rangeEnd** | **Integer** |  |  [optional]
-**records** | [**List&lt;Conversation&gt;**](Conversation.md) |  |  [optional]
+**records** | [**List&lt;ConversationSummary&gt;**](ConversationSummary.md) |  |  [optional]
 **total** | **Integer** |  |  [optional]
 
 
