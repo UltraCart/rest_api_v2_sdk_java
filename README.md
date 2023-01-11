@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-10T12:05:11.750-05:00[America/Indianapolis]
+  - Build date: 2023-01-11T11:18:47.604-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.110-RC</version>
+  <version>4.0.111-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.110-RC"
+     implementation "com.ultracart:rest-sdk:4.0.111-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.110-RC.jar`
+* `target/rest-sdk-4.0.111-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1322,6 +1322,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.111-RC | 01/11/2023 | conversations - adjust search results to return multiple convo summaries |
 | 4.0.110-RC | 01/10/2023 | add method to query integration log record by oid |
 | 4.0.109-RC | 01/10/2023 | bug fix for typescript enum error due to apost |
 | 4.0.108-RC | 01/10/2023 | integration log tracking of associated auto order oids |

@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ultracart.admin.v2.models.Conversation;
+import com.ultracart.admin.v2.models.ConversationSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSearchResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-10T12:05:11.750-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-11T11:18:47.604-05:00[America/Indianapolis]")
 public class ConversationSearchResponse {
   public static final String SERIALIZED_NAME_RANGE_BEGIN = "range_begin";
   @SerializedName(SERIALIZED_NAME_RANGE_BEGIN)
@@ -62,7 +62,7 @@ public class ConversationSearchResponse {
 
   public static final String SERIALIZED_NAME_RECORDS = "records";
   @SerializedName(SERIALIZED_NAME_RECORDS)
-  private List<Conversation> records = null;
+  private List<ConversationSummary> records = null;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -117,13 +117,13 @@ public class ConversationSearchResponse {
   }
 
 
-  public ConversationSearchResponse records(List<Conversation> records) {
+  public ConversationSearchResponse records(List<ConversationSummary> records) {
     
     this.records = records;
     return this;
   }
 
-  public ConversationSearchResponse addRecordsItem(Conversation recordsItem) {
+  public ConversationSearchResponse addRecordsItem(ConversationSummary recordsItem) {
     if (this.records == null) {
       this.records = new ArrayList<>();
     }
@@ -138,12 +138,12 @@ public class ConversationSearchResponse {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Conversation> getRecords() {
+  public List<ConversationSummary> getRecords() {
     return records;
   }
 
 
-  public void setRecords(List<Conversation> records) {
+  public void setRecords(List<ConversationSummary> records) {
     this.records = records;
   }
 
@@ -262,7 +262,7 @@ public class ConversationSearchResponse {
 
         // validate the optional field `records` (array)
         for (int i = 0; i < jsonArrayrecords.size(); i++) {
-          Conversation.validateJsonObject(jsonArrayrecords.get(i).getAsJsonObject());
+          ConversationSummary.validateJsonObject(jsonArrayrecords.get(i).getAsJsonObject());
         };
       }
   }
