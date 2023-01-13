@@ -114,7 +114,11 @@ docs/ChannelPartnerOrderItem.md
 docs/ChannelPartnerOrderItemOption.md
 docs/ChannelPartnerOrderTransaction.md
 docs/ChannelPartnerOrderTransactionDetail.md
+docs/ChannelPartnerShipToPreference.md
+docs/ChannelPartnerShipToPreferenceResponse.md
+docs/ChannelPartnerShipToPreferencesResponse.md
 docs/ChannelPartnerShippingEstimate.md
+docs/ChannelPartnersResponse.md
 docs/ChargebackApi.md
 docs/ChargebackDispute.md
 docs/ChargebackDisputeResponse.md
@@ -880,7 +884,11 @@ src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderItem.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderItemOption.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderTransaction.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderTransactionDetail.java
+src/main/java/com/ultracart/admin/v2/models/ChannelPartnerShipToPreference.java
+src/main/java/com/ultracart/admin/v2/models/ChannelPartnerShipToPreferenceResponse.java
+src/main/java/com/ultracart/admin/v2/models/ChannelPartnerShipToPreferencesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerShippingEstimate.java
+src/main/java/com/ultracart/admin/v2/models/ChannelPartnersResponse.java
 src/main/java/com/ultracart/admin/v2/models/ChargebackDispute.java
 src/main/java/com/ultracart/admin/v2/models/ChargebackDisputeResponse.java
 src/main/java/com/ultracart/admin/v2/models/ChargebackDisputesResponse.java

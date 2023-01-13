@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-11T11:18:47.604-05:00[America/Indianapolis]
+  - Build date: 2023-01-13T14:58:56.471-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.111-RC</version>
+  <version>4.0.112-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.111-RC"
+     implementation "com.ultracart:rest-sdk:4.0.112-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.111-RC.jar`
+* `target/rest-sdk-4.0.112-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -141,9 +141,15 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 *ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/ChannelPartnerApi.md#cancelOrderByChannelPartnerOrderId) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
 *ChannelPartnerApi* | [**cancelOrderByUltraCartOrderId**](docs/ChannelPartnerApi.md#cancelOrderByUltraCartOrderId) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
+*ChannelPartnerApi* | [**deleteChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#deleteChannelPartnerShipToPreference) | **DELETE** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Delete a ship to preference record for the channel partner.
 *ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateShippingForChannelPartnerOrder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 *ChannelPartnerApi* | [**estimateTaxForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateTaxForChannelPartnerOrder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
+*ChannelPartnerApi* | [**getChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#getChannelPartnerShipToPreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
+*ChannelPartnerApi* | [**getChannelPartnerShipToPreferences**](docs/ChannelPartnerApi.md#getChannelPartnerShipToPreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
+*ChannelPartnerApi* | [**getChannelPartners**](docs/ChannelPartnerApi.md#getChannelPartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
 *ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/ChannelPartnerApi.md#importChannelPartnerOrder) | **POST** /channel_partner/import | Insert channel partner order
+*ChannelPartnerApi* | [**insertChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#insertChannelPartnerShipToPreference) | **POST** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Insert a ship to preference record for the channel partner.
+*ChannelPartnerApi* | [**updateChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#updateChannelPartnerShipToPreference) | **PUT** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Update a ship to preference record for the channel partner.
 *ChargebackApi* | [**deleteChargeback**](docs/ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/ChargebackApi.md#getChargebackDispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
 *ChargebackApi* | [**getChargebackDisputes**](docs/ChargebackApi.md#getChargebackDisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
@@ -629,7 +635,11 @@ Class | Method | HTTP request | Description
  - [ChannelPartnerOrderItemOption](docs/ChannelPartnerOrderItemOption.md)
  - [ChannelPartnerOrderTransaction](docs/ChannelPartnerOrderTransaction.md)
  - [ChannelPartnerOrderTransactionDetail](docs/ChannelPartnerOrderTransactionDetail.md)
+ - [ChannelPartnerShipToPreference](docs/ChannelPartnerShipToPreference.md)
+ - [ChannelPartnerShipToPreferenceResponse](docs/ChannelPartnerShipToPreferenceResponse.md)
+ - [ChannelPartnerShipToPreferencesResponse](docs/ChannelPartnerShipToPreferencesResponse.md)
  - [ChannelPartnerShippingEstimate](docs/ChannelPartnerShippingEstimate.md)
+ - [ChannelPartnersResponse](docs/ChannelPartnersResponse.md)
  - [ChargebackDispute](docs/ChargebackDispute.md)
  - [ChargebackDisputeResponse](docs/ChargebackDisputeResponse.md)
  - [ChargebackDisputesResponse](docs/ChargebackDisputesResponse.md)
@@ -1322,6 +1332,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.112-RC | 01/13/2023 | channel - ops to manage ship to prefs |
 | 4.0.111-RC | 01/11/2023 | conversations - adjust search results to return multiple convo summaries |
 | 4.0.110-RC | 01/10/2023 | add method to query integration log record by oid |
 | 4.0.109-RC | 01/10/2023 | bug fix for typescript enum error due to apost |

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderReplacementResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-11T11:18:47.604-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-13T14:58:56.471-05:00[America/Indianapolis]")
 public class OrderReplacementResponse {
   public static final String SERIALIZED_NAME_CHARGE_SUCCESSFUL = "chargeSuccessful";
   @SerializedName(SERIALIZED_NAME_CHARGE_SUCCESSFUL)

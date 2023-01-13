@@ -57,7 +57,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-11T11:18:47.604-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-13T14:58:56.471-05:00[America/Indianapolis]")
 public class OrderPayment {
   public static final String SERIALIZED_NAME_CHECK = "check";
   @SerializedName(SERIALIZED_NAME_CHECK)
@@ -124,7 +124,9 @@ public class OrderPayment {
     
     WIRE_TRANSFER("Wire Transfer"),
     
-    WALMART("Walmart");
+    WALMART("Walmart"),
+    
+    SHOP_COM("Shop.com");
 
     private String value;
 

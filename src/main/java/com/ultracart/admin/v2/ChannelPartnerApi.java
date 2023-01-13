@@ -32,6 +32,10 @@ import com.ultracart.admin.v2.models.ChannelPartnerEstimateShippingResponse;
 import com.ultracart.admin.v2.models.ChannelPartnerEstimateTaxResponse;
 import com.ultracart.admin.v2.models.ChannelPartnerImportResponse;
 import com.ultracart.admin.v2.models.ChannelPartnerOrder;
+import com.ultracart.admin.v2.models.ChannelPartnerShipToPreference;
+import com.ultracart.admin.v2.models.ChannelPartnerShipToPreferenceResponse;
+import com.ultracart.admin.v2.models.ChannelPartnerShipToPreferencesResponse;
+import com.ultracart.admin.v2.models.ChannelPartnersResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 
 import java.lang.reflect.Type;
@@ -399,6 +403,155 @@ public class ChannelPartnerApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteChannelPartnerShipToPreference
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteChannelPartnerShipToPreferenceCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", localVarApiClient.escapeString(channelPartnerOid.toString()))
+            .replaceAll("\\{" + "channel_partner_ship_to_preference_oid" + "\\}", localVarApiClient.escapeString(channelPartnerShipToPreferenceOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteChannelPartnerShipToPreferenceValidateBeforeCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling deleteChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+        if (channelPartnerShipToPreferenceOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerShipToPreferenceOid' when calling deleteChannelPartnerShipToPreference(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteChannelPartnerShipToPreferenceCall(channelPartnerOid, channelPartnerShipToPreferenceOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a ship to preference record for the channel partner.
+     * Delete a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public void deleteChannelPartnerShipToPreference(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid) throws ApiException {
+        deleteChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid);
+    }
+
+    /**
+     * Delete a ship to preference record for the channel partner.
+     * Delete a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteChannelPartnerShipToPreferenceWithHttpInfo(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid) throws ApiException {
+        okhttp3.Call localVarCall = deleteChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete a ship to preference record for the channel partner. (asynchronously)
+     * Delete a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteChannelPartnerShipToPreferenceAsync(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for estimateShippingForChannelPartnerOrder
      * @param channelPartnerOrder Order needing shipping estimate (required)
      * @param _callback Callback for upload/download progress
@@ -691,6 +844,447 @@ public class ChannelPartnerApi {
         return localVarCall;
     }
     /**
+     * Build call for getChannelPartnerShipToPreference
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnerShipToPreferenceCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", localVarApiClient.escapeString(channelPartnerOid.toString()))
+            .replaceAll("\\{" + "channel_partner_ship_to_preference_oid" + "\\}", localVarApiClient.escapeString(channelPartnerShipToPreferenceOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getChannelPartnerShipToPreferenceValidateBeforeCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling getChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+        if (channelPartnerShipToPreferenceOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerShipToPreferenceOid' when calling getChannelPartnerShipToPreference(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getChannelPartnerShipToPreferenceCall(channelPartnerOid, channelPartnerShipToPreferenceOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve the ship to preference associated with the channel partner and the specific id.
+     * Retrieve the ship to preference associated with the channel partner and the specific id. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @return ChannelPartnerShipToPreferenceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ChannelPartnerShipToPreferenceResponse getChannelPartnerShipToPreference(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid) throws ApiException {
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResp = getChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve the ship to preference associated with the channel partner and the specific id.
+     * Retrieve the ship to preference associated with the channel partner and the specific id. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @return ApiResponse&lt;ChannelPartnerShipToPreferenceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ChannelPartnerShipToPreferenceResponse> getChannelPartnerShipToPreferenceWithHttpInfo(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid) throws ApiException {
+        okhttp3.Call localVarCall = getChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the ship to preference associated with the channel partner and the specific id. (asynchronously)
+     * Retrieve the ship to preference associated with the channel partner and the specific id. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnerShipToPreferenceAsync(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ApiCallback<ChannelPartnerShipToPreferenceResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, _callback);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getChannelPartnerShipToPreferences
+     * @param channelPartnerOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnerShipToPreferencesCall(Integer channelPartnerOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", localVarApiClient.escapeString(channelPartnerOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getChannelPartnerShipToPreferencesValidateBeforeCall(Integer channelPartnerOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling getChannelPartnerShipToPreferences(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getChannelPartnerShipToPreferencesCall(channelPartnerOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve the ship to preferences associated with the channel partner.
+     * Retrieve the ship to preferences associated with the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @return ChannelPartnerShipToPreferencesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ChannelPartnerShipToPreferencesResponse getChannelPartnerShipToPreferences(Integer channelPartnerOid) throws ApiException {
+        ApiResponse<ChannelPartnerShipToPreferencesResponse> localVarResp = getChannelPartnerShipToPreferencesWithHttpInfo(channelPartnerOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve the ship to preferences associated with the channel partner.
+     * Retrieve the ship to preferences associated with the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @return ApiResponse&lt;ChannelPartnerShipToPreferencesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ChannelPartnerShipToPreferencesResponse> getChannelPartnerShipToPreferencesWithHttpInfo(Integer channelPartnerOid) throws ApiException {
+        okhttp3.Call localVarCall = getChannelPartnerShipToPreferencesValidateBeforeCall(channelPartnerOid, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferencesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the ship to preferences associated with the channel partner. (asynchronously)
+     * Retrieve the ship to preferences associated with the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnerShipToPreferencesAsync(Integer channelPartnerOid, final ApiCallback<ChannelPartnerShipToPreferencesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getChannelPartnerShipToPreferencesValidateBeforeCall(channelPartnerOid, _callback);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferencesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getChannelPartners
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnersCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getChannelPartnersValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getChannelPartnersCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve the channel partners configured on the account.
+     * Retrieve the channel partners configured on the account. 
+     * @return ChannelPartnersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ChannelPartnersResponse getChannelPartners() throws ApiException {
+        ApiResponse<ChannelPartnersResponse> localVarResp = getChannelPartnersWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve the channel partners configured on the account.
+     * Retrieve the channel partners configured on the account. 
+     * @return ApiResponse&lt;ChannelPartnersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ChannelPartnersResponse> getChannelPartnersWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getChannelPartnersValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ChannelPartnersResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the channel partners configured on the account. (asynchronously)
+     * Retrieve the channel partners configured on the account. 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnersAsync(final ApiCallback<ChannelPartnersResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getChannelPartnersValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ChannelPartnersResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for importChannelPartnerOrder
      * @param channelPartnerOrder Order to insert (required)
      * @param _callback Callback for upload/download progress
@@ -833,6 +1427,328 @@ public class ChannelPartnerApi {
 
         okhttp3.Call localVarCall = importChannelPartnerOrderValidateBeforeCall(channelPartnerOrder, _callback);
         Type localVarReturnType = new TypeToken<ChannelPartnerImportResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertChannelPartnerShipToPreference
+     * @param channelPartnerOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertChannelPartnerShipToPreferenceCall(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = shipToPreference;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", localVarApiClient.escapeString(channelPartnerOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertChannelPartnerShipToPreferenceValidateBeforeCall(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling insertChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'shipToPreference' is set
+        if (shipToPreference == null) {
+            throw new ApiException("Missing the required parameter 'shipToPreference' when calling insertChannelPartnerShipToPreference(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertChannelPartnerShipToPreferenceCall(channelPartnerOid, shipToPreference, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Insert a ship to preference record for the channel partner.
+     * Insert a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @return ChannelPartnerShipToPreferenceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ChannelPartnerShipToPreferenceResponse insertChannelPartnerShipToPreference(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference) throws ApiException {
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResp = insertChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, shipToPreference);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Insert a ship to preference record for the channel partner.
+     * Insert a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @return ApiResponse&lt;ChannelPartnerShipToPreferenceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ChannelPartnerShipToPreferenceResponse> insertChannelPartnerShipToPreferenceWithHttpInfo(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference) throws ApiException {
+        okhttp3.Call localVarCall = insertChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, shipToPreference, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Insert a ship to preference record for the channel partner. (asynchronously)
+     * Insert a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertChannelPartnerShipToPreferenceAsync(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, final ApiCallback<ChannelPartnerShipToPreferenceResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, shipToPreference, _callback);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateChannelPartnerShipToPreference
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateChannelPartnerShipToPreferenceCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = shipToPreference;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", localVarApiClient.escapeString(channelPartnerOid.toString()))
+            .replaceAll("\\{" + "channel_partner_ship_to_preference_oid" + "\\}", localVarApiClient.escapeString(channelPartnerShipToPreferenceOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateChannelPartnerShipToPreferenceValidateBeforeCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling updateChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+        if (channelPartnerShipToPreferenceOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerShipToPreferenceOid' when calling updateChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'shipToPreference' is set
+        if (shipToPreference == null) {
+            throw new ApiException("Missing the required parameter 'shipToPreference' when calling updateChannelPartnerShipToPreference(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateChannelPartnerShipToPreferenceCall(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a ship to preference record for the channel partner.
+     * Update a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @return ChannelPartnerShipToPreferenceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ChannelPartnerShipToPreferenceResponse updateChannelPartnerShipToPreference(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference) throws ApiException {
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResp = updateChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a ship to preference record for the channel partner.
+     * Update a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @return ApiResponse&lt;ChannelPartnerShipToPreferenceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ChannelPartnerShipToPreferenceResponse> updateChannelPartnerShipToPreferenceWithHttpInfo(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference) throws ApiException {
+        okhttp3.Call localVarCall = updateChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a ship to preference record for the channel partner. (asynchronously)
+     * Update a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateChannelPartnerShipToPreferenceAsync(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, final ApiCallback<ChannelPartnerShipToPreferenceResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference, _callback);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

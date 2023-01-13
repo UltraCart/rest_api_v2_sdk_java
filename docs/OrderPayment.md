@@ -51,6 +51,7 @@
 | UNKNOWN | &quot;Unknown&quot; |
 | WIRE_TRANSFER | &quot;Wire Transfer&quot; |
 | WALMART | &quot;Walmart&quot; |
+| SHOP_COM | &quot;Shop.com&quot; |
 
 
 
