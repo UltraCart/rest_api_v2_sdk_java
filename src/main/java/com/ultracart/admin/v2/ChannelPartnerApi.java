@@ -32,6 +32,10 @@ import com.ultracart.admin.v2.models.ChannelPartnerEstimateShippingResponse;
 import com.ultracart.admin.v2.models.ChannelPartnerEstimateTaxResponse;
 import com.ultracart.admin.v2.models.ChannelPartnerImportResponse;
 import com.ultracart.admin.v2.models.ChannelPartnerOrder;
+import com.ultracart.admin.v2.models.ChannelPartnerShipToPreference;
+import com.ultracart.admin.v2.models.ChannelPartnerShipToPreferenceResponse;
+import com.ultracart.admin.v2.models.ChannelPartnerShipToPreferencesResponse;
+import com.ultracart.admin.v2.models.ChannelPartnersResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 
 import java.lang.reflect.Type;
@@ -331,6 +335,135 @@ public class ChannelPartnerApi {
         return call;
     }
     /**
+     * Build call for deleteChannelPartnerShipToPreference
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteChannelPartnerShipToPreferenceCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", apiClient.escapeString(channelPartnerOid.toString()))
+            .replaceAll("\\{" + "channel_partner_ship_to_preference_oid" + "\\}", apiClient.escapeString(channelPartnerShipToPreferenceOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteChannelPartnerShipToPreferenceValidateBeforeCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling deleteChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+        if (channelPartnerShipToPreferenceOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerShipToPreferenceOid' when calling deleteChannelPartnerShipToPreference(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteChannelPartnerShipToPreferenceCall(channelPartnerOid, channelPartnerShipToPreferenceOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a ship to preference record for the channel partner.
+     * Delete a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteChannelPartnerShipToPreference(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid) throws ApiException {
+        deleteChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid);
+    }
+
+    /**
+     * Delete a ship to preference record for the channel partner.
+     * Delete a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteChannelPartnerShipToPreferenceWithHttpInfo(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a ship to preference record for the channel partner. (asynchronously)
+     * Delete a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteChannelPartnerShipToPreferenceAsync(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for estimateShippingForChannelPartnerOrder
      * @param channelPartnerOrder Order needing shipping estimate (required)
      * @param progressListener Progress listener
@@ -575,6 +708,375 @@ public class ChannelPartnerApi {
         return call;
     }
     /**
+     * Build call for getChannelPartnerShipToPreference
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnerShipToPreferenceCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", apiClient.escapeString(channelPartnerOid.toString()))
+            .replaceAll("\\{" + "channel_partner_ship_to_preference_oid" + "\\}", apiClient.escapeString(channelPartnerShipToPreferenceOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getChannelPartnerShipToPreferenceValidateBeforeCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling getChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+        if (channelPartnerShipToPreferenceOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerShipToPreferenceOid' when calling getChannelPartnerShipToPreference(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getChannelPartnerShipToPreferenceCall(channelPartnerOid, channelPartnerShipToPreferenceOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve the ship to preference associated with the channel partner and the specific id.
+     * Retrieve the ship to preference associated with the channel partner and the specific id. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @return ChannelPartnerShipToPreferenceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ChannelPartnerShipToPreferenceResponse getChannelPartnerShipToPreference(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid) throws ApiException {
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> resp = getChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve the ship to preference associated with the channel partner and the specific id.
+     * Retrieve the ship to preference associated with the channel partner and the specific id. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @return ApiResponse&lt;ChannelPartnerShipToPreferenceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ChannelPartnerShipToPreferenceResponse> getChannelPartnerShipToPreferenceWithHttpInfo(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid) throws ApiException {
+        com.squareup.okhttp.Call call = getChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, null, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the ship to preference associated with the channel partner and the specific id. (asynchronously)
+     * Retrieve the ship to preference associated with the channel partner and the specific id. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnerShipToPreferenceAsync(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, final ApiCallback<ChannelPartnerShipToPreferenceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getChannelPartnerShipToPreferences
+     * @param channelPartnerOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnerShipToPreferencesCall(Integer channelPartnerOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", apiClient.escapeString(channelPartnerOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getChannelPartnerShipToPreferencesValidateBeforeCall(Integer channelPartnerOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling getChannelPartnerShipToPreferences(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getChannelPartnerShipToPreferencesCall(channelPartnerOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve the ship to preferences associated with the channel partner.
+     * Retrieve the ship to preferences associated with the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @return ChannelPartnerShipToPreferencesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ChannelPartnerShipToPreferencesResponse getChannelPartnerShipToPreferences(Integer channelPartnerOid) throws ApiException {
+        ApiResponse<ChannelPartnerShipToPreferencesResponse> resp = getChannelPartnerShipToPreferencesWithHttpInfo(channelPartnerOid);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve the ship to preferences associated with the channel partner.
+     * Retrieve the ship to preferences associated with the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @return ApiResponse&lt;ChannelPartnerShipToPreferencesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ChannelPartnerShipToPreferencesResponse> getChannelPartnerShipToPreferencesWithHttpInfo(Integer channelPartnerOid) throws ApiException {
+        com.squareup.okhttp.Call call = getChannelPartnerShipToPreferencesValidateBeforeCall(channelPartnerOid, null, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferencesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the ship to preferences associated with the channel partner. (asynchronously)
+     * Retrieve the ship to preferences associated with the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnerShipToPreferencesAsync(Integer channelPartnerOid, final ApiCallback<ChannelPartnerShipToPreferencesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getChannelPartnerShipToPreferencesValidateBeforeCall(channelPartnerOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferencesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getChannelPartners
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getChannelPartnersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getChannelPartnersCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve the channel partners configured on the account.
+     * Retrieve the channel partners configured on the account. 
+     * @return ChannelPartnersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ChannelPartnersResponse getChannelPartners() throws ApiException {
+        ApiResponse<ChannelPartnersResponse> resp = getChannelPartnersWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve the channel partners configured on the account.
+     * Retrieve the channel partners configured on the account. 
+     * @return ApiResponse&lt;ChannelPartnersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ChannelPartnersResponse> getChannelPartnersWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getChannelPartnersValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the channel partners configured on the account. (asynchronously)
+     * Retrieve the channel partners configured on the account. 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnersAsync(final ApiCallback<ChannelPartnersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getChannelPartnersValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ChannelPartnersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for importChannelPartnerOrder
      * @param channelPartnerOrder Order to insert (required)
      * @param progressListener Progress listener
@@ -693,6 +1195,280 @@ public class ChannelPartnerApi {
 
         com.squareup.okhttp.Call call = importChannelPartnerOrderValidateBeforeCall(channelPartnerOrder, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ChannelPartnerImportResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertChannelPartnerShipToPreference
+     * @param channelPartnerOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertChannelPartnerShipToPreferenceCall(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = shipToPreference;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", apiClient.escapeString(channelPartnerOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertChannelPartnerShipToPreferenceValidateBeforeCall(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling insertChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'shipToPreference' is set
+        if (shipToPreference == null) {
+            throw new ApiException("Missing the required parameter 'shipToPreference' when calling insertChannelPartnerShipToPreference(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertChannelPartnerShipToPreferenceCall(channelPartnerOid, shipToPreference, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a ship to preference record for the channel partner.
+     * Insert a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @return ChannelPartnerShipToPreferenceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ChannelPartnerShipToPreferenceResponse insertChannelPartnerShipToPreference(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference) throws ApiException {
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> resp = insertChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, shipToPreference);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a ship to preference record for the channel partner.
+     * Insert a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @return ApiResponse&lt;ChannelPartnerShipToPreferenceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ChannelPartnerShipToPreferenceResponse> insertChannelPartnerShipToPreferenceWithHttpInfo(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference) throws ApiException {
+        com.squareup.okhttp.Call call = insertChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, shipToPreference, null, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a ship to preference record for the channel partner. (asynchronously)
+     * Insert a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertChannelPartnerShipToPreferenceAsync(Integer channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, final ApiCallback<ChannelPartnerShipToPreferenceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, shipToPreference, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateChannelPartnerShipToPreference
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateChannelPartnerShipToPreferenceCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = shipToPreference;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}"
+            .replaceAll("\\{" + "channel_partner_oid" + "\\}", apiClient.escapeString(channelPartnerOid.toString()))
+            .replaceAll("\\{" + "channel_partner_ship_to_preference_oid" + "\\}", apiClient.escapeString(channelPartnerShipToPreferenceOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateChannelPartnerShipToPreferenceValidateBeforeCall(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'channelPartnerOid' is set
+        if (channelPartnerOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerOid' when calling updateChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+        if (channelPartnerShipToPreferenceOid == null) {
+            throw new ApiException("Missing the required parameter 'channelPartnerShipToPreferenceOid' when calling updateChannelPartnerShipToPreference(Async)");
+        }
+        
+        // verify the required parameter 'shipToPreference' is set
+        if (shipToPreference == null) {
+            throw new ApiException("Missing the required parameter 'shipToPreference' when calling updateChannelPartnerShipToPreference(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateChannelPartnerShipToPreferenceCall(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update a ship to preference record for the channel partner.
+     * Update a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @return ChannelPartnerShipToPreferenceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ChannelPartnerShipToPreferenceResponse updateChannelPartnerShipToPreference(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference) throws ApiException {
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> resp = updateChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference);
+        return resp.getData();
+    }
+
+    /**
+     * Update a ship to preference record for the channel partner.
+     * Update a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @return ApiResponse&lt;ChannelPartnerShipToPreferenceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ChannelPartnerShipToPreferenceResponse> updateChannelPartnerShipToPreferenceWithHttpInfo(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference) throws ApiException {
+        com.squareup.okhttp.Call call = updateChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference, null, null);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a ship to preference record for the channel partner. (asynchronously)
+     * Update a ship to preference record for the channel partner. 
+     * @param channelPartnerOid  (required)
+     * @param channelPartnerShipToPreferenceOid  (required)
+     * @param shipToPreference Ship to preference to create (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateChannelPartnerShipToPreferenceAsync(Integer channelPartnerOid, Integer channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, final ApiCallback<ChannelPartnerShipToPreferenceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
