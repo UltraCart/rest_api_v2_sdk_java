@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * EmailCustomer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-13T14:46:30.943-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-14T09:34:15.113-05:00")
 
 
 
