@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSettingsPaymentCreditCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-13T14:58:56.471-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-14T09:46:20.929-05:00[America/Indianapolis]")
 public class CartSettingsPaymentCreditCard {
   public static final String SERIALIZED_NAME_COLLECT_CREDIT_CARD_VERIFICATION_NUMBER = "collect_credit_card_verification_number";
   @SerializedName(SERIALIZED_NAME_COLLECT_CREDIT_CARD_VERIFICATION_NUMBER)

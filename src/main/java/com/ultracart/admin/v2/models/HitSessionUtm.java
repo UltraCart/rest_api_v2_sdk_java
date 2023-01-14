@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * HitSessionUtm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-13T14:58:56.471-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-14T09:46:20.929-05:00[America/Indianapolis]")
 public class HitSessionUtm {
   public static final String SERIALIZED_NAME_FB_AD_ID = "fb_ad_id";
   @SerializedName(SERIALIZED_NAME_FB_AD_ID)

@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderBuysafe
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-13T14:58:56.471-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-14T09:46:20.929-05:00[America/Indianapolis]")
 public class OrderBuysafe {
   public static final String SERIALIZED_NAME_BUYSAFE_BOND_AVAILABLE = "buysafe_bond_available";
   @SerializedName(SERIALIZED_NAME_BUYSAFE_BOND_AVAILABLE)

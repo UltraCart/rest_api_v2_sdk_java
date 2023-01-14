@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * PointOfSaleLocation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-13T14:58:56.471-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-14T09:46:20.929-05:00[America/Indianapolis]")
 public class PointOfSaleLocation {
   public static final String SERIALIZED_NAME_ADDDRESS2 = "adddress2";
   @SerializedName(SERIALIZED_NAME_ADDDRESS2)
@@ -68,6 +68,10 @@ public class PointOfSaleLocation {
   public static final String SERIALIZED_NAME_DISTRIBUTION_CENTER_CODE = "distribution_center_code";
   @SerializedName(SERIALIZED_NAME_DISTRIBUTION_CENTER_CODE)
   private String distributionCenterCode;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+  private String externalId;
 
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
@@ -203,6 +207,29 @@ public class PointOfSaleLocation {
   }
 
 
+  public PointOfSaleLocation externalId(String externalId) {
+    
+    this.externalId = externalId;
+    return this;
+  }
+
+   /**
+   * External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.
+   * @return externalId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.")
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+
   public PointOfSaleLocation merchantId(String merchantId) {
     
     this.merchantId = merchantId;
@@ -310,6 +337,7 @@ public class PointOfSaleLocation {
         Objects.equals(this.city, pointOfSaleLocation.city) &&
         Objects.equals(this.country, pointOfSaleLocation.country) &&
         Objects.equals(this.distributionCenterCode, pointOfSaleLocation.distributionCenterCode) &&
+        Objects.equals(this.externalId, pointOfSaleLocation.externalId) &&
         Objects.equals(this.merchantId, pointOfSaleLocation.merchantId) &&
         Objects.equals(this.posLocationOid, pointOfSaleLocation.posLocationOid) &&
         Objects.equals(this.postalCode, pointOfSaleLocation.postalCode) &&
@@ -318,7 +346,7 @@ public class PointOfSaleLocation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adddress2, address1, city, country, distributionCenterCode, merchantId, posLocationOid, postalCode, stateProvince);
+    return Objects.hash(adddress2, address1, city, country, distributionCenterCode, externalId, merchantId, posLocationOid, postalCode, stateProvince);
   }
 
   @Override
@@ -330,6 +358,7 @@ public class PointOfSaleLocation {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    distributionCenterCode: ").append(toIndentedString(distributionCenterCode)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    posLocationOid: ").append(toIndentedString(posLocationOid)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
@@ -361,6 +390,7 @@ public class PointOfSaleLocation {
     openapiFields.add("city");
     openapiFields.add("country");
     openapiFields.add("distribution_center_code");
+    openapiFields.add("external_id");
     openapiFields.add("merchant_id");
     openapiFields.add("pos_location_oid");
     openapiFields.add("postal_code");
@@ -406,6 +436,9 @@ public class PointOfSaleLocation {
       }
       if (jsonObj.get("distribution_center_code") != null && !jsonObj.get("distribution_center_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `distribution_center_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("distribution_center_code").toString()));
+      }
+      if (jsonObj.get("external_id") != null && !jsonObj.get("external_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_id").toString()));
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));

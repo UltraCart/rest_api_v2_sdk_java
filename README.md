@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-13T14:58:56.471-05:00[America/Indianapolis]
+  - Build date: 2023-01-14T09:46:20.929-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.112-RC</version>
+  <version>4.0.113-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.112-RC"
+     implementation "com.ultracart:rest-sdk:4.0.113-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.112-RC.jar`
+* `target/rest-sdk-4.0.113-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1332,6 +1332,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.113-RC | 01/14/2023 | add external_id to the point of sale location object |
 | 4.0.112-RC | 01/13/2023 | channel - ops to manage ship to prefs |
 | 4.0.111-RC | 01/11/2023 | conversations - adjust search results to return multiple convo summaries |
 | 4.0.110-RC | 01/10/2023 | add method to query integration log record by oid |
