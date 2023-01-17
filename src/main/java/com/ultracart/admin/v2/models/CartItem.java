@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CartItemAttribute;
 import com.ultracart.admin.v2.models.CartItemMultimedia;
 import com.ultracart.admin.v2.models.CartItemOption;
 import com.ultracart.admin.v2.models.CartItemPhysical;
+import com.ultracart.admin.v2.models.CartItemProperty;
 import com.ultracart.admin.v2.models.CartItemVariationSelection;
 import com.ultracart.admin.v2.models.CartKitComponentOption;
 import com.ultracart.admin.v2.models.Currency;
@@ -57,7 +58,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-14T09:46:20.929-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-17T10:18:51.625-05:00[America/Indianapolis]")
 public class CartItem {
   public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST = "arbitrary_unit_cost";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST)
@@ -138,6 +139,10 @@ public class CartItem {
   public static final String SERIALIZED_NAME_PREORDER = "preorder";
   @SerializedName(SERIALIZED_NAME_PREORDER)
   private Boolean preorder;
+
+  public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+  @SerializedName(SERIALIZED_NAME_PROPERTIES)
+  private List<CartItemProperty> properties = null;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
@@ -670,6 +675,37 @@ public class CartItem {
   }
 
 
+  public CartItem properties(List<CartItemProperty> properties) {
+    
+    this.properties = properties;
+    return this;
+  }
+
+  public CartItem addPropertiesItem(CartItemProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties associated with the item
+   * @return properties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Properties associated with the item")
+
+  public List<CartItemProperty> getProperties() {
+    return properties;
+  }
+
+
+  public void setProperties(List<CartItemProperty> properties) {
+    this.properties = properties;
+  }
+
+
   public CartItem quantity(BigDecimal quantity) {
     
     this.quantity = quantity;
@@ -923,6 +959,7 @@ public class CartItem {
         Objects.equals(this.phsyical, cartItem.phsyical) &&
         Objects.equals(this.position, cartItem.position) &&
         Objects.equals(this.preorder, cartItem.preorder) &&
+        Objects.equals(this.properties, cartItem.properties) &&
         Objects.equals(this.quantity, cartItem.quantity) &&
         Objects.equals(this.schedules, cartItem.schedules) &&
         Objects.equals(this.totalCost, cartItem.totalCost) &&
@@ -936,7 +973,7 @@ public class CartItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryUnitCost, attributes, autoOrderSchedule, defaultImageUrl, defaultThumbnailUrl, description, discount, extendedDescription, itemId, itemOid, kit, kitComponentOptions, manufacturerSuggestedRetailPrice, maximumQuantity, minimumQuantity, multimedia, options, phsyical, position, preorder, quantity, schedules, totalCost, totalCostWithDiscount, unitCost, unitCostWithDiscount, upsell, variations, viewUrl);
+    return Objects.hash(arbitraryUnitCost, attributes, autoOrderSchedule, defaultImageUrl, defaultThumbnailUrl, description, discount, extendedDescription, itemId, itemOid, kit, kitComponentOptions, manufacturerSuggestedRetailPrice, maximumQuantity, minimumQuantity, multimedia, options, phsyical, position, preorder, properties, quantity, schedules, totalCost, totalCostWithDiscount, unitCost, unitCostWithDiscount, upsell, variations, viewUrl);
   }
 
   @Override
@@ -963,6 +1000,7 @@ public class CartItem {
     sb.append("    phsyical: ").append(toIndentedString(phsyical)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    preorder: ").append(toIndentedString(preorder)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    schedules: ").append(toIndentedString(schedules)).append("\n");
     sb.append("    totalCost: ").append(toIndentedString(totalCost)).append("\n");
@@ -1014,6 +1052,7 @@ public class CartItem {
     openapiFields.add("phsyical");
     openapiFields.add("position");
     openapiFields.add("preorder");
+    openapiFields.add("properties");
     openapiFields.add("quantity");
     openapiFields.add("schedules");
     openapiFields.add("total_cost");
@@ -1131,6 +1170,18 @@ public class CartItem {
       // validate the optional field `phsyical`
       if (jsonObj.getAsJsonObject("phsyical") != null) {
         CartItemPhysical.validateJsonObject(jsonObj.getAsJsonObject("phsyical"));
+      }
+      JsonArray jsonArrayproperties = jsonObj.getAsJsonArray("properties");
+      if (jsonArrayproperties != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("properties").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `properties` to be an array in the JSON string but got `%s`", jsonObj.get("properties").toString()));
+        }
+
+        // validate the optional field `properties` (array)
+        for (int i = 0; i < jsonArrayproperties.size(); i++) {
+          CartItemProperty.validateJsonObject(jsonArrayproperties.get(i).getAsJsonObject());
+        };
       }
       // ensure the json data is an array
       if (jsonObj.get("schedules") != null && !jsonObj.get("schedules").isJsonArray()) {

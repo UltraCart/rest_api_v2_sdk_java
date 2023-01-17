@@ -68,6 +68,7 @@ docs/CartItemMultimediaThumbnail.md
 docs/CartItemOption.md
 docs/CartItemOptionValue.md
 docs/CartItemPhysical.md
+docs/CartItemProperty.md
 docs/CartItemVariationSelection.md
 docs/CartKitComponentOption.md
 docs/CartMarketing.md
@@ -839,6 +840,7 @@ src/main/java/com/ultracart/admin/v2/models/CartItemMultimediaThumbnail.java
 src/main/java/com/ultracart/admin/v2/models/CartItemOption.java
 src/main/java/com/ultracart/admin/v2/models/CartItemOptionValue.java
 src/main/java/com/ultracart/admin/v2/models/CartItemPhysical.java
+src/main/java/com/ultracart/admin/v2/models/CartItemProperty.java
 src/main/java/com/ultracart/admin/v2/models/CartItemVariationSelection.java
 src/main/java/com/ultracart/admin/v2/models/CartKitComponentOption.java
 src/main/java/com/ultracart/admin/v2/models/CartMarketing.java

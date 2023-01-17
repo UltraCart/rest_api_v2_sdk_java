@@ -27,6 +27,7 @@
 |**phsyical** | [**CartItemPhysical**](CartItemPhysical.md) |  |  [optional] |
 |**position** | **Integer** | Position of the item in the cart |  [optional] |
 |**preorder** | **Boolean** | True if this item is on pre-order |  [optional] |
+|**properties** | [**List&lt;CartItemProperty&gt;**](CartItemProperty.md) | Properties associated with the item |  [optional] |
 |**quantity** | **BigDecimal** | quantity |  [optional] |
 |**schedules** | **List&lt;String&gt;** | Customer selectable auto order schedules |  [optional] |
 |**totalCost** | [**Currency**](Currency.md) |  |  [optional] |

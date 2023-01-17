@@ -155,6 +155,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CartItemOption.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CartItemOptionValue.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CartItemPhysical.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CartItemProperty.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CartItemVariationSelection.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CartKitComponentOption.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CartMarketing.CustomTypeAdapterFactory())
