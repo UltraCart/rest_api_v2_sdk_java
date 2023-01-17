@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-14T09:34:15.113-05:00
+  - Build date: 2023-01-17T10:06:40.696-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.96</version>
+  <version>3.10.97</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.96"
+compile "com.ultracart:rest-sdk:3.10.97"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.96.jar`
+* `target/rest-sdk-3.10.97.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -573,6 +573,7 @@ Class | Method | HTTP request | Description
  - [CartItemOption](docs/CartItemOption.md)
  - [CartItemOptionValue](docs/CartItemOptionValue.md)
  - [CartItemPhysical](docs/CartItemPhysical.md)
+ - [CartItemProperty](docs/CartItemProperty.md)
  - [CartItemVariationSelection](docs/CartItemVariationSelection.md)
  - [CartKitComponentOption](docs/CartKitComponentOption.md)
  - [CartMarketing](docs/CartMarketing.md)
@@ -1316,6 +1317,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.97 | 01/17/2023 | support for checkout item properties |
 | 3.10.96 | 01/14/2023 | add external_id to the point of sale location object |
 | 3.10.95 | 01/13/2023 | channel - ops to manage ship to prefs |
 | 3.10.94 | 01/11/2023 | conversations - adjust search results to return multiple convo summaries |

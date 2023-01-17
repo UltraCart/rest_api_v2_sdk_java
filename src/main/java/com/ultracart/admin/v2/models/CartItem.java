@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CartItemAttribute;
 import com.ultracart.admin.v2.models.CartItemMultimedia;
 import com.ultracart.admin.v2.models.CartItemOption;
 import com.ultracart.admin.v2.models.CartItemPhysical;
+import com.ultracart.admin.v2.models.CartItemProperty;
 import com.ultracart.admin.v2.models.CartItemVariationSelection;
 import com.ultracart.admin.v2.models.CartKitComponentOption;
 import com.ultracart.admin.v2.models.Currency;
@@ -37,7 +38,7 @@ import java.util.List;
 /**
  * CartItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-14T09:34:15.113-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-17T10:06:40.696-05:00")
 
 
 
@@ -101,6 +102,9 @@ public class CartItem {
 
   @SerializedName("preorder")
   private Boolean preorder = null;
+
+  @SerializedName("properties")
+  private List<CartItemProperty> properties = null;
 
   @SerializedName("quantity")
   private BigDecimal quantity = null;
@@ -521,6 +525,32 @@ public class CartItem {
     this.preorder = preorder;
   }
 
+  public CartItem properties(List<CartItemProperty> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public CartItem addPropertiesItem(CartItemProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<CartItemProperty>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties associated with the item
+   * @return properties
+  **/
+  @ApiModelProperty(value = "Properties associated with the item")
+  public List<CartItemProperty> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<CartItemProperty> properties) {
+    this.properties = properties;
+  }
+
   public CartItem quantity(BigDecimal quantity) {
     this.quantity = quantity;
     return this;
@@ -729,6 +759,7 @@ public class CartItem {
         Objects.equals(this.phsyical, cartItem.phsyical) &&
         Objects.equals(this.position, cartItem.position) &&
         Objects.equals(this.preorder, cartItem.preorder) &&
+        Objects.equals(this.properties, cartItem.properties) &&
         Objects.equals(this.quantity, cartItem.quantity) &&
         Objects.equals(this.schedules, cartItem.schedules) &&
         Objects.equals(this.totalCost, cartItem.totalCost) &&
@@ -742,7 +773,7 @@ public class CartItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryUnitCost, attributes, autoOrderSchedule, defaultImageUrl, defaultThumbnailUrl, description, discount, extendedDescription, itemId, itemOid, kit, kitComponentOptions, manufacturerSuggestedRetailPrice, maximumQuantity, minimumQuantity, multimedia, options, phsyical, position, preorder, quantity, schedules, totalCost, totalCostWithDiscount, unitCost, unitCostWithDiscount, upsell, variations, viewUrl);
+    return Objects.hash(arbitraryUnitCost, attributes, autoOrderSchedule, defaultImageUrl, defaultThumbnailUrl, description, discount, extendedDescription, itemId, itemOid, kit, kitComponentOptions, manufacturerSuggestedRetailPrice, maximumQuantity, minimumQuantity, multimedia, options, phsyical, position, preorder, properties, quantity, schedules, totalCost, totalCostWithDiscount, unitCost, unitCostWithDiscount, upsell, variations, viewUrl);
   }
 
 
@@ -771,6 +802,7 @@ public class CartItem {
     sb.append("    phsyical: ").append(toIndentedString(phsyical)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    preorder: ").append(toIndentedString(preorder)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    schedules: ").append(toIndentedString(schedules)).append("\n");
     sb.append("    totalCost: ").append(toIndentedString(totalCost)).append("\n");

@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * ItemPhysical
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-14T09:34:15.113-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-17T10:06:40.696-05:00")
 
 
 
