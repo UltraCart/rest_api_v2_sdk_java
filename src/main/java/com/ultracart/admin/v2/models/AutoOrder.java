@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-17T10:18:51.625-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-17T16:23:43.112-05:00[America/Indianapolis]")
 public class AutoOrder {
   public static final String SERIALIZED_NAME_AUTO_ORDER_CODE = "auto_order_code";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_CODE)

@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemPaymentProcessing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-17T10:18:51.625-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-17T16:23:43.112-05:00[America/Indianapolis]")
 public class ItemPaymentProcessing {
   public static final String SERIALIZED_NAME_BLOCK_PREPAID = "block_prepaid";
   @SerializedName(SERIALIZED_NAME_BLOCK_PREPAID)
