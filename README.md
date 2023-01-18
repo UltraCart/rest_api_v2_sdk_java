@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-18T12:06:01.619-05:00[America/Indianapolis]
+  - Build date: 2023-01-18T13:37:57.506-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.117-RC</version>
+  <version>4.0.118-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.117-RC"
+     implementation "com.ultracart:rest-sdk:4.0.118-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.117-RC.jar`
+* `target/rest-sdk-4.0.118-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -182,6 +182,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationCannedMessages**](docs/ConversationApi.md#getConversationCannedMessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
 *ConversationApi* | [**getConversationContext**](docs/ConversationApi.md#getConversationContext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
+*ConversationApi* | [**getConversationDepartmentMemberList**](docs/ConversationApi.md#getConversationDepartmentMemberList) | **GET** /conversation/department_members | Retrieve a list of possible department members
 *ConversationApi* | [**getConversationDepartments**](docs/ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 *ConversationApi* | [**getConversationEngagements**](docs/ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
@@ -663,6 +664,7 @@ Class | Method | HTTP request | Description
  - [ConversationCannedMessagesSearch](docs/ConversationCannedMessagesSearch.md)
  - [ConversationDepartment](docs/ConversationDepartment.md)
  - [ConversationDepartmentMember](docs/ConversationDepartmentMember.md)
+ - [ConversationDepartmentMembersResponse](docs/ConversationDepartmentMembersResponse.md)
  - [ConversationDepartmentResponse](docs/ConversationDepartmentResponse.md)
  - [ConversationDepartmentsResponse](docs/ConversationDepartmentsResponse.md)
  - [ConversationEngagement](docs/ConversationEngagement.md)
@@ -1334,6 +1336,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.118-RC | 01/18/2023 | conversation get dept member list method added |
 | 4.0.117-RC | 01/18/2023 | conversation dept members |
 | 4.0.116-RC | 01/18/2023 | channel partner ship to pref desc field |
 | 4.0.115-RC | 01/17/2023 | changed convo webchat constant |
