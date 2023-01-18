@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * ConversationDepartmentsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:14:27.800-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:54:31.738-05:00")
 
 
 
@@ -46,6 +46,9 @@ public class ConversationDepartmentsResponse {
 
   @SerializedName("metadata")
   private ResponseMetadata metadata = null;
+
+  @SerializedName("read_only")
+  private Boolean readOnly = null;
 
   @SerializedName("success")
   private Boolean success = null;
@@ -115,6 +118,24 @@ public class ConversationDepartmentsResponse {
     this.metadata = metadata;
   }
 
+  public ConversationDepartmentsResponse readOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return this;
+  }
+
+   /**
+   * Get readOnly
+   * @return readOnly
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isReadOnly() {
+    return readOnly;
+  }
+
+  public void setReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+  }
+
   public ConversationDepartmentsResponse success(Boolean success) {
     this.success = success;
     return this;
@@ -164,13 +185,14 @@ public class ConversationDepartmentsResponse {
     return Objects.equals(this.conversationDepartments, conversationDepartmentsResponse.conversationDepartments) &&
         Objects.equals(this.error, conversationDepartmentsResponse.error) &&
         Objects.equals(this.metadata, conversationDepartmentsResponse.metadata) &&
+        Objects.equals(this.readOnly, conversationDepartmentsResponse.readOnly) &&
         Objects.equals(this.success, conversationDepartmentsResponse.success) &&
         Objects.equals(this.warning, conversationDepartmentsResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationDepartments, error, metadata, success, warning);
+    return Objects.hash(conversationDepartments, error, metadata, readOnly, success, warning);
   }
 
 
@@ -182,6 +204,7 @@ public class ConversationDepartmentsResponse {
     sb.append("    conversationDepartments: ").append(toIndentedString(conversationDepartments)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");

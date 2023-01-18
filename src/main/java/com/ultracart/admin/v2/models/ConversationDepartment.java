@@ -20,15 +20,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationDepartmentMember;
 import com.ultracart.admin.v2.models.ConversationDepartmentSettings;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ConversationDepartment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:14:27.800-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:54:31.738-05:00")
 
 
 
@@ -38,6 +41,9 @@ public class ConversationDepartment {
 
   @SerializedName("department_name")
   private String departmentName = null;
+
+  @SerializedName("members")
+  private List<ConversationDepartmentMember> members = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
@@ -79,6 +85,32 @@ public class ConversationDepartment {
 
   public void setDepartmentName(String departmentName) {
     this.departmentName = departmentName;
+  }
+
+  public ConversationDepartment members(List<ConversationDepartmentMember> members) {
+    this.members = members;
+    return this;
+  }
+
+  public ConversationDepartment addMembersItem(ConversationDepartmentMember membersItem) {
+    if (this.members == null) {
+      this.members = new ArrayList<ConversationDepartmentMember>();
+    }
+    this.members.add(membersItem);
+    return this;
+  }
+
+   /**
+   * Get members
+   * @return members
+  **/
+  @ApiModelProperty(value = "")
+  public List<ConversationDepartmentMember> getMembers() {
+    return members;
+  }
+
+  public void setMembers(List<ConversationDepartmentMember> members) {
+    this.members = members;
   }
 
   public ConversationDepartment merchantId(String merchantId) {
@@ -129,13 +161,14 @@ public class ConversationDepartment {
     ConversationDepartment conversationDepartment = (ConversationDepartment) o;
     return Objects.equals(this.conversationDepartmentOid, conversationDepartment.conversationDepartmentOid) &&
         Objects.equals(this.departmentName, conversationDepartment.departmentName) &&
+        Objects.equals(this.members, conversationDepartment.members) &&
         Objects.equals(this.merchantId, conversationDepartment.merchantId) &&
         Objects.equals(this.settings, conversationDepartment.settings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationDepartmentOid, departmentName, merchantId, settings);
+    return Objects.hash(conversationDepartmentOid, departmentName, members, merchantId, settings);
   }
 
 
@@ -146,6 +179,7 @@ public class ConversationDepartment {
     
     sb.append("    conversationDepartmentOid: ").append(toIndentedString(conversationDepartmentOid)).append("\n");
     sb.append("    departmentName: ").append(toIndentedString(departmentName)).append("\n");
+    sb.append("    members: ").append(toIndentedString(members)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("}");
