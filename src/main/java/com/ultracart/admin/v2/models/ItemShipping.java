@@ -58,7 +58,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-17T16:23:43.112-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:26:40.966-05:00[America/Indianapolis]")
 public class ItemShipping {
   public static final String SERIALIZED_NAME_ALLOW_BACK_ORDER = "allow_back_order";
   @SerializedName(SERIALIZED_NAME_ALLOW_BACK_ORDER)

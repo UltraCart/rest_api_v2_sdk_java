@@ -87,7 +87,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-17T16:23:43.112-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:26:40.966-05:00[America/Indianapolis]")
 public class Item {
   public static final String SERIALIZED_NAME_ACCOUNTING = "accounting";
   @SerializedName(SERIALIZED_NAME_ACCOUNTING)

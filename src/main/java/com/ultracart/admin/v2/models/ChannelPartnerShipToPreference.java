@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerShipToPreference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-17T16:23:43.112-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:26:40.966-05:00[America/Indianapolis]")
 public class ChannelPartnerShipToPreference {
   public static final String SERIALIZED_NAME_ADDITIONAL_KIT_COMPONENT_ITEM_IDS = "additional_kit_component_item_ids";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_KIT_COMPONENT_ITEM_IDS)
@@ -62,6 +62,10 @@ public class ChannelPartnerShipToPreference {
   public static final String SERIALIZED_NAME_CHANNEL_PARTNER_SHIP_TO_PREFERENCE_OID = "channel_partner_ship_to_preference_oid";
   @SerializedName(SERIALIZED_NAME_CHANNEL_PARTNER_SHIP_TO_PREFERENCE_OID)
   private Integer channelPartnerShipToPreferenceOid;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
@@ -155,6 +159,29 @@ public class ChannelPartnerShipToPreference {
   }
 
 
+  public ChannelPartnerShipToPreference description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * A description that is meaningful to the merchant.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A description that is meaningful to the merchant.")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public ChannelPartnerShipToPreference merchantId(String merchantId) {
     
     this.merchantId = merchantId;
@@ -237,6 +264,7 @@ public class ChannelPartnerShipToPreference {
     return Objects.equals(this.additionalKitComponentItemIds, channelPartnerShipToPreference.additionalKitComponentItemIds) &&
         Objects.equals(this.channelPartnerOid, channelPartnerShipToPreference.channelPartnerOid) &&
         Objects.equals(this.channelPartnerShipToPreferenceOid, channelPartnerShipToPreference.channelPartnerShipToPreferenceOid) &&
+        Objects.equals(this.description, channelPartnerShipToPreference.description) &&
         Objects.equals(this.merchantId, channelPartnerShipToPreference.merchantId) &&
         Objects.equals(this.returnPolicy, channelPartnerShipToPreference.returnPolicy) &&
         Objects.equals(this.shipToEdiCode, channelPartnerShipToPreference.shipToEdiCode);
@@ -244,7 +272,7 @@ public class ChannelPartnerShipToPreference {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalKitComponentItemIds, channelPartnerOid, channelPartnerShipToPreferenceOid, merchantId, returnPolicy, shipToEdiCode);
+    return Objects.hash(additionalKitComponentItemIds, channelPartnerOid, channelPartnerShipToPreferenceOid, description, merchantId, returnPolicy, shipToEdiCode);
   }
 
   @Override
@@ -254,6 +282,7 @@ public class ChannelPartnerShipToPreference {
     sb.append("    additionalKitComponentItemIds: ").append(toIndentedString(additionalKitComponentItemIds)).append("\n");
     sb.append("    channelPartnerOid: ").append(toIndentedString(channelPartnerOid)).append("\n");
     sb.append("    channelPartnerShipToPreferenceOid: ").append(toIndentedString(channelPartnerShipToPreferenceOid)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    returnPolicy: ").append(toIndentedString(returnPolicy)).append("\n");
     sb.append("    shipToEdiCode: ").append(toIndentedString(shipToEdiCode)).append("\n");
@@ -282,6 +311,7 @@ public class ChannelPartnerShipToPreference {
     openapiFields.add("additional_kit_component_item_ids");
     openapiFields.add("channel_partner_oid");
     openapiFields.add("channel_partner_ship_to_preference_oid");
+    openapiFields.add("description");
     openapiFields.add("merchant_id");
     openapiFields.add("return_policy");
     openapiFields.add("ship_to_edi_code");
@@ -315,6 +345,9 @@ public class ChannelPartnerShipToPreference {
       // ensure the json data is an array
       if (jsonObj.get("additional_kit_component_item_ids") != null && !jsonObj.get("additional_kit_component_item_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `additional_kit_component_item_ids` to be an array in the JSON string but got `%s`", jsonObj.get("additional_kit_component_item_ids").toString()));
+      }
+      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
