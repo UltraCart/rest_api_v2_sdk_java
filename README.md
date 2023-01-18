@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-17T16:11:02.129-05:00
+  - Build date: 2023-01-18T11:14:27.800-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.98</version>
+  <version>3.10.99</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.98"
+compile "com.ultracart:rest-sdk:3.10.99"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.98.jar`
+* `target/rest-sdk-3.10.99.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1317,6 +1317,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.99 | 01/18/2023 | channel partner ship to pref desc field |
 | 3.10.98 | 01/17/2023 | changed convo webchat constant |
 | 3.10.97 | 01/17/2023 | support for checkout item properties |
 | 3.10.96 | 01/14/2023 | add external_id to the point of sale location object |

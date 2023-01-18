@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * ConversationWebchatQueueStatusesResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-17T16:11:02.129-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:14:27.800-05:00")
 
 
 

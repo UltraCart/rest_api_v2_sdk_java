@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ChannelPartnerShipToPreference
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-17T16:11:02.129-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:14:27.800-05:00")
 
 
 
@@ -42,6 +42,9 @@ public class ChannelPartnerShipToPreference {
 
   @SerializedName("channel_partner_ship_to_preference_oid")
   private Integer channelPartnerShipToPreferenceOid = null;
+
+  @SerializedName("description")
+  private String description = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
@@ -114,6 +117,24 @@ public class ChannelPartnerShipToPreference {
     this.channelPartnerShipToPreferenceOid = channelPartnerShipToPreferenceOid;
   }
 
+  public ChannelPartnerShipToPreference description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * A description that is meaningful to the merchant.
+   * @return description
+  **/
+  @ApiModelProperty(value = "A description that is meaningful to the merchant.")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   public ChannelPartnerShipToPreference merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
@@ -181,6 +202,7 @@ public class ChannelPartnerShipToPreference {
     return Objects.equals(this.additionalKitComponentItemIds, channelPartnerShipToPreference.additionalKitComponentItemIds) &&
         Objects.equals(this.channelPartnerOid, channelPartnerShipToPreference.channelPartnerOid) &&
         Objects.equals(this.channelPartnerShipToPreferenceOid, channelPartnerShipToPreference.channelPartnerShipToPreferenceOid) &&
+        Objects.equals(this.description, channelPartnerShipToPreference.description) &&
         Objects.equals(this.merchantId, channelPartnerShipToPreference.merchantId) &&
         Objects.equals(this.returnPolicy, channelPartnerShipToPreference.returnPolicy) &&
         Objects.equals(this.shipToEdiCode, channelPartnerShipToPreference.shipToEdiCode);
@@ -188,7 +210,7 @@ public class ChannelPartnerShipToPreference {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalKitComponentItemIds, channelPartnerOid, channelPartnerShipToPreferenceOid, merchantId, returnPolicy, shipToEdiCode);
+    return Objects.hash(additionalKitComponentItemIds, channelPartnerOid, channelPartnerShipToPreferenceOid, description, merchantId, returnPolicy, shipToEdiCode);
   }
 
 
@@ -200,6 +222,7 @@ public class ChannelPartnerShipToPreference {
     sb.append("    additionalKitComponentItemIds: ").append(toIndentedString(additionalKitComponentItemIds)).append("\n");
     sb.append("    channelPartnerOid: ").append(toIndentedString(channelPartnerOid)).append("\n");
     sb.append("    channelPartnerShipToPreferenceOid: ").append(toIndentedString(channelPartnerShipToPreferenceOid)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    returnPolicy: ").append(toIndentedString(returnPolicy)).append("\n");
     sb.append("    shipToEdiCode: ").append(toIndentedString(shipToEdiCode)).append("\n");
