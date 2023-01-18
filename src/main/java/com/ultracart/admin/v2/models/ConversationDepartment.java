@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationDepartmentMember;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationDepartment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:26:40.966-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T12:06:01.619-05:00[America/Indianapolis]")
 public class ConversationDepartment {
   public static final String SERIALIZED_NAME_CONVERSATION_DEPARTMENT_OID = "conversation_department_oid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_DEPARTMENT_OID)
@@ -56,6 +59,10 @@ public class ConversationDepartment {
   public static final String SERIALIZED_NAME_DEPARTMENT_NAME = "department_name";
   @SerializedName(SERIALIZED_NAME_DEPARTMENT_NAME)
   private String departmentName;
+
+  public static final String SERIALIZED_NAME_MEMBERS = "members";
+  @SerializedName(SERIALIZED_NAME_MEMBERS)
+  private List<ConversationDepartmentMember> members = null;
 
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
@@ -111,6 +118,37 @@ public class ConversationDepartment {
 
   public void setDepartmentName(String departmentName) {
     this.departmentName = departmentName;
+  }
+
+
+  public ConversationDepartment members(List<ConversationDepartmentMember> members) {
+    
+    this.members = members;
+    return this;
+  }
+
+  public ConversationDepartment addMembersItem(ConversationDepartmentMember membersItem) {
+    if (this.members == null) {
+      this.members = new ArrayList<>();
+    }
+    this.members.add(membersItem);
+    return this;
+  }
+
+   /**
+   * Get members
+   * @return members
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ConversationDepartmentMember> getMembers() {
+    return members;
+  }
+
+
+  public void setMembers(List<ConversationDepartmentMember> members) {
+    this.members = members;
   }
 
 
@@ -172,13 +210,14 @@ public class ConversationDepartment {
     ConversationDepartment conversationDepartment = (ConversationDepartment) o;
     return Objects.equals(this.conversationDepartmentOid, conversationDepartment.conversationDepartmentOid) &&
         Objects.equals(this.departmentName, conversationDepartment.departmentName) &&
+        Objects.equals(this.members, conversationDepartment.members) &&
         Objects.equals(this.merchantId, conversationDepartment.merchantId) &&
         Objects.equals(this.settings, conversationDepartment.settings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationDepartmentOid, departmentName, merchantId, settings);
+    return Objects.hash(conversationDepartmentOid, departmentName, members, merchantId, settings);
   }
 
   @Override
@@ -187,6 +226,7 @@ public class ConversationDepartment {
     sb.append("class ConversationDepartment {\n");
     sb.append("    conversationDepartmentOid: ").append(toIndentedString(conversationDepartmentOid)).append("\n");
     sb.append("    departmentName: ").append(toIndentedString(departmentName)).append("\n");
+    sb.append("    members: ").append(toIndentedString(members)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("}");
@@ -213,6 +253,7 @@ public class ConversationDepartment {
     openapiFields = new HashSet<String>();
     openapiFields.add("conversation_department_oid");
     openapiFields.add("department_name");
+    openapiFields.add("members");
     openapiFields.add("merchant_id");
     openapiFields.add("settings");
 
@@ -244,6 +285,18 @@ public class ConversationDepartment {
       }
       if (jsonObj.get("department_name") != null && !jsonObj.get("department_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `department_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("department_name").toString()));
+      }
+      JsonArray jsonArraymembers = jsonObj.getAsJsonArray("members");
+      if (jsonArraymembers != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("members").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
+        }
+
+        // validate the optional field `members` (array)
+        for (int i = 0; i < jsonArraymembers.size(); i++) {
+          ConversationDepartmentMember.validateJsonObject(jsonArraymembers.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));

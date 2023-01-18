@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailStepStatRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:26:40.966-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T12:06:01.619-05:00[America/Indianapolis]")
 public class EmailStepStatRequest {
   public static final String SERIALIZED_NAME_COMMSEQ_STEP_UUIDS = "commseq_step_uuids";
   @SerializedName(SERIALIZED_NAME_COMMSEQ_STEP_UUIDS)

@@ -144,6 +144,7 @@ docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
 docs/ConversationDepartment.md
+docs/ConversationDepartmentMember.md
 docs/ConversationDepartmentResponse.md
 docs/ConversationDepartmentsResponse.md
 docs/ConversationEngagement.md
@@ -912,6 +913,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessageResponse.ja
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesSearch.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartment.java
+src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentMember.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentsResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEngagement.java

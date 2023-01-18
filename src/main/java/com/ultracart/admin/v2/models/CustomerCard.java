@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:26:40.966-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T12:06:01.619-05:00[America/Indianapolis]")
 public class CustomerCard {
   public static final String SERIALIZED_NAME_CARD_EXPIRATION_MONTH = "card_expiration_month";
   @SerializedName(SERIALIZED_NAME_CARD_EXPIRATION_MONTH)

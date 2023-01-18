@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationDepartmentsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T11:26:40.966-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-18T12:06:01.619-05:00[America/Indianapolis]")
 public class ConversationDepartmentsResponse {
   public static final String SERIALIZED_NAME_CONVERSATION_DEPARTMENTS = "conversation_departments";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_DEPARTMENTS)
@@ -66,6 +66,10 @@ public class ConversationDepartmentsResponse {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private ResponseMetadata metadata;
+
+  public static final String SERIALIZED_NAME_READ_ONLY = "read_only";
+  @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -155,6 +159,29 @@ public class ConversationDepartmentsResponse {
   }
 
 
+  public ConversationDepartmentsResponse readOnly(Boolean readOnly) {
+    
+    this.readOnly = readOnly;
+    return this;
+  }
+
+   /**
+   * Get readOnly
+   * @return readOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getReadOnly() {
+    return readOnly;
+  }
+
+
+  public void setReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+  }
+
+
   public ConversationDepartmentsResponse success(Boolean success) {
     
     this.success = success;
@@ -214,13 +241,14 @@ public class ConversationDepartmentsResponse {
     return Objects.equals(this.conversationDepartments, conversationDepartmentsResponse.conversationDepartments) &&
         Objects.equals(this.error, conversationDepartmentsResponse.error) &&
         Objects.equals(this.metadata, conversationDepartmentsResponse.metadata) &&
+        Objects.equals(this.readOnly, conversationDepartmentsResponse.readOnly) &&
         Objects.equals(this.success, conversationDepartmentsResponse.success) &&
         Objects.equals(this.warning, conversationDepartmentsResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationDepartments, error, metadata, success, warning);
+    return Objects.hash(conversationDepartments, error, metadata, readOnly, success, warning);
   }
 
   @Override
@@ -230,6 +258,7 @@ public class ConversationDepartmentsResponse {
     sb.append("    conversationDepartments: ").append(toIndentedString(conversationDepartments)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
@@ -257,6 +286,7 @@ public class ConversationDepartmentsResponse {
     openapiFields.add("conversation_departments");
     openapiFields.add("error");
     openapiFields.add("metadata");
+    openapiFields.add("read_only");
     openapiFields.add("success");
     openapiFields.add("warning");
 
