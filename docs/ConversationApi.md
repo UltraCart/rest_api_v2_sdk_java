@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**getConversation**](ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 [**getConversationCannedMessages**](ConversationApi.md#getConversationCannedMessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
 [**getConversationContext**](ConversationApi.md#getConversationContext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
+[**getConversationDepartmentMemberList**](ConversationApi.md#getConversationDepartmentMemberList) | **GET** /conversation/department_members | Retrieve a list of possible department members
 [**getConversationDepartments**](ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 [**getConversationEngagements**](ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 [**getConversationMessages**](ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
@@ -410,6 +411,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationWebchatContext**](ConversationWebchatContext.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getConversationDepartmentMemberList"></a>
+# **getConversationDepartmentMemberList**
+> ConversationDepartmentMembersResponse getConversationDepartmentMemberList()
+
+Retrieve a list of possible department members
+
+Retrieve a list of possible department members 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+try {
+    ConversationDepartmentMembersResponse result = apiInstance.getConversationDepartmentMemberList();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getConversationDepartmentMemberList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationDepartmentMembersResponse**](ConversationDepartmentMembersResponse.md)
 
 ### Authorization
 
