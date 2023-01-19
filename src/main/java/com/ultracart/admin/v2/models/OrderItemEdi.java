@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderItemEdi
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-19T09:54:39.012-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-19T10:44:41.552-05:00[America/Indianapolis]")
 public class OrderItemEdi {
   public static final String SERIALIZED_NAME_IDENTIFICATIONS = "identifications";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIONS)

@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-19T09:54:39.012-05:00[America/Indianapolis]
+  - Build date: 2023-01-19T10:44:41.552-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.119-RC</version>
+  <version>4.0.120-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.119-RC"
+     implementation "com.ultracart:rest-sdk:4.0.120-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.119-RC.jar`
+* `target/rest-sdk-4.0.120-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1339,6 +1339,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.120-RC | 01/19/2023 | added skip_on_rebill field to coupon object |
 | 4.0.119-RC | 01/19/2023 | convo - getConversationPermissions added |
 | 4.0.118-RC | 01/18/2023 | conversation get dept member list method added |
 | 4.0.117-RC | 01/18/2023 | conversation dept members |

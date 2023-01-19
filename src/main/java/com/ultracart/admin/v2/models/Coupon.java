@@ -97,7 +97,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-19T09:54:39.012-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-19T10:44:41.552-05:00[America/Indianapolis]")
 public class Coupon {
   public static final String SERIALIZED_NAME_AFFILIATE_OID = "affiliate_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_OID)
@@ -322,6 +322,10 @@ public class Coupon {
   public static final String SERIALIZED_NAME_RESTRICT_BY_STOREFRONTS = "restrict_by_storefronts";
   @SerializedName(SERIALIZED_NAME_RESTRICT_BY_STOREFRONTS)
   private List<CouponRestriction> restrictByStorefronts = null;
+
+  public static final String SERIALIZED_NAME_SKIP_ON_REBILL = "skip_on_rebill";
+  @SerializedName(SERIALIZED_NAME_SKIP_ON_REBILL)
+  private Boolean skipOnRebill;
 
   public static final String SERIALIZED_NAME_START_DTS = "start_dts";
   @SerializedName(SERIALIZED_NAME_START_DTS)
@@ -1674,6 +1678,29 @@ public class Coupon {
   }
 
 
+  public Coupon skipOnRebill(Boolean skipOnRebill) {
+    
+    this.skipOnRebill = skipOnRebill;
+    return this;
+  }
+
+   /**
+   * Skip this coupon when it is on a rebill of an auto order.
+   * @return skipOnRebill
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Skip this coupon when it is on a rebill of an auto order.")
+
+  public Boolean getSkipOnRebill() {
+    return skipOnRebill;
+  }
+
+
+  public void setSkipOnRebill(Boolean skipOnRebill) {
+    this.skipOnRebill = skipOnRebill;
+  }
+
+
   public Coupon startDts(String startDts) {
     
     this.startDts = startDts;
@@ -1947,6 +1974,7 @@ public class Coupon {
         Objects.equals(this.restrictByPostalCodes, coupon.restrictByPostalCodes) &&
         Objects.equals(this.restrictByScreenBrandingThemeCodes, coupon.restrictByScreenBrandingThemeCodes) &&
         Objects.equals(this.restrictByStorefronts, coupon.restrictByStorefronts) &&
+        Objects.equals(this.skipOnRebill, coupon.skipOnRebill) &&
         Objects.equals(this.startDts, coupon.startDts) &&
         Objects.equals(this.superCoupon, coupon.superCoupon) &&
         Objects.equals(this.tieredAmountOffItems, coupon.tieredAmountOffItems) &&
@@ -1960,7 +1988,7 @@ public class Coupon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, moreLoyaltyCashback, moreLoyaltyPoints, multipleAmountsOffItems, noDiscount, percentMoreLoyaltyCashback, percentMoreLoyaltyPoints, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, moreLoyaltyCashback, moreLoyaltyPoints, multipleAmountsOffItems, noDiscount, percentMoreLoyaltyCashback, percentMoreLoyaltyPoints, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, skipOnRebill, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
   }
 
   @Override
@@ -2023,6 +2051,7 @@ public class Coupon {
     sb.append("    restrictByPostalCodes: ").append(toIndentedString(restrictByPostalCodes)).append("\n");
     sb.append("    restrictByScreenBrandingThemeCodes: ").append(toIndentedString(restrictByScreenBrandingThemeCodes)).append("\n");
     sb.append("    restrictByStorefronts: ").append(toIndentedString(restrictByStorefronts)).append("\n");
+    sb.append("    skipOnRebill: ").append(toIndentedString(skipOnRebill)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    superCoupon: ").append(toIndentedString(superCoupon)).append("\n");
     sb.append("    tieredAmountOffItems: ").append(toIndentedString(tieredAmountOffItems)).append("\n");
@@ -2110,6 +2139,7 @@ public class Coupon {
     openapiFields.add("restrict_by_postal_codes");
     openapiFields.add("restrict_by_screen_branding_theme_codes");
     openapiFields.add("restrict_by_storefronts");
+    openapiFields.add("skip_on_rebill");
     openapiFields.add("start_dts");
     openapiFields.add("super_coupon");
     openapiFields.add("tiered_amount_off_items");

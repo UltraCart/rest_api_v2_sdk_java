@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingFilterIpSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-19T09:54:39.012-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-19T10:44:41.552-05:00[America/Indianapolis]")
 public class ScreenRecordingFilterIpSearch {
   public static final String SERIALIZED_NAME_DOES_NOT_EXIST = "does_not_exist";
   @SerializedName(SERIALIZED_NAME_DOES_NOT_EXIST)
