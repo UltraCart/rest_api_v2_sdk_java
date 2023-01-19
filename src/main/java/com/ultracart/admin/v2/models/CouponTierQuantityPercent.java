@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * CouponTierQuantityPercent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-19T09:42:08.156-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-19T10:32:15.862-05:00")
 
 
 
