@@ -252,6 +252,8 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationMultimediaUploadUrl.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationParticipant.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationPermissions.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationPermissionsResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationSearchRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.ConversationSearchResponse.CustomTypeAdapterFactory())

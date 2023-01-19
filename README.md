@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-18T13:37:57.506-05:00[America/Indianapolis]
+  - Build date: 2023-01-19T09:54:39.012-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.118-RC</version>
+  <version>4.0.119-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.118-RC"
+     implementation "com.ultracart:rest-sdk:4.0.119-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.118-RC.jar`
+* `target/rest-sdk-4.0.119-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -187,6 +187,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationEngagements**](docs/ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
+*ConversationApi* | [**getConversationPermissions**](docs/ConversationApi.md#getConversationPermissions) | **GET** /conversation/permissions | Retrieve conversation permissions
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**getConversationsAutocomplete**](docs/ConversationApi.md#getConversationsAutocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
@@ -688,6 +689,8 @@ Class | Method | HTTP request | Description
  - [ConversationMultimediaUploadUrl](docs/ConversationMultimediaUploadUrl.md)
  - [ConversationMultimediaUploadUrlResponse](docs/ConversationMultimediaUploadUrlResponse.md)
  - [ConversationParticipant](docs/ConversationParticipant.md)
+ - [ConversationPermissions](docs/ConversationPermissions.md)
+ - [ConversationPermissionsResponse](docs/ConversationPermissionsResponse.md)
  - [ConversationResponse](docs/ConversationResponse.md)
  - [ConversationSearchRequest](docs/ConversationSearchRequest.md)
  - [ConversationSearchResponse](docs/ConversationSearchResponse.md)
@@ -1336,6 +1339,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.119-RC | 01/19/2023 | convo - getConversationPermissions added |
 | 4.0.118-RC | 01/18/2023 | conversation get dept member list method added |
 | 4.0.117-RC | 01/18/2023 | conversation dept members |
 | 4.0.116-RC | 01/18/2023 | channel partner ship to pref desc field |

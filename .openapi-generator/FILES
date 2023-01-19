@@ -169,6 +169,8 @@ docs/ConversationMessagesResponse.md
 docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
+docs/ConversationPermissions.md
+docs/ConversationPermissionsResponse.md
 docs/ConversationResponse.md
 docs/ConversationSearchRequest.md
 docs/ConversationSearchResponse.md
@@ -939,6 +941,8 @@ src/main/java/com/ultracart/admin/v2/models/ConversationMessagesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMultimediaUploadUrl.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMultimediaUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationParticipant.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPermissions.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPermissionsResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationSearchRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationSearchResponse.java
