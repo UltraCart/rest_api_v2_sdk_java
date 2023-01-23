@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-19T10:32:15.862-05:00
+  - Build date: 2023-01-23T14:43:54.064-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.103</version>
+  <version>3.10.104</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.103"
+compile "com.ultracart:rest-sdk:3.10.104"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.103.jar`
+* `target/rest-sdk-3.10.104.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -167,6 +167,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationContext**](docs/ConversationApi.md#getConversationContext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
 *ConversationApi* | [**getConversationDepartmentMemberList**](docs/ConversationApi.md#getConversationDepartmentMemberList) | **GET** /conversation/department_members | Retrieve a list of possible department members
 *ConversationApi* | [**getConversationDepartments**](docs/ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
+*ConversationApi* | [**getConversationEngagement**](docs/ConversationApi.md#getConversationEngagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
@@ -1113,6 +1114,7 @@ Class | Method | HTTP request | Description
  - [OrderTokenResponse](docs/OrderTokenResponse.md)
  - [OrderTrackingNumberDetail](docs/OrderTrackingNumberDetail.md)
  - [OrderTrackingNumberDetails](docs/OrderTrackingNumberDetails.md)
+ - [OrderTransactionalMerchantNote](docs/OrderTransactionalMerchantNote.md)
  - [OrdersResponse](docs/OrdersResponse.md)
  - [Permission](docs/Permission.md)
  - [PointOfSaleLocation](docs/PointOfSaleLocation.md)
@@ -1323,6 +1325,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.104 | 01/23/2023 | conversation - method to fetch single engagement record |
 | 3.10.103 | 01/19/2023 | added skip_on_rebill field to coupon object |
 | 3.10.102 | 01/19/2023 | convo - getConversationPermissions added |
 | 3.10.101 | 01/18/2023 | conversation get dept member list method added |

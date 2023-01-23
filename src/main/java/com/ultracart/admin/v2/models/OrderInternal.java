@@ -20,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.OrderTransactionalMerchantNote;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * OrderInternal
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-19T10:32:15.862-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-23T14:43:54.064-05:00")
 
 
 
@@ -46,6 +49,9 @@ public class OrderInternal {
 
   @SerializedName("sales_rep_code")
   private String salesRepCode = null;
+
+  @SerializedName("transactional_merchant_notes")
+  private List<OrderTransactionalMerchantNote> transactionalMerchantNotes = null;
 
   public OrderInternal exportedToAccounting(Boolean exportedToAccounting) {
     this.exportedToAccounting = exportedToAccounting;
@@ -71,10 +77,10 @@ public class OrderInternal {
   }
 
    /**
-   * Merchant notes
+   * Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.
    * @return merchantNotes
   **/
-  @ApiModelProperty(value = "Merchant notes")
+  @ApiModelProperty(value = "Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.")
   public String getMerchantNotes() {
     return merchantNotes;
   }
@@ -137,6 +143,32 @@ public class OrderInternal {
     this.salesRepCode = salesRepCode;
   }
 
+  public OrderInternal transactionalMerchantNotes(List<OrderTransactionalMerchantNote> transactionalMerchantNotes) {
+    this.transactionalMerchantNotes = transactionalMerchantNotes;
+    return this;
+  }
+
+  public OrderInternal addTransactionalMerchantNotesItem(OrderTransactionalMerchantNote transactionalMerchantNotesItem) {
+    if (this.transactionalMerchantNotes == null) {
+      this.transactionalMerchantNotes = new ArrayList<OrderTransactionalMerchantNote>();
+    }
+    this.transactionalMerchantNotes.add(transactionalMerchantNotesItem);
+    return this;
+  }
+
+   /**
+   * Transactional merchant notes
+   * @return transactionalMerchantNotes
+  **/
+  @ApiModelProperty(value = "Transactional merchant notes")
+  public List<OrderTransactionalMerchantNote> getTransactionalMerchantNotes() {
+    return transactionalMerchantNotes;
+  }
+
+  public void setTransactionalMerchantNotes(List<OrderTransactionalMerchantNote> transactionalMerchantNotes) {
+    this.transactionalMerchantNotes = transactionalMerchantNotes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +183,13 @@ public class OrderInternal {
         Objects.equals(this.merchantNotes, orderInternal.merchantNotes) &&
         Objects.equals(this.placedByUser, orderInternal.placedByUser) &&
         Objects.equals(this.refundByUser, orderInternal.refundByUser) &&
-        Objects.equals(this.salesRepCode, orderInternal.salesRepCode);
+        Objects.equals(this.salesRepCode, orderInternal.salesRepCode) &&
+        Objects.equals(this.transactionalMerchantNotes, orderInternal.transactionalMerchantNotes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exportedToAccounting, merchantNotes, placedByUser, refundByUser, salesRepCode);
+    return Objects.hash(exportedToAccounting, merchantNotes, placedByUser, refundByUser, salesRepCode, transactionalMerchantNotes);
   }
 
 
@@ -170,6 +203,7 @@ public class OrderInternal {
     sb.append("    placedByUser: ").append(toIndentedString(placedByUser)).append("\n");
     sb.append("    refundByUser: ").append(toIndentedString(refundByUser)).append("\n");
     sb.append("    salesRepCode: ").append(toIndentedString(salesRepCode)).append("\n");
+    sb.append("    transactionalMerchantNotes: ").append(toIndentedString(transactionalMerchantNotes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
