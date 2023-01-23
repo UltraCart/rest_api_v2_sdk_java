@@ -617,6 +617,7 @@ docs/OrderTaxes.md
 docs/OrderTokenResponse.md
 docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
+docs/OrderTransactionalMerchantNote.md
 docs/OrdersResponse.md
 docs/Permission.md
 docs/PointOfSaleLocation.md
@@ -1381,6 +1382,7 @@ src/main/java/com/ultracart/admin/v2/models/OrderTaxes.java
 src/main/java/com/ultracart/admin/v2/models/OrderTokenResponse.java
 src/main/java/com/ultracart/admin/v2/models/OrderTrackingNumberDetail.java
 src/main/java/com/ultracart/admin/v2/models/OrderTrackingNumberDetails.java
+src/main/java/com/ultracart/admin/v2/models/OrderTransactionalMerchantNote.java
 src/main/java/com/ultracart/admin/v2/models/OrdersResponse.java
 src/main/java/com/ultracart/admin/v2/models/Permission.java
 src/main/java/com/ultracart/admin/v2/models/PointOfSaleLocation.java

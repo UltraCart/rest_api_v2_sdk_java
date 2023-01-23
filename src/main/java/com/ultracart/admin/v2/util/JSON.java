@@ -692,6 +692,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderTokenResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderTrackingNumberDetail.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderTrackingNumberDetails.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderTransactionalMerchantNote.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrdersResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.Permission.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.PointOfSaleLocation.CustomTypeAdapterFactory())

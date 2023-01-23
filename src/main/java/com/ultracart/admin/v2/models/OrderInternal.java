@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.OrderTransactionalMerchantNote;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderInternal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-19T10:44:41.552-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-23T14:56:24.133-05:00[America/Indianapolis]")
 public class OrderInternal {
   public static final String SERIALIZED_NAME_EXPORTED_TO_ACCOUNTING = "exported_to_accounting";
   @SerializedName(SERIALIZED_NAME_EXPORTED_TO_ACCOUNTING)
@@ -68,6 +71,10 @@ public class OrderInternal {
   public static final String SERIALIZED_NAME_SALES_REP_CODE = "sales_rep_code";
   @SerializedName(SERIALIZED_NAME_SALES_REP_CODE)
   private String salesRepCode;
+
+  public static final String SERIALIZED_NAME_TRANSACTIONAL_MERCHANT_NOTES = "transactional_merchant_notes";
+  @SerializedName(SERIALIZED_NAME_TRANSACTIONAL_MERCHANT_NOTES)
+  private List<OrderTransactionalMerchantNote> transactionalMerchantNotes = null;
 
   public OrderInternal() { 
   }
@@ -102,11 +109,11 @@ public class OrderInternal {
   }
 
    /**
-   * Merchant notes
+   * Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.
    * @return merchantNotes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Merchant notes")
+  @ApiModelProperty(value = "Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.")
 
   public String getMerchantNotes() {
     return merchantNotes;
@@ -187,6 +194,37 @@ public class OrderInternal {
   }
 
 
+  public OrderInternal transactionalMerchantNotes(List<OrderTransactionalMerchantNote> transactionalMerchantNotes) {
+    
+    this.transactionalMerchantNotes = transactionalMerchantNotes;
+    return this;
+  }
+
+  public OrderInternal addTransactionalMerchantNotesItem(OrderTransactionalMerchantNote transactionalMerchantNotesItem) {
+    if (this.transactionalMerchantNotes == null) {
+      this.transactionalMerchantNotes = new ArrayList<>();
+    }
+    this.transactionalMerchantNotes.add(transactionalMerchantNotesItem);
+    return this;
+  }
+
+   /**
+   * Transactional merchant notes
+   * @return transactionalMerchantNotes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Transactional merchant notes")
+
+  public List<OrderTransactionalMerchantNote> getTransactionalMerchantNotes() {
+    return transactionalMerchantNotes;
+  }
+
+
+  public void setTransactionalMerchantNotes(List<OrderTransactionalMerchantNote> transactionalMerchantNotes) {
+    this.transactionalMerchantNotes = transactionalMerchantNotes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -201,12 +239,13 @@ public class OrderInternal {
         Objects.equals(this.merchantNotes, orderInternal.merchantNotes) &&
         Objects.equals(this.placedByUser, orderInternal.placedByUser) &&
         Objects.equals(this.refundByUser, orderInternal.refundByUser) &&
-        Objects.equals(this.salesRepCode, orderInternal.salesRepCode);
+        Objects.equals(this.salesRepCode, orderInternal.salesRepCode) &&
+        Objects.equals(this.transactionalMerchantNotes, orderInternal.transactionalMerchantNotes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exportedToAccounting, merchantNotes, placedByUser, refundByUser, salesRepCode);
+    return Objects.hash(exportedToAccounting, merchantNotes, placedByUser, refundByUser, salesRepCode, transactionalMerchantNotes);
   }
 
   @Override
@@ -218,6 +257,7 @@ public class OrderInternal {
     sb.append("    placedByUser: ").append(toIndentedString(placedByUser)).append("\n");
     sb.append("    refundByUser: ").append(toIndentedString(refundByUser)).append("\n");
     sb.append("    salesRepCode: ").append(toIndentedString(salesRepCode)).append("\n");
+    sb.append("    transactionalMerchantNotes: ").append(toIndentedString(transactionalMerchantNotes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -245,6 +285,7 @@ public class OrderInternal {
     openapiFields.add("placed_by_user");
     openapiFields.add("refund_by_user");
     openapiFields.add("sales_rep_code");
+    openapiFields.add("transactional_merchant_notes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -283,6 +324,18 @@ public class OrderInternal {
       }
       if (jsonObj.get("sales_rep_code") != null && !jsonObj.get("sales_rep_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sales_rep_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sales_rep_code").toString()));
+      }
+      JsonArray jsonArraytransactionalMerchantNotes = jsonObj.getAsJsonArray("transactional_merchant_notes");
+      if (jsonArraytransactionalMerchantNotes != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("transactional_merchant_notes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `transactional_merchant_notes` to be an array in the JSON string but got `%s`", jsonObj.get("transactional_merchant_notes").toString()));
+        }
+
+        // validate the optional field `transactional_merchant_notes` (array)
+        for (int i = 0; i < jsonArraytransactionalMerchantNotes.size(); i++) {
+          OrderTransactionalMerchantNote.validateJsonObject(jsonArraytransactionalMerchantNotes.get(i).getAsJsonObject());
+        };
       }
   }
 
