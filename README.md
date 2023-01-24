@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-23T14:43:54.064-05:00
+  - Build date: 2023-01-24T10:35:17.654-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.104</version>
+  <version>3.10.105</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.104"
+compile "com.ultracart:rest-sdk:3.10.105"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.104.jar`
+* `target/rest-sdk-3.10.105.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1325,6 +1325,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.105 | 01/24/2023 | auto order - cancel minimum and change balance options |
 | 3.10.104 | 01/23/2023 | conversation - method to fetch single engagement record |
 | 3.10.103 | 01/19/2023 | added skip_on_rebill field to coupon object |
 | 3.10.102 | 01/19/2023 | convo - getConversationPermissions added |

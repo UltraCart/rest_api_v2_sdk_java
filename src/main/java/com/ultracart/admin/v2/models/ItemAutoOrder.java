@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ItemAutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-23T14:43:54.064-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-24T10:35:17.654-05:00")
 
 
 
@@ -42,11 +42,20 @@ public class ItemAutoOrder {
   @SerializedName("auth_test_amount")
   private BigDecimal authTestAmount = null;
 
+  @SerializedName("auto_order_cancel_charge_minimum_balance")
+  private Boolean autoOrderCancelChargeMinimumBalance = null;
+
   @SerializedName("auto_order_cancel_item_id")
   private String autoOrderCancelItemId = null;
 
   @SerializedName("auto_order_cancel_item_oid")
   private Integer autoOrderCancelItemOid = null;
+
+  @SerializedName("auto_order_cancel_minimum_life_time_value")
+  private BigDecimal autoOrderCancelMinimumLifeTimeValue = null;
+
+  @SerializedName("auto_order_cancel_minimum_rebill_value")
+  private BigDecimal autoOrderCancelMinimumRebillValue = null;
 
   @SerializedName("auto_order_downgrade_items")
   private List<String> autoOrderDowngradeItems = null;
@@ -123,6 +132,24 @@ public class ItemAutoOrder {
     this.authTestAmount = authTestAmount;
   }
 
+  public ItemAutoOrder autoOrderCancelChargeMinimumBalance(Boolean autoOrderCancelChargeMinimumBalance) {
+    this.autoOrderCancelChargeMinimumBalance = autoOrderCancelChargeMinimumBalance;
+    return this;
+  }
+
+   /**
+   * If true, the cost of the cancel item will be the remaining balance of the minimum rebill or lifetime value
+   * @return autoOrderCancelChargeMinimumBalance
+  **/
+  @ApiModelProperty(value = "If true, the cost of the cancel item will be the remaining balance of the minimum rebill or lifetime value")
+  public Boolean isAutoOrderCancelChargeMinimumBalance() {
+    return autoOrderCancelChargeMinimumBalance;
+  }
+
+  public void setAutoOrderCancelChargeMinimumBalance(Boolean autoOrderCancelChargeMinimumBalance) {
+    this.autoOrderCancelChargeMinimumBalance = autoOrderCancelChargeMinimumBalance;
+  }
+
   public ItemAutoOrder autoOrderCancelItemId(String autoOrderCancelItemId) {
     this.autoOrderCancelItemId = autoOrderCancelItemId;
     return this;
@@ -157,6 +184,42 @@ public class ItemAutoOrder {
 
   public void setAutoOrderCancelItemOid(Integer autoOrderCancelItemOid) {
     this.autoOrderCancelItemOid = autoOrderCancelItemOid;
+  }
+
+  public ItemAutoOrder autoOrderCancelMinimumLifeTimeValue(BigDecimal autoOrderCancelMinimumLifeTimeValue) {
+    this.autoOrderCancelMinimumLifeTimeValue = autoOrderCancelMinimumLifeTimeValue;
+    return this;
+  }
+
+   /**
+   * The minimum life time value that must be paid in order to not be charged the cancellation item.
+   * @return autoOrderCancelMinimumLifeTimeValue
+  **/
+  @ApiModelProperty(value = "The minimum life time value that must be paid in order to not be charged the cancellation item.")
+  public BigDecimal getAutoOrderCancelMinimumLifeTimeValue() {
+    return autoOrderCancelMinimumLifeTimeValue;
+  }
+
+  public void setAutoOrderCancelMinimumLifeTimeValue(BigDecimal autoOrderCancelMinimumLifeTimeValue) {
+    this.autoOrderCancelMinimumLifeTimeValue = autoOrderCancelMinimumLifeTimeValue;
+  }
+
+  public ItemAutoOrder autoOrderCancelMinimumRebillValue(BigDecimal autoOrderCancelMinimumRebillValue) {
+    this.autoOrderCancelMinimumRebillValue = autoOrderCancelMinimumRebillValue;
+    return this;
+  }
+
+   /**
+   * The minimum rebill value that must be paid in order to not be charged the cancellation item.
+   * @return autoOrderCancelMinimumRebillValue
+  **/
+  @ApiModelProperty(value = "The minimum rebill value that must be paid in order to not be charged the cancellation item.")
+  public BigDecimal getAutoOrderCancelMinimumRebillValue() {
+    return autoOrderCancelMinimumRebillValue;
+  }
+
+  public void setAutoOrderCancelMinimumRebillValue(BigDecimal autoOrderCancelMinimumRebillValue) {
+    this.autoOrderCancelMinimumRebillValue = autoOrderCancelMinimumRebillValue;
   }
 
   public ItemAutoOrder autoOrderDowngradeItems(List<String> autoOrderDowngradeItems) {
@@ -437,8 +500,11 @@ public class ItemAutoOrder {
     ItemAutoOrder itemAutoOrder = (ItemAutoOrder) o;
     return Objects.equals(this.authFutureAmount, itemAutoOrder.authFutureAmount) &&
         Objects.equals(this.authTestAmount, itemAutoOrder.authTestAmount) &&
+        Objects.equals(this.autoOrderCancelChargeMinimumBalance, itemAutoOrder.autoOrderCancelChargeMinimumBalance) &&
         Objects.equals(this.autoOrderCancelItemId, itemAutoOrder.autoOrderCancelItemId) &&
         Objects.equals(this.autoOrderCancelItemOid, itemAutoOrder.autoOrderCancelItemOid) &&
+        Objects.equals(this.autoOrderCancelMinimumLifeTimeValue, itemAutoOrder.autoOrderCancelMinimumLifeTimeValue) &&
+        Objects.equals(this.autoOrderCancelMinimumRebillValue, itemAutoOrder.autoOrderCancelMinimumRebillValue) &&
         Objects.equals(this.autoOrderDowngradeItems, itemAutoOrder.autoOrderDowngradeItems) &&
         Objects.equals(this.autoOrderPaused, itemAutoOrder.autoOrderPaused) &&
         Objects.equals(this.autoOrderProhibitExpiringCards, itemAutoOrder.autoOrderProhibitExpiringCards) &&
@@ -456,7 +522,7 @@ public class ItemAutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderDowngradeItems, autoOrderPaused, autoOrderProhibitExpiringCards, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, refundOtherAutoOrders, steps);
+    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelChargeMinimumBalance, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderCancelMinimumLifeTimeValue, autoOrderCancelMinimumRebillValue, autoOrderDowngradeItems, autoOrderPaused, autoOrderProhibitExpiringCards, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, refundOtherAutoOrders, steps);
   }
 
 
@@ -467,8 +533,11 @@ public class ItemAutoOrder {
     
     sb.append("    authFutureAmount: ").append(toIndentedString(authFutureAmount)).append("\n");
     sb.append("    authTestAmount: ").append(toIndentedString(authTestAmount)).append("\n");
+    sb.append("    autoOrderCancelChargeMinimumBalance: ").append(toIndentedString(autoOrderCancelChargeMinimumBalance)).append("\n");
     sb.append("    autoOrderCancelItemId: ").append(toIndentedString(autoOrderCancelItemId)).append("\n");
     sb.append("    autoOrderCancelItemOid: ").append(toIndentedString(autoOrderCancelItemOid)).append("\n");
+    sb.append("    autoOrderCancelMinimumLifeTimeValue: ").append(toIndentedString(autoOrderCancelMinimumLifeTimeValue)).append("\n");
+    sb.append("    autoOrderCancelMinimumRebillValue: ").append(toIndentedString(autoOrderCancelMinimumRebillValue)).append("\n");
     sb.append("    autoOrderDowngradeItems: ").append(toIndentedString(autoOrderDowngradeItems)).append("\n");
     sb.append("    autoOrderPaused: ").append(toIndentedString(autoOrderPaused)).append("\n");
     sb.append("    autoOrderProhibitExpiringCards: ").append(toIndentedString(autoOrderProhibitExpiringCards)).append("\n");
