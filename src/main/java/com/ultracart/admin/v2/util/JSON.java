@@ -653,6 +653,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderGift.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderGiftCertificate.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderInternal.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderInvoiceResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderItem.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderItemEdi.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderItemEdiIdentification.CustomTypeAdapterFactory())

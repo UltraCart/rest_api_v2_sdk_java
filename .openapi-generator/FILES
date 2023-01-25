@@ -578,6 +578,7 @@ docs/OrderFraudScore.md
 docs/OrderGift.md
 docs/OrderGiftCertificate.md
 docs/OrderInternal.md
+docs/OrderInvoiceResponse.md
 docs/OrderItem.md
 docs/OrderItemEdi.md
 docs/OrderItemEdiIdentification.md
@@ -1343,6 +1344,7 @@ src/main/java/com/ultracart/admin/v2/models/OrderFraudScore.java
 src/main/java/com/ultracart/admin/v2/models/OrderGift.java
 src/main/java/com/ultracart/admin/v2/models/OrderGiftCertificate.java
 src/main/java/com/ultracart/admin/v2/models/OrderInternal.java
+src/main/java/com/ultracart/admin/v2/models/OrderInvoiceResponse.java
 src/main/java/com/ultracart/admin/v2/models/OrderItem.java
 src/main/java/com/ultracart/admin/v2/models/OrderItemEdi.java
 src/main/java/com/ultracart/admin/v2/models/OrderItemEdiIdentification.java
