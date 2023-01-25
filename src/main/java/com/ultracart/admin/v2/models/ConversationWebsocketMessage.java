@@ -58,7 +58,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-25T09:55:58.664-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-25T15:35:19.757-05:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
@@ -145,7 +145,7 @@ public class ConversationWebsocketMessage {
     
     PARTICIPANT_JOIN("participant join"),
     
-    PARTICIPANT_LEFT("participant left"),
+    PARTICIPANT_LEAVE("participant leave"),
     
     READ_MESSAGE("read message"),
     
@@ -155,7 +155,9 @@ public class ConversationWebsocketMessage {
     
     ADD_ITEM("add item"),
     
-    WEBCHAT_CONTEXT("webchat context");
+    WEBCHAT_CONTEXT("webchat context"),
+    
+    ENGAGE_CUSTOMER("engage customer");
 
     private String value;
 
