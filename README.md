@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-25T09:44:38.704-05:00
+  - Build date: 2023-01-25T15:14:54.751-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.106</version>
+  <version>3.10.107</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.106"
+compile "com.ultracart:rest-sdk:3.10.107"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.106.jar`
+* `target/rest-sdk-3.10.107.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1327,6 +1327,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.107 | 01/25/2023 | convo event for engage customer |
 | 3.10.106 | 01/25/2023 | order api method generateInvoice |
 | 3.10.105 | 01/24/2023 | auto order - cancel minimum and change balance options |
 | 3.10.104 | 01/23/2023 | conversation - method to fetch single engagement record |

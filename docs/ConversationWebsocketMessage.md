@@ -41,12 +41,13 @@ QUEUE_STATUS_UPDATE | &quot;queue status update&quot;
 RRWEB | &quot;rrweb&quot;
 PARTICIPANT_UPDATE | &quot;participant update&quot;
 PARTICIPANT_JOIN | &quot;participant join&quot;
-PARTICIPANT_LEFT | &quot;participant left&quot;
+PARTICIPANT_LEAVE | &quot;participant leave&quot;
 READ_MESSAGE | &quot;read message&quot;
 TYPING | &quot;typing&quot;
 ADD_COUPON | &quot;add coupon&quot;
 ADD_ITEM | &quot;add item&quot;
 WEBCHAT_CONTEXT | &quot;webchat context&quot;
+ENGAGE_CUSTOMER | &quot;engage customer&quot;
 
 
 <a name="TypeEnum"></a>
