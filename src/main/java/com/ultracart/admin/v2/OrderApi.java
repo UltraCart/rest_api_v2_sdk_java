@@ -37,6 +37,7 @@ import com.ultracart.admin.v2.models.Order;
 import com.ultracart.admin.v2.models.OrderByTokenQuery;
 import com.ultracart.admin.v2.models.OrderFormat;
 import com.ultracart.admin.v2.models.OrderFormatResponse;
+import com.ultracart.admin.v2.models.OrderInvoiceResponse;
 import com.ultracart.admin.v2.models.OrderPackingSlipResponse;
 import com.ultracart.admin.v2.models.OrderProcessPaymentRequest;
 import com.ultracart.admin.v2.models.OrderProcessPaymentResponse;
@@ -732,6 +733,129 @@ public class OrderApi {
 
         com.squareup.okhttp.Call call = formatValidateBeforeCall(orderId, formatOptions, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrderFormatResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for generateInvoice
+     * @param orderId Order ID (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call generateInvoiceCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/invoice"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call generateInvoiceValidateBeforeCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling generateInvoice(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = generateInvoiceCall(orderId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Generate an invoice for this order.
+     * The invoice PDF that is returned is base 64 encoded 
+     * @param orderId Order ID (required)
+     * @return OrderInvoiceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderInvoiceResponse generateInvoice(String orderId) throws ApiException {
+        ApiResponse<OrderInvoiceResponse> resp = generateInvoiceWithHttpInfo(orderId);
+        return resp.getData();
+    }
+
+    /**
+     * Generate an invoice for this order.
+     * The invoice PDF that is returned is base 64 encoded 
+     * @param orderId Order ID (required)
+     * @return ApiResponse&lt;OrderInvoiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderInvoiceResponse> generateInvoiceWithHttpInfo(String orderId) throws ApiException {
+        com.squareup.okhttp.Call call = generateInvoiceValidateBeforeCall(orderId, null, null);
+        Type localVarReturnType = new TypeToken<OrderInvoiceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Generate an invoice for this order. (asynchronously)
+     * The invoice PDF that is returned is base 64 encoded 
+     * @param orderId Order ID (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call generateInvoiceAsync(String orderId, final ApiCallback<OrderInvoiceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = generateInvoiceValidateBeforeCall(orderId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderInvoiceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
