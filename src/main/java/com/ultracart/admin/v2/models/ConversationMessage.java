@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-25T15:14:54.751-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-25T16:03:17.928-05:00")
 
 
 
@@ -82,7 +82,9 @@ public class ConversationMessage {
   public enum TypeEnum {
     MESSAGE("message"),
     
-    NOTICE("notice");
+    NOTICE("notice"),
+    
+    ENGAGEMENT_PROMPT("engagement prompt");
 
     private String value;
 
