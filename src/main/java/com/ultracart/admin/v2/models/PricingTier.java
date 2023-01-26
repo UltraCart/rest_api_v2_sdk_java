@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * PricingTier
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-25T16:03:17.928-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-26T14:07:30.212-05:00")
 
 
 
@@ -72,6 +72,9 @@ public class PricingTier {
 
   @SerializedName("exclude_from_free_promotion")
   private Boolean excludeFromFreePromotion = null;
+
+  @SerializedName("exempt_loyalty_rewards")
+  private Boolean exemptLoyaltyRewards = null;
 
   @SerializedName("exempt_shipping_handling_charge")
   private Boolean exemptShippingHandlingCharge = null;
@@ -359,6 +362,24 @@ public class PricingTier {
 
   public void setExcludeFromFreePromotion(Boolean excludeFromFreePromotion) {
     this.excludeFromFreePromotion = excludeFromFreePromotion;
+  }
+
+  public PricingTier exemptLoyaltyRewards(Boolean exemptLoyaltyRewards) {
+    this.exemptLoyaltyRewards = exemptLoyaltyRewards;
+    return this;
+  }
+
+   /**
+   * Exempt from Loyalty Rewards
+   * @return exemptLoyaltyRewards
+  **/
+  @ApiModelProperty(value = "Exempt from Loyalty Rewards")
+  public Boolean isExemptLoyaltyRewards() {
+    return exemptLoyaltyRewards;
+  }
+
+  public void setExemptLoyaltyRewards(Boolean exemptLoyaltyRewards) {
+    this.exemptLoyaltyRewards = exemptLoyaltyRewards;
   }
 
   public PricingTier exemptShippingHandlingCharge(Boolean exemptShippingHandlingCharge) {
@@ -708,6 +729,7 @@ public class PricingTier {
         Objects.equals(this.defaultTier, pricingTier.defaultTier) &&
         Objects.equals(this.displayOnWholesaleSignup, pricingTier.displayOnWholesaleSignup) &&
         Objects.equals(this.excludeFromFreePromotion, pricingTier.excludeFromFreePromotion) &&
+        Objects.equals(this.exemptLoyaltyRewards, pricingTier.exemptLoyaltyRewards) &&
         Objects.equals(this.exemptShippingHandlingCharge, pricingTier.exemptShippingHandlingCharge) &&
         Objects.equals(this.freeShipping, pricingTier.freeShipping) &&
         Objects.equals(this.freeShippingMinimum, pricingTier.freeShippingMinimum) &&
@@ -730,7 +752,7 @@ public class PricingTier {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptLoyaltyRewards, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
   }
 
 
@@ -752,6 +774,7 @@ public class PricingTier {
     sb.append("    defaultTier: ").append(toIndentedString(defaultTier)).append("\n");
     sb.append("    displayOnWholesaleSignup: ").append(toIndentedString(displayOnWholesaleSignup)).append("\n");
     sb.append("    excludeFromFreePromotion: ").append(toIndentedString(excludeFromFreePromotion)).append("\n");
+    sb.append("    exemptLoyaltyRewards: ").append(toIndentedString(exemptLoyaltyRewards)).append("\n");
     sb.append("    exemptShippingHandlingCharge: ").append(toIndentedString(exemptShippingHandlingCharge)).append("\n");
     sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");
     sb.append("    freeShippingMinimum: ").append(toIndentedString(freeShippingMinimum)).append("\n");
