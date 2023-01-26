@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * PricingTier
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-25T15:35:19.757-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-26T11:21:51.055-05:00[America/Indianapolis]")
 public class PricingTier {
   public static final String SERIALIZED_NAME_ALLOW3RD_PARTY_BILLING = "allow_3rd_party_billing";
   @SerializedName(SERIALIZED_NAME_ALLOW3RD_PARTY_BILLING)
@@ -102,6 +102,10 @@ public class PricingTier {
   public static final String SERIALIZED_NAME_EXCLUDE_FROM_FREE_PROMOTION = "exclude_from_free_promotion";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_FREE_PROMOTION)
   private Boolean excludeFromFreePromotion;
+
+  public static final String SERIALIZED_NAME_EXEMPT_LOYALTY_REWARDS = "exempt_loyalty_rewards";
+  @SerializedName(SERIALIZED_NAME_EXEMPT_LOYALTY_REWARDS)
+  private Boolean exemptLoyaltyRewards;
 
   public static final String SERIALIZED_NAME_EXEMPT_SHIPPING_HANDLING_CHARGE = "exempt_shipping_handling_charge";
   @SerializedName(SERIALIZED_NAME_EXEMPT_SHIPPING_HANDLING_CHARGE)
@@ -474,6 +478,29 @@ public class PricingTier {
 
   public void setExcludeFromFreePromotion(Boolean excludeFromFreePromotion) {
     this.excludeFromFreePromotion = excludeFromFreePromotion;
+  }
+
+
+  public PricingTier exemptLoyaltyRewards(Boolean exemptLoyaltyRewards) {
+    
+    this.exemptLoyaltyRewards = exemptLoyaltyRewards;
+    return this;
+  }
+
+   /**
+   * Exempt from Loyalty Rewards
+   * @return exemptLoyaltyRewards
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Exempt from Loyalty Rewards")
+
+  public Boolean getExemptLoyaltyRewards() {
+    return exemptLoyaltyRewards;
+  }
+
+
+  public void setExemptLoyaltyRewards(Boolean exemptLoyaltyRewards) {
+    this.exemptLoyaltyRewards = exemptLoyaltyRewards;
   }
 
 
@@ -914,6 +941,7 @@ public class PricingTier {
         Objects.equals(this.defaultTier, pricingTier.defaultTier) &&
         Objects.equals(this.displayOnWholesaleSignup, pricingTier.displayOnWholesaleSignup) &&
         Objects.equals(this.excludeFromFreePromotion, pricingTier.excludeFromFreePromotion) &&
+        Objects.equals(this.exemptLoyaltyRewards, pricingTier.exemptLoyaltyRewards) &&
         Objects.equals(this.exemptShippingHandlingCharge, pricingTier.exemptShippingHandlingCharge) &&
         Objects.equals(this.freeShipping, pricingTier.freeShipping) &&
         Objects.equals(this.freeShippingMinimum, pricingTier.freeShippingMinimum) &&
@@ -936,7 +964,7 @@ public class PricingTier {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptLoyaltyRewards, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
   }
 
   @Override
@@ -956,6 +984,7 @@ public class PricingTier {
     sb.append("    defaultTier: ").append(toIndentedString(defaultTier)).append("\n");
     sb.append("    displayOnWholesaleSignup: ").append(toIndentedString(displayOnWholesaleSignup)).append("\n");
     sb.append("    excludeFromFreePromotion: ").append(toIndentedString(excludeFromFreePromotion)).append("\n");
+    sb.append("    exemptLoyaltyRewards: ").append(toIndentedString(exemptLoyaltyRewards)).append("\n");
     sb.append("    exemptShippingHandlingCharge: ").append(toIndentedString(exemptShippingHandlingCharge)).append("\n");
     sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");
     sb.append("    freeShippingMinimum: ").append(toIndentedString(freeShippingMinimum)).append("\n");
@@ -1009,6 +1038,7 @@ public class PricingTier {
     openapiFields.add("default_tier");
     openapiFields.add("display_on_wholesale_signup");
     openapiFields.add("exclude_from_free_promotion");
+    openapiFields.add("exempt_loyalty_rewards");
     openapiFields.add("exempt_shipping_handling_charge");
     openapiFields.add("free_shipping");
     openapiFields.add("free_shipping_minimum");

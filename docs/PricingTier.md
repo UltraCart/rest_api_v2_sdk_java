@@ -20,6 +20,7 @@
 |**defaultTier** | **Boolean** | Default tier |  [optional] |
 |**displayOnWholesaleSignup** | **Boolean** | Display on wholesale signup |  [optional] |
 |**excludeFromFreePromotion** | **Boolean** | Exclude from free promotion |  [optional] |
+|**exemptLoyaltyRewards** | **Boolean** | Exempt from Loyalty Rewards |  [optional] |
 |**exemptShippingHandlingCharge** | **Boolean** | Exempt shipping handling charge |  [optional] |
 |**freeShipping** | **Boolean** | Free shipping |  [optional] |
 |**freeShippingMinimum** | **BigDecimal** | Free shipping minimum |  [optional] |

@@ -45,7 +45,7 @@
 | RRWEB | &quot;rrweb&quot; |
 | PARTICIPANT_UPDATE | &quot;participant update&quot; |
 | PARTICIPANT_JOIN | &quot;participant join&quot; |
-| PARTICIPANT_LEAVE | &quot;participant leave&quot; |
+| PARTICIPANT_LEFT | &quot;participant left&quot; |
 | READ_MESSAGE | &quot;read message&quot; |
 | TYPING | &quot;typing&quot; |
 | ADD_COUPON | &quot;add coupon&quot; |

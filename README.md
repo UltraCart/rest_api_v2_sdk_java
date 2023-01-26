@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-25T15:35:19.757-05:00[America/Indianapolis]
+  - Build date: 2023-01-26T11:21:51.055-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.124-RC</version>
+  <version>4.0.125-RC</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.124-RC"
+     implementation "com.ultracart:rest-sdk:4.0.125-RC"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.124-RC.jar`
+* `target/rest-sdk-4.0.125-RC.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1343,6 +1343,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.125-RC | 01/26/2023 | conversation - added message type of engagement prompt |
 | 4.0.124-RC | 01/25/2023 | convo event for engage customer |
 | 4.0.123-RC | 01/25/2023 | order api method generateInvoice |
 | 4.0.122-RC | 01/24/2023 | auto order - cancel minimum and change balance options |

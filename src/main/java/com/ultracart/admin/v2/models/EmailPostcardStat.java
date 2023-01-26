@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailPostcardStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-25T15:35:19.757-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-26T11:21:51.055-05:00[America/Indianapolis]")
 public class EmailPostcardStat {
   public static final String SERIALIZED_NAME_CLICK_COUNT = "click_count";
   @SerializedName(SERIALIZED_NAME_CLICK_COUNT)
