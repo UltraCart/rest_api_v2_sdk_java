@@ -31,6 +31,7 @@ import com.ultracart.admin.v2.models.ConversationMessage;
 import com.ultracart.admin.v2.models.ConversationParticipant;
 import com.ultracart.admin.v2.models.ConversationSummary;
 import com.ultracart.admin.v2.models.ConversationWebchatQueueStatus;
+import com.ultracart.admin.v2.models.ConversationWebchatQueueStatusQueueEntry;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,7 +39,7 @@ import java.io.IOException;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-26T14:07:30.212-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
 
 
 
@@ -54,6 +55,9 @@ public class ConversationWebsocketMessage {
 
   @SerializedName("event_conversation_closed")
   private ConversationSummary eventConversationClosed = null;
+
+  @SerializedName("event_engage_customer")
+  private ConversationWebchatQueueStatusQueueEntry eventEngageCustomer = null;
 
   @SerializedName("event_new_conversation")
   private ConversationSummary eventNewConversation = null;
@@ -304,6 +308,24 @@ public class ConversationWebsocketMessage {
 
   public void setEventConversationClosed(ConversationSummary eventConversationClosed) {
     this.eventConversationClosed = eventConversationClosed;
+  }
+
+  public ConversationWebsocketMessage eventEngageCustomer(ConversationWebchatQueueStatusQueueEntry eventEngageCustomer) {
+    this.eventEngageCustomer = eventEngageCustomer;
+    return this;
+  }
+
+   /**
+   * Get eventEngageCustomer
+   * @return eventEngageCustomer
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationWebchatQueueStatusQueueEntry getEventEngageCustomer() {
+    return eventEngageCustomer;
+  }
+
+  public void setEventEngageCustomer(ConversationWebchatQueueStatusQueueEntry eventEngageCustomer) {
+    this.eventEngageCustomer = eventEngageCustomer;
   }
 
   public ConversationWebsocketMessage eventNewConversation(ConversationSummary eventNewConversation) {
@@ -626,6 +648,7 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventAddCoupon, conversationWebsocketMessage.eventAddCoupon) &&
         Objects.equals(this.eventAddItem, conversationWebsocketMessage.eventAddItem) &&
         Objects.equals(this.eventConversationClosed, conversationWebsocketMessage.eventConversationClosed) &&
+        Objects.equals(this.eventEngageCustomer, conversationWebsocketMessage.eventEngageCustomer) &&
         Objects.equals(this.eventNewConversation, conversationWebsocketMessage.eventNewConversation) &&
         Objects.equals(this.eventNewMessage, conversationWebsocketMessage.eventNewMessage) &&
         Objects.equals(this.eventParticipantJoin, conversationWebsocketMessage.eventParticipantJoin) &&
@@ -647,7 +670,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantJoin, eventParticipantJoinParticipant, eventParticipantLeft, eventParticipantLeftParticipant, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
+    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventEngageCustomer, eventNewConversation, eventNewMessage, eventParticipantJoin, eventParticipantJoinParticipant, eventParticipantLeft, eventParticipantLeftParticipant, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
   }
 
 
@@ -660,6 +683,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventAddCoupon: ").append(toIndentedString(eventAddCoupon)).append("\n");
     sb.append("    eventAddItem: ").append(toIndentedString(eventAddItem)).append("\n");
     sb.append("    eventConversationClosed: ").append(toIndentedString(eventConversationClosed)).append("\n");
+    sb.append("    eventEngageCustomer: ").append(toIndentedString(eventEngageCustomer)).append("\n");
     sb.append("    eventNewConversation: ").append(toIndentedString(eventNewConversation)).append("\n");
     sb.append("    eventNewMessage: ").append(toIndentedString(eventNewMessage)).append("\n");
     sb.append("    eventParticipantJoin: ").append(toIndentedString(eventParticipantJoin)).append("\n");

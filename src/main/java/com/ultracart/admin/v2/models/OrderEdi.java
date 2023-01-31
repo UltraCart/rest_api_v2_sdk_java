@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderEdi
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-26T14:07:30.212-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
 
 
 

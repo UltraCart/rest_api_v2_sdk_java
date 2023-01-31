@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-26T14:07:30.212-05:00
+  - Build date: 2023-01-31T15:48:16.171-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.109</version>
+  <version>3.10.111</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.109"
+compile "com.ultracart:rest-sdk:3.10.111"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.109.jar`
+* `target/rest-sdk-3.10.111.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -176,6 +176,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**getConversationsAutocomplete**](docs/ConversationApi.md#getConversationsAutocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
 *ConversationApi* | [**getConversationsSearch**](docs/ConversationApi.md#getConversationsSearch) | **POST** /conversation/conversations/search | Search conversations
+*ConversationApi* | [**getLocationsForEngagement**](docs/ConversationApi.md#getLocationsForEngagement) | **POST** /conversation/locations | Get location data for engagement configuration
 *ConversationApi* | [**insertConversationCannedMessage**](docs/ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
@@ -668,6 +669,9 @@ Class | Method | HTTP request | Description
  - [ConversationEventTyping](docs/ConversationEventTyping.md)
  - [ConversationEventWebchatContext](docs/ConversationEventWebchatContext.md)
  - [ConversationJoinRequest](docs/ConversationJoinRequest.md)
+ - [ConversationLocationCountry](docs/ConversationLocationCountry.md)
+ - [ConversationLocationStateProvince](docs/ConversationLocationStateProvince.md)
+ - [ConversationLocationsResponse](docs/ConversationLocationsResponse.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTranslation](docs/ConversationMessageTranslation.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
@@ -1327,6 +1331,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.111 | 01/27/2023 | convo - added event_engage_customer property to message |
+| 3.10.110 | 01/27/2023 | conversations - getLocationsForEngagement method |
 | 3.10.109 | 01/26/2023 | typo in ConversationWebsocketMessage |
 | 3.10.108 | 01/25/2023 | conversation - added message type of engagement prompt |
 | 3.10.107 | 01/25/2023 | convo event for engage customer |
