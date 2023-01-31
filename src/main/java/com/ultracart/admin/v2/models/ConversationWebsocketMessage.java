@@ -31,6 +31,7 @@ import com.ultracart.admin.v2.models.ConversationMessage;
 import com.ultracart.admin.v2.models.ConversationParticipant;
 import com.ultracart.admin.v2.models.ConversationSummary;
 import com.ultracart.admin.v2.models.ConversationWebchatQueueStatus;
+import com.ultracart.admin.v2.models.ConversationWebchatQueueStatusQueueEntry;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -58,7 +59,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-26T11:21:51.055-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:00:45.770-05:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
@@ -75,6 +76,10 @@ public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_EVENT_CONVERSATION_CLOSED = "event_conversation_closed";
   @SerializedName(SERIALIZED_NAME_EVENT_CONVERSATION_CLOSED)
   private ConversationSummary eventConversationClosed;
+
+  public static final String SERIALIZED_NAME_EVENT_ENGAGE_CUSTOMER = "event_engage_customer";
+  @SerializedName(SERIALIZED_NAME_EVENT_ENGAGE_CUSTOMER)
+  private ConversationWebchatQueueStatusQueueEntry eventEngageCustomer;
 
   public static final String SERIALIZED_NAME_EVENT_NEW_CONVERSATION = "event_new_conversation";
   @SerializedName(SERIALIZED_NAME_EVENT_NEW_CONVERSATION)
@@ -364,6 +369,29 @@ public class ConversationWebsocketMessage {
 
   public void setEventConversationClosed(ConversationSummary eventConversationClosed) {
     this.eventConversationClosed = eventConversationClosed;
+  }
+
+
+  public ConversationWebsocketMessage eventEngageCustomer(ConversationWebchatQueueStatusQueueEntry eventEngageCustomer) {
+    
+    this.eventEngageCustomer = eventEngageCustomer;
+    return this;
+  }
+
+   /**
+   * Get eventEngageCustomer
+   * @return eventEngageCustomer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationWebchatQueueStatusQueueEntry getEventEngageCustomer() {
+    return eventEngageCustomer;
+  }
+
+
+  public void setEventEngageCustomer(ConversationWebchatQueueStatusQueueEntry eventEngageCustomer) {
+    this.eventEngageCustomer = eventEngageCustomer;
   }
 
 
@@ -772,6 +800,7 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventAddCoupon, conversationWebsocketMessage.eventAddCoupon) &&
         Objects.equals(this.eventAddItem, conversationWebsocketMessage.eventAddItem) &&
         Objects.equals(this.eventConversationClosed, conversationWebsocketMessage.eventConversationClosed) &&
+        Objects.equals(this.eventEngageCustomer, conversationWebsocketMessage.eventEngageCustomer) &&
         Objects.equals(this.eventNewConversation, conversationWebsocketMessage.eventNewConversation) &&
         Objects.equals(this.eventNewMessage, conversationWebsocketMessage.eventNewMessage) &&
         Objects.equals(this.eventParticipantJoin, conversationWebsocketMessage.eventParticipantJoin) &&
@@ -793,7 +822,7 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventNewConversation, eventNewMessage, eventParticipantJoin, eventParticipantJoinParticipant, eventParticipantLeft, eventParticipantLeftParticipant, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
+    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventEngageCustomer, eventNewConversation, eventNewMessage, eventParticipantJoin, eventParticipantJoinParticipant, eventParticipantLeft, eventParticipantLeftParticipant, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
   }
 
   @Override
@@ -804,6 +833,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventAddCoupon: ").append(toIndentedString(eventAddCoupon)).append("\n");
     sb.append("    eventAddItem: ").append(toIndentedString(eventAddItem)).append("\n");
     sb.append("    eventConversationClosed: ").append(toIndentedString(eventConversationClosed)).append("\n");
+    sb.append("    eventEngageCustomer: ").append(toIndentedString(eventEngageCustomer)).append("\n");
     sb.append("    eventNewConversation: ").append(toIndentedString(eventNewConversation)).append("\n");
     sb.append("    eventNewMessage: ").append(toIndentedString(eventNewMessage)).append("\n");
     sb.append("    eventParticipantJoin: ").append(toIndentedString(eventParticipantJoin)).append("\n");
@@ -847,6 +877,7 @@ public class ConversationWebsocketMessage {
     openapiFields.add("event_add_coupon");
     openapiFields.add("event_add_item");
     openapiFields.add("event_conversation_closed");
+    openapiFields.add("event_engage_customer");
     openapiFields.add("event_new_conversation");
     openapiFields.add("event_new_message");
     openapiFields.add("event_participant_join");
@@ -905,6 +936,10 @@ public class ConversationWebsocketMessage {
       // validate the optional field `event_conversation_closed`
       if (jsonObj.getAsJsonObject("event_conversation_closed") != null) {
         ConversationSummary.validateJsonObject(jsonObj.getAsJsonObject("event_conversation_closed"));
+      }
+      // validate the optional field `event_engage_customer`
+      if (jsonObj.getAsJsonObject("event_engage_customer") != null) {
+        ConversationWebchatQueueStatusQueueEntry.validateJsonObject(jsonObj.getAsJsonObject("event_engage_customer"));
       }
       // validate the optional field `event_new_conversation`
       if (jsonObj.getAsJsonObject("event_new_conversation") != null) {

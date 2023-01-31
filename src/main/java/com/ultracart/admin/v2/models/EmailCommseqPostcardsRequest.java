@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseqPostcardsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-26T11:21:51.055-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:00:45.770-05:00[America/Indianapolis]")
 public class EmailCommseqPostcardsRequest {
   public static final String SERIALIZED_NAME_ESP_COMMSEQ_POSTCARD_UUIDS = "esp_commseq_postcard_uuids";
   @SerializedName(SERIALIZED_NAME_ESP_COMMSEQ_POSTCARD_UUIDS)

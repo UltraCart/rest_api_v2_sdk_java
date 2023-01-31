@@ -11,6 +11,7 @@
 |**eventAddCoupon** | [**ConversationEventAddCoupon**](ConversationEventAddCoupon.md) |  |  [optional] |
 |**eventAddItem** | [**ConversationEventAddItem**](ConversationEventAddItem.md) |  |  [optional] |
 |**eventConversationClosed** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
+|**eventEngageCustomer** | [**ConversationWebchatQueueStatusQueueEntry**](ConversationWebchatQueueStatusQueueEntry.md) |  |  [optional] |
 |**eventNewConversation** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
 |**eventNewMessage** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
 |**eventParticipantJoin** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional] |
