@@ -34,6 +34,9 @@ import com.ultracart.admin.v2.models.ItemDigitalItem;
 import com.ultracart.admin.v2.models.ItemDigitalItemResponse;
 import com.ultracart.admin.v2.models.ItemDigitalItemsResponse;
 import com.ultracart.admin.v2.models.ItemResponse;
+import com.ultracart.admin.v2.models.ItemReview;
+import com.ultracart.admin.v2.models.ItemReviewResponse;
+import com.ultracart.admin.v2.models.ItemReviewsResponse;
 import com.ultracart.admin.v2.models.ItemsRequest;
 import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.PricingTiersResponse;
@@ -324,6 +327,135 @@ public class ItemApi {
         }
 
         com.squareup.okhttp.Call call = deleteItemValidateBeforeCall(merchantItemOid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteReview
+     * @param reviewOid The review oid to delete. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteReviewCall(Integer reviewOid, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}"
+            .replaceAll("\\{" + "review_oid" + "\\}", apiClient.escapeString(reviewOid.toString()))
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteReviewValidateBeforeCall(Integer reviewOid, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reviewOid' is set
+        if (reviewOid == null) {
+            throw new ApiException("Missing the required parameter 'reviewOid' when calling deleteReview(Async)");
+        }
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling deleteReview(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteReviewCall(reviewOid, merchantItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a review
+     * Delete an item review. 
+     * @param reviewOid The review oid to delete. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteReview(Integer reviewOid, Integer merchantItemOid) throws ApiException {
+        deleteReviewWithHttpInfo(reviewOid, merchantItemOid);
+    }
+
+    /**
+     * Delete a review
+     * Delete an item review. 
+     * @param reviewOid The review oid to delete. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteReviewWithHttpInfo(Integer reviewOid, Integer merchantItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteReviewValidateBeforeCall(reviewOid, merchantItemOid, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a review (asynchronously)
+     * Delete an item review. 
+     * @param reviewOid The review oid to delete. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteReviewAsync(Integer reviewOid, Integer merchantItemOid, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteReviewValidateBeforeCall(reviewOid, merchantItemOid, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1273,6 +1405,262 @@ public class ItemApi {
         return call;
     }
     /**
+     * Build call for getReview
+     * @param reviewOid The review oid to retrieve. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getReviewCall(Integer reviewOid, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}"
+            .replaceAll("\\{" + "review_oid" + "\\}", apiClient.escapeString(reviewOid.toString()))
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getReviewValidateBeforeCall(Integer reviewOid, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reviewOid' is set
+        if (reviewOid == null) {
+            throw new ApiException("Missing the required parameter 'reviewOid' when calling getReview(Async)");
+        }
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling getReview(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getReviewCall(reviewOid, merchantItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get a review
+     * Retrieve an item review. 
+     * @param reviewOid The review oid to retrieve. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ItemReviewResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemReviewResponse getReview(Integer reviewOid, Integer merchantItemOid) throws ApiException {
+        ApiResponse<ItemReviewResponse> resp = getReviewWithHttpInfo(reviewOid, merchantItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get a review
+     * Retrieve an item review. 
+     * @param reviewOid The review oid to retrieve. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ApiResponse&lt;ItemReviewResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemReviewResponse> getReviewWithHttpInfo(Integer reviewOid, Integer merchantItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = getReviewValidateBeforeCall(reviewOid, merchantItemOid, null, null);
+        Type localVarReturnType = new TypeToken<ItemReviewResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get a review (asynchronously)
+     * Retrieve an item review. 
+     * @param reviewOid The review oid to retrieve. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getReviewAsync(Integer reviewOid, Integer merchantItemOid, final ApiCallback<ItemReviewResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getReviewValidateBeforeCall(reviewOid, merchantItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemReviewResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getReviews
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getReviewsCall(Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/reviews"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getReviewsValidateBeforeCall(Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling getReviews(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getReviewsCall(merchantItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get reviews for an item
+     * Retrieve item reviews. 
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ItemReviewsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemReviewsResponse getReviews(Integer merchantItemOid) throws ApiException {
+        ApiResponse<ItemReviewsResponse> resp = getReviewsWithHttpInfo(merchantItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get reviews for an item
+     * Retrieve item reviews. 
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ApiResponse&lt;ItemReviewsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemReviewsResponse> getReviewsWithHttpInfo(Integer merchantItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = getReviewsValidateBeforeCall(merchantItemOid, null, null);
+        Type localVarReturnType = new TypeToken<ItemReviewsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get reviews for an item (asynchronously)
+     * Retrieve item reviews. 
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getReviewsAsync(Integer merchantItemOid, final ApiCallback<ItemReviewsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getReviewsValidateBeforeCall(merchantItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemReviewsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getUnassociatedDigitalItems
      * @param limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
@@ -1674,6 +2062,138 @@ public class ItemApi {
 
         com.squareup.okhttp.Call call = insertItemValidateBeforeCall(item, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertReview
+     * @param review Review to insert (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertReviewCall(ItemReview review, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = review;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/reviews"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertReviewValidateBeforeCall(ItemReview review, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'review' is set
+        if (review == null) {
+            throw new ApiException("Missing the required parameter 'review' when calling insertReview(Async)");
+        }
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling insertReview(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertReviewCall(review, merchantItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a review
+     * Insert a item review. 
+     * @param review Review to insert (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ItemReviewResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemReviewResponse insertReview(ItemReview review, Integer merchantItemOid) throws ApiException {
+        ApiResponse<ItemReviewResponse> resp = insertReviewWithHttpInfo(review, merchantItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a review
+     * Insert a item review. 
+     * @param review Review to insert (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ApiResponse&lt;ItemReviewResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemReviewResponse> insertReviewWithHttpInfo(ItemReview review, Integer merchantItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = insertReviewValidateBeforeCall(review, merchantItemOid, null, null);
+        Type localVarReturnType = new TypeToken<ItemReviewResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a review (asynchronously)
+     * Insert a item review. 
+     * @param review Review to insert (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertReviewAsync(ItemReview review, Integer merchantItemOid, final ApiCallback<ItemReviewResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertReviewValidateBeforeCall(review, merchantItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemReviewResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2090,6 +2610,148 @@ public class ItemApi {
 
         com.squareup.okhttp.Call call = updateItemsValidateBeforeCall(itemsRequest, expand, placeholders, async, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateReview
+     * @param review Review to update (required)
+     * @param reviewOid The review oid to update. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateReviewCall(ItemReview review, Integer reviewOid, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = review;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}"
+            .replaceAll("\\{" + "review_oid" + "\\}", apiClient.escapeString(reviewOid.toString()))
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateReviewValidateBeforeCall(ItemReview review, Integer reviewOid, Integer merchantItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'review' is set
+        if (review == null) {
+            throw new ApiException("Missing the required parameter 'review' when calling updateReview(Async)");
+        }
+        
+        // verify the required parameter 'reviewOid' is set
+        if (reviewOid == null) {
+            throw new ApiException("Missing the required parameter 'reviewOid' when calling updateReview(Async)");
+        }
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling updateReview(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateReviewCall(review, reviewOid, merchantItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update a review
+     * Update an item review. 
+     * @param review Review to update (required)
+     * @param reviewOid The review oid to update. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ItemReviewResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemReviewResponse updateReview(ItemReview review, Integer reviewOid, Integer merchantItemOid) throws ApiException {
+        ApiResponse<ItemReviewResponse> resp = updateReviewWithHttpInfo(review, reviewOid, merchantItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Update a review
+     * Update an item review. 
+     * @param review Review to update (required)
+     * @param reviewOid The review oid to update. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @return ApiResponse&lt;ItemReviewResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemReviewResponse> updateReviewWithHttpInfo(ItemReview review, Integer reviewOid, Integer merchantItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = updateReviewValidateBeforeCall(review, reviewOid, merchantItemOid, null, null);
+        Type localVarReturnType = new TypeToken<ItemReviewResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a review (asynchronously)
+     * Update an item review. 
+     * @param review Review to update (required)
+     * @param reviewOid The review oid to update. (required)
+     * @param merchantItemOid The item oid the review is associated with. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateReviewAsync(ItemReview review, Integer reviewOid, Integer merchantItemOid, final ApiCallback<ItemReviewResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateReviewValidateBeforeCall(review, reviewOid, merchantItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemReviewResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

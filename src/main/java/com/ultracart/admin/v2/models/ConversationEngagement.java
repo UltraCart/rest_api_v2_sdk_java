@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationEngagement
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -43,6 +43,9 @@ public class ConversationEngagement {
 
   @SerializedName("customer_greeting")
   private String customerGreeting = null;
+
+  @SerializedName("customer_initiated")
+  private Boolean customerInitiated = null;
 
   @SerializedName("department_oids")
   private List<Integer> departmentOids = null;
@@ -162,6 +165,24 @@ public class ConversationEngagement {
     this.customerGreeting = customerGreeting;
   }
 
+  public ConversationEngagement customerInitiated(Boolean customerInitiated) {
+    this.customerInitiated = customerInitiated;
+    return this;
+  }
+
+   /**
+   * Get customerInitiated
+   * @return customerInitiated
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isCustomerInitiated() {
+    return customerInitiated;
+  }
+
+  public void setCustomerInitiated(Boolean customerInitiated) {
+    this.customerInitiated = customerInitiated;
+  }
+
   public ConversationEngagement departmentOids(List<Integer> departmentOids) {
     this.departmentOids = departmentOids;
     return this;
@@ -273,6 +294,7 @@ public class ConversationEngagement {
     return Objects.equals(this.active, conversationEngagement.active) &&
         Objects.equals(this.conversationEngagementOid, conversationEngagement.conversationEngagementOid) &&
         Objects.equals(this.customerGreeting, conversationEngagement.customerGreeting) &&
+        Objects.equals(this.customerInitiated, conversationEngagement.customerInitiated) &&
         Objects.equals(this.departmentOids, conversationEngagement.departmentOids) &&
         Objects.equals(this.engagementName, conversationEngagement.engagementName) &&
         Objects.equals(this.equation, conversationEngagement.equation) &&
@@ -282,7 +304,7 @@ public class ConversationEngagement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, conversationEngagementOid, customerGreeting, departmentOids, engagementName, equation, timeOnPage, visitorType);
+    return Objects.hash(active, conversationEngagementOid, customerGreeting, customerInitiated, departmentOids, engagementName, equation, timeOnPage, visitorType);
   }
 
 
@@ -294,6 +316,7 @@ public class ConversationEngagement {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    conversationEngagementOid: ").append(toIndentedString(conversationEngagementOid)).append("\n");
     sb.append("    customerGreeting: ").append(toIndentedString(customerGreeting)).append("\n");
+    sb.append("    customerInitiated: ").append(toIndentedString(customerInitiated)).append("\n");
     sb.append("    departmentOids: ").append(toIndentedString(departmentOids)).append("\n");
     sb.append("    engagementName: ").append(toIndentedString(engagementName)).append("\n");
     sb.append("    equation: ").append(toIndentedString(equation)).append("\n");

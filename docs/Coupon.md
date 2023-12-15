@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **expirationDts** | **String** | Date/time when coupon expires |  [optional]
 **freeItemAndShippingWithSubtotal** | [**CouponFreeItemAndShippingWithSubtotal**](CouponFreeItemAndShippingWithSubtotal.md) |  |  [optional]
 **freeItemWithItemPurchase** | [**CouponFreeItemWithItemPurchase**](CouponFreeItemWithItemPurchase.md) |  |  [optional]
+**freeItemWithItemPurchaseAndFreeShipping** | [**CouponFreeItemWithItemPurchaseAndFreeShipping**](CouponFreeItemWithItemPurchaseAndFreeShipping.md) |  |  [optional]
 **freeItemWithSubtotal** | [**CouponFreeItemWithSubtotal**](CouponFreeItemWithSubtotal.md) |  |  [optional]
 **freeItemsWithItemPurchase** | [**CouponFreeItemsWithItemPurchase**](CouponFreeItemsWithItemPurchase.md) |  |  [optional]
 **freeItemsWithMixmatchPurchase** | [**CouponFreeItemsWithMixMatchPurchase**](CouponFreeItemsWithMixMatchPurchase.md) |  |  [optional]
@@ -69,7 +70,18 @@ Name | Type | Description | Notes
 **tieredPercentOffShipping** | [**CouponTieredPercentOffShipping**](CouponTieredPercentOffShipping.md) |  |  [optional]
 **tieredPercentOffSubtotal** | [**CouponTieredPercentOffSubtotal**](CouponTieredPercentOffSubtotal.md) |  |  [optional]
 **tieredPercentOffSubtotalBasedOnMsrp** | [**CouponTieredPercentOffSubtotalBasedOnMSRP**](CouponTieredPercentOffSubtotalBasedOnMSRP.md) |  |  [optional]
-**usableBy** | **String** | Who may use this coupon. |  [optional]
+**usableBy** | [**UsableByEnum**](#UsableByEnum) | Who may use this coupon. |  [optional]
+
+
+<a name="UsableByEnum"></a>
+## Enum: UsableByEnum
+Name | Value
+---- | -----
+ANYONE | &quot;Anyone&quot;
+UNIQUECODE | &quot;UniqueCode&quot;
+ONCEPERCUSTOMER | &quot;OncePerCustomer&quot;
+ONCEPERNEWCUSTOMER | &quot;OncePerNewCustomer&quot;
+ONCEPERNEWCUSTOMERFORITEM | &quot;OncePerNewCustomerForItem&quot;
 
 
 

@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-01-31T15:48:16.171-05:00
+  - Build date: 2023-12-15T16:13:40.363-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.111</version>
+  <version>3.10.177</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.111"
+compile "com.ultracart:rest-sdk:3.10.177"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.111.jar`
+* `target/rest-sdk-3.10.177.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AffiliateApi* | [**getClicksByQuery**](docs/AffiliateApi.md#getClicksByQuery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/AffiliateApi.md#getLedgersByQuery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
+*AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 *AutoOrderApi* | [**getAutoOrder**](docs/AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
@@ -161,6 +162,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deleteDepartment**](docs/ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
 *ConversationApi* | [**getAgentKeepAlive**](docs/ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
+*ConversationApi* | [**getAgentProfile**](docs/ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationCannedMessages**](docs/ConversationApi.md#getConversationCannedMessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
@@ -170,7 +172,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationEngagement**](docs/ConversationApi.md#getConversationEngagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
-*ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
+*ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
 *ConversationApi* | [**getConversationPermissions**](docs/ConversationApi.md#getConversationPermissions) | **GET** /conversation/permissions | Retrieve conversation permissions
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
@@ -184,7 +186,9 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**leaveConversation**](docs/ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**markReadConversation**](docs/ConversationApi.md#markReadConversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
 *ConversationApi* | [**searchConversationCannedMessages**](docs/ConversationApi.md#searchConversationCannedMessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
+*ConversationApi* | [**smsUnsubscribeConversation**](docs/ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 *ConversationApi* | [**startConversation**](docs/ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
+*ConversationApi* | [**updateAgentProfile**](docs/ConversationApi.md#updateAgentProfile) | **PUT** /conversation/agent/profile | Update agent profile
 *ConversationApi* | [**updateConversationCannedMessage**](docs/ConversationApi.md#updateConversationCannedMessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 *ConversationApi* | [**updateConversationDepartment**](docs/ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 *ConversationApi* | [**updateConversationEngagement**](docs/ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -211,22 +215,37 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**addCustomerStoreCredit**](docs/CustomerApi.md#addCustomerStoreCredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 *CustomerApi* | [**adjustInternalCertificate**](docs/CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 *CustomerApi* | [**deleteCustomer**](docs/CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
+*CustomerApi* | [**deleteWishListItem**](docs/CustomerApi.md#deleteWishListItem) | **DELETE** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Delete a customer wishlist item
 *CustomerApi* | [**getCustomer**](docs/CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomerByEmail**](docs/CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 *CustomerApi* | [**getCustomerEditorValues**](docs/CustomerApi.md#getCustomerEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 *CustomerApi* | [**getCustomerEmailLists**](docs/CustomerApi.md#getCustomerEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 *CustomerApi* | [**getCustomerStoreCredit**](docs/CustomerApi.md#getCustomerStoreCredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
+*CustomerApi* | [**getCustomerWishList**](docs/CustomerApi.md#getCustomerWishList) | **GET** /customer/customers/{customer_profile_oid}/wishlist | Retrieve wishlist items for customer
+*CustomerApi* | [**getCustomerWishListItem**](docs/CustomerApi.md#getCustomerWishListItem) | **GET** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Retrieve wishlist item for customer
 *CustomerApi* | [**getCustomers**](docs/CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
 *CustomerApi* | [**getCustomersByQuery**](docs/CustomerApi.md#getCustomersByQuery) | **POST** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**getCustomersForDataTables**](docs/CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**getMagicLink**](docs/CustomerApi.md#getMagicLink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
 *CustomerApi* | [**insertCustomer**](docs/CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
+*CustomerApi* | [**insertWishListItem**](docs/CustomerApi.md#insertWishListItem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 *CustomerApi* | [**mergeCustomer**](docs/CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 *CustomerApi* | [**searchCustomerProfileValues**](docs/CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
 *CustomerApi* | [**updateCustomer**](docs/CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
+*CustomerApi* | [**updateWishListItem**](docs/CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 *CustomerApi* | [**validateEmailVerificationToken**](docs/CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
+*DatawarehouseApi* | [**deleteReport**](docs/DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
+*DatawarehouseApi* | [**dryRunReportQueries**](docs/DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
+*DatawarehouseApi* | [**executeReportQueries**](docs/DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+*DatawarehouseApi* | [**getReport**](docs/DatawarehouseApi.md#getReport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
+*DatawarehouseApi* | [**getReportDataSet**](docs/DatawarehouseApi.md#getReportDataSet) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
+*DatawarehouseApi* | [**getReportDataSetPage**](docs/DatawarehouseApi.md#getReportDataSetPage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
+*DatawarehouseApi* | [**getReportWebsocketAuthorization**](docs/DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
+*DatawarehouseApi* | [**getReports**](docs/DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
+*DatawarehouseApi* | [**insertReport**](docs/DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
+*DatawarehouseApi* | [**updateReport**](docs/DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 *FulfillmentApi* | [**acknowledgeOrders**](docs/FulfillmentApi.md#acknowledgeOrders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
 *FulfillmentApi* | [**generatePackingSlip**](docs/FulfillmentApi.md#generatePackingSlip) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders/{order_id} | Generate a packing slip for this order for the given distribution center.
 *FulfillmentApi* | [**getDistributionCenterOrders**](docs/FulfillmentApi.md#getDistributionCenterOrders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
@@ -248,6 +267,7 @@ Class | Method | HTTP request | Description
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteDigitalItem**](docs/ItemApi.md#deleteDigitalItem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 *ItemApi* | [**deleteItem**](docs/ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+*ItemApi* | [**deleteReview**](docs/ItemApi.md#deleteReview) | **DELETE** /item/items/{merchant_item_oid}/reviews/{review_oid} | Delete a review
 *ItemApi* | [**getDigitalItem**](docs/ItemApi.md#getDigitalItem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItems**](docs/ItemApi.md#getDigitalItems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItemsByExternalId**](docs/ItemApi.md#getDigitalItemsByExternalId) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
@@ -255,12 +275,16 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getItemByMerchantItemId**](docs/ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+*ItemApi* | [**getReview**](docs/ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
+*ItemApi* | [**getReviews**](docs/ItemApi.md#getReviews) | **GET** /item/items/{merchant_item_oid}/reviews | Get reviews for an item
 *ItemApi* | [**getUnassociatedDigitalItems**](docs/ItemApi.md#getUnassociatedDigitalItems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 *ItemApi* | [**insertDigitalItem**](docs/ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 *ItemApi* | [**insertItem**](docs/ItemApi.md#insertItem) | **POST** /item/items | Create an item
+*ItemApi* | [**insertReview**](docs/ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 *ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 *ItemApi* | [**updateItems**](docs/ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
+*ItemApi* | [**updateReview**](docs/ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
@@ -277,6 +301,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrderByToken**](docs/OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
+*OrderApi* | [**getOrderEdiDocuments**](docs/OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 *OrderApi* | [**getOrders**](docs/OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
@@ -289,6 +314,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**resendShipmentConfirmation**](docs/OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
+*OrderApi* | [**validateOrder**](docs/OrderApi.md#validateOrder) | **POST** /order/validate | Validate
 *SsoApi* | [**getSsoSessionUser**](docs/SsoApi.md#getSsoSessionUser) | **GET** /sso/session/user | Get single sign on session user
 *SsoApi* | [**ssoAuthorize**](docs/SsoApi.md#ssoAuthorize) | **PUT** /sso/authorize | Authorize a single sign on session
 *SsoApi* | [**ssoSessionRevoke**](docs/SsoApi.md#ssoSessionRevoke) | **DELETE** /sso/session/revoke | Revoke single sign on session
@@ -512,6 +538,15 @@ Class | Method | HTTP request | Description
 *WebhookApi* | [**insertWebhook**](docs/WebhookApi.md#insertWebhook) | **POST** /webhook/webhooks | Add a webhook
 *WebhookApi* | [**resendEvent**](docs/WebhookApi.md#resendEvent) | **POST** /webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
 *WebhookApi* | [**updateWebhook**](docs/WebhookApi.md#updateWebhook) | **PUT** /webhook/webhooks/{webhookOid} | Update a webhook
+*WorkflowApi* | [**getWorkflowAssignmentGroups**](docs/WorkflowApi.md#getWorkflowAssignmentGroups) | **GET** /workflow/assignment_groups | Retrieve a list of groups that workflow tasks can be assigned to
+*WorkflowApi* | [**getWorkflowAssignmentUsers**](docs/WorkflowApi.md#getWorkflowAssignmentUsers) | **GET** /workflow/assignment_users | Retrieve a list of users that workflow tasks can be assigned to
+*WorkflowApi* | [**getWorkflowMe**](docs/WorkflowApi.md#getWorkflowMe) | **GET** /workflow/me | Retrieve a user object for myself
+*WorkflowApi* | [**getWorkflowTask**](docs/WorkflowApi.md#getWorkflowTask) | **GET** /workflow/tasks/{task_uuid} | Retrieve a workflow task
+*WorkflowApi* | [**getWorkflowTaskAttachmentUploadUrl**](docs/WorkflowApi.md#getWorkflowTaskAttachmentUploadUrl) | **GET** /workflow/tasks/attachments/{extension} | Get a presigned workflow task attachment upload URL
+*WorkflowApi* | [**getWorkflowTaskByObjectType**](docs/WorkflowApi.md#getWorkflowTaskByObjectType) | **GET** /workflow/tasks/by/{object_type}/{object_id} | Retrieve a workflow task by object type and id
+*WorkflowApi* | [**getWorkflowTasks**](docs/WorkflowApi.md#getWorkflowTasks) | **POST** /workflow/tasks/search | Search workflow tasks
+*WorkflowApi* | [**insertWorkflowTask**](docs/WorkflowApi.md#insertWorkflowTask) | **POST** /workflow/tasks | Insert a workflow task
+*WorkflowApi* | [**updateWorkflowTask**](docs/WorkflowApi.md#updateWorkflowTask) | **PUT** /workflow/tasks/{task_uuid} | Update a workflow task
 
 
 ## Documentation for Models
@@ -523,6 +558,7 @@ Class | Method | HTTP request | Description
  - [AccountsReceivableRetryStatMetrics](docs/AccountsReceivableRetryStatMetrics.md)
  - [AccountsReceivableRetryStatRevenue](docs/AccountsReceivableRetryStatRevenue.md)
  - [AccountsReceivableRetryStatsResponse](docs/AccountsReceivableRetryStatsResponse.md)
+ - [AccountsReceivableRetryTransactionReject](docs/AccountsReceivableRetryTransactionReject.md)
  - [Activity](docs/Activity.md)
  - [AddLibraryItemRequest](docs/AddLibraryItemRequest.md)
  - [AdjustInternalCertificateRequest](docs/AdjustInternalCertificateRequest.md)
@@ -538,6 +574,8 @@ Class | Method | HTTP request | Description
  - [ApplyLibraryItemRequest](docs/ApplyLibraryItemRequest.md)
  - [ApplyLibraryItemResponse](docs/ApplyLibraryItemResponse.md)
  - [AutoOrder](docs/AutoOrder.md)
+ - [AutoOrderAddonItem](docs/AutoOrderAddonItem.md)
+ - [AutoOrderAddonItemOption](docs/AutoOrderAddonItemOption.md)
  - [AutoOrderItem](docs/AutoOrderItem.md)
  - [AutoOrderItemFutureSchedule](docs/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/AutoOrderItemOption.md)
@@ -587,6 +625,7 @@ Class | Method | HTTP request | Description
  - [CartPaymentAmazon](docs/CartPaymentAmazon.md)
  - [CartPaymentCheck](docs/CartPaymentCheck.md)
  - [CartPaymentCreditCard](docs/CartPaymentCreditCard.md)
+ - [CartPaymentHealthBenefitCard](docs/CartPaymentHealthBenefitCard.md)
  - [CartPaymentPurchaseOrder](docs/CartPaymentPurchaseOrder.md)
  - [CartProfileLoginRequest](docs/CartProfileLoginRequest.md)
  - [CartProfileLoginResponse](docs/CartProfileLoginResponse.md)
@@ -642,6 +681,8 @@ Class | Method | HTTP request | Description
  - [Conversation](docs/Conversation.md)
  - [ConversationAgentAuth](docs/ConversationAgentAuth.md)
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
+ - [ConversationAgentProfile](docs/ConversationAgentProfile.md)
+ - [ConversationAgentProfileResponse](docs/ConversationAgentProfileResponse.md)
  - [ConversationAutocompleteRequest](docs/ConversationAutocompleteRequest.md)
  - [ConversationAutocompleteResponse](docs/ConversationAutocompleteResponse.md)
  - [ConversationAutocompleteValue](docs/ConversationAutocompleteValue.md)
@@ -684,6 +725,7 @@ Class | Method | HTTP request | Description
  - [ConversationResponse](docs/ConversationResponse.md)
  - [ConversationSearchRequest](docs/ConversationSearchRequest.md)
  - [ConversationSearchResponse](docs/ConversationSearchResponse.md)
+ - [ConversationSentiment](docs/ConversationSentiment.md)
  - [ConversationStartRequest](docs/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
  - [ConversationSummary](docs/ConversationSummary.md)
@@ -722,6 +764,7 @@ Class | Method | HTTP request | Description
  - [CouponExistsResponse](docs/CouponExistsResponse.md)
  - [CouponFreeItemAndShippingWithSubtotal](docs/CouponFreeItemAndShippingWithSubtotal.md)
  - [CouponFreeItemWithItemPurchase](docs/CouponFreeItemWithItemPurchase.md)
+ - [CouponFreeItemWithItemPurchaseAndFreeShipping](docs/CouponFreeItemWithItemPurchaseAndFreeShipping.md)
  - [CouponFreeItemWithSubtotal](docs/CouponFreeItemWithSubtotal.md)
  - [CouponFreeItemsWithItemPurchase](docs/CouponFreeItemsWithItemPurchase.md)
  - [CouponFreeItemsWithMixMatchPurchase](docs/CouponFreeItemsWithMixMatchPurchase.md)
@@ -785,6 +828,7 @@ Class | Method | HTTP request | Description
  - [CustomerOrdersSummary](docs/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/CustomerPricingTier.md)
  - [CustomerPrivacy](docs/CustomerPrivacy.md)
+ - [CustomerProperty](docs/CustomerProperty.md)
  - [CustomerQuery](docs/CustomerQuery.md)
  - [CustomerQuotesSummary](docs/CustomerQuotesSummary.md)
  - [CustomerResponse](docs/CustomerResponse.md)
@@ -797,6 +841,9 @@ Class | Method | HTTP request | Description
  - [CustomerStoreCreditResponse](docs/CustomerStoreCreditResponse.md)
  - [CustomerTag](docs/CustomerTag.md)
  - [CustomerTaxCodes](docs/CustomerTaxCodes.md)
+ - [CustomerWishListItem](docs/CustomerWishListItem.md)
+ - [CustomerWishListItemResponse](docs/CustomerWishListItemResponse.md)
+ - [CustomerWishListItemsResponse](docs/CustomerWishListItemsResponse.md)
  - [CustomersResponse](docs/CustomersResponse.md)
  - [DataTablesServerSideResponse](docs/DataTablesServerSideResponse.md)
  - [Distance](docs/Distance.md)
@@ -1018,7 +1065,9 @@ Class | Method | HTTP request | Description
  - [ItemRestrictionItem](docs/ItemRestrictionItem.md)
  - [ItemRevguard](docs/ItemRevguard.md)
  - [ItemReview](docs/ItemReview.md)
+ - [ItemReviewResponse](docs/ItemReviewResponse.md)
  - [ItemReviews](docs/ItemReviews.md)
+ - [ItemReviewsResponse](docs/ItemReviewsResponse.md)
  - [ItemSalesforce](docs/ItemSalesforce.md)
  - [ItemShipping](docs/ItemShipping.md)
  - [ItemShippingCase](docs/ItemShippingCase.md)
@@ -1074,6 +1123,8 @@ Class | Method | HTTP request | Description
  - [OrderDigitalItem](docs/OrderDigitalItem.md)
  - [OrderDigitalOrder](docs/OrderDigitalOrder.md)
  - [OrderEdi](docs/OrderEdi.md)
+ - [OrderEdiDocument](docs/OrderEdiDocument.md)
+ - [OrderEdiDocumentsResponse](docs/OrderEdiDocumentsResponse.md)
  - [OrderFormat](docs/OrderFormat.md)
  - [OrderFormatResponse](docs/OrderFormatResponse.md)
  - [OrderFraudScore](docs/OrderFraudScore.md)
@@ -1095,7 +1146,10 @@ Class | Method | HTTP request | Description
  - [OrderPayment](docs/OrderPayment.md)
  - [OrderPaymentCheck](docs/OrderPaymentCheck.md)
  - [OrderPaymentCreditCard](docs/OrderPaymentCreditCard.md)
+ - [OrderPaymentCreditCardDualVaulted](docs/OrderPaymentCreditCardDualVaulted.md)
+ - [OrderPaymentCreditCardDualVaultedProperty](docs/OrderPaymentCreditCardDualVaultedProperty.md)
  - [OrderPaymentECheck](docs/OrderPaymentECheck.md)
+ - [OrderPaymentHealthBenefitCard](docs/OrderPaymentHealthBenefitCard.md)
  - [OrderPaymentInsurance](docs/OrderPaymentInsurance.md)
  - [OrderPaymentPurchaseOrder](docs/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/OrderPaymentTransaction.md)
@@ -1107,6 +1161,7 @@ Class | Method | HTTP request | Description
  - [OrderQuery](docs/OrderQuery.md)
  - [OrderQueryBatch](docs/OrderQueryBatch.md)
  - [OrderQuote](docs/OrderQuote.md)
+ - [OrderReason](docs/OrderReason.md)
  - [OrderRefundableResponse](docs/OrderRefundableResponse.md)
  - [OrderReplacement](docs/OrderReplacement.md)
  - [OrderReplacementItem](docs/OrderReplacementItem.md)
@@ -1121,6 +1176,9 @@ Class | Method | HTTP request | Description
  - [OrderTrackingNumberDetail](docs/OrderTrackingNumberDetail.md)
  - [OrderTrackingNumberDetails](docs/OrderTrackingNumberDetails.md)
  - [OrderTransactionalMerchantNote](docs/OrderTransactionalMerchantNote.md)
+ - [OrderUtm](docs/OrderUtm.md)
+ - [OrderValidationRequest](docs/OrderValidationRequest.md)
+ - [OrderValidationResponse](docs/OrderValidationResponse.md)
  - [OrdersResponse](docs/OrdersResponse.md)
  - [Permission](docs/Permission.md)
  - [PointOfSaleLocation](docs/PointOfSaleLocation.md)
@@ -1133,6 +1191,34 @@ Class | Method | HTTP request | Description
  - [PublishLibraryItemRequest](docs/PublishLibraryItemRequest.md)
  - [RegisterAffiliateClickRequest](docs/RegisterAffiliateClickRequest.md)
  - [RegisterAffiliateClickResponse](docs/RegisterAffiliateClickResponse.md)
+ - [Report](docs/Report.md)
+ - [ReportAuth](docs/ReportAuth.md)
+ - [ReportAuthResponse](docs/ReportAuthResponse.md)
+ - [ReportDataSet](docs/ReportDataSet.md)
+ - [ReportDataSetColumn](docs/ReportDataSetColumn.md)
+ - [ReportDataSetPage](docs/ReportDataSetPage.md)
+ - [ReportDataSetPageResponse](docs/ReportDataSetPageResponse.md)
+ - [ReportDataSetQuery](docs/ReportDataSetQuery.md)
+ - [ReportDataSetQueryOrderByColumn](docs/ReportDataSetQueryOrderByColumn.md)
+ - [ReportDataSetResponse](docs/ReportDataSetResponse.md)
+ - [ReportDataSetRow](docs/ReportDataSetRow.md)
+ - [ReportDataSetSchema](docs/ReportDataSetSchema.md)
+ - [ReportDataSource](docs/ReportDataSource.md)
+ - [ReportDataSourceSchema](docs/ReportDataSourceSchema.md)
+ - [ReportDryRunQueriesRequest](docs/ReportDryRunQueriesRequest.md)
+ - [ReportDryRunQueriesResponse](docs/ReportDryRunQueriesResponse.md)
+ - [ReportDryRunQueryResult](docs/ReportDryRunQueryResult.md)
+ - [ReportExecuteQueriesRequest](docs/ReportExecuteQueriesRequest.md)
+ - [ReportFilter](docs/ReportFilter.md)
+ - [ReportFilterConnection](docs/ReportFilterConnection.md)
+ - [ReportPage](docs/ReportPage.md)
+ - [ReportPageFilter](docs/ReportPageFilter.md)
+ - [ReportPageVisualization](docs/ReportPageVisualization.md)
+ - [ReportPageVisualizationDimension](docs/ReportPageVisualizationDimension.md)
+ - [ReportPageVisualizationMetric](docs/ReportPageVisualizationMetric.md)
+ - [ReportResponse](docs/ReportResponse.md)
+ - [ReportWebsocketEvent](docs/ReportWebsocketEvent.md)
+ - [ReportsResponse](docs/ReportsResponse.md)
  - [ResponseMetadata](docs/ResponseMetadata.md)
  - [ResultSet](docs/ResultSet.md)
  - [RulerValidationRequest](docs/RulerValidationRequest.md)
@@ -1252,6 +1338,20 @@ Class | Method | HTTP request | Description
  - [WebhookSampleRequestResponse](docs/WebhookSampleRequestResponse.md)
  - [WebhooksResponse](docs/WebhooksResponse.md)
  - [Weight](docs/Weight.md)
+ - [WorkflowAttachment](docs/WorkflowAttachment.md)
+ - [WorkflowAttachmentUploadUrl](docs/WorkflowAttachmentUploadUrl.md)
+ - [WorkflowAttachmentUploadUrlResponse](docs/WorkflowAttachmentUploadUrlResponse.md)
+ - [WorkflowGroup](docs/WorkflowGroup.md)
+ - [WorkflowGroupsResponse](docs/WorkflowGroupsResponse.md)
+ - [WorkflowNote](docs/WorkflowNote.md)
+ - [WorkflowTask](docs/WorkflowTask.md)
+ - [WorkflowTaskHistory](docs/WorkflowTaskHistory.md)
+ - [WorkflowTaskResponse](docs/WorkflowTaskResponse.md)
+ - [WorkflowTasksRequest](docs/WorkflowTasksRequest.md)
+ - [WorkflowTasksResponse](docs/WorkflowTasksResponse.md)
+ - [WorkflowUser](docs/WorkflowUser.md)
+ - [WorkflowUserResponse](docs/WorkflowUserResponse.md)
+ - [WorkflowUsersResponse](docs/WorkflowUsersResponse.md)
 
 
 ## Documentation for Authorization
@@ -1307,6 +1407,8 @@ Authentication schemes defined for the API:
   - ultrabooks_write: 2 of 2 required to use UltraBooks
   - user_read: Allows you to read user information.
   - user_write: Allows you to write user information.
+  - workflow_read: Allows you to read workflow information.
+  - workflow_write: Allows you to write workflow information.
 
 ### ultraCartSimpleApiKey
 
@@ -1331,6 +1433,72 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.177 | 12/15/2023 | bug fix on bad docs breaking yaml schema |
+| 3.10.176 | 12/12/2023 | webhook - added event ruler property |
+| 3.10.175 | 11/21/2023 | coupons - addl support on tiered amount/percent off items |
+| 3.10.174 | 11/20/2023 | coupon - add item tag support to percent off items and free shipping |
+| 3.10.173 | 11/20/2023 | item.google_product_search.color bugfix for bad length validation: 20 to 100 |
+| 3.10.172 | 11/13/2023 | coupon - editor values for item tags |
+| 3.10.171 | 11/13/2023 | coupon - percent off items - add support for include/exclude by item tags |
+| 3.10.170 | 11/09/2023 | item - new auto order step type: pause until |
+| 3.10.169 | 11/06/2023 | customer api - added wishlist methods |
+| 3.10.168 | 11/01/2023 | customer - do_no_send_mail flag added |
+| 3.10.167 | 10/30/2023 | cart/order fields for health benefit card values in summary expansion objects |
+| 3.10.166 | 10/27/2023 | workflow task object model refinement |
+| 3.10.165 | 10/23/2023 | workflow tasks api |
+| 3.10.164 | 10/23/2023 | workflow tasks api |
+| 3.10.163 | 10/16/2023 | CartSettingsPaymentCreditCard - add collect_credit_card_verification_number_minimum |
+| 3.10.162 | 09/28/2023 | dw bi - add aggregation constant of none |
+| 3.10.161 | 09/22/2023 | dwbi - new option to control order-by of result set |
+| 3.10.160 | 09/15/2023 | new item fields for additional barcodes |
+| 3.10.159 | 09/12/2023 | added oids to customer properties |
+| 3.10.158 | 09/06/2023 | esp condition for survey trigger |
+| 3.10.157 | 09/05/2023 | auto order schedule - add intervals for 4 6 and 8 weeks |
+| 3.10.156 | 08/31/2023 | new coupon - free item and free shipping with purchase |
+| 3.10.155 | 08/16/2023 | added validate_original_order query param to auto order update method |
+| 3.10.154 | 08/14/2023 | esp - add require_order_within_last to the settings object |
+| 3.10.153 | 08/14/2023 | esp - expose rate limiter values in settings object |
+| 3.10.152 | 07/27/2023 | dw bi - add settings to the report and page objects |
+| 3.10.151 | 07/19/2023 | dw bi - add data_source_uuid to filter connection obj |
+| 3.10.150 | 07/19/2023 | dw bi - add data_source_uuid to page visualization obj |
+| 3.10.149 | 07/19/2023 | dw bi - add data_source_uuid to report data source |
+| 3.10.148 | 07/03/2023 | chart constant for dw report tool |
+| 3.10.147 | 06/23/2023 | gauge constant for page visualization library |
+| 3.10.146 | 06/20/2023 | auto order - establishAutoOrderByReferenceOrderId method added |
+| 3.10.145 | 06/20/2023 | coupon add allowed values for usable_by and new OncePerNewCustomerForItem flag |
+| 3.10.144 | 06/15/2023 | add pickup_dts to order.shipping object |
+| 3.10.143 | 06/14/2023 | dw bi: add request_dts on the execute queries request and report data set objects |
+| 3.10.142 | 06/09/2023 | distribution center pickup times |
+| 3.10.141 | 06/08/2023 | customer profile qb tax exempt reason code field |
+| 3.10.140 | 06/06/2023 | auto order add_ons |
+| 3.10.139 | 05/25/2023 | added venmo constants for payment type |
+| 3.10.138 | 05/18/2023 | dw bi - send back the executed SQL |
+| 3.10.137 | 05/04/2023 | item api added methods for items reviews |
+| 3.10.136 | 04/28/2023 | item - pricing tier level flag for exempt from min item count |
+| 3.10.135 | 04/27/2023 | order - expose dual vaulted identifiers |
+| 3.10.134 | 04/24/2023 | internal development - data warehouse |
+| 3.10.133 | 04/21/2023 | internal development - data warehouse |
+| 3.10.132 | 04/19/2023 | internal development - data warehouse |
+| 3.10.131 | 04/19/2023 | internal dev - data warehouse |
+| 3.10.130 | 04/17/2023 | OrderPaymentTransaction - expose the transaction id |
+| 3.10.129 | 04/11/2023 | missing sezzle payment constant |
+| 3.10.128 | 04/10/2023 | data warehouse internal dev |
+| 3.10.127 | 03/29/2023 | internal development |
+| 3.10.126 | 03/22/2023 | data warehouse internal dev |
+| 3.10.125 | 03/22/2023 | dw initial framework |
+| 3.10.124 | 03/22/2023 | order api - refundable response added manual_because_multiple_charges boolean field |
+| 3.10.123 | 03/21/2023 | order api - new stage named Hold |
+| 3.10.122 | 03/14/2023 | order.getOrderEdiDocuments |
+| 3.10.121 | 03/01/2023 | convo - add sentiment record to conversation obj |
+| 3.10.120 | 02/22/2023 | convo - customer initiated flag on engagement |
+| 3.10.119 | 02/20/2023 | refund reasons |
+| 3.10.118 | 02/17/2023 | convo api - smsUnsubscribeConversation method |
+| 3.10.117 | 02/15/2023 | added auto order sorting by next_shipment_dts |
+| 3.10.116 | 02/10/2023 | convo - add storefront_host_name to search request |
+| 3.10.115 | 02/07/2023 | convo - new event for when a customer joins a queue |
+| 3.10.114 | 02/07/2023 | convo - new event for when a customer joins a queue |
+| 3.10.113 | 02/06/2023 | convo - add conversation_arn to ConversationWebsocketMessage |
+| 3.10.112 | 02/01/2023 | convo - agent profile get/update methods |
 | 3.10.111 | 01/27/2023 | convo - added event_engage_customer property to message |
 | 3.10.110 | 01/27/2023 | conversations - getLocationsForEngagement method |
 | 3.10.109 | 01/26/2023 | typo in ConversationWebsocketMessage |

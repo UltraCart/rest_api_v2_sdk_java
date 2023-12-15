@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * OrderCheckout
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -41,6 +41,9 @@ public class OrderCheckout {
 
   @SerializedName("custom_field1")
   private String customField1 = null;
+
+  @SerializedName("custom_field10")
+  private String customField10 = null;
 
   @SerializedName("custom_field2")
   private String customField2 = null;
@@ -59,6 +62,12 @@ public class OrderCheckout {
 
   @SerializedName("custom_field7")
   private String customField7 = null;
+
+  @SerializedName("custom_field8")
+  private String customField8 = null;
+
+  @SerializedName("custom_field9")
+  private String customField9 = null;
 
   @SerializedName("customer_ip_address")
   private String customerIpAddress = null;
@@ -127,6 +136,24 @@ public class OrderCheckout {
 
   public void setCustomField1(String customField1) {
     this.customField1 = customField1;
+  }
+
+  public OrderCheckout customField10(String customField10) {
+    this.customField10 = customField10;
+    return this;
+  }
+
+   /**
+   * Custom field 10
+   * @return customField10
+  **/
+  @ApiModelProperty(value = "Custom field 10")
+  public String getCustomField10() {
+    return customField10;
+  }
+
+  public void setCustomField10(String customField10) {
+    this.customField10 = customField10;
   }
 
   public OrderCheckout customField2(String customField2) {
@@ -237,6 +264,42 @@ public class OrderCheckout {
     this.customField7 = customField7;
   }
 
+  public OrderCheckout customField8(String customField8) {
+    this.customField8 = customField8;
+    return this;
+  }
+
+   /**
+   * Custom field 8
+   * @return customField8
+  **/
+  @ApiModelProperty(value = "Custom field 8")
+  public String getCustomField8() {
+    return customField8;
+  }
+
+  public void setCustomField8(String customField8) {
+    this.customField8 = customField8;
+  }
+
+  public OrderCheckout customField9(String customField9) {
+    this.customField9 = customField9;
+    return this;
+  }
+
+   /**
+   * Custom field 9
+   * @return customField9
+  **/
+  @ApiModelProperty(value = "Custom field 9")
+  public String getCustomField9() {
+    return customField9;
+  }
+
+  public void setCustomField9(String customField9) {
+    this.customField9 = customField9;
+  }
+
   public OrderCheckout customerIpAddress(String customerIpAddress) {
     this.customerIpAddress = customerIpAddress;
     return this;
@@ -340,12 +403,15 @@ public class OrderCheckout {
     return Objects.equals(this.browser, orderCheckout.browser) &&
         Objects.equals(this.comments, orderCheckout.comments) &&
         Objects.equals(this.customField1, orderCheckout.customField1) &&
+        Objects.equals(this.customField10, orderCheckout.customField10) &&
         Objects.equals(this.customField2, orderCheckout.customField2) &&
         Objects.equals(this.customField3, orderCheckout.customField3) &&
         Objects.equals(this.customField4, orderCheckout.customField4) &&
         Objects.equals(this.customField5, orderCheckout.customField5) &&
         Objects.equals(this.customField6, orderCheckout.customField6) &&
         Objects.equals(this.customField7, orderCheckout.customField7) &&
+        Objects.equals(this.customField8, orderCheckout.customField8) &&
+        Objects.equals(this.customField9, orderCheckout.customField9) &&
         Objects.equals(this.customerIpAddress, orderCheckout.customerIpAddress) &&
         Objects.equals(this.screenBrandingThemeCode, orderCheckout.screenBrandingThemeCode) &&
         Objects.equals(this.screenSize, orderCheckout.screenSize) &&
@@ -355,7 +421,7 @@ public class OrderCheckout {
 
   @Override
   public int hashCode() {
-    return Objects.hash(browser, comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerIpAddress, screenBrandingThemeCode, screenSize, storefrontHostName, upsellPathCode);
+    return Objects.hash(browser, comments, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, customerIpAddress, screenBrandingThemeCode, screenSize, storefrontHostName, upsellPathCode);
   }
 
 
@@ -367,12 +433,15 @@ public class OrderCheckout {
     sb.append("    browser: ").append(toIndentedString(browser)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    customField1: ").append(toIndentedString(customField1)).append("\n");
+    sb.append("    customField10: ").append(toIndentedString(customField10)).append("\n");
     sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");
     sb.append("    customField3: ").append(toIndentedString(customField3)).append("\n");
     sb.append("    customField4: ").append(toIndentedString(customField4)).append("\n");
     sb.append("    customField5: ").append(toIndentedString(customField5)).append("\n");
     sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
+    sb.append("    customField8: ").append(toIndentedString(customField8)).append("\n");
+    sb.append("    customField9: ").append(toIndentedString(customField9)).append("\n");
     sb.append("    customerIpAddress: ").append(toIndentedString(customerIpAddress)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
     sb.append("    screenSize: ").append(toIndentedString(screenSize)).append("\n");

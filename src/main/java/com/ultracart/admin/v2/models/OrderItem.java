@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -59,6 +59,18 @@ public class OrderItem {
 
   @SerializedName("barcode")
   private String barcode = null;
+
+  @SerializedName("barcode_gtin12")
+  private String barcodeGtin12 = null;
+
+  @SerializedName("barcode_gtin14")
+  private String barcodeGtin14 = null;
+
+  @SerializedName("barcode_upc11")
+  private String barcodeUpc11 = null;
+
+  @SerializedName("barcode_upc12")
+  private String barcodeUpc12 = null;
 
   @SerializedName("channel_partner_item_id")
   private String channelPartnerItemId = null;
@@ -170,6 +182,12 @@ public class OrderItem {
 
   @SerializedName("quickbooks_class")
   private String quickbooksClass = null;
+
+  @SerializedName("refund_reason")
+  private String refundReason = null;
+
+  @SerializedName("return_reason")
+  private String returnReason = null;
 
   @SerializedName("ship_separately")
   private Boolean shipSeparately = null;
@@ -384,6 +402,78 @@ public class OrderItem {
 
   public void setBarcode(String barcode) {
     this.barcode = barcode;
+  }
+
+  public OrderItem barcodeGtin12(String barcodeGtin12) {
+    this.barcodeGtin12 = barcodeGtin12;
+    return this;
+  }
+
+   /**
+   * Barcode - GTIN 12
+   * @return barcodeGtin12
+  **/
+  @ApiModelProperty(value = "Barcode - GTIN 12")
+  public String getBarcodeGtin12() {
+    return barcodeGtin12;
+  }
+
+  public void setBarcodeGtin12(String barcodeGtin12) {
+    this.barcodeGtin12 = barcodeGtin12;
+  }
+
+  public OrderItem barcodeGtin14(String barcodeGtin14) {
+    this.barcodeGtin14 = barcodeGtin14;
+    return this;
+  }
+
+   /**
+   * Barcode - GTIN 14
+   * @return barcodeGtin14
+  **/
+  @ApiModelProperty(value = "Barcode - GTIN 14")
+  public String getBarcodeGtin14() {
+    return barcodeGtin14;
+  }
+
+  public void setBarcodeGtin14(String barcodeGtin14) {
+    this.barcodeGtin14 = barcodeGtin14;
+  }
+
+  public OrderItem barcodeUpc11(String barcodeUpc11) {
+    this.barcodeUpc11 = barcodeUpc11;
+    return this;
+  }
+
+   /**
+   * Barcode - UPC 11
+   * @return barcodeUpc11
+  **/
+  @ApiModelProperty(value = "Barcode - UPC 11")
+  public String getBarcodeUpc11() {
+    return barcodeUpc11;
+  }
+
+  public void setBarcodeUpc11(String barcodeUpc11) {
+    this.barcodeUpc11 = barcodeUpc11;
+  }
+
+  public OrderItem barcodeUpc12(String barcodeUpc12) {
+    this.barcodeUpc12 = barcodeUpc12;
+    return this;
+  }
+
+   /**
+   * Barcode - UPC 12
+   * @return barcodeUpc12
+  **/
+  @ApiModelProperty(value = "Barcode - UPC 12")
+  public String getBarcodeUpc12() {
+    return barcodeUpc12;
+  }
+
+  public void setBarcodeUpc12(String barcodeUpc12) {
+    this.barcodeUpc12 = barcodeUpc12;
   }
 
   public OrderItem channelPartnerItemId(String channelPartnerItemId) {
@@ -1068,6 +1158,42 @@ public class OrderItem {
     this.quickbooksClass = quickbooksClass;
   }
 
+  public OrderItem refundReason(String refundReason) {
+    this.refundReason = refundReason;
+    return this;
+  }
+
+   /**
+   * Refund reason code.  This can only be written during a refund operation otherwise this field is read only.
+   * @return refundReason
+  **/
+  @ApiModelProperty(value = "Refund reason code.  This can only be written during a refund operation otherwise this field is read only.")
+  public String getRefundReason() {
+    return refundReason;
+  }
+
+  public void setRefundReason(String refundReason) {
+    this.refundReason = refundReason;
+  }
+
+  public OrderItem returnReason(String returnReason) {
+    this.returnReason = returnReason;
+    return this;
+  }
+
+   /**
+   * Return reason code.  This can only be written during a refund operation otherwise this field is read only.
+   * @return returnReason
+  **/
+  @ApiModelProperty(value = "Return reason code.  This can only be written during a refund operation otherwise this field is read only.")
+  public String getReturnReason() {
+    return returnReason;
+  }
+
+  public void setReturnReason(String returnReason) {
+    this.returnReason = returnReason;
+  }
+
   public OrderItem shipSeparately(Boolean shipSeparately) {
     this.shipSeparately = shipSeparately;
     return this;
@@ -1380,6 +1506,10 @@ public class OrderItem {
         Objects.equals(this.autoOrderLastRebillDts, orderItem.autoOrderLastRebillDts) &&
         Objects.equals(this.autoOrderSchedule, orderItem.autoOrderSchedule) &&
         Objects.equals(this.barcode, orderItem.barcode) &&
+        Objects.equals(this.barcodeGtin12, orderItem.barcodeGtin12) &&
+        Objects.equals(this.barcodeGtin14, orderItem.barcodeGtin14) &&
+        Objects.equals(this.barcodeUpc11, orderItem.barcodeUpc11) &&
+        Objects.equals(this.barcodeUpc12, orderItem.barcodeUpc12) &&
         Objects.equals(this.channelPartnerItemId, orderItem.channelPartnerItemId) &&
         Objects.equals(this.cogs, orderItem.cogs) &&
         Objects.equals(this.componentUnitValue, orderItem.componentUnitValue) &&
@@ -1417,6 +1547,8 @@ public class OrderItem {
         Objects.equals(this.quantity, orderItem.quantity) &&
         Objects.equals(this.quantityRefunded, orderItem.quantityRefunded) &&
         Objects.equals(this.quickbooksClass, orderItem.quickbooksClass) &&
+        Objects.equals(this.refundReason, orderItem.refundReason) &&
+        Objects.equals(this.returnReason, orderItem.returnReason) &&
         Objects.equals(this.shipSeparately, orderItem.shipSeparately) &&
         Objects.equals(this.shippedByUser, orderItem.shippedByUser) &&
         Objects.equals(this.shippedDts, orderItem.shippedDts) &&
@@ -1437,7 +1569,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemIndex, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, parentItemIndex, parentMerchantItemId, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, barcodeGtin12, barcodeGtin14, barcodeUpc11, barcodeUpc12, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemIndex, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, parentItemIndex, parentMerchantItemId, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, refundReason, returnReason, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
 
@@ -1452,6 +1584,10 @@ public class OrderItem {
     sb.append("    autoOrderLastRebillDts: ").append(toIndentedString(autoOrderLastRebillDts)).append("\n");
     sb.append("    autoOrderSchedule: ").append(toIndentedString(autoOrderSchedule)).append("\n");
     sb.append("    barcode: ").append(toIndentedString(barcode)).append("\n");
+    sb.append("    barcodeGtin12: ").append(toIndentedString(barcodeGtin12)).append("\n");
+    sb.append("    barcodeGtin14: ").append(toIndentedString(barcodeGtin14)).append("\n");
+    sb.append("    barcodeUpc11: ").append(toIndentedString(barcodeUpc11)).append("\n");
+    sb.append("    barcodeUpc12: ").append(toIndentedString(barcodeUpc12)).append("\n");
     sb.append("    channelPartnerItemId: ").append(toIndentedString(channelPartnerItemId)).append("\n");
     sb.append("    cogs: ").append(toIndentedString(cogs)).append("\n");
     sb.append("    componentUnitValue: ").append(toIndentedString(componentUnitValue)).append("\n");
@@ -1489,6 +1625,8 @@ public class OrderItem {
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    quantityRefunded: ").append(toIndentedString(quantityRefunded)).append("\n");
     sb.append("    quickbooksClass: ").append(toIndentedString(quickbooksClass)).append("\n");
+    sb.append("    refundReason: ").append(toIndentedString(refundReason)).append("\n");
+    sb.append("    returnReason: ").append(toIndentedString(returnReason)).append("\n");
     sb.append("    shipSeparately: ").append(toIndentedString(shipSeparately)).append("\n");
     sb.append("    shippedByUser: ").append(toIndentedString(shippedByUser)).append("\n");
     sb.append("    shippedDts: ").append(toIndentedString(shippedDts)).append("\n");

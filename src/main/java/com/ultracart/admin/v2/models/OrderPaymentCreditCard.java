@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.OrderPaymentCreditCardDualVaulted;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * OrderPaymentCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -120,6 +121,9 @@ public class OrderPaymentCreditCard {
 
   @SerializedName("card_verification_number_token")
   private String cardVerificationNumberToken = null;
+
+  @SerializedName("dual_vaulted")
+  private OrderPaymentCreditCardDualVaulted dualVaulted = null;
 
   public OrderPaymentCreditCard cardAuthTicket(String cardAuthTicket) {
     this.cardAuthTicket = cardAuthTicket;
@@ -319,6 +323,24 @@ public class OrderPaymentCreditCard {
     this.cardVerificationNumberToken = cardVerificationNumberToken;
   }
 
+  public OrderPaymentCreditCard dualVaulted(OrderPaymentCreditCardDualVaulted dualVaulted) {
+    this.dualVaulted = dualVaulted;
+    return this;
+  }
+
+   /**
+   * Get dualVaulted
+   * @return dualVaulted
+  **/
+  @ApiModelProperty(value = "")
+  public OrderPaymentCreditCardDualVaulted getDualVaulted() {
+    return dualVaulted;
+  }
+
+  public void setDualVaulted(OrderPaymentCreditCardDualVaulted dualVaulted) {
+    this.dualVaulted = dualVaulted;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -339,12 +361,13 @@ public class OrderPaymentCreditCard {
         Objects.equals(this.cardNumberToken, orderPaymentCreditCard.cardNumberToken) &&
         Objects.equals(this.cardNumberTruncated, orderPaymentCreditCard.cardNumberTruncated) &&
         Objects.equals(this.cardType, orderPaymentCreditCard.cardType) &&
-        Objects.equals(this.cardVerificationNumberToken, orderPaymentCreditCard.cardVerificationNumberToken);
+        Objects.equals(this.cardVerificationNumberToken, orderPaymentCreditCard.cardVerificationNumberToken) &&
+        Objects.equals(this.dualVaulted, orderPaymentCreditCard.dualVaulted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardAuthTicket, cardAuthorizationAmount, cardAuthorizationDts, cardAuthorizationReferenceNumber, cardExpirationMonth, cardExpirationYear, cardNumber, cardNumberToken, cardNumberTruncated, cardType, cardVerificationNumberToken);
+    return Objects.hash(cardAuthTicket, cardAuthorizationAmount, cardAuthorizationDts, cardAuthorizationReferenceNumber, cardExpirationMonth, cardExpirationYear, cardNumber, cardNumberToken, cardNumberTruncated, cardType, cardVerificationNumberToken, dualVaulted);
   }
 
 
@@ -364,6 +387,7 @@ public class OrderPaymentCreditCard {
     sb.append("    cardNumberTruncated: ").append(toIndentedString(cardNumberTruncated)).append("\n");
     sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    cardVerificationNumberToken: ").append(toIndentedString(cardVerificationNumberToken)).append("\n");
+    sb.append("    dualVaulted: ").append(toIndentedString(dualVaulted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

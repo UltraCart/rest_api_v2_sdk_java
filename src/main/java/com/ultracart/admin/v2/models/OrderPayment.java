@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.Currency;
 import com.ultracart.admin.v2.models.OrderPaymentCheck;
 import com.ultracart.admin.v2.models.OrderPaymentCreditCard;
 import com.ultracart.admin.v2.models.OrderPaymentECheck;
+import com.ultracart.admin.v2.models.OrderPaymentHealthBenefitCard;
 import com.ultracart.admin.v2.models.OrderPaymentInsurance;
 import com.ultracart.admin.v2.models.OrderPaymentPurchaseOrder;
 import com.ultracart.admin.v2.models.OrderPaymentTransaction;
@@ -37,7 +38,7 @@ import java.util.List;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -50,6 +51,9 @@ public class OrderPayment {
 
   @SerializedName("echeck")
   private OrderPaymentECheck echeck = null;
+
+  @SerializedName("health_benefit_card")
+  private OrderPaymentHealthBenefitCard healthBenefitCard = null;
 
   @SerializedName("hold_for_fraud_review")
   private Boolean holdForFraudReview = null;
@@ -103,7 +107,17 @@ public class OrderPayment {
     
     WALMART("Walmart"),
     
-    SHOP_COM("Shop.com");
+    SHOP_COM("Shop.com"),
+    
+    SEZZLE("Sezzle"),
+    
+    VENMO("Venmo"),
+    
+    APPLE_PAY("Apple Pay"),
+    
+    GOOGLE_PAY("Google Pay"),
+    
+    HEALTH_BENEFIT_CARD("Health Benefit Card");
 
     private String value;
 
@@ -290,6 +304,24 @@ public class OrderPayment {
 
   public void setEcheck(OrderPaymentECheck echeck) {
     this.echeck = echeck;
+  }
+
+  public OrderPayment healthBenefitCard(OrderPaymentHealthBenefitCard healthBenefitCard) {
+    this.healthBenefitCard = healthBenefitCard;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCard
+   * @return healthBenefitCard
+  **/
+  @ApiModelProperty(value = "")
+  public OrderPaymentHealthBenefitCard getHealthBenefitCard() {
+    return healthBenefitCard;
+  }
+
+  public void setHealthBenefitCard(OrderPaymentHealthBenefitCard healthBenefitCard) {
+    this.healthBenefitCard = healthBenefitCard;
   }
 
   public OrderPayment holdForFraudReview(Boolean holdForFraudReview) {
@@ -583,6 +615,7 @@ public class OrderPayment {
     return Objects.equals(this.check, orderPayment.check) &&
         Objects.equals(this.creditCard, orderPayment.creditCard) &&
         Objects.equals(this.echeck, orderPayment.echeck) &&
+        Objects.equals(this.healthBenefitCard, orderPayment.healthBenefitCard) &&
         Objects.equals(this.holdForFraudReview, orderPayment.holdForFraudReview) &&
         Objects.equals(this.insurance, orderPayment.insurance) &&
         Objects.equals(this.paymentDts, orderPayment.paymentDts) &&
@@ -602,7 +635,7 @@ public class OrderPayment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(check, creditCard, echeck, holdForFraudReview, insurance, paymentDts, paymentMethod, paymentMethodAccountingCode, paymentMethodDepositToAccount, paymentStatus, purchaseOrder, rotatingTransactionGatewayCode, surcharge, surchargeAccountingCode, surchargeTransactionFee, surchargeTransactionPercentage, testOrder, transactions);
+    return Objects.hash(check, creditCard, echeck, healthBenefitCard, holdForFraudReview, insurance, paymentDts, paymentMethod, paymentMethodAccountingCode, paymentMethodDepositToAccount, paymentStatus, purchaseOrder, rotatingTransactionGatewayCode, surcharge, surchargeAccountingCode, surchargeTransactionFee, surchargeTransactionPercentage, testOrder, transactions);
   }
 
 
@@ -614,6 +647,7 @@ public class OrderPayment {
     sb.append("    check: ").append(toIndentedString(check)).append("\n");
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
     sb.append("    echeck: ").append(toIndentedString(echeck)).append("\n");
+    sb.append("    healthBenefitCard: ").append(toIndentedString(healthBenefitCard)).append("\n");
     sb.append("    holdForFraudReview: ").append(toIndentedString(holdForFraudReview)).append("\n");
     sb.append("    insurance: ").append(toIndentedString(insurance)).append("\n");
     sb.append("    paymentDts: ").append(toIndentedString(paymentDts)).append("\n");

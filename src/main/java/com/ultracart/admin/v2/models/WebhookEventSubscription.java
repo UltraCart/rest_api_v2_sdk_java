@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * WebhookEventSubscription
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -46,6 +46,9 @@ public class WebhookEventSubscription {
 
   @SerializedName("event_name")
   private String eventName = null;
+
+  @SerializedName("event_ruler")
+  private String eventRuler = null;
 
   @SerializedName("expansion")
   private String expansion = null;
@@ -149,6 +152,24 @@ public class WebhookEventSubscription {
     this.eventName = eventName;
   }
 
+  public WebhookEventSubscription eventRuler(String eventRuler) {
+    this.eventRuler = eventRuler;
+    return this;
+  }
+
+   /**
+   * Optional - Event ruler expression to filter events to.  Only events that match this Ruler expression will be transmitted to the webhook.
+   * @return eventRuler
+  **/
+  @ApiModelProperty(value = "Optional - Event ruler expression to filter events to.  Only events that match this Ruler expression will be transmitted to the webhook.")
+  public String getEventRuler() {
+    return eventRuler;
+  }
+
+  public void setEventRuler(String eventRuler) {
+    this.eventRuler = eventRuler;
+  }
+
   public WebhookEventSubscription expansion(String expansion) {
     this.expansion = expansion;
     return this;
@@ -236,6 +257,7 @@ public class WebhookEventSubscription {
         Objects.equals(this.discontinuedFlag, webhookEventSubscription.discontinuedFlag) &&
         Objects.equals(this.eventDescription, webhookEventSubscription.eventDescription) &&
         Objects.equals(this.eventName, webhookEventSubscription.eventName) &&
+        Objects.equals(this.eventRuler, webhookEventSubscription.eventRuler) &&
         Objects.equals(this.expansion, webhookEventSubscription.expansion) &&
         Objects.equals(this.subscribed, webhookEventSubscription.subscribed) &&
         Objects.equals(this.supportsReflow, webhookEventSubscription.supportsReflow) &&
@@ -244,7 +266,7 @@ public class WebhookEventSubscription {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, deprecatedFlag, discontinuedFlag, eventDescription, eventName, expansion, subscribed, supportsReflow, webhookEventOid);
+    return Objects.hash(comments, deprecatedFlag, discontinuedFlag, eventDescription, eventName, eventRuler, expansion, subscribed, supportsReflow, webhookEventOid);
   }
 
 
@@ -258,6 +280,7 @@ public class WebhookEventSubscription {
     sb.append("    discontinuedFlag: ").append(toIndentedString(discontinuedFlag)).append("\n");
     sb.append("    eventDescription: ").append(toIndentedString(eventDescription)).append("\n");
     sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
+    sb.append("    eventRuler: ").append(toIndentedString(eventRuler)).append("\n");
     sb.append("    expansion: ").append(toIndentedString(expansion)).append("\n");
     sb.append("    subscribed: ").append(toIndentedString(subscribed)).append("\n");
     sb.append("    supportsReflow: ").append(toIndentedString(supportsReflow)).append("\n");

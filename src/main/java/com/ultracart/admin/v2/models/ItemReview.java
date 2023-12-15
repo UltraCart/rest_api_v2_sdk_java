@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemReview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -132,8 +132,59 @@ public class ItemReview {
   @SerializedName("reviewer_location")
   private String reviewerLocation = null;
 
+  /**
+   * Status of the review
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    APPROVED("approved"),
+    
+    UNAPPROVED("unapproved"),
+    
+    REJECTED("rejected"),
+    
+    MULTIMEDIA_PROCESSING("multimedia processing");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String text) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("status")
-  private String status = null;
+  private StatusEnum status = null;
 
   @SerializedName("store_feedback")
   private String storeFeedback = null;
@@ -258,10 +309,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName1
+   * Rating Name 1
    * @return ratingName1
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 1")
   public String getRatingName1() {
     return ratingName1;
   }
@@ -276,10 +327,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName10
+   * Rating Name 10
    * @return ratingName10
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 10")
   public String getRatingName10() {
     return ratingName10;
   }
@@ -294,10 +345,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName2
+   * Rating Name 2
    * @return ratingName2
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 2")
   public String getRatingName2() {
     return ratingName2;
   }
@@ -312,10 +363,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName3
+   * Rating Name 3
    * @return ratingName3
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 3")
   public String getRatingName3() {
     return ratingName3;
   }
@@ -330,10 +381,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName4
+   * Rating Name 4
    * @return ratingName4
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 4")
   public String getRatingName4() {
     return ratingName4;
   }
@@ -348,10 +399,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName5
+   * Rating Name 5
    * @return ratingName5
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 5")
   public String getRatingName5() {
     return ratingName5;
   }
@@ -366,10 +417,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName6
+   * Rating Name 6
    * @return ratingName6
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 6")
   public String getRatingName6() {
     return ratingName6;
   }
@@ -384,10 +435,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName7
+   * Rating Name 7
    * @return ratingName7
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 7")
   public String getRatingName7() {
     return ratingName7;
   }
@@ -402,10 +453,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName8
+   * Rating Name 8
    * @return ratingName8
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 8")
   public String getRatingName8() {
     return ratingName8;
   }
@@ -420,10 +471,10 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName9
+   * Rating Name 9
    * @return ratingName9
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 9")
   public String getRatingName9() {
     return ratingName9;
   }
@@ -654,10 +705,10 @@ public class ItemReview {
   }
 
    /**
-   * Get review
+   * Review
    * @return review
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Review")
   public String getReview() {
     return review;
   }
@@ -690,10 +741,10 @@ public class ItemReview {
   }
 
    /**
-   * Get reviewedNickname
+   * Nickname
    * @return reviewedNickname
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Nickname")
   public String getReviewedNickname() {
     return reviewedNickname;
   }
@@ -708,10 +759,10 @@ public class ItemReview {
   }
 
    /**
-   * Get reviewerEmail
+   * Reviewer Email
    * @return reviewerEmail
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Reviewer Email")
   public String getReviewerEmail() {
     return reviewerEmail;
   }
@@ -726,10 +777,10 @@ public class ItemReview {
   }
 
    /**
-   * Get reviewerLocation
+   * Location
    * @return reviewerLocation
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Location")
   public String getReviewerLocation() {
     return reviewerLocation;
   }
@@ -738,21 +789,21 @@ public class ItemReview {
     this.reviewerLocation = reviewerLocation;
   }
 
-  public ItemReview status(String status) {
+  public ItemReview status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
    /**
-   * Get status
+   * Status of the review
    * @return status
   **/
-  @ApiModelProperty(value = "")
-  public String getStatus() {
+  @ApiModelProperty(value = "Status of the review")
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
@@ -762,10 +813,10 @@ public class ItemReview {
   }
 
    /**
-   * Get storeFeedback
+   * Store Feedback
    * @return storeFeedback
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Store Feedback")
   public String getStoreFeedback() {
     return storeFeedback;
   }
@@ -798,10 +849,10 @@ public class ItemReview {
   }
 
    /**
-   * Get title
+   * Title
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Title")
   public String getTitle() {
     return title;
   }

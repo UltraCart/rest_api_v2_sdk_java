@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ConversationMessage;
 import com.ultracart.admin.v2.models.ConversationParticipant;
+import com.ultracart.admin.v2.models.ConversationSentiment;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -127,6 +128,9 @@ public class Conversation {
 
   @SerializedName("participants")
   private List<ConversationParticipant> participants = null;
+
+  @SerializedName("sentiment")
+  private ConversationSentiment sentiment = null;
 
   @SerializedName("start_dts")
   private String startDts = null;
@@ -423,6 +427,24 @@ public class Conversation {
     this.participants = participants;
   }
 
+  public Conversation sentiment(ConversationSentiment sentiment) {
+    this.sentiment = sentiment;
+    return this;
+  }
+
+   /**
+   * Get sentiment
+   * @return sentiment
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationSentiment getSentiment() {
+    return sentiment;
+  }
+
+  public void setSentiment(ConversationSentiment sentiment) {
+    this.sentiment = sentiment;
+  }
+
   public Conversation startDts(String startDts) {
     this.startDts = startDts;
     return this;
@@ -502,6 +524,7 @@ public class Conversation {
         Objects.equals(this.messageCount, conversation.messageCount) &&
         Objects.equals(this.messages, conversation.messages) &&
         Objects.equals(this.participants, conversation.participants) &&
+        Objects.equals(this.sentiment, conversation.sentiment) &&
         Objects.equals(this.startDts, conversation.startDts) &&
         Objects.equals(this.unreadMessages, conversation.unreadMessages) &&
         Objects.equals(this.visible, conversation.visible);
@@ -509,7 +532,7 @@ public class Conversation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseLanguageIsoCode, closed, conversationArn, conversationUuid, customerFirstMessageUnrespondedToDts, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, startDts, unreadMessages, visible);
+    return Objects.hash(baseLanguageIsoCode, closed, conversationArn, conversationUuid, customerFirstMessageUnrespondedToDts, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, sentiment, startDts, unreadMessages, visible);
   }
 
 
@@ -533,6 +556,7 @@ public class Conversation {
     sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    participants: ").append(toIndentedString(participants)).append("\n");
+    sb.append("    sentiment: ").append(toIndentedString(sentiment)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");

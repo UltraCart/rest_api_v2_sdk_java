@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.AccountsReceivableRetryDayActivity;
+import com.ultracart.admin.v2.models.AccountsReceivableRetryTransactionReject;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * AccountsReceivableRetryConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -73,6 +74,9 @@ public class AccountsReceivableRetryConfig {
 
   @SerializedName("reject_at_end")
   private Boolean rejectAtEnd = null;
+
+  @SerializedName("transaction_rejects")
+  private List<AccountsReceivableRetryTransactionReject> transactionRejects = null;
 
   @SerializedName("trial_mode")
   private Boolean trialMode = null;
@@ -330,6 +334,32 @@ public class AccountsReceivableRetryConfig {
     this.rejectAtEnd = rejectAtEnd;
   }
 
+  public AccountsReceivableRetryConfig transactionRejects(List<AccountsReceivableRetryTransactionReject> transactionRejects) {
+    this.transactionRejects = transactionRejects;
+    return this;
+  }
+
+  public AccountsReceivableRetryConfig addTransactionRejectsItem(AccountsReceivableRetryTransactionReject transactionRejectsItem) {
+    if (this.transactionRejects == null) {
+      this.transactionRejects = new ArrayList<AccountsReceivableRetryTransactionReject>();
+    }
+    this.transactionRejects.add(transactionRejectsItem);
+    return this;
+  }
+
+   /**
+   * Array of key/value pairs that when found in the response cause the rejection of the transaction.
+   * @return transactionRejects
+  **/
+  @ApiModelProperty(value = "Array of key/value pairs that when found in the response cause the rejection of the transaction.")
+  public List<AccountsReceivableRetryTransactionReject> getTransactionRejects() {
+    return transactionRejects;
+  }
+
+  public void setTransactionRejects(List<AccountsReceivableRetryTransactionReject> transactionRejects) {
+    this.transactionRejects = transactionRejects;
+  }
+
   public AccountsReceivableRetryConfig trialMode(Boolean trialMode) {
     this.trialMode = trialMode;
     return this;
@@ -389,13 +419,14 @@ public class AccountsReceivableRetryConfig {
         Objects.equals(this.processLinkedAccounts, accountsReceivableRetryConfig.processLinkedAccounts) &&
         Objects.equals(this.processingPercentage, accountsReceivableRetryConfig.processingPercentage) &&
         Objects.equals(this.rejectAtEnd, accountsReceivableRetryConfig.rejectAtEnd) &&
+        Objects.equals(this.transactionRejects, accountsReceivableRetryConfig.transactionRejects) &&
         Objects.equals(this.trialMode, accountsReceivableRetryConfig.trialMode) &&
         Objects.equals(this.trialModeExpirationDts, accountsReceivableRetryConfig.trialModeExpirationDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, allowProcessLinkedAccounts, cancelAutoOrder, currentServicePlan, dailyActivityList, managedByLinkedAccountMerchantId, merchantId, notifyEmails, notifyRejections, notifySuccesses, processLinkedAccounts, processingPercentage, rejectAtEnd, trialMode, trialModeExpirationDts);
+    return Objects.hash(active, allowProcessLinkedAccounts, cancelAutoOrder, currentServicePlan, dailyActivityList, managedByLinkedAccountMerchantId, merchantId, notifyEmails, notifyRejections, notifySuccesses, processLinkedAccounts, processingPercentage, rejectAtEnd, transactionRejects, trialMode, trialModeExpirationDts);
   }
 
 
@@ -417,6 +448,7 @@ public class AccountsReceivableRetryConfig {
     sb.append("    processLinkedAccounts: ").append(toIndentedString(processLinkedAccounts)).append("\n");
     sb.append("    processingPercentage: ").append(toIndentedString(processingPercentage)).append("\n");
     sb.append("    rejectAtEnd: ").append(toIndentedString(rejectAtEnd)).append("\n");
+    sb.append("    transactionRejects: ").append(toIndentedString(transactionRejects)).append("\n");
     sb.append("    trialMode: ").append(toIndentedString(trialMode)).append("\n");
     sb.append("    trialModeExpirationDts: ").append(toIndentedString(trialModeExpirationDts)).append("\n");
     sb.append("}");

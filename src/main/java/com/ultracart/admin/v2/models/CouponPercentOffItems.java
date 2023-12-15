@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CouponPercentOffItems
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -38,8 +38,14 @@ public class CouponPercentOffItems {
   @SerializedName("discount_percent")
   private BigDecimal discountPercent = null;
 
+  @SerializedName("excluded_item_tags")
+  private List<String> excludedItemTags = null;
+
   @SerializedName("excluded_items")
   private List<String> excludedItems = null;
+
+  @SerializedName("item_tags")
+  private List<String> itemTags = null;
 
   @SerializedName("items")
   private List<String> items = null;
@@ -63,6 +69,32 @@ public class CouponPercentOffItems {
 
   public void setDiscountPercent(BigDecimal discountPercent) {
     this.discountPercent = discountPercent;
+  }
+
+  public CouponPercentOffItems excludedItemTags(List<String> excludedItemTags) {
+    this.excludedItemTags = excludedItemTags;
+    return this;
+  }
+
+  public CouponPercentOffItems addExcludedItemTagsItem(String excludedItemTagsItem) {
+    if (this.excludedItemTags == null) {
+      this.excludedItemTags = new ArrayList<String>();
+    }
+    this.excludedItemTags.add(excludedItemTagsItem);
+    return this;
+  }
+
+   /**
+   * A list of item tags which cannot be discounted.
+   * @return excludedItemTags
+  **/
+  @ApiModelProperty(value = "A list of item tags which cannot be discounted.")
+  public List<String> getExcludedItemTags() {
+    return excludedItemTags;
+  }
+
+  public void setExcludedItemTags(List<String> excludedItemTags) {
+    this.excludedItemTags = excludedItemTags;
   }
 
   public CouponPercentOffItems excludedItems(List<String> excludedItems) {
@@ -89,6 +121,32 @@ public class CouponPercentOffItems {
 
   public void setExcludedItems(List<String> excludedItems) {
     this.excludedItems = excludedItems;
+  }
+
+  public CouponPercentOffItems itemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponPercentOffItems addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<String>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+   * @return itemTags
+  **/
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.")
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
   }
 
   public CouponPercentOffItems items(List<String> items) {
@@ -146,14 +204,16 @@ public class CouponPercentOffItems {
     }
     CouponPercentOffItems couponPercentOffItems = (CouponPercentOffItems) o;
     return Objects.equals(this.discountPercent, couponPercentOffItems.discountPercent) &&
+        Objects.equals(this.excludedItemTags, couponPercentOffItems.excludedItemTags) &&
         Objects.equals(this.excludedItems, couponPercentOffItems.excludedItems) &&
+        Objects.equals(this.itemTags, couponPercentOffItems.itemTags) &&
         Objects.equals(this.items, couponPercentOffItems.items) &&
         Objects.equals(this.limit, couponPercentOffItems.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, excludedItems, items, limit);
+    return Objects.hash(discountPercent, excludedItemTags, excludedItems, itemTags, items, limit);
   }
 
 
@@ -163,7 +223,9 @@ public class CouponPercentOffItems {
     sb.append("class CouponPercentOffItems {\n");
     
     sb.append("    discountPercent: ").append(toIndentedString(discountPercent)).append("\n");
+    sb.append("    excludedItemTags: ").append(toIndentedString(excludedItemTags)).append("\n");
     sb.append("    excludedItems: ").append(toIndentedString(excludedItems)).append("\n");
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");

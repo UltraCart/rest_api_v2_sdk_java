@@ -39,6 +39,9 @@ import com.ultracart.admin.v2.models.CustomerQuery;
 import com.ultracart.admin.v2.models.CustomerResponse;
 import com.ultracart.admin.v2.models.CustomerStoreCreditAddRequest;
 import com.ultracart.admin.v2.models.CustomerStoreCreditResponse;
+import com.ultracart.admin.v2.models.CustomerWishListItem;
+import com.ultracart.admin.v2.models.CustomerWishListItemResponse;
+import com.ultracart.admin.v2.models.CustomerWishListItemsResponse;
 import com.ultracart.admin.v2.models.CustomersResponse;
 import com.ultracart.admin.v2.models.DataTablesServerSideResponse;
 import com.ultracart.admin.v2.models.EmailListsResponse;
@@ -481,6 +484,139 @@ public class CustomerApi {
 
         com.squareup.okhttp.Call call = deleteCustomerValidateBeforeCall(customerProfileOid, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteWishListItem
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteWishListItemCall(Integer customerProfileOid, Integer customerWishlistItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()))
+            .replaceAll("\\{" + "customer_wishlist_item_oid" + "\\}", apiClient.escapeString(customerWishlistItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteWishListItemValidateBeforeCall(Integer customerProfileOid, Integer customerWishlistItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling deleteWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'customerWishlistItemOid' is set
+        if (customerWishlistItemOid == null) {
+            throw new ApiException("Missing the required parameter 'customerWishlistItemOid' when calling deleteWishListItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteWishListItemCall(customerProfileOid, customerWishlistItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a customer wishlist item
+     * Delete a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
+     * @return CustomerWishListItem
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerWishListItem deleteWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        ApiResponse<CustomerWishListItem> resp = deleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Delete a customer wishlist item
+     * Delete a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
+     * @return ApiResponse&lt;CustomerWishListItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerWishListItem> deleteWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete a customer wishlist item (asynchronously)
+     * Delete a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<CustomerWishListItem> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -1087,6 +1223,262 @@ public class CustomerApi {
 
         com.squareup.okhttp.Call call = getCustomerStoreCreditValidateBeforeCall(customerProfileOid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomerStoreCreditResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getCustomerWishList
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomerWishListCall(Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomerWishListValidateBeforeCall(Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling getCustomerWishList(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getCustomerWishListCall(customerProfileOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve wishlist items for customer
+     * Retrieve wishlist items for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @return CustomerWishListItemsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerWishListItemsResponse getCustomerWishList(Integer customerProfileOid) throws ApiException {
+        ApiResponse<CustomerWishListItemsResponse> resp = getCustomerWishListWithHttpInfo(customerProfileOid);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve wishlist items for customer
+     * Retrieve wishlist items for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @return ApiResponse&lt;CustomerWishListItemsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerWishListItemsResponse> getCustomerWishListWithHttpInfo(Integer customerProfileOid) throws ApiException {
+        com.squareup.okhttp.Call call = getCustomerWishListValidateBeforeCall(customerProfileOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItemsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve wishlist items for customer (asynchronously)
+     * Retrieve wishlist items for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getCustomerWishListAsync(Integer customerProfileOid, final ApiCallback<CustomerWishListItemsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomerWishListValidateBeforeCall(customerProfileOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerWishListItemsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getCustomerWishListItem
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomerWishListItemCall(Integer customerProfileOid, Integer customerWishlistItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()))
+            .replaceAll("\\{" + "customer_wishlist_item_oid" + "\\}", apiClient.escapeString(customerWishlistItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomerWishListItemValidateBeforeCall(Integer customerProfileOid, Integer customerWishlistItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling getCustomerWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'customerWishlistItemOid' is set
+        if (customerWishlistItemOid == null) {
+            throw new ApiException("Missing the required parameter 'customerWishlistItemOid' when calling getCustomerWishListItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getCustomerWishListItemCall(customerProfileOid, customerWishlistItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve wishlist item for customer
+     * Retrieve wishlist item for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @return CustomerWishListItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerWishListItemResponse getCustomerWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        ApiResponse<CustomerWishListItemResponse> resp = getCustomerWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve wishlist item for customer
+     * Retrieve wishlist item for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @return ApiResponse&lt;CustomerWishListItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerWishListItemResponse> getCustomerWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = getCustomerWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItemResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve wishlist item for customer (asynchronously)
+     * Retrieve wishlist item for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getCustomerWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<CustomerWishListItemResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomerWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerWishListItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2050,6 +2442,138 @@ public class CustomerApi {
         return call;
     }
     /**
+     * Build call for insertWishListItem
+     * @param wishlistItem Wishlist item to insert (required)
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertWishListItemCall(CustomerWishListItem wishlistItem, Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = wishlistItem;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertWishListItemValidateBeforeCall(CustomerWishListItem wishlistItem, Integer customerProfileOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'wishlistItem' is set
+        if (wishlistItem == null) {
+            throw new ApiException("Missing the required parameter 'wishlistItem' when calling insertWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling insertWishListItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertWishListItemCall(wishlistItem, customerProfileOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a customer wishlist item
+     * Insert a customer wishlist item 
+     * @param wishlistItem Wishlist item to insert (required)
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @return CustomerWishListItem
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerWishListItem insertWishListItem(CustomerWishListItem wishlistItem, Integer customerProfileOid) throws ApiException {
+        ApiResponse<CustomerWishListItem> resp = insertWishListItemWithHttpInfo(wishlistItem, customerProfileOid);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a customer wishlist item
+     * Insert a customer wishlist item 
+     * @param wishlistItem Wishlist item to insert (required)
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @return ApiResponse&lt;CustomerWishListItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerWishListItem> insertWishListItemWithHttpInfo(CustomerWishListItem wishlistItem, Integer customerProfileOid) throws ApiException {
+        com.squareup.okhttp.Call call = insertWishListItemValidateBeforeCall(wishlistItem, customerProfileOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a customer wishlist item (asynchronously)
+     * Insert a customer wishlist item 
+     * @param wishlistItem Wishlist item to insert (required)
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertWishListItemAsync(CustomerWishListItem wishlistItem, Integer customerProfileOid, final ApiCallback<CustomerWishListItem> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertWishListItemValidateBeforeCall(wishlistItem, customerProfileOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for mergeCustomer
      * @param customer Customer to merge into this profile. (required)
      * @param customerProfileOid The customer_profile_oid to update. (required)
@@ -2572,6 +3096,148 @@ public class CustomerApi {
 
         com.squareup.okhttp.Call call = updateCustomerEmailListsValidateBeforeCall(customerProfileOid, listChanges, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomerEmailListChanges>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateWishListItem
+     * @param wishlistItem Wishlist item to update (required)
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateWishListItemCall(CustomerWishListItem wishlistItem, Integer customerProfileOid, Integer customerWishlistItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = wishlistItem;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", apiClient.escapeString(customerProfileOid.toString()))
+            .replaceAll("\\{" + "customer_wishlist_item_oid" + "\\}", apiClient.escapeString(customerWishlistItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateWishListItemValidateBeforeCall(CustomerWishListItem wishlistItem, Integer customerProfileOid, Integer customerWishlistItemOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'wishlistItem' is set
+        if (wishlistItem == null) {
+            throw new ApiException("Missing the required parameter 'wishlistItem' when calling updateWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling updateWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'customerWishlistItemOid' is set
+        if (customerWishlistItemOid == null) {
+            throw new ApiException("Missing the required parameter 'customerWishlistItemOid' when calling updateWishListItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateWishListItemCall(wishlistItem, customerProfileOid, customerWishlistItemOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update a customer wishlist item
+     * Update a customer wishlist item 
+     * @param wishlistItem Wishlist item to update (required)
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @return CustomerWishListItem
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomerWishListItem updateWishListItem(CustomerWishListItem wishlistItem, Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        ApiResponse<CustomerWishListItem> resp = updateWishListItemWithHttpInfo(wishlistItem, customerProfileOid, customerWishlistItemOid);
+        return resp.getData();
+    }
+
+    /**
+     * Update a customer wishlist item
+     * Update a customer wishlist item 
+     * @param wishlistItem Wishlist item to update (required)
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @return ApiResponse&lt;CustomerWishListItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomerWishListItem> updateWishListItemWithHttpInfo(CustomerWishListItem wishlistItem, Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        com.squareup.okhttp.Call call = updateWishListItemValidateBeforeCall(wishlistItem, customerProfileOid, customerWishlistItemOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a customer wishlist item (asynchronously)
+     * Update a customer wishlist item 
+     * @param wishlistItem Wishlist item to update (required)
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateWishListItemAsync(CustomerWishListItem wishlistItem, Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<CustomerWishListItem> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateWishListItemValidateBeforeCall(wishlistItem, customerProfileOid, customerWishlistItemOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

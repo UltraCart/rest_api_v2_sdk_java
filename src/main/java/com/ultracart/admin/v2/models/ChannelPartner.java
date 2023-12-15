@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ChannelPartner
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -40,6 +40,9 @@ public class ChannelPartner {
 
   @SerializedName("communication_method")
   private String communicationMethod = null;
+
+  @SerializedName("dont_hold_shipment")
+  private Boolean dontHoldShipment = null;
 
   @SerializedName("inactive")
   private Boolean inactive = null;
@@ -105,6 +108,24 @@ public class ChannelPartner {
 
   public void setCommunicationMethod(String communicationMethod) {
     this.communicationMethod = communicationMethod;
+  }
+
+  public ChannelPartner dontHoldShipment(Boolean dontHoldShipment) {
+    this.dontHoldShipment = dontHoldShipment;
+    return this;
+  }
+
+   /**
+   * True if shipments should immediately process for this channel partner.
+   * @return dontHoldShipment
+  **/
+  @ApiModelProperty(value = "True if shipments should immediately process for this channel partner.")
+  public Boolean isDontHoldShipment() {
+    return dontHoldShipment;
+  }
+
+  public void setDontHoldShipment(Boolean dontHoldShipment) {
+    this.dontHoldShipment = dontHoldShipment;
   }
 
   public ChannelPartner inactive(Boolean inactive) {
@@ -192,6 +213,7 @@ public class ChannelPartner {
     return Objects.equals(this.channelPartnerOid, channelPartner.channelPartnerOid) &&
         Objects.equals(this.code, channelPartner.code) &&
         Objects.equals(this.communicationMethod, channelPartner.communicationMethod) &&
+        Objects.equals(this.dontHoldShipment, channelPartner.dontHoldShipment) &&
         Objects.equals(this.inactive, channelPartner.inactive) &&
         Objects.equals(this.merchantId, channelPartner.merchantId) &&
         Objects.equals(this.name, channelPartner.name) &&
@@ -200,7 +222,7 @@ public class ChannelPartner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(channelPartnerOid, code, communicationMethod, inactive, merchantId, name, skipCustomerEmails);
+    return Objects.hash(channelPartnerOid, code, communicationMethod, dontHoldShipment, inactive, merchantId, name, skipCustomerEmails);
   }
 
 
@@ -212,6 +234,7 @@ public class ChannelPartner {
     sb.append("    channelPartnerOid: ").append(toIndentedString(channelPartnerOid)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    communicationMethod: ").append(toIndentedString(communicationMethod)).append("\n");
+    sb.append("    dontHoldShipment: ").append(toIndentedString(dontHoldShipment)).append("\n");
     sb.append("    inactive: ").append(toIndentedString(inactive)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

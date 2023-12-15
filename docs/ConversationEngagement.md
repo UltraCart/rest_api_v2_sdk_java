@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **active** | **Boolean** |  |  [optional]
 **conversationEngagementOid** | **Integer** |  |  [optional]
 **customerGreeting** | **String** |  |  [optional]
+**customerInitiated** | **Boolean** |  |  [optional]
 **departmentOids** | **List&lt;Integer&gt;** |  |  [optional]
 **engagementName** | **String** |  |  [optional]
 **equation** | [**ConversationEngagementEquation**](ConversationEngagementEquation.md) |  |  [optional]

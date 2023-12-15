@@ -46,6 +46,7 @@ import com.ultracart.admin.v2.models.OrderShipping;
 import com.ultracart.admin.v2.models.OrderSummary;
 import com.ultracart.admin.v2.models.OrderTag;
 import com.ultracart.admin.v2.models.OrderTaxes;
+import com.ultracart.admin.v2.models.OrderUtm;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -56,7 +57,7 @@ import java.util.List;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -115,7 +116,9 @@ public class Order {
     
     PRE_ORDERED("Pre-ordered"),
     
-    ADVANCED_ORDER_ROUTING("Advanced Order Routing");
+    ADVANCED_ORDER_ROUTING("Advanced Order Routing"),
+    
+    HOLD("Hold");
 
     private String value;
 
@@ -215,8 +218,14 @@ public class Order {
   @SerializedName("refund_dts")
   private String refundDts = null;
 
+  @SerializedName("refund_reason")
+  private String refundReason = null;
+
   @SerializedName("reject_dts")
   private String rejectDts = null;
+
+  @SerializedName("reject_reason")
+  private String rejectReason = null;
 
   @SerializedName("salesforce")
   private OrderSalesforce salesforce = null;
@@ -232,6 +241,9 @@ public class Order {
 
   @SerializedName("taxes")
   private OrderTaxes taxes = null;
+
+  @SerializedName("utms")
+  private List<OrderUtm> utms = null;
 
   public Order affiliates(List<OrderAffiliate> affiliates) {
     this.affiliates = affiliates;
@@ -787,6 +799,24 @@ public class Order {
     this.refundDts = refundDts;
   }
 
+  public Order refundReason(String refundReason) {
+    this.refundReason = refundReason;
+    return this;
+  }
+
+   /**
+   * Refund reason code.  This can only be written during a refund operation otherwise this field is read only.
+   * @return refundReason
+  **/
+  @ApiModelProperty(value = "Refund reason code.  This can only be written during a refund operation otherwise this field is read only.")
+  public String getRefundReason() {
+    return refundReason;
+  }
+
+  public void setRefundReason(String refundReason) {
+    this.refundReason = refundReason;
+  }
+
   public Order rejectDts(String rejectDts) {
     this.rejectDts = rejectDts;
     return this;
@@ -803,6 +833,24 @@ public class Order {
 
   public void setRejectDts(String rejectDts) {
     this.rejectDts = rejectDts;
+  }
+
+  public Order rejectReason(String rejectReason) {
+    this.rejectReason = rejectReason;
+    return this;
+  }
+
+   /**
+   * Reject reason code.  This can only be written during a reject operation otherwise this field is read only.
+   * @return rejectReason
+  **/
+  @ApiModelProperty(value = "Reject reason code.  This can only be written during a reject operation otherwise this field is read only.")
+  public String getRejectReason() {
+    return rejectReason;
+  }
+
+  public void setRejectReason(String rejectReason) {
+    this.rejectReason = rejectReason;
   }
 
   public Order salesforce(OrderSalesforce salesforce) {
@@ -903,6 +951,32 @@ public class Order {
     this.taxes = taxes;
   }
 
+  public Order utms(List<OrderUtm> utms) {
+    this.utms = utms;
+    return this;
+  }
+
+  public Order addUtmsItem(OrderUtm utmsItem) {
+    if (this.utms == null) {
+      this.utms = new ArrayList<OrderUtm>();
+    }
+    this.utms.add(utmsItem);
+    return this;
+  }
+
+   /**
+   * UTM clicks.  The zero index is the most recent (last) UTM click
+   * @return utms
+  **/
+  @ApiModelProperty(value = "UTM clicks.  The zero index is the most recent (last) UTM click")
+  public List<OrderUtm> getUtms() {
+    return utms;
+  }
+
+  public void setUtms(List<OrderUtm> utms) {
+    this.utms = utms;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -942,17 +1016,20 @@ public class Order {
         Objects.equals(this.properties, order.properties) &&
         Objects.equals(this.quote, order.quote) &&
         Objects.equals(this.refundDts, order.refundDts) &&
+        Objects.equals(this.refundReason, order.refundReason) &&
         Objects.equals(this.rejectDts, order.rejectDts) &&
+        Objects.equals(this.rejectReason, order.rejectReason) &&
         Objects.equals(this.salesforce, order.salesforce) &&
         Objects.equals(this.shipping, order.shipping) &&
         Objects.equals(this.summary, order.summary) &&
         Objects.equals(this.tags, order.tags) &&
-        Objects.equals(this.taxes, order.taxes);
+        Objects.equals(this.taxes, order.taxes) &&
+        Objects.equals(this.utms, order.utms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, tags, taxes);
+    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, refundReason, rejectDts, rejectReason, salesforce, shipping, summary, tags, taxes, utms);
   }
 
 
@@ -990,12 +1067,15 @@ public class Order {
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quote: ").append(toIndentedString(quote)).append("\n");
     sb.append("    refundDts: ").append(toIndentedString(refundDts)).append("\n");
+    sb.append("    refundReason: ").append(toIndentedString(refundReason)).append("\n");
     sb.append("    rejectDts: ").append(toIndentedString(rejectDts)).append("\n");
+    sb.append("    rejectReason: ").append(toIndentedString(rejectReason)).append("\n");
     sb.append("    salesforce: ").append(toIndentedString(salesforce)).append("\n");
     sb.append("    shipping: ").append(toIndentedString(shipping)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
+    sb.append("    utms: ").append(toIndentedString(utms)).append("\n");
     sb.append("}");
     return sb.toString();
   }

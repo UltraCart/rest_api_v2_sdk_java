@@ -86,6 +86,135 @@ public class AutoOrderApi {
     }
 
     /**
+     * Build call for establishAutoOrderByReferenceOrderId
+     * @param referenceOrderId The order id to attach this auto order to (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call establishAutoOrderByReferenceOrderIdCall(String referenceOrderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/reference_order_id/{reference_order_id}"
+            .replaceAll("\\{" + "reference_order_id" + "\\}", apiClient.escapeString(referenceOrderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call establishAutoOrderByReferenceOrderIdValidateBeforeCall(String referenceOrderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'referenceOrderId' is set
+        if (referenceOrderId == null) {
+            throw new ApiException("Missing the required parameter 'referenceOrderId' when calling establishAutoOrderByReferenceOrderId(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = establishAutoOrderByReferenceOrderIdCall(referenceOrderId, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Establish an auto order by referencing a regular order id
+     * Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+     * @param referenceOrderId The order id to attach this auto order to (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return AutoOrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AutoOrderResponse establishAutoOrderByReferenceOrderId(String referenceOrderId, String expand) throws ApiException {
+        ApiResponse<AutoOrderResponse> resp = establishAutoOrderByReferenceOrderIdWithHttpInfo(referenceOrderId, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Establish an auto order by referencing a regular order id
+     * Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+     * @param referenceOrderId The order id to attach this auto order to (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;AutoOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AutoOrderResponse> establishAutoOrderByReferenceOrderIdWithHttpInfo(String referenceOrderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = establishAutoOrderByReferenceOrderIdValidateBeforeCall(referenceOrderId, expand, null, null);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Establish an auto order by referencing a regular order id (asynchronously)
+     * Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+     * @param referenceOrderId The order id to attach this auto order to (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call establishAutoOrderByReferenceOrderIdAsync(String referenceOrderId, String expand, final ApiCallback<AutoOrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = establishAutoOrderByReferenceOrderIdValidateBeforeCall(referenceOrderId, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getAutoOrder
      * @param autoOrderOid The auto order oid to retrieve. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1001,13 +1130,14 @@ public class AutoOrderApi {
      * Build call for updateAutoOrder
      * @param autoOrder Auto order to update (required)
      * @param autoOrderOid The auto order oid to update. (required)
+     * @param validateOriginalOrder Validate original order before updating (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateAutoOrderCall(AutoOrder autoOrder, Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateAutoOrderCall(AutoOrder autoOrder, Integer autoOrderOid, String validateOriginalOrder, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = autoOrder;
 
         // create path and map variables
@@ -1016,6 +1146,8 @@ public class AutoOrderApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (validateOriginalOrder != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("validate_original_order", validateOriginalOrder));
         if (expand != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
 
@@ -1052,7 +1184,7 @@ public class AutoOrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateAutoOrderValidateBeforeCall(AutoOrder autoOrder, Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateAutoOrderValidateBeforeCall(AutoOrder autoOrder, Integer autoOrderOid, String validateOriginalOrder, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'autoOrder' is set
         if (autoOrder == null) {
@@ -1065,7 +1197,7 @@ public class AutoOrderApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateAutoOrderCall(autoOrder, autoOrderOid, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateAutoOrderCall(autoOrder, autoOrderOid, validateOriginalOrder, expand, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1075,12 +1207,13 @@ public class AutoOrderApi {
      * Update an auto order on the UltraCart account. 
      * @param autoOrder Auto order to update (required)
      * @param autoOrderOid The auto order oid to update. (required)
+     * @param validateOriginalOrder Validate original order before updating (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return AutoOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AutoOrderResponse updateAutoOrder(AutoOrder autoOrder, Integer autoOrderOid, String expand) throws ApiException {
-        ApiResponse<AutoOrderResponse> resp = updateAutoOrderWithHttpInfo(autoOrder, autoOrderOid, expand);
+    public AutoOrderResponse updateAutoOrder(AutoOrder autoOrder, Integer autoOrderOid, String validateOriginalOrder, String expand) throws ApiException {
+        ApiResponse<AutoOrderResponse> resp = updateAutoOrderWithHttpInfo(autoOrder, autoOrderOid, validateOriginalOrder, expand);
         return resp.getData();
     }
 
@@ -1089,12 +1222,13 @@ public class AutoOrderApi {
      * Update an auto order on the UltraCart account. 
      * @param autoOrder Auto order to update (required)
      * @param autoOrderOid The auto order oid to update. (required)
+     * @param validateOriginalOrder Validate original order before updating (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;AutoOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AutoOrderResponse> updateAutoOrderWithHttpInfo(AutoOrder autoOrder, Integer autoOrderOid, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = updateAutoOrderValidateBeforeCall(autoOrder, autoOrderOid, expand, null, null);
+    public ApiResponse<AutoOrderResponse> updateAutoOrderWithHttpInfo(AutoOrder autoOrder, Integer autoOrderOid, String validateOriginalOrder, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = updateAutoOrderValidateBeforeCall(autoOrder, autoOrderOid, validateOriginalOrder, expand, null, null);
         Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1104,12 +1238,13 @@ public class AutoOrderApi {
      * Update an auto order on the UltraCart account. 
      * @param autoOrder Auto order to update (required)
      * @param autoOrderOid The auto order oid to update. (required)
+     * @param validateOriginalOrder Validate original order before updating (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateAutoOrderAsync(AutoOrder autoOrder, Integer autoOrderOid, String expand, final ApiCallback<AutoOrderResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateAutoOrderAsync(AutoOrder autoOrder, Integer autoOrderOid, String validateOriginalOrder, String expand, final ApiCallback<AutoOrderResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1130,7 +1265,7 @@ public class AutoOrderApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateAutoOrderValidateBeforeCall(autoOrder, autoOrderOid, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateAutoOrderValidateBeforeCall(autoOrder, autoOrderOid, validateOriginalOrder, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

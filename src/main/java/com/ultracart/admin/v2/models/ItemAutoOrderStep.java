@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ItemAutoOrderStep
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -57,6 +57,12 @@ public class ItemAutoOrderStep {
 
   @SerializedName("pause_until_date")
   private String pauseUntilDate = null;
+
+  @SerializedName("pause_until_day_of_month")
+  private Integer pauseUntilDayOfMonth = null;
+
+  @SerializedName("pause_until_minimum_delay_days")
+  private Integer pauseUntilMinimumDelayDays = null;
 
   @SerializedName("preshipment_notice_days")
   private Integer preshipmentNoticeDays = null;
@@ -90,7 +96,9 @@ public class ItemAutoOrderStep {
     
     LOOP("loop"),
     
-    KIT_ONLY("kit only");
+    KIT_ONLY("kit only"),
+    
+    PAUSE_UNTIL("pause until");
 
     private String value;
 
@@ -275,6 +283,42 @@ public class ItemAutoOrderStep {
     this.pauseUntilDate = pauseUntilDate;
   }
 
+  public ItemAutoOrderStep pauseUntilDayOfMonth(Integer pauseUntilDayOfMonth) {
+    this.pauseUntilDayOfMonth = pauseUntilDayOfMonth;
+    return this;
+  }
+
+   /**
+   * Pause until a specific day of the month
+   * @return pauseUntilDayOfMonth
+  **/
+  @ApiModelProperty(value = "Pause until a specific day of the month")
+  public Integer getPauseUntilDayOfMonth() {
+    return pauseUntilDayOfMonth;
+  }
+
+  public void setPauseUntilDayOfMonth(Integer pauseUntilDayOfMonth) {
+    this.pauseUntilDayOfMonth = pauseUntilDayOfMonth;
+  }
+
+  public ItemAutoOrderStep pauseUntilMinimumDelayDays(Integer pauseUntilMinimumDelayDays) {
+    this.pauseUntilMinimumDelayDays = pauseUntilMinimumDelayDays;
+    return this;
+  }
+
+   /**
+   * Pause at least this many days between the last order and the calculated next day of month
+   * @return pauseUntilMinimumDelayDays
+  **/
+  @ApiModelProperty(value = "Pause at least this many days between the last order and the calculated next day of month")
+  public Integer getPauseUntilMinimumDelayDays() {
+    return pauseUntilMinimumDelayDays;
+  }
+
+  public void setPauseUntilMinimumDelayDays(Integer pauseUntilMinimumDelayDays) {
+    this.pauseUntilMinimumDelayDays = pauseUntilMinimumDelayDays;
+  }
+
   public ItemAutoOrderStep preshipmentNoticeDays(Integer preshipmentNoticeDays) {
     this.preshipmentNoticeDays = preshipmentNoticeDays;
     return this;
@@ -436,6 +480,8 @@ public class ItemAutoOrderStep {
         Objects.equals(this.managedBy, itemAutoOrderStep.managedBy) &&
         Objects.equals(this.pauseDays, itemAutoOrderStep.pauseDays) &&
         Objects.equals(this.pauseUntilDate, itemAutoOrderStep.pauseUntilDate) &&
+        Objects.equals(this.pauseUntilDayOfMonth, itemAutoOrderStep.pauseUntilDayOfMonth) &&
+        Objects.equals(this.pauseUntilMinimumDelayDays, itemAutoOrderStep.pauseUntilMinimumDelayDays) &&
         Objects.equals(this.preshipmentNoticeDays, itemAutoOrderStep.preshipmentNoticeDays) &&
         Objects.equals(this.recurringMerchantItemId, itemAutoOrderStep.recurringMerchantItemId) &&
         Objects.equals(this.recurringMerchantItemOid, itemAutoOrderStep.recurringMerchantItemOid) &&
@@ -448,7 +494,7 @@ public class ItemAutoOrderStep {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostSchedules, grandfatherPricing, managedBy, pauseDays, pauseUntilDate, preshipmentNoticeDays, recurringMerchantItemId, recurringMerchantItemOid, repeatCount, schedule, subscribeEmailListName, subscribeEmailListOid, type);
+    return Objects.hash(arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostSchedules, grandfatherPricing, managedBy, pauseDays, pauseUntilDate, pauseUntilDayOfMonth, pauseUntilMinimumDelayDays, preshipmentNoticeDays, recurringMerchantItemId, recurringMerchantItemOid, repeatCount, schedule, subscribeEmailListName, subscribeEmailListOid, type);
   }
 
 
@@ -464,6 +510,8 @@ public class ItemAutoOrderStep {
     sb.append("    managedBy: ").append(toIndentedString(managedBy)).append("\n");
     sb.append("    pauseDays: ").append(toIndentedString(pauseDays)).append("\n");
     sb.append("    pauseUntilDate: ").append(toIndentedString(pauseUntilDate)).append("\n");
+    sb.append("    pauseUntilDayOfMonth: ").append(toIndentedString(pauseUntilDayOfMonth)).append("\n");
+    sb.append("    pauseUntilMinimumDelayDays: ").append(toIndentedString(pauseUntilMinimumDelayDays)).append("\n");
     sb.append("    preshipmentNoticeDays: ").append(toIndentedString(preshipmentNoticeDays)).append("\n");
     sb.append("    recurringMerchantItemId: ").append(toIndentedString(recurringMerchantItemId)).append("\n");
     sb.append("    recurringMerchantItemOid: ").append(toIndentedString(recurringMerchantItemOid)).append("\n");

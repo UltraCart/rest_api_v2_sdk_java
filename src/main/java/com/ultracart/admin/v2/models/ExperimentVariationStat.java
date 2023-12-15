@@ -24,11 +24,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ExperimentVariationStat
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -50,6 +52,9 @@ public class ExperimentVariationStat {
 
   @SerializedName("order_count")
   private Integer orderCount = null;
+
+  @SerializedName("order_ids")
+  private List<String> orderIds = null;
 
   @SerializedName("order_item_count")
   private Integer orderItemCount = null;
@@ -177,6 +182,32 @@ public class ExperimentVariationStat {
     this.orderCount = orderCount;
   }
 
+  public ExperimentVariationStat orderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
+    return this;
+  }
+
+  public ExperimentVariationStat addOrderIdsItem(String orderIdsItem) {
+    if (this.orderIds == null) {
+      this.orderIds = new ArrayList<String>();
+    }
+    this.orderIds.add(orderIdsItem);
+    return this;
+  }
+
+   /**
+   * Order ID thats converted on this variation
+   * @return orderIds
+  **/
+  @ApiModelProperty(value = "Order ID thats converted on this variation")
+  public List<String> getOrderIds() {
+    return orderIds;
+  }
+
+  public void setOrderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
+  }
+
   public ExperimentVariationStat orderItemCount(Integer orderItemCount) {
     this.orderItemCount = orderItemCount;
     return this;
@@ -301,6 +332,7 @@ public class ExperimentVariationStat {
         Objects.equals(this.eventCount, experimentVariationStat.eventCount) &&
         Objects.equals(this.initiateCheckoutCount, experimentVariationStat.initiateCheckoutCount) &&
         Objects.equals(this.orderCount, experimentVariationStat.orderCount) &&
+        Objects.equals(this.orderIds, experimentVariationStat.orderIds) &&
         Objects.equals(this.orderItemCount, experimentVariationStat.orderItemCount) &&
         Objects.equals(this.pageViewCount, experimentVariationStat.pageViewCount) &&
         Objects.equals(this.revenue, experimentVariationStat.revenue) &&
@@ -311,7 +343,7 @@ public class ExperimentVariationStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, bounceCount, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, pageViewCount, revenue, sessionCount, smsOptInCount, statDts);
+    return Objects.hash(addToCartCount, bounceCount, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderIds, orderItemCount, pageViewCount, revenue, sessionCount, smsOptInCount, statDts);
   }
 
 
@@ -326,6 +358,7 @@ public class ExperimentVariationStat {
     sb.append("    eventCount: ").append(toIndentedString(eventCount)).append("\n");
     sb.append("    initiateCheckoutCount: ").append(toIndentedString(initiateCheckoutCount)).append("\n");
     sb.append("    orderCount: ").append(toIndentedString(orderCount)).append("\n");
+    sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    orderItemCount: ").append(toIndentedString(orderItemCount)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    revenue: ").append(toIndentedString(revenue)).append("\n");

@@ -31,11 +31,14 @@ import java.util.List;
 /**
  * CouponTieredAmountOffItems
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
 public class CouponTieredAmountOffItems {
+  @SerializedName("item_tags")
+  private List<String> itemTags = null;
+
   @SerializedName("items")
   private List<String> items = null;
 
@@ -44,6 +47,32 @@ public class CouponTieredAmountOffItems {
 
   @SerializedName("tiers")
   private List<CouponTierQuantityAmount> tiers = null;
+
+  public CouponTieredAmountOffItems itemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponTieredAmountOffItems addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<String>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+   * @return itemTags
+  **/
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.")
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+  }
 
   public CouponTieredAmountOffItems items(List<String> items) {
     this.items = items;
@@ -125,14 +154,15 @@ public class CouponTieredAmountOffItems {
       return false;
     }
     CouponTieredAmountOffItems couponTieredAmountOffItems = (CouponTieredAmountOffItems) o;
-    return Objects.equals(this.items, couponTieredAmountOffItems.items) &&
+    return Objects.equals(this.itemTags, couponTieredAmountOffItems.itemTags) &&
+        Objects.equals(this.items, couponTieredAmountOffItems.items) &&
         Objects.equals(this.limit, couponTieredAmountOffItems.limit) &&
         Objects.equals(this.tiers, couponTieredAmountOffItems.tiers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, limit, tiers);
+    return Objects.hash(itemTags, items, limit, tiers);
   }
 
 
@@ -141,6 +171,7 @@ public class CouponTieredAmountOffItems {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponTieredAmountOffItems {\n");
     
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");

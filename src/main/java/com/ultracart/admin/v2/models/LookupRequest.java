@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * LookupRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -40,6 +40,9 @@ public class LookupRequest {
 
   @SerializedName("max_hits")
   private Integer maxHits = null;
+
+  @SerializedName("storefront_host_name")
+  private String storefrontHostName = null;
 
   @SerializedName("storefront_oid")
   private Integer storefrontOid = null;
@@ -101,6 +104,24 @@ public class LookupRequest {
     this.maxHits = maxHits;
   }
 
+  public LookupRequest storefrontHostName(String storefrontHostName) {
+    this.storefrontHostName = storefrontHostName;
+    return this;
+  }
+
+   /**
+   * Get storefrontHostName
+   * @return storefrontHostName
+  **/
+  @ApiModelProperty(value = "")
+  public String getStorefrontHostName() {
+    return storefrontHostName;
+  }
+
+  public void setStorefrontHostName(String storefrontHostName) {
+    this.storefrontHostName = storefrontHostName;
+  }
+
   public LookupRequest storefrontOid(Integer storefrontOid) {
     this.storefrontOid = storefrontOid;
     return this;
@@ -150,13 +171,14 @@ public class LookupRequest {
     return Objects.equals(this.category, lookupRequest.category) &&
         Objects.equals(this.matches, lookupRequest.matches) &&
         Objects.equals(this.maxHits, lookupRequest.maxHits) &&
+        Objects.equals(this.storefrontHostName, lookupRequest.storefrontHostName) &&
         Objects.equals(this.storefrontOid, lookupRequest.storefrontOid) &&
         Objects.equals(this.subcategory, lookupRequest.subcategory);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, matches, maxHits, storefrontOid, subcategory);
+    return Objects.hash(category, matches, maxHits, storefrontHostName, storefrontOid, subcategory);
   }
 
 
@@ -168,6 +190,7 @@ public class LookupRequest {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
     sb.append("    maxHits: ").append(toIndentedString(maxHits)).append("\n");
+    sb.append("    storefrontHostName: ").append(toIndentedString(storefrontHostName)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    subcategory: ").append(toIndentedString(subcategory)).append("\n");
     sb.append("}");

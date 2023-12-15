@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **joinDts** | **String** | Date/time the customer joined the queue |  [optional]
 **participantLanguageIsoCode** | **String** |  |  [optional]
 **question** | **String** |  |  [optional]
+**queueName** | **String** |  |  [optional]
 
 
 

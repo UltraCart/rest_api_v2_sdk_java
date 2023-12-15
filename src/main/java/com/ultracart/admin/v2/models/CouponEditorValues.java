@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CouponEditorValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -50,6 +50,9 @@ public class CouponEditorValues {
 
   @SerializedName("deprecated_themes")
   private List<SimpleValue> deprecatedThemes = null;
+
+  @SerializedName("item_tags")
+  private List<String> itemTags = null;
 
   @SerializedName("mix_and_match_names")
   private List<String> mixAndMatchNames = null;
@@ -194,6 +197,32 @@ public class CouponEditorValues {
 
   public void setDeprecatedThemes(List<SimpleValue> deprecatedThemes) {
     this.deprecatedThemes = deprecatedThemes;
+  }
+
+  public CouponEditorValues itemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponEditorValues addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<String>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * Item tags
+   * @return itemTags
+  **/
+  @ApiModelProperty(value = "Item tags")
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
   }
 
   public CouponEditorValues mixAndMatchNames(List<String> mixAndMatchNames) {
@@ -341,6 +370,7 @@ public class CouponEditorValues {
         Objects.equals(this.couponTypesForDisplay, couponEditorValues.couponTypesForDisplay) &&
         Objects.equals(this.currencyCodes, couponEditorValues.currencyCodes) &&
         Objects.equals(this.deprecatedThemes, couponEditorValues.deprecatedThemes) &&
+        Objects.equals(this.itemTags, couponEditorValues.itemTags) &&
         Objects.equals(this.mixAndMatchNames, couponEditorValues.mixAndMatchNames) &&
         Objects.equals(this.shippingMethods, couponEditorValues.shippingMethods) &&
         Objects.equals(this.storefronts, couponEditorValues.storefronts) &&
@@ -350,7 +380,7 @@ public class CouponEditorValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, couponTypes, couponTypesForDisplay, currencyCodes, deprecatedThemes, mixAndMatchNames, shippingMethods, storefronts, usableBy, validWithOtherCoupons);
+    return Objects.hash(affiliates, couponTypes, couponTypesForDisplay, currencyCodes, deprecatedThemes, itemTags, mixAndMatchNames, shippingMethods, storefronts, usableBy, validWithOtherCoupons);
   }
 
 
@@ -364,6 +394,7 @@ public class CouponEditorValues {
     sb.append("    couponTypesForDisplay: ").append(toIndentedString(couponTypesForDisplay)).append("\n");
     sb.append("    currencyCodes: ").append(toIndentedString(currencyCodes)).append("\n");
     sb.append("    deprecatedThemes: ").append(toIndentedString(deprecatedThemes)).append("\n");
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    mixAndMatchNames: ").append(toIndentedString(mixAndMatchNames)).append("\n");
     sb.append("    shippingMethods: ").append(toIndentedString(shippingMethods)).append("\n");
     sb.append("    storefronts: ").append(toIndentedString(storefronts)).append("\n");

@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * CartSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -44,6 +44,12 @@ public class CartSummary {
 
   @SerializedName("arbitrary_taxable_subtotal")
   private Currency arbitraryTaxableSubtotal = null;
+
+  @SerializedName("health_benefit_card_amount")
+  private Currency healthBenefitCardAmount = null;
+
+  @SerializedName("internal_gift_certificate_amount")
+  private Currency internalGiftCertificateAmount = null;
 
   @SerializedName("shipping_handling")
   private Currency shippingHandling = null;
@@ -151,6 +157,42 @@ public class CartSummary {
 
   public void setArbitraryTaxableSubtotal(Currency arbitraryTaxableSubtotal) {
     this.arbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
+  }
+
+  public CartSummary healthBenefitCardAmount(Currency healthBenefitCardAmount) {
+    this.healthBenefitCardAmount = healthBenefitCardAmount;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCardAmount
+   * @return healthBenefitCardAmount
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getHealthBenefitCardAmount() {
+    return healthBenefitCardAmount;
+  }
+
+  public void setHealthBenefitCardAmount(Currency healthBenefitCardAmount) {
+    this.healthBenefitCardAmount = healthBenefitCardAmount;
+  }
+
+  public CartSummary internalGiftCertificateAmount(Currency internalGiftCertificateAmount) {
+    this.internalGiftCertificateAmount = internalGiftCertificateAmount;
+    return this;
+  }
+
+   /**
+   * Get internalGiftCertificateAmount
+   * @return internalGiftCertificateAmount
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getInternalGiftCertificateAmount() {
+    return internalGiftCertificateAmount;
+  }
+
+  public void setInternalGiftCertificateAmount(Currency internalGiftCertificateAmount) {
+    this.internalGiftCertificateAmount = internalGiftCertificateAmount;
   }
 
   public CartSummary shippingHandling(Currency shippingHandling) {
@@ -383,6 +425,8 @@ public class CartSummary {
         Objects.equals(this.arbitraryTax, cartSummary.arbitraryTax) &&
         Objects.equals(this.arbitraryTaxRate, cartSummary.arbitraryTaxRate) &&
         Objects.equals(this.arbitraryTaxableSubtotal, cartSummary.arbitraryTaxableSubtotal) &&
+        Objects.equals(this.healthBenefitCardAmount, cartSummary.healthBenefitCardAmount) &&
+        Objects.equals(this.internalGiftCertificateAmount, cartSummary.internalGiftCertificateAmount) &&
         Objects.equals(this.shippingHandling, cartSummary.shippingHandling) &&
         Objects.equals(this.shippingHandlingDiscount, cartSummary.shippingHandlingDiscount) &&
         Objects.equals(this.shippingHandlingWithDiscount, cartSummary.shippingHandlingWithDiscount) &&
@@ -399,7 +443,7 @@ public class CartSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, shippingHandling, shippingHandlingDiscount, shippingHandlingWithDiscount, subtotal, subtotalDiscount, subtotalWithDiscount, surcharge, tax, taxableSubtotal, taxableSubtotalDiscount, taxableSubtotalWithDiscount, total);
+    return Objects.hash(arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, healthBenefitCardAmount, internalGiftCertificateAmount, shippingHandling, shippingHandlingDiscount, shippingHandlingWithDiscount, subtotal, subtotalDiscount, subtotalWithDiscount, surcharge, tax, taxableSubtotal, taxableSubtotalDiscount, taxableSubtotalWithDiscount, total);
   }
 
 
@@ -412,6 +456,8 @@ public class CartSummary {
     sb.append("    arbitraryTax: ").append(toIndentedString(arbitraryTax)).append("\n");
     sb.append("    arbitraryTaxRate: ").append(toIndentedString(arbitraryTaxRate)).append("\n");
     sb.append("    arbitraryTaxableSubtotal: ").append(toIndentedString(arbitraryTaxableSubtotal)).append("\n");
+    sb.append("    healthBenefitCardAmount: ").append(toIndentedString(healthBenefitCardAmount)).append("\n");
+    sb.append("    internalGiftCertificateAmount: ").append(toIndentedString(internalGiftCertificateAmount)).append("\n");
     sb.append("    shippingHandling: ").append(toIndentedString(shippingHandling)).append("\n");
     sb.append("    shippingHandlingDiscount: ").append(toIndentedString(shippingHandlingDiscount)).append("\n");
     sb.append("    shippingHandlingWithDiscount: ").append(toIndentedString(shippingHandlingWithDiscount)).append("\n");

@@ -30,6 +30,7 @@ import com.ultracart.admin.v2.models.CustomerLoyalty;
 import com.ultracart.admin.v2.models.CustomerOrdersSummary;
 import com.ultracart.admin.v2.models.CustomerPricingTier;
 import com.ultracart.admin.v2.models.CustomerPrivacy;
+import com.ultracart.admin.v2.models.CustomerProperty;
 import com.ultracart.admin.v2.models.CustomerQuotesSummary;
 import com.ultracart.admin.v2.models.CustomerReviewer;
 import com.ultracart.admin.v2.models.CustomerShipping;
@@ -47,7 +48,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -108,6 +109,9 @@ public class Customer {
 
   @SerializedName("dhl_duty_account_number")
   private String dhlDutyAccountNumber = null;
+
+  @SerializedName("do_not_send_mail")
+  private Boolean doNotSendMail = null;
 
   @SerializedName("edi")
   private CustomerEDI edi = null;
@@ -172,11 +176,17 @@ public class Customer {
   @SerializedName("privacy")
   private CustomerPrivacy privacy = null;
 
+  @SerializedName("properties")
+  private List<CustomerProperty> properties = null;
+
   @SerializedName("qb_class")
   private String qbClass = null;
 
   @SerializedName("qb_code")
   private String qbCode = null;
+
+  @SerializedName("qb_tax_exemption_reason_code")
+  private Integer qbTaxExemptionReasonCode = null;
 
   @SerializedName("quotes")
   private List<Order> quotes = null;
@@ -609,6 +619,24 @@ public class Customer {
     this.dhlDutyAccountNumber = dhlDutyAccountNumber;
   }
 
+  public Customer doNotSendMail(Boolean doNotSendMail) {
+    this.doNotSendMail = doNotSendMail;
+    return this;
+  }
+
+   /**
+   * Do not send mail (null will not update)
+   * @return doNotSendMail
+  **/
+  @ApiModelProperty(value = "Do not send mail (null will not update)")
+  public Boolean isDoNotSendMail() {
+    return doNotSendMail;
+  }
+
+  public void setDoNotSendMail(Boolean doNotSendMail) {
+    this.doNotSendMail = doNotSendMail;
+  }
+
   public Customer edi(CustomerEDI edi) {
     this.edi = edi;
     return this;
@@ -1003,6 +1031,32 @@ public class Customer {
     this.privacy = privacy;
   }
 
+  public Customer properties(List<CustomerProperty> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public Customer addPropertiesItem(CustomerProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<CustomerProperty>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties for this customer
+   * @return properties
+  **/
+  @ApiModelProperty(value = "Properties for this customer")
+  public List<CustomerProperty> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<CustomerProperty> properties) {
+    this.properties = properties;
+  }
+
   public Customer qbClass(String qbClass) {
     this.qbClass = qbClass;
     return this;
@@ -1037,6 +1091,24 @@ public class Customer {
 
   public void setQbCode(String qbCode) {
     this.qbCode = qbCode;
+  }
+
+  public Customer qbTaxExemptionReasonCode(Integer qbTaxExemptionReasonCode) {
+    this.qbTaxExemptionReasonCode = qbTaxExemptionReasonCode;
+    return this;
+  }
+
+   /**
+   * QuickBooks tax exemption reason code
+   * @return qbTaxExemptionReasonCode
+  **/
+  @ApiModelProperty(value = "QuickBooks tax exemption reason code")
+  public Integer getQbTaxExemptionReasonCode() {
+    return qbTaxExemptionReasonCode;
+  }
+
+  public void setQbTaxExemptionReasonCode(Integer qbTaxExemptionReasonCode) {
+    this.qbTaxExemptionReasonCode = qbTaxExemptionReasonCode;
   }
 
   public Customer quotes(List<Order> quotes) {
@@ -1442,6 +1514,7 @@ public class Customer {
         Objects.equals(this.customerProfileOid, customer.customerProfileOid) &&
         Objects.equals(this.dhlAccountNumber, customer.dhlAccountNumber) &&
         Objects.equals(this.dhlDutyAccountNumber, customer.dhlDutyAccountNumber) &&
+        Objects.equals(this.doNotSendMail, customer.doNotSendMail) &&
         Objects.equals(this.edi, customer.edi) &&
         Objects.equals(this.email, customer.email) &&
         Objects.equals(this.exemptShippingHandlingCharge, customer.exemptShippingHandlingCharge) &&
@@ -1463,8 +1536,10 @@ public class Customer {
         Objects.equals(this.password, customer.password) &&
         Objects.equals(this.pricingTiers, customer.pricingTiers) &&
         Objects.equals(this.privacy, customer.privacy) &&
+        Objects.equals(this.properties, customer.properties) &&
         Objects.equals(this.qbClass, customer.qbClass) &&
         Objects.equals(this.qbCode, customer.qbCode) &&
+        Objects.equals(this.qbTaxExemptionReasonCode, customer.qbTaxExemptionReasonCode) &&
         Objects.equals(this.quotes, customer.quotes) &&
         Objects.equals(this.quotesSummary, customer.quotesSummary) &&
         Objects.equals(this.referralSource, customer.referralSource) &&
@@ -1488,7 +1563,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, edi, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, qbClass, qbCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, doNotSendMail, edi, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, properties, qbClass, qbCode, qbTaxExemptionReasonCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1516,6 +1591,7 @@ public class Customer {
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    dhlAccountNumber: ").append(toIndentedString(dhlAccountNumber)).append("\n");
     sb.append("    dhlDutyAccountNumber: ").append(toIndentedString(dhlDutyAccountNumber)).append("\n");
+    sb.append("    doNotSendMail: ").append(toIndentedString(doNotSendMail)).append("\n");
     sb.append("    edi: ").append(toIndentedString(edi)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    exemptShippingHandlingCharge: ").append(toIndentedString(exemptShippingHandlingCharge)).append("\n");
@@ -1537,8 +1613,10 @@ public class Customer {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    pricingTiers: ").append(toIndentedString(pricingTiers)).append("\n");
     sb.append("    privacy: ").append(toIndentedString(privacy)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    qbClass: ").append(toIndentedString(qbClass)).append("\n");
     sb.append("    qbCode: ").append(toIndentedString(qbCode)).append("\n");
+    sb.append("    qbTaxExemptionReasonCode: ").append(toIndentedString(qbTaxExemptionReasonCode)).append("\n");
     sb.append("    quotes: ").append(toIndentedString(quotes)).append("\n");
     sb.append("    quotesSummary: ").append(toIndentedString(quotesSummary)).append("\n");
     sb.append("    referralSource: ").append(toIndentedString(referralSource)).append("\n");

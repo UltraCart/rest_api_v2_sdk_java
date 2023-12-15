@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**establishAutoOrderByReferenceOrderId**](AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 [**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 [**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
 [**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
@@ -13,6 +14,58 @@ Method | HTTP request | Description
 [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
+
+<a name="establishAutoOrderByReferenceOrderId"></a>
+# **establishAutoOrderByReferenceOrderId**
+> AutoOrderResponse establishAutoOrderByReferenceOrderId(referenceOrderId, expand)
+
+Establish an auto order by referencing a regular order id
+
+Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.AutoOrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+
+String referenceOrderId = "referenceOrderId_example"; // String | The order id to attach this auto order to
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    AutoOrderResponse result = apiInstance.establishAutoOrderByReferenceOrderId(referenceOrderId, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoOrderApi#establishAutoOrderByReferenceOrderId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **referenceOrderId** | **String**| The order id to attach this auto order to |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="getAutoOrder"></a>
 # **getAutoOrder**
@@ -376,7 +429,7 @@ Name | Type | Description  | Notes
 
 <a name="updateAutoOrder"></a>
 # **updateAutoOrder**
-> AutoOrderResponse updateAutoOrder(autoOrder, autoOrderOid, expand)
+> AutoOrderResponse updateAutoOrder(autoOrder, autoOrderOid, validateOriginalOrder, expand)
 
 Update an auto order
 
@@ -397,9 +450,10 @@ AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
 
 AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
 Integer autoOrderOid = 56; // Integer | The auto order oid to update.
+String validateOriginalOrder = "validateOriginalOrder_example"; // String | Validate original order before updating
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    AutoOrderResponse result = apiInstance.updateAutoOrder(autoOrder, autoOrderOid, expand);
+    AutoOrderResponse result = apiInstance.updateAutoOrder(autoOrder, autoOrderOid, validateOriginalOrder, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AutoOrderApi#updateAutoOrder");
@@ -413,6 +467,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update |
  **autoOrderOid** | **Integer**| The auto order oid to update. |
+ **validateOriginalOrder** | **String**| Validate original order before updating | [optional]
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

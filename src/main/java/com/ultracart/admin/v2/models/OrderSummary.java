@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -44,6 +44,12 @@ public class OrderSummary {
 
   @SerializedName("arbitrary_shipping_handling_total")
   private Currency arbitraryShippingHandlingTotal = null;
+
+  @SerializedName("health_benefit_card_amount")
+  private Currency healthBenefitCardAmount = null;
+
+  @SerializedName("health_benefit_card_refunded")
+  private Currency healthBenefitCardRefunded = null;
 
   @SerializedName("internal_gift_certificate_amount")
   private Currency internalGiftCertificateAmount = null;
@@ -163,6 +169,42 @@ public class OrderSummary {
 
   public void setArbitraryShippingHandlingTotal(Currency arbitraryShippingHandlingTotal) {
     this.arbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+  }
+
+  public OrderSummary healthBenefitCardAmount(Currency healthBenefitCardAmount) {
+    this.healthBenefitCardAmount = healthBenefitCardAmount;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCardAmount
+   * @return healthBenefitCardAmount
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getHealthBenefitCardAmount() {
+    return healthBenefitCardAmount;
+  }
+
+  public void setHealthBenefitCardAmount(Currency healthBenefitCardAmount) {
+    this.healthBenefitCardAmount = healthBenefitCardAmount;
+  }
+
+  public OrderSummary healthBenefitCardRefunded(Currency healthBenefitCardRefunded) {
+    this.healthBenefitCardRefunded = healthBenefitCardRefunded;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCardRefunded
+   * @return healthBenefitCardRefunded
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getHealthBenefitCardRefunded() {
+    return healthBenefitCardRefunded;
+  }
+
+  public void setHealthBenefitCardRefunded(Currency healthBenefitCardRefunded) {
+    this.healthBenefitCardRefunded = healthBenefitCardRefunded;
   }
 
   public OrderSummary internalGiftCertificateAmount(Currency internalGiftCertificateAmount) {
@@ -467,6 +509,8 @@ public class OrderSummary {
         Objects.equals(this.actualPaymentProcessing, orderSummary.actualPaymentProcessing) &&
         Objects.equals(this.actualShipping, orderSummary.actualShipping) &&
         Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
+        Objects.equals(this.healthBenefitCardAmount, orderSummary.healthBenefitCardAmount) &&
+        Objects.equals(this.healthBenefitCardRefunded, orderSummary.healthBenefitCardRefunded) &&
         Objects.equals(this.internalGiftCertificateAmount, orderSummary.internalGiftCertificateAmount) &&
         Objects.equals(this.internalGiftCertificateRefunded, orderSummary.internalGiftCertificateRefunded) &&
         Objects.equals(this.otherRefunded, orderSummary.otherRefunded) &&
@@ -487,7 +531,7 @@ public class OrderSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualFulfillment, actualPaymentProcessing, actualShipping, arbitraryShippingHandlingTotal, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
+    return Objects.hash(actualFulfillment, actualPaymentProcessing, actualShipping, arbitraryShippingHandlingTotal, healthBenefitCardAmount, healthBenefitCardRefunded, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
   }
 
 
@@ -500,6 +544,8 @@ public class OrderSummary {
     sb.append("    actualPaymentProcessing: ").append(toIndentedString(actualPaymentProcessing)).append("\n");
     sb.append("    actualShipping: ").append(toIndentedString(actualShipping)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
+    sb.append("    healthBenefitCardAmount: ").append(toIndentedString(healthBenefitCardAmount)).append("\n");
+    sb.append("    healthBenefitCardRefunded: ").append(toIndentedString(healthBenefitCardRefunded)).append("\n");
     sb.append("    internalGiftCertificateAmount: ").append(toIndentedString(internalGiftCertificateAmount)).append("\n");
     sb.append("    internalGiftCertificateRefunded: ").append(toIndentedString(internalGiftCertificateRefunded)).append("\n");
     sb.append("    otherRefunded: ").append(toIndentedString(otherRefunded)).append("\n");

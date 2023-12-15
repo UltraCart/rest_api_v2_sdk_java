@@ -27,11 +27,20 @@ import java.io.IOException;
 /**
  * EmailSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
 public class EmailSettings {
+  @SerializedName("emails_per_day")
+  private Integer emailsPerDay = null;
+
+  @SerializedName("emails_per_hour")
+  private Integer emailsPerHour = null;
+
+  @SerializedName("emails_per_month")
+  private Integer emailsPerMonth = null;
+
   @SerializedName("marketing_esp_domain_user")
   private String marketingEspDomainUser = null;
 
@@ -59,6 +68,9 @@ public class EmailSettings {
   @SerializedName("postcard_from_state")
   private String postcardFromState = null;
 
+  @SerializedName("require_order_within_last")
+  private Integer requireOrderWithinLast = null;
+
   @SerializedName("reviews_io_configured")
   private Boolean reviewsIoConfigured = null;
 
@@ -76,6 +88,60 @@ public class EmailSettings {
 
   @SerializedName("transactional_esp_friendly_name")
   private String transactionalEspFriendlyName = null;
+
+  public EmailSettings emailsPerDay(Integer emailsPerDay) {
+    this.emailsPerDay = emailsPerDay;
+    return this;
+  }
+
+   /**
+   * Emails per day allowed
+   * @return emailsPerDay
+  **/
+  @ApiModelProperty(value = "Emails per day allowed")
+  public Integer getEmailsPerDay() {
+    return emailsPerDay;
+  }
+
+  public void setEmailsPerDay(Integer emailsPerDay) {
+    this.emailsPerDay = emailsPerDay;
+  }
+
+  public EmailSettings emailsPerHour(Integer emailsPerHour) {
+    this.emailsPerHour = emailsPerHour;
+    return this;
+  }
+
+   /**
+   * Emails per hour allowed
+   * @return emailsPerHour
+  **/
+  @ApiModelProperty(value = "Emails per hour allowed")
+  public Integer getEmailsPerHour() {
+    return emailsPerHour;
+  }
+
+  public void setEmailsPerHour(Integer emailsPerHour) {
+    this.emailsPerHour = emailsPerHour;
+  }
+
+  public EmailSettings emailsPerMonth(Integer emailsPerMonth) {
+    this.emailsPerMonth = emailsPerMonth;
+    return this;
+  }
+
+   /**
+   * Emails per month allowed
+   * @return emailsPerMonth
+  **/
+  @ApiModelProperty(value = "Emails per month allowed")
+  public Integer getEmailsPerMonth() {
+    return emailsPerMonth;
+  }
+
+  public void setEmailsPerMonth(Integer emailsPerMonth) {
+    this.emailsPerMonth = emailsPerMonth;
+  }
 
   public EmailSettings marketingEspDomainUser(String marketingEspDomainUser) {
     this.marketingEspDomainUser = marketingEspDomainUser;
@@ -239,6 +305,24 @@ public class EmailSettings {
     this.postcardFromState = postcardFromState;
   }
 
+  public EmailSettings requireOrderWithinLast(Integer requireOrderWithinLast) {
+    this.requireOrderWithinLast = requireOrderWithinLast;
+    return this;
+  }
+
+   /**
+   * Require order within last
+   * @return requireOrderWithinLast
+  **/
+  @ApiModelProperty(value = "Require order within last")
+  public Integer getRequireOrderWithinLast() {
+    return requireOrderWithinLast;
+  }
+
+  public void setRequireOrderWithinLast(Integer requireOrderWithinLast) {
+    this.requireOrderWithinLast = requireOrderWithinLast;
+  }
+
   public EmailSettings reviewsIoConfigured(Boolean reviewsIoConfigured) {
     this.reviewsIoConfigured = reviewsIoConfigured;
     return this;
@@ -357,7 +441,10 @@ public class EmailSettings {
       return false;
     }
     EmailSettings emailSettings = (EmailSettings) o;
-    return Objects.equals(this.marketingEspDomainUser, emailSettings.marketingEspDomainUser) &&
+    return Objects.equals(this.emailsPerDay, emailSettings.emailsPerDay) &&
+        Objects.equals(this.emailsPerHour, emailSettings.emailsPerHour) &&
+        Objects.equals(this.emailsPerMonth, emailSettings.emailsPerMonth) &&
+        Objects.equals(this.marketingEspDomainUser, emailSettings.marketingEspDomainUser) &&
         Objects.equals(this.marketingEspDomainUuid, emailSettings.marketingEspDomainUuid) &&
         Objects.equals(this.marketingEspFriendlyName, emailSettings.marketingEspFriendlyName) &&
         Objects.equals(this.postcardFromAddress1, emailSettings.postcardFromAddress1) &&
@@ -366,6 +453,7 @@ public class EmailSettings {
         Objects.equals(this.postcardFromName, emailSettings.postcardFromName) &&
         Objects.equals(this.postcardFromPostalCode, emailSettings.postcardFromPostalCode) &&
         Objects.equals(this.postcardFromState, emailSettings.postcardFromState) &&
+        Objects.equals(this.requireOrderWithinLast, emailSettings.requireOrderWithinLast) &&
         Objects.equals(this.reviewsIoConfigured, emailSettings.reviewsIoConfigured) &&
         Objects.equals(this.smsEspTwilioUuid, emailSettings.smsEspTwilioUuid) &&
         Objects.equals(this.smsPhoneNumber, emailSettings.smsPhoneNumber) &&
@@ -376,7 +464,7 @@ public class EmailSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, reviewsIoConfigured, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
+    return Objects.hash(emailsPerDay, emailsPerHour, emailsPerMonth, marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, requireOrderWithinLast, reviewsIoConfigured, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
   }
 
 
@@ -385,6 +473,9 @@ public class EmailSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailSettings {\n");
     
+    sb.append("    emailsPerDay: ").append(toIndentedString(emailsPerDay)).append("\n");
+    sb.append("    emailsPerHour: ").append(toIndentedString(emailsPerHour)).append("\n");
+    sb.append("    emailsPerMonth: ").append(toIndentedString(emailsPerMonth)).append("\n");
     sb.append("    marketingEspDomainUser: ").append(toIndentedString(marketingEspDomainUser)).append("\n");
     sb.append("    marketingEspDomainUuid: ").append(toIndentedString(marketingEspDomainUuid)).append("\n");
     sb.append("    marketingEspFriendlyName: ").append(toIndentedString(marketingEspFriendlyName)).append("\n");
@@ -394,6 +485,7 @@ public class EmailSettings {
     sb.append("    postcardFromName: ").append(toIndentedString(postcardFromName)).append("\n");
     sb.append("    postcardFromPostalCode: ").append(toIndentedString(postcardFromPostalCode)).append("\n");
     sb.append("    postcardFromState: ").append(toIndentedString(postcardFromState)).append("\n");
+    sb.append("    requireOrderWithinLast: ").append(toIndentedString(requireOrderWithinLast)).append("\n");
     sb.append("    reviewsIoConfigured: ").append(toIndentedString(reviewsIoConfigured)).append("\n");
     sb.append("    smsEspTwilioUuid: ").append(toIndentedString(smsEspTwilioUuid)).append("\n");
     sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");

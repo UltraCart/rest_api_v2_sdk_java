@@ -36,6 +36,7 @@ import com.ultracart.admin.v2.models.CouponDiscountItemWithItemPurchase;
 import com.ultracart.admin.v2.models.CouponDiscountItems;
 import com.ultracart.admin.v2.models.CouponFreeItemAndShippingWithSubtotal;
 import com.ultracart.admin.v2.models.CouponFreeItemWithItemPurchase;
+import com.ultracart.admin.v2.models.CouponFreeItemWithItemPurchaseAndFreeShipping;
 import com.ultracart.admin.v2.models.CouponFreeItemWithSubtotal;
 import com.ultracart.admin.v2.models.CouponFreeItemsWithItemPurchase;
 import com.ultracart.admin.v2.models.CouponFreeItemsWithMixMatchPurchase;
@@ -77,7 +78,7 @@ import java.util.List;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -153,6 +154,9 @@ public class Coupon {
 
   @SerializedName("free_item_with_item_purchase")
   private CouponFreeItemWithItemPurchase freeItemWithItemPurchase = null;
+
+  @SerializedName("free_item_with_item_purchase_and_free_shipping")
+  private CouponFreeItemWithItemPurchaseAndFreeShipping freeItemWithItemPurchaseAndFreeShipping = null;
 
   @SerializedName("free_item_with_subtotal")
   private CouponFreeItemWithSubtotal freeItemWithSubtotal = null;
@@ -277,8 +281,61 @@ public class Coupon {
   @SerializedName("tiered_percent_off_subtotal_based_on_msrp")
   private CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp = null;
 
+  /**
+   * Who may use this coupon.
+   */
+  @JsonAdapter(UsableByEnum.Adapter.class)
+  public enum UsableByEnum {
+    ANYONE("Anyone"),
+    
+    UNIQUECODE("UniqueCode"),
+    
+    ONCEPERCUSTOMER("OncePerCustomer"),
+    
+    ONCEPERNEWCUSTOMER("OncePerNewCustomer"),
+    
+    ONCEPERNEWCUSTOMERFORITEM("OncePerNewCustomerForItem");
+
+    private String value;
+
+    UsableByEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UsableByEnum fromValue(String text) {
+      for (UsableByEnum b : UsableByEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<UsableByEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UsableByEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UsableByEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return UsableByEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("usable_by")
-  private String usableBy = null;
+  private UsableByEnum usableBy = null;
 
   public Coupon affiliateOid(Integer affiliateOid) {
     this.affiliateOid = affiliateOid;
@@ -710,6 +767,24 @@ public class Coupon {
 
   public void setFreeItemWithItemPurchase(CouponFreeItemWithItemPurchase freeItemWithItemPurchase) {
     this.freeItemWithItemPurchase = freeItemWithItemPurchase;
+  }
+
+  public Coupon freeItemWithItemPurchaseAndFreeShipping(CouponFreeItemWithItemPurchaseAndFreeShipping freeItemWithItemPurchaseAndFreeShipping) {
+    this.freeItemWithItemPurchaseAndFreeShipping = freeItemWithItemPurchaseAndFreeShipping;
+    return this;
+  }
+
+   /**
+   * Get freeItemWithItemPurchaseAndFreeShipping
+   * @return freeItemWithItemPurchaseAndFreeShipping
+  **/
+  @ApiModelProperty(value = "")
+  public CouponFreeItemWithItemPurchaseAndFreeShipping getFreeItemWithItemPurchaseAndFreeShipping() {
+    return freeItemWithItemPurchaseAndFreeShipping;
+  }
+
+  public void setFreeItemWithItemPurchaseAndFreeShipping(CouponFreeItemWithItemPurchaseAndFreeShipping freeItemWithItemPurchaseAndFreeShipping) {
+    this.freeItemWithItemPurchaseAndFreeShipping = freeItemWithItemPurchaseAndFreeShipping;
   }
 
   public Coupon freeItemWithSubtotal(CouponFreeItemWithSubtotal freeItemWithSubtotal) {
@@ -1474,7 +1549,7 @@ public class Coupon {
     this.tieredPercentOffSubtotalBasedOnMsrp = tieredPercentOffSubtotalBasedOnMsrp;
   }
 
-  public Coupon usableBy(String usableBy) {
+  public Coupon usableBy(UsableByEnum usableBy) {
     this.usableBy = usableBy;
     return this;
   }
@@ -1484,11 +1559,11 @@ public class Coupon {
    * @return usableBy
   **/
   @ApiModelProperty(value = "Who may use this coupon.")
-  public String getUsableBy() {
+  public UsableByEnum getUsableBy() {
     return usableBy;
   }
 
-  public void setUsableBy(String usableBy) {
+  public void setUsableBy(UsableByEnum usableBy) {
     this.usableBy = usableBy;
   }
 
@@ -1526,6 +1601,7 @@ public class Coupon {
         Objects.equals(this.expirationDts, coupon.expirationDts) &&
         Objects.equals(this.freeItemAndShippingWithSubtotal, coupon.freeItemAndShippingWithSubtotal) &&
         Objects.equals(this.freeItemWithItemPurchase, coupon.freeItemWithItemPurchase) &&
+        Objects.equals(this.freeItemWithItemPurchaseAndFreeShipping, coupon.freeItemWithItemPurchaseAndFreeShipping) &&
         Objects.equals(this.freeItemWithSubtotal, coupon.freeItemWithSubtotal) &&
         Objects.equals(this.freeItemsWithItemPurchase, coupon.freeItemsWithItemPurchase) &&
         Objects.equals(this.freeItemsWithMixmatchPurchase, coupon.freeItemsWithMixmatchPurchase) &&
@@ -1572,7 +1648,7 @@ public class Coupon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, moreLoyaltyCashback, moreLoyaltyPoints, multipleAmountsOffItems, noDiscount, percentMoreLoyaltyCashback, percentMoreLoyaltyPoints, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, skipOnRebill, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithItemPurchaseAndFreeShipping, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, moreLoyaltyCashback, moreLoyaltyPoints, multipleAmountsOffItems, noDiscount, percentMoreLoyaltyCashback, percentMoreLoyaltyPoints, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, skipOnRebill, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
   }
 
 
@@ -1605,6 +1681,7 @@ public class Coupon {
     sb.append("    expirationDts: ").append(toIndentedString(expirationDts)).append("\n");
     sb.append("    freeItemAndShippingWithSubtotal: ").append(toIndentedString(freeItemAndShippingWithSubtotal)).append("\n");
     sb.append("    freeItemWithItemPurchase: ").append(toIndentedString(freeItemWithItemPurchase)).append("\n");
+    sb.append("    freeItemWithItemPurchaseAndFreeShipping: ").append(toIndentedString(freeItemWithItemPurchaseAndFreeShipping)).append("\n");
     sb.append("    freeItemWithSubtotal: ").append(toIndentedString(freeItemWithSubtotal)).append("\n");
     sb.append("    freeItemsWithItemPurchase: ").append(toIndentedString(freeItemsWithItemPurchase)).append("\n");
     sb.append("    freeItemsWithMixmatchPurchase: ").append(toIndentedString(freeItemsWithMixmatchPurchase)).append("\n");

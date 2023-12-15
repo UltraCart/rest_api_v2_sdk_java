@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**getAccountsReceivableRetryStats**](OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 [**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 [**getOrderByToken**](OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
+[**getOrderEdiDocuments**](OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 [**getOrdersBatch**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**resendShipmentConfirmation**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 [**updateAccountsReceivableRetryConfig**](OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 [**updateOrder**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
+[**validateOrder**](OrderApi.md#validateOrder) | **POST** /order/validate | Validate
 
 
 <a name="adjustOrderTotal"></a>
@@ -85,7 +87,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelOrder"></a>
 # **cancelOrder**
-> BaseResponse cancelOrder(orderId)
+> BaseResponse cancelOrder(orderId, lockSelfShipOrders, skipRefundAndHold)
 
 Cancel an order
 
@@ -105,8 +107,10 @@ final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12
 OrderApi apiInstance = new OrderApi(apiKey);
 
 String orderId = "orderId_example"; // String | The order id to cancel.
+Boolean lockSelfShipOrders = true; // Boolean | Flag to prevent a order shipping during a refund process
+Boolean skipRefundAndHold = true; // Boolean | Skip refund and move order to Held Orders department
 try {
-    BaseResponse result = apiInstance.cancelOrder(orderId);
+    BaseResponse result = apiInstance.cancelOrder(orderId, lockSelfShipOrders, skipRefundAndHold);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#cancelOrder");
@@ -119,6 +123,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| The order id to cancel. |
+ **lockSelfShipOrders** | **Boolean**| Flag to prevent a order shipping during a refund process | [optional]
+ **skipRefundAndHold** | **Boolean**| Skip refund and move order to Held Orders department | [optional]
 
 ### Return type
 
@@ -688,6 +694,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getOrderEdiDocuments"></a>
+# **getOrderEdiDocuments**
+> OrderEdiDocumentsResponse getOrderEdiDocuments(orderId)
+
+Retrieve EDI documents associated with this order.
+
+Retrieve EDI documents associated with this order. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
+
+String orderId = "orderId_example"; // String | The order id to retrieve EDI documents for.
+try {
+    OrderEdiDocumentsResponse result = apiInstance.getOrderEdiDocuments(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getOrderEdiDocuments");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| The order id to retrieve EDI documents for. |
+
+### Return type
+
+[**OrderEdiDocumentsResponse**](OrderEdiDocumentsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="getOrders"></a>
@@ -1384,5 +1440,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="validateOrder"></a>
+# **validateOrder**
+> OrderValidationResponse validateOrder(validationRequest)
+
+Validate
+
+Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
+
+OrderValidationRequest validationRequest = new OrderValidationRequest(); // OrderValidationRequest | Validation request
+try {
+    OrderValidationResponse result = apiInstance.validateOrder(validationRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#validateOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **validationRequest** | [**OrderValidationRequest**](OrderValidationRequest.md)| Validation request |
+
+### Return type
+
+[**OrderValidationResponse**](OrderValidationResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

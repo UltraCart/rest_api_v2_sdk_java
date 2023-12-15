@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **arbitraryTax** | [**Currency**](Currency.md) |  |  [optional]
 **arbitraryTaxRate** | [**Currency**](Currency.md) |  |  [optional]
 **arbitraryTaxableSubtotal** | [**Currency**](Currency.md) |  |  [optional]
+**healthBenefitCardAmount** | [**Currency**](Currency.md) |  |  [optional]
+**internalGiftCertificateAmount** | [**Currency**](Currency.md) |  |  [optional]
 **shippingHandling** | [**Currency**](Currency.md) |  |  [optional]
 **shippingHandlingDiscount** | [**Currency**](Currency.md) |  |  [optional]
 **shippingHandlingWithDiscount** | [**Currency**](Currency.md) |  |  [optional]

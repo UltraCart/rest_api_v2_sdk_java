@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * PricingTier
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -114,6 +114,9 @@ public class PricingTier {
 
   @SerializedName("realtime_percentage_discount")
   private BigDecimal realtimePercentageDiscount = null;
+
+  @SerializedName("restrict_to_distribution_center_oid")
+  private Integer restrictToDistributionCenterOid = null;
 
   @SerializedName("signup_notification")
   private PricingTierNotification signupNotification = null;
@@ -616,6 +619,24 @@ public class PricingTier {
     this.realtimePercentageDiscount = realtimePercentageDiscount;
   }
 
+  public PricingTier restrictToDistributionCenterOid(Integer restrictToDistributionCenterOid) {
+    this.restrictToDistributionCenterOid = restrictToDistributionCenterOid;
+    return this;
+  }
+
+   /**
+   * Restrict inventory to this distribution center oid
+   * @return restrictToDistributionCenterOid
+  **/
+  @ApiModelProperty(value = "Restrict inventory to this distribution center oid")
+  public Integer getRestrictToDistributionCenterOid() {
+    return restrictToDistributionCenterOid;
+  }
+
+  public void setRestrictToDistributionCenterOid(Integer restrictToDistributionCenterOid) {
+    this.restrictToDistributionCenterOid = restrictToDistributionCenterOid;
+  }
+
   public PricingTier signupNotification(PricingTierNotification signupNotification) {
     this.signupNotification = signupNotification;
     return this;
@@ -743,6 +764,7 @@ public class PricingTier {
         Objects.equals(this.notValidWhenCouponPresent, pricingTier.notValidWhenCouponPresent) &&
         Objects.equals(this.pricingTierOid, pricingTier.pricingTierOid) &&
         Objects.equals(this.realtimePercentageDiscount, pricingTier.realtimePercentageDiscount) &&
+        Objects.equals(this.restrictToDistributionCenterOid, pricingTier.restrictToDistributionCenterOid) &&
         Objects.equals(this.signupNotification, pricingTier.signupNotification) &&
         Objects.equals(this.suppressBuysafe, pricingTier.suppressBuysafe) &&
         Objects.equals(this.suppressMailingList, pricingTier.suppressMailingList) &&
@@ -752,7 +774,7 @@ public class PricingTier {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptLoyaltyRewards, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptLoyaltyRewards, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, restrictToDistributionCenterOid, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
   }
 
 
@@ -788,6 +810,7 @@ public class PricingTier {
     sb.append("    notValidWhenCouponPresent: ").append(toIndentedString(notValidWhenCouponPresent)).append("\n");
     sb.append("    pricingTierOid: ").append(toIndentedString(pricingTierOid)).append("\n");
     sb.append("    realtimePercentageDiscount: ").append(toIndentedString(realtimePercentageDiscount)).append("\n");
+    sb.append("    restrictToDistributionCenterOid: ").append(toIndentedString(restrictToDistributionCenterOid)).append("\n");
     sb.append("    signupNotification: ").append(toIndentedString(signupNotification)).append("\n");
     sb.append("    suppressBuysafe: ").append(toIndentedString(suppressBuysafe)).append("\n");
     sb.append("    suppressMailingList: ").append(toIndentedString(suppressMailingList)).append("\n");

@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CartPaymentAffirm;
 import com.ultracart.admin.v2.models.CartPaymentAmazon;
 import com.ultracart.admin.v2.models.CartPaymentCheck;
 import com.ultracart.admin.v2.models.CartPaymentCreditCard;
+import com.ultracart.admin.v2.models.CartPaymentHealthBenefitCard;
 import com.ultracart.admin.v2.models.CartPaymentPurchaseOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,7 +33,7 @@ import java.io.IOException;
 /**
  * CartPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -48,6 +49,9 @@ public class CartPayment {
 
   @SerializedName("credit_card")
   private CartPaymentCreditCard creditCard = null;
+
+  @SerializedName("health_benefit_card")
+  private CartPaymentHealthBenefitCard healthBenefitCard = null;
 
   @SerializedName("payment_method")
   private String paymentMethod = null;
@@ -130,6 +134,24 @@ public class CartPayment {
     this.creditCard = creditCard;
   }
 
+  public CartPayment healthBenefitCard(CartPaymentHealthBenefitCard healthBenefitCard) {
+    this.healthBenefitCard = healthBenefitCard;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCard
+   * @return healthBenefitCard
+  **/
+  @ApiModelProperty(value = "")
+  public CartPaymentHealthBenefitCard getHealthBenefitCard() {
+    return healthBenefitCard;
+  }
+
+  public void setHealthBenefitCard(CartPaymentHealthBenefitCard healthBenefitCard) {
+    this.healthBenefitCard = healthBenefitCard;
+  }
+
   public CartPayment paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
@@ -198,6 +220,7 @@ public class CartPayment {
         Objects.equals(this.amazon, cartPayment.amazon) &&
         Objects.equals(this.check, cartPayment.check) &&
         Objects.equals(this.creditCard, cartPayment.creditCard) &&
+        Objects.equals(this.healthBenefitCard, cartPayment.healthBenefitCard) &&
         Objects.equals(this.paymentMethod, cartPayment.paymentMethod) &&
         Objects.equals(this.purchaseOrder, cartPayment.purchaseOrder) &&
         Objects.equals(this.rtgCode, cartPayment.rtgCode);
@@ -205,7 +228,7 @@ public class CartPayment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affirm, amazon, check, creditCard, paymentMethod, purchaseOrder, rtgCode);
+    return Objects.hash(affirm, amazon, check, creditCard, healthBenefitCard, paymentMethod, purchaseOrder, rtgCode);
   }
 
 
@@ -218,6 +241,7 @@ public class CartPayment {
     sb.append("    amazon: ").append(toIndentedString(amazon)).append("\n");
     sb.append("    check: ").append(toIndentedString(check)).append("\n");
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
+    sb.append("    healthBenefitCard: ").append(toIndentedString(healthBenefitCard)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    purchaseOrder: ").append(toIndentedString(purchaseOrder)).append("\n");
     sb.append("    rtgCode: ").append(toIndentedString(rtgCode)).append("\n");

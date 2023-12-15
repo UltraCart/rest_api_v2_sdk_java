@@ -27,13 +27,25 @@ import java.io.IOException;
 /**
  * ItemIdentifiers
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
 public class ItemIdentifiers {
   @SerializedName("barcode")
   private String barcode = null;
+
+  @SerializedName("barcode_gtin12")
+  private String barcodeGtin12 = null;
+
+  @SerializedName("barcode_gtin14")
+  private String barcodeGtin14 = null;
+
+  @SerializedName("barcode_upc11")
+  private String barcodeUpc11 = null;
+
+  @SerializedName("barcode_upc12")
+  private String barcodeUpc12 = null;
 
   @SerializedName("manufacturer_name")
   private String manufacturerName = null;
@@ -60,6 +72,78 @@ public class ItemIdentifiers {
 
   public void setBarcode(String barcode) {
     this.barcode = barcode;
+  }
+
+  public ItemIdentifiers barcodeGtin12(String barcodeGtin12) {
+    this.barcodeGtin12 = barcodeGtin12;
+    return this;
+  }
+
+   /**
+   * Barcode - GTIN 12
+   * @return barcodeGtin12
+  **/
+  @ApiModelProperty(value = "Barcode - GTIN 12")
+  public String getBarcodeGtin12() {
+    return barcodeGtin12;
+  }
+
+  public void setBarcodeGtin12(String barcodeGtin12) {
+    this.barcodeGtin12 = barcodeGtin12;
+  }
+
+  public ItemIdentifiers barcodeGtin14(String barcodeGtin14) {
+    this.barcodeGtin14 = barcodeGtin14;
+    return this;
+  }
+
+   /**
+   * Barcode - GTIN 14
+   * @return barcodeGtin14
+  **/
+  @ApiModelProperty(value = "Barcode - GTIN 14")
+  public String getBarcodeGtin14() {
+    return barcodeGtin14;
+  }
+
+  public void setBarcodeGtin14(String barcodeGtin14) {
+    this.barcodeGtin14 = barcodeGtin14;
+  }
+
+  public ItemIdentifiers barcodeUpc11(String barcodeUpc11) {
+    this.barcodeUpc11 = barcodeUpc11;
+    return this;
+  }
+
+   /**
+   * Barcode - UPC 11
+   * @return barcodeUpc11
+  **/
+  @ApiModelProperty(value = "Barcode - UPC 11")
+  public String getBarcodeUpc11() {
+    return barcodeUpc11;
+  }
+
+  public void setBarcodeUpc11(String barcodeUpc11) {
+    this.barcodeUpc11 = barcodeUpc11;
+  }
+
+  public ItemIdentifiers barcodeUpc12(String barcodeUpc12) {
+    this.barcodeUpc12 = barcodeUpc12;
+    return this;
+  }
+
+   /**
+   * Barcode - UPC 12
+   * @return barcodeUpc12
+  **/
+  @ApiModelProperty(value = "Barcode - UPC 12")
+  public String getBarcodeUpc12() {
+    return barcodeUpc12;
+  }
+
+  public void setBarcodeUpc12(String barcodeUpc12) {
+    this.barcodeUpc12 = barcodeUpc12;
   }
 
   public ItemIdentifiers manufacturerName(String manufacturerName) {
@@ -127,6 +211,10 @@ public class ItemIdentifiers {
     }
     ItemIdentifiers itemIdentifiers = (ItemIdentifiers) o;
     return Objects.equals(this.barcode, itemIdentifiers.barcode) &&
+        Objects.equals(this.barcodeGtin12, itemIdentifiers.barcodeGtin12) &&
+        Objects.equals(this.barcodeGtin14, itemIdentifiers.barcodeGtin14) &&
+        Objects.equals(this.barcodeUpc11, itemIdentifiers.barcodeUpc11) &&
+        Objects.equals(this.barcodeUpc12, itemIdentifiers.barcodeUpc12) &&
         Objects.equals(this.manufacturerName, itemIdentifiers.manufacturerName) &&
         Objects.equals(this.manufacturerSku, itemIdentifiers.manufacturerSku) &&
         Objects.equals(this.unspsc, itemIdentifiers.unspsc);
@@ -134,7 +222,7 @@ public class ItemIdentifiers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcode, manufacturerName, manufacturerSku, unspsc);
+    return Objects.hash(barcode, barcodeGtin12, barcodeGtin14, barcodeUpc11, barcodeUpc12, manufacturerName, manufacturerSku, unspsc);
   }
 
 
@@ -144,6 +232,10 @@ public class ItemIdentifiers {
     sb.append("class ItemIdentifiers {\n");
     
     sb.append("    barcode: ").append(toIndentedString(barcode)).append("\n");
+    sb.append("    barcodeGtin12: ").append(toIndentedString(barcodeGtin12)).append("\n");
+    sb.append("    barcodeGtin14: ").append(toIndentedString(barcodeGtin14)).append("\n");
+    sb.append("    barcodeUpc11: ").append(toIndentedString(barcodeUpc11)).append("\n");
+    sb.append("    barcodeUpc12: ").append(toIndentedString(barcodeUpc12)).append("\n");
     sb.append("    manufacturerName: ").append(toIndentedString(manufacturerName)).append("\n");
     sb.append("    manufacturerSku: ").append(toIndentedString(manufacturerSku)).append("\n");
     sb.append("    unspsc: ").append(toIndentedString(unspsc)).append("\n");

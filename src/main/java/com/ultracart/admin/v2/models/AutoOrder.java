@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.AutoOrderAddonItem;
 import com.ultracart.admin.v2.models.AutoOrderItem;
 import com.ultracart.admin.v2.models.AutoOrderLog;
 import com.ultracart.admin.v2.models.AutoOrderManagement;
@@ -33,11 +34,14 @@ import java.util.List;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
 public class AutoOrder {
+  @SerializedName("add_ons")
+  private List<AutoOrderAddonItem> addOns = null;
+
   @SerializedName("auto_order_code")
   private String autoOrderCode = null;
 
@@ -155,6 +159,32 @@ public class AutoOrder {
 
   @SerializedName("status")
   private StatusEnum status = null;
+
+  public AutoOrder addOns(List<AutoOrderAddonItem> addOns) {
+    this.addOns = addOns;
+    return this;
+  }
+
+  public AutoOrder addAddOnsItem(AutoOrderAddonItem addOnsItem) {
+    if (this.addOns == null) {
+      this.addOns = new ArrayList<AutoOrderAddonItem>();
+    }
+    this.addOns.add(addOnsItem);
+    return this;
+  }
+
+   /**
+   * Array of addon objects instructing which items to add to auto order and how many times they should be added.
+   * @return addOns
+  **/
+  @ApiModelProperty(value = "Array of addon objects instructing which items to add to auto order and how many times they should be added.")
+  public List<AutoOrderAddonItem> getAddOns() {
+    return addOns;
+  }
+
+  public void setAddOns(List<AutoOrderAddonItem> addOns) {
+    this.addOns = addOns;
+  }
 
   public AutoOrder autoOrderCode(String autoOrderCode) {
     this.autoOrderCode = autoOrderCode;
@@ -604,7 +634,8 @@ public class AutoOrder {
       return false;
     }
     AutoOrder autoOrder = (AutoOrder) o;
-    return Objects.equals(this.autoOrderCode, autoOrder.autoOrderCode) &&
+    return Objects.equals(this.addOns, autoOrder.addOns) &&
+        Objects.equals(this.autoOrderCode, autoOrder.autoOrderCode) &&
         Objects.equals(this.autoOrderOid, autoOrder.autoOrderOid) &&
         Objects.equals(this.cancelAfterNextXOrders, autoOrder.cancelAfterNextXOrders) &&
         Objects.equals(this.cancelDowngrade, autoOrder.cancelDowngrade) &&
@@ -631,7 +662,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
 
@@ -640,6 +671,7 @@ public class AutoOrder {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoOrder {\n");
     
+    sb.append("    addOns: ").append(toIndentedString(addOns)).append("\n");
     sb.append("    autoOrderCode: ").append(toIndentedString(autoOrderCode)).append("\n");
     sb.append("    autoOrderOid: ").append(toIndentedString(autoOrderOid)).append("\n");
     sb.append("    cancelAfterNextXOrders: ").append(toIndentedString(cancelAfterNextXOrders)).append("\n");

@@ -23,11 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ItemPricingTierLimit
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -35,11 +37,17 @@ public class ItemPricingTierLimit {
   @SerializedName("cumulative_order_limit")
   private Integer cumulativeOrderLimit = null;
 
+  @SerializedName("exempt_from_minimum_item_count")
+  private Boolean exemptFromMinimumItemCount = null;
+
   @SerializedName("individual_order_limit")
   private Integer individualOrderLimit = null;
 
   @SerializedName("multiple_quantity")
   private Integer multipleQuantity = null;
+
+  @SerializedName("payment_method_validity")
+  private List<String> paymentMethodValidity = null;
 
   public ItemPricingTierLimit cumulativeOrderLimit(Integer cumulativeOrderLimit) {
     this.cumulativeOrderLimit = cumulativeOrderLimit;
@@ -57,6 +65,24 @@ public class ItemPricingTierLimit {
 
   public void setCumulativeOrderLimit(Integer cumulativeOrderLimit) {
     this.cumulativeOrderLimit = cumulativeOrderLimit;
+  }
+
+  public ItemPricingTierLimit exemptFromMinimumItemCount(Boolean exemptFromMinimumItemCount) {
+    this.exemptFromMinimumItemCount = exemptFromMinimumItemCount;
+    return this;
+  }
+
+   /**
+   * Exempt from Minimum Item Count
+   * @return exemptFromMinimumItemCount
+  **/
+  @ApiModelProperty(value = "Exempt from Minimum Item Count")
+  public Boolean isExemptFromMinimumItemCount() {
+    return exemptFromMinimumItemCount;
+  }
+
+  public void setExemptFromMinimumItemCount(Boolean exemptFromMinimumItemCount) {
+    this.exemptFromMinimumItemCount = exemptFromMinimumItemCount;
   }
 
   public ItemPricingTierLimit individualOrderLimit(Integer individualOrderLimit) {
@@ -95,6 +121,32 @@ public class ItemPricingTierLimit {
     this.multipleQuantity = multipleQuantity;
   }
 
+  public ItemPricingTierLimit paymentMethodValidity(List<String> paymentMethodValidity) {
+    this.paymentMethodValidity = paymentMethodValidity;
+    return this;
+  }
+
+  public ItemPricingTierLimit addPaymentMethodValidityItem(String paymentMethodValidityItem) {
+    if (this.paymentMethodValidity == null) {
+      this.paymentMethodValidity = new ArrayList<String>();
+    }
+    this.paymentMethodValidity.add(paymentMethodValidityItem);
+    return this;
+  }
+
+   /**
+   * Payment method validity
+   * @return paymentMethodValidity
+  **/
+  @ApiModelProperty(value = "Payment method validity")
+  public List<String> getPaymentMethodValidity() {
+    return paymentMethodValidity;
+  }
+
+  public void setPaymentMethodValidity(List<String> paymentMethodValidity) {
+    this.paymentMethodValidity = paymentMethodValidity;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,13 +158,15 @@ public class ItemPricingTierLimit {
     }
     ItemPricingTierLimit itemPricingTierLimit = (ItemPricingTierLimit) o;
     return Objects.equals(this.cumulativeOrderLimit, itemPricingTierLimit.cumulativeOrderLimit) &&
+        Objects.equals(this.exemptFromMinimumItemCount, itemPricingTierLimit.exemptFromMinimumItemCount) &&
         Objects.equals(this.individualOrderLimit, itemPricingTierLimit.individualOrderLimit) &&
-        Objects.equals(this.multipleQuantity, itemPricingTierLimit.multipleQuantity);
+        Objects.equals(this.multipleQuantity, itemPricingTierLimit.multipleQuantity) &&
+        Objects.equals(this.paymentMethodValidity, itemPricingTierLimit.paymentMethodValidity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cumulativeOrderLimit, individualOrderLimit, multipleQuantity);
+    return Objects.hash(cumulativeOrderLimit, exemptFromMinimumItemCount, individualOrderLimit, multipleQuantity, paymentMethodValidity);
   }
 
 
@@ -122,8 +176,10 @@ public class ItemPricingTierLimit {
     sb.append("class ItemPricingTierLimit {\n");
     
     sb.append("    cumulativeOrderLimit: ").append(toIndentedString(cumulativeOrderLimit)).append("\n");
+    sb.append("    exemptFromMinimumItemCount: ").append(toIndentedString(exemptFromMinimumItemCount)).append("\n");
     sb.append("    individualOrderLimit: ").append(toIndentedString(individualOrderLimit)).append("\n");
     sb.append("    multipleQuantity: ").append(toIndentedString(multipleQuantity)).append("\n");
+    sb.append("    paymentMethodValidity: ").append(toIndentedString(paymentMethodValidity)).append("\n");
     sb.append("}");
     return sb.toString();
   }

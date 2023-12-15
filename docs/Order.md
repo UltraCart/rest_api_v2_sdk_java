@@ -33,12 +33,15 @@ Name | Type | Description | Notes
 **properties** | [**List&lt;OrderProperty&gt;**](OrderProperty.md) | Properties, available only through update, not through insert due to the nature of how properties are handled internally |  [optional]
 **quote** | [**OrderQuote**](OrderQuote.md) |  |  [optional]
 **refundDts** | **String** | If the order was refunded, the date/time that the last refund occurred |  [optional]
+**refundReason** | **String** | Refund reason code.  This can only be written during a refund operation otherwise this field is read only. |  [optional]
 **rejectDts** | **String** | If the order was rejected, the date/time that the rejection occurred |  [optional]
+**rejectReason** | **String** | Reject reason code.  This can only be written during a reject operation otherwise this field is read only. |  [optional]
 **salesforce** | [**OrderSalesforce**](OrderSalesforce.md) |  |  [optional]
 **shipping** | [**OrderShipping**](OrderShipping.md) |  |  [optional]
 **summary** | [**OrderSummary**](OrderSummary.md) |  |  [optional]
 **tags** | [**List&lt;OrderTag&gt;**](OrderTag.md) | tags, available only through update, not through insert due to the nature of how tags are handled internally |  [optional]
 **taxes** | [**OrderTaxes**](OrderTaxes.md) |  |  [optional]
+**utms** | [**List&lt;OrderUtm&gt;**](OrderUtm.md) | UTM clicks.  The zero index is the most recent (last) UTM click |  [optional]
 
 
 <a name="CurrentStageEnum"></a>
@@ -57,6 +60,7 @@ LEAST_COST_ROUTING | &quot;Least Cost Routing&quot;
 UNKNOWN | &quot;Unknown&quot;
 PRE_ORDERED | &quot;Pre-ordered&quot;
 ADVANCED_ORDER_ROUTING | &quot;Advanced Order Routing&quot;
+HOLD | &quot;Hold&quot;
 
 
 

@@ -26,6 +26,9 @@ EVERY_3_MONTHS | &quot;Every 3 Months&quot;
 EVERY_4_MONTHS | &quot;Every 4 Months&quot;
 EVERY_6_MONTHS | &quot;Every 6 Months&quot;
 YEARLY | &quot;Yearly&quot;
+EVERY_4_WEEKS | &quot;Every 4 Weeks&quot;
+EVERY_6_WEEKS | &quot;Every 6 Weeks&quot;
+EVERY_8_WEEKS | &quot;Every 8 Weeks&quot;
 
 
 

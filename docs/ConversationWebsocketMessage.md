@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**conversationArn** | **String** | Conversation ARN |  [optional]
 **conversationUuid** | **String** | Conversation UUID if the websocket message is tied to a specific conversation |  [optional]
 **eventAddCoupon** | [**ConversationEventAddCoupon**](ConversationEventAddCoupon.md) |  |  [optional]
 **eventAddItem** | [**ConversationEventAddItem**](ConversationEventAddItem.md) |  |  [optional]
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **eventParticipantLeft** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
 **eventParticipantLeftParticipant** | [**ConversationParticipant**](ConversationParticipant.md) |  |  [optional]
 **eventParticipantUpdate** | [**ConversationSummary**](ConversationSummary.md) |  |  [optional]
+**eventQueueNewMember** | [**ConversationWebchatQueueStatusQueueEntry**](ConversationWebchatQueueStatusQueueEntry.md) |  |  [optional]
 **eventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  |  [optional]
 **eventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  |  [optional]
 **eventReadMessage** | [**ConversationEventReadMessage**](ConversationEventReadMessage.md) |  |  [optional]
@@ -49,6 +51,7 @@ ADD_COUPON | &quot;add coupon&quot;
 ADD_ITEM | &quot;add item&quot;
 WEBCHAT_CONTEXT | &quot;webchat context&quot;
 ENGAGE_CUSTOMER | &quot;engage customer&quot;
+QUEUE_NEW_MEMBER | &quot;queue new member&quot;
 
 
 <a name="TypeEnum"></a>

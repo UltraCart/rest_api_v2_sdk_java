@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * OrderShipping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-01-31T15:48:16.171-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
 
 
 
@@ -80,6 +80,9 @@ public class OrderShipping {
 
   @SerializedName("lift_gate")
   private Boolean liftGate = null;
+
+  @SerializedName("pickup_dts")
+  private String pickupDts = null;
 
   @SerializedName("postal_code")
   private String postalCode = null;
@@ -404,6 +407,24 @@ public class OrderShipping {
     this.liftGate = liftGate;
   }
 
+  public OrderShipping pickupDts(String pickupDts) {
+    this.pickupDts = pickupDts;
+    return this;
+  }
+
+   /**
+   * Date/time the order should be picked up locally.
+   * @return pickupDts
+  **/
+  @ApiModelProperty(value = "Date/time the order should be picked up locally.")
+  public String getPickupDts() {
+    return pickupDts;
+  }
+
+  public void setPickupDts(String pickupDts) {
+    this.pickupDts = pickupDts;
+  }
+
   public OrderShipping postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
@@ -715,6 +736,7 @@ public class OrderShipping {
         Objects.equals(this.leastCostRoute, orderShipping.leastCostRoute) &&
         Objects.equals(this.leastCostRouteShippingMethods, orderShipping.leastCostRouteShippingMethods) &&
         Objects.equals(this.liftGate, orderShipping.liftGate) &&
+        Objects.equals(this.pickupDts, orderShipping.pickupDts) &&
         Objects.equals(this.postalCode, orderShipping.postalCode) &&
         Objects.equals(this.rma, orderShipping.rma) &&
         Objects.equals(this.shipOnDate, orderShipping.shipOnDate) &&
@@ -734,7 +756,7 @@ public class OrderShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, dayPhoneE164, deliveryDate, eveningPhone, eveningPhoneE164, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumberDetails, trackingNumbers, weight);
+    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, dayPhoneE164, deliveryDate, eveningPhone, eveningPhoneE164, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, pickupDts, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumberDetails, trackingNumbers, weight);
   }
 
 
@@ -758,6 +780,7 @@ public class OrderShipping {
     sb.append("    leastCostRoute: ").append(toIndentedString(leastCostRoute)).append("\n");
     sb.append("    leastCostRouteShippingMethods: ").append(toIndentedString(leastCostRouteShippingMethods)).append("\n");
     sb.append("    liftGate: ").append(toIndentedString(liftGate)).append("\n");
+    sb.append("    pickupDts: ").append(toIndentedString(pickupDts)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    rma: ").append(toIndentedString(rma)).append("\n");
     sb.append("    shipOnDate: ").append(toIndentedString(shipOnDate)).append("\n");
