@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemReview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -44,6 +44,9 @@ public class ItemReview {
 
   @SerializedName("helpful_yes_votes")
   private Integer helpfulYesVotes = null;
+
+  @SerializedName("merchant_reply")
+  private String merchantReply = null;
 
   @SerializedName("order_id")
   private String orderId = null;
@@ -265,6 +268,24 @@ public class ItemReview {
 
   public void setHelpfulYesVotes(Integer helpfulYesVotes) {
     this.helpfulYesVotes = helpfulYesVotes;
+  }
+
+  public ItemReview merchantReply(String merchantReply) {
+    this.merchantReply = merchantReply;
+    return this;
+  }
+
+   /**
+   * Merchant Reply (set to an empty string to remove)
+   * @return merchantReply
+  **/
+  @ApiModelProperty(value = "Merchant Reply (set to an empty string to remove)")
+  public String getMerchantReply() {
+    return merchantReply;
+  }
+
+  public void setMerchantReply(String merchantReply) {
+    this.merchantReply = merchantReply;
   }
 
   public ItemReview orderId(String orderId) {
@@ -875,6 +896,7 @@ public class ItemReview {
         Objects.equals(this.featured, itemReview.featured) &&
         Objects.equals(this.helperfulNoVotes, itemReview.helperfulNoVotes) &&
         Objects.equals(this.helpfulYesVotes, itemReview.helpfulYesVotes) &&
+        Objects.equals(this.merchantReply, itemReview.merchantReply) &&
         Objects.equals(this.orderId, itemReview.orderId) &&
         Objects.equals(this.overall, itemReview.overall) &&
         Objects.equals(this.ratingName1, itemReview.ratingName1) &&
@@ -912,7 +934,7 @@ public class ItemReview {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfileOid, featured, helperfulNoVotes, helpfulYesVotes, orderId, overall, ratingName1, ratingName10, ratingName2, ratingName3, ratingName4, ratingName5, ratingName6, ratingName7, ratingName8, ratingName9, ratingScore1, ratingScore10, ratingScore2, ratingScore3, ratingScore4, ratingScore5, ratingScore6, ratingScore7, ratingScore8, ratingScore9, recommendStoreToFriend, recommendToFriend, review, reviewOid, reviewedNickname, reviewerEmail, reviewerLocation, status, storeFeedback, submittedDts, title);
+    return Objects.hash(customerProfileOid, featured, helperfulNoVotes, helpfulYesVotes, merchantReply, orderId, overall, ratingName1, ratingName10, ratingName2, ratingName3, ratingName4, ratingName5, ratingName6, ratingName7, ratingName8, ratingName9, ratingScore1, ratingScore10, ratingScore2, ratingScore3, ratingScore4, ratingScore5, ratingScore6, ratingScore7, ratingScore8, ratingScore9, recommendStoreToFriend, recommendToFriend, review, reviewOid, reviewedNickname, reviewerEmail, reviewerLocation, status, storeFeedback, submittedDts, title);
   }
 
 
@@ -925,6 +947,7 @@ public class ItemReview {
     sb.append("    featured: ").append(toIndentedString(featured)).append("\n");
     sb.append("    helperfulNoVotes: ").append(toIndentedString(helperfulNoVotes)).append("\n");
     sb.append("    helpfulYesVotes: ").append(toIndentedString(helpfulYesVotes)).append("\n");
+    sb.append("    merchantReply: ").append(toIndentedString(merchantReply)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    overall: ").append(toIndentedString(overall)).append("\n");
     sb.append("    ratingName1: ").append(toIndentedString(ratingName1)).append("\n");

@@ -1122,11 +1122,11 @@ Name | Type | Description  | Notes
 
 <a name="refundOrder"></a>
 # **refundOrder**
-> OrderResponse refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand)
+> OrderResponse refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand)
 
 Refund an order
 
-Perform a refund operation on an order and then update the order if successful 
+Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
 
 ### Example
 ```java
@@ -1149,9 +1149,10 @@ Boolean autoOrderCancel = false; // Boolean | Cancel associated auto orders
 Boolean manualRefund = false; // Boolean | Consider a manual refund done externally
 Boolean reverseAffiliateTransactions = true; // Boolean | Reverse affiliate transactions
 Boolean issueStoreCredit = false; // Boolean | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+String autoOrderCancelReason = "autoOrderCancelReason_example"; // String | Reason for auto orders cancellation
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    OrderResponse result = apiInstance.refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand);
+    OrderResponse result = apiInstance.refundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#refundOrder");
@@ -1171,6 +1172,7 @@ Name | Type | Description  | Notes
  **manualRefund** | **Boolean**| Consider a manual refund done externally | [optional] [default to false]
  **reverseAffiliateTransactions** | **Boolean**| Reverse affiliate transactions | [optional] [default to true]
  **issueStoreCredit** | **Boolean**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
+ **autoOrderCancelReason** | **String**| Reason for auto orders cancellation | [optional]
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

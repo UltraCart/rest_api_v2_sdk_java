@@ -31,8 +31,8 @@ import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Webhook;
 import com.ultracart.admin.v2.models.WebhookLogResponse;
 import com.ultracart.admin.v2.models.WebhookLogSummariesResponse;
+import com.ultracart.admin.v2.models.WebhookReflowResponse;
 import com.ultracart.admin.v2.models.WebhookResponse;
-import com.ultracart.admin.v2.models.WebhookSampleRequestResponse;
 import com.ultracart.admin.v2.models.WebhooksResponse;
 
 import java.lang.reflect.Type;
@@ -941,11 +941,11 @@ public class WebhookApi {
      * This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
      * @param webhookOid The webhook oid that is receiving the reflowed events. (required)
      * @param eventName The event to reflow. (required)
-     * @return WebhookSampleRequestResponse
+     * @return WebhookReflowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WebhookSampleRequestResponse resendEvent(Integer webhookOid, String eventName) throws ApiException {
-        ApiResponse<WebhookSampleRequestResponse> resp = resendEventWithHttpInfo(webhookOid, eventName);
+    public WebhookReflowResponse resendEvent(Integer webhookOid, String eventName) throws ApiException {
+        ApiResponse<WebhookReflowResponse> resp = resendEventWithHttpInfo(webhookOid, eventName);
         return resp.getData();
     }
 
@@ -954,12 +954,12 @@ public class WebhookApi {
      * This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
      * @param webhookOid The webhook oid that is receiving the reflowed events. (required)
      * @param eventName The event to reflow. (required)
-     * @return ApiResponse&lt;WebhookSampleRequestResponse&gt;
+     * @return ApiResponse&lt;WebhookReflowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WebhookSampleRequestResponse> resendEventWithHttpInfo(Integer webhookOid, String eventName) throws ApiException {
+    public ApiResponse<WebhookReflowResponse> resendEventWithHttpInfo(Integer webhookOid, String eventName) throws ApiException {
         com.squareup.okhttp.Call call = resendEventValidateBeforeCall(webhookOid, eventName, null, null);
-        Type localVarReturnType = new TypeToken<WebhookSampleRequestResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<WebhookReflowResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -972,7 +972,7 @@ public class WebhookApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call resendEventAsync(Integer webhookOid, String eventName, final ApiCallback<WebhookSampleRequestResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call resendEventAsync(Integer webhookOid, String eventName, final ApiCallback<WebhookReflowResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -994,7 +994,7 @@ public class WebhookApi {
         }
 
         com.squareup.okhttp.Call call = resendEventValidateBeforeCall(webhookOid, eventName, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WebhookSampleRequestResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<WebhookReflowResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

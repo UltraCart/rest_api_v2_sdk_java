@@ -20,6 +20,8 @@ Method | HTTP request | Description
 [**insertDigitalItem**](ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**insertReview**](ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
+[**insertUpdateItemContentAttribute**](ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
+[**restItemInventorySnapshotResponse**](ItemApi.md#restItemInventorySnapshotResponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**updateDigitalItem**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -874,6 +876,103 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="insertUpdateItemContentAttribute"></a>
+# **insertUpdateItemContentAttribute**
+> insertUpdateItemContentAttribute(itemAttribute, merchantItemOid)
+
+Upsert an item content attribute
+
+Update an item content attribute, creating it new if it does not yet exist. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ItemApi apiInstance = new ItemApi(apiKey);
+
+ItemContentAttribute itemAttribute = new ItemContentAttribute(); // ItemContentAttribute | Item content attribute to upsert
+Integer merchantItemOid = 56; // Integer | The item oid to modify.
+try {
+    apiInstance.insertUpdateItemContentAttribute(itemAttribute, merchantItemOid);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#insertUpdateItemContentAttribute");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemAttribute** | [**ItemContentAttribute**](ItemContentAttribute.md)| Item content attribute to upsert |
+ **merchantItemOid** | **Integer**| The item oid to modify. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="restItemInventorySnapshotResponse"></a>
+# **restItemInventorySnapshotResponse**
+> ItemInventorySnapshotResponse restItemInventorySnapshotResponse()
+
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ItemApi apiInstance = new ItemApi(apiKey);
+
+try {
+    ItemInventorySnapshotResponse result = apiInstance.restItemInventorySnapshotResponse();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#restItemInventorySnapshotResponse");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ItemInventorySnapshotResponse**](ItemInventorySnapshotResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="updateDigitalItem"></a>

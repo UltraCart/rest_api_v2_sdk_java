@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CouponAmountOffItems
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -40,6 +40,9 @@ public class CouponAmountOffItems {
 
   @SerializedName("discount_amount")
   private BigDecimal discountAmount = null;
+
+  @SerializedName("item_tags")
+  private List<String> itemTags = null;
 
   @SerializedName("items")
   private List<String> items = null;
@@ -81,6 +84,32 @@ public class CouponAmountOffItems {
 
   public void setDiscountAmount(BigDecimal discountAmount) {
     this.discountAmount = discountAmount;
+  }
+
+  public CouponAmountOffItems itemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponAmountOffItems addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<String>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount.
+   * @return itemTags
+  **/
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount.")
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
   }
 
   public CouponAmountOffItems items(List<String> items) {
@@ -139,13 +168,14 @@ public class CouponAmountOffItems {
     CouponAmountOffItems couponAmountOffItems = (CouponAmountOffItems) o;
     return Objects.equals(this.currencyCode, couponAmountOffItems.currencyCode) &&
         Objects.equals(this.discountAmount, couponAmountOffItems.discountAmount) &&
+        Objects.equals(this.itemTags, couponAmountOffItems.itemTags) &&
         Objects.equals(this.items, couponAmountOffItems.items) &&
         Objects.equals(this.limit, couponAmountOffItems.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, discountAmount, items, limit);
+    return Objects.hash(currencyCode, discountAmount, itemTags, items, limit);
   }
 
 
@@ -156,6 +186,7 @@ public class CouponAmountOffItems {
     
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");

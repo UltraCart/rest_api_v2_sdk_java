@@ -5,7 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actualFulfillment** | [**Currency**](Currency.md) |  |  [optional]
+**actualOtherCost** | [**Currency**](Currency.md) |  |  [optional]
 **actualPaymentProcessing** | [**Currency**](Currency.md) |  |  [optional]
+**actualProfit** | [**Currency**](Currency.md) |  |  [optional]
+**actualProfitAnalyzed** | **Boolean** | Actual profit has been analyzed |  [optional]
+**actualProfitReview** | **Boolean** | Actual profit needs review |  [optional]
 **actualShipping** | [**Currency**](Currency.md) |  |  [optional]
 **arbitraryShippingHandlingTotal** | [**Currency**](Currency.md) |  |  [optional]
 **healthBenefitCardAmount** | [**Currency**](Currency.md) |  |  [optional]

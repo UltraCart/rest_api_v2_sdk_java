@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * OrderUtm
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -72,8 +72,32 @@ public class OrderUtm {
   @SerializedName("glcid")
   private String glcid = null;
 
+  @SerializedName("itm_campaign")
+  private String itmCampaign = null;
+
+  @SerializedName("itm_content")
+  private String itmContent = null;
+
+  @SerializedName("itm_id")
+  private String itmId = null;
+
+  @SerializedName("itm_medium")
+  private String itmMedium = null;
+
+  @SerializedName("itm_source")
+  private String itmSource = null;
+
+  @SerializedName("itm_term")
+  private String itmTerm = null;
+
   @SerializedName("msclkid")
   private String msclkid = null;
+
+  @SerializedName("short_code")
+  private String shortCode = null;
+
+  @SerializedName("short_code_backup")
+  private Boolean shortCodeBackup = null;
 
   @SerializedName("ttclid")
   private String ttclid = null;
@@ -339,6 +363,114 @@ public class OrderUtm {
     this.glcid = glcid;
   }
 
+  public OrderUtm itmCampaign(String itmCampaign) {
+    this.itmCampaign = itmCampaign;
+    return this;
+  }
+
+   /**
+   * Get itmCampaign
+   * @return itmCampaign
+  **/
+  @ApiModelProperty(value = "")
+  public String getItmCampaign() {
+    return itmCampaign;
+  }
+
+  public void setItmCampaign(String itmCampaign) {
+    this.itmCampaign = itmCampaign;
+  }
+
+  public OrderUtm itmContent(String itmContent) {
+    this.itmContent = itmContent;
+    return this;
+  }
+
+   /**
+   * Get itmContent
+   * @return itmContent
+  **/
+  @ApiModelProperty(value = "")
+  public String getItmContent() {
+    return itmContent;
+  }
+
+  public void setItmContent(String itmContent) {
+    this.itmContent = itmContent;
+  }
+
+  public OrderUtm itmId(String itmId) {
+    this.itmId = itmId;
+    return this;
+  }
+
+   /**
+   * Get itmId
+   * @return itmId
+  **/
+  @ApiModelProperty(value = "")
+  public String getItmId() {
+    return itmId;
+  }
+
+  public void setItmId(String itmId) {
+    this.itmId = itmId;
+  }
+
+  public OrderUtm itmMedium(String itmMedium) {
+    this.itmMedium = itmMedium;
+    return this;
+  }
+
+   /**
+   * Get itmMedium
+   * @return itmMedium
+  **/
+  @ApiModelProperty(value = "")
+  public String getItmMedium() {
+    return itmMedium;
+  }
+
+  public void setItmMedium(String itmMedium) {
+    this.itmMedium = itmMedium;
+  }
+
+  public OrderUtm itmSource(String itmSource) {
+    this.itmSource = itmSource;
+    return this;
+  }
+
+   /**
+   * Get itmSource
+   * @return itmSource
+  **/
+  @ApiModelProperty(value = "")
+  public String getItmSource() {
+    return itmSource;
+  }
+
+  public void setItmSource(String itmSource) {
+    this.itmSource = itmSource;
+  }
+
+  public OrderUtm itmTerm(String itmTerm) {
+    this.itmTerm = itmTerm;
+    return this;
+  }
+
+   /**
+   * Get itmTerm
+   * @return itmTerm
+  **/
+  @ApiModelProperty(value = "")
+  public String getItmTerm() {
+    return itmTerm;
+  }
+
+  public void setItmTerm(String itmTerm) {
+    this.itmTerm = itmTerm;
+  }
+
   public OrderUtm msclkid(String msclkid) {
     this.msclkid = msclkid;
     return this;
@@ -355,6 +487,42 @@ public class OrderUtm {
 
   public void setMsclkid(String msclkid) {
     this.msclkid = msclkid;
+  }
+
+  public OrderUtm shortCode(String shortCode) {
+    this.shortCode = shortCode;
+    return this;
+  }
+
+   /**
+   * Get shortCode
+   * @return shortCode
+  **/
+  @ApiModelProperty(value = "")
+  public String getShortCode() {
+    return shortCode;
+  }
+
+  public void setShortCode(String shortCode) {
+    this.shortCode = shortCode;
+  }
+
+  public OrderUtm shortCodeBackup(Boolean shortCodeBackup) {
+    this.shortCodeBackup = shortCodeBackup;
+    return this;
+  }
+
+   /**
+   * Get shortCodeBackup
+   * @return shortCodeBackup
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isShortCodeBackup() {
+    return shortCodeBackup;
+  }
+
+  public void setShortCodeBackup(Boolean shortCodeBackup) {
+    this.shortCodeBackup = shortCodeBackup;
   }
 
   public OrderUtm ttclid(String ttclid) {
@@ -560,7 +728,15 @@ public class OrderUtm {
         Objects.equals(this.fbclid, orderUtm.fbclid) &&
         Objects.equals(this.gbraid, orderUtm.gbraid) &&
         Objects.equals(this.glcid, orderUtm.glcid) &&
+        Objects.equals(this.itmCampaign, orderUtm.itmCampaign) &&
+        Objects.equals(this.itmContent, orderUtm.itmContent) &&
+        Objects.equals(this.itmId, orderUtm.itmId) &&
+        Objects.equals(this.itmMedium, orderUtm.itmMedium) &&
+        Objects.equals(this.itmSource, orderUtm.itmSource) &&
+        Objects.equals(this.itmTerm, orderUtm.itmTerm) &&
         Objects.equals(this.msclkid, orderUtm.msclkid) &&
+        Objects.equals(this.shortCode, orderUtm.shortCode) &&
+        Objects.equals(this.shortCodeBackup, orderUtm.shortCodeBackup) &&
         Objects.equals(this.ttclid, orderUtm.ttclid) &&
         Objects.equals(this.ucMessageId, orderUtm.ucMessageId) &&
         Objects.equals(this.utmCampaign, orderUtm.utmCampaign) &&
@@ -575,7 +751,7 @@ public class OrderUtm {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributionFirstClickSubtotal, attributionFirstClickTotal, attributionLastClickSubtotal, attributionLastClickTotal, attributionLinearSubtotal, attributionLinearTotal, attributionPositionBasedSubtotal, attributionPositionBasedTotal, clickDts, facebookAdId, fbclid, gbraid, glcid, msclkid, ttclid, ucMessageId, utmCampaign, utmContent, utmId, utmMedium, utmSource, utmTerm, vmcid, wbraid);
+    return Objects.hash(attributionFirstClickSubtotal, attributionFirstClickTotal, attributionLastClickSubtotal, attributionLastClickTotal, attributionLinearSubtotal, attributionLinearTotal, attributionPositionBasedSubtotal, attributionPositionBasedTotal, clickDts, facebookAdId, fbclid, gbraid, glcid, itmCampaign, itmContent, itmId, itmMedium, itmSource, itmTerm, msclkid, shortCode, shortCodeBackup, ttclid, ucMessageId, utmCampaign, utmContent, utmId, utmMedium, utmSource, utmTerm, vmcid, wbraid);
   }
 
 
@@ -597,7 +773,15 @@ public class OrderUtm {
     sb.append("    fbclid: ").append(toIndentedString(fbclid)).append("\n");
     sb.append("    gbraid: ").append(toIndentedString(gbraid)).append("\n");
     sb.append("    glcid: ").append(toIndentedString(glcid)).append("\n");
+    sb.append("    itmCampaign: ").append(toIndentedString(itmCampaign)).append("\n");
+    sb.append("    itmContent: ").append(toIndentedString(itmContent)).append("\n");
+    sb.append("    itmId: ").append(toIndentedString(itmId)).append("\n");
+    sb.append("    itmMedium: ").append(toIndentedString(itmMedium)).append("\n");
+    sb.append("    itmSource: ").append(toIndentedString(itmSource)).append("\n");
+    sb.append("    itmTerm: ").append(toIndentedString(itmTerm)).append("\n");
     sb.append("    msclkid: ").append(toIndentedString(msclkid)).append("\n");
+    sb.append("    shortCode: ").append(toIndentedString(shortCode)).append("\n");
+    sb.append("    shortCodeBackup: ").append(toIndentedString(shortCodeBackup)).append("\n");
     sb.append("    ttclid: ").append(toIndentedString(ttclid)).append("\n");
     sb.append("    ucMessageId: ").append(toIndentedString(ucMessageId)).append("\n");
     sb.append("    utmCampaign: ").append(toIndentedString(utmCampaign)).append("\n");

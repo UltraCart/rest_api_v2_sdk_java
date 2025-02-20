@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Twilio
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -37,14 +37,29 @@ public class Twilio {
   @SerializedName("account_sid")
   private String accountSid = null;
 
+  @SerializedName("api_key_id")
+  private String apiKeyId = null;
+
+  @SerializedName("api_key_name")
+  private String apiKeyName = null;
+
   @SerializedName("auth_token")
   private String authToken = null;
 
   @SerializedName("esp_twilio_uuid")
   private String espTwilioUuid = null;
 
+  @SerializedName("inbound_twiml_app_sid")
+  private String inboundTwimlAppSid = null;
+
+  @SerializedName("outbound_twiml_app_sid")
+  private String outboundTwimlAppSid = null;
+
   @SerializedName("phone_numbers")
   private List<String> phoneNumbers = null;
+
+  @SerializedName("twilio_workspace_sid")
+  private String twilioWorkspaceSid = null;
 
   public Twilio accountSid(String accountSid) {
     this.accountSid = accountSid;
@@ -62,6 +77,42 @@ public class Twilio {
 
   public void setAccountSid(String accountSid) {
     this.accountSid = accountSid;
+  }
+
+  public Twilio apiKeyId(String apiKeyId) {
+    this.apiKeyId = apiKeyId;
+    return this;
+  }
+
+   /**
+   * Get apiKeyId
+   * @return apiKeyId
+  **/
+  @ApiModelProperty(value = "")
+  public String getApiKeyId() {
+    return apiKeyId;
+  }
+
+  public void setApiKeyId(String apiKeyId) {
+    this.apiKeyId = apiKeyId;
+  }
+
+  public Twilio apiKeyName(String apiKeyName) {
+    this.apiKeyName = apiKeyName;
+    return this;
+  }
+
+   /**
+   * Get apiKeyName
+   * @return apiKeyName
+  **/
+  @ApiModelProperty(value = "")
+  public String getApiKeyName() {
+    return apiKeyName;
+  }
+
+  public void setApiKeyName(String apiKeyName) {
+    this.apiKeyName = apiKeyName;
   }
 
   public Twilio authToken(String authToken) {
@@ -100,6 +151,42 @@ public class Twilio {
     this.espTwilioUuid = espTwilioUuid;
   }
 
+  public Twilio inboundTwimlAppSid(String inboundTwimlAppSid) {
+    this.inboundTwimlAppSid = inboundTwimlAppSid;
+    return this;
+  }
+
+   /**
+   * Get inboundTwimlAppSid
+   * @return inboundTwimlAppSid
+  **/
+  @ApiModelProperty(value = "")
+  public String getInboundTwimlAppSid() {
+    return inboundTwimlAppSid;
+  }
+
+  public void setInboundTwimlAppSid(String inboundTwimlAppSid) {
+    this.inboundTwimlAppSid = inboundTwimlAppSid;
+  }
+
+  public Twilio outboundTwimlAppSid(String outboundTwimlAppSid) {
+    this.outboundTwimlAppSid = outboundTwimlAppSid;
+    return this;
+  }
+
+   /**
+   * Get outboundTwimlAppSid
+   * @return outboundTwimlAppSid
+  **/
+  @ApiModelProperty(value = "")
+  public String getOutboundTwimlAppSid() {
+    return outboundTwimlAppSid;
+  }
+
+  public void setOutboundTwimlAppSid(String outboundTwimlAppSid) {
+    this.outboundTwimlAppSid = outboundTwimlAppSid;
+  }
+
   public Twilio phoneNumbers(List<String> phoneNumbers) {
     this.phoneNumbers = phoneNumbers;
     return this;
@@ -126,6 +213,24 @@ public class Twilio {
     this.phoneNumbers = phoneNumbers;
   }
 
+  public Twilio twilioWorkspaceSid(String twilioWorkspaceSid) {
+    this.twilioWorkspaceSid = twilioWorkspaceSid;
+    return this;
+  }
+
+   /**
+   * Get twilioWorkspaceSid
+   * @return twilioWorkspaceSid
+  **/
+  @ApiModelProperty(value = "")
+  public String getTwilioWorkspaceSid() {
+    return twilioWorkspaceSid;
+  }
+
+  public void setTwilioWorkspaceSid(String twilioWorkspaceSid) {
+    this.twilioWorkspaceSid = twilioWorkspaceSid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -137,14 +242,19 @@ public class Twilio {
     }
     Twilio twilio = (Twilio) o;
     return Objects.equals(this.accountSid, twilio.accountSid) &&
+        Objects.equals(this.apiKeyId, twilio.apiKeyId) &&
+        Objects.equals(this.apiKeyName, twilio.apiKeyName) &&
         Objects.equals(this.authToken, twilio.authToken) &&
         Objects.equals(this.espTwilioUuid, twilio.espTwilioUuid) &&
-        Objects.equals(this.phoneNumbers, twilio.phoneNumbers);
+        Objects.equals(this.inboundTwimlAppSid, twilio.inboundTwimlAppSid) &&
+        Objects.equals(this.outboundTwimlAppSid, twilio.outboundTwimlAppSid) &&
+        Objects.equals(this.phoneNumbers, twilio.phoneNumbers) &&
+        Objects.equals(this.twilioWorkspaceSid, twilio.twilioWorkspaceSid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountSid, authToken, espTwilioUuid, phoneNumbers);
+    return Objects.hash(accountSid, apiKeyId, apiKeyName, authToken, espTwilioUuid, inboundTwimlAppSid, outboundTwimlAppSid, phoneNumbers, twilioWorkspaceSid);
   }
 
 
@@ -154,9 +264,14 @@ public class Twilio {
     sb.append("class Twilio {\n");
     
     sb.append("    accountSid: ").append(toIndentedString(accountSid)).append("\n");
+    sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
+    sb.append("    apiKeyName: ").append(toIndentedString(apiKeyName)).append("\n");
     sb.append("    authToken: ").append(toIndentedString(authToken)).append("\n");
     sb.append("    espTwilioUuid: ").append(toIndentedString(espTwilioUuid)).append("\n");
+    sb.append("    inboundTwimlAppSid: ").append(toIndentedString(inboundTwimlAppSid)).append("\n");
+    sb.append("    outboundTwimlAppSid: ").append(toIndentedString(outboundTwimlAppSid)).append("\n");
     sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
+    sb.append("    twilioWorkspaceSid: ").append(toIndentedString(twilioWorkspaceSid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

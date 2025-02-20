@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -41,14 +41,41 @@ public class ConversationAgentAuth {
   @SerializedName("conversation_participant_name")
   private String conversationParticipantName = null;
 
+  @SerializedName("group_ids")
+  private List<Integer> groupIds = null;
+
   @SerializedName("jwt")
   private String jwt = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
 
+  @SerializedName("pbx_admin")
+  private Boolean pbxAdmin = null;
+
+  @SerializedName("pbx_jwt")
+  private String pbxJwt = null;
+
+  @SerializedName("pbx_supervisor")
+  private Boolean pbxSupervisor = null;
+
+  @SerializedName("pbx_user")
+  private Boolean pbxUser = null;
+
+  @SerializedName("pbx_voice_identity")
+  private String pbxVoiceIdentity = null;
+
+  @SerializedName("pbx_voice_token")
+  private String pbxVoiceToken = null;
+
+  @SerializedName("pbx_worker_token")
+  private String pbxWorkerToken = null;
+
   @SerializedName("twilio_accounts")
   private List<ConversationTwilioAccount> twilioAccounts = null;
+
+  @SerializedName("user_id")
+  private Integer userId = null;
 
   @SerializedName("websocket_url")
   private String websocketUrl = null;
@@ -89,6 +116,32 @@ public class ConversationAgentAuth {
     this.conversationParticipantName = conversationParticipantName;
   }
 
+  public ConversationAgentAuth groupIds(List<Integer> groupIds) {
+    this.groupIds = groupIds;
+    return this;
+  }
+
+  public ConversationAgentAuth addGroupIdsItem(Integer groupIdsItem) {
+    if (this.groupIds == null) {
+      this.groupIds = new ArrayList<Integer>();
+    }
+    this.groupIds.add(groupIdsItem);
+    return this;
+  }
+
+   /**
+   * UltraCart Groups this user belongs to
+   * @return groupIds
+  **/
+  @ApiModelProperty(value = "UltraCart Groups this user belongs to")
+  public List<Integer> getGroupIds() {
+    return groupIds;
+  }
+
+  public void setGroupIds(List<Integer> groupIds) {
+    this.groupIds = groupIds;
+  }
+
   public ConversationAgentAuth jwt(String jwt) {
     this.jwt = jwt;
     return this;
@@ -125,6 +178,132 @@ public class ConversationAgentAuth {
     this.merchantId = merchantId;
   }
 
+  public ConversationAgentAuth pbxAdmin(Boolean pbxAdmin) {
+    this.pbxAdmin = pbxAdmin;
+    return this;
+  }
+
+   /**
+   * Get pbxAdmin
+   * @return pbxAdmin
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPbxAdmin() {
+    return pbxAdmin;
+  }
+
+  public void setPbxAdmin(Boolean pbxAdmin) {
+    this.pbxAdmin = pbxAdmin;
+  }
+
+  public ConversationAgentAuth pbxJwt(String pbxJwt) {
+    this.pbxJwt = pbxJwt;
+    return this;
+  }
+
+   /**
+   * Get pbxJwt
+   * @return pbxJwt
+  **/
+  @ApiModelProperty(value = "")
+  public String getPbxJwt() {
+    return pbxJwt;
+  }
+
+  public void setPbxJwt(String pbxJwt) {
+    this.pbxJwt = pbxJwt;
+  }
+
+  public ConversationAgentAuth pbxSupervisor(Boolean pbxSupervisor) {
+    this.pbxSupervisor = pbxSupervisor;
+    return this;
+  }
+
+   /**
+   * Get pbxSupervisor
+   * @return pbxSupervisor
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPbxSupervisor() {
+    return pbxSupervisor;
+  }
+
+  public void setPbxSupervisor(Boolean pbxSupervisor) {
+    this.pbxSupervisor = pbxSupervisor;
+  }
+
+  public ConversationAgentAuth pbxUser(Boolean pbxUser) {
+    this.pbxUser = pbxUser;
+    return this;
+  }
+
+   /**
+   * Get pbxUser
+   * @return pbxUser
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPbxUser() {
+    return pbxUser;
+  }
+
+  public void setPbxUser(Boolean pbxUser) {
+    this.pbxUser = pbxUser;
+  }
+
+  public ConversationAgentAuth pbxVoiceIdentity(String pbxVoiceIdentity) {
+    this.pbxVoiceIdentity = pbxVoiceIdentity;
+    return this;
+  }
+
+   /**
+   * Get pbxVoiceIdentity
+   * @return pbxVoiceIdentity
+  **/
+  @ApiModelProperty(value = "")
+  public String getPbxVoiceIdentity() {
+    return pbxVoiceIdentity;
+  }
+
+  public void setPbxVoiceIdentity(String pbxVoiceIdentity) {
+    this.pbxVoiceIdentity = pbxVoiceIdentity;
+  }
+
+  public ConversationAgentAuth pbxVoiceToken(String pbxVoiceToken) {
+    this.pbxVoiceToken = pbxVoiceToken;
+    return this;
+  }
+
+   /**
+   * Get pbxVoiceToken
+   * @return pbxVoiceToken
+  **/
+  @ApiModelProperty(value = "")
+  public String getPbxVoiceToken() {
+    return pbxVoiceToken;
+  }
+
+  public void setPbxVoiceToken(String pbxVoiceToken) {
+    this.pbxVoiceToken = pbxVoiceToken;
+  }
+
+  public ConversationAgentAuth pbxWorkerToken(String pbxWorkerToken) {
+    this.pbxWorkerToken = pbxWorkerToken;
+    return this;
+  }
+
+   /**
+   * Get pbxWorkerToken
+   * @return pbxWorkerToken
+  **/
+  @ApiModelProperty(value = "")
+  public String getPbxWorkerToken() {
+    return pbxWorkerToken;
+  }
+
+  public void setPbxWorkerToken(String pbxWorkerToken) {
+    this.pbxWorkerToken = pbxWorkerToken;
+  }
+
   public ConversationAgentAuth twilioAccounts(List<ConversationTwilioAccount> twilioAccounts) {
     this.twilioAccounts = twilioAccounts;
     return this;
@@ -149,6 +328,24 @@ public class ConversationAgentAuth {
 
   public void setTwilioAccounts(List<ConversationTwilioAccount> twilioAccounts) {
     this.twilioAccounts = twilioAccounts;
+  }
+
+  public ConversationAgentAuth userId(Integer userId) {
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * UltraCart User ID
+   * @return userId
+  **/
+  @ApiModelProperty(value = "UltraCart User ID")
+  public Integer getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Integer userId) {
+    this.userId = userId;
   }
 
   public ConversationAgentAuth websocketUrl(String websocketUrl) {
@@ -181,15 +378,24 @@ public class ConversationAgentAuth {
     ConversationAgentAuth conversationAgentAuth = (ConversationAgentAuth) o;
     return Objects.equals(this.conversationParticipantArn, conversationAgentAuth.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationAgentAuth.conversationParticipantName) &&
+        Objects.equals(this.groupIds, conversationAgentAuth.groupIds) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
         Objects.equals(this.merchantId, conversationAgentAuth.merchantId) &&
+        Objects.equals(this.pbxAdmin, conversationAgentAuth.pbxAdmin) &&
+        Objects.equals(this.pbxJwt, conversationAgentAuth.pbxJwt) &&
+        Objects.equals(this.pbxSupervisor, conversationAgentAuth.pbxSupervisor) &&
+        Objects.equals(this.pbxUser, conversationAgentAuth.pbxUser) &&
+        Objects.equals(this.pbxVoiceIdentity, conversationAgentAuth.pbxVoiceIdentity) &&
+        Objects.equals(this.pbxVoiceToken, conversationAgentAuth.pbxVoiceToken) &&
+        Objects.equals(this.pbxWorkerToken, conversationAgentAuth.pbxWorkerToken) &&
         Objects.equals(this.twilioAccounts, conversationAgentAuth.twilioAccounts) &&
+        Objects.equals(this.userId, conversationAgentAuth.userId) &&
         Objects.equals(this.websocketUrl, conversationAgentAuth.websocketUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, jwt, merchantId, twilioAccounts, websocketUrl);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, twilioAccounts, userId, websocketUrl);
   }
 
 
@@ -200,9 +406,18 @@ public class ConversationAgentAuth {
     
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
+    sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    pbxAdmin: ").append(toIndentedString(pbxAdmin)).append("\n");
+    sb.append("    pbxJwt: ").append(toIndentedString(pbxJwt)).append("\n");
+    sb.append("    pbxSupervisor: ").append(toIndentedString(pbxSupervisor)).append("\n");
+    sb.append("    pbxUser: ").append(toIndentedString(pbxUser)).append("\n");
+    sb.append("    pbxVoiceIdentity: ").append(toIndentedString(pbxVoiceIdentity)).append("\n");
+    sb.append("    pbxVoiceToken: ").append(toIndentedString(pbxVoiceToken)).append("\n");
+    sb.append("    pbxWorkerToken: ").append(toIndentedString(pbxWorkerToken)).append("\n");
     sb.append("    twilioAccounts: ").append(toIndentedString(twilioAccounts)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    websocketUrl: ").append(toIndentedString(websocketUrl)).append("\n");
     sb.append("}");
     return sb.toString();

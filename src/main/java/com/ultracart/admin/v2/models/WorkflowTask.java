@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.Property;
 import com.ultracart.admin.v2.models.WorkflowAttachment;
 import com.ultracart.admin.v2.models.WorkflowNote;
 import com.ultracart.admin.v2.models.WorkflowTaskHistory;
@@ -33,7 +34,7 @@ import java.util.List;
 /**
  * WorkflowTask
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -50,6 +51,9 @@ public class WorkflowTask {
   @SerializedName("assigned_to_user_id")
   private Integer assignedToUserId = null;
 
+  @SerializedName("assigned_to_user_or_group")
+  private String assignedToUserOrGroup = null;
+
   @SerializedName("attachments")
   private List<WorkflowAttachment> attachments = null;
 
@@ -62,8 +66,17 @@ public class WorkflowTask {
   @SerializedName("delay_until_dts")
   private String delayUntilDts = null;
 
+  @SerializedName("dependant_workflow_task_uuid")
+  private String dependantWorkflowTaskUuid = null;
+
   @SerializedName("due_dts")
   private String dueDts = null;
+
+  @SerializedName("expiration_dts")
+  private String expirationDts = null;
+
+  @SerializedName("global_task_number")
+  private Integer globalTaskNumber = null;
 
   @SerializedName("histories")
   private List<WorkflowTaskHistory> histories = null;
@@ -83,6 +96,9 @@ public class WorkflowTask {
   @SerializedName("object_id")
   private String objectId = null;
 
+  @SerializedName("object_task_number")
+  private Integer objectTaskNumber = null;
+
   /**
    * Object Type
    */
@@ -94,7 +110,9 @@ public class WorkflowTask {
     
     ITEM("item"),
     
-    CUSTOMER_PROFILE("customer profile");
+    CUSTOMER_PROFILE("customer profile"),
+    
+    STOREFRONT("storefront");
 
     private String value;
 
@@ -194,6 +212,12 @@ public class WorkflowTask {
   @SerializedName("priority")
   private PriorityEnum priority = null;
 
+  @SerializedName("properties")
+  private List<Property> properties = null;
+
+  @SerializedName("related_workflow_task_uuid")
+  private String relatedWorkflowTaskUuid = null;
+
   /**
    * Status of the workflow task
    */
@@ -205,7 +229,13 @@ public class WorkflowTask {
     
     DELAYED("delayed"),
     
-    AWAITING_CUSTOMER_FEEDBACK("awaiting customer feedback");
+    AWAITING_CUSTOMER_FEEDBACK("awaiting customer feedback"),
+    
+    CLOSED_SYSTEM("closed - system"),
+    
+    CLOSED_CUSTOMER("closed - customer"),
+    
+    CLOSED_EXPIRATION("closed - expiration");
 
     private String value;
 
@@ -247,6 +277,70 @@ public class WorkflowTask {
 
   @SerializedName("status")
   private StatusEnum status = null;
+
+  /**
+   * Constant for the type of system generated task
+   */
+  @JsonAdapter(SystemTaskTypeEnum.Adapter.class)
+  public enum SystemTaskTypeEnum {
+    ORDER_ACCOUNTS_RECEIVABLE("order_accounts_receivable"),
+    
+    ORDER_FRAUD_REVIEW("order_fraud_review"),
+    
+    AUTO_ORDER_CARD_UPDATE_ISSUE("auto_order_card_update_issue"),
+    
+    AUTO_ORDER_CANCELED_PAYMENT("auto_order_canceled_payment"),
+    
+    ITEM_LOW_STOCK("item_low_stock"),
+    
+    ITEM_OUT_OF_STOCK("item_out_of_stock");
+
+    private String value;
+
+    SystemTaskTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SystemTaskTypeEnum fromValue(String text) {
+      for (SystemTaskTypeEnum b : SystemTaskTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SystemTaskTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SystemTaskTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SystemTaskTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SystemTaskTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("system_task_type")
+  private SystemTaskTypeEnum systemTaskType = null;
+
+  @SerializedName("tags")
+  private List<String> tags = null;
+
+  @SerializedName("task_context")
+  private String taskContext = null;
 
   @SerializedName("task_details")
   private String taskDetails = null;
@@ -329,6 +423,24 @@ public class WorkflowTask {
     this.assignedToUserId = assignedToUserId;
   }
 
+  public WorkflowTask assignedToUserOrGroup(String assignedToUserOrGroup) {
+    this.assignedToUserOrGroup = assignedToUserOrGroup;
+    return this;
+  }
+
+   /**
+   * Assigned to user or group (used for sorting)
+   * @return assignedToUserOrGroup
+  **/
+  @ApiModelProperty(value = "Assigned to user or group (used for sorting)")
+  public String getAssignedToUserOrGroup() {
+    return assignedToUserOrGroup;
+  }
+
+  public void setAssignedToUserOrGroup(String assignedToUserOrGroup) {
+    this.assignedToUserOrGroup = assignedToUserOrGroup;
+  }
+
   public WorkflowTask attachments(List<WorkflowAttachment> attachments) {
     this.attachments = attachments;
     return this;
@@ -409,6 +521,24 @@ public class WorkflowTask {
     this.delayUntilDts = delayUntilDts;
   }
 
+  public WorkflowTask dependantWorkflowTaskUuid(String dependantWorkflowTaskUuid) {
+    this.dependantWorkflowTaskUuid = dependantWorkflowTaskUuid;
+    return this;
+  }
+
+   /**
+   * Dependant Workflow Task UUID (must be completed before this task can be completed)
+   * @return dependantWorkflowTaskUuid
+  **/
+  @ApiModelProperty(value = "Dependant Workflow Task UUID (must be completed before this task can be completed)")
+  public String getDependantWorkflowTaskUuid() {
+    return dependantWorkflowTaskUuid;
+  }
+
+  public void setDependantWorkflowTaskUuid(String dependantWorkflowTaskUuid) {
+    this.dependantWorkflowTaskUuid = dependantWorkflowTaskUuid;
+  }
+
   public WorkflowTask dueDts(String dueDts) {
     this.dueDts = dueDts;
     return this;
@@ -425,6 +555,42 @@ public class WorkflowTask {
 
   public void setDueDts(String dueDts) {
     this.dueDts = dueDts;
+  }
+
+  public WorkflowTask expirationDts(String expirationDts) {
+    this.expirationDts = expirationDts;
+    return this;
+  }
+
+   /**
+   * Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.
+   * @return expirationDts
+  **/
+  @ApiModelProperty(value = "Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.")
+  public String getExpirationDts() {
+    return expirationDts;
+  }
+
+  public void setExpirationDts(String expirationDts) {
+    this.expirationDts = expirationDts;
+  }
+
+  public WorkflowTask globalTaskNumber(Integer globalTaskNumber) {
+    this.globalTaskNumber = globalTaskNumber;
+    return this;
+  }
+
+   /**
+   * Global task number
+   * @return globalTaskNumber
+  **/
+  @ApiModelProperty(value = "Global task number")
+  public Integer getGlobalTaskNumber() {
+    return globalTaskNumber;
+  }
+
+  public void setGlobalTaskNumber(Integer globalTaskNumber) {
+    this.globalTaskNumber = globalTaskNumber;
   }
 
   public WorkflowTask histories(List<WorkflowTaskHistory> histories) {
@@ -551,6 +717,24 @@ public class WorkflowTask {
     this.objectId = objectId;
   }
 
+  public WorkflowTask objectTaskNumber(Integer objectTaskNumber) {
+    this.objectTaskNumber = objectTaskNumber;
+    return this;
+  }
+
+   /**
+   * Object specific task number
+   * @return objectTaskNumber
+  **/
+  @ApiModelProperty(value = "Object specific task number")
+  public Integer getObjectTaskNumber() {
+    return objectTaskNumber;
+  }
+
+  public void setObjectTaskNumber(Integer objectTaskNumber) {
+    this.objectTaskNumber = objectTaskNumber;
+  }
+
   public WorkflowTask objectType(ObjectTypeEnum objectType) {
     this.objectType = objectType;
     return this;
@@ -605,6 +789,50 @@ public class WorkflowTask {
     this.priority = priority;
   }
 
+  public WorkflowTask properties(List<Property> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public WorkflowTask addPropertiesItem(Property propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<Property>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties
+   * @return properties
+  **/
+  @ApiModelProperty(value = "Properties")
+  public List<Property> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<Property> properties) {
+    this.properties = properties;
+  }
+
+  public WorkflowTask relatedWorkflowTaskUuid(String relatedWorkflowTaskUuid) {
+    this.relatedWorkflowTaskUuid = relatedWorkflowTaskUuid;
+    return this;
+  }
+
+   /**
+   * Related Workflow Task UUID
+   * @return relatedWorkflowTaskUuid
+  **/
+  @ApiModelProperty(value = "Related Workflow Task UUID")
+  public String getRelatedWorkflowTaskUuid() {
+    return relatedWorkflowTaskUuid;
+  }
+
+  public void setRelatedWorkflowTaskUuid(String relatedWorkflowTaskUuid) {
+    this.relatedWorkflowTaskUuid = relatedWorkflowTaskUuid;
+  }
+
   public WorkflowTask status(StatusEnum status) {
     this.status = status;
     return this;
@@ -621,6 +849,68 @@ public class WorkflowTask {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+  }
+
+  public WorkflowTask systemTaskType(SystemTaskTypeEnum systemTaskType) {
+    this.systemTaskType = systemTaskType;
+    return this;
+  }
+
+   /**
+   * Constant for the type of system generated task
+   * @return systemTaskType
+  **/
+  @ApiModelProperty(value = "Constant for the type of system generated task")
+  public SystemTaskTypeEnum getSystemTaskType() {
+    return systemTaskType;
+  }
+
+  public void setSystemTaskType(SystemTaskTypeEnum systemTaskType) {
+    this.systemTaskType = systemTaskType;
+  }
+
+  public WorkflowTask tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public WorkflowTask addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Tags
+   * @return tags
+  **/
+  @ApiModelProperty(value = "Tags")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  public WorkflowTask taskContext(String taskContext) {
+    this.taskContext = taskContext;
+    return this;
+  }
+
+   /**
+   * User friendly string of the task context
+   * @return taskContext
+  **/
+  @ApiModelProperty(value = "User friendly string of the task context")
+  public String getTaskContext() {
+    return taskContext;
+  }
+
+  public void setTaskContext(String taskContext) {
+    this.taskContext = taskContext;
   }
 
   public WorkflowTask taskDetails(String taskDetails) {
@@ -691,21 +981,31 @@ public class WorkflowTask {
         Objects.equals(this.assignedToGroupId, workflowTask.assignedToGroupId) &&
         Objects.equals(this.assignedToUser, workflowTask.assignedToUser) &&
         Objects.equals(this.assignedToUserId, workflowTask.assignedToUserId) &&
+        Objects.equals(this.assignedToUserOrGroup, workflowTask.assignedToUserOrGroup) &&
         Objects.equals(this.attachments, workflowTask.attachments) &&
         Objects.equals(this.createdBy, workflowTask.createdBy) &&
         Objects.equals(this.createdDts, workflowTask.createdDts) &&
         Objects.equals(this.delayUntilDts, workflowTask.delayUntilDts) &&
+        Objects.equals(this.dependantWorkflowTaskUuid, workflowTask.dependantWorkflowTaskUuid) &&
         Objects.equals(this.dueDts, workflowTask.dueDts) &&
+        Objects.equals(this.expirationDts, workflowTask.expirationDts) &&
+        Objects.equals(this.globalTaskNumber, workflowTask.globalTaskNumber) &&
         Objects.equals(this.histories, workflowTask.histories) &&
         Objects.equals(this.lastUpdateDts, workflowTask.lastUpdateDts) &&
         Objects.equals(this.merchantId, workflowTask.merchantId) &&
         Objects.equals(this.notes, workflowTask.notes) &&
         Objects.equals(this.objectEmail, workflowTask.objectEmail) &&
         Objects.equals(this.objectId, workflowTask.objectId) &&
+        Objects.equals(this.objectTaskNumber, workflowTask.objectTaskNumber) &&
         Objects.equals(this.objectType, workflowTask.objectType) &&
         Objects.equals(this.objectUrl, workflowTask.objectUrl) &&
         Objects.equals(this.priority, workflowTask.priority) &&
+        Objects.equals(this.properties, workflowTask.properties) &&
+        Objects.equals(this.relatedWorkflowTaskUuid, workflowTask.relatedWorkflowTaskUuid) &&
         Objects.equals(this.status, workflowTask.status) &&
+        Objects.equals(this.systemTaskType, workflowTask.systemTaskType) &&
+        Objects.equals(this.tags, workflowTask.tags) &&
+        Objects.equals(this.taskContext, workflowTask.taskContext) &&
         Objects.equals(this.taskDetails, workflowTask.taskDetails) &&
         Objects.equals(this.taskName, workflowTask.taskName) &&
         Objects.equals(this.workflowTaskUuid, workflowTask.workflowTaskUuid);
@@ -713,7 +1013,7 @@ public class WorkflowTask {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignedToGroup, assignedToGroupId, assignedToUser, assignedToUserId, attachments, createdBy, createdDts, delayUntilDts, dueDts, histories, lastUpdateDts, merchantId, notes, objectEmail, objectId, objectType, objectUrl, priority, status, taskDetails, taskName, workflowTaskUuid);
+    return Objects.hash(assignedToGroup, assignedToGroupId, assignedToUser, assignedToUserId, assignedToUserOrGroup, attachments, createdBy, createdDts, delayUntilDts, dependantWorkflowTaskUuid, dueDts, expirationDts, globalTaskNumber, histories, lastUpdateDts, merchantId, notes, objectEmail, objectId, objectTaskNumber, objectType, objectUrl, priority, properties, relatedWorkflowTaskUuid, status, systemTaskType, tags, taskContext, taskDetails, taskName, workflowTaskUuid);
   }
 
 
@@ -726,21 +1026,31 @@ public class WorkflowTask {
     sb.append("    assignedToGroupId: ").append(toIndentedString(assignedToGroupId)).append("\n");
     sb.append("    assignedToUser: ").append(toIndentedString(assignedToUser)).append("\n");
     sb.append("    assignedToUserId: ").append(toIndentedString(assignedToUserId)).append("\n");
+    sb.append("    assignedToUserOrGroup: ").append(toIndentedString(assignedToUserOrGroup)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    delayUntilDts: ").append(toIndentedString(delayUntilDts)).append("\n");
+    sb.append("    dependantWorkflowTaskUuid: ").append(toIndentedString(dependantWorkflowTaskUuid)).append("\n");
     sb.append("    dueDts: ").append(toIndentedString(dueDts)).append("\n");
+    sb.append("    expirationDts: ").append(toIndentedString(expirationDts)).append("\n");
+    sb.append("    globalTaskNumber: ").append(toIndentedString(globalTaskNumber)).append("\n");
     sb.append("    histories: ").append(toIndentedString(histories)).append("\n");
     sb.append("    lastUpdateDts: ").append(toIndentedString(lastUpdateDts)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    objectEmail: ").append(toIndentedString(objectEmail)).append("\n");
     sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
+    sb.append("    objectTaskNumber: ").append(toIndentedString(objectTaskNumber)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    objectUrl: ").append(toIndentedString(objectUrl)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+    sb.append("    relatedWorkflowTaskUuid: ").append(toIndentedString(relatedWorkflowTaskUuid)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    systemTaskType: ").append(toIndentedString(systemTaskType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    taskContext: ").append(toIndentedString(taskContext)).append("\n");
     sb.append("    taskDetails: ").append(toIndentedString(taskDetails)).append("\n");
     sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
     sb.append("    workflowTaskUuid: ").append(toIndentedString(workflowTaskUuid)).append("\n");

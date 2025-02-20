@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * PricingTier
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -54,6 +54,9 @@ public class PricingTier {
 
   @SerializedName("auto_approve_purchase_order")
   private Boolean autoApprovePurchaseOrder = null;
+
+  @SerializedName("currency_code")
+  private String currencyCode = null;
 
   @SerializedName("default_on_wholesale_signup")
   private Boolean defaultOnWholesaleSignup = null;
@@ -257,6 +260,24 @@ public class PricingTier {
 
   public void setAutoApprovePurchaseOrder(Boolean autoApprovePurchaseOrder) {
     this.autoApprovePurchaseOrder = autoApprovePurchaseOrder;
+  }
+
+  public PricingTier currencyCode(String currencyCode) {
+    this.currencyCode = currencyCode;
+    return this;
+  }
+
+   /**
+   * Any currency code specified on this pricing tier will force a shopping cart into that currency
+   * @return currencyCode
+  **/
+  @ApiModelProperty(value = "Any currency code specified on this pricing tier will force a shopping cart into that currency")
+  public String getCurrencyCode() {
+    return currencyCode;
+  }
+
+  public void setCurrencyCode(String currencyCode) {
+    this.currencyCode = currencyCode;
   }
 
   public PricingTier defaultOnWholesaleSignup(Boolean defaultOnWholesaleSignup) {
@@ -744,6 +765,7 @@ public class PricingTier {
         Objects.equals(this.approvalNotification, pricingTier.approvalNotification) &&
         Objects.equals(this.autoApproveCod, pricingTier.autoApproveCod) &&
         Objects.equals(this.autoApprovePurchaseOrder, pricingTier.autoApprovePurchaseOrder) &&
+        Objects.equals(this.currencyCode, pricingTier.currencyCode) &&
         Objects.equals(this.defaultOnWholesaleSignup, pricingTier.defaultOnWholesaleSignup) &&
         Objects.equals(this.defaultPercentageDiscount, pricingTier.defaultPercentageDiscount) &&
         Objects.equals(this.defaultShippingMethodOid, pricingTier.defaultShippingMethodOid) &&
@@ -774,7 +796,7 @@ public class PricingTier {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptLoyaltyRewards, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, restrictToDistributionCenterOid, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, currencyCode, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptLoyaltyRewards, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, restrictToDistributionCenterOid, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
   }
 
 
@@ -790,6 +812,7 @@ public class PricingTier {
     sb.append("    approvalNotification: ").append(toIndentedString(approvalNotification)).append("\n");
     sb.append("    autoApproveCod: ").append(toIndentedString(autoApproveCod)).append("\n");
     sb.append("    autoApprovePurchaseOrder: ").append(toIndentedString(autoApprovePurchaseOrder)).append("\n");
+    sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    defaultOnWholesaleSignup: ").append(toIndentedString(defaultOnWholesaleSignup)).append("\n");
     sb.append("    defaultPercentageDiscount: ").append(toIndentedString(defaultPercentageDiscount)).append("\n");
     sb.append("    defaultShippingMethodOid: ").append(toIndentedString(defaultShippingMethodOid)).append("\n");

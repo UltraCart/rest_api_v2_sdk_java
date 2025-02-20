@@ -43,6 +43,16 @@ Name | Type | Description | Notes
 **customField6** | **String** | Custom field 6 |  [optional]
 **customField7** | **String** | Custom field 7 |  [optional]
 **deliveryDate** | **String** | Date the customer is requesting delivery on. Typically used for perishable product delivery. |  [optional]
+**echeckBankAbaCode** | **String** | eCheck bank ABA code |  [optional]
+**echeckBankAccountName** | **String** | eCheck bank account name |  [optional]
+**echeckBankAccountNumber** | **String** | eCheck bank account number |  [optional]
+**echeckBankAccountType** | [**EcheckBankAccountTypeEnum**](#EcheckBankAccountTypeEnum) | eCheck bank account type |  [optional]
+**echeckBankName** | **String** | eCheck bank name |  [optional]
+**echeckBankOwnerType** | [**EcheckBankOwnerTypeEnum**](#EcheckBankOwnerTypeEnum) | eCheck bank owner type |  [optional]
+**echeckCustomerTaxId** | **String** | eCheck customer tax id |  [optional]
+**echeckDriversLicenseDob** | **String** | eCheck drivers license dob |  [optional]
+**echeckDriversLicenseNumber** | **String** | eCheck drivers license number |  [optional]
+**echeckDriversLicenseState** | **String** | eCheck drivers license state |  [optional]
 **email** | **String** | Email |  [optional]
 **gift** | **Boolean** | True if this order is a gift |  [optional]
 **giftEmail** | **String** | Email address of the gift recipient |  [optional]
@@ -60,6 +70,7 @@ Name | Type | Description | Notes
 **paymentMethod** | [**PaymentMethodEnum**](#PaymentMethodEnum) | Payment method |  [optional]
 **purchaseOrderNumber** | **String** | Purchase order number |  [optional]
 **rotatingTransactionGatewayCode** | **String** | The rotating transaction gateway code for the gateway used to charge this order |  [optional]
+**salesRepCode** | **String** | Sales rep code |  [optional]
 **screenBrandingThemeCode** | **String** | Screen branding theme code |  [optional]
 **shipOnDate** | **String** | Date the customer is requesting that the order ship on.  Typically used for perishable product delivery. |  [optional]
 **shipToResidential** | **Boolean** | True if the shipping adress is residential.  Effects the methods that are available to the customer as well as the price of the shipping method. |  [optional]
@@ -80,10 +91,27 @@ Name | Type | Description | Notes
 **specialInstructions** | **String** | Special instructions from the customer regarding shipping |  [optional]
 **storeCompleted** | **Boolean** | If true the order bypasses shipping and is marked completed |  [optional]
 **storeIfPaymentDeclines** | **Boolean** | If true any failed payments are placed into Accounts Receivable.  If false any failed payments result in a rejected order resulting in errors thrown during the insert routine |  [optional]
+**storefrontHostName** | **String** | StoreFront host name associated with the order |  [optional]
 **taxCounty** | **String** | The optional shipping county used to determine exact taxes |  [optional]
 **taxExempt** | **Boolean** | If true this order is marked as being tax exempt |  [optional]
 **transaction** | [**ChannelPartnerOrderTransaction**](ChannelPartnerOrderTransaction.md) |  |  [optional]
 **treatWarningsAsErrors** | **Boolean** | If true all warnings are considered errors, this is true by default |  [optional]
+
+
+<a name="EcheckBankAccountTypeEnum"></a>
+## Enum: EcheckBankAccountTypeEnum
+Name | Value
+---- | -----
+CHECKING | &quot;Checking&quot;
+SAVINGS | &quot;Savings&quot;
+
+
+<a name="EcheckBankOwnerTypeEnum"></a>
+## Enum: EcheckBankOwnerTypeEnum
+Name | Value
+---- | -----
+BUSINESS | &quot;Business&quot;
+PERSONAL | &quot;Personal&quot;
 
 
 <a name="PaymentMethodEnum"></a>
@@ -95,6 +123,7 @@ AMAZON | &quot;Amazon&quot;
 CHECK | &quot;Check&quot;
 COD | &quot;COD&quot;
 CREDIT_CARD | &quot;Credit Card&quot;
+ECHECK | &quot;eCheck&quot;
 LOANHERO | &quot;LoanHero&quot;
 MONEY_ORDER | &quot;Money Order&quot;
 PAYPAL | &quot;PayPal&quot;

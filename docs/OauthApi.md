@@ -32,7 +32,7 @@ OauthApi apiInstance = new OauthApi(apiKey);
 String clientId = "clientId_example"; // String | The OAuth application client_id.
 String grantType = "grantType_example"; // String | Type of grant
 String code = "code_example"; // String | Authorization code received back from the browser redirect
-String redirectUri = "redirectUri_example"; // String | The URI that you redirect the browser to to start the authorization process
+String redirectUri = "redirectUri_example"; // String | The URI that you redirect the browser to start the authorization process
 String refreshToken = "refreshToken_example"; // String | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token
 try {
     OauthTokenResponse result = apiInstance.oauthAccessToken(clientId, grantType, code, redirectUri, refreshToken);
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
  **clientId** | **String**| The OAuth application client_id. |
  **grantType** | **String**| Type of grant |
  **code** | **String**| Authorization code received back from the browser redirect | [optional]
- **redirectUri** | **String**| The URI that you redirect the browser to to start the authorization process | [optional]
+ **redirectUri** | **String**| The URI that you redirect the browser to start the authorization process | [optional]
  **refreshToken** | **String**| The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token | [optional]
 
 ### Return type

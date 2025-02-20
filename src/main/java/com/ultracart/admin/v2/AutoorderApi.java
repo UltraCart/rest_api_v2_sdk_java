@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.AutoOrder;
+import com.ultracart.admin.v2.models.AutoOrderConsolidate;
 import com.ultracart.admin.v2.models.AutoOrderQuery;
 import com.ultracart.admin.v2.models.AutoOrderQueryBatch;
 import com.ultracart.admin.v2.models.AutoOrderResponse;
@@ -85,6 +86,144 @@ public class AutoOrderApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for consolidateAutoOrders
+     * @param autoOrderConsolidate Auto orders to consolidate (required)
+     * @param autoOrderOid The auto order oid to consolidate into. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call consolidateAutoOrdersCall(AutoOrderConsolidate autoOrderConsolidate, Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = autoOrderConsolidate;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/{auto_order_oid}/consolidate"
+            .replaceAll("\\{" + "auto_order_oid" + "\\}", apiClient.escapeString(autoOrderOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call consolidateAutoOrdersValidateBeforeCall(AutoOrderConsolidate autoOrderConsolidate, Integer autoOrderOid, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'autoOrderConsolidate' is set
+        if (autoOrderConsolidate == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderConsolidate' when calling consolidateAutoOrders(Async)");
+        }
+        
+        // verify the required parameter 'autoOrderOid' is set
+        if (autoOrderOid == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderOid' when calling consolidateAutoOrders(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = consolidateAutoOrdersCall(autoOrderConsolidate, autoOrderOid, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Consolidates multiple auto orders
+     * Consolidates mutliple auto orders on the UltraCart account. 
+     * @param autoOrderConsolidate Auto orders to consolidate (required)
+     * @param autoOrderOid The auto order oid to consolidate into. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return AutoOrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AutoOrderResponse consolidateAutoOrders(AutoOrderConsolidate autoOrderConsolidate, Integer autoOrderOid, String expand) throws ApiException {
+        ApiResponse<AutoOrderResponse> resp = consolidateAutoOrdersWithHttpInfo(autoOrderConsolidate, autoOrderOid, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Consolidates multiple auto orders
+     * Consolidates mutliple auto orders on the UltraCart account. 
+     * @param autoOrderConsolidate Auto orders to consolidate (required)
+     * @param autoOrderOid The auto order oid to consolidate into. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;AutoOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AutoOrderResponse> consolidateAutoOrdersWithHttpInfo(AutoOrderConsolidate autoOrderConsolidate, Integer autoOrderOid, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = consolidateAutoOrdersValidateBeforeCall(autoOrderConsolidate, autoOrderOid, expand, null, null);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Consolidates multiple auto orders (asynchronously)
+     * Consolidates mutliple auto orders on the UltraCart account. 
+     * @param autoOrderConsolidate Auto orders to consolidate (required)
+     * @param autoOrderOid The auto order oid to consolidate into. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call consolidateAutoOrdersAsync(AutoOrderConsolidate autoOrderConsolidate, Integer autoOrderOid, String expand, final ApiCallback<AutoOrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = consolidateAutoOrdersValidateBeforeCall(autoOrderConsolidate, autoOrderOid, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for establishAutoOrderByReferenceOrderId
      * @param referenceOrderId The order id to attach this auto order to (required)

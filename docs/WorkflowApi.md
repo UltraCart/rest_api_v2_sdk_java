@@ -4,16 +4,65 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getWorkflowAgentWebsocketAuthorization**](WorkflowApi.md#getWorkflowAgentWebsocketAuthorization) | **PUT** /workflow/agent/auth | Get agent websocket authorization
 [**getWorkflowAssignmentGroups**](WorkflowApi.md#getWorkflowAssignmentGroups) | **GET** /workflow/assignment_groups | Retrieve a list of groups that workflow tasks can be assigned to
 [**getWorkflowAssignmentUsers**](WorkflowApi.md#getWorkflowAssignmentUsers) | **GET** /workflow/assignment_users | Retrieve a list of users that workflow tasks can be assigned to
 [**getWorkflowMe**](WorkflowApi.md#getWorkflowMe) | **GET** /workflow/me | Retrieve a user object for myself
 [**getWorkflowTask**](WorkflowApi.md#getWorkflowTask) | **GET** /workflow/tasks/{task_uuid} | Retrieve a workflow task
 [**getWorkflowTaskAttachmentUploadUrl**](WorkflowApi.md#getWorkflowTaskAttachmentUploadUrl) | **GET** /workflow/tasks/attachments/{extension} | Get a presigned workflow task attachment upload URL
 [**getWorkflowTaskByObjectType**](WorkflowApi.md#getWorkflowTaskByObjectType) | **GET** /workflow/tasks/by/{object_type}/{object_id} | Retrieve a workflow task by object type and id
+[**getWorkflowTaskOpenCount**](WorkflowApi.md#getWorkflowTaskOpenCount) | **GET** /workflow/tasks/open_count | Retrieve workflow task open count
+[**getWorkflowTaskTags**](WorkflowApi.md#getWorkflowTaskTags) | **GET** /workflow/tasks/tags | Get a list of existing workflow task tags
 [**getWorkflowTasks**](WorkflowApi.md#getWorkflowTasks) | **POST** /workflow/tasks/search | Search workflow tasks
 [**insertWorkflowTask**](WorkflowApi.md#insertWorkflowTask) | **POST** /workflow/tasks | Insert a workflow task
 [**updateWorkflowTask**](WorkflowApi.md#updateWorkflowTask) | **PUT** /workflow/tasks/{task_uuid} | Update a workflow task
 
+
+<a name="getWorkflowAgentWebsocketAuthorization"></a>
+# **getWorkflowAgentWebsocketAuthorization**
+> WorkflowAgentAuthResponse getWorkflowAgentWebsocketAuthorization()
+
+Get agent websocket authorization
+
+Retrieve a JWT to authorize an agent to make a websocket connection. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.WorkflowApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+WorkflowApi apiInstance = new WorkflowApi(apiKey);
+
+try {
+    WorkflowAgentAuthResponse result = apiInstance.getWorkflowAgentWebsocketAuthorization();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WorkflowApi#getWorkflowAgentWebsocketAuthorization");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**WorkflowAgentAuthResponse**](WorkflowAgentAuthResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="getWorkflowAssignmentGroups"></a>
 # **getWorkflowAssignmentGroups**
@@ -307,6 +356,98 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WorkflowTasksResponse**](WorkflowTasksResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getWorkflowTaskOpenCount"></a>
+# **getWorkflowTaskOpenCount**
+> WorkflowTaskOpenCountResponse getWorkflowTaskOpenCount()
+
+Retrieve workflow task open count
+
+Retrieve workflow task open count 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.WorkflowApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+WorkflowApi apiInstance = new WorkflowApi(apiKey);
+
+try {
+    WorkflowTaskOpenCountResponse result = apiInstance.getWorkflowTaskOpenCount();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WorkflowApi#getWorkflowTaskOpenCount");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**WorkflowTaskOpenCountResponse**](WorkflowTaskOpenCountResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getWorkflowTaskTags"></a>
+# **getWorkflowTaskTags**
+> WorkflowTaskTagsResponse getWorkflowTaskTags()
+
+Get a list of existing workflow task tags
+
+Retrieves a unique list of all the existing workflow task tags. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.WorkflowApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+WorkflowApi apiInstance = new WorkflowApi(apiKey);
+
+try {
+    WorkflowTaskTagsResponse result = apiInstance.getWorkflowTaskTags();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WorkflowApi#getWorkflowTaskTags");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**WorkflowTaskTagsResponse**](WorkflowTaskTagsResponse.md)
 
 ### Authorization
 

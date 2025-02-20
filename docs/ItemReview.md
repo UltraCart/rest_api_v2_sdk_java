@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **featured** | **Boolean** |  |  [optional]
 **helperfulNoVotes** | **Integer** |  |  [optional]
 **helpfulYesVotes** | **Integer** |  |  [optional]
+**merchantReply** | **String** | Merchant Reply (set to an empty string to remove) |  [optional]
 **orderId** | **String** |  |  [optional]
 **overall** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **ratingName1** | **String** | Rating Name 1 |  [optional]

@@ -29,13 +29,16 @@ import java.util.List;
 /**
  * ItemPaymentProcessing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
 public class ItemPaymentProcessing {
   @SerializedName("block_prepaid")
   private Boolean blockPrepaid = null;
+
+  @SerializedName("block_refunds")
+  private Boolean blockRefunds = null;
 
   @SerializedName("credit_card_transaction_type")
   private String creditCardTransactionType = null;
@@ -65,6 +68,24 @@ public class ItemPaymentProcessing {
 
   public void setBlockPrepaid(Boolean blockPrepaid) {
     this.blockPrepaid = blockPrepaid;
+  }
+
+  public ItemPaymentProcessing blockRefunds(Boolean blockRefunds) {
+    this.blockRefunds = blockRefunds;
+    return this;
+  }
+
+   /**
+   * True if this item should block any refund attempts
+   * @return blockRefunds
+  **/
+  @ApiModelProperty(value = "True if this item should block any refund attempts")
+  public Boolean isBlockRefunds() {
+    return blockRefunds;
+  }
+
+  public void setBlockRefunds(Boolean blockRefunds) {
+    this.blockRefunds = blockRefunds;
   }
 
   public ItemPaymentProcessing creditCardTransactionType(String creditCardTransactionType) {
@@ -166,6 +187,7 @@ public class ItemPaymentProcessing {
     }
     ItemPaymentProcessing itemPaymentProcessing = (ItemPaymentProcessing) o;
     return Objects.equals(this.blockPrepaid, itemPaymentProcessing.blockPrepaid) &&
+        Objects.equals(this.blockRefunds, itemPaymentProcessing.blockRefunds) &&
         Objects.equals(this.creditCardTransactionType, itemPaymentProcessing.creditCardTransactionType) &&
         Objects.equals(this.noRealtimeCharge, itemPaymentProcessing.noRealtimeCharge) &&
         Objects.equals(this.paymentMethodValidity, itemPaymentProcessing.paymentMethodValidity) &&
@@ -174,7 +196,7 @@ public class ItemPaymentProcessing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blockPrepaid, creditCardTransactionType, noRealtimeCharge, paymentMethodValidity, rotatingTransactionGatewayCodes);
+    return Objects.hash(blockPrepaid, blockRefunds, creditCardTransactionType, noRealtimeCharge, paymentMethodValidity, rotatingTransactionGatewayCodes);
   }
 
 
@@ -184,6 +206,7 @@ public class ItemPaymentProcessing {
     sb.append("class ItemPaymentProcessing {\n");
     
     sb.append("    blockPrepaid: ").append(toIndentedString(blockPrepaid)).append("\n");
+    sb.append("    blockRefunds: ").append(toIndentedString(blockRefunds)).append("\n");
     sb.append("    creditCardTransactionType: ").append(toIndentedString(creditCardTransactionType)).append("\n");
     sb.append("    noRealtimeCharge: ").append(toIndentedString(noRealtimeCharge)).append("\n");
     sb.append("    paymentMethodValidity: ").append(toIndentedString(paymentMethodValidity)).append("\n");

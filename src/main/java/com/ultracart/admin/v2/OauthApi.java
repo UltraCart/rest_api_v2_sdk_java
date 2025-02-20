@@ -86,7 +86,7 @@ public class OauthApi {
      * @param clientId The OAuth application client_id. (required)
      * @param grantType Type of grant (required)
      * @param code Authorization code received back from the browser redirect (optional)
-     * @param redirectUri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param redirectUri The URI that you redirect the browser to start the authorization process (optional)
      * @param refreshToken The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -169,7 +169,7 @@ public class OauthApi {
      * @param clientId The OAuth application client_id. (required)
      * @param grantType Type of grant (required)
      * @param code Authorization code received back from the browser redirect (optional)
-     * @param redirectUri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param redirectUri The URI that you redirect the browser to start the authorization process (optional)
      * @param refreshToken The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      * @return OauthTokenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -185,7 +185,7 @@ public class OauthApi {
      * @param clientId The OAuth application client_id. (required)
      * @param grantType Type of grant (required)
      * @param code Authorization code received back from the browser redirect (optional)
-     * @param redirectUri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param redirectUri The URI that you redirect the browser to start the authorization process (optional)
      * @param refreshToken The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      * @return ApiResponse&lt;OauthTokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -202,7 +202,7 @@ public class OauthApi {
      * @param clientId The OAuth application client_id. (required)
      * @param grantType Type of grant (required)
      * @param code Authorization code received back from the browser redirect (optional)
-     * @param redirectUri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param redirectUri The URI that you redirect the browser to start the authorization process (optional)
      * @param refreshToken The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

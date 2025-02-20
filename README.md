@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2023-12-15T16:13:40.363-05:00
+  - Build date: 2025-02-20T08:34:45.210-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.177</version>
+  <version>3.10.226</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.177"
+compile "com.ultracart:rest-sdk:3.10.226"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.177.jar`
+* `target/rest-sdk-3.10.226.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AffiliateApi* | [**getClicksByQuery**](docs/AffiliateApi.md#getClicksByQuery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/AffiliateApi.md#getLedgersByQuery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
+*AutoOrderApi* | [**consolidateAutoOrders**](docs/AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 *AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 *AutoOrderApi* | [**getAutoOrder**](docs/AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
@@ -128,11 +129,14 @@ Class | Method | HTTP request | Description
 *ChannelPartnerApi* | [**deleteChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#deleteChannelPartnerShipToPreference) | **DELETE** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Delete a ship to preference record for the channel partner.
 *ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateShippingForChannelPartnerOrder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 *ChannelPartnerApi* | [**estimateTaxForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateTaxForChannelPartnerOrder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
+*ChannelPartnerApi* | [**getChannelPartnerOrder**](docs/ChannelPartnerApi.md#getChannelPartnerOrder) | **GET** /channel_partner/orders/{order_id} | Retrieve a channel partner order
+*ChannelPartnerApi* | [**getChannelPartnerOrderByChannelPartnerOrderId**](docs/ChannelPartnerApi.md#getChannelPartnerOrderByChannelPartnerOrderId) | **GET** /channel_partner/orders/by_channel_partner_order_id/{order_id} | Retrieve a channel partner order by the channel partner order id
 *ChannelPartnerApi* | [**getChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#getChannelPartnerShipToPreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
 *ChannelPartnerApi* | [**getChannelPartnerShipToPreferences**](docs/ChannelPartnerApi.md#getChannelPartnerShipToPreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
 *ChannelPartnerApi* | [**getChannelPartners**](docs/ChannelPartnerApi.md#getChannelPartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
 *ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/ChannelPartnerApi.md#importChannelPartnerOrder) | **POST** /channel_partner/import | Insert channel partner order
 *ChannelPartnerApi* | [**insertChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#insertChannelPartnerShipToPreference) | **POST** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Insert a ship to preference record for the channel partner.
+*ChannelPartnerApi* | [**refundChannelPartnerOrder**](docs/ChannelPartnerApi.md#refundChannelPartnerOrder) | **PUT** /channel_partner/orders/{order_id}/refund | Refund a channel partner order
 *ChannelPartnerApi* | [**updateChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#updateChannelPartnerShipToPreference) | **PUT** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Update a ship to preference record for the channel partner.
 *ChargebackApi* | [**deleteChargeback**](docs/ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/ChargebackApi.md#getChargebackDispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
@@ -161,6 +165,14 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deleteConversationCannedMessage**](docs/ConversationApi.md#deleteConversationCannedMessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 *ConversationApi* | [**deleteDepartment**](docs/ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
+*ConversationApi* | [**deletePbxAgentVoicemail**](docs/ConversationApi.md#deletePbxAgentVoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
+*ConversationApi* | [**deletePbxAudio**](docs/ConversationApi.md#deletePbxAudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
+*ConversationApi* | [**deletePbxMenu**](docs/ConversationApi.md#deletePbxMenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
+*ConversationApi* | [**deletePbxQueue**](docs/ConversationApi.md#deletePbxQueue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
+*ConversationApi* | [**deletePbxQueueVoicemail**](docs/ConversationApi.md#deletePbxQueueVoicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
+*ConversationApi* | [**deletePbxTimeBased**](docs/ConversationApi.md#deletePbxTimeBased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
+*ConversationApi* | [**deletePbxTimeRange**](docs/ConversationApi.md#deletePbxTimeRange) | **DELETE** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Delete pbx timeRange
+*ConversationApi* | [**deletePbxVoicemailMailbox**](docs/ConversationApi.md#deletePbxVoicemailMailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
 *ConversationApi* | [**getAgentKeepAlive**](docs/ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentProfile**](docs/ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
@@ -173,18 +185,50 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationEngagements**](docs/ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
+*ConversationApi* | [**getConversationPbxAudioUploadUrl**](docs/ConversationApi.md#getConversationPbxAudioUploadUrl) | **GET** /conversation/pbx/audio/upload_url/{extension} | Get a pre-signed conversation multimedia upload URL
+*ConversationApi* | [**getConversationPbxCustomerSnapshot**](docs/ConversationApi.md#getConversationPbxCustomerSnapshot) | **POST** /conversation/pbx/customer_snapshot | Get orders and customer information for a phone number
 *ConversationApi* | [**getConversationPermissions**](docs/ConversationApi.md#getConversationPermissions) | **GET** /conversation/permissions | Retrieve conversation permissions
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/ConversationApi.md#getConversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**getConversationsAutocomplete**](docs/ConversationApi.md#getConversationsAutocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
 *ConversationApi* | [**getConversationsSearch**](docs/ConversationApi.md#getConversationsSearch) | **POST** /conversation/conversations/search | Search conversations
 *ConversationApi* | [**getLocationsForEngagement**](docs/ConversationApi.md#getLocationsForEngagement) | **POST** /conversation/locations | Get location data for engagement configuration
+*ConversationApi* | [**getPbxAgent**](docs/ConversationApi.md#getPbxAgent) | **GET** /conversation/pbx/agent/{conversationPbxAgentUuid} | Get pbx agent
+*ConversationApi* | [**getPbxAgentVoicemail**](docs/ConversationApi.md#getPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid} | Get Agent Voicemail
+*ConversationApi* | [**getPbxAgentVoicemails**](docs/ConversationApi.md#getPbxAgentVoicemails) | **GET** /conversation/pbx/agent/voicemails | Get Agent Voicemails
+*ConversationApi* | [**getPbxAgents**](docs/ConversationApi.md#getPbxAgents) | **GET** /conversation/pbx/agent | Get pbx agents
+*ConversationApi* | [**getPbxAudio**](docs/ConversationApi.md#getPbxAudio) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid} | Get pbx audio
+*ConversationApi* | [**getPbxAudioUsage**](docs/ConversationApi.md#getPbxAudioUsage) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid}/usage | Get pbx audio usage
+*ConversationApi* | [**getPbxAudios**](docs/ConversationApi.md#getPbxAudios) | **GET** /conversation/pbx/audio | Get pbx audios
+*ConversationApi* | [**getPbxMenu**](docs/ConversationApi.md#getPbxMenu) | **GET** /conversation/pbx/menu/{conversationPbxMenuUuid} | Get pbx menu
+*ConversationApi* | [**getPbxMenus**](docs/ConversationApi.md#getPbxMenus) | **GET** /conversation/pbx/menu | Get pbx menus
+*ConversationApi* | [**getPbxPhoneNumber**](docs/ConversationApi.md#getPbxPhoneNumber) | **GET** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Get pbx phoneNumber
+*ConversationApi* | [**getPbxPhoneNumbers**](docs/ConversationApi.md#getPbxPhoneNumbers) | **GET** /conversation/pbx/phone_number | Get pbx phoneNumbers
+*ConversationApi* | [**getPbxQueue**](docs/ConversationApi.md#getPbxQueue) | **GET** /conversation/pbx/queue/{conversationPbxQueueUuid} | Get pbx queue
+*ConversationApi* | [**getPbxQueueVoicemail**](docs/ConversationApi.md#getPbxQueueVoicemail) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Get Queue Voicemail
+*ConversationApi* | [**getPbxQueueVoicemails**](docs/ConversationApi.md#getPbxQueueVoicemails) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails | Get Queue Voicemails
+*ConversationApi* | [**getPbxQueues**](docs/ConversationApi.md#getPbxQueues) | **GET** /conversation/pbx/queue | Get pbx queues
+*ConversationApi* | [**getPbxTimeBased**](docs/ConversationApi.md#getPbxTimeBased) | **GET** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Get pbx timeBased
+*ConversationApi* | [**getPbxTimeBaseds**](docs/ConversationApi.md#getPbxTimeBaseds) | **GET** /conversation/pbx/time_based | Get pbx timeBaseds
+*ConversationApi* | [**getPbxTimeRange**](docs/ConversationApi.md#getPbxTimeRange) | **GET** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Get pbx timeRange
+*ConversationApi* | [**getPbxTimeRanges**](docs/ConversationApi.md#getPbxTimeRanges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
+*ConversationApi* | [**getPbxVoicemailMailbox**](docs/ConversationApi.md#getPbxVoicemailMailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
+*ConversationApi* | [**getPbxVoicemailMailboxes**](docs/ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 *ConversationApi* | [**insertConversationCannedMessage**](docs/ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
+*ConversationApi* | [**insertPbxAudio**](docs/ConversationApi.md#insertPbxAudio) | **POST** /conversation/pbx/audio | Insert pbx audio
+*ConversationApi* | [**insertPbxMenu**](docs/ConversationApi.md#insertPbxMenu) | **POST** /conversation/pbx/menu | Insert pbx menu
+*ConversationApi* | [**insertPbxQueue**](docs/ConversationApi.md#insertPbxQueue) | **POST** /conversation/pbx/queue | Insert pbx queue
+*ConversationApi* | [**insertPbxTimeBased**](docs/ConversationApi.md#insertPbxTimeBased) | **POST** /conversation/pbx/time_based | Insert pbx timeBased
+*ConversationApi* | [**insertPbxTimeRange**](docs/ConversationApi.md#insertPbxTimeRange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
+*ConversationApi* | [**insertPbxVoicemailMailbox**](docs/ConversationApi.md#insertPbxVoicemailMailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
 *ConversationApi* | [**joinConversation**](docs/ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
+*ConversationApi* | [**listenedPbxAgentVoicemail**](docs/ConversationApi.md#listenedPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
+*ConversationApi* | [**listenedPbxQueueVoicemail**](docs/ConversationApi.md#listenedPbxQueueVoicemail) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened | Listened Queue Voicemail
 *ConversationApi* | [**markReadConversation**](docs/ConversationApi.md#markReadConversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
+*ConversationApi* | [**resetConversationPbxQueueStatistics**](docs/ConversationApi.md#resetConversationPbxQueueStatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 *ConversationApi* | [**searchConversationCannedMessages**](docs/ConversationApi.md#searchConversationCannedMessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 *ConversationApi* | [**startConversation**](docs/ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
@@ -193,6 +237,14 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updateConversationDepartment**](docs/ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 *ConversationApi* | [**updateConversationEngagement**](docs/ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
 *ConversationApi* | [**updateConversationWebchatQueueStatus**](docs/ConversationApi.md#updateConversationWebchatQueueStatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
+*ConversationApi* | [**updatePbxAgent**](docs/ConversationApi.md#updatePbxAgent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
+*ConversationApi* | [**updatePbxAudio**](docs/ConversationApi.md#updatePbxAudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
+*ConversationApi* | [**updatePbxMenu**](docs/ConversationApi.md#updatePbxMenu) | **PUT** /conversation/pbx/menu/{conversationPbxMenuUuid} | Update pbx menu
+*ConversationApi* | [**updatePbxPhoneNumber**](docs/ConversationApi.md#updatePbxPhoneNumber) | **PUT** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Update pbx phoneNumber
+*ConversationApi* | [**updatePbxQueue**](docs/ConversationApi.md#updatePbxQueue) | **PUT** /conversation/pbx/queue/{conversationPbxQueueUuid} | Update pbx queue
+*ConversationApi* | [**updatePbxTimeBased**](docs/ConversationApi.md#updatePbxTimeBased) | **PUT** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Update pbx timeBased
+*ConversationApi* | [**updatePbxTimeRange**](docs/ConversationApi.md#updatePbxTimeRange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
+*ConversationApi* | [**updatePbxVoicemailMailbox**](docs/ConversationApi.md#updatePbxVoicemailMailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
 *CouponApi* | [**deleteCoupon**](docs/CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/CouponApi.md#deleteCouponsByOid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -281,6 +333,8 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**insertDigitalItem**](docs/ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 *ItemApi* | [**insertItem**](docs/ItemApi.md#insertItem) | **POST** /item/items | Create an item
 *ItemApi* | [**insertReview**](docs/ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
+*ItemApi* | [**insertUpdateItemContentAttribute**](docs/ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
+*ItemApi* | [**restItemInventorySnapshotResponse**](docs/ItemApi.md#restItemInventorySnapshotResponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 *ItemApi* | [**updateItems**](docs/ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -362,6 +416,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/StorefrontApi.md#getEmailCommseqEmailStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqPostcardStats**](docs/StorefrontApi.md#getEmailCommseqPostcardStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 *StorefrontApi* | [**getEmailCommseqPostcardTracking**](docs/StorefrontApi.md#getEmailCommseqPostcardTracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
+*StorefrontApi* | [**getEmailCommseqRateLimiters**](docs/StorefrontApi.md#getEmailCommseqRateLimiters) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters | Get email commseq rate limiters
+*StorefrontApi* | [**getEmailCommseqSmsStats**](docs/StorefrontApi.md#getEmailCommseqSmsStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/smsStats | Get email communication sequence sms stats
 *StorefrontApi* | [**getEmailCommseqStatOverall**](docs/StorefrontApi.md#getEmailCommseqStatOverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 *StorefrontApi* | [**getEmailCommseqStepStats**](docs/StorefrontApi.md#getEmailCommseqStepStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 *StorefrontApi* | [**getEmailCommseqStepWaiting**](docs/StorefrontApi.md#getEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
@@ -403,6 +459,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailSendingDomainStatus**](docs/StorefrontApi.md#getEmailSendingDomainStatus) | **POST** /storefront/email/sending_domains/{domain}/status | Get email sending domain status
 *StorefrontApi* | [**getEmailSendingDomains**](docs/StorefrontApi.md#getEmailSendingDomains) | **GET** /storefront/email/sending_domains | Get email sending domains
 *StorefrontApi* | [**getEmailSettings**](docs/StorefrontApi.md#getEmailSettings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings
+*StorefrontApi* | [**getEmailSmsOrders**](docs/StorefrontApi.md#getEmailSmsOrders) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders | Get email sms orders
 *StorefrontApi* | [**getEmailTemplate**](docs/StorefrontApi.md#getEmailTemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 *StorefrontApi* | [**getEmailTemplates**](docs/StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/StorefrontApi.md#getEmailThirdPartyProviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
@@ -445,10 +502,12 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**insertEmailPostcard**](docs/StorefrontApi.md#insertEmailPostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 *StorefrontApi* | [**insertEmailSegment**](docs/StorefrontApi.md#insertEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 *StorefrontApi* | [**insertScreenRecordingSegment**](docs/StorefrontApi.md#insertScreenRecordingSegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments | Insert screen recording segment
+*StorefrontApi* | [**insertUpdatePageContentAttribute**](docs/StorefrontApi.md#insertUpdatePageContentAttribute) | **POST** /storefront/{storefront_oid}/pages/{page_oid}/content/attributes | Upsert a page content attribute
 *StorefrontApi* | [**prepareDownloadEmailSegment**](docs/StorefrontApi.md#prepareDownloadEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
 *StorefrontApi* | [**publishLibraryItem**](docs/StorefrontApi.md#publishLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/publish | Publish library item.
 *StorefrontApi* | [**purchaseLibraryItem**](docs/StorefrontApi.md#purchaseLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/purchase | Purchase public library item, which creates a copy of the item in your personal code library
 *StorefrontApi* | [**releaseEmailCommseqStepWaiting**](docs/StorefrontApi.md#releaseEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid} | Release email communication sequence customers waiting at the specified step
+*StorefrontApi* | [**resetEmailCommseqRateLimiters**](docs/StorefrontApi.md#resetEmailCommseqRateLimiters) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters | Reset email commseq rate limiters (only callable by UltraCart Support)
 *StorefrontApi* | [**review**](docs/StorefrontApi.md#review) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review | Request a review of an email
 *StorefrontApi* | [**search**](docs/StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 *StorefrontApi* | [**search2**](docs/StorefrontApi.md#search2) | **POST** /storefront/search | Searches for all matching values (using POST)
@@ -465,6 +524,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**sequenceTest**](docs/StorefrontApi.md#sequenceTest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 *StorefrontApi* | [**startEmailCampaign**](docs/StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/StorefrontApi.md#subscribeToEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
+*StorefrontApi* | [**sunsetEmailSegment**](docs/StorefrontApi.md#sunsetEmailSegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/sunset | Sunset email segment
 *StorefrontApi* | [**unfavoriteScreenRecording**](docs/StorefrontApi.md#unfavoriteScreenRecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
 *StorefrontApi* | [**updateEmailCampaign**](docs/StorefrontApi.md#updateEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
 *StorefrontApi* | [**updateEmailCampaignFolder**](docs/StorefrontApi.md#updateEmailCampaignFolder) | **PUT** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Update email campaign folder
@@ -538,12 +598,15 @@ Class | Method | HTTP request | Description
 *WebhookApi* | [**insertWebhook**](docs/WebhookApi.md#insertWebhook) | **POST** /webhook/webhooks | Add a webhook
 *WebhookApi* | [**resendEvent**](docs/WebhookApi.md#resendEvent) | **POST** /webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
 *WebhookApi* | [**updateWebhook**](docs/WebhookApi.md#updateWebhook) | **PUT** /webhook/webhooks/{webhookOid} | Update a webhook
+*WorkflowApi* | [**getWorkflowAgentWebsocketAuthorization**](docs/WorkflowApi.md#getWorkflowAgentWebsocketAuthorization) | **PUT** /workflow/agent/auth | Get agent websocket authorization
 *WorkflowApi* | [**getWorkflowAssignmentGroups**](docs/WorkflowApi.md#getWorkflowAssignmentGroups) | **GET** /workflow/assignment_groups | Retrieve a list of groups that workflow tasks can be assigned to
 *WorkflowApi* | [**getWorkflowAssignmentUsers**](docs/WorkflowApi.md#getWorkflowAssignmentUsers) | **GET** /workflow/assignment_users | Retrieve a list of users that workflow tasks can be assigned to
 *WorkflowApi* | [**getWorkflowMe**](docs/WorkflowApi.md#getWorkflowMe) | **GET** /workflow/me | Retrieve a user object for myself
 *WorkflowApi* | [**getWorkflowTask**](docs/WorkflowApi.md#getWorkflowTask) | **GET** /workflow/tasks/{task_uuid} | Retrieve a workflow task
 *WorkflowApi* | [**getWorkflowTaskAttachmentUploadUrl**](docs/WorkflowApi.md#getWorkflowTaskAttachmentUploadUrl) | **GET** /workflow/tasks/attachments/{extension} | Get a presigned workflow task attachment upload URL
 *WorkflowApi* | [**getWorkflowTaskByObjectType**](docs/WorkflowApi.md#getWorkflowTaskByObjectType) | **GET** /workflow/tasks/by/{object_type}/{object_id} | Retrieve a workflow task by object type and id
+*WorkflowApi* | [**getWorkflowTaskOpenCount**](docs/WorkflowApi.md#getWorkflowTaskOpenCount) | **GET** /workflow/tasks/open_count | Retrieve workflow task open count
+*WorkflowApi* | [**getWorkflowTaskTags**](docs/WorkflowApi.md#getWorkflowTaskTags) | **GET** /workflow/tasks/tags | Get a list of existing workflow task tags
 *WorkflowApi* | [**getWorkflowTasks**](docs/WorkflowApi.md#getWorkflowTasks) | **POST** /workflow/tasks/search | Search workflow tasks
 *WorkflowApi* | [**insertWorkflowTask**](docs/WorkflowApi.md#insertWorkflowTask) | **POST** /workflow/tasks | Insert a workflow task
 *WorkflowApi* | [**updateWorkflowTask**](docs/WorkflowApi.md#updateWorkflowTask) | **PUT** /workflow/tasks/{task_uuid} | Update a workflow task
@@ -576,6 +639,7 @@ Class | Method | HTTP request | Description
  - [AutoOrder](docs/AutoOrder.md)
  - [AutoOrderAddonItem](docs/AutoOrderAddonItem.md)
  - [AutoOrderAddonItemOption](docs/AutoOrderAddonItemOption.md)
+ - [AutoOrderConsolidate](docs/AutoOrderConsolidate.md)
  - [AutoOrderItem](docs/AutoOrderItem.md)
  - [AutoOrderItemFutureSchedule](docs/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/AutoOrderItemOption.md)
@@ -720,6 +784,44 @@ Class | Method | HTTP request | Description
  - [ConversationMultimediaUploadUrl](docs/ConversationMultimediaUploadUrl.md)
  - [ConversationMultimediaUploadUrlResponse](docs/ConversationMultimediaUploadUrlResponse.md)
  - [ConversationParticipant](docs/ConversationParticipant.md)
+ - [ConversationPbxAgent](docs/ConversationPbxAgent.md)
+ - [ConversationPbxAgentResponse](docs/ConversationPbxAgentResponse.md)
+ - [ConversationPbxAgentsResponse](docs/ConversationPbxAgentsResponse.md)
+ - [ConversationPbxAudio](docs/ConversationPbxAudio.md)
+ - [ConversationPbxAudioResponse](docs/ConversationPbxAudioResponse.md)
+ - [ConversationPbxAudioUploadUrl](docs/ConversationPbxAudioUploadUrl.md)
+ - [ConversationPbxAudioUploadUrlResponse](docs/ConversationPbxAudioUploadUrlResponse.md)
+ - [ConversationPbxAudioUsageResponse](docs/ConversationPbxAudioUsageResponse.md)
+ - [ConversationPbxAudiosResponse](docs/ConversationPbxAudiosResponse.md)
+ - [ConversationPbxCustomerSnapshotRequest](docs/ConversationPbxCustomerSnapshotRequest.md)
+ - [ConversationPbxCustomerSnapshotResponse](docs/ConversationPbxCustomerSnapshotResponse.md)
+ - [ConversationPbxMenu](docs/ConversationPbxMenu.md)
+ - [ConversationPbxMenuMapping](docs/ConversationPbxMenuMapping.md)
+ - [ConversationPbxMenuResponse](docs/ConversationPbxMenuResponse.md)
+ - [ConversationPbxMenusResponse](docs/ConversationPbxMenusResponse.md)
+ - [ConversationPbxPhoneNumber](docs/ConversationPbxPhoneNumber.md)
+ - [ConversationPbxPhoneNumberResponse](docs/ConversationPbxPhoneNumberResponse.md)
+ - [ConversationPbxPhoneNumbersResponse](docs/ConversationPbxPhoneNumbersResponse.md)
+ - [ConversationPbxQueue](docs/ConversationPbxQueue.md)
+ - [ConversationPbxQueueMembers](docs/ConversationPbxQueueMembers.md)
+ - [ConversationPbxQueueResponse](docs/ConversationPbxQueueResponse.md)
+ - [ConversationPbxQueuesResponse](docs/ConversationPbxQueuesResponse.md)
+ - [ConversationPbxTimeBased](docs/ConversationPbxTimeBased.md)
+ - [ConversationPbxTimeBasedMapping](docs/ConversationPbxTimeBasedMapping.md)
+ - [ConversationPbxTimeBasedMappingConfig](docs/ConversationPbxTimeBasedMappingConfig.md)
+ - [ConversationPbxTimeBasedResponse](docs/ConversationPbxTimeBasedResponse.md)
+ - [ConversationPbxTimeBasedsResponse](docs/ConversationPbxTimeBasedsResponse.md)
+ - [ConversationPbxTimeRange](docs/ConversationPbxTimeRange.md)
+ - [ConversationPbxTimeRangeConfig](docs/ConversationPbxTimeRangeConfig.md)
+ - [ConversationPbxTimeRangeResponse](docs/ConversationPbxTimeRangeResponse.md)
+ - [ConversationPbxTimeRangesResponse](docs/ConversationPbxTimeRangesResponse.md)
+ - [ConversationPbxVoicemailMailbox](docs/ConversationPbxVoicemailMailbox.md)
+ - [ConversationPbxVoicemailMailboxResponse](docs/ConversationPbxVoicemailMailboxResponse.md)
+ - [ConversationPbxVoicemailMailboxesResponse](docs/ConversationPbxVoicemailMailboxesResponse.md)
+ - [ConversationPbxVoicemailMessage](docs/ConversationPbxVoicemailMessage.md)
+ - [ConversationPbxVoicemailMessageResponse](docs/ConversationPbxVoicemailMessageResponse.md)
+ - [ConversationPbxVoicemailMessageSummariesResponse](docs/ConversationPbxVoicemailMessageSummariesResponse.md)
+ - [ConversationPbxVoicemailMessageSummary](docs/ConversationPbxVoicemailMessageSummary.md)
  - [ConversationPermissions](docs/ConversationPermissions.md)
  - [ConversationPermissionsResponse](docs/ConversationPermissionsResponse.md)
  - [ConversationResponse](docs/ConversationResponse.md)
@@ -931,6 +1033,8 @@ Class | Method | HTTP request | Description
  - [EmailPostcardStat](docs/EmailPostcardStat.md)
  - [EmailPostcardTracking](docs/EmailPostcardTracking.md)
  - [EmailPostcardTrackingResponse](docs/EmailPostcardTrackingResponse.md)
+ - [EmailRateLimiter](docs/EmailRateLimiter.md)
+ - [EmailRateLimitersResponse](docs/EmailRateLimitersResponse.md)
  - [EmailSegment](docs/EmailSegment.md)
  - [EmailSegmentArchiveResponse](docs/EmailSegmentArchiveResponse.md)
  - [EmailSegmentCustomer](docs/EmailSegmentCustomer.md)
@@ -942,9 +1046,14 @@ Class | Method | HTTP request | Description
  - [EmailSendingDomainsResponse](docs/EmailSendingDomainsResponse.md)
  - [EmailSettings](docs/EmailSettings.md)
  - [EmailSettingsResponse](docs/EmailSettingsResponse.md)
+ - [EmailSmsOrder](docs/EmailSmsOrder.md)
+ - [EmailSmsOrdersResponse](docs/EmailSmsOrdersResponse.md)
+ - [EmailSmsStat](docs/EmailSmsStat.md)
  - [EmailStat](docs/EmailStat.md)
  - [EmailStatPostcardSummaryRequest](docs/EmailStatPostcardSummaryRequest.md)
  - [EmailStatPostcardSummaryResponse](docs/EmailStatPostcardSummaryResponse.md)
+ - [EmailStatSmsSummaryRequest](docs/EmailStatSmsSummaryRequest.md)
+ - [EmailStatSmsSummaryResponse](docs/EmailStatSmsSummaryResponse.md)
  - [EmailStatSummaryRequest](docs/EmailStatSummaryRequest.md)
  - [EmailStatSummaryResponse](docs/EmailStatSummaryResponse.md)
  - [EmailStepStat](docs/EmailStepStat.md)
@@ -1043,6 +1152,9 @@ Class | Method | HTTP request | Description
  - [ItemInstantPaymentNotification](docs/ItemInstantPaymentNotification.md)
  - [ItemInstantPaymentNotifications](docs/ItemInstantPaymentNotifications.md)
  - [ItemInternal](docs/ItemInternal.md)
+ - [ItemInventorySnapshot](docs/ItemInventorySnapshot.md)
+ - [ItemInventorySnapshotDistributionCenter](docs/ItemInventorySnapshotDistributionCenter.md)
+ - [ItemInventorySnapshotResponse](docs/ItemInventorySnapshotResponse.md)
  - [ItemKitComponent](docs/ItemKitComponent.md)
  - [ItemKitDefinition](docs/ItemKitDefinition.md)
  - [ItemOption](docs/ItemOption.md)
@@ -1120,6 +1232,7 @@ Class | Method | HTTP request | Description
  - [OrderChannelPartner](docs/OrderChannelPartner.md)
  - [OrderCheckout](docs/OrderCheckout.md)
  - [OrderCoupon](docs/OrderCoupon.md)
+ - [OrderCurrentStageHistory](docs/OrderCurrentStageHistory.md)
  - [OrderDigitalItem](docs/OrderDigitalItem.md)
  - [OrderDigitalOrder](docs/OrderDigitalOrder.md)
  - [OrderEdi](docs/OrderEdi.md)
@@ -1282,6 +1395,7 @@ Class | Method | HTTP request | Description
  - [StateProvince](docs/StateProvince.md)
  - [StepWaiting](docs/StepWaiting.md)
  - [StoreFront](docs/StoreFront.md)
+ - [StoreFrontPageContentAttribute](docs/StoreFrontPageContentAttribute.md)
  - [StoreFrontsResponse](docs/StoreFrontsResponse.md)
  - [TaxCity](docs/TaxCity.md)
  - [TaxCountry](docs/TaxCountry.md)
@@ -1333,11 +1447,13 @@ Class | Method | HTTP request | Description
  - [WebhookLogResponse](docs/WebhookLogResponse.md)
  - [WebhookLogSummariesResponse](docs/WebhookLogSummariesResponse.md)
  - [WebhookLogSummary](docs/WebhookLogSummary.md)
+ - [WebhookReflow](docs/WebhookReflow.md)
+ - [WebhookReflowResponse](docs/WebhookReflowResponse.md)
  - [WebhookResponse](docs/WebhookResponse.md)
- - [WebhookSampleRequest](docs/WebhookSampleRequest.md)
- - [WebhookSampleRequestResponse](docs/WebhookSampleRequestResponse.md)
  - [WebhooksResponse](docs/WebhooksResponse.md)
  - [Weight](docs/Weight.md)
+ - [WorkflowAgentAuth](docs/WorkflowAgentAuth.md)
+ - [WorkflowAgentAuthResponse](docs/WorkflowAgentAuthResponse.md)
  - [WorkflowAttachment](docs/WorkflowAttachment.md)
  - [WorkflowAttachmentUploadUrl](docs/WorkflowAttachmentUploadUrl.md)
  - [WorkflowAttachmentUploadUrlResponse](docs/WorkflowAttachmentUploadUrlResponse.md)
@@ -1346,7 +1462,9 @@ Class | Method | HTTP request | Description
  - [WorkflowNote](docs/WorkflowNote.md)
  - [WorkflowTask](docs/WorkflowTask.md)
  - [WorkflowTaskHistory](docs/WorkflowTaskHistory.md)
+ - [WorkflowTaskOpenCountResponse](docs/WorkflowTaskOpenCountResponse.md)
  - [WorkflowTaskResponse](docs/WorkflowTaskResponse.md)
+ - [WorkflowTaskTagsResponse](docs/WorkflowTaskTagsResponse.md)
  - [WorkflowTasksRequest](docs/WorkflowTasksRequest.md)
  - [WorkflowTasksResponse](docs/WorkflowTasksResponse.md)
  - [WorkflowUser](docs/WorkflowUser.md)
@@ -1433,6 +1551,55 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.226 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
+| 3.10.225 | 02/18/2025 | small bug fixes for incorrect return types on several methods |
+| 3.10.224 | 02/06/2025 | added storefront_host_name to channel partner order object |
+| 3.10.223 | 01/09/2025 | fix for broken 4.0.39 due to incorrect query sig on getCustomers |
+| 3.10.222 | 01/09/2025 | added emails parameter to customer queries, refundOrder added to Channel partner |
+| 3.10.221 | 12/13/2024 | added user and group ids to conversation agent auth object |
+| 3.10.220 | 11/11/2024 | added seo properties to item.content object |
+| 3.10.219 | 11/07/2024 | Coupon - PercentOffWithItemsQuantityPurchase - added support for tags |
+| 3.10.218 | 11/04/2024 | item - new constant for auto order schedule of every 5 months |
+| 3.10.217 | 10/24/2024 | storefront page attribute edit method |
+| 3.10.216 | 09/18/2024 | order payment constant for PayPal Fastlane |
+| 3.10.215 | 08/29/2024 | add hold_for_transmission to item shipping object |
+| 3.10.214 | 08/08/2024 | added query_target to OrderApi.getOrdersBatch to allow cache usage |
+| 3.10.213 | 06/24/2024 | conversation object cleanup |
+| 3.10.212 | 06/14/2024 | pbx menu - add say voice property |
+| 3.10.211 | 06/07/2024 | conversation pbx - adjust agent voicemail box uuid fields |
+| 3.10.210 | 06/03/2024 | conversationPbxPhoneNumber - fix serialized name for phone number UUID |
+| 3.10.209 | 05/31/2024 | ItemApi.getInventorySnapshot method |
+| 3.10.208 | 05/30/2024 | add adult sig req. to the merchant item destination markup for items |
+| 3.10.207 | 05/29/2024 | added methods getEmailCommseqRateLimiters, resetEmailCommseqRateLimiters |
+| 3.10.206 | 05/28/2024 | added property to OrderQuery object to allow querying from cache |
+| 3.10.205 | 05/17/2024 | conv.pbx time based config - changed name from default to default_mapping |
+| 3.10.204 | 05/16/2024 | OrderPayment - constants for payment method Amazon Pay and Link |
+| 3.10.203 | 05/15/2024 | conversation pbx voicemail mailbox indep. voice properties |
+| 3.10.202 | 05/15/2024 | conversation pbx - missing fields on agent object |
+| 3.10.201 | 05/14/2024 | conversation pbx - allowed value constants on the action |
+| 3.10.200 | 05/13/2024 | conversation pbx - bug fix on camelCase property names |
+| 3.10.199 | 05/13/2024 | conversation pbx - allow nullable day of week in time range |
+| 3.10.198 | 05/08/2024 | added echeck fields to channel partner order import |
+| 3.10.197 | 05/02/2024 | conversation - new method to load pbx audio usage |
+| 3.10.196 | 05/02/2024 | autoorder - fields to record merge association and tstamp |
+| 3.10.195 | 05/01/2024 | getConversationPbxAudioUploadUrl - fix the response obj def |
+| 3.10.194 | 04/24/2024 | esp - add fields for external generation on email |
+| 3.10.193 | 04/04/2024 | AutoOrder.calculated_next_shipment_dts |
+| 3.10.192 | 04/01/2024 | added merchant_id as read-only top level property of AutoOrder object |
+| 3.10.191 | 03/26/2024 | WorkflowTask - added assigned_to_user_or_group field |
+| 3.10.190 | 03/25/2024 | workflowtask - add global_task_number and object_task_number |
+| 3.10.189 | 03/25/2024 | added sales_rep_code to Channel partner order |
+| 3.10.188 | 03/19/2024 | workflow task - method to obtain open task count |
+| 3.10.187 | 03/19/2024 | workflow task - addl status values, expiration_dts, and system task type |
+| 3.10.186 | 03/15/2024 | workflow - getWorkflowAgentWebsocketAuthorization method added |
+| 3.10.185 | 03/08/2024 | added getWorkflowTaskTags method |
+| 3.10.184 | 02/27/2024 | esp - sms statistic layer |
+| 3.10.183 | 02/20/2024 | Add tag support to CouponAmountOffItems, CouponBuyOneGetOneLimit, CouponDiscountItemWithItemPurchase, CouponFreeItemWithItemPurchase, CouponPercentOffItemsWithItemsPurchase |
+| 3.10.182 | 01/16/2024 | order query - support searching by custom fields 8 through 10 |
+| 3.10.181 | 01/12/2024 | workflow task - add properties array |
+| 3.10.180 | 01/10/2024 | workflow tasks - support for searching by tags |
+| 3.10.179 | 01/10/2024 | workflow task - add uuids of related tasks and tags |
+| 3.10.178 | 01/03/2024 | workflow - add task_context field to task obj |
 | 3.10.177 | 12/15/2023 | bug fix on bad docs breaking yaml schema |
 | 3.10.176 | 12/12/2023 | webhook - added event ruler property |
 | 3.10.175 | 11/21/2023 | coupons - addl support on tiered amount/percent off items |

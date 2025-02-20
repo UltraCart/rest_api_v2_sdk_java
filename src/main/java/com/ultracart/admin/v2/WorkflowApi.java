@@ -28,10 +28,13 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.WorkflowAgentAuthResponse;
 import com.ultracart.admin.v2.models.WorkflowAttachmentUploadUrlResponse;
 import com.ultracart.admin.v2.models.WorkflowGroupsResponse;
 import com.ultracart.admin.v2.models.WorkflowTask;
+import com.ultracart.admin.v2.models.WorkflowTaskOpenCountResponse;
 import com.ultracart.admin.v2.models.WorkflowTaskResponse;
+import com.ultracart.admin.v2.models.WorkflowTaskTagsResponse;
 import com.ultracart.admin.v2.models.WorkflowTasksRequest;
 import com.ultracart.admin.v2.models.WorkflowTasksResponse;
 import com.ultracart.admin.v2.models.WorkflowUserResponse;
@@ -87,6 +90,119 @@ public class WorkflowApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for getWorkflowAgentWebsocketAuthorization
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getWorkflowAgentWebsocketAuthorizationCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/workflow/agent/auth";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getWorkflowAgentWebsocketAuthorizationValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getWorkflowAgentWebsocketAuthorizationCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get agent websocket authorization
+     * Retrieve a JWT to authorize an agent to make a websocket connection. 
+     * @return WorkflowAgentAuthResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkflowAgentAuthResponse getWorkflowAgentWebsocketAuthorization() throws ApiException {
+        ApiResponse<WorkflowAgentAuthResponse> resp = getWorkflowAgentWebsocketAuthorizationWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get agent websocket authorization
+     * Retrieve a JWT to authorize an agent to make a websocket connection. 
+     * @return ApiResponse&lt;WorkflowAgentAuthResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkflowAgentAuthResponse> getWorkflowAgentWebsocketAuthorizationWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getWorkflowAgentWebsocketAuthorizationValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<WorkflowAgentAuthResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get agent websocket authorization (asynchronously)
+     * Retrieve a JWT to authorize an agent to make a websocket connection. 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getWorkflowAgentWebsocketAuthorizationAsync(final ApiCallback<WorkflowAgentAuthResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getWorkflowAgentWebsocketAuthorizationValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<WorkflowAgentAuthResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for getWorkflowAssignmentGroups
      * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
@@ -826,6 +942,232 @@ public class WorkflowApi {
 
         com.squareup.okhttp.Call call = getWorkflowTaskByObjectTypeValidateBeforeCall(objectType, objectId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WorkflowTasksResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getWorkflowTaskOpenCount
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getWorkflowTaskOpenCountCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/workflow/tasks/open_count";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getWorkflowTaskOpenCountValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getWorkflowTaskOpenCountCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve workflow task open count
+     * Retrieve workflow task open count 
+     * @return WorkflowTaskOpenCountResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkflowTaskOpenCountResponse getWorkflowTaskOpenCount() throws ApiException {
+        ApiResponse<WorkflowTaskOpenCountResponse> resp = getWorkflowTaskOpenCountWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve workflow task open count
+     * Retrieve workflow task open count 
+     * @return ApiResponse&lt;WorkflowTaskOpenCountResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkflowTaskOpenCountResponse> getWorkflowTaskOpenCountWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getWorkflowTaskOpenCountValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<WorkflowTaskOpenCountResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve workflow task open count (asynchronously)
+     * Retrieve workflow task open count 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getWorkflowTaskOpenCountAsync(final ApiCallback<WorkflowTaskOpenCountResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getWorkflowTaskOpenCountValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<WorkflowTaskOpenCountResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getWorkflowTaskTags
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getWorkflowTaskTagsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/workflow/tasks/tags";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getWorkflowTaskTagsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getWorkflowTaskTagsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get a list of existing workflow task tags
+     * Retrieves a unique list of all the existing workflow task tags. 
+     * @return WorkflowTaskTagsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkflowTaskTagsResponse getWorkflowTaskTags() throws ApiException {
+        ApiResponse<WorkflowTaskTagsResponse> resp = getWorkflowTaskTagsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get a list of existing workflow task tags
+     * Retrieves a unique list of all the existing workflow task tags. 
+     * @return ApiResponse&lt;WorkflowTaskTagsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkflowTaskTagsResponse> getWorkflowTaskTagsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getWorkflowTaskTagsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<WorkflowTaskTagsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get a list of existing workflow task tags (asynchronously)
+     * Retrieves a unique list of all the existing workflow task tags. 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getWorkflowTaskTagsAsync(final ApiCallback<WorkflowTaskTagsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getWorkflowTaskTagsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<WorkflowTaskTagsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

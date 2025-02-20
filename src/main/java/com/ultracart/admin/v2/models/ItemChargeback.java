@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ItemChargeback
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -56,10 +56,10 @@ public class ItemChargeback {
   }
 
    /**
-   * Addendums
+   * Addendums (deprecated)
    * @return addendums
   **/
-  @ApiModelProperty(value = "Addendums")
+  @ApiModelProperty(value = "Addendums (deprecated)")
   public List<ItemChargebackAddendum> getAddendums() {
     return addendums;
   }
@@ -82,10 +82,10 @@ public class ItemChargeback {
   }
 
    /**
-   * Adjustment requests
+   * Adjustment requests (deprecated)
    * @return adjustmentRequests
   **/
-  @ApiModelProperty(value = "Adjustment requests")
+  @ApiModelProperty(value = "Adjustment requests (deprecated)")
   public List<ItemChargebackAdjustmentRequest> getAdjustmentRequests() {
     return adjustmentRequests;
   }

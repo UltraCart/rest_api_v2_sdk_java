@@ -24,20 +24,28 @@ import com.ultracart.admin.v2.models.WorkflowUser;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * WorkflowTasksRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
 public class WorkflowTasksRequest {
+  @SerializedName("assigned_to_group")
+  private String assignedToGroup = null;
+
   @SerializedName("assigned_to_group_id")
   private Integer assignedToGroupId = null;
 
   @SerializedName("assigned_to_me")
   private Boolean assignedToMe = null;
+
+  @SerializedName("assigned_to_user")
+  private String assignedToUser = null;
 
   @SerializedName("assigned_to_user_id")
   private Integer assignedToUserId = null;
@@ -234,8 +242,29 @@ public class WorkflowTasksRequest {
   @SerializedName("status")
   private StatusEnum status = null;
 
+  @SerializedName("tags")
+  private List<String> tags = null;
+
   @SerializedName("unassigned")
   private Boolean unassigned = null;
+
+  public WorkflowTasksRequest assignedToGroup(String assignedToGroup) {
+    this.assignedToGroup = assignedToGroup;
+    return this;
+  }
+
+   /**
+   * Assigned to group
+   * @return assignedToGroup
+  **/
+  @ApiModelProperty(value = "Assigned to group")
+  public String getAssignedToGroup() {
+    return assignedToGroup;
+  }
+
+  public void setAssignedToGroup(String assignedToGroup) {
+    this.assignedToGroup = assignedToGroup;
+  }
 
   public WorkflowTasksRequest assignedToGroupId(Integer assignedToGroupId) {
     this.assignedToGroupId = assignedToGroupId;
@@ -271,6 +300,24 @@ public class WorkflowTasksRequest {
 
   public void setAssignedToMe(Boolean assignedToMe) {
     this.assignedToMe = assignedToMe;
+  }
+
+  public WorkflowTasksRequest assignedToUser(String assignedToUser) {
+    this.assignedToUser = assignedToUser;
+    return this;
+  }
+
+   /**
+   * Assigned to user
+   * @return assignedToUser
+  **/
+  @ApiModelProperty(value = "Assigned to user")
+  public String getAssignedToUser() {
+    return assignedToUser;
+  }
+
+  public void setAssignedToUser(String assignedToUser) {
+    this.assignedToUser = assignedToUser;
   }
 
   public WorkflowTasksRequest assignedToUserId(Integer assignedToUserId) {
@@ -525,6 +572,32 @@ public class WorkflowTasksRequest {
     this.status = status;
   }
 
+  public WorkflowTasksRequest tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public WorkflowTasksRequest addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Tasks that are tagged with the specified tags
+   * @return tags
+  **/
+  @ApiModelProperty(value = "Tasks that are tagged with the specified tags")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public WorkflowTasksRequest unassigned(Boolean unassigned) {
     this.unassigned = unassigned;
     return this;
@@ -553,8 +626,10 @@ public class WorkflowTasksRequest {
       return false;
     }
     WorkflowTasksRequest workflowTasksRequest = (WorkflowTasksRequest) o;
-    return Objects.equals(this.assignedToGroupId, workflowTasksRequest.assignedToGroupId) &&
+    return Objects.equals(this.assignedToGroup, workflowTasksRequest.assignedToGroup) &&
+        Objects.equals(this.assignedToGroupId, workflowTasksRequest.assignedToGroupId) &&
         Objects.equals(this.assignedToMe, workflowTasksRequest.assignedToMe) &&
+        Objects.equals(this.assignedToUser, workflowTasksRequest.assignedToUser) &&
         Objects.equals(this.assignedToUserId, workflowTasksRequest.assignedToUserId) &&
         Objects.equals(this.createdBy, workflowTasksRequest.createdBy) &&
         Objects.equals(this.createdDtsBegin, workflowTasksRequest.createdDtsBegin) &&
@@ -569,12 +644,13 @@ public class WorkflowTasksRequest {
         Objects.equals(this.objectType, workflowTasksRequest.objectType) &&
         Objects.equals(this.priority, workflowTasksRequest.priority) &&
         Objects.equals(this.status, workflowTasksRequest.status) &&
+        Objects.equals(this.tags, workflowTasksRequest.tags) &&
         Objects.equals(this.unassigned, workflowTasksRequest.unassigned);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignedToGroupId, assignedToMe, assignedToUserId, createdBy, createdDtsBegin, createdDtsEnd, delayUntilDtsBegin, delayUntilDtsEnd, dueDtsBegin, dueDtsEnd, lastUpdateDtsBegin, lastUpdateDtsEnd, objectEmail, objectType, priority, status, unassigned);
+    return Objects.hash(assignedToGroup, assignedToGroupId, assignedToMe, assignedToUser, assignedToUserId, createdBy, createdDtsBegin, createdDtsEnd, delayUntilDtsBegin, delayUntilDtsEnd, dueDtsBegin, dueDtsEnd, lastUpdateDtsBegin, lastUpdateDtsEnd, objectEmail, objectType, priority, status, tags, unassigned);
   }
 
 
@@ -583,8 +659,10 @@ public class WorkflowTasksRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkflowTasksRequest {\n");
     
+    sb.append("    assignedToGroup: ").append(toIndentedString(assignedToGroup)).append("\n");
     sb.append("    assignedToGroupId: ").append(toIndentedString(assignedToGroupId)).append("\n");
     sb.append("    assignedToMe: ").append(toIndentedString(assignedToMe)).append("\n");
+    sb.append("    assignedToUser: ").append(toIndentedString(assignedToUser)).append("\n");
     sb.append("    assignedToUserId: ").append(toIndentedString(assignedToUserId)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdDtsBegin: ").append(toIndentedString(createdDtsBegin)).append("\n");
@@ -599,6 +677,7 @@ public class WorkflowTasksRequest {
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    unassigned: ").append(toIndentedString(unassigned)).append("\n");
     sb.append("}");
     return sb.toString();

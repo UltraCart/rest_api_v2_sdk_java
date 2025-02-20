@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accountingCode** | **String** | QuickBooks code |  [optional]
 **activationCodes** | **List&lt;String&gt;** | Activation codes assigned to this item |  [optional]
+**actualCogs** | [**Currency**](Currency.md) |  |  [optional]
 **arbitraryUnitCost** | [**Currency**](Currency.md) |  |  [optional]
 **autoOrderLastRebillDts** | **String** | Date/time of the last rebill, used only during order insert to help project future rebills |  [optional]
 **autoOrderSchedule** | **String** | Auto order schedule, used only during inserts supplying the recurring schedule |  [optional]

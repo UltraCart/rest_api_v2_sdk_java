@@ -27,13 +27,16 @@ import java.io.IOException;
 /**
  * CartCheckout
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
 public class CartCheckout {
   @SerializedName("comments")
   private String comments = null;
+
+  @SerializedName("current_step")
+  private String currentStep = null;
 
   @SerializedName("custom_field1")
   private String customField1 = null;
@@ -99,6 +102,24 @@ public class CartCheckout {
 
   public void setComments(String comments) {
     this.comments = comments;
+  }
+
+  public CartCheckout currentStep(String currentStep) {
+    this.currentStep = currentStep;
+    return this;
+  }
+
+   /**
+   * Current step of the checkout (read only)
+   * @return currentStep
+  **/
+  @ApiModelProperty(value = "Current step of the checkout (read only)")
+  public String getCurrentStep() {
+    return currentStep;
+  }
+
+  public void setCurrentStep(String currentStep) {
+    this.currentStep = currentStep;
   }
 
   public CartCheckout customField1(String customField1) {
@@ -400,6 +421,7 @@ public class CartCheckout {
     }
     CartCheckout cartCheckout = (CartCheckout) o;
     return Objects.equals(this.comments, cartCheckout.comments) &&
+        Objects.equals(this.currentStep, cartCheckout.currentStep) &&
         Objects.equals(this.customField1, cartCheckout.customField1) &&
         Objects.equals(this.customField10, cartCheckout.customField10) &&
         Objects.equals(this.customField2, cartCheckout.customField2) &&
@@ -420,7 +442,7 @@ public class CartCheckout {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, ipAddress, returnCode, returnUrl, screenBrandingThemeCode, storefrontHostName, userAgent);
+    return Objects.hash(comments, currentStep, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, ipAddress, returnCode, returnUrl, screenBrandingThemeCode, storefrontHostName, userAgent);
   }
 
 
@@ -430,6 +452,7 @@ public class CartCheckout {
     sb.append("class CartCheckout {\n");
     
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    currentStep: ").append(toIndentedString(currentStep)).append("\n");
     sb.append("    customField1: ").append(toIndentedString(customField1)).append("\n");
     sb.append("    customField10: ").append(toIndentedString(customField10)).append("\n");
     sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");

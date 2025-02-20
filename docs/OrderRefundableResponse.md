@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  |  [optional]
 **orderLevelRefundReasonRequired** | **Boolean** | True if the order level refund reason is required |  [optional]
 **orderLevelRefundReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Reason codes available at the order level. |  [optional]
+**orderLevelRejectReasonRequired** | **Boolean** | True if the order level reject reason is required |  [optional]
 **orderLevelRejectReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Reject codes available at the order level. |  [optional]
 **refundable** | **Boolean** | Whether the order is refundable or not.  Null should be interpreted as false. |  [optional]
 **success** | **Boolean** | Indicates if API call was successful |  [optional]

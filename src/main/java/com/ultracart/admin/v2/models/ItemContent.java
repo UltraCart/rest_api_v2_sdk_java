@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ItemContent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -60,6 +60,15 @@ public class ItemContent {
 
   @SerializedName("extended_description_translated_text_instance_oid")
   private Integer extendedDescriptionTranslatedTextInstanceOid = null;
+
+  @SerializedName("meta_description")
+  private String metaDescription = null;
+
+  @SerializedName("meta_keywords")
+  private String metaKeywords = null;
+
+  @SerializedName("meta_title")
+  private String metaTitle = null;
 
   @SerializedName("multimedia")
   private List<ItemContentMultimedia> multimedia = null;
@@ -224,16 +233,70 @@ public class ItemContent {
   }
 
    /**
-   * Extneded description text translation instance identifier
+   * Extended description text translation instance identifier
    * @return extendedDescriptionTranslatedTextInstanceOid
   **/
-  @ApiModelProperty(value = "Extneded description text translation instance identifier")
+  @ApiModelProperty(value = "Extended description text translation instance identifier")
   public Integer getExtendedDescriptionTranslatedTextInstanceOid() {
     return extendedDescriptionTranslatedTextInstanceOid;
   }
 
   public void setExtendedDescriptionTranslatedTextInstanceOid(Integer extendedDescriptionTranslatedTextInstanceOid) {
     this.extendedDescriptionTranslatedTextInstanceOid = extendedDescriptionTranslatedTextInstanceOid;
+  }
+
+  public ItemContent metaDescription(String metaDescription) {
+    this.metaDescription = metaDescription;
+    return this;
+  }
+
+   /**
+   * SEO meta description used by Storefronts
+   * @return metaDescription
+  **/
+  @ApiModelProperty(value = "SEO meta description used by Storefronts")
+  public String getMetaDescription() {
+    return metaDescription;
+  }
+
+  public void setMetaDescription(String metaDescription) {
+    this.metaDescription = metaDescription;
+  }
+
+  public ItemContent metaKeywords(String metaKeywords) {
+    this.metaKeywords = metaKeywords;
+    return this;
+  }
+
+   /**
+   * SEO meta keywords used by Storefronts
+   * @return metaKeywords
+  **/
+  @ApiModelProperty(value = "SEO meta keywords used by Storefronts")
+  public String getMetaKeywords() {
+    return metaKeywords;
+  }
+
+  public void setMetaKeywords(String metaKeywords) {
+    this.metaKeywords = metaKeywords;
+  }
+
+  public ItemContent metaTitle(String metaTitle) {
+    this.metaTitle = metaTitle;
+    return this;
+  }
+
+   /**
+   * SEO meta title used by Storefronts
+   * @return metaTitle
+  **/
+  @ApiModelProperty(value = "SEO meta title used by Storefronts")
+  public String getMetaTitle() {
+    return metaTitle;
+  }
+
+  public void setMetaTitle(String metaTitle) {
+    this.metaTitle = metaTitle;
   }
 
   public ItemContent multimedia(List<ItemContentMultimedia> multimedia) {
@@ -352,6 +415,9 @@ public class ItemContent {
         Objects.equals(this.excludeFromTopSellers, itemContent.excludeFromTopSellers) &&
         Objects.equals(this.extendedDescription, itemContent.extendedDescription) &&
         Objects.equals(this.extendedDescriptionTranslatedTextInstanceOid, itemContent.extendedDescriptionTranslatedTextInstanceOid) &&
+        Objects.equals(this.metaDescription, itemContent.metaDescription) &&
+        Objects.equals(this.metaKeywords, itemContent.metaKeywords) &&
+        Objects.equals(this.metaTitle, itemContent.metaTitle) &&
         Objects.equals(this.multimedia, itemContent.multimedia) &&
         Objects.equals(this.newItem, itemContent.newItem) &&
         Objects.equals(this.newItemEnd, itemContent.newItemEnd) &&
@@ -361,7 +427,7 @@ public class ItemContent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignments, attributes, customThankYouUrl, excludeFromSearch, excludeFromSitemap, excludeFromTopSellers, extendedDescription, extendedDescriptionTranslatedTextInstanceOid, multimedia, newItem, newItemEnd, newItemStart, viewUrl);
+    return Objects.hash(assignments, attributes, customThankYouUrl, excludeFromSearch, excludeFromSitemap, excludeFromTopSellers, extendedDescription, extendedDescriptionTranslatedTextInstanceOid, metaDescription, metaKeywords, metaTitle, multimedia, newItem, newItemEnd, newItemStart, viewUrl);
   }
 
 
@@ -378,6 +444,9 @@ public class ItemContent {
     sb.append("    excludeFromTopSellers: ").append(toIndentedString(excludeFromTopSellers)).append("\n");
     sb.append("    extendedDescription: ").append(toIndentedString(extendedDescription)).append("\n");
     sb.append("    extendedDescriptionTranslatedTextInstanceOid: ").append(toIndentedString(extendedDescriptionTranslatedTextInstanceOid)).append("\n");
+    sb.append("    metaDescription: ").append(toIndentedString(metaDescription)).append("\n");
+    sb.append("    metaKeywords: ").append(toIndentedString(metaKeywords)).append("\n");
+    sb.append("    metaTitle: ").append(toIndentedString(metaTitle)).append("\n");
     sb.append("    multimedia: ").append(toIndentedString(multimedia)).append("\n");
     sb.append("    newItem: ").append(toIndentedString(newItem)).append("\n");
     sb.append("    newItemEnd: ").append(toIndentedString(newItemEnd)).append("\n");

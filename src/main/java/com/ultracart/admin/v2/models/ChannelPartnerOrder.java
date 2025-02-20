@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ChannelPartnerOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -154,6 +154,130 @@ public class ChannelPartnerOrder {
   @SerializedName("delivery_date")
   private String deliveryDate = null;
 
+  @SerializedName("echeck_bank_aba_code")
+  private String echeckBankAbaCode = null;
+
+  @SerializedName("echeck_bank_account_name")
+  private String echeckBankAccountName = null;
+
+  @SerializedName("echeck_bank_account_number")
+  private String echeckBankAccountNumber = null;
+
+  /**
+   * eCheck bank account type
+   */
+  @JsonAdapter(EcheckBankAccountTypeEnum.Adapter.class)
+  public enum EcheckBankAccountTypeEnum {
+    CHECKING("Checking"),
+    
+    SAVINGS("Savings");
+
+    private String value;
+
+    EcheckBankAccountTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EcheckBankAccountTypeEnum fromValue(String text) {
+      for (EcheckBankAccountTypeEnum b : EcheckBankAccountTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EcheckBankAccountTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EcheckBankAccountTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EcheckBankAccountTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EcheckBankAccountTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("echeck_bank_account_type")
+  private EcheckBankAccountTypeEnum echeckBankAccountType = null;
+
+  @SerializedName("echeck_bank_name")
+  private String echeckBankName = null;
+
+  /**
+   * eCheck bank owner type
+   */
+  @JsonAdapter(EcheckBankOwnerTypeEnum.Adapter.class)
+  public enum EcheckBankOwnerTypeEnum {
+    BUSINESS("Business"),
+    
+    PERSONAL("Personal");
+
+    private String value;
+
+    EcheckBankOwnerTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EcheckBankOwnerTypeEnum fromValue(String text) {
+      for (EcheckBankOwnerTypeEnum b : EcheckBankOwnerTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EcheckBankOwnerTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EcheckBankOwnerTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EcheckBankOwnerTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EcheckBankOwnerTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("echeck_bank_owner_type")
+  private EcheckBankOwnerTypeEnum echeckBankOwnerType = null;
+
+  @SerializedName("echeck_customer_tax_id")
+  private String echeckCustomerTaxId = null;
+
+  @SerializedName("echeck_drivers_license_dob")
+  private String echeckDriversLicenseDob = null;
+
+  @SerializedName("echeck_drivers_license_number")
+  private String echeckDriversLicenseNumber = null;
+
+  @SerializedName("echeck_drivers_license_state")
+  private String echeckDriversLicenseState = null;
+
   @SerializedName("email")
   private String email = null;
 
@@ -210,6 +334,8 @@ public class ChannelPartnerOrder {
     COD("COD"),
     
     CREDIT_CARD("Credit Card"),
+    
+    ECHECK("eCheck"),
     
     LOANHERO("LoanHero"),
     
@@ -270,6 +396,9 @@ public class ChannelPartnerOrder {
   @SerializedName("rotating_transaction_gateway_code")
   private String rotatingTransactionGatewayCode = null;
 
+  @SerializedName("sales_rep_code")
+  private String salesRepCode = null;
+
   @SerializedName("screen_branding_theme_code")
   private String screenBrandingThemeCode = null;
 
@@ -329,6 +458,9 @@ public class ChannelPartnerOrder {
 
   @SerializedName("store_if_payment_declines")
   private Boolean storeIfPaymentDeclines = null;
+
+  @SerializedName("storefront_host_name")
+  private String storefrontHostName = null;
 
   @SerializedName("tax_county")
   private String taxCounty = null;
@@ -1052,6 +1184,186 @@ public class ChannelPartnerOrder {
     this.deliveryDate = deliveryDate;
   }
 
+  public ChannelPartnerOrder echeckBankAbaCode(String echeckBankAbaCode) {
+    this.echeckBankAbaCode = echeckBankAbaCode;
+    return this;
+  }
+
+   /**
+   * eCheck bank ABA code
+   * @return echeckBankAbaCode
+  **/
+  @ApiModelProperty(value = "eCheck bank ABA code")
+  public String getEcheckBankAbaCode() {
+    return echeckBankAbaCode;
+  }
+
+  public void setEcheckBankAbaCode(String echeckBankAbaCode) {
+    this.echeckBankAbaCode = echeckBankAbaCode;
+  }
+
+  public ChannelPartnerOrder echeckBankAccountName(String echeckBankAccountName) {
+    this.echeckBankAccountName = echeckBankAccountName;
+    return this;
+  }
+
+   /**
+   * eCheck bank account name
+   * @return echeckBankAccountName
+  **/
+  @ApiModelProperty(value = "eCheck bank account name")
+  public String getEcheckBankAccountName() {
+    return echeckBankAccountName;
+  }
+
+  public void setEcheckBankAccountName(String echeckBankAccountName) {
+    this.echeckBankAccountName = echeckBankAccountName;
+  }
+
+  public ChannelPartnerOrder echeckBankAccountNumber(String echeckBankAccountNumber) {
+    this.echeckBankAccountNumber = echeckBankAccountNumber;
+    return this;
+  }
+
+   /**
+   * eCheck bank account number
+   * @return echeckBankAccountNumber
+  **/
+  @ApiModelProperty(value = "eCheck bank account number")
+  public String getEcheckBankAccountNumber() {
+    return echeckBankAccountNumber;
+  }
+
+  public void setEcheckBankAccountNumber(String echeckBankAccountNumber) {
+    this.echeckBankAccountNumber = echeckBankAccountNumber;
+  }
+
+  public ChannelPartnerOrder echeckBankAccountType(EcheckBankAccountTypeEnum echeckBankAccountType) {
+    this.echeckBankAccountType = echeckBankAccountType;
+    return this;
+  }
+
+   /**
+   * eCheck bank account type
+   * @return echeckBankAccountType
+  **/
+  @ApiModelProperty(value = "eCheck bank account type")
+  public EcheckBankAccountTypeEnum getEcheckBankAccountType() {
+    return echeckBankAccountType;
+  }
+
+  public void setEcheckBankAccountType(EcheckBankAccountTypeEnum echeckBankAccountType) {
+    this.echeckBankAccountType = echeckBankAccountType;
+  }
+
+  public ChannelPartnerOrder echeckBankName(String echeckBankName) {
+    this.echeckBankName = echeckBankName;
+    return this;
+  }
+
+   /**
+   * eCheck bank name
+   * @return echeckBankName
+  **/
+  @ApiModelProperty(value = "eCheck bank name")
+  public String getEcheckBankName() {
+    return echeckBankName;
+  }
+
+  public void setEcheckBankName(String echeckBankName) {
+    this.echeckBankName = echeckBankName;
+  }
+
+  public ChannelPartnerOrder echeckBankOwnerType(EcheckBankOwnerTypeEnum echeckBankOwnerType) {
+    this.echeckBankOwnerType = echeckBankOwnerType;
+    return this;
+  }
+
+   /**
+   * eCheck bank owner type
+   * @return echeckBankOwnerType
+  **/
+  @ApiModelProperty(value = "eCheck bank owner type")
+  public EcheckBankOwnerTypeEnum getEcheckBankOwnerType() {
+    return echeckBankOwnerType;
+  }
+
+  public void setEcheckBankOwnerType(EcheckBankOwnerTypeEnum echeckBankOwnerType) {
+    this.echeckBankOwnerType = echeckBankOwnerType;
+  }
+
+  public ChannelPartnerOrder echeckCustomerTaxId(String echeckCustomerTaxId) {
+    this.echeckCustomerTaxId = echeckCustomerTaxId;
+    return this;
+  }
+
+   /**
+   * eCheck customer tax id
+   * @return echeckCustomerTaxId
+  **/
+  @ApiModelProperty(value = "eCheck customer tax id")
+  public String getEcheckCustomerTaxId() {
+    return echeckCustomerTaxId;
+  }
+
+  public void setEcheckCustomerTaxId(String echeckCustomerTaxId) {
+    this.echeckCustomerTaxId = echeckCustomerTaxId;
+  }
+
+  public ChannelPartnerOrder echeckDriversLicenseDob(String echeckDriversLicenseDob) {
+    this.echeckDriversLicenseDob = echeckDriversLicenseDob;
+    return this;
+  }
+
+   /**
+   * eCheck drivers license dob
+   * @return echeckDriversLicenseDob
+  **/
+  @ApiModelProperty(value = "eCheck drivers license dob")
+  public String getEcheckDriversLicenseDob() {
+    return echeckDriversLicenseDob;
+  }
+
+  public void setEcheckDriversLicenseDob(String echeckDriversLicenseDob) {
+    this.echeckDriversLicenseDob = echeckDriversLicenseDob;
+  }
+
+  public ChannelPartnerOrder echeckDriversLicenseNumber(String echeckDriversLicenseNumber) {
+    this.echeckDriversLicenseNumber = echeckDriversLicenseNumber;
+    return this;
+  }
+
+   /**
+   * eCheck drivers license number
+   * @return echeckDriversLicenseNumber
+  **/
+  @ApiModelProperty(value = "eCheck drivers license number")
+  public String getEcheckDriversLicenseNumber() {
+    return echeckDriversLicenseNumber;
+  }
+
+  public void setEcheckDriversLicenseNumber(String echeckDriversLicenseNumber) {
+    this.echeckDriversLicenseNumber = echeckDriversLicenseNumber;
+  }
+
+  public ChannelPartnerOrder echeckDriversLicenseState(String echeckDriversLicenseState) {
+    this.echeckDriversLicenseState = echeckDriversLicenseState;
+    return this;
+  }
+
+   /**
+   * eCheck drivers license state
+   * @return echeckDriversLicenseState
+  **/
+  @ApiModelProperty(value = "eCheck drivers license state")
+  public String getEcheckDriversLicenseState() {
+    return echeckDriversLicenseState;
+  }
+
+  public void setEcheckDriversLicenseState(String echeckDriversLicenseState) {
+    this.echeckDriversLicenseState = echeckDriversLicenseState;
+  }
+
   public ChannelPartnerOrder email(String email) {
     this.email = email;
     return this;
@@ -1372,6 +1684,24 @@ public class ChannelPartnerOrder {
 
   public void setRotatingTransactionGatewayCode(String rotatingTransactionGatewayCode) {
     this.rotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
+  }
+
+  public ChannelPartnerOrder salesRepCode(String salesRepCode) {
+    this.salesRepCode = salesRepCode;
+    return this;
+  }
+
+   /**
+   * Sales rep code
+   * @return salesRepCode
+  **/
+  @ApiModelProperty(value = "Sales rep code")
+  public String getSalesRepCode() {
+    return salesRepCode;
+  }
+
+  public void setSalesRepCode(String salesRepCode) {
+    this.salesRepCode = salesRepCode;
   }
 
   public ChannelPartnerOrder screenBrandingThemeCode(String screenBrandingThemeCode) {
@@ -1734,6 +2064,24 @@ public class ChannelPartnerOrder {
     this.storeIfPaymentDeclines = storeIfPaymentDeclines;
   }
 
+  public ChannelPartnerOrder storefrontHostName(String storefrontHostName) {
+    this.storefrontHostName = storefrontHostName;
+    return this;
+  }
+
+   /**
+   * StoreFront host name associated with the order
+   * @return storefrontHostName
+  **/
+  @ApiModelProperty(value = "StoreFront host name associated with the order")
+  public String getStorefrontHostName() {
+    return storefrontHostName;
+  }
+
+  public void setStorefrontHostName(String storefrontHostName) {
+    this.storefrontHostName = storefrontHostName;
+  }
+
   public ChannelPartnerOrder taxCounty(String taxCounty) {
     this.taxCounty = taxCounty;
     return this;
@@ -1855,6 +2203,16 @@ public class ChannelPartnerOrder {
         Objects.equals(this.customField6, channelPartnerOrder.customField6) &&
         Objects.equals(this.customField7, channelPartnerOrder.customField7) &&
         Objects.equals(this.deliveryDate, channelPartnerOrder.deliveryDate) &&
+        Objects.equals(this.echeckBankAbaCode, channelPartnerOrder.echeckBankAbaCode) &&
+        Objects.equals(this.echeckBankAccountName, channelPartnerOrder.echeckBankAccountName) &&
+        Objects.equals(this.echeckBankAccountNumber, channelPartnerOrder.echeckBankAccountNumber) &&
+        Objects.equals(this.echeckBankAccountType, channelPartnerOrder.echeckBankAccountType) &&
+        Objects.equals(this.echeckBankName, channelPartnerOrder.echeckBankName) &&
+        Objects.equals(this.echeckBankOwnerType, channelPartnerOrder.echeckBankOwnerType) &&
+        Objects.equals(this.echeckCustomerTaxId, channelPartnerOrder.echeckCustomerTaxId) &&
+        Objects.equals(this.echeckDriversLicenseDob, channelPartnerOrder.echeckDriversLicenseDob) &&
+        Objects.equals(this.echeckDriversLicenseNumber, channelPartnerOrder.echeckDriversLicenseNumber) &&
+        Objects.equals(this.echeckDriversLicenseState, channelPartnerOrder.echeckDriversLicenseState) &&
         Objects.equals(this.email, channelPartnerOrder.email) &&
         Objects.equals(this.gift, channelPartnerOrder.gift) &&
         Objects.equals(this.giftEmail, channelPartnerOrder.giftEmail) &&
@@ -1872,6 +2230,7 @@ public class ChannelPartnerOrder {
         Objects.equals(this.paymentMethod, channelPartnerOrder.paymentMethod) &&
         Objects.equals(this.purchaseOrderNumber, channelPartnerOrder.purchaseOrderNumber) &&
         Objects.equals(this.rotatingTransactionGatewayCode, channelPartnerOrder.rotatingTransactionGatewayCode) &&
+        Objects.equals(this.salesRepCode, channelPartnerOrder.salesRepCode) &&
         Objects.equals(this.screenBrandingThemeCode, channelPartnerOrder.screenBrandingThemeCode) &&
         Objects.equals(this.shipOnDate, channelPartnerOrder.shipOnDate) &&
         Objects.equals(this.shipToResidential, channelPartnerOrder.shipToResidential) &&
@@ -1892,6 +2251,7 @@ public class ChannelPartnerOrder {
         Objects.equals(this.specialInstructions, channelPartnerOrder.specialInstructions) &&
         Objects.equals(this.storeCompleted, channelPartnerOrder.storeCompleted) &&
         Objects.equals(this.storeIfPaymentDeclines, channelPartnerOrder.storeIfPaymentDeclines) &&
+        Objects.equals(this.storefrontHostName, channelPartnerOrder.storefrontHostName) &&
         Objects.equals(this.taxCounty, channelPartnerOrder.taxCounty) &&
         Objects.equals(this.taxExempt, channelPartnerOrder.taxExempt) &&
         Objects.equals(this.transaction, channelPartnerOrder.transaction) &&
@@ -1900,7 +2260,7 @@ public class ChannelPartnerOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, taxCounty, taxExempt, transaction, treatWarningsAsErrors);
+    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors);
   }
 
 
@@ -1948,6 +2308,16 @@ public class ChannelPartnerOrder {
     sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
     sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
+    sb.append("    echeckBankAbaCode: ").append(toIndentedString(echeckBankAbaCode)).append("\n");
+    sb.append("    echeckBankAccountName: ").append(toIndentedString(echeckBankAccountName)).append("\n");
+    sb.append("    echeckBankAccountNumber: ").append(toIndentedString(echeckBankAccountNumber)).append("\n");
+    sb.append("    echeckBankAccountType: ").append(toIndentedString(echeckBankAccountType)).append("\n");
+    sb.append("    echeckBankName: ").append(toIndentedString(echeckBankName)).append("\n");
+    sb.append("    echeckBankOwnerType: ").append(toIndentedString(echeckBankOwnerType)).append("\n");
+    sb.append("    echeckCustomerTaxId: ").append(toIndentedString(echeckCustomerTaxId)).append("\n");
+    sb.append("    echeckDriversLicenseDob: ").append(toIndentedString(echeckDriversLicenseDob)).append("\n");
+    sb.append("    echeckDriversLicenseNumber: ").append(toIndentedString(echeckDriversLicenseNumber)).append("\n");
+    sb.append("    echeckDriversLicenseState: ").append(toIndentedString(echeckDriversLicenseState)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    giftEmail: ").append(toIndentedString(giftEmail)).append("\n");
@@ -1965,6 +2335,7 @@ public class ChannelPartnerOrder {
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    purchaseOrderNumber: ").append(toIndentedString(purchaseOrderNumber)).append("\n");
     sb.append("    rotatingTransactionGatewayCode: ").append(toIndentedString(rotatingTransactionGatewayCode)).append("\n");
+    sb.append("    salesRepCode: ").append(toIndentedString(salesRepCode)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
     sb.append("    shipOnDate: ").append(toIndentedString(shipOnDate)).append("\n");
     sb.append("    shipToResidential: ").append(toIndentedString(shipToResidential)).append("\n");
@@ -1985,6 +2356,7 @@ public class ChannelPartnerOrder {
     sb.append("    specialInstructions: ").append(toIndentedString(specialInstructions)).append("\n");
     sb.append("    storeCompleted: ").append(toIndentedString(storeCompleted)).append("\n");
     sb.append("    storeIfPaymentDeclines: ").append(toIndentedString(storeIfPaymentDeclines)).append("\n");
+    sb.append("    storefrontHostName: ").append(toIndentedString(storefrontHostName)).append("\n");
     sb.append("    taxCounty: ").append(toIndentedString(taxCounty)).append("\n");
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");

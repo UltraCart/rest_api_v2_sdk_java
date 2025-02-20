@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * OrderRefundableResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -61,6 +61,9 @@ public class OrderRefundableResponse {
 
   @SerializedName("order_level_refund_reasons")
   private List<OrderReason> orderLevelRefundReasons = null;
+
+  @SerializedName("order_level_reject_reason_required")
+  private Boolean orderLevelRejectReasonRequired = null;
 
   @SerializedName("order_level_reject_reasons")
   private List<OrderReason> orderLevelRejectReasons = null;
@@ -242,6 +245,24 @@ public class OrderRefundableResponse {
     this.orderLevelRefundReasons = orderLevelRefundReasons;
   }
 
+  public OrderRefundableResponse orderLevelRejectReasonRequired(Boolean orderLevelRejectReasonRequired) {
+    this.orderLevelRejectReasonRequired = orderLevelRejectReasonRequired;
+    return this;
+  }
+
+   /**
+   * True if the order level reject reason is required
+   * @return orderLevelRejectReasonRequired
+  **/
+  @ApiModelProperty(value = "True if the order level reject reason is required")
+  public Boolean isOrderLevelRejectReasonRequired() {
+    return orderLevelRejectReasonRequired;
+  }
+
+  public void setOrderLevelRejectReasonRequired(Boolean orderLevelRejectReasonRequired) {
+    this.orderLevelRejectReasonRequired = orderLevelRejectReasonRequired;
+  }
+
   public OrderRefundableResponse orderLevelRejectReasons(List<OrderReason> orderLevelRejectReasons) {
     this.orderLevelRejectReasons = orderLevelRejectReasons;
     return this;
@@ -340,6 +361,7 @@ public class OrderRefundableResponse {
         Objects.equals(this.metadata, orderRefundableResponse.metadata) &&
         Objects.equals(this.orderLevelRefundReasonRequired, orderRefundableResponse.orderLevelRefundReasonRequired) &&
         Objects.equals(this.orderLevelRefundReasons, orderRefundableResponse.orderLevelRefundReasons) &&
+        Objects.equals(this.orderLevelRejectReasonRequired, orderRefundableResponse.orderLevelRejectReasonRequired) &&
         Objects.equals(this.orderLevelRejectReasons, orderRefundableResponse.orderLevelRejectReasons) &&
         Objects.equals(this.refundable, orderRefundableResponse.refundable) &&
         Objects.equals(this.success, orderRefundableResponse.success) &&
@@ -348,7 +370,7 @@ public class OrderRefundableResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, itemLevelRefundReasonRequired, itemLevelRefundReasons, itemLevelReturnReasons, manualBecauseMultipleCharges, metadata, orderLevelRefundReasonRequired, orderLevelRefundReasons, orderLevelRejectReasons, refundable, success, warning);
+    return Objects.hash(error, itemLevelRefundReasonRequired, itemLevelRefundReasons, itemLevelReturnReasons, manualBecauseMultipleCharges, metadata, orderLevelRefundReasonRequired, orderLevelRefundReasons, orderLevelRejectReasonRequired, orderLevelRejectReasons, refundable, success, warning);
   }
 
 
@@ -365,6 +387,7 @@ public class OrderRefundableResponse {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    orderLevelRefundReasonRequired: ").append(toIndentedString(orderLevelRefundReasonRequired)).append("\n");
     sb.append("    orderLevelRefundReasons: ").append(toIndentedString(orderLevelRefundReasons)).append("\n");
+    sb.append("    orderLevelRejectReasonRequired: ").append(toIndentedString(orderLevelRejectReasonRequired)).append("\n");
     sb.append("    orderLevelRejectReasons: ").append(toIndentedString(orderLevelRejectReasons)).append("\n");
     sb.append("    refundable: ").append(toIndentedString(refundable)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");

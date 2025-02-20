@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comments** | **String** | Comments from the customer.  Rarely used on the single page checkout. |  [optional]
+**currentStep** | **String** | Current step of the checkout (read only) |  [optional]
 **customField1** | **String** | Custom field 1 |  [optional]
 **customField10** | **String** | Custom field 10 |  [optional]
 **customField2** | **String** | Custom field 2 |  [optional]

@@ -29,11 +29,14 @@ import java.util.List;
 /**
  * CouponFreeItemWithItemPurchase
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
 public class CouponFreeItemWithItemPurchase {
+  @SerializedName("item_tags")
+  private List<String> itemTags = null;
+
   @SerializedName("items")
   private List<String> items = null;
 
@@ -45,6 +48,35 @@ public class CouponFreeItemWithItemPurchase {
 
   @SerializedName("required_purchase_items")
   private List<String> requiredPurchaseItems = null;
+
+  @SerializedName("required_purchase_items_tags")
+  private List<String> requiredPurchaseItemsTags = null;
+
+  public CouponFreeItemWithItemPurchase itemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponFreeItemWithItemPurchase addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<String>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount of one of the required purchased items is purchased.
+   * @return itemTags
+  **/
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount of one of the required purchased items is purchased.")
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+  }
 
   public CouponFreeItemWithItemPurchase items(List<String> items) {
     this.items = items;
@@ -134,6 +166,32 @@ public class CouponFreeItemWithItemPurchase {
     this.requiredPurchaseItems = requiredPurchaseItems;
   }
 
+  public CouponFreeItemWithItemPurchase requiredPurchaseItemsTags(List<String> requiredPurchaseItemsTags) {
+    this.requiredPurchaseItemsTags = requiredPurchaseItemsTags;
+    return this;
+  }
+
+  public CouponFreeItemWithItemPurchase addRequiredPurchaseItemsTagsItem(String requiredPurchaseItemsTagsItem) {
+    if (this.requiredPurchaseItemsTags == null) {
+      this.requiredPurchaseItemsTags = new ArrayList<String>();
+    }
+    this.requiredPurchaseItemsTags.add(requiredPurchaseItemsTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which are required to be purchased.
+   * @return requiredPurchaseItemsTags
+  **/
+  @ApiModelProperty(value = "An optional list of item tags which are required to be purchased.")
+  public List<String> getRequiredPurchaseItemsTags() {
+    return requiredPurchaseItemsTags;
+  }
+
+  public void setRequiredPurchaseItemsTags(List<String> requiredPurchaseItemsTags) {
+    this.requiredPurchaseItemsTags = requiredPurchaseItemsTags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,15 +202,17 @@ public class CouponFreeItemWithItemPurchase {
       return false;
     }
     CouponFreeItemWithItemPurchase couponFreeItemWithItemPurchase = (CouponFreeItemWithItemPurchase) o;
-    return Objects.equals(this.items, couponFreeItemWithItemPurchase.items) &&
+    return Objects.equals(this.itemTags, couponFreeItemWithItemPurchase.itemTags) &&
+        Objects.equals(this.items, couponFreeItemWithItemPurchase.items) &&
         Objects.equals(this.limit, couponFreeItemWithItemPurchase.limit) &&
         Objects.equals(this.matchRequiredPurchaseItemToFreeItem, couponFreeItemWithItemPurchase.matchRequiredPurchaseItemToFreeItem) &&
-        Objects.equals(this.requiredPurchaseItems, couponFreeItemWithItemPurchase.requiredPurchaseItems);
+        Objects.equals(this.requiredPurchaseItems, couponFreeItemWithItemPurchase.requiredPurchaseItems) &&
+        Objects.equals(this.requiredPurchaseItemsTags, couponFreeItemWithItemPurchase.requiredPurchaseItemsTags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, limit, matchRequiredPurchaseItemToFreeItem, requiredPurchaseItems);
+    return Objects.hash(itemTags, items, limit, matchRequiredPurchaseItemToFreeItem, requiredPurchaseItems, requiredPurchaseItemsTags);
   }
 
 
@@ -161,10 +221,12 @@ public class CouponFreeItemWithItemPurchase {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponFreeItemWithItemPurchase {\n");
     
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    matchRequiredPurchaseItemToFreeItem: ").append(toIndentedString(matchRequiredPurchaseItemToFreeItem)).append("\n");
     sb.append("    requiredPurchaseItems: ").append(toIndentedString(requiredPurchaseItems)).append("\n");
+    sb.append("    requiredPurchaseItemsTags: ").append(toIndentedString(requiredPurchaseItemsTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

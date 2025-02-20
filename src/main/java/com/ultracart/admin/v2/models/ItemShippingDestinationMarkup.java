@@ -28,11 +28,14 @@ import java.math.BigDecimal;
 /**
  * ItemShippingDestinationMarkup
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
 public class ItemShippingDestinationMarkup {
+  @SerializedName("adult_signature_required")
+  private Boolean adultSignatureRequired = null;
+
   @SerializedName("country_code")
   private String countryCode = null;
 
@@ -50,6 +53,24 @@ public class ItemShippingDestinationMarkup {
 
   @SerializedName("state")
   private String state = null;
+
+  public ItemShippingDestinationMarkup adultSignatureRequired(Boolean adultSignatureRequired) {
+    this.adultSignatureRequired = adultSignatureRequired;
+    return this;
+  }
+
+   /**
+   * Adult Signature Required (only updated if not-null value provided)
+   * @return adultSignatureRequired
+  **/
+  @ApiModelProperty(value = "Adult Signature Required (only updated if not-null value provided)")
+  public Boolean isAdultSignatureRequired() {
+    return adultSignatureRequired;
+  }
+
+  public void setAdultSignatureRequired(Boolean adultSignatureRequired) {
+    this.adultSignatureRequired = adultSignatureRequired;
+  }
 
   public ItemShippingDestinationMarkup countryCode(String countryCode) {
     this.countryCode = countryCode;
@@ -169,7 +190,8 @@ public class ItemShippingDestinationMarkup {
       return false;
     }
     ItemShippingDestinationMarkup itemShippingDestinationMarkup = (ItemShippingDestinationMarkup) o;
-    return Objects.equals(this.countryCode, itemShippingDestinationMarkup.countryCode) &&
+    return Objects.equals(this.adultSignatureRequired, itemShippingDestinationMarkup.adultSignatureRequired) &&
+        Objects.equals(this.countryCode, itemShippingDestinationMarkup.countryCode) &&
         Objects.equals(this.flatFee, itemShippingDestinationMarkup.flatFee) &&
         Objects.equals(this.perItem, itemShippingDestinationMarkup.perItem) &&
         Objects.equals(this.postalCode, itemShippingDestinationMarkup.postalCode) &&
@@ -179,7 +201,7 @@ public class ItemShippingDestinationMarkup {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode, flatFee, perItem, postalCode, shippingMethod, state);
+    return Objects.hash(adultSignatureRequired, countryCode, flatFee, perItem, postalCode, shippingMethod, state);
   }
 
 
@@ -188,6 +210,7 @@ public class ItemShippingDestinationMarkup {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemShippingDestinationMarkup {\n");
     
+    sb.append("    adultSignatureRequired: ").append(toIndentedString(adultSignatureRequired)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    flatFee: ").append(toIndentedString(flatFee)).append("\n");
     sb.append("    perItem: ").append(toIndentedString(perItem)).append("\n");

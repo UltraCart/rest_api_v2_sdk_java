@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * WebhookLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -67,6 +67,9 @@ public class WebhookLog {
 
   @SerializedName("uri")
   private String uri = null;
+
+  @SerializedName("webhook_oid")
+  private Integer webhookOid = null;
 
   public WebhookLog deliveryDts(String deliveryDts) {
     this.deliveryDts = deliveryDts;
@@ -282,6 +285,24 @@ public class WebhookLog {
     this.uri = uri;
   }
 
+  public WebhookLog webhookOid(Integer webhookOid) {
+    this.webhookOid = webhookOid;
+    return this;
+  }
+
+   /**
+   * webhook oid
+   * @return webhookOid
+  **/
+  @ApiModelProperty(value = "webhook oid")
+  public Integer getWebhookOid() {
+    return webhookOid;
+  }
+
+  public void setWebhookOid(Integer webhookOid) {
+    this.webhookOid = webhookOid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -302,12 +323,13 @@ public class WebhookLog {
         Objects.equals(this.responseHeaders, webhookLog.responseHeaders) &&
         Objects.equals(this.statusCode, webhookLog.statusCode) &&
         Objects.equals(this.success, webhookLog.success) &&
-        Objects.equals(this.uri, webhookLog.uri);
+        Objects.equals(this.uri, webhookLog.uri) &&
+        Objects.equals(this.webhookOid, webhookLog.webhookOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryDts, duration, queueDelay, request, requestHeaders, requestId, response, responseHeaders, statusCode, success, uri);
+    return Objects.hash(deliveryDts, duration, queueDelay, request, requestHeaders, requestId, response, responseHeaders, statusCode, success, uri, webhookOid);
   }
 
 
@@ -327,6 +349,7 @@ public class WebhookLog {
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+    sb.append("    webhookOid: ").append(toIndentedString(webhookOid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

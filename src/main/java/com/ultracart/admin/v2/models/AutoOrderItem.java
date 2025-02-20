@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * AutoOrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -58,6 +58,9 @@ public class AutoOrderItem {
 
   @SerializedName("auto_order_item_oid")
   private Integer autoOrderItemOid = null;
+
+  @SerializedName("calculated_next_shipment_dts")
+  private String calculatedNextShipmentDts = null;
 
   @SerializedName("first_order_dts")
   private String firstOrderDts = null;
@@ -88,6 +91,8 @@ public class AutoOrderItem {
     EVERY_3_MONTHS("Every 3 Months"),
     
     EVERY_4_MONTHS("Every 4 Months"),
+    
+    EVERY_5_MONTHS("Every 5 Months"),
     
     EVERY_6_MONTHS("Every 6 Months"),
     
@@ -148,6 +153,9 @@ public class AutoOrderItem {
 
   @SerializedName("life_time_value")
   private BigDecimal lifeTimeValue = null;
+
+  @SerializedName("next_item_id")
+  private String nextItemId = null;
 
   @SerializedName("next_preshipment_notice_dts")
   private String nextPreshipmentNoticeDts = null;
@@ -317,6 +325,24 @@ public class AutoOrderItem {
     this.autoOrderItemOid = autoOrderItemOid;
   }
 
+  public AutoOrderItem calculatedNextShipmentDts(String calculatedNextShipmentDts) {
+    this.calculatedNextShipmentDts = calculatedNextShipmentDts;
+    return this;
+  }
+
+   /**
+   * Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item
+   * @return calculatedNextShipmentDts
+  **/
+  @ApiModelProperty(value = "Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item")
+  public String getCalculatedNextShipmentDts() {
+    return calculatedNextShipmentDts;
+  }
+
+  public void setCalculatedNextShipmentDts(String calculatedNextShipmentDts) {
+    this.calculatedNextShipmentDts = calculatedNextShipmentDts;
+  }
+
   public AutoOrderItem firstOrderDts(String firstOrderDts) {
     this.firstOrderDts = firstOrderDts;
     return this;
@@ -413,6 +439,24 @@ public class AutoOrderItem {
 
   public void setLifeTimeValue(BigDecimal lifeTimeValue) {
     this.lifeTimeValue = lifeTimeValue;
+  }
+
+  public AutoOrderItem nextItemId(String nextItemId) {
+    this.nextItemId = nextItemId;
+    return this;
+  }
+
+   /**
+   * Calculated next item id
+   * @return nextItemId
+  **/
+  @ApiModelProperty(value = "Calculated next item id")
+  public String getNextItemId() {
+    return nextItemId;
+  }
+
+  public void setNextItemId(String nextItemId) {
+    this.nextItemId = nextItemId;
   }
 
   public AutoOrderItem nextPreshipmentNoticeDts(String nextPreshipmentNoticeDts) {
@@ -692,11 +736,13 @@ public class AutoOrderItem {
         Objects.equals(this.arbitraryUnitCost, autoOrderItem.arbitraryUnitCost) &&
         Objects.equals(this.arbitraryUnitCostRemainingOrders, autoOrderItem.arbitraryUnitCostRemainingOrders) &&
         Objects.equals(this.autoOrderItemOid, autoOrderItem.autoOrderItemOid) &&
+        Objects.equals(this.calculatedNextShipmentDts, autoOrderItem.calculatedNextShipmentDts) &&
         Objects.equals(this.firstOrderDts, autoOrderItem.firstOrderDts) &&
         Objects.equals(this.frequency, autoOrderItem.frequency) &&
         Objects.equals(this.futureSchedules, autoOrderItem.futureSchedules) &&
         Objects.equals(this.lastOrderDts, autoOrderItem.lastOrderDts) &&
         Objects.equals(this.lifeTimeValue, autoOrderItem.lifeTimeValue) &&
+        Objects.equals(this.nextItemId, autoOrderItem.nextItemId) &&
         Objects.equals(this.nextPreshipmentNoticeDts, autoOrderItem.nextPreshipmentNoticeDts) &&
         Objects.equals(this.nextShipmentDts, autoOrderItem.nextShipmentDts) &&
         Objects.equals(this.noOrderAfterDts, autoOrderItem.noOrderAfterDts) &&
@@ -715,7 +761,7 @@ public class AutoOrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, firstOrderDts, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paused, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount, simpleSchedule);
+    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, calculatedNextShipmentDts, firstOrderDts, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextItemId, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paused, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount, simpleSchedule);
   }
 
 
@@ -731,11 +777,13 @@ public class AutoOrderItem {
     sb.append("    arbitraryUnitCost: ").append(toIndentedString(arbitraryUnitCost)).append("\n");
     sb.append("    arbitraryUnitCostRemainingOrders: ").append(toIndentedString(arbitraryUnitCostRemainingOrders)).append("\n");
     sb.append("    autoOrderItemOid: ").append(toIndentedString(autoOrderItemOid)).append("\n");
+    sb.append("    calculatedNextShipmentDts: ").append(toIndentedString(calculatedNextShipmentDts)).append("\n");
     sb.append("    firstOrderDts: ").append(toIndentedString(firstOrderDts)).append("\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    futureSchedules: ").append(toIndentedString(futureSchedules)).append("\n");
     sb.append("    lastOrderDts: ").append(toIndentedString(lastOrderDts)).append("\n");
     sb.append("    lifeTimeValue: ").append(toIndentedString(lifeTimeValue)).append("\n");
+    sb.append("    nextItemId: ").append(toIndentedString(nextItemId)).append("\n");
     sb.append("    nextPreshipmentNoticeDts: ").append(toIndentedString(nextPreshipmentNoticeDts)).append("\n");
     sb.append("    nextShipmentDts: ").append(toIndentedString(nextShipmentDts)).append("\n");
     sb.append("    noOrderAfterDts: ").append(toIndentedString(noOrderAfterDts)).append("\n");

@@ -31,6 +31,7 @@ Name | Value
 ---- | -----
 AFFIRM | &quot;Affirm&quot;
 AMAZON | &quot;Amazon&quot;
+AMAZON_PAY | &quot;Amazon Pay&quot;
 AMAZON_SC | &quot;Amazon SC&quot;
 CASH | &quot;Cash&quot;
 CHECK | &quot;Check&quot;
@@ -40,6 +41,7 @@ EBAY | &quot;eBay&quot;
 ECHECK | &quot;eCheck&quot;
 GOOGLE_SHOPPING | &quot;Google Shopping&quot;
 INSURANCE | &quot;Insurance&quot;
+LINK | &quot;Link&quot;
 LOANHERO | &quot;LoanHero&quot;
 MONEY_ORDER | &quot;Money Order&quot;
 PAYPAL | &quot;PayPal&quot;

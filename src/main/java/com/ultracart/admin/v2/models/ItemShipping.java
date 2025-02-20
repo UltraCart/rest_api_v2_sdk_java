@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * ItemShipping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -111,6 +111,9 @@ public class ItemShipping {
 
   @SerializedName("hazmat")
   private Boolean hazmat = null;
+
+  @SerializedName("hold_for_transmission")
+  private Boolean holdForTransmission = null;
 
   @SerializedName("made_to_order")
   private Boolean madeToOrder = null;
@@ -633,6 +636,24 @@ public class ItemShipping {
     this.hazmat = hazmat;
   }
 
+  public ItemShipping holdForTransmission(Boolean holdForTransmission) {
+    this.holdForTransmission = holdForTransmission;
+    return this;
+  }
+
+   /**
+   * Hold for transmission
+   * @return holdForTransmission
+  **/
+  @ApiModelProperty(value = "Hold for transmission")
+  public Boolean isHoldForTransmission() {
+    return holdForTransmission;
+  }
+
+  public void setHoldForTransmission(Boolean holdForTransmission) {
+    this.holdForTransmission = holdForTransmission;
+  }
+
   public ItemShipping madeToOrder(Boolean madeToOrder) {
     this.madeToOrder = madeToOrder;
     return this;
@@ -1132,6 +1153,7 @@ public class ItemShipping {
         Objects.equals(this.freeShipping, itemShipping.freeShipping) &&
         Objects.equals(this.freightClass, itemShipping.freightClass) &&
         Objects.equals(this.hazmat, itemShipping.hazmat) &&
+        Objects.equals(this.holdForTransmission, itemShipping.holdForTransmission) &&
         Objects.equals(this.madeToOrder, itemShipping.madeToOrder) &&
         Objects.equals(this.madeToOrderLeadTime, itemShipping.madeToOrderLeadTime) &&
         Objects.equals(this.maxDaysTimeInTransit, itemShipping.maxDaysTimeInTransit) &&
@@ -1161,7 +1183,7 @@ public class ItemShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
+    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, holdForTransmission, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
   }
 
 
@@ -1193,6 +1215,7 @@ public class ItemShipping {
     sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");
     sb.append("    freightClass: ").append(toIndentedString(freightClass)).append("\n");
     sb.append("    hazmat: ").append(toIndentedString(hazmat)).append("\n");
+    sb.append("    holdForTransmission: ").append(toIndentedString(holdForTransmission)).append("\n");
     sb.append("    madeToOrder: ").append(toIndentedString(madeToOrder)).append("\n");
     sb.append("    madeToOrderLeadTime: ").append(toIndentedString(madeToOrderLeadTime)).append("\n");
     sb.append("    maxDaysTimeInTransit: ").append(toIndentedString(maxDaysTimeInTransit)).append("\n");

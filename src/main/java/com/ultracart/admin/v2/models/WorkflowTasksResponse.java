@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * WorkflowTasksResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -46,6 +46,9 @@ public class WorkflowTasksResponse {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("task_context")
+  private String taskContext = null;
 
   @SerializedName("tasks")
   private List<WorkflowTask> tasks = null;
@@ -107,6 +110,24 @@ public class WorkflowTasksResponse {
     this.success = success;
   }
 
+  public WorkflowTasksResponse taskContext(String taskContext) {
+    this.taskContext = taskContext;
+    return this;
+  }
+
+   /**
+   * User friendly string of the task context if querying for a specific object type/id
+   * @return taskContext
+  **/
+  @ApiModelProperty(value = "User friendly string of the task context if querying for a specific object type/id")
+  public String getTaskContext() {
+    return taskContext;
+  }
+
+  public void setTaskContext(String taskContext) {
+    this.taskContext = taskContext;
+  }
+
   public WorkflowTasksResponse tasks(List<WorkflowTask> tasks) {
     this.tasks = tasks;
     return this;
@@ -164,13 +185,14 @@ public class WorkflowTasksResponse {
     return Objects.equals(this.error, workflowTasksResponse.error) &&
         Objects.equals(this.metadata, workflowTasksResponse.metadata) &&
         Objects.equals(this.success, workflowTasksResponse.success) &&
+        Objects.equals(this.taskContext, workflowTasksResponse.taskContext) &&
         Objects.equals(this.tasks, workflowTasksResponse.tasks) &&
         Objects.equals(this.warning, workflowTasksResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, success, tasks, warning);
+    return Objects.hash(error, metadata, success, taskContext, tasks, warning);
   }
 
 
@@ -182,6 +204,7 @@ public class WorkflowTasksResponse {
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    taskContext: ").append(toIndentedString(taskContext)).append("\n");
     sb.append("    tasks: ").append(toIndentedString(tasks)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");

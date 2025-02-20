@@ -37,6 +37,8 @@ import com.ultracart.admin.v2.models.ChannelPartnerShipToPreferenceResponse;
 import com.ultracart.admin.v2.models.ChannelPartnerShipToPreferencesResponse;
 import com.ultracart.admin.v2.models.ChannelPartnersResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.Order;
+import com.ultracart.admin.v2.models.OrderResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -708,6 +710,264 @@ public class ChannelPartnerApi {
         return call;
     }
     /**
+     * Build call for getChannelPartnerOrder
+     * @param orderId The order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnerOrderCall(String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/orders/{order_id}"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getChannelPartnerOrderValidateBeforeCall(String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getChannelPartnerOrder(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getChannelPartnerOrderCall(orderId, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve a channel partner order
+     * Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse getChannelPartnerOrder(String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = getChannelPartnerOrderWithHttpInfo(orderId, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a channel partner order
+     * Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> getChannelPartnerOrderWithHttpInfo(String orderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getChannelPartnerOrderValidateBeforeCall(orderId, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a channel partner order (asynchronously)
+     * Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnerOrderAsync(String orderId, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getChannelPartnerOrderValidateBeforeCall(orderId, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getChannelPartnerOrderByChannelPartnerOrderId
+     * @param orderId The channel partner order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnerOrderByChannelPartnerOrderIdCall(String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/orders/by_channel_partner_order_id/{order_id}"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getChannelPartnerOrderByChannelPartnerOrderIdValidateBeforeCall(String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getChannelPartnerOrderByChannelPartnerOrderId(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getChannelPartnerOrderByChannelPartnerOrderIdCall(orderId, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve a channel partner order by the channel partner order id
+     * Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The channel partner order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse getChannelPartnerOrderByChannelPartnerOrderId(String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = getChannelPartnerOrderByChannelPartnerOrderIdWithHttpInfo(orderId, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a channel partner order by the channel partner order id
+     * Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The channel partner order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> getChannelPartnerOrderByChannelPartnerOrderIdWithHttpInfo(String orderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getChannelPartnerOrderByChannelPartnerOrderIdValidateBeforeCall(orderId, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a channel partner order by the channel partner order id (asynchronously)
+     * Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The channel partner order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getChannelPartnerOrderByChannelPartnerOrderIdAsync(String orderId, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getChannelPartnerOrderByChannelPartnerOrderIdValidateBeforeCall(orderId, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getChannelPartnerShipToPreference
      * @param channelPartnerOid  (required)
      * @param channelPartnerShipToPreferenceOid  (required)
@@ -1327,6 +1587,186 @@ public class ChannelPartnerApi {
 
         com.squareup.okhttp.Call call = insertChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, shipToPreference, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for refundChannelPartnerOrder
+     * @param order Order to refund (required)
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param expand The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call refundChannelPartnerOrderCall(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = order;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/orders/{order_id}/refund"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (rejectAfterRefund != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("reject_after_refund", rejectAfterRefund));
+        if (skipCustomerNotification != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip_customer_notification", skipCustomerNotification));
+        if (autoOrderCancel != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("auto_order_cancel", autoOrderCancel));
+        if (manualRefund != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("manual_refund", manualRefund));
+        if (reverseAffiliateTransactions != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("reverse_affiliate_transactions", reverseAffiliateTransactions));
+        if (issueStoreCredit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("issue_store_credit", issueStoreCredit));
+        if (autoOrderCancelReason != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("auto_order_cancel_reason", autoOrderCancelReason));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call refundChannelPartnerOrderValidateBeforeCall(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'order' is set
+        if (order == null) {
+            throw new ApiException("Missing the required parameter 'order' when calling refundChannelPartnerOrder(Async)");
+        }
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling refundChannelPartnerOrder(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = refundChannelPartnerOrderCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Refund a channel partner order
+     * Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+     * @param order Order to refund (required)
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param expand The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse refundChannelPartnerOrder(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = refundChannelPartnerOrderWithHttpInfo(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Refund a channel partner order
+     * Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+     * @param order Order to refund (required)
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param expand The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> refundChannelPartnerOrderWithHttpInfo(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = refundChannelPartnerOrderValidateBeforeCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Refund a channel partner order (asynchronously)
+     * Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+     * @param order Order to refund (required)
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param expand The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call refundChannelPartnerOrderAsync(Order order, String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = refundChannelPartnerOrderValidateBeforeCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

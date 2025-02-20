@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -90,6 +90,15 @@ public class AutoOrder {
   @SerializedName("management")
   private AutoOrderManagement management = null;
 
+  @SerializedName("merchant_id")
+  private String merchantId = null;
+
+  @SerializedName("merged_dts")
+  private String mergedDts = null;
+
+  @SerializedName("merged_into_auto_order_oid")
+  private Integer mergedIntoAutoOrderOid = null;
+
   @SerializedName("next_attempt")
   private String nextAttempt = null;
 
@@ -117,7 +126,9 @@ public class AutoOrder {
     
     CANCELED("canceled"),
     
-    DISABLED("disabled");
+    DISABLED("disabled"),
+    
+    MERGED("merged");
 
     private String value;
 
@@ -490,6 +501,60 @@ public class AutoOrder {
     this.management = management;
   }
 
+  public AutoOrder merchantId(String merchantId) {
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * UltraCart merchant ID owning this order
+   * @return merchantId
+  **/
+  @ApiModelProperty(value = "UltraCart merchant ID owning this order")
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
+  public AutoOrder mergedDts(String mergedDts) {
+    this.mergedDts = mergedDts;
+    return this;
+  }
+
+   /**
+   * The date/time the auto order was merged into another auto order
+   * @return mergedDts
+  **/
+  @ApiModelProperty(value = "The date/time the auto order was merged into another auto order")
+  public String getMergedDts() {
+    return mergedDts;
+  }
+
+  public void setMergedDts(String mergedDts) {
+    this.mergedDts = mergedDts;
+  }
+
+  public AutoOrder mergedIntoAutoOrderOid(Integer mergedIntoAutoOrderOid) {
+    this.mergedIntoAutoOrderOid = mergedIntoAutoOrderOid;
+    return this;
+  }
+
+   /**
+   * The auto order that this auto order was merged into
+   * @return mergedIntoAutoOrderOid
+  **/
+  @ApiModelProperty(value = "The auto order that this auto order was merged into")
+  public Integer getMergedIntoAutoOrderOid() {
+    return mergedIntoAutoOrderOid;
+  }
+
+  public void setMergedIntoAutoOrderOid(Integer mergedIntoAutoOrderOid) {
+    this.mergedIntoAutoOrderOid = mergedIntoAutoOrderOid;
+  }
+
   public AutoOrder nextAttempt(String nextAttempt) {
     this.nextAttempt = nextAttempt;
     return this;
@@ -651,6 +716,9 @@ public class AutoOrder {
         Objects.equals(this.items, autoOrder.items) &&
         Objects.equals(this.logs, autoOrder.logs) &&
         Objects.equals(this.management, autoOrder.management) &&
+        Objects.equals(this.merchantId, autoOrder.merchantId) &&
+        Objects.equals(this.mergedDts, autoOrder.mergedDts) &&
+        Objects.equals(this.mergedIntoAutoOrderOid, autoOrder.mergedIntoAutoOrderOid) &&
         Objects.equals(this.nextAttempt, autoOrder.nextAttempt) &&
         Objects.equals(this.originalOrder, autoOrder.originalOrder) &&
         Objects.equals(this.originalOrderId, autoOrder.originalOrderId) &&
@@ -662,7 +730,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, merchantId, mergedDts, mergedIntoAutoOrderOid, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
 
@@ -688,6 +756,9 @@ public class AutoOrder {
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    management: ").append(toIndentedString(management)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    mergedDts: ").append(toIndentedString(mergedDts)).append("\n");
+    sb.append("    mergedIntoAutoOrderOid: ").append(toIndentedString(mergedIntoAutoOrderOid)).append("\n");
     sb.append("    nextAttempt: ").append(toIndentedString(nextAttempt)).append("\n");
     sb.append("    originalOrder: ").append(toIndentedString(originalOrder)).append("\n");
     sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");

@@ -11,11 +11,13 @@ Name | Type | Description | Notes
 **arbitraryUnitCost** | [**BigDecimal**](BigDecimal.md) | Arbitrary unit cost that rebills of this item should occur at |  [optional]
 **arbitraryUnitCostRemainingOrders** | **Integer** | The number of rebills to give the arbitrary unit cost on before reverting to normal pricing. |  [optional]
 **autoOrderItemOid** | **Integer** | Primary key of AutoOrderItem |  [optional]
+**calculatedNextShipmentDts** | **String** | Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item |  [optional]
 **firstOrderDts** | **String** | Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet. |  [optional]
 **frequency** | [**FrequencyEnum**](#FrequencyEnum) | Frequency of the rebill if not a fixed schedule |  [optional]
 **futureSchedules** | [**List&lt;AutoOrderItemFutureSchedule&gt;**](AutoOrderItemFutureSchedule.md) | The future rebill schedule for this item up to the next ten rebills |  [optional]
 **lastOrderDts** | **String** | Date/time of the last order of this item |  [optional]
 **lifeTimeValue** | [**BigDecimal**](BigDecimal.md) | The life time value of this item including the original purchase |  [optional]
+**nextItemId** | **String** | Calculated next item id |  [optional]
 **nextPreshipmentNoticeDts** | **String** | The date/time of when the next pre-shipment notice should be sent |  [optional]
 **nextShipmentDts** | **String** | Date/time that this item is scheduled to rebill |  [optional]
 **noOrderAfterDts** | **String** | Date/time after which no additional rebills of this item should occur |  [optional]
@@ -47,6 +49,7 @@ EVERY_45_DAYS | &quot;Every 45 Days&quot;
 EVERY_2_MONTHS | &quot;Every 2 Months&quot;
 EVERY_3_MONTHS | &quot;Every 3 Months&quot;
 EVERY_4_MONTHS | &quot;Every 4 Months&quot;
+EVERY_5_MONTHS | &quot;Every 5 Months&quot;
 EVERY_6_MONTHS | &quot;Every 6 Months&quot;
 YEARLY | &quot;Yearly&quot;
 EVERY_4_WEEKS | &quot;Every 4 Weeks&quot;

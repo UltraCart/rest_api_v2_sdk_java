@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 <a name="resendEvent"></a>
 # **resendEvent**
-> WebhookSampleRequestResponse resendEvent(webhookOid, eventName)
+> WebhookReflowResponse resendEvent(webhookOid, eventName)
 
 Resend events to the webhook endpoint.
 
@@ -353,7 +353,7 @@ WebhookApi apiInstance = new WebhookApi(apiKey);
 Integer webhookOid = 56; // Integer | The webhook oid that is receiving the reflowed events.
 String eventName = "eventName_example"; // String | The event to reflow.
 try {
-    WebhookSampleRequestResponse result = apiInstance.resendEvent(webhookOid, eventName);
+    WebhookReflowResponse result = apiInstance.resendEvent(webhookOid, eventName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhookApi#resendEvent");
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebhookSampleRequestResponse**](WebhookSampleRequestResponse.md)
+[**WebhookReflowResponse**](WebhookReflowResponse.md)
 
 ### Authorization
 

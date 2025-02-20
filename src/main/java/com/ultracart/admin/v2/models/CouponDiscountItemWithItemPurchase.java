@@ -24,11 +24,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CouponDiscountItemWithItemPurchase
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -39,6 +41,9 @@ public class CouponDiscountItemWithItemPurchase {
   @SerializedName("discount_item")
   private String discountItem = null;
 
+  @SerializedName("discount_item_tags")
+  private List<String> discountItemTags = null;
+
   @SerializedName("discount_price")
   private BigDecimal discountPrice = null;
 
@@ -47,6 +52,9 @@ public class CouponDiscountItemWithItemPurchase {
 
   @SerializedName("required_purchase_item")
   private String requiredPurchaseItem = null;
+
+  @SerializedName("required_purchase_items_tags")
+  private List<String> requiredPurchaseItemsTags = null;
 
   public CouponDiscountItemWithItemPurchase currencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
@@ -82,6 +90,32 @@ public class CouponDiscountItemWithItemPurchase {
 
   public void setDiscountItem(String discountItem) {
     this.discountItem = discountItem;
+  }
+
+  public CouponDiscountItemWithItemPurchase discountItemTags(List<String> discountItemTags) {
+    this.discountItemTags = discountItemTags;
+    return this;
+  }
+
+  public CouponDiscountItemWithItemPurchase addDiscountItemTagsItem(String discountItemTagsItem) {
+    if (this.discountItemTags == null) {
+      this.discountItemTags = new ArrayList<String>();
+    }
+    this.discountItemTags.add(discountItemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount of one of the required purchased items is purchased.
+   * @return discountItemTags
+  **/
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount of one of the required purchased items is purchased.")
+  public List<String> getDiscountItemTags() {
+    return discountItemTags;
+  }
+
+  public void setDiscountItemTags(List<String> discountItemTags) {
+    this.discountItemTags = discountItemTags;
   }
 
   public CouponDiscountItemWithItemPurchase discountPrice(BigDecimal discountPrice) {
@@ -138,6 +172,32 @@ public class CouponDiscountItemWithItemPurchase {
     this.requiredPurchaseItem = requiredPurchaseItem;
   }
 
+  public CouponDiscountItemWithItemPurchase requiredPurchaseItemsTags(List<String> requiredPurchaseItemsTags) {
+    this.requiredPurchaseItemsTags = requiredPurchaseItemsTags;
+    return this;
+  }
+
+  public CouponDiscountItemWithItemPurchase addRequiredPurchaseItemsTagsItem(String requiredPurchaseItemsTagsItem) {
+    if (this.requiredPurchaseItemsTags == null) {
+      this.requiredPurchaseItemsTags = new ArrayList<String>();
+    }
+    this.requiredPurchaseItemsTags.add(requiredPurchaseItemsTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which are required to be purchased.
+   * @return requiredPurchaseItemsTags
+  **/
+  @ApiModelProperty(value = "An optional list of item tags which are required to be purchased.")
+  public List<String> getRequiredPurchaseItemsTags() {
+    return requiredPurchaseItemsTags;
+  }
+
+  public void setRequiredPurchaseItemsTags(List<String> requiredPurchaseItemsTags) {
+    this.requiredPurchaseItemsTags = requiredPurchaseItemsTags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,14 +210,16 @@ public class CouponDiscountItemWithItemPurchase {
     CouponDiscountItemWithItemPurchase couponDiscountItemWithItemPurchase = (CouponDiscountItemWithItemPurchase) o;
     return Objects.equals(this.currencyCode, couponDiscountItemWithItemPurchase.currencyCode) &&
         Objects.equals(this.discountItem, couponDiscountItemWithItemPurchase.discountItem) &&
+        Objects.equals(this.discountItemTags, couponDiscountItemWithItemPurchase.discountItemTags) &&
         Objects.equals(this.discountPrice, couponDiscountItemWithItemPurchase.discountPrice) &&
         Objects.equals(this.limit, couponDiscountItemWithItemPurchase.limit) &&
-        Objects.equals(this.requiredPurchaseItem, couponDiscountItemWithItemPurchase.requiredPurchaseItem);
+        Objects.equals(this.requiredPurchaseItem, couponDiscountItemWithItemPurchase.requiredPurchaseItem) &&
+        Objects.equals(this.requiredPurchaseItemsTags, couponDiscountItemWithItemPurchase.requiredPurchaseItemsTags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, discountItem, discountPrice, limit, requiredPurchaseItem);
+    return Objects.hash(currencyCode, discountItem, discountItemTags, discountPrice, limit, requiredPurchaseItem, requiredPurchaseItemsTags);
   }
 
 
@@ -168,9 +230,11 @@ public class CouponDiscountItemWithItemPurchase {
     
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    discountItem: ").append(toIndentedString(discountItem)).append("\n");
+    sb.append("    discountItemTags: ").append(toIndentedString(discountItemTags)).append("\n");
     sb.append("    discountPrice: ").append(toIndentedString(discountPrice)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    requiredPurchaseItem: ").append(toIndentedString(requiredPurchaseItem)).append("\n");
+    sb.append("    requiredPurchaseItemsTags: ").append(toIndentedString(requiredPurchaseItemsTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,6 +21,9 @@ Name | Type | Description | Notes
 **items** | [**List&lt;AutoOrderItem&gt;**](AutoOrderItem.md) | The items that are setup to rebill |  [optional]
 **logs** | [**List&lt;AutoOrderLog&gt;**](AutoOrderLog.md) | Logs associated with this auto order |  [optional]
 **management** | [**AutoOrderManagement**](AutoOrderManagement.md) |  |  [optional]
+**merchantId** | **String** | UltraCart merchant ID owning this order |  [optional]
+**mergedDts** | **String** | The date/time the auto order was merged into another auto order |  [optional]
+**mergedIntoAutoOrderOid** | **Integer** | The auto order that this auto order was merged into |  [optional]
 **nextAttempt** | **String** | The next time that the auto order will be attempted for processing |  [optional]
 **originalOrder** | [**Order**](Order.md) |  |  [optional]
 **originalOrderId** | **String** | The original order id that this auto order is associated with. |  [optional]
@@ -37,6 +40,7 @@ Name | Value
 ACTIVE | &quot;active&quot;
 CANCELED | &quot;canceled&quot;
 DISABLED | &quot;disabled&quot;
+MERGED | &quot;merged&quot;
 
 
 

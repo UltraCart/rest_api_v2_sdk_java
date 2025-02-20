@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AutoOrderItemSimpleSchedule
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -58,6 +58,8 @@ public class AutoOrderItemSimpleSchedule {
     EVERY_3_MONTHS("Every 3 Months"),
     
     EVERY_4_MONTHS("Every 4 Months"),
+    
+    EVERY_5_MONTHS("Every 5 Months"),
     
     EVERY_6_MONTHS("Every 6 Months"),
     

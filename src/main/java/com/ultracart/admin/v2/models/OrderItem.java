@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -47,6 +47,9 @@ public class OrderItem {
 
   @SerializedName("activation_codes")
   private List<String> activationCodes = null;
+
+  @SerializedName("actual_cogs")
+  private Currency actualCogs = null;
 
   @SerializedName("arbitrary_unit_cost")
   private Currency arbitraryUnitCost = null;
@@ -330,6 +333,24 @@ public class OrderItem {
 
   public void setActivationCodes(List<String> activationCodes) {
     this.activationCodes = activationCodes;
+  }
+
+  public OrderItem actualCogs(Currency actualCogs) {
+    this.actualCogs = actualCogs;
+    return this;
+  }
+
+   /**
+   * Get actualCogs
+   * @return actualCogs
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getActualCogs() {
+    return actualCogs;
+  }
+
+  public void setActualCogs(Currency actualCogs) {
+    this.actualCogs = actualCogs;
   }
 
   public OrderItem arbitraryUnitCost(Currency arbitraryUnitCost) {
@@ -1502,6 +1523,7 @@ public class OrderItem {
     OrderItem orderItem = (OrderItem) o;
     return Objects.equals(this.accountingCode, orderItem.accountingCode) &&
         Objects.equals(this.activationCodes, orderItem.activationCodes) &&
+        Objects.equals(this.actualCogs, orderItem.actualCogs) &&
         Objects.equals(this.arbitraryUnitCost, orderItem.arbitraryUnitCost) &&
         Objects.equals(this.autoOrderLastRebillDts, orderItem.autoOrderLastRebillDts) &&
         Objects.equals(this.autoOrderSchedule, orderItem.autoOrderSchedule) &&
@@ -1569,7 +1591,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, barcodeGtin12, barcodeGtin14, barcodeUpc11, barcodeUpc12, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemIndex, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, parentItemIndex, parentMerchantItemId, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, refundReason, returnReason, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, actualCogs, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, barcodeGtin12, barcodeGtin14, barcodeUpc11, barcodeUpc12, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemIndex, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, parentItemIndex, parentMerchantItemId, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, refundReason, returnReason, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
 
@@ -1580,6 +1602,7 @@ public class OrderItem {
     
     sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
     sb.append("    activationCodes: ").append(toIndentedString(activationCodes)).append("\n");
+    sb.append("    actualCogs: ").append(toIndentedString(actualCogs)).append("\n");
     sb.append("    arbitraryUnitCost: ").append(toIndentedString(arbitraryUnitCost)).append("\n");
     sb.append("    autoOrderLastRebillDts: ").append(toIndentedString(autoOrderLastRebillDts)).append("\n");
     sb.append("    autoOrderSchedule: ").append(toIndentedString(autoOrderSchedule)).append("\n");

@@ -14,12 +14,15 @@ Name | Type | Description | Notes
 **creationDateEnd** | **String** | Date/time that the order was created |  [optional]
 **currentStage** | [**CurrentStageEnum**](#CurrentStageEnum) | Current stage that the order is in. |  [optional]
 **customField1** | **String** | Custom field 1 |  [optional]
+**customField10** | **String** | Custom field 10 |  [optional]
 **customField2** | **String** | Custom field 2 |  [optional]
 **customField3** | **String** | Custom field 3 |  [optional]
 **customField4** | **String** | Custom field 4 |  [optional]
 **customField5** | **String** | Custom field 5 |  [optional]
 **customField6** | **String** | Custom field 6 |  [optional]
 **customField7** | **String** | Custom field 7 |  [optional]
+**customField8** | **String** | Custom field 8 |  [optional]
+**customField9** | **String** | Custom field 9 |  [optional]
 **customerProfileOid** | **Integer** | The customer profile to find associated orders for |  [optional]
 **email** | **String** | Email |  [optional]
 **firstName** | **String** | First name |  [optional]
@@ -32,6 +35,7 @@ Name | Type | Description | Notes
 **phone** | **String** | Phone |  [optional]
 **postalCode** | **String** | Postal code |  [optional]
 **purchaseOrderNumber** | **String** | Purchase order number |  [optional]
+**queryTarget** | [**QueryTargetEnum**](#QueryTargetEnum) | Query Target |  [optional]
 **refundDateBegin** | **String** | Date/time that the order was refunded |  [optional]
 **refundDateEnd** | **String** | Date/time that the order was refunded |  [optional]
 **rma** | **String** | RMA number |  [optional]
@@ -83,6 +87,14 @@ WIRE_TRANSFER | &quot;Wire Transfer&quot;
 VENMO | &quot;Venmo&quot;
 APPLE_PAY | &quot;Apple Pay&quot;
 _GOOGLE_PAY | &quot; Google Pay&quot;
+
+
+<a name="QueryTargetEnum"></a>
+## Enum: QueryTargetEnum
+Name | Value
+---- | -----
+ORIGIN | &quot;origin&quot;
+CACHE | &quot;cache&quot;
 
 
 

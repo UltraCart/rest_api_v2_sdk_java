@@ -29,16 +29,45 @@ import java.util.List;
 /**
  * CouponBuyOneGetOneLimit
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
 public class CouponBuyOneGetOneLimit {
+  @SerializedName("item_tags")
+  private List<String> itemTags = null;
+
   @SerializedName("items")
   private List<String> items = null;
 
   @SerializedName("limit")
   private Integer limit = null;
+
+  public CouponBuyOneGetOneLimit itemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponBuyOneGetOneLimit addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<String>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount.
+   * @return itemTags
+  **/
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount.")
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+  }
 
   public CouponBuyOneGetOneLimit items(List<String> items) {
     this.items = items;
@@ -94,13 +123,14 @@ public class CouponBuyOneGetOneLimit {
       return false;
     }
     CouponBuyOneGetOneLimit couponBuyOneGetOneLimit = (CouponBuyOneGetOneLimit) o;
-    return Objects.equals(this.items, couponBuyOneGetOneLimit.items) &&
+    return Objects.equals(this.itemTags, couponBuyOneGetOneLimit.itemTags) &&
+        Objects.equals(this.items, couponBuyOneGetOneLimit.items) &&
         Objects.equals(this.limit, couponBuyOneGetOneLimit.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, limit);
+    return Objects.hash(itemTags, items, limit);
   }
 
 
@@ -109,6 +139,7 @@ public class CouponBuyOneGetOneLimit {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponBuyOneGetOneLimit {\n");
     
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");

@@ -24,6 +24,7 @@ EVERY_45_DAYS | &quot;Every 45 Days&quot;
 EVERY_2_MONTHS | &quot;Every 2 Months&quot;
 EVERY_3_MONTHS | &quot;Every 3 Months&quot;
 EVERY_4_MONTHS | &quot;Every 4 Months&quot;
+EVERY_5_MONTHS | &quot;Every 5 Months&quot;
 EVERY_6_MONTHS | &quot;Every 6 Months&quot;
 YEARLY | &quot;Yearly&quot;
 EVERY_4_WEEKS | &quot;Every 4 Weeks&quot;

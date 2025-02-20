@@ -29,13 +29,63 @@ import java.util.List;
 /**
  * OrderQueryBatch
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
 public class OrderQueryBatch {
   @SerializedName("order_ids")
   private List<String> orderIds = null;
+
+  /**
+   * Query Target
+   */
+  @JsonAdapter(QueryTargetEnum.Adapter.class)
+  public enum QueryTargetEnum {
+    ORIGIN("origin"),
+    
+    CACHE("cache");
+
+    private String value;
+
+    QueryTargetEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static QueryTargetEnum fromValue(String text) {
+      for (QueryTargetEnum b : QueryTargetEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<QueryTargetEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final QueryTargetEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public QueryTargetEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return QueryTargetEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("query_target")
+  private QueryTargetEnum queryTarget = null;
 
   public OrderQueryBatch orderIds(List<String> orderIds) {
     this.orderIds = orderIds;
@@ -63,6 +113,24 @@ public class OrderQueryBatch {
     this.orderIds = orderIds;
   }
 
+  public OrderQueryBatch queryTarget(QueryTargetEnum queryTarget) {
+    this.queryTarget = queryTarget;
+    return this;
+  }
+
+   /**
+   * Query Target
+   * @return queryTarget
+  **/
+  @ApiModelProperty(value = "Query Target")
+  public QueryTargetEnum getQueryTarget() {
+    return queryTarget;
+  }
+
+  public void setQueryTarget(QueryTargetEnum queryTarget) {
+    this.queryTarget = queryTarget;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +141,13 @@ public class OrderQueryBatch {
       return false;
     }
     OrderQueryBatch orderQueryBatch = (OrderQueryBatch) o;
-    return Objects.equals(this.orderIds, orderQueryBatch.orderIds);
+    return Objects.equals(this.orderIds, orderQueryBatch.orderIds) &&
+        Objects.equals(this.queryTarget, orderQueryBatch.queryTarget);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderIds);
+    return Objects.hash(orderIds, queryTarget);
   }
 
 
@@ -88,6 +157,7 @@ public class OrderQueryBatch {
     sb.append("class OrderQueryBatch {\n");
     
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
+    sb.append("    queryTarget: ").append(toIndentedString(queryTarget)).append("\n");
     sb.append("}");
     return sb.toString();
   }

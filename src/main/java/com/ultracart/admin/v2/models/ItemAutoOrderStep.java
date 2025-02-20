@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ItemAutoOrderStep
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -415,10 +415,10 @@ public class ItemAutoOrderStep {
   }
 
    /**
-   * Email list name to subscribe the customer to when the rebill occurs
+   * Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)
    * @return subscribeEmailListName
   **/
-  @ApiModelProperty(value = "Email list name to subscribe the customer to when the rebill occurs")
+  @ApiModelProperty(value = "Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)")
   public String getSubscribeEmailListName() {
     return subscribeEmailListName;
   }
@@ -433,10 +433,10 @@ public class ItemAutoOrderStep {
   }
 
    /**
-   * Email list identifier to subscribe the customer to when this rebill occurs
+   * Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)
    * @return subscribeEmailListOid
   **/
-  @ApiModelProperty(value = "Email list identifier to subscribe the customer to when this rebill occurs")
+  @ApiModelProperty(value = "Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)")
   public Integer getSubscribeEmailListOid() {
     return subscribeEmailListOid;
   }

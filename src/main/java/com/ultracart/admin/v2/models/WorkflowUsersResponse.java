@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * WorkflowUsersResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -43,6 +43,9 @@ public class WorkflowUsersResponse {
 
   @SerializedName("metadata")
   private ResponseMetadata metadata = null;
+
+  @SerializedName("my_user_id")
+  private Integer myUserId = null;
 
   @SerializedName("success")
   private Boolean success = null;
@@ -87,6 +90,24 @@ public class WorkflowUsersResponse {
 
   public void setMetadata(ResponseMetadata metadata) {
     this.metadata = metadata;
+  }
+
+  public WorkflowUsersResponse myUserId(Integer myUserId) {
+    this.myUserId = myUserId;
+    return this;
+  }
+
+   /**
+   * User ID of myself
+   * @return myUserId
+  **/
+  @ApiModelProperty(value = "User ID of myself")
+  public Integer getMyUserId() {
+    return myUserId;
+  }
+
+  public void setMyUserId(Integer myUserId) {
+    this.myUserId = myUserId;
   }
 
   public WorkflowUsersResponse success(Boolean success) {
@@ -163,6 +184,7 @@ public class WorkflowUsersResponse {
     WorkflowUsersResponse workflowUsersResponse = (WorkflowUsersResponse) o;
     return Objects.equals(this.error, workflowUsersResponse.error) &&
         Objects.equals(this.metadata, workflowUsersResponse.metadata) &&
+        Objects.equals(this.myUserId, workflowUsersResponse.myUserId) &&
         Objects.equals(this.success, workflowUsersResponse.success) &&
         Objects.equals(this.users, workflowUsersResponse.users) &&
         Objects.equals(this.warning, workflowUsersResponse.warning);
@@ -170,7 +192,7 @@ public class WorkflowUsersResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, success, users, warning);
+    return Objects.hash(error, metadata, myUserId, success, users, warning);
   }
 
 
@@ -181,6 +203,7 @@ public class WorkflowUsersResponse {
     
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    myUserId: ").append(toIndentedString(myUserId)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");

@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -73,6 +73,8 @@ public class OrderPayment {
     
     AMAZON("Amazon"),
     
+    AMAZON_PAY("Amazon Pay"),
+    
     AMAZON_SC("Amazon SC"),
     
     CASH("Cash"),
@@ -90,6 +92,8 @@ public class OrderPayment {
     GOOGLE_SHOPPING("Google Shopping"),
     
     INSURANCE("Insurance"),
+    
+    LINK("Link"),
     
     LOANHERO("LoanHero"),
     

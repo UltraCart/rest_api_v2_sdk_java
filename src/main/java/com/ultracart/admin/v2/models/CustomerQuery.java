@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CustomerQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -69,6 +69,9 @@ public class CustomerQuery {
 
   @SerializedName("email")
   private String email = null;
+
+  @SerializedName("emails")
+  private List<String> emails = null;
 
   @SerializedName("last_modified_dts_end")
   private String lastModifiedDtsEnd = null;
@@ -351,6 +354,32 @@ public class CustomerQuery {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public CustomerQuery emails(List<String> emails) {
+    this.emails = emails;
+    return this;
+  }
+
+  public CustomerQuery addEmailsItem(String emailsItem) {
+    if (this.emails == null) {
+      this.emails = new ArrayList<String>();
+    }
+    this.emails.add(emailsItem);
+    return this;
+  }
+
+   /**
+   * Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.
+   * @return emails
+  **/
+  @ApiModelProperty(value = "Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.")
+  public List<String> getEmails() {
+    return emails;
+  }
+
+  public void setEmails(List<String> emails) {
+    this.emails = emails;
   }
 
   public CustomerQuery lastModifiedDtsEnd(String lastModifiedDtsEnd) {
@@ -681,6 +710,7 @@ public class CustomerQuery {
         Objects.equals(this.billingPostalCode, customerQuery.billingPostalCode) &&
         Objects.equals(this.billingState, customerQuery.billingState) &&
         Objects.equals(this.email, customerQuery.email) &&
+        Objects.equals(this.emails, customerQuery.emails) &&
         Objects.equals(this.lastModifiedDtsEnd, customerQuery.lastModifiedDtsEnd) &&
         Objects.equals(this.lastModifiedDtsStart, customerQuery.lastModifiedDtsStart) &&
         Objects.equals(this.pricingTierName, customerQuery.pricingTierName) &&
@@ -702,7 +732,7 @@ public class CustomerQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allTags, anyTags, billingCity, billingCompany, billingCountryCode, billingDayPhone, billingEveningPhone, billingFirstName, billingLastName, billingPostalCode, billingState, email, lastModifiedDtsEnd, lastModifiedDtsStart, pricingTierName, pricingTierOid, qbClass, quickbooksCode, shippingCity, shippingCompany, shippingCountryCode, shippingDayPhone, shippingEveningPhone, shippingFirstName, shippingLastName, shippingPostalCode, shippingState, signupDtsEnd, signupDtsStart);
+    return Objects.hash(allTags, anyTags, billingCity, billingCompany, billingCountryCode, billingDayPhone, billingEveningPhone, billingFirstName, billingLastName, billingPostalCode, billingState, email, emails, lastModifiedDtsEnd, lastModifiedDtsStart, pricingTierName, pricingTierOid, qbClass, quickbooksCode, shippingCity, shippingCompany, shippingCountryCode, shippingDayPhone, shippingEveningPhone, shippingFirstName, shippingLastName, shippingPostalCode, shippingState, signupDtsEnd, signupDtsStart);
   }
 
 
@@ -723,6 +753,7 @@ public class CustomerQuery {
     sb.append("    billingPostalCode: ").append(toIndentedString(billingPostalCode)).append("\n");
     sb.append("    billingState: ").append(toIndentedString(billingState)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    lastModifiedDtsEnd: ").append(toIndentedString(lastModifiedDtsEnd)).append("\n");
     sb.append("    lastModifiedDtsStart: ").append(toIndentedString(lastModifiedDtsStart)).append("\n");
     sb.append("    pricingTierName: ").append(toIndentedString(pricingTierName)).append("\n");

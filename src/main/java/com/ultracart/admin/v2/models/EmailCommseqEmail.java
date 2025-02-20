@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailCommseqEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -52,6 +52,30 @@ public class EmailCommseqEmail {
 
   @SerializedName("email_template_vm_path")
   private String emailTemplateVmPath = null;
+
+  @SerializedName("external_generation")
+  private Boolean externalGeneration = null;
+
+  @SerializedName("external_generation_authentication")
+  private String externalGenerationAuthentication = null;
+
+  @SerializedName("external_generation_basic_password")
+  private String externalGenerationBasicPassword = null;
+
+  @SerializedName("external_generation_basic_username")
+  private String externalGenerationBasicUsername = null;
+
+  @SerializedName("external_generation_header_name")
+  private String externalGenerationHeaderName = null;
+
+  @SerializedName("external_generation_header_value")
+  private String externalGenerationHeaderValue = null;
+
+  @SerializedName("external_generation_id")
+  private String externalGenerationId = null;
+
+  @SerializedName("external_generation_url")
+  private String externalGenerationUrl = null;
 
   @SerializedName("filter_profile_equation_json")
   private String filterProfileEquationJson = null;
@@ -234,6 +258,150 @@ public class EmailCommseqEmail {
 
   public void setEmailTemplateVmPath(String emailTemplateVmPath) {
     this.emailTemplateVmPath = emailTemplateVmPath;
+  }
+
+  public EmailCommseqEmail externalGeneration(Boolean externalGeneration) {
+    this.externalGeneration = externalGeneration;
+    return this;
+  }
+
+   /**
+   * Get externalGeneration
+   * @return externalGeneration
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isExternalGeneration() {
+    return externalGeneration;
+  }
+
+  public void setExternalGeneration(Boolean externalGeneration) {
+    this.externalGeneration = externalGeneration;
+  }
+
+  public EmailCommseqEmail externalGenerationAuthentication(String externalGenerationAuthentication) {
+    this.externalGenerationAuthentication = externalGenerationAuthentication;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationAuthentication
+   * @return externalGenerationAuthentication
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGenerationAuthentication() {
+    return externalGenerationAuthentication;
+  }
+
+  public void setExternalGenerationAuthentication(String externalGenerationAuthentication) {
+    this.externalGenerationAuthentication = externalGenerationAuthentication;
+  }
+
+  public EmailCommseqEmail externalGenerationBasicPassword(String externalGenerationBasicPassword) {
+    this.externalGenerationBasicPassword = externalGenerationBasicPassword;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationBasicPassword
+   * @return externalGenerationBasicPassword
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGenerationBasicPassword() {
+    return externalGenerationBasicPassword;
+  }
+
+  public void setExternalGenerationBasicPassword(String externalGenerationBasicPassword) {
+    this.externalGenerationBasicPassword = externalGenerationBasicPassword;
+  }
+
+  public EmailCommseqEmail externalGenerationBasicUsername(String externalGenerationBasicUsername) {
+    this.externalGenerationBasicUsername = externalGenerationBasicUsername;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationBasicUsername
+   * @return externalGenerationBasicUsername
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGenerationBasicUsername() {
+    return externalGenerationBasicUsername;
+  }
+
+  public void setExternalGenerationBasicUsername(String externalGenerationBasicUsername) {
+    this.externalGenerationBasicUsername = externalGenerationBasicUsername;
+  }
+
+  public EmailCommseqEmail externalGenerationHeaderName(String externalGenerationHeaderName) {
+    this.externalGenerationHeaderName = externalGenerationHeaderName;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationHeaderName
+   * @return externalGenerationHeaderName
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGenerationHeaderName() {
+    return externalGenerationHeaderName;
+  }
+
+  public void setExternalGenerationHeaderName(String externalGenerationHeaderName) {
+    this.externalGenerationHeaderName = externalGenerationHeaderName;
+  }
+
+  public EmailCommseqEmail externalGenerationHeaderValue(String externalGenerationHeaderValue) {
+    this.externalGenerationHeaderValue = externalGenerationHeaderValue;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationHeaderValue
+   * @return externalGenerationHeaderValue
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGenerationHeaderValue() {
+    return externalGenerationHeaderValue;
+  }
+
+  public void setExternalGenerationHeaderValue(String externalGenerationHeaderValue) {
+    this.externalGenerationHeaderValue = externalGenerationHeaderValue;
+  }
+
+  public EmailCommseqEmail externalGenerationId(String externalGenerationId) {
+    this.externalGenerationId = externalGenerationId;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationId
+   * @return externalGenerationId
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGenerationId() {
+    return externalGenerationId;
+  }
+
+  public void setExternalGenerationId(String externalGenerationId) {
+    this.externalGenerationId = externalGenerationId;
+  }
+
+  public EmailCommseqEmail externalGenerationUrl(String externalGenerationUrl) {
+    this.externalGenerationUrl = externalGenerationUrl;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationUrl
+   * @return externalGenerationUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGenerationUrl() {
+    return externalGenerationUrl;
+  }
+
+  public void setExternalGenerationUrl(String externalGenerationUrl) {
+    this.externalGenerationUrl = externalGenerationUrl;
   }
 
   public EmailCommseqEmail filterProfileEquationJson(String filterProfileEquationJson) {
@@ -595,6 +763,14 @@ public class EmailCommseqEmail {
         Objects.equals(this.emailContainerCjson, emailCommseqEmail.emailContainerCjson) &&
         Objects.equals(this.emailContainerCjsonLastModifiedDts, emailCommseqEmail.emailContainerCjsonLastModifiedDts) &&
         Objects.equals(this.emailTemplateVmPath, emailCommseqEmail.emailTemplateVmPath) &&
+        Objects.equals(this.externalGeneration, emailCommseqEmail.externalGeneration) &&
+        Objects.equals(this.externalGenerationAuthentication, emailCommseqEmail.externalGenerationAuthentication) &&
+        Objects.equals(this.externalGenerationBasicPassword, emailCommseqEmail.externalGenerationBasicPassword) &&
+        Objects.equals(this.externalGenerationBasicUsername, emailCommseqEmail.externalGenerationBasicUsername) &&
+        Objects.equals(this.externalGenerationHeaderName, emailCommseqEmail.externalGenerationHeaderName) &&
+        Objects.equals(this.externalGenerationHeaderValue, emailCommseqEmail.externalGenerationHeaderValue) &&
+        Objects.equals(this.externalGenerationId, emailCommseqEmail.externalGenerationId) &&
+        Objects.equals(this.externalGenerationUrl, emailCommseqEmail.externalGenerationUrl) &&
         Objects.equals(this.filterProfileEquationJson, emailCommseqEmail.filterProfileEquationJson) &&
         Objects.equals(this.individuallyRender, emailCommseqEmail.individuallyRender) &&
         Objects.equals(this.libraryItemOid, emailCommseqEmail.libraryItemOid) &&
@@ -618,7 +794,7 @@ public class EmailCommseqEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
+    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, externalGeneration, externalGenerationAuthentication, externalGenerationBasicPassword, externalGenerationBasicUsername, externalGenerationHeaderName, externalGenerationHeaderValue, externalGenerationId, externalGenerationUrl, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
   }
 
 
@@ -634,6 +810,14 @@ public class EmailCommseqEmail {
     sb.append("    emailContainerCjson: ").append(toIndentedString(emailContainerCjson)).append("\n");
     sb.append("    emailContainerCjsonLastModifiedDts: ").append(toIndentedString(emailContainerCjsonLastModifiedDts)).append("\n");
     sb.append("    emailTemplateVmPath: ").append(toIndentedString(emailTemplateVmPath)).append("\n");
+    sb.append("    externalGeneration: ").append(toIndentedString(externalGeneration)).append("\n");
+    sb.append("    externalGenerationAuthentication: ").append(toIndentedString(externalGenerationAuthentication)).append("\n");
+    sb.append("    externalGenerationBasicPassword: ").append(toIndentedString(externalGenerationBasicPassword)).append("\n");
+    sb.append("    externalGenerationBasicUsername: ").append(toIndentedString(externalGenerationBasicUsername)).append("\n");
+    sb.append("    externalGenerationHeaderName: ").append(toIndentedString(externalGenerationHeaderName)).append("\n");
+    sb.append("    externalGenerationHeaderValue: ").append(toIndentedString(externalGenerationHeaderValue)).append("\n");
+    sb.append("    externalGenerationId: ").append(toIndentedString(externalGenerationId)).append("\n");
+    sb.append("    externalGenerationUrl: ").append(toIndentedString(externalGenerationUrl)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    individuallyRender: ").append(toIndentedString(individuallyRender)).append("\n");
     sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");

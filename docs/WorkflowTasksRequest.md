@@ -4,8 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**assignedToGroup** | **String** | Assigned to group |  [optional]
 **assignedToGroupId** | **Integer** | Assigned to group ID |  [optional]
 **assignedToMe** | **Boolean** | Tasks are assigned to me either by direct user id or a group that the user is a member of |  [optional]
+**assignedToUser** | **String** | Assigned to user |  [optional]
 **assignedToUserId** | **Integer** | Assigned to user ID |  [optional]
 **createdBy** | [**WorkflowUser**](WorkflowUser.md) |  |  [optional]
 **createdDtsBegin** | **String** | Date/time that the workflow task was created |  [optional]
@@ -20,6 +22,7 @@ Name | Type | Description | Notes
 **objectType** | [**ObjectTypeEnum**](#ObjectTypeEnum) | Object Type |  [optional]
 **priority** | [**PriorityEnum**](#PriorityEnum) | Priority |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) | Status of the workflow task |  [optional]
+**tags** | **List&lt;String&gt;** | Tasks that are tagged with the specified tags |  [optional]
 **unassigned** | **Boolean** | Tasks that are unassigned to a user or group |  [optional]
 
 

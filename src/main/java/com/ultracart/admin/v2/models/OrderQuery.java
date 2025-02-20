@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -126,6 +126,9 @@ public class OrderQuery {
   @SerializedName("custom_field_1")
   private String customField1 = null;
 
+  @SerializedName("custom_field_10")
+  private String customField10 = null;
+
   @SerializedName("custom_field_2")
   private String customField2 = null;
 
@@ -143,6 +146,12 @@ public class OrderQuery {
 
   @SerializedName("custom_field_7")
   private String customField7 = null;
+
+  @SerializedName("custom_field_8")
+  private String customField8 = null;
+
+  @SerializedName("custom_field_9")
+  private String customField9 = null;
 
   @SerializedName("customer_profile_oid")
   private Integer customerProfileOid = null;
@@ -258,6 +267,56 @@ public class OrderQuery {
 
   @SerializedName("purchase_order_number")
   private String purchaseOrderNumber = null;
+
+  /**
+   * Query Target
+   */
+  @JsonAdapter(QueryTargetEnum.Adapter.class)
+  public enum QueryTargetEnum {
+    ORIGIN("origin"),
+    
+    CACHE("cache");
+
+    private String value;
+
+    QueryTargetEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static QueryTargetEnum fromValue(String text) {
+      for (QueryTargetEnum b : QueryTargetEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<QueryTargetEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final QueryTargetEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public QueryTargetEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return QueryTargetEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("query_target")
+  private QueryTargetEnum queryTarget = null;
 
   @SerializedName("refund_date_begin")
   private String refundDateBegin = null;
@@ -472,6 +531,24 @@ public class OrderQuery {
     this.customField1 = customField1;
   }
 
+  public OrderQuery customField10(String customField10) {
+    this.customField10 = customField10;
+    return this;
+  }
+
+   /**
+   * Custom field 10
+   * @return customField10
+  **/
+  @ApiModelProperty(value = "Custom field 10")
+  public String getCustomField10() {
+    return customField10;
+  }
+
+  public void setCustomField10(String customField10) {
+    this.customField10 = customField10;
+  }
+
   public OrderQuery customField2(String customField2) {
     this.customField2 = customField2;
     return this;
@@ -578,6 +655,42 @@ public class OrderQuery {
 
   public void setCustomField7(String customField7) {
     this.customField7 = customField7;
+  }
+
+  public OrderQuery customField8(String customField8) {
+    this.customField8 = customField8;
+    return this;
+  }
+
+   /**
+   * Custom field 8
+   * @return customField8
+  **/
+  @ApiModelProperty(value = "Custom field 8")
+  public String getCustomField8() {
+    return customField8;
+  }
+
+  public void setCustomField8(String customField8) {
+    this.customField8 = customField8;
+  }
+
+  public OrderQuery customField9(String customField9) {
+    this.customField9 = customField9;
+    return this;
+  }
+
+   /**
+   * Custom field 9
+   * @return customField9
+  **/
+  @ApiModelProperty(value = "Custom field 9")
+  public String getCustomField9() {
+    return customField9;
+  }
+
+  public void setCustomField9(String customField9) {
+    this.customField9 = customField9;
   }
 
   public OrderQuery customerProfileOid(Integer customerProfileOid) {
@@ -794,6 +907,24 @@ public class OrderQuery {
 
   public void setPurchaseOrderNumber(String purchaseOrderNumber) {
     this.purchaseOrderNumber = purchaseOrderNumber;
+  }
+
+  public OrderQuery queryTarget(QueryTargetEnum queryTarget) {
+    this.queryTarget = queryTarget;
+    return this;
+  }
+
+   /**
+   * Query Target
+   * @return queryTarget
+  **/
+  @ApiModelProperty(value = "Query Target")
+  public QueryTargetEnum getQueryTarget() {
+    return queryTarget;
+  }
+
+  public void setQueryTarget(QueryTargetEnum queryTarget) {
+    this.queryTarget = queryTarget;
   }
 
   public OrderQuery refundDateBegin(String refundDateBegin) {
@@ -1014,12 +1145,15 @@ public class OrderQuery {
         Objects.equals(this.creationDateEnd, orderQuery.creationDateEnd) &&
         Objects.equals(this.currentStage, orderQuery.currentStage) &&
         Objects.equals(this.customField1, orderQuery.customField1) &&
+        Objects.equals(this.customField10, orderQuery.customField10) &&
         Objects.equals(this.customField2, orderQuery.customField2) &&
         Objects.equals(this.customField3, orderQuery.customField3) &&
         Objects.equals(this.customField4, orderQuery.customField4) &&
         Objects.equals(this.customField5, orderQuery.customField5) &&
         Objects.equals(this.customField6, orderQuery.customField6) &&
         Objects.equals(this.customField7, orderQuery.customField7) &&
+        Objects.equals(this.customField8, orderQuery.customField8) &&
+        Objects.equals(this.customField9, orderQuery.customField9) &&
         Objects.equals(this.customerProfileOid, orderQuery.customerProfileOid) &&
         Objects.equals(this.email, orderQuery.email) &&
         Objects.equals(this.firstName, orderQuery.firstName) &&
@@ -1032,6 +1166,7 @@ public class OrderQuery {
         Objects.equals(this.phone, orderQuery.phone) &&
         Objects.equals(this.postalCode, orderQuery.postalCode) &&
         Objects.equals(this.purchaseOrderNumber, orderQuery.purchaseOrderNumber) &&
+        Objects.equals(this.queryTarget, orderQuery.queryTarget) &&
         Objects.equals(this.refundDateBegin, orderQuery.refundDateBegin) &&
         Objects.equals(this.refundDateEnd, orderQuery.refundDateEnd) &&
         Objects.equals(this.rma, orderQuery.rma) &&
@@ -1047,7 +1182,7 @@ public class OrderQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
+    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, queryTarget, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
   }
 
 
@@ -1066,12 +1201,15 @@ public class OrderQuery {
     sb.append("    creationDateEnd: ").append(toIndentedString(creationDateEnd)).append("\n");
     sb.append("    currentStage: ").append(toIndentedString(currentStage)).append("\n");
     sb.append("    customField1: ").append(toIndentedString(customField1)).append("\n");
+    sb.append("    customField10: ").append(toIndentedString(customField10)).append("\n");
     sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");
     sb.append("    customField3: ").append(toIndentedString(customField3)).append("\n");
     sb.append("    customField4: ").append(toIndentedString(customField4)).append("\n");
     sb.append("    customField5: ").append(toIndentedString(customField5)).append("\n");
     sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
+    sb.append("    customField8: ").append(toIndentedString(customField8)).append("\n");
+    sb.append("    customField9: ").append(toIndentedString(customField9)).append("\n");
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
@@ -1084,6 +1222,7 @@ public class OrderQuery {
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    purchaseOrderNumber: ").append(toIndentedString(purchaseOrderNumber)).append("\n");
+    sb.append("    queryTarget: ").append(toIndentedString(queryTarget)).append("\n");
     sb.append("    refundDateBegin: ").append(toIndentedString(refundDateBegin)).append("\n");
     sb.append("    refundDateEnd: ").append(toIndentedString(refundDateEnd)).append("\n");
     sb.append("    rma: ").append(toIndentedString(rma)).append("\n");

@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -36,8 +36,20 @@ public class OrderSummary {
   @SerializedName("actual_fulfillment")
   private Currency actualFulfillment = null;
 
+  @SerializedName("actual_other_cost")
+  private Currency actualOtherCost = null;
+
   @SerializedName("actual_payment_processing")
   private Currency actualPaymentProcessing = null;
+
+  @SerializedName("actual_profit")
+  private Currency actualProfit = null;
+
+  @SerializedName("actual_profit_analyzed")
+  private Boolean actualProfitAnalyzed = null;
+
+  @SerializedName("actual_profit_review")
+  private Boolean actualProfitReview = null;
 
   @SerializedName("actual_shipping")
   private Currency actualShipping = null;
@@ -117,6 +129,24 @@ public class OrderSummary {
     this.actualFulfillment = actualFulfillment;
   }
 
+  public OrderSummary actualOtherCost(Currency actualOtherCost) {
+    this.actualOtherCost = actualOtherCost;
+    return this;
+  }
+
+   /**
+   * Get actualOtherCost
+   * @return actualOtherCost
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getActualOtherCost() {
+    return actualOtherCost;
+  }
+
+  public void setActualOtherCost(Currency actualOtherCost) {
+    this.actualOtherCost = actualOtherCost;
+  }
+
   public OrderSummary actualPaymentProcessing(Currency actualPaymentProcessing) {
     this.actualPaymentProcessing = actualPaymentProcessing;
     return this;
@@ -133,6 +163,60 @@ public class OrderSummary {
 
   public void setActualPaymentProcessing(Currency actualPaymentProcessing) {
     this.actualPaymentProcessing = actualPaymentProcessing;
+  }
+
+  public OrderSummary actualProfit(Currency actualProfit) {
+    this.actualProfit = actualProfit;
+    return this;
+  }
+
+   /**
+   * Get actualProfit
+   * @return actualProfit
+  **/
+  @ApiModelProperty(value = "")
+  public Currency getActualProfit() {
+    return actualProfit;
+  }
+
+  public void setActualProfit(Currency actualProfit) {
+    this.actualProfit = actualProfit;
+  }
+
+  public OrderSummary actualProfitAnalyzed(Boolean actualProfitAnalyzed) {
+    this.actualProfitAnalyzed = actualProfitAnalyzed;
+    return this;
+  }
+
+   /**
+   * Actual profit has been analyzed
+   * @return actualProfitAnalyzed
+  **/
+  @ApiModelProperty(value = "Actual profit has been analyzed")
+  public Boolean isActualProfitAnalyzed() {
+    return actualProfitAnalyzed;
+  }
+
+  public void setActualProfitAnalyzed(Boolean actualProfitAnalyzed) {
+    this.actualProfitAnalyzed = actualProfitAnalyzed;
+  }
+
+  public OrderSummary actualProfitReview(Boolean actualProfitReview) {
+    this.actualProfitReview = actualProfitReview;
+    return this;
+  }
+
+   /**
+   * Actual profit needs review
+   * @return actualProfitReview
+  **/
+  @ApiModelProperty(value = "Actual profit needs review")
+  public Boolean isActualProfitReview() {
+    return actualProfitReview;
+  }
+
+  public void setActualProfitReview(Boolean actualProfitReview) {
+    this.actualProfitReview = actualProfitReview;
   }
 
   public OrderSummary actualShipping(Currency actualShipping) {
@@ -506,7 +590,11 @@ public class OrderSummary {
     }
     OrderSummary orderSummary = (OrderSummary) o;
     return Objects.equals(this.actualFulfillment, orderSummary.actualFulfillment) &&
+        Objects.equals(this.actualOtherCost, orderSummary.actualOtherCost) &&
         Objects.equals(this.actualPaymentProcessing, orderSummary.actualPaymentProcessing) &&
+        Objects.equals(this.actualProfit, orderSummary.actualProfit) &&
+        Objects.equals(this.actualProfitAnalyzed, orderSummary.actualProfitAnalyzed) &&
+        Objects.equals(this.actualProfitReview, orderSummary.actualProfitReview) &&
         Objects.equals(this.actualShipping, orderSummary.actualShipping) &&
         Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
         Objects.equals(this.healthBenefitCardAmount, orderSummary.healthBenefitCardAmount) &&
@@ -531,7 +619,7 @@ public class OrderSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualFulfillment, actualPaymentProcessing, actualShipping, arbitraryShippingHandlingTotal, healthBenefitCardAmount, healthBenefitCardRefunded, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
+    return Objects.hash(actualFulfillment, actualOtherCost, actualPaymentProcessing, actualProfit, actualProfitAnalyzed, actualProfitReview, actualShipping, arbitraryShippingHandlingTotal, healthBenefitCardAmount, healthBenefitCardRefunded, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
   }
 
 
@@ -541,7 +629,11 @@ public class OrderSummary {
     sb.append("class OrderSummary {\n");
     
     sb.append("    actualFulfillment: ").append(toIndentedString(actualFulfillment)).append("\n");
+    sb.append("    actualOtherCost: ").append(toIndentedString(actualOtherCost)).append("\n");
     sb.append("    actualPaymentProcessing: ").append(toIndentedString(actualPaymentProcessing)).append("\n");
+    sb.append("    actualProfit: ").append(toIndentedString(actualProfit)).append("\n");
+    sb.append("    actualProfitAnalyzed: ").append(toIndentedString(actualProfitAnalyzed)).append("\n");
+    sb.append("    actualProfitReview: ").append(toIndentedString(actualProfitReview)).append("\n");
     sb.append("    actualShipping: ").append(toIndentedString(actualShipping)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
     sb.append("    healthBenefitCardAmount: ").append(toIndentedString(healthBenefitCardAmount)).append("\n");

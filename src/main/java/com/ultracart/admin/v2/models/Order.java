@@ -28,6 +28,7 @@ import com.ultracart.admin.v2.models.OrderBuysafe;
 import com.ultracart.admin.v2.models.OrderChannelPartner;
 import com.ultracart.admin.v2.models.OrderCheckout;
 import com.ultracart.admin.v2.models.OrderCoupon;
+import com.ultracart.admin.v2.models.OrderCurrentStageHistory;
 import com.ultracart.admin.v2.models.OrderDigitalOrder;
 import com.ultracart.admin.v2.models.OrderEdi;
 import com.ultracart.admin.v2.models.OrderFraudScore;
@@ -57,7 +58,7 @@ import java.util.List;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -160,6 +161,9 @@ public class Order {
 
   @SerializedName("current_stage")
   private CurrentStageEnum currentStage = null;
+
+  @SerializedName("current_stage_histories")
+  private List<OrderCurrentStageHistory> currentStageHistories = null;
 
   @SerializedName("customer_profile")
   private Customer customerProfile = null;
@@ -439,6 +443,32 @@ public class Order {
 
   public void setCurrentStage(CurrentStageEnum currentStage) {
     this.currentStage = currentStage;
+  }
+
+  public Order currentStageHistories(List<OrderCurrentStageHistory> currentStageHistories) {
+    this.currentStageHistories = currentStageHistories;
+    return this;
+  }
+
+  public Order addCurrentStageHistoriesItem(OrderCurrentStageHistory currentStageHistoriesItem) {
+    if (this.currentStageHistories == null) {
+      this.currentStageHistories = new ArrayList<OrderCurrentStageHistory>();
+    }
+    this.currentStageHistories.add(currentStageHistoriesItem);
+    return this;
+  }
+
+   /**
+   * History of the changes to the current_stage field
+   * @return currentStageHistories
+  **/
+  @ApiModelProperty(value = "History of the changes to the current_stage field")
+  public List<OrderCurrentStageHistory> getCurrentStageHistories() {
+    return currentStageHistories;
+  }
+
+  public void setCurrentStageHistories(List<OrderCurrentStageHistory> currentStageHistories) {
+    this.currentStageHistories = currentStageHistories;
   }
 
   public Order customerProfile(Customer customerProfile) {
@@ -997,6 +1027,7 @@ public class Order {
         Objects.equals(this.creationDts, order.creationDts) &&
         Objects.equals(this.currencyCode, order.currencyCode) &&
         Objects.equals(this.currentStage, order.currentStage) &&
+        Objects.equals(this.currentStageHistories, order.currentStageHistories) &&
         Objects.equals(this.customerProfile, order.customerProfile) &&
         Objects.equals(this.digitalOrder, order.digitalOrder) &&
         Objects.equals(this.edi, order.edi) &&
@@ -1029,7 +1060,7 @@ public class Order {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, refundReason, rejectDts, rejectReason, salesforce, shipping, summary, tags, taxes, utms);
+    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, currentStageHistories, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, refundReason, rejectDts, rejectReason, salesforce, shipping, summary, tags, taxes, utms);
   }
 
 
@@ -1048,6 +1079,7 @@ public class Order {
     sb.append("    creationDts: ").append(toIndentedString(creationDts)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    currentStage: ").append(toIndentedString(currentStage)).append("\n");
+    sb.append("    currentStageHistories: ").append(toIndentedString(currentStageHistories)).append("\n");
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    digitalOrder: ").append(toIndentedString(digitalOrder)).append("\n");
     sb.append("    edi: ").append(toIndentedString(edi)).append("\n");

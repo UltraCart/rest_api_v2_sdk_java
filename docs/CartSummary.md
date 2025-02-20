@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **arbitraryTaxRate** | [**Currency**](Currency.md) |  |  [optional]
 **arbitraryTaxableSubtotal** | [**Currency**](Currency.md) |  |  [optional]
 **healthBenefitCardAmount** | [**Currency**](Currency.md) |  |  [optional]
+**healthBenefitCardBalance** | [**Currency**](Currency.md) |  |  [optional]
+**healthBenefitCardRequirements** | **String** | Health benefit card requirements |  [optional]
 **internalGiftCertificateAmount** | [**Currency**](Currency.md) |  |  [optional]
 **shippingHandling** | [**Currency**](Currency.md) |  |  [optional]
 **shippingHandlingDiscount** | [**Currency**](Currency.md) |  |  [optional]

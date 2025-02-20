@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ItemReporting
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-15T16:13:40.363-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
 
 
 
@@ -72,10 +72,10 @@ public class ItemReporting {
   }
 
    /**
-   * Report pickable quantities
+   * Report pickable quantities (deprecated)
    * @return reportPickableQuantities
   **/
-  @ApiModelProperty(value = "Report pickable quantities")
+  @ApiModelProperty(value = "Report pickable quantities (deprecated)")
   public List<Integer> getReportPickableQuantities() {
     return reportPickableQuantities;
   }
