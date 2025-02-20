@@ -50,11 +50,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponPercentOffItemsWithItemsPurchase
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CouponPercentOffItemsWithItemsPurchase {
   public static final String SERIALIZED_NAME_DISCOUNT_PERCENT = "discount_percent";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_PERCENT)
   private BigDecimal discountPercent;
+
+  public static final String SERIALIZED_NAME_ITEM_TAGS = "item_tags";
+  @SerializedName(SERIALIZED_NAME_ITEM_TAGS)
+  private List<String> itemTags = null;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -67,6 +71,10 @@ public class CouponPercentOffItemsWithItemsPurchase {
   public static final String SERIALIZED_NAME_REQUIRED_PURCHASE_ITEMS = "required_purchase_items";
   @SerializedName(SERIALIZED_NAME_REQUIRED_PURCHASE_ITEMS)
   private List<String> requiredPurchaseItems = null;
+
+  public static final String SERIALIZED_NAME_REQUIRED_PURCHASE_ITEMS_TAGS = "required_purchase_items_tags";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_PURCHASE_ITEMS_TAGS)
+  private List<String> requiredPurchaseItemsTags = null;
 
   public CouponPercentOffItemsWithItemsPurchase() { 
   }
@@ -91,6 +99,37 @@ public class CouponPercentOffItemsWithItemsPurchase {
 
   public void setDiscountPercent(BigDecimal discountPercent) {
     this.discountPercent = discountPercent;
+  }
+
+
+  public CouponPercentOffItemsWithItemsPurchase itemTags(List<String> itemTags) {
+    
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponPercentOffItemsWithItemsPurchase addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount of one of the required purchased items is purchased.
+   * @return itemTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount of one of the required purchased items is purchased.")
+
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
   }
 
 
@@ -179,6 +218,37 @@ public class CouponPercentOffItemsWithItemsPurchase {
   }
 
 
+  public CouponPercentOffItemsWithItemsPurchase requiredPurchaseItemsTags(List<String> requiredPurchaseItemsTags) {
+    
+    this.requiredPurchaseItemsTags = requiredPurchaseItemsTags;
+    return this;
+  }
+
+  public CouponPercentOffItemsWithItemsPurchase addRequiredPurchaseItemsTagsItem(String requiredPurchaseItemsTagsItem) {
+    if (this.requiredPurchaseItemsTags == null) {
+      this.requiredPurchaseItemsTags = new ArrayList<>();
+    }
+    this.requiredPurchaseItemsTags.add(requiredPurchaseItemsTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which are required to be purchased.
+   * @return requiredPurchaseItemsTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An optional list of item tags which are required to be purchased.")
+
+  public List<String> getRequiredPurchaseItemsTags() {
+    return requiredPurchaseItemsTags;
+  }
+
+
+  public void setRequiredPurchaseItemsTags(List<String> requiredPurchaseItemsTags) {
+    this.requiredPurchaseItemsTags = requiredPurchaseItemsTags;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -190,14 +260,16 @@ public class CouponPercentOffItemsWithItemsPurchase {
     }
     CouponPercentOffItemsWithItemsPurchase couponPercentOffItemsWithItemsPurchase = (CouponPercentOffItemsWithItemsPurchase) o;
     return Objects.equals(this.discountPercent, couponPercentOffItemsWithItemsPurchase.discountPercent) &&
+        Objects.equals(this.itemTags, couponPercentOffItemsWithItemsPurchase.itemTags) &&
         Objects.equals(this.items, couponPercentOffItemsWithItemsPurchase.items) &&
         Objects.equals(this.limit, couponPercentOffItemsWithItemsPurchase.limit) &&
-        Objects.equals(this.requiredPurchaseItems, couponPercentOffItemsWithItemsPurchase.requiredPurchaseItems);
+        Objects.equals(this.requiredPurchaseItems, couponPercentOffItemsWithItemsPurchase.requiredPurchaseItems) &&
+        Objects.equals(this.requiredPurchaseItemsTags, couponPercentOffItemsWithItemsPurchase.requiredPurchaseItemsTags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, items, limit, requiredPurchaseItems);
+    return Objects.hash(discountPercent, itemTags, items, limit, requiredPurchaseItems, requiredPurchaseItemsTags);
   }
 
   @Override
@@ -205,9 +277,11 @@ public class CouponPercentOffItemsWithItemsPurchase {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponPercentOffItemsWithItemsPurchase {\n");
     sb.append("    discountPercent: ").append(toIndentedString(discountPercent)).append("\n");
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    requiredPurchaseItems: ").append(toIndentedString(requiredPurchaseItems)).append("\n");
+    sb.append("    requiredPurchaseItemsTags: ").append(toIndentedString(requiredPurchaseItemsTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -231,9 +305,11 @@ public class CouponPercentOffItemsWithItemsPurchase {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("discount_percent");
+    openapiFields.add("item_tags");
     openapiFields.add("items");
     openapiFields.add("limit");
     openapiFields.add("required_purchase_items");
+    openapiFields.add("required_purchase_items_tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -262,12 +338,20 @@ public class CouponPercentOffItemsWithItemsPurchase {
         }
       }
       // ensure the json data is an array
+      if (jsonObj.get("item_tags") != null && !jsonObj.get("item_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `item_tags` to be an array in the JSON string but got `%s`", jsonObj.get("item_tags").toString()));
+      }
+      // ensure the json data is an array
       if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("required_purchase_items") != null && !jsonObj.get("required_purchase_items").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `required_purchase_items` to be an array in the JSON string but got `%s`", jsonObj.get("required_purchase_items").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("required_purchase_items_tags") != null && !jsonObj.get("required_purchase_items_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `required_purchase_items_tags` to be an array in the JSON string but got `%s`", jsonObj.get("required_purchase_items_tags").toString()));
       }
   }
 

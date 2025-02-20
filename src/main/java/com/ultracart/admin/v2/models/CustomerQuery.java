@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CustomerQuery {
   public static final String SERIALIZED_NAME_ALL_TAGS = "all_tags";
   @SerializedName(SERIALIZED_NAME_ALL_TAGS)
@@ -98,6 +98,10 @@ public class CustomerQuery {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_EMAILS = "emails";
+  @SerializedName(SERIALIZED_NAME_EMAILS)
+  private List<String> emails = null;
 
   public static final String SERIALIZED_NAME_LAST_MODIFIED_DTS_END = "last_modified_dts_end";
   @SerializedName(SERIALIZED_NAME_LAST_MODIFIED_DTS_END)
@@ -459,6 +463,37 @@ public class CustomerQuery {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public CustomerQuery emails(List<String> emails) {
+    
+    this.emails = emails;
+    return this;
+  }
+
+  public CustomerQuery addEmailsItem(String emailsItem) {
+    if (this.emails == null) {
+      this.emails = new ArrayList<>();
+    }
+    this.emails.add(emailsItem);
+    return this;
+  }
+
+   /**
+   * Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.
+   * @return emails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.")
+
+  public List<String> getEmails() {
+    return emails;
+  }
+
+
+  public void setEmails(List<String> emails) {
+    this.emails = emails;
   }
 
 
@@ -875,6 +910,7 @@ public class CustomerQuery {
         Objects.equals(this.billingPostalCode, customerQuery.billingPostalCode) &&
         Objects.equals(this.billingState, customerQuery.billingState) &&
         Objects.equals(this.email, customerQuery.email) &&
+        Objects.equals(this.emails, customerQuery.emails) &&
         Objects.equals(this.lastModifiedDtsEnd, customerQuery.lastModifiedDtsEnd) &&
         Objects.equals(this.lastModifiedDtsStart, customerQuery.lastModifiedDtsStart) &&
         Objects.equals(this.pricingTierName, customerQuery.pricingTierName) &&
@@ -896,7 +932,7 @@ public class CustomerQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allTags, anyTags, billingCity, billingCompany, billingCountryCode, billingDayPhone, billingEveningPhone, billingFirstName, billingLastName, billingPostalCode, billingState, email, lastModifiedDtsEnd, lastModifiedDtsStart, pricingTierName, pricingTierOid, qbClass, quickbooksCode, shippingCity, shippingCompany, shippingCountryCode, shippingDayPhone, shippingEveningPhone, shippingFirstName, shippingLastName, shippingPostalCode, shippingState, signupDtsEnd, signupDtsStart);
+    return Objects.hash(allTags, anyTags, billingCity, billingCompany, billingCountryCode, billingDayPhone, billingEveningPhone, billingFirstName, billingLastName, billingPostalCode, billingState, email, emails, lastModifiedDtsEnd, lastModifiedDtsStart, pricingTierName, pricingTierOid, qbClass, quickbooksCode, shippingCity, shippingCompany, shippingCountryCode, shippingDayPhone, shippingEveningPhone, shippingFirstName, shippingLastName, shippingPostalCode, shippingState, signupDtsEnd, signupDtsStart);
   }
 
   @Override
@@ -915,6 +951,7 @@ public class CustomerQuery {
     sb.append("    billingPostalCode: ").append(toIndentedString(billingPostalCode)).append("\n");
     sb.append("    billingState: ").append(toIndentedString(billingState)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    lastModifiedDtsEnd: ").append(toIndentedString(lastModifiedDtsEnd)).append("\n");
     sb.append("    lastModifiedDtsStart: ").append(toIndentedString(lastModifiedDtsStart)).append("\n");
     sb.append("    pricingTierName: ").append(toIndentedString(pricingTierName)).append("\n");
@@ -966,6 +1003,7 @@ public class CustomerQuery {
     openapiFields.add("billing_postal_code");
     openapiFields.add("billing_state");
     openapiFields.add("email");
+    openapiFields.add("emails");
     openapiFields.add("last_modified_dts_end");
     openapiFields.add("last_modified_dts_start");
     openapiFields.add("pricing_tier_name");
@@ -1047,6 +1085,10 @@ public class CustomerQuery {
       }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("emails") != null && !jsonObj.get("emails").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `emails` to be an array in the JSON string but got `%s`", jsonObj.get("emails").toString()));
       }
       if (jsonObj.get("last_modified_dts_end") != null && !jsonObj.get("last_modified_dts_end").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_modified_dts_end` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_modified_dts_end").toString()));

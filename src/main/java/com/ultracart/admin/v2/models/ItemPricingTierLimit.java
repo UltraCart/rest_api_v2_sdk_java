@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,11 +49,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemPricingTierLimit
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ItemPricingTierLimit {
   public static final String SERIALIZED_NAME_CUMULATIVE_ORDER_LIMIT = "cumulative_order_limit";
   @SerializedName(SERIALIZED_NAME_CUMULATIVE_ORDER_LIMIT)
   private Integer cumulativeOrderLimit;
+
+  public static final String SERIALIZED_NAME_EXEMPT_FROM_MINIMUM_ITEM_COUNT = "exempt_from_minimum_item_count";
+  @SerializedName(SERIALIZED_NAME_EXEMPT_FROM_MINIMUM_ITEM_COUNT)
+  private Boolean exemptFromMinimumItemCount;
 
   public static final String SERIALIZED_NAME_INDIVIDUAL_ORDER_LIMIT = "individual_order_limit";
   @SerializedName(SERIALIZED_NAME_INDIVIDUAL_ORDER_LIMIT)
@@ -60,6 +66,10 @@ public class ItemPricingTierLimit {
   public static final String SERIALIZED_NAME_MULTIPLE_QUANTITY = "multiple_quantity";
   @SerializedName(SERIALIZED_NAME_MULTIPLE_QUANTITY)
   private Integer multipleQuantity;
+
+  public static final String SERIALIZED_NAME_PAYMENT_METHOD_VALIDITY = "payment_method_validity";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD_VALIDITY)
+  private List<String> paymentMethodValidity = null;
 
   public ItemPricingTierLimit() { 
   }
@@ -84,6 +94,29 @@ public class ItemPricingTierLimit {
 
   public void setCumulativeOrderLimit(Integer cumulativeOrderLimit) {
     this.cumulativeOrderLimit = cumulativeOrderLimit;
+  }
+
+
+  public ItemPricingTierLimit exemptFromMinimumItemCount(Boolean exemptFromMinimumItemCount) {
+    
+    this.exemptFromMinimumItemCount = exemptFromMinimumItemCount;
+    return this;
+  }
+
+   /**
+   * Exempt from Minimum Item Count
+   * @return exemptFromMinimumItemCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Exempt from Minimum Item Count")
+
+  public Boolean getExemptFromMinimumItemCount() {
+    return exemptFromMinimumItemCount;
+  }
+
+
+  public void setExemptFromMinimumItemCount(Boolean exemptFromMinimumItemCount) {
+    this.exemptFromMinimumItemCount = exemptFromMinimumItemCount;
   }
 
 
@@ -133,6 +166,37 @@ public class ItemPricingTierLimit {
   }
 
 
+  public ItemPricingTierLimit paymentMethodValidity(List<String> paymentMethodValidity) {
+    
+    this.paymentMethodValidity = paymentMethodValidity;
+    return this;
+  }
+
+  public ItemPricingTierLimit addPaymentMethodValidityItem(String paymentMethodValidityItem) {
+    if (this.paymentMethodValidity == null) {
+      this.paymentMethodValidity = new ArrayList<>();
+    }
+    this.paymentMethodValidity.add(paymentMethodValidityItem);
+    return this;
+  }
+
+   /**
+   * Payment method validity
+   * @return paymentMethodValidity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Payment method validity")
+
+  public List<String> getPaymentMethodValidity() {
+    return paymentMethodValidity;
+  }
+
+
+  public void setPaymentMethodValidity(List<String> paymentMethodValidity) {
+    this.paymentMethodValidity = paymentMethodValidity;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -144,13 +208,15 @@ public class ItemPricingTierLimit {
     }
     ItemPricingTierLimit itemPricingTierLimit = (ItemPricingTierLimit) o;
     return Objects.equals(this.cumulativeOrderLimit, itemPricingTierLimit.cumulativeOrderLimit) &&
+        Objects.equals(this.exemptFromMinimumItemCount, itemPricingTierLimit.exemptFromMinimumItemCount) &&
         Objects.equals(this.individualOrderLimit, itemPricingTierLimit.individualOrderLimit) &&
-        Objects.equals(this.multipleQuantity, itemPricingTierLimit.multipleQuantity);
+        Objects.equals(this.multipleQuantity, itemPricingTierLimit.multipleQuantity) &&
+        Objects.equals(this.paymentMethodValidity, itemPricingTierLimit.paymentMethodValidity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cumulativeOrderLimit, individualOrderLimit, multipleQuantity);
+    return Objects.hash(cumulativeOrderLimit, exemptFromMinimumItemCount, individualOrderLimit, multipleQuantity, paymentMethodValidity);
   }
 
   @Override
@@ -158,8 +224,10 @@ public class ItemPricingTierLimit {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemPricingTierLimit {\n");
     sb.append("    cumulativeOrderLimit: ").append(toIndentedString(cumulativeOrderLimit)).append("\n");
+    sb.append("    exemptFromMinimumItemCount: ").append(toIndentedString(exemptFromMinimumItemCount)).append("\n");
     sb.append("    individualOrderLimit: ").append(toIndentedString(individualOrderLimit)).append("\n");
     sb.append("    multipleQuantity: ").append(toIndentedString(multipleQuantity)).append("\n");
+    sb.append("    paymentMethodValidity: ").append(toIndentedString(paymentMethodValidity)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -183,8 +251,10 @@ public class ItemPricingTierLimit {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("cumulative_order_limit");
+    openapiFields.add("exempt_from_minimum_item_count");
     openapiFields.add("individual_order_limit");
     openapiFields.add("multiple_quantity");
+    openapiFields.add("payment_method_validity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -211,6 +281,10 @@ public class ItemPricingTierLimit {
         if (!ItemPricingTierLimit.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ItemPricingTierLimit` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("payment_method_validity") != null && !jsonObj.get("payment_method_validity").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payment_method_validity` to be an array in the JSON string but got `%s`", jsonObj.get("payment_method_validity").toString()));
       }
   }
 

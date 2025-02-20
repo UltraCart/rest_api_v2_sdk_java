@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.AutoOrderAddonItem;
 import com.ultracart.admin.v2.models.AutoOrderItem;
 import com.ultracart.admin.v2.models.AutoOrderLog;
 import com.ultracart.admin.v2.models.AutoOrderManagement;
@@ -53,8 +54,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class AutoOrder {
+  public static final String SERIALIZED_NAME_ADD_ONS = "add_ons";
+  @SerializedName(SERIALIZED_NAME_ADD_ONS)
+  private List<AutoOrderAddonItem> addOns = null;
+
   public static final String SERIALIZED_NAME_AUTO_ORDER_CODE = "auto_order_code";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_CODE)
   private String autoOrderCode;
@@ -119,6 +124,18 @@ public class AutoOrder {
   @SerializedName(SERIALIZED_NAME_MANAGEMENT)
   private AutoOrderManagement management;
 
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
+
+  public static final String SERIALIZED_NAME_MERGED_DTS = "merged_dts";
+  @SerializedName(SERIALIZED_NAME_MERGED_DTS)
+  private String mergedDts;
+
+  public static final String SERIALIZED_NAME_MERGED_INTO_AUTO_ORDER_OID = "merged_into_auto_order_oid";
+  @SerializedName(SERIALIZED_NAME_MERGED_INTO_AUTO_ORDER_OID)
+  private Integer mergedIntoAutoOrderOid;
+
   public static final String SERIALIZED_NAME_NEXT_ATTEMPT = "next_attempt";
   @SerializedName(SERIALIZED_NAME_NEXT_ATTEMPT)
   private String nextAttempt;
@@ -152,7 +169,9 @@ public class AutoOrder {
     
     CANCELED("canceled"),
     
-    DISABLED("disabled");
+    DISABLED("disabled"),
+    
+    MERGED("merged");
 
     private String value;
 
@@ -198,6 +217,37 @@ public class AutoOrder {
 
   public AutoOrder() { 
   }
+
+  public AutoOrder addOns(List<AutoOrderAddonItem> addOns) {
+    
+    this.addOns = addOns;
+    return this;
+  }
+
+  public AutoOrder addAddOnsItem(AutoOrderAddonItem addOnsItem) {
+    if (this.addOns == null) {
+      this.addOns = new ArrayList<>();
+    }
+    this.addOns.add(addOnsItem);
+    return this;
+  }
+
+   /**
+   * Array of addon objects instructing which items to add to auto order and how many times they should be added.
+   * @return addOns
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of addon objects instructing which items to add to auto order and how many times they should be added.")
+
+  public List<AutoOrderAddonItem> getAddOns() {
+    return addOns;
+  }
+
+
+  public void setAddOns(List<AutoOrderAddonItem> addOns) {
+    this.addOns = addOns;
+  }
+
 
   public AutoOrder autoOrderCode(String autoOrderCode) {
     
@@ -583,6 +633,75 @@ public class AutoOrder {
   }
 
 
+  public AutoOrder merchantId(String merchantId) {
+    
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * UltraCart merchant ID owning this order
+   * @return merchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UltraCart merchant ID owning this order")
+
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
+
+  public AutoOrder mergedDts(String mergedDts) {
+    
+    this.mergedDts = mergedDts;
+    return this;
+  }
+
+   /**
+   * The date/time the auto order was merged into another auto order
+   * @return mergedDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date/time the auto order was merged into another auto order")
+
+  public String getMergedDts() {
+    return mergedDts;
+  }
+
+
+  public void setMergedDts(String mergedDts) {
+    this.mergedDts = mergedDts;
+  }
+
+
+  public AutoOrder mergedIntoAutoOrderOid(Integer mergedIntoAutoOrderOid) {
+    
+    this.mergedIntoAutoOrderOid = mergedIntoAutoOrderOid;
+    return this;
+  }
+
+   /**
+   * The auto order that this auto order was merged into
+   * @return mergedIntoAutoOrderOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The auto order that this auto order was merged into")
+
+  public Integer getMergedIntoAutoOrderOid() {
+    return mergedIntoAutoOrderOid;
+  }
+
+
+  public void setMergedIntoAutoOrderOid(Integer mergedIntoAutoOrderOid) {
+    this.mergedIntoAutoOrderOid = mergedIntoAutoOrderOid;
+  }
+
+
   public AutoOrder nextAttempt(String nextAttempt) {
     
     this.nextAttempt = nextAttempt;
@@ -762,7 +881,8 @@ public class AutoOrder {
       return false;
     }
     AutoOrder autoOrder = (AutoOrder) o;
-    return Objects.equals(this.autoOrderCode, autoOrder.autoOrderCode) &&
+    return Objects.equals(this.addOns, autoOrder.addOns) &&
+        Objects.equals(this.autoOrderCode, autoOrder.autoOrderCode) &&
         Objects.equals(this.autoOrderOid, autoOrder.autoOrderOid) &&
         Objects.equals(this.cancelAfterNextXOrders, autoOrder.cancelAfterNextXOrders) &&
         Objects.equals(this.cancelDowngrade, autoOrder.cancelDowngrade) &&
@@ -778,6 +898,9 @@ public class AutoOrder {
         Objects.equals(this.items, autoOrder.items) &&
         Objects.equals(this.logs, autoOrder.logs) &&
         Objects.equals(this.management, autoOrder.management) &&
+        Objects.equals(this.merchantId, autoOrder.merchantId) &&
+        Objects.equals(this.mergedDts, autoOrder.mergedDts) &&
+        Objects.equals(this.mergedIntoAutoOrderOid, autoOrder.mergedIntoAutoOrderOid) &&
         Objects.equals(this.nextAttempt, autoOrder.nextAttempt) &&
         Objects.equals(this.originalOrder, autoOrder.originalOrder) &&
         Objects.equals(this.originalOrderId, autoOrder.originalOrderId) &&
@@ -789,13 +912,14 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, merchantId, mergedDts, mergedIntoAutoOrderOid, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoOrder {\n");
+    sb.append("    addOns: ").append(toIndentedString(addOns)).append("\n");
     sb.append("    autoOrderCode: ").append(toIndentedString(autoOrderCode)).append("\n");
     sb.append("    autoOrderOid: ").append(toIndentedString(autoOrderOid)).append("\n");
     sb.append("    cancelAfterNextXOrders: ").append(toIndentedString(cancelAfterNextXOrders)).append("\n");
@@ -812,6 +936,9 @@ public class AutoOrder {
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    management: ").append(toIndentedString(management)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    mergedDts: ").append(toIndentedString(mergedDts)).append("\n");
+    sb.append("    mergedIntoAutoOrderOid: ").append(toIndentedString(mergedIntoAutoOrderOid)).append("\n");
     sb.append("    nextAttempt: ").append(toIndentedString(nextAttempt)).append("\n");
     sb.append("    originalOrder: ").append(toIndentedString(originalOrder)).append("\n");
     sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");
@@ -841,6 +968,7 @@ public class AutoOrder {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("add_ons");
     openapiFields.add("auto_order_code");
     openapiFields.add("auto_order_oid");
     openapiFields.add("cancel_after_next_x_orders");
@@ -857,6 +985,9 @@ public class AutoOrder {
     openapiFields.add("items");
     openapiFields.add("logs");
     openapiFields.add("management");
+    openapiFields.add("merchant_id");
+    openapiFields.add("merged_dts");
+    openapiFields.add("merged_into_auto_order_oid");
     openapiFields.add("next_attempt");
     openapiFields.add("original_order");
     openapiFields.add("original_order_id");
@@ -890,6 +1021,18 @@ public class AutoOrder {
         if (!AutoOrder.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoOrder` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArrayaddOns = jsonObj.getAsJsonArray("add_ons");
+      if (jsonArrayaddOns != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("add_ons").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `add_ons` to be an array in the JSON string but got `%s`", jsonObj.get("add_ons").toString()));
+        }
+
+        // validate the optional field `add_ons` (array)
+        for (int i = 0; i < jsonArrayaddOns.size(); i++) {
+          AutoOrderAddonItem.validateJsonObject(jsonArrayaddOns.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("auto_order_code") != null && !jsonObj.get("auto_order_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `auto_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auto_order_code").toString()));
@@ -936,6 +1079,12 @@ public class AutoOrder {
       // validate the optional field `management`
       if (jsonObj.getAsJsonObject("management") != null) {
         AutoOrderManagement.validateJsonObject(jsonObj.getAsJsonObject("management"));
+      }
+      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if (jsonObj.get("merged_dts") != null && !jsonObj.get("merged_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merged_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merged_dts").toString()));
       }
       if (jsonObj.get("next_attempt") != null && !jsonObj.get("next_attempt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `next_attempt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_attempt").toString()));

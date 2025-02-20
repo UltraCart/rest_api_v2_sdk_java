@@ -4,6 +4,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**consolidateAutoOrders**](AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders |
+| [**establishAutoOrderByReferenceOrderId**](AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id |
 | [**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid |
 | [**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code |
 | [**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id |
@@ -13,6 +15,144 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order |
 | [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders |
 
+
+<a name="consolidateAutoOrders"></a>
+# **consolidateAutoOrders**
+> AutoOrderResponse consolidateAutoOrders(autoOrderOid, autoOrderConsolidate, expand)
+
+Consolidates multiple auto orders
+
+Consolidates mutliple auto orders on the UltraCart account. 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.AutoOrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+AutoOrderApi apiInstance = new AutoOrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer autoOrderOid = 56; // Integer | The auto order oid to consolidate into.
+AutoOrderConsolidate autoOrderConsolidate = new AutoOrderConsolidate(); // AutoOrderConsolidate | Auto orders to consolidate
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    AutoOrderResponse result = apiInstance.consolidateAutoOrders(autoOrderOidautoOrderConsolidateexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoOrderApi#consolidateAutoOrders");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to consolidate into. | |
+| **autoOrderConsolidate** | [**AutoOrderConsolidate**](AutoOrderConsolidate.md)| Auto orders to consolidate | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="establishAutoOrderByReferenceOrderId"></a>
+# **establishAutoOrderByReferenceOrderId**
+> AutoOrderResponse establishAutoOrderByReferenceOrderId(referenceOrderId, expand)
+
+Establish an auto order by referencing a regular order id
+
+Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.AutoOrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+AutoOrderApi apiInstance = new AutoOrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+String referenceOrderId = "referenceOrderId_example"; // String | The order id to attach this auto order to
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    AutoOrderResponse result = apiInstance.establishAutoOrderByReferenceOrderId(referenceOrderIdexpand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoOrderApi#establishAutoOrderByReferenceOrderId");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **referenceOrderId** | **String**| The order id to attach this auto order to | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getAutoOrder"></a>
 # **getAutoOrder**
@@ -472,7 +612,7 @@ try {
 
 <a name="updateAutoOrder"></a>
 # **updateAutoOrder**
-> AutoOrderResponse updateAutoOrder(autoOrderOid, autoOrder, expand)
+> AutoOrderResponse updateAutoOrder(autoOrderOid, autoOrder, validateOriginalOrder, expand)
 
 Update an auto order
 
@@ -498,9 +638,10 @@ AutoOrderApi apiInstance = new AutoOrderApi(Constants.API_KEY, Constants.VERIFY_
 
 Integer autoOrderOid = 56; // Integer | The auto order oid to update.
 AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
+String validateOriginalOrder = "validateOriginalOrder_example"; // String | Validate original order before updating
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    AutoOrderResponse result = apiInstance.updateAutoOrder(autoOrderOidautoOrderexpand);
+    AutoOrderResponse result = apiInstance.updateAutoOrder(autoOrderOidautoOrdervalidateOriginalOrderexpand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AutoOrderApi#updateAutoOrder");
@@ -515,6 +656,7 @@ try {
 |------------- | ------------- | ------------- | -------------|
 | **autoOrderOid** | **Integer**| The auto order oid to update. | |
 | **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update | |
+| **validateOriginalOrder** | **String**| Validate original order before updating | [optional] |
 | **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type

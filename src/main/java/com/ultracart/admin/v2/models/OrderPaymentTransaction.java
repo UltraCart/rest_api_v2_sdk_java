@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPaymentTransaction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderPaymentTransaction {
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
@@ -63,6 +63,10 @@ public class OrderPaymentTransaction {
   public static final String SERIALIZED_NAME_TRANSACTION_GATEWAY = "transaction_gateway";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_GATEWAY)
   private String transactionGateway;
+
+  public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
+  private Integer transactionId;
 
   public static final String SERIALIZED_NAME_TRANSACTION_TIMESTAMP = "transaction_timestamp";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_TIMESTAMP)
@@ -148,6 +152,29 @@ public class OrderPaymentTransaction {
   }
 
 
+  public OrderPaymentTransaction transactionId(Integer transactionId) {
+    
+    this.transactionId = transactionId;
+    return this;
+  }
+
+   /**
+   * Transaction ID
+   * @return transactionId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Transaction ID")
+
+  public Integer getTransactionId() {
+    return transactionId;
+  }
+
+
+  public void setTransactionId(Integer transactionId) {
+    this.transactionId = transactionId;
+  }
+
+
   public OrderPaymentTransaction transactionTimestamp(String transactionTimestamp) {
     
     this.transactionTimestamp = transactionTimestamp;
@@ -184,12 +211,13 @@ public class OrderPaymentTransaction {
     return Objects.equals(this.details, orderPaymentTransaction.details) &&
         Objects.equals(this.successful, orderPaymentTransaction.successful) &&
         Objects.equals(this.transactionGateway, orderPaymentTransaction.transactionGateway) &&
+        Objects.equals(this.transactionId, orderPaymentTransaction.transactionId) &&
         Objects.equals(this.transactionTimestamp, orderPaymentTransaction.transactionTimestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(details, successful, transactionGateway, transactionTimestamp);
+    return Objects.hash(details, successful, transactionGateway, transactionId, transactionTimestamp);
   }
 
   @Override
@@ -199,6 +227,7 @@ public class OrderPaymentTransaction {
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    transactionGateway: ").append(toIndentedString(transactionGateway)).append("\n");
+    sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    transactionTimestamp: ").append(toIndentedString(transactionTimestamp)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -225,6 +254,7 @@ public class OrderPaymentTransaction {
     openapiFields.add("details");
     openapiFields.add("successful");
     openapiFields.add("transaction_gateway");
+    openapiFields.add("transaction_id");
     openapiFields.add("transaction_timestamp");
 
     // a set of required properties/fields (JSON key names)

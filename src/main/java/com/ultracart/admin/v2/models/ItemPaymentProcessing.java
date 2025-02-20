@@ -49,11 +49,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemPaymentProcessing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ItemPaymentProcessing {
   public static final String SERIALIZED_NAME_BLOCK_PREPAID = "block_prepaid";
   @SerializedName(SERIALIZED_NAME_BLOCK_PREPAID)
   private Boolean blockPrepaid;
+
+  public static final String SERIALIZED_NAME_BLOCK_REFUNDS = "block_refunds";
+  @SerializedName(SERIALIZED_NAME_BLOCK_REFUNDS)
+  private Boolean blockRefunds;
 
   public static final String SERIALIZED_NAME_CREDIT_CARD_TRANSACTION_TYPE = "credit_card_transaction_type";
   @SerializedName(SERIALIZED_NAME_CREDIT_CARD_TRANSACTION_TYPE)
@@ -94,6 +98,29 @@ public class ItemPaymentProcessing {
 
   public void setBlockPrepaid(Boolean blockPrepaid) {
     this.blockPrepaid = blockPrepaid;
+  }
+
+
+  public ItemPaymentProcessing blockRefunds(Boolean blockRefunds) {
+    
+    this.blockRefunds = blockRefunds;
+    return this;
+  }
+
+   /**
+   * True if this item should block any refund attempts
+   * @return blockRefunds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if this item should block any refund attempts")
+
+  public Boolean getBlockRefunds() {
+    return blockRefunds;
+  }
+
+
+  public void setBlockRefunds(Boolean blockRefunds) {
+    this.blockRefunds = blockRefunds;
   }
 
 
@@ -216,6 +243,7 @@ public class ItemPaymentProcessing {
     }
     ItemPaymentProcessing itemPaymentProcessing = (ItemPaymentProcessing) o;
     return Objects.equals(this.blockPrepaid, itemPaymentProcessing.blockPrepaid) &&
+        Objects.equals(this.blockRefunds, itemPaymentProcessing.blockRefunds) &&
         Objects.equals(this.creditCardTransactionType, itemPaymentProcessing.creditCardTransactionType) &&
         Objects.equals(this.noRealtimeCharge, itemPaymentProcessing.noRealtimeCharge) &&
         Objects.equals(this.paymentMethodValidity, itemPaymentProcessing.paymentMethodValidity) &&
@@ -224,7 +252,7 @@ public class ItemPaymentProcessing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blockPrepaid, creditCardTransactionType, noRealtimeCharge, paymentMethodValidity, rotatingTransactionGatewayCodes);
+    return Objects.hash(blockPrepaid, blockRefunds, creditCardTransactionType, noRealtimeCharge, paymentMethodValidity, rotatingTransactionGatewayCodes);
   }
 
   @Override
@@ -232,6 +260,7 @@ public class ItemPaymentProcessing {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemPaymentProcessing {\n");
     sb.append("    blockPrepaid: ").append(toIndentedString(blockPrepaid)).append("\n");
+    sb.append("    blockRefunds: ").append(toIndentedString(blockRefunds)).append("\n");
     sb.append("    creditCardTransactionType: ").append(toIndentedString(creditCardTransactionType)).append("\n");
     sb.append("    noRealtimeCharge: ").append(toIndentedString(noRealtimeCharge)).append("\n");
     sb.append("    paymentMethodValidity: ").append(toIndentedString(paymentMethodValidity)).append("\n");
@@ -259,6 +288,7 @@ public class ItemPaymentProcessing {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("block_prepaid");
+    openapiFields.add("block_refunds");
     openapiFields.add("credit_card_transaction_type");
     openapiFields.add("no_realtime_charge");
     openapiFields.add("payment_method_validity");

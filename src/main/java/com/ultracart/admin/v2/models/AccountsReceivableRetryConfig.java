@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.AccountsReceivableRetryDayActivity;
+import com.ultracart.admin.v2.models.AccountsReceivableRetryTransactionReject;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AccountsReceivableRetryConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class AccountsReceivableRetryConfig {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -103,6 +104,10 @@ public class AccountsReceivableRetryConfig {
   public static final String SERIALIZED_NAME_REJECT_AT_END = "reject_at_end";
   @SerializedName(SERIALIZED_NAME_REJECT_AT_END)
   private Boolean rejectAtEnd;
+
+  public static final String SERIALIZED_NAME_TRANSACTION_REJECTS = "transaction_rejects";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_REJECTS)
+  private List<AccountsReceivableRetryTransactionReject> transactionRejects = null;
 
   public static final String SERIALIZED_NAME_TRIAL_MODE = "trial_mode";
   @SerializedName(SERIALIZED_NAME_TRIAL_MODE)
@@ -430,6 +435,37 @@ public class AccountsReceivableRetryConfig {
   }
 
 
+  public AccountsReceivableRetryConfig transactionRejects(List<AccountsReceivableRetryTransactionReject> transactionRejects) {
+    
+    this.transactionRejects = transactionRejects;
+    return this;
+  }
+
+  public AccountsReceivableRetryConfig addTransactionRejectsItem(AccountsReceivableRetryTransactionReject transactionRejectsItem) {
+    if (this.transactionRejects == null) {
+      this.transactionRejects = new ArrayList<>();
+    }
+    this.transactionRejects.add(transactionRejectsItem);
+    return this;
+  }
+
+   /**
+   * Array of key/value pairs that when found in the response cause the rejection of the transaction.
+   * @return transactionRejects
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of key/value pairs that when found in the response cause the rejection of the transaction.")
+
+  public List<AccountsReceivableRetryTransactionReject> getTransactionRejects() {
+    return transactionRejects;
+  }
+
+
+  public void setTransactionRejects(List<AccountsReceivableRetryTransactionReject> transactionRejects) {
+    this.transactionRejects = transactionRejects;
+  }
+
+
   public AccountsReceivableRetryConfig trialMode(Boolean trialMode) {
     
     this.trialMode = trialMode;
@@ -499,13 +535,14 @@ public class AccountsReceivableRetryConfig {
         Objects.equals(this.processLinkedAccounts, accountsReceivableRetryConfig.processLinkedAccounts) &&
         Objects.equals(this.processingPercentage, accountsReceivableRetryConfig.processingPercentage) &&
         Objects.equals(this.rejectAtEnd, accountsReceivableRetryConfig.rejectAtEnd) &&
+        Objects.equals(this.transactionRejects, accountsReceivableRetryConfig.transactionRejects) &&
         Objects.equals(this.trialMode, accountsReceivableRetryConfig.trialMode) &&
         Objects.equals(this.trialModeExpirationDts, accountsReceivableRetryConfig.trialModeExpirationDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, allowProcessLinkedAccounts, cancelAutoOrder, currentServicePlan, dailyActivityList, managedByLinkedAccountMerchantId, merchantId, notifyEmails, notifyRejections, notifySuccesses, processLinkedAccounts, processingPercentage, rejectAtEnd, trialMode, trialModeExpirationDts);
+    return Objects.hash(active, allowProcessLinkedAccounts, cancelAutoOrder, currentServicePlan, dailyActivityList, managedByLinkedAccountMerchantId, merchantId, notifyEmails, notifyRejections, notifySuccesses, processLinkedAccounts, processingPercentage, rejectAtEnd, transactionRejects, trialMode, trialModeExpirationDts);
   }
 
   @Override
@@ -525,6 +562,7 @@ public class AccountsReceivableRetryConfig {
     sb.append("    processLinkedAccounts: ").append(toIndentedString(processLinkedAccounts)).append("\n");
     sb.append("    processingPercentage: ").append(toIndentedString(processingPercentage)).append("\n");
     sb.append("    rejectAtEnd: ").append(toIndentedString(rejectAtEnd)).append("\n");
+    sb.append("    transactionRejects: ").append(toIndentedString(transactionRejects)).append("\n");
     sb.append("    trialMode: ").append(toIndentedString(trialMode)).append("\n");
     sb.append("    trialModeExpirationDts: ").append(toIndentedString(trialModeExpirationDts)).append("\n");
     sb.append("}");
@@ -562,6 +600,7 @@ public class AccountsReceivableRetryConfig {
     openapiFields.add("process_linked_accounts");
     openapiFields.add("processing_percentage");
     openapiFields.add("reject_at_end");
+    openapiFields.add("transaction_rejects");
     openapiFields.add("trial_mode");
     openapiFields.add("trial_mode_expiration_dts");
 
@@ -615,6 +654,18 @@ public class AccountsReceivableRetryConfig {
       }
       if (jsonObj.get("processing_percentage") != null && !jsonObj.get("processing_percentage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `processing_percentage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processing_percentage").toString()));
+      }
+      JsonArray jsonArraytransactionRejects = jsonObj.getAsJsonArray("transaction_rejects");
+      if (jsonArraytransactionRejects != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("transaction_rejects").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `transaction_rejects` to be an array in the JSON string but got `%s`", jsonObj.get("transaction_rejects").toString()));
+        }
+
+        // validate the optional field `transaction_rejects` (array)
+        for (int i = 0; i < jsonArraytransactionRejects.size(); i++) {
+          AccountsReceivableRetryTransactionReject.validateJsonObject(jsonArraytransactionRejects.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("trial_mode_expiration_dts") != null && !jsonObj.get("trial_mode_expiration_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `trial_mode_expiration_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trial_mode_expiration_dts").toString()));

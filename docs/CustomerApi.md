@@ -7,21 +7,26 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**addCustomerStoreCredit**](CustomerApi.md#addCustomerStoreCredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer |
 | [**adjustInternalCertificate**](CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. |
 | [**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer |
+| [**deleteWishListItem**](CustomerApi.md#deleteWishListItem) | **DELETE** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Delete a customer wishlist item |
 | [**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer |
 | [**getCustomerByEmail**](CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email |
 | [**getCustomerEditorValues**](CustomerApi.md#getCustomerEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor |
 | [**getCustomerEmailLists**](CustomerApi.md#getCustomerEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts |
 | [**getCustomerStoreCredit**](CustomerApi.md#getCustomerStoreCredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs |
+| [**getCustomerWishList**](CustomerApi.md#getCustomerWishList) | **GET** /customer/customers/{customer_profile_oid}/wishlist | Retrieve wishlist items for customer |
+| [**getCustomerWishListItem**](CustomerApi.md#getCustomerWishListItem) | **GET** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Retrieve wishlist item for customer |
 | [**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers |
 | [**getCustomersByQuery**](CustomerApi.md#getCustomersByQuery) | **POST** /customer/customers/query | Retrieve customers by query |
 | [**getCustomersForDataTables**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin |
 | [**getEmailVerificationToken**](CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address |
 | [**getMagicLink**](CustomerApi.md#getMagicLink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink |
 | [**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer |
+| [**insertWishListItem**](CustomerApi.md#insertWishListItem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item |
 | [**mergeCustomer**](CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer |
 | [**searchCustomerProfileValues**](CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST) |
 | [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer |
 | [**updateCustomerEmailLists**](CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer |
+| [**updateWishListItem**](CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item |
 | [**validateEmailVerificationToken**](CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address |
 
 
@@ -219,6 +224,74 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="deleteWishListItem"></a>
+# **deleteWishListItem**
+> CustomerWishListItem deleteWishListItem(customerProfileOid, customerWishlistItemOid)
+
+Delete a customer wishlist item
+
+Delete a customer wishlist item 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.CustomerApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
+Integer customerWishlistItemOid = 56; // Integer | The wishlist oid for this wishlist item to delete.
+try {
+    CustomerWishListItem result = apiInstance.deleteWishListItem(customerProfileOidcustomerWishlistItemOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#deleteWishListItem");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerProfileOid** | **Integer**| The customer oid for this wishlist. | |
+| **customerWishlistItemOid** | **Integer**| The wishlist oid for this wishlist item to delete. | |
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -531,6 +604,140 @@ try {
 ### Return type
 
 [**CustomerStoreCreditResponse**](CustomerStoreCreditResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getCustomerWishList"></a>
+# **getCustomerWishList**
+> CustomerWishListItemsResponse getCustomerWishList(customerProfileOid)
+
+Retrieve wishlist items for customer
+
+Retrieve wishlist items for customer. 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.CustomerApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
+try {
+    CustomerWishListItemsResponse result = apiInstance.getCustomerWishList(customerProfileOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#getCustomerWishList");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerProfileOid** | **Integer**| The customer oid for this wishlist. | |
+
+### Return type
+
+[**CustomerWishListItemsResponse**](CustomerWishListItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getCustomerWishListItem"></a>
+# **getCustomerWishListItem**
+> CustomerWishListItemResponse getCustomerWishListItem(customerProfileOid, customerWishlistItemOid)
+
+Retrieve wishlist item for customer
+
+Retrieve wishlist item for customer. 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.CustomerApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
+Integer customerWishlistItemOid = 56; // Integer | The wishlist oid for this wishlist item.
+try {
+    CustomerWishListItemResponse result = apiInstance.getCustomerWishListItem(customerProfileOidcustomerWishlistItemOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#getCustomerWishListItem");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerProfileOid** | **Integer**| The customer oid for this wishlist. | |
+| **customerWishlistItemOid** | **Integer**| The wishlist oid for this wishlist item. | |
+
+### Return type
+
+[**CustomerWishListItemResponse**](CustomerWishListItemResponse.md)
 
 ### Authorization
 
@@ -1023,6 +1230,74 @@ try {
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="insertWishListItem"></a>
+# **insertWishListItem**
+> CustomerWishListItem insertWishListItem(customerProfileOid, wishlistItem)
+
+Insert a customer wishlist item
+
+Insert a customer wishlist item 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.CustomerApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
+CustomerWishListItem wishlistItem = new CustomerWishListItem(); // CustomerWishListItem | Wishlist item to insert
+try {
+    CustomerWishListItem result = apiInstance.insertWishListItem(customerProfileOidwishlistItem);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#insertWishListItem");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerProfileOid** | **Integer**| The customer oid for this wishlist. | |
+| **wishlistItem** | [**CustomerWishListItem**](CustomerWishListItem.md)| Wishlist item to insert | |
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="mergeCustomer"></a>
 # **mergeCustomer**
 > mergeCustomer(customerProfileOid, customer, expand)
@@ -1273,6 +1548,76 @@ try {
 ### Return type
 
 [**CustomerEmailListChanges**](CustomerEmailListChanges.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateWishListItem"></a>
+# **updateWishListItem**
+> CustomerWishListItem updateWishListItem(customerProfileOid, customerWishlistItemOid, wishlistItem)
+
+Update a customer wishlist item
+
+Update a customer wishlist item 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.CustomerApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
+Integer customerWishlistItemOid = 56; // Integer | The wishlist oid for this wishlist item.
+CustomerWishListItem wishlistItem = new CustomerWishListItem(); // CustomerWishListItem | Wishlist item to update
+try {
+    CustomerWishListItem result = apiInstance.updateWishListItem(customerProfileOidcustomerWishlistItemOidwishlistItem);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#updateWishListItem");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerProfileOid** | **Integer**| The customer oid for this wishlist. | |
+| **customerWishlistItemOid** | **Integer**| The wishlist oid for this wishlist item. | |
+| **wishlistItem** | [**CustomerWishListItem**](CustomerWishListItem.md)| Wishlist item to update | |
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
 
 ### Authorization
 

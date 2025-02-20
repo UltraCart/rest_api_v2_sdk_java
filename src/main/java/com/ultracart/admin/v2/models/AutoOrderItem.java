@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class AutoOrderItem {
   public static final String SERIALIZED_NAME_ARBITRARY_ITEM_ID = "arbitrary_item_id";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_ITEM_ID)
@@ -83,6 +83,14 @@ public class AutoOrderItem {
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_ITEM_OID)
   private Integer autoOrderItemOid;
 
+  public static final String SERIALIZED_NAME_CALCULATED_NEXT_SHIPMENT_DTS = "calculated_next_shipment_dts";
+  @SerializedName(SERIALIZED_NAME_CALCULATED_NEXT_SHIPMENT_DTS)
+  private String calculatedNextShipmentDts;
+
+  public static final String SERIALIZED_NAME_FIRST_ORDER_DTS = "first_order_dts";
+  @SerializedName(SERIALIZED_NAME_FIRST_ORDER_DTS)
+  private String firstOrderDts;
+
   /**
    * Frequency of the rebill if not a fixed schedule
    */
@@ -110,9 +118,17 @@ public class AutoOrderItem {
     
     EVERY_4_MONTHS("Every 4 Months"),
     
+    EVERY_5_MONTHS("Every 5 Months"),
+    
     EVERY_6_MONTHS("Every 6 Months"),
     
-    YEARLY("Yearly");
+    YEARLY("Yearly"),
+    
+    EVERY_4_WEEKS("Every 4 Weeks"),
+    
+    EVERY_6_WEEKS("Every 6 Weeks"),
+    
+    EVERY_8_WEEKS("Every 8 Weeks");
 
     private String value;
 
@@ -168,6 +184,10 @@ public class AutoOrderItem {
   @SerializedName(SERIALIZED_NAME_LIFE_TIME_VALUE)
   private BigDecimal lifeTimeValue;
 
+  public static final String SERIALIZED_NAME_NEXT_ITEM_ID = "next_item_id";
+  @SerializedName(SERIALIZED_NAME_NEXT_ITEM_ID)
+  private String nextItemId;
+
   public static final String SERIALIZED_NAME_NEXT_PRESHIPMENT_NOTICE_DTS = "next_preshipment_notice_dts";
   @SerializedName(SERIALIZED_NAME_NEXT_PRESHIPMENT_NOTICE_DTS)
   private String nextPreshipmentNoticeDts;
@@ -195,6 +215,10 @@ public class AutoOrderItem {
   public static final String SERIALIZED_NAME_ORIGINAL_QUANTITY = "original_quantity";
   @SerializedName(SERIALIZED_NAME_ORIGINAL_QUANTITY)
   private BigDecimal originalQuantity;
+
+  public static final String SERIALIZED_NAME_PAUSED = "paused";
+  @SerializedName(SERIALIZED_NAME_PAUSED)
+  private Boolean paused;
 
   public static final String SERIALIZED_NAME_PAYPAL_PAYER_ID = "paypal_payer_id";
   @SerializedName(SERIALIZED_NAME_PAYPAL_PAYER_ID)
@@ -384,6 +408,52 @@ public class AutoOrderItem {
   }
 
 
+  public AutoOrderItem calculatedNextShipmentDts(String calculatedNextShipmentDts) {
+    
+    this.calculatedNextShipmentDts = calculatedNextShipmentDts;
+    return this;
+  }
+
+   /**
+   * Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item
+   * @return calculatedNextShipmentDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item")
+
+  public String getCalculatedNextShipmentDts() {
+    return calculatedNextShipmentDts;
+  }
+
+
+  public void setCalculatedNextShipmentDts(String calculatedNextShipmentDts) {
+    this.calculatedNextShipmentDts = calculatedNextShipmentDts;
+  }
+
+
+  public AutoOrderItem firstOrderDts(String firstOrderDts) {
+    
+    this.firstOrderDts = firstOrderDts;
+    return this;
+  }
+
+   /**
+   * Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.
+   * @return firstOrderDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.")
+
+  public String getFirstOrderDts() {
+    return firstOrderDts;
+  }
+
+
+  public void setFirstOrderDts(String firstOrderDts) {
+    this.firstOrderDts = firstOrderDts;
+  }
+
+
   public AutoOrderItem frequency(FrequencyEnum frequency) {
     
     this.frequency = frequency;
@@ -481,6 +551,29 @@ public class AutoOrderItem {
 
   public void setLifeTimeValue(BigDecimal lifeTimeValue) {
     this.lifeTimeValue = lifeTimeValue;
+  }
+
+
+  public AutoOrderItem nextItemId(String nextItemId) {
+    
+    this.nextItemId = nextItemId;
+    return this;
+  }
+
+   /**
+   * Calculated next item id
+   * @return nextItemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Calculated next item id")
+
+  public String getNextItemId() {
+    return nextItemId;
+  }
+
+
+  public void setNextItemId(String nextItemId) {
+    this.nextItemId = nextItemId;
   }
 
 
@@ -653,6 +746,29 @@ public class AutoOrderItem {
   }
 
 
+  public AutoOrderItem paused(Boolean paused) {
+    
+    this.paused = paused;
+    return this;
+  }
+
+   /**
+   * True if paused.  This field is an object instead of a primitive for backwards compatibility.
+   * @return paused
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if paused.  This field is an object instead of a primitive for backwards compatibility.")
+
+  public Boolean getPaused() {
+    return paused;
+  }
+
+
+  public void setPaused(Boolean paused) {
+    this.paused = paused;
+  }
+
+
   public AutoOrderItem paypalPayerId(String paypalPayerId) {
     
     this.paypalPayerId = paypalPayerId;
@@ -808,10 +924,13 @@ public class AutoOrderItem {
         Objects.equals(this.arbitraryUnitCost, autoOrderItem.arbitraryUnitCost) &&
         Objects.equals(this.arbitraryUnitCostRemainingOrders, autoOrderItem.arbitraryUnitCostRemainingOrders) &&
         Objects.equals(this.autoOrderItemOid, autoOrderItem.autoOrderItemOid) &&
+        Objects.equals(this.calculatedNextShipmentDts, autoOrderItem.calculatedNextShipmentDts) &&
+        Objects.equals(this.firstOrderDts, autoOrderItem.firstOrderDts) &&
         Objects.equals(this.frequency, autoOrderItem.frequency) &&
         Objects.equals(this.futureSchedules, autoOrderItem.futureSchedules) &&
         Objects.equals(this.lastOrderDts, autoOrderItem.lastOrderDts) &&
         Objects.equals(this.lifeTimeValue, autoOrderItem.lifeTimeValue) &&
+        Objects.equals(this.nextItemId, autoOrderItem.nextItemId) &&
         Objects.equals(this.nextPreshipmentNoticeDts, autoOrderItem.nextPreshipmentNoticeDts) &&
         Objects.equals(this.nextShipmentDts, autoOrderItem.nextShipmentDts) &&
         Objects.equals(this.noOrderAfterDts, autoOrderItem.noOrderAfterDts) &&
@@ -819,6 +938,7 @@ public class AutoOrderItem {
         Objects.equals(this.options, autoOrderItem.options) &&
         Objects.equals(this.originalItemId, autoOrderItem.originalItemId) &&
         Objects.equals(this.originalQuantity, autoOrderItem.originalQuantity) &&
+        Objects.equals(this.paused, autoOrderItem.paused) &&
         Objects.equals(this.paypalPayerId, autoOrderItem.paypalPayerId) &&
         Objects.equals(this.paypalRecurringPaymentProfileId, autoOrderItem.paypalRecurringPaymentProfileId) &&
         Objects.equals(this.preshipmentNoticeSent, autoOrderItem.preshipmentNoticeSent) &&
@@ -829,7 +949,7 @@ public class AutoOrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount, simpleSchedule);
+    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, calculatedNextShipmentDts, firstOrderDts, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextItemId, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paused, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount, simpleSchedule);
   }
 
   @Override
@@ -843,10 +963,13 @@ public class AutoOrderItem {
     sb.append("    arbitraryUnitCost: ").append(toIndentedString(arbitraryUnitCost)).append("\n");
     sb.append("    arbitraryUnitCostRemainingOrders: ").append(toIndentedString(arbitraryUnitCostRemainingOrders)).append("\n");
     sb.append("    autoOrderItemOid: ").append(toIndentedString(autoOrderItemOid)).append("\n");
+    sb.append("    calculatedNextShipmentDts: ").append(toIndentedString(calculatedNextShipmentDts)).append("\n");
+    sb.append("    firstOrderDts: ").append(toIndentedString(firstOrderDts)).append("\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    futureSchedules: ").append(toIndentedString(futureSchedules)).append("\n");
     sb.append("    lastOrderDts: ").append(toIndentedString(lastOrderDts)).append("\n");
     sb.append("    lifeTimeValue: ").append(toIndentedString(lifeTimeValue)).append("\n");
+    sb.append("    nextItemId: ").append(toIndentedString(nextItemId)).append("\n");
     sb.append("    nextPreshipmentNoticeDts: ").append(toIndentedString(nextPreshipmentNoticeDts)).append("\n");
     sb.append("    nextShipmentDts: ").append(toIndentedString(nextShipmentDts)).append("\n");
     sb.append("    noOrderAfterDts: ").append(toIndentedString(noOrderAfterDts)).append("\n");
@@ -854,6 +977,7 @@ public class AutoOrderItem {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    originalItemId: ").append(toIndentedString(originalItemId)).append("\n");
     sb.append("    originalQuantity: ").append(toIndentedString(originalQuantity)).append("\n");
+    sb.append("    paused: ").append(toIndentedString(paused)).append("\n");
     sb.append("    paypalPayerId: ").append(toIndentedString(paypalPayerId)).append("\n");
     sb.append("    paypalRecurringPaymentProfileId: ").append(toIndentedString(paypalRecurringPaymentProfileId)).append("\n");
     sb.append("    preshipmentNoticeSent: ").append(toIndentedString(preshipmentNoticeSent)).append("\n");
@@ -889,10 +1013,13 @@ public class AutoOrderItem {
     openapiFields.add("arbitrary_unit_cost");
     openapiFields.add("arbitrary_unit_cost_remaining_orders");
     openapiFields.add("auto_order_item_oid");
+    openapiFields.add("calculated_next_shipment_dts");
+    openapiFields.add("first_order_dts");
     openapiFields.add("frequency");
     openapiFields.add("future_schedules");
     openapiFields.add("last_order_dts");
     openapiFields.add("life_time_value");
+    openapiFields.add("next_item_id");
     openapiFields.add("next_preshipment_notice_dts");
     openapiFields.add("next_shipment_dts");
     openapiFields.add("no_order_after_dts");
@@ -900,6 +1027,7 @@ public class AutoOrderItem {
     openapiFields.add("options");
     openapiFields.add("original_item_id");
     openapiFields.add("original_quantity");
+    openapiFields.add("paused");
     openapiFields.add("paypal_payer_id");
     openapiFields.add("paypal_recurring_payment_profile_id");
     openapiFields.add("preshipment_notice_sent");
@@ -936,6 +1064,12 @@ public class AutoOrderItem {
       if (jsonObj.get("arbitrary_item_id") != null && !jsonObj.get("arbitrary_item_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `arbitrary_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arbitrary_item_id").toString()));
       }
+      if (jsonObj.get("calculated_next_shipment_dts") != null && !jsonObj.get("calculated_next_shipment_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `calculated_next_shipment_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("calculated_next_shipment_dts").toString()));
+      }
+      if (jsonObj.get("first_order_dts") != null && !jsonObj.get("first_order_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `first_order_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_order_dts").toString()));
+      }
       if (jsonObj.get("frequency") != null && !jsonObj.get("frequency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `frequency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("frequency").toString()));
       }
@@ -953,6 +1087,9 @@ public class AutoOrderItem {
       }
       if (jsonObj.get("last_order_dts") != null && !jsonObj.get("last_order_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_order_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_order_dts").toString()));
+      }
+      if (jsonObj.get("next_item_id") != null && !jsonObj.get("next_item_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `next_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_item_id").toString()));
       }
       if (jsonObj.get("next_preshipment_notice_dts") != null && !jsonObj.get("next_preshipment_notice_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `next_preshipment_notice_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_preshipment_notice_dts").toString()));

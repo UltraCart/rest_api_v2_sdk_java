@@ -50,15 +50,23 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponPercentOffItemsAndFreeShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CouponPercentOffItemsAndFreeShipping {
   public static final String SERIALIZED_NAME_DISCOUNT_PERCENT = "discount_percent";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_PERCENT)
   private BigDecimal discountPercent;
 
+  public static final String SERIALIZED_NAME_EXCLUDED_ITEM_TAGS = "excluded_item_tags";
+  @SerializedName(SERIALIZED_NAME_EXCLUDED_ITEM_TAGS)
+  private List<String> excludedItemTags = null;
+
   public static final String SERIALIZED_NAME_EXCLUDED_ITEMS = "excluded_items";
   @SerializedName(SERIALIZED_NAME_EXCLUDED_ITEMS)
   private List<String> excludedItems = null;
+
+  public static final String SERIALIZED_NAME_ITEM_TAGS = "item_tags";
+  @SerializedName(SERIALIZED_NAME_ITEM_TAGS)
+  private List<String> itemTags = null;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -90,6 +98,37 @@ public class CouponPercentOffItemsAndFreeShipping {
   }
 
 
+  public CouponPercentOffItemsAndFreeShipping excludedItemTags(List<String> excludedItemTags) {
+    
+    this.excludedItemTags = excludedItemTags;
+    return this;
+  }
+
+  public CouponPercentOffItemsAndFreeShipping addExcludedItemTagsItem(String excludedItemTagsItem) {
+    if (this.excludedItemTags == null) {
+      this.excludedItemTags = new ArrayList<>();
+    }
+    this.excludedItemTags.add(excludedItemTagsItem);
+    return this;
+  }
+
+   /**
+   * A list of item tags which cannot be discounted.
+   * @return excludedItemTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of item tags which cannot be discounted.")
+
+  public List<String> getExcludedItemTags() {
+    return excludedItemTags;
+  }
+
+
+  public void setExcludedItemTags(List<String> excludedItemTags) {
+    this.excludedItemTags = excludedItemTags;
+  }
+
+
   public CouponPercentOffItemsAndFreeShipping excludedItems(List<String> excludedItems) {
     
     this.excludedItems = excludedItems;
@@ -118,6 +157,37 @@ public class CouponPercentOffItemsAndFreeShipping {
 
   public void setExcludedItems(List<String> excludedItems) {
     this.excludedItems = excludedItems;
+  }
+
+
+  public CouponPercentOffItemsAndFreeShipping itemTags(List<String> itemTags) {
+    
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponPercentOffItemsAndFreeShipping addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+   * @return itemTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.")
+
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
   }
 
 
@@ -163,13 +233,15 @@ public class CouponPercentOffItemsAndFreeShipping {
     }
     CouponPercentOffItemsAndFreeShipping couponPercentOffItemsAndFreeShipping = (CouponPercentOffItemsAndFreeShipping) o;
     return Objects.equals(this.discountPercent, couponPercentOffItemsAndFreeShipping.discountPercent) &&
+        Objects.equals(this.excludedItemTags, couponPercentOffItemsAndFreeShipping.excludedItemTags) &&
         Objects.equals(this.excludedItems, couponPercentOffItemsAndFreeShipping.excludedItems) &&
+        Objects.equals(this.itemTags, couponPercentOffItemsAndFreeShipping.itemTags) &&
         Objects.equals(this.items, couponPercentOffItemsAndFreeShipping.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, excludedItems, items);
+    return Objects.hash(discountPercent, excludedItemTags, excludedItems, itemTags, items);
   }
 
   @Override
@@ -177,7 +249,9 @@ public class CouponPercentOffItemsAndFreeShipping {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponPercentOffItemsAndFreeShipping {\n");
     sb.append("    discountPercent: ").append(toIndentedString(discountPercent)).append("\n");
+    sb.append("    excludedItemTags: ").append(toIndentedString(excludedItemTags)).append("\n");
     sb.append("    excludedItems: ").append(toIndentedString(excludedItems)).append("\n");
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -202,7 +276,9 @@ public class CouponPercentOffItemsAndFreeShipping {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("discount_percent");
+    openapiFields.add("excluded_item_tags");
     openapiFields.add("excluded_items");
+    openapiFields.add("item_tags");
     openapiFields.add("items");
 
     // a set of required properties/fields (JSON key names)
@@ -232,8 +308,16 @@ public class CouponPercentOffItemsAndFreeShipping {
         }
       }
       // ensure the json data is an array
+      if (jsonObj.get("excluded_item_tags") != null && !jsonObj.get("excluded_item_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `excluded_item_tags` to be an array in the JSON string but got `%s`", jsonObj.get("excluded_item_tags").toString()));
+      }
+      // ensure the json data is an array
       if (jsonObj.get("excluded_items") != null && !jsonObj.get("excluded_items").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `excluded_items` to be an array in the JSON string but got `%s`", jsonObj.get("excluded_items").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("item_tags") != null && !jsonObj.get("item_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `item_tags` to be an array in the JSON string but got `%s`", jsonObj.get("item_tags").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonArray()) {

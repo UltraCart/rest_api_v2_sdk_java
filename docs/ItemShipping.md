@@ -30,6 +30,7 @@
 |**freeShipping** | **Boolean** | Qualifies for free shipping |  [optional] |
 |**freightClass** | **String** | Freight class |  [optional] |
 |**hazmat** | **Boolean** | Hazardous material |  [optional] |
+|**holdForTransmission** | **Boolean** | Hold for transmission |  [optional] |
 |**madeToOrder** | **Boolean** | True if this item is made to order |  [optional] |
 |**madeToOrderLeadTime** | **Integer** | Number of days lead time it takes to make the item before ite can ship |  [optional] |
 |**maxDaysTimeInTransit** | **Integer** | Maximum days allowed in transit |  [optional] |

@@ -17,6 +17,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getAccountsReceivableRetryStats**](OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics |
 | [**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order |
 | [**getOrderByToken**](OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token |
+| [**getOrderEdiDocuments**](OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order. |
 | [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders |
 | [**getOrdersBatch**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch |
 | [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query |
@@ -29,6 +30,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**resendShipmentConfirmation**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation |
 | [**updateAccountsReceivableRetryConfig**](OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration |
 | [**updateOrder**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order |
+| [**validateOrder**](OrderApi.md#validateOrder) | **POST** /order/validate | Validate |
 
 
 <a name="adjustOrderTotal"></a>
@@ -101,7 +103,7 @@ try {
 
 <a name="cancelOrder"></a>
 # **cancelOrder**
-> BaseResponse cancelOrder(orderId)
+> BaseResponse cancelOrder(orderId, lockSelfShipOrders, skipRefundAndHold)
 
 Cancel an order
 
@@ -126,8 +128,10 @@ import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java
 OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
 String orderId = "orderId_example"; // String | The order id to cancel.
+Boolean lockSelfShipOrders = true; // Boolean | Flag to prevent a order shipping during a refund process
+Boolean skipRefundAndHold = true; // Boolean | Skip refund and move order to Held Orders department
 try {
-    BaseResponse result = apiInstance.cancelOrder(orderId);
+    BaseResponse result = apiInstance.cancelOrder(orderIdlockSelfShipOrdersskipRefundAndHold);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#cancelOrder");
@@ -141,6 +145,8 @@ try {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **orderId** | **String**| The order id to cancel. | |
+| **lockSelfShipOrders** | **Boolean**| Flag to prevent a order shipping during a refund process | [optional] |
+| **skipRefundAndHold** | **Boolean**| Skip refund and move order to Held Orders department | [optional] |
 
 ### Return type
 
@@ -898,6 +904,72 @@ try {
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="getOrderEdiDocuments"></a>
+# **getOrderEdiDocuments**
+> OrderEdiDocumentsResponse getOrderEdiDocuments(orderId)
+
+Retrieve EDI documents associated with this order.
+
+Retrieve EDI documents associated with this order. 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+String orderId = "orderId_example"; // String | The order id to retrieve EDI documents for.
+try {
+    OrderEdiDocumentsResponse result = apiInstance.getOrderEdiDocuments(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#getOrderEdiDocuments");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to retrieve EDI documents for. | |
+
+### Return type
+
+[**OrderEdiDocumentsResponse**](OrderEdiDocumentsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="getOrders"></a>
 # **getOrders**
 > OrdersResponse getOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand)
@@ -1370,11 +1442,11 @@ try {
 
 <a name="refundOrder"></a>
 # **refundOrder**
-> OrderResponse refundOrder(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand)
+> OrderResponse refundOrder(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand)
 
 Refund an order
 
-Perform a refund operation on an order and then update the order if successful 
+Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
 
 ### Example
 ```java
@@ -1402,9 +1474,10 @@ Boolean autoOrderCancel = false; // Boolean | Cancel associated auto orders
 Boolean manualRefund = false; // Boolean | Consider a manual refund done externally
 Boolean reverseAffiliateTransactions = true; // Boolean | Reverse affiliate transactions
 Boolean issueStoreCredit = false; // Boolean | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+String autoOrderCancelReason = "autoOrderCancelReason_example"; // String | Reason for auto orders cancellation
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
-    OrderResponse result = apiInstance.refundOrder(orderIdorderrejectAfterRefundskipCustomerNotificationautoOrderCancelmanualRefundreverseAffiliateTransactionsissueStoreCreditexpand);
+    OrderResponse result = apiInstance.refundOrder(orderIdorderrejectAfterRefundskipCustomerNotificationautoOrderCancelmanualRefundreverseAffiliateTransactionsissueStoreCreditautoOrderCancelReasonexpand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#refundOrder");
@@ -1425,6 +1498,7 @@ try {
 | **manualRefund** | **Boolean**| Consider a manual refund done externally | [optional] [default to false] |
 | **reverseAffiliateTransactions** | **Boolean**| Reverse affiliate transactions | [optional] [default to true] |
 | **issueStoreCredit** | **Boolean**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false] |
+| **autoOrderCancelReason** | **String**| Reason for auto orders cancellation | [optional] |
 | **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
@@ -1774,6 +1848,72 @@ try {
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="validateOrder"></a>
+# **validateOrder**
+> OrderValidationResponse validateOrder(validationRequest)
+
+Validate
+
+Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.OrderApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+OrderApi apiInstance = new OrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+OrderValidationRequest validationRequest = new OrderValidationRequest(); // OrderValidationRequest | Validation request
+try {
+    OrderValidationResponse result = apiInstance.validateOrder(validationRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#validateOrder");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **validationRequest** | [**OrderValidationRequest**](OrderValidationRequest.md)| Validation request | |
+
+### Return type
+
+[**OrderValidationResponse**](OrderValidationResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

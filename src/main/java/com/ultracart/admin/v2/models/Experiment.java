@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.ExperimentVariation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Experiment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class Experiment {
   public static final String SERIALIZED_NAME_CONTAINER_ID = "container_id";
   @SerializedName(SERIALIZED_NAME_CONTAINER_ID)
@@ -92,9 +93,82 @@ public class Experiment {
   @SerializedName(SERIALIZED_NAME_OBJECTIVE_PARAMETER)
   private String objectiveParameter;
 
+  public static final String SERIALIZED_NAME_OPENAI_CURRENT_ITERATION = "openai_current_iteration";
+  @SerializedName(SERIALIZED_NAME_OPENAI_CURRENT_ITERATION)
+  private Integer openaiCurrentIteration;
+
+  /**
+   * The type of OpenAI element being experimented on
+   */
+  @JsonAdapter(OpenaiElementTypeEnum.Adapter.class)
+  public enum OpenaiElementTypeEnum {
+    HEADLINE("headline"),
+    
+    TEXT("text"),
+    
+    TEXTBLOCK("textblock");
+
+    private String value;
+
+    OpenaiElementTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OpenaiElementTypeEnum fromValue(String value) {
+      for (OpenaiElementTypeEnum b : OpenaiElementTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<OpenaiElementTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OpenaiElementTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OpenaiElementTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return OpenaiElementTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_OPENAI_ELEMENT_TYPE = "openai_element_type";
+  @SerializedName(SERIALIZED_NAME_OPENAI_ELEMENT_TYPE)
+  private OpenaiElementTypeEnum openaiElementType;
+
+  public static final String SERIALIZED_NAME_OPENAI_MODEL = "openai_model";
+  @SerializedName(SERIALIZED_NAME_OPENAI_MODEL)
+  private String openaiModel;
+
+  public static final String SERIALIZED_NAME_OPENAI_TOTAL_ITERATIONS = "openai_total_iterations";
+  @SerializedName(SERIALIZED_NAME_OPENAI_TOTAL_ITERATIONS)
+  private Integer openaiTotalIterations;
+
   public static final String SERIALIZED_NAME_OPTIMIZATION_TYPE = "optimization_type";
   @SerializedName(SERIALIZED_NAME_OPTIMIZATION_TYPE)
   private String optimizationType;
+
+  public static final String SERIALIZED_NAME_P95_SESSIONS_NEEDED = "p95_sessions_needed";
+  @SerializedName(SERIALIZED_NAME_P95_SESSIONS_NEEDED)
+  private Integer p95SessionsNeeded;
+
+  public static final String SERIALIZED_NAME_P_VALUE = "p_value";
+  @SerializedName(SERIALIZED_NAME_P_VALUE)
+  private BigDecimal pValue;
 
   public static final String SERIALIZED_NAME_SESSION_COUNT = "session_count";
   @SerializedName(SERIALIZED_NAME_SESSION_COUNT)
@@ -406,6 +480,98 @@ public class Experiment {
   }
 
 
+  public Experiment openaiCurrentIteration(Integer openaiCurrentIteration) {
+    
+    this.openaiCurrentIteration = openaiCurrentIteration;
+    return this;
+  }
+
+   /**
+   * The current iteration of the OpenAI related experiment
+   * @return openaiCurrentIteration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The current iteration of the OpenAI related experiment")
+
+  public Integer getOpenaiCurrentIteration() {
+    return openaiCurrentIteration;
+  }
+
+
+  public void setOpenaiCurrentIteration(Integer openaiCurrentIteration) {
+    this.openaiCurrentIteration = openaiCurrentIteration;
+  }
+
+
+  public Experiment openaiElementType(OpenaiElementTypeEnum openaiElementType) {
+    
+    this.openaiElementType = openaiElementType;
+    return this;
+  }
+
+   /**
+   * The type of OpenAI element being experimented on
+   * @return openaiElementType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of OpenAI element being experimented on")
+
+  public OpenaiElementTypeEnum getOpenaiElementType() {
+    return openaiElementType;
+  }
+
+
+  public void setOpenaiElementType(OpenaiElementTypeEnum openaiElementType) {
+    this.openaiElementType = openaiElementType;
+  }
+
+
+  public Experiment openaiModel(String openaiModel) {
+    
+    this.openaiModel = openaiModel;
+    return this;
+  }
+
+   /**
+   * The type of OpenAI model used
+   * @return openaiModel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of OpenAI model used")
+
+  public String getOpenaiModel() {
+    return openaiModel;
+  }
+
+
+  public void setOpenaiModel(String openaiModel) {
+    this.openaiModel = openaiModel;
+  }
+
+
+  public Experiment openaiTotalIterations(Integer openaiTotalIterations) {
+    
+    this.openaiTotalIterations = openaiTotalIterations;
+    return this;
+  }
+
+   /**
+   * The total number of iterations to perform on the experiment
+   * @return openaiTotalIterations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The total number of iterations to perform on the experiment")
+
+  public Integer getOpenaiTotalIterations() {
+    return openaiTotalIterations;
+  }
+
+
+  public void setOpenaiTotalIterations(Integer openaiTotalIterations) {
+    this.openaiTotalIterations = openaiTotalIterations;
+  }
+
+
   public Experiment optimizationType(String optimizationType) {
     
     this.optimizationType = optimizationType;
@@ -426,6 +592,52 @@ public class Experiment {
 
   public void setOptimizationType(String optimizationType) {
     this.optimizationType = optimizationType;
+  }
+
+
+  public Experiment p95SessionsNeeded(Integer p95SessionsNeeded) {
+    
+    this.p95SessionsNeeded = p95SessionsNeeded;
+    return this;
+  }
+
+   /**
+   * Estimated sessions needed to achieve P95
+   * @return p95SessionsNeeded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Estimated sessions needed to achieve P95")
+
+  public Integer getP95SessionsNeeded() {
+    return p95SessionsNeeded;
+  }
+
+
+  public void setP95SessionsNeeded(Integer p95SessionsNeeded) {
+    this.p95SessionsNeeded = p95SessionsNeeded;
+  }
+
+
+  public Experiment pValue(BigDecimal pValue) {
+    
+    this.pValue = pValue;
+    return this;
+  }
+
+   /**
+   * Statistics p-value for the experiment
+   * @return pValue
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Statistics p-value for the experiment")
+
+  public BigDecimal getpValue() {
+    return pValue;
+  }
+
+
+  public void setpValue(BigDecimal pValue) {
+    this.pValue = pValue;
   }
 
 
@@ -618,7 +830,13 @@ public class Experiment {
         Objects.equals(this.notes, experiment.notes) &&
         Objects.equals(this.objective, experiment.objective) &&
         Objects.equals(this.objectiveParameter, experiment.objectiveParameter) &&
+        Objects.equals(this.openaiCurrentIteration, experiment.openaiCurrentIteration) &&
+        Objects.equals(this.openaiElementType, experiment.openaiElementType) &&
+        Objects.equals(this.openaiModel, experiment.openaiModel) &&
+        Objects.equals(this.openaiTotalIterations, experiment.openaiTotalIterations) &&
         Objects.equals(this.optimizationType, experiment.optimizationType) &&
+        Objects.equals(this.p95SessionsNeeded, experiment.p95SessionsNeeded) &&
+        Objects.equals(this.pValue, experiment.pValue) &&
         Objects.equals(this.sessionCount, experiment.sessionCount) &&
         Objects.equals(this.startDts, experiment.startDts) &&
         Objects.equals(this.status, experiment.status) &&
@@ -630,7 +848,7 @@ public class Experiment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerId, durationDays, endDts, equalWeighting, experimentType, id, name, notes, objective, objectiveParameter, optimizationType, sessionCount, startDts, status, storefrontExperimentOid, storefrontOid, uri, variations);
+    return Objects.hash(containerId, durationDays, endDts, equalWeighting, experimentType, id, name, notes, objective, objectiveParameter, openaiCurrentIteration, openaiElementType, openaiModel, openaiTotalIterations, optimizationType, p95SessionsNeeded, pValue, sessionCount, startDts, status, storefrontExperimentOid, storefrontOid, uri, variations);
   }
 
   @Override
@@ -647,7 +865,13 @@ public class Experiment {
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    objective: ").append(toIndentedString(objective)).append("\n");
     sb.append("    objectiveParameter: ").append(toIndentedString(objectiveParameter)).append("\n");
+    sb.append("    openaiCurrentIteration: ").append(toIndentedString(openaiCurrentIteration)).append("\n");
+    sb.append("    openaiElementType: ").append(toIndentedString(openaiElementType)).append("\n");
+    sb.append("    openaiModel: ").append(toIndentedString(openaiModel)).append("\n");
+    sb.append("    openaiTotalIterations: ").append(toIndentedString(openaiTotalIterations)).append("\n");
     sb.append("    optimizationType: ").append(toIndentedString(optimizationType)).append("\n");
+    sb.append("    p95SessionsNeeded: ").append(toIndentedString(p95SessionsNeeded)).append("\n");
+    sb.append("    pValue: ").append(toIndentedString(pValue)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -687,7 +911,13 @@ public class Experiment {
     openapiFields.add("notes");
     openapiFields.add("objective");
     openapiFields.add("objective_parameter");
+    openapiFields.add("openai_current_iteration");
+    openapiFields.add("openai_element_type");
+    openapiFields.add("openai_model");
+    openapiFields.add("openai_total_iterations");
     openapiFields.add("optimization_type");
+    openapiFields.add("p95_sessions_needed");
+    openapiFields.add("p_value");
     openapiFields.add("session_count");
     openapiFields.add("start_dts");
     openapiFields.add("status");
@@ -745,6 +975,12 @@ public class Experiment {
       }
       if (jsonObj.get("objective_parameter") != null && !jsonObj.get("objective_parameter").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `objective_parameter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("objective_parameter").toString()));
+      }
+      if (jsonObj.get("openai_element_type") != null && !jsonObj.get("openai_element_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `openai_element_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openai_element_type").toString()));
+      }
+      if (jsonObj.get("openai_model") != null && !jsonObj.get("openai_model").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `openai_model` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openai_model").toString()));
       }
       if (jsonObj.get("optimization_type") != null && !jsonObj.get("optimization_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `optimization_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("optimization_type").toString()));

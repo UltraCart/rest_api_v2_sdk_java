@@ -51,8 +51,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponTieredAmountOffItems
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CouponTieredAmountOffItems {
+  public static final String SERIALIZED_NAME_ITEM_TAGS = "item_tags";
+  @SerializedName(SERIALIZED_NAME_ITEM_TAGS)
+  private List<String> itemTags = null;
+
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<String> items = null;
@@ -67,6 +71,37 @@ public class CouponTieredAmountOffItems {
 
   public CouponTieredAmountOffItems() { 
   }
+
+  public CouponTieredAmountOffItems itemTags(List<String> itemTags) {
+    
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponTieredAmountOffItems addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+   * @return itemTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.")
+
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+  }
+
 
   public CouponTieredAmountOffItems items(List<String> items) {
     
@@ -163,20 +198,22 @@ public class CouponTieredAmountOffItems {
       return false;
     }
     CouponTieredAmountOffItems couponTieredAmountOffItems = (CouponTieredAmountOffItems) o;
-    return Objects.equals(this.items, couponTieredAmountOffItems.items) &&
+    return Objects.equals(this.itemTags, couponTieredAmountOffItems.itemTags) &&
+        Objects.equals(this.items, couponTieredAmountOffItems.items) &&
         Objects.equals(this.limit, couponTieredAmountOffItems.limit) &&
         Objects.equals(this.tiers, couponTieredAmountOffItems.tiers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, limit, tiers);
+    return Objects.hash(itemTags, items, limit, tiers);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponTieredAmountOffItems {\n");
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
@@ -202,6 +239,7 @@ public class CouponTieredAmountOffItems {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("item_tags");
     openapiFields.add("items");
     openapiFields.add("limit");
     openapiFields.add("tiers");
@@ -231,6 +269,10 @@ public class CouponTieredAmountOffItems {
         if (!CouponTieredAmountOffItems.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CouponTieredAmountOffItems` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("item_tags") != null && !jsonObj.get("item_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `item_tags` to be an array in the JSON string but got `%s`", jsonObj.get("item_tags").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonArray()) {

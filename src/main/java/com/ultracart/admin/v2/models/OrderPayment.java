@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.Currency;
 import com.ultracart.admin.v2.models.OrderPaymentCheck;
 import com.ultracart.admin.v2.models.OrderPaymentCreditCard;
 import com.ultracart.admin.v2.models.OrderPaymentECheck;
+import com.ultracart.admin.v2.models.OrderPaymentHealthBenefitCard;
 import com.ultracart.admin.v2.models.OrderPaymentInsurance;
 import com.ultracart.admin.v2.models.OrderPaymentPurchaseOrder;
 import com.ultracart.admin.v2.models.OrderPaymentTransaction;
@@ -57,7 +58,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderPayment {
   public static final String SERIALIZED_NAME_CHECK = "check";
   @SerializedName(SERIALIZED_NAME_CHECK)
@@ -70,6 +71,10 @@ public class OrderPayment {
   public static final String SERIALIZED_NAME_ECHECK = "echeck";
   @SerializedName(SERIALIZED_NAME_ECHECK)
   private OrderPaymentECheck echeck;
+
+  public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD = "health_benefit_card";
+  @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD)
+  private OrderPaymentHealthBenefitCard healthBenefitCard;
 
   public static final String SERIALIZED_NAME_HOLD_FOR_FRAUD_REVIEW = "hold_for_fraud_review";
   @SerializedName(SERIALIZED_NAME_HOLD_FOR_FRAUD_REVIEW)
@@ -92,6 +97,8 @@ public class OrderPayment {
     
     AMAZON("Amazon"),
     
+    AMAZON_PAY("Amazon Pay"),
+    
     AMAZON_SC("Amazon SC"),
     
     CASH("Cash"),
@@ -110,6 +117,8 @@ public class OrderPayment {
     
     INSURANCE("Insurance"),
     
+    LINK("Link"),
+    
     LOANHERO("LoanHero"),
     
     MONEY_ORDER("Money Order"),
@@ -126,7 +135,17 @@ public class OrderPayment {
     
     WALMART("Walmart"),
     
-    SHOP_COM("Shop.com");
+    SHOP_COM("Shop.com"),
+    
+    SEZZLE("Sezzle"),
+    
+    VENMO("Venmo"),
+    
+    APPLE_PAY("Apple Pay"),
+    
+    GOOGLE_PAY("Google Pay"),
+    
+    HEALTH_BENEFIT_CARD("Health Benefit Card");
 
     private String value;
 
@@ -342,6 +361,29 @@ public class OrderPayment {
 
   public void setEcheck(OrderPaymentECheck echeck) {
     this.echeck = echeck;
+  }
+
+
+  public OrderPayment healthBenefitCard(OrderPaymentHealthBenefitCard healthBenefitCard) {
+    
+    this.healthBenefitCard = healthBenefitCard;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCard
+   * @return healthBenefitCard
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OrderPaymentHealthBenefitCard getHealthBenefitCard() {
+    return healthBenefitCard;
+  }
+
+
+  public void setHealthBenefitCard(OrderPaymentHealthBenefitCard healthBenefitCard) {
+    this.healthBenefitCard = healthBenefitCard;
   }
 
 
@@ -711,6 +753,7 @@ public class OrderPayment {
     return Objects.equals(this.check, orderPayment.check) &&
         Objects.equals(this.creditCard, orderPayment.creditCard) &&
         Objects.equals(this.echeck, orderPayment.echeck) &&
+        Objects.equals(this.healthBenefitCard, orderPayment.healthBenefitCard) &&
         Objects.equals(this.holdForFraudReview, orderPayment.holdForFraudReview) &&
         Objects.equals(this.insurance, orderPayment.insurance) &&
         Objects.equals(this.paymentDts, orderPayment.paymentDts) &&
@@ -730,7 +773,7 @@ public class OrderPayment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(check, creditCard, echeck, holdForFraudReview, insurance, paymentDts, paymentMethod, paymentMethodAccountingCode, paymentMethodDepositToAccount, paymentStatus, purchaseOrder, rotatingTransactionGatewayCode, surcharge, surchargeAccountingCode, surchargeTransactionFee, surchargeTransactionPercentage, testOrder, transactions);
+    return Objects.hash(check, creditCard, echeck, healthBenefitCard, holdForFraudReview, insurance, paymentDts, paymentMethod, paymentMethodAccountingCode, paymentMethodDepositToAccount, paymentStatus, purchaseOrder, rotatingTransactionGatewayCode, surcharge, surchargeAccountingCode, surchargeTransactionFee, surchargeTransactionPercentage, testOrder, transactions);
   }
 
   @Override
@@ -740,6 +783,7 @@ public class OrderPayment {
     sb.append("    check: ").append(toIndentedString(check)).append("\n");
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
     sb.append("    echeck: ").append(toIndentedString(echeck)).append("\n");
+    sb.append("    healthBenefitCard: ").append(toIndentedString(healthBenefitCard)).append("\n");
     sb.append("    holdForFraudReview: ").append(toIndentedString(holdForFraudReview)).append("\n");
     sb.append("    insurance: ").append(toIndentedString(insurance)).append("\n");
     sb.append("    paymentDts: ").append(toIndentedString(paymentDts)).append("\n");
@@ -780,6 +824,7 @@ public class OrderPayment {
     openapiFields.add("check");
     openapiFields.add("credit_card");
     openapiFields.add("echeck");
+    openapiFields.add("health_benefit_card");
     openapiFields.add("hold_for_fraud_review");
     openapiFields.add("insurance");
     openapiFields.add("payment_dts");
@@ -833,6 +878,10 @@ public class OrderPayment {
       // validate the optional field `echeck`
       if (jsonObj.getAsJsonObject("echeck") != null) {
         OrderPaymentECheck.validateJsonObject(jsonObj.getAsJsonObject("echeck"));
+      }
+      // validate the optional field `health_benefit_card`
+      if (jsonObj.getAsJsonObject("health_benefit_card") != null) {
+        OrderPaymentHealthBenefitCard.validateJsonObject(jsonObj.getAsJsonObject("health_benefit_card"));
       }
       // validate the optional field `insurance`
       if (jsonObj.getAsJsonObject("insurance") != null) {

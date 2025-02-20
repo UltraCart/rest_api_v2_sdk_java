@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemContent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ItemContent {
   public static final String SERIALIZED_NAME_ASSIGNMENTS = "assignments";
   @SerializedName(SERIALIZED_NAME_ASSIGNMENTS)
@@ -85,6 +85,18 @@ public class ItemContent {
   public static final String SERIALIZED_NAME_EXTENDED_DESCRIPTION_TRANSLATED_TEXT_INSTANCE_OID = "extended_description_translated_text_instance_oid";
   @SerializedName(SERIALIZED_NAME_EXTENDED_DESCRIPTION_TRANSLATED_TEXT_INSTANCE_OID)
   private Integer extendedDescriptionTranslatedTextInstanceOid;
+
+  public static final String SERIALIZED_NAME_META_DESCRIPTION = "meta_description";
+  @SerializedName(SERIALIZED_NAME_META_DESCRIPTION)
+  private String metaDescription;
+
+  public static final String SERIALIZED_NAME_META_KEYWORDS = "meta_keywords";
+  @SerializedName(SERIALIZED_NAME_META_KEYWORDS)
+  private String metaKeywords;
+
+  public static final String SERIALIZED_NAME_META_TITLE = "meta_title";
+  @SerializedName(SERIALIZED_NAME_META_TITLE)
+  private String metaTitle;
 
   public static final String SERIALIZED_NAME_MULTIMEDIA = "multimedia";
   @SerializedName(SERIALIZED_NAME_MULTIMEDIA)
@@ -293,11 +305,11 @@ public class ItemContent {
   }
 
    /**
-   * Extneded description text translation instance identifier
+   * Extended description text translation instance identifier
    * @return extendedDescriptionTranslatedTextInstanceOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Extneded description text translation instance identifier")
+  @ApiModelProperty(value = "Extended description text translation instance identifier")
 
   public Integer getExtendedDescriptionTranslatedTextInstanceOid() {
     return extendedDescriptionTranslatedTextInstanceOid;
@@ -306,6 +318,75 @@ public class ItemContent {
 
   public void setExtendedDescriptionTranslatedTextInstanceOid(Integer extendedDescriptionTranslatedTextInstanceOid) {
     this.extendedDescriptionTranslatedTextInstanceOid = extendedDescriptionTranslatedTextInstanceOid;
+  }
+
+
+  public ItemContent metaDescription(String metaDescription) {
+    
+    this.metaDescription = metaDescription;
+    return this;
+  }
+
+   /**
+   * SEO meta description used by Storefronts
+   * @return metaDescription
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SEO meta description used by Storefronts")
+
+  public String getMetaDescription() {
+    return metaDescription;
+  }
+
+
+  public void setMetaDescription(String metaDescription) {
+    this.metaDescription = metaDescription;
+  }
+
+
+  public ItemContent metaKeywords(String metaKeywords) {
+    
+    this.metaKeywords = metaKeywords;
+    return this;
+  }
+
+   /**
+   * SEO meta keywords used by Storefronts
+   * @return metaKeywords
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SEO meta keywords used by Storefronts")
+
+  public String getMetaKeywords() {
+    return metaKeywords;
+  }
+
+
+  public void setMetaKeywords(String metaKeywords) {
+    this.metaKeywords = metaKeywords;
+  }
+
+
+  public ItemContent metaTitle(String metaTitle) {
+    
+    this.metaTitle = metaTitle;
+    return this;
+  }
+
+   /**
+   * SEO meta title used by Storefronts
+   * @return metaTitle
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SEO meta title used by Storefronts")
+
+  public String getMetaTitle() {
+    return metaTitle;
+  }
+
+
+  public void setMetaTitle(String metaTitle) {
+    this.metaTitle = metaTitle;
   }
 
 
@@ -450,6 +531,9 @@ public class ItemContent {
         Objects.equals(this.excludeFromTopSellers, itemContent.excludeFromTopSellers) &&
         Objects.equals(this.extendedDescription, itemContent.extendedDescription) &&
         Objects.equals(this.extendedDescriptionTranslatedTextInstanceOid, itemContent.extendedDescriptionTranslatedTextInstanceOid) &&
+        Objects.equals(this.metaDescription, itemContent.metaDescription) &&
+        Objects.equals(this.metaKeywords, itemContent.metaKeywords) &&
+        Objects.equals(this.metaTitle, itemContent.metaTitle) &&
         Objects.equals(this.multimedia, itemContent.multimedia) &&
         Objects.equals(this.newItem, itemContent.newItem) &&
         Objects.equals(this.newItemEnd, itemContent.newItemEnd) &&
@@ -459,7 +543,7 @@ public class ItemContent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignments, attributes, customThankYouUrl, excludeFromSearch, excludeFromSitemap, excludeFromTopSellers, extendedDescription, extendedDescriptionTranslatedTextInstanceOid, multimedia, newItem, newItemEnd, newItemStart, viewUrl);
+    return Objects.hash(assignments, attributes, customThankYouUrl, excludeFromSearch, excludeFromSitemap, excludeFromTopSellers, extendedDescription, extendedDescriptionTranslatedTextInstanceOid, metaDescription, metaKeywords, metaTitle, multimedia, newItem, newItemEnd, newItemStart, viewUrl);
   }
 
   @Override
@@ -474,6 +558,9 @@ public class ItemContent {
     sb.append("    excludeFromTopSellers: ").append(toIndentedString(excludeFromTopSellers)).append("\n");
     sb.append("    extendedDescription: ").append(toIndentedString(extendedDescription)).append("\n");
     sb.append("    extendedDescriptionTranslatedTextInstanceOid: ").append(toIndentedString(extendedDescriptionTranslatedTextInstanceOid)).append("\n");
+    sb.append("    metaDescription: ").append(toIndentedString(metaDescription)).append("\n");
+    sb.append("    metaKeywords: ").append(toIndentedString(metaKeywords)).append("\n");
+    sb.append("    metaTitle: ").append(toIndentedString(metaTitle)).append("\n");
     sb.append("    multimedia: ").append(toIndentedString(multimedia)).append("\n");
     sb.append("    newItem: ").append(toIndentedString(newItem)).append("\n");
     sb.append("    newItemEnd: ").append(toIndentedString(newItemEnd)).append("\n");
@@ -509,6 +596,9 @@ public class ItemContent {
     openapiFields.add("exclude_from_top_sellers");
     openapiFields.add("extended_description");
     openapiFields.add("extended_description_translated_text_instance_oid");
+    openapiFields.add("meta_description");
+    openapiFields.add("meta_keywords");
+    openapiFields.add("meta_title");
     openapiFields.add("multimedia");
     openapiFields.add("new_item");
     openapiFields.add("new_item_end");
@@ -570,6 +660,15 @@ public class ItemContent {
       }
       if (jsonObj.get("extended_description") != null && !jsonObj.get("extended_description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `extended_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extended_description").toString()));
+      }
+      if (jsonObj.get("meta_description") != null && !jsonObj.get("meta_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `meta_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("meta_description").toString()));
+      }
+      if (jsonObj.get("meta_keywords") != null && !jsonObj.get("meta_keywords").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `meta_keywords` to be a primitive type in the JSON string but got `%s`", jsonObj.get("meta_keywords").toString()));
+      }
+      if (jsonObj.get("meta_title") != null && !jsonObj.get("meta_title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `meta_title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("meta_title").toString()));
       }
       JsonArray jsonArraymultimedia = jsonObj.getAsJsonArray("multimedia");
       if (jsonArraymultimedia != null) {

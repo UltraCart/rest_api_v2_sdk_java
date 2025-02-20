@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemReview
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ItemReview {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_OID = "customer_profile_oid";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_OID)
@@ -65,6 +65,10 @@ public class ItemReview {
   public static final String SERIALIZED_NAME_HELPFUL_YES_VOTES = "helpful_yes_votes";
   @SerializedName(SERIALIZED_NAME_HELPFUL_YES_VOTES)
   private Integer helpfulYesVotes;
+
+  public static final String SERIALIZED_NAME_MERCHANT_REPLY = "merchant_reply";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_REPLY)
+  private String merchantReply;
 
   public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
@@ -182,9 +186,60 @@ public class ItemReview {
   @SerializedName(SERIALIZED_NAME_REVIEWER_LOCATION)
   private String reviewerLocation;
 
+  /**
+   * Status of the review
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    APPROVED("approved"),
+    
+    UNAPPROVED("unapproved"),
+    
+    REJECTED("rejected"),
+    
+    MULTIMEDIA_PROCESSING("multimedia processing");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StatusEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
+  private StatusEnum status;
 
   public static final String SERIALIZED_NAME_STORE_FEEDBACK = "store_feedback";
   @SerializedName(SERIALIZED_NAME_STORE_FEEDBACK)
@@ -293,6 +348,29 @@ public class ItemReview {
   }
 
 
+  public ItemReview merchantReply(String merchantReply) {
+    
+    this.merchantReply = merchantReply;
+    return this;
+  }
+
+   /**
+   * Merchant Reply (set to an empty string to remove)
+   * @return merchantReply
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Merchant Reply (set to an empty string to remove)")
+
+  public String getMerchantReply() {
+    return merchantReply;
+  }
+
+
+  public void setMerchantReply(String merchantReply) {
+    this.merchantReply = merchantReply;
+  }
+
+
   public ItemReview orderId(String orderId) {
     
     this.orderId = orderId;
@@ -346,11 +424,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName1
+   * Rating Name 1
    * @return ratingName1
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 1")
 
   public String getRatingName1() {
     return ratingName1;
@@ -369,11 +447,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName10
+   * Rating Name 10
    * @return ratingName10
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 10")
 
   public String getRatingName10() {
     return ratingName10;
@@ -392,11 +470,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName2
+   * Rating Name 2
    * @return ratingName2
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 2")
 
   public String getRatingName2() {
     return ratingName2;
@@ -415,11 +493,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName3
+   * Rating Name 3
    * @return ratingName3
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 3")
 
   public String getRatingName3() {
     return ratingName3;
@@ -438,11 +516,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName4
+   * Rating Name 4
    * @return ratingName4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 4")
 
   public String getRatingName4() {
     return ratingName4;
@@ -461,11 +539,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName5
+   * Rating Name 5
    * @return ratingName5
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 5")
 
   public String getRatingName5() {
     return ratingName5;
@@ -484,11 +562,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName6
+   * Rating Name 6
    * @return ratingName6
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 6")
 
   public String getRatingName6() {
     return ratingName6;
@@ -507,11 +585,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName7
+   * Rating Name 7
    * @return ratingName7
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 7")
 
   public String getRatingName7() {
     return ratingName7;
@@ -530,11 +608,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName8
+   * Rating Name 8
    * @return ratingName8
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 8")
 
   public String getRatingName8() {
     return ratingName8;
@@ -553,11 +631,11 @@ public class ItemReview {
   }
 
    /**
-   * Get ratingName9
+   * Rating Name 9
    * @return ratingName9
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Rating Name 9")
 
   public String getRatingName9() {
     return ratingName9;
@@ -852,11 +930,11 @@ public class ItemReview {
   }
 
    /**
-   * Get review
+   * Review
    * @return review
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Review")
 
   public String getReview() {
     return review;
@@ -898,11 +976,11 @@ public class ItemReview {
   }
 
    /**
-   * Get reviewedNickname
+   * Nickname
    * @return reviewedNickname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Nickname")
 
   public String getReviewedNickname() {
     return reviewedNickname;
@@ -921,11 +999,11 @@ public class ItemReview {
   }
 
    /**
-   * Get reviewerEmail
+   * Reviewer Email
    * @return reviewerEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Reviewer Email")
 
   public String getReviewerEmail() {
     return reviewerEmail;
@@ -944,11 +1022,11 @@ public class ItemReview {
   }
 
    /**
-   * Get reviewerLocation
+   * Location
    * @return reviewerLocation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Location")
 
   public String getReviewerLocation() {
     return reviewerLocation;
@@ -960,25 +1038,25 @@ public class ItemReview {
   }
 
 
-  public ItemReview status(String status) {
+  public ItemReview status(StatusEnum status) {
     
     this.status = status;
     return this;
   }
 
    /**
-   * Get status
+   * Status of the review
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Status of the review")
 
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
@@ -990,11 +1068,11 @@ public class ItemReview {
   }
 
    /**
-   * Get storeFeedback
+   * Store Feedback
    * @return storeFeedback
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Store Feedback")
 
   public String getStoreFeedback() {
     return storeFeedback;
@@ -1036,11 +1114,11 @@ public class ItemReview {
   }
 
    /**
-   * Get title
+   * Title
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Title")
 
   public String getTitle() {
     return title;
@@ -1066,6 +1144,7 @@ public class ItemReview {
         Objects.equals(this.featured, itemReview.featured) &&
         Objects.equals(this.helperfulNoVotes, itemReview.helperfulNoVotes) &&
         Objects.equals(this.helpfulYesVotes, itemReview.helpfulYesVotes) &&
+        Objects.equals(this.merchantReply, itemReview.merchantReply) &&
         Objects.equals(this.orderId, itemReview.orderId) &&
         Objects.equals(this.overall, itemReview.overall) &&
         Objects.equals(this.ratingName1, itemReview.ratingName1) &&
@@ -1103,7 +1182,7 @@ public class ItemReview {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfileOid, featured, helperfulNoVotes, helpfulYesVotes, orderId, overall, ratingName1, ratingName10, ratingName2, ratingName3, ratingName4, ratingName5, ratingName6, ratingName7, ratingName8, ratingName9, ratingScore1, ratingScore10, ratingScore2, ratingScore3, ratingScore4, ratingScore5, ratingScore6, ratingScore7, ratingScore8, ratingScore9, recommendStoreToFriend, recommendToFriend, review, reviewOid, reviewedNickname, reviewerEmail, reviewerLocation, status, storeFeedback, submittedDts, title);
+    return Objects.hash(customerProfileOid, featured, helperfulNoVotes, helpfulYesVotes, merchantReply, orderId, overall, ratingName1, ratingName10, ratingName2, ratingName3, ratingName4, ratingName5, ratingName6, ratingName7, ratingName8, ratingName9, ratingScore1, ratingScore10, ratingScore2, ratingScore3, ratingScore4, ratingScore5, ratingScore6, ratingScore7, ratingScore8, ratingScore9, recommendStoreToFriend, recommendToFriend, review, reviewOid, reviewedNickname, reviewerEmail, reviewerLocation, status, storeFeedback, submittedDts, title);
   }
 
   @Override
@@ -1114,6 +1193,7 @@ public class ItemReview {
     sb.append("    featured: ").append(toIndentedString(featured)).append("\n");
     sb.append("    helperfulNoVotes: ").append(toIndentedString(helperfulNoVotes)).append("\n");
     sb.append("    helpfulYesVotes: ").append(toIndentedString(helpfulYesVotes)).append("\n");
+    sb.append("    merchantReply: ").append(toIndentedString(merchantReply)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    overall: ").append(toIndentedString(overall)).append("\n");
     sb.append("    ratingName1: ").append(toIndentedString(ratingName1)).append("\n");
@@ -1173,6 +1253,7 @@ public class ItemReview {
     openapiFields.add("featured");
     openapiFields.add("helperful_no_votes");
     openapiFields.add("helpful_yes_votes");
+    openapiFields.add("merchant_reply");
     openapiFields.add("order_id");
     openapiFields.add("overall");
     openapiFields.add("rating_name1");
@@ -1232,6 +1313,9 @@ public class ItemReview {
         if (!ItemReview.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ItemReview` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("merchant_reply") != null && !jsonObj.get("merchant_reply").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_reply` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_reply").toString()));
       }
       if (jsonObj.get("order_id") != null && !jsonObj.get("order_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `order_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_id").toString()));

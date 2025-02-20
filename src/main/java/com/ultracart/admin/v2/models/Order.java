@@ -28,6 +28,7 @@ import com.ultracart.admin.v2.models.OrderBuysafe;
 import com.ultracart.admin.v2.models.OrderChannelPartner;
 import com.ultracart.admin.v2.models.OrderCheckout;
 import com.ultracart.admin.v2.models.OrderCoupon;
+import com.ultracart.admin.v2.models.OrderCurrentStageHistory;
 import com.ultracart.admin.v2.models.OrderDigitalOrder;
 import com.ultracart.admin.v2.models.OrderEdi;
 import com.ultracart.admin.v2.models.OrderFraudScore;
@@ -46,6 +47,7 @@ import com.ultracart.admin.v2.models.OrderShipping;
 import com.ultracart.admin.v2.models.OrderSummary;
 import com.ultracart.admin.v2.models.OrderTag;
 import com.ultracart.admin.v2.models.OrderTaxes;
+import com.ultracart.admin.v2.models.OrderUtm;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -76,7 +78,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class Order {
   public static final String SERIALIZED_NAME_AFFILIATES = "affiliates";
   @SerializedName(SERIALIZED_NAME_AFFILIATES)
@@ -141,7 +143,9 @@ public class Order {
     
     PRE_ORDERED("Pre-ordered"),
     
-    ADVANCED_ORDER_ROUTING("Advanced Order Routing");
+    ADVANCED_ORDER_ROUTING("Advanced Order Routing"),
+    
+    HOLD("Hold");
 
     private String value;
 
@@ -184,6 +188,10 @@ public class Order {
   public static final String SERIALIZED_NAME_CURRENT_STAGE = "current_stage";
   @SerializedName(SERIALIZED_NAME_CURRENT_STAGE)
   private CurrentStageEnum currentStage;
+
+  public static final String SERIALIZED_NAME_CURRENT_STAGE_HISTORIES = "current_stage_histories";
+  @SerializedName(SERIALIZED_NAME_CURRENT_STAGE_HISTORIES)
+  private List<OrderCurrentStageHistory> currentStageHistories = null;
 
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customer_profile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
@@ -261,9 +269,17 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_REFUND_DTS)
   private String refundDts;
 
+  public static final String SERIALIZED_NAME_REFUND_REASON = "refund_reason";
+  @SerializedName(SERIALIZED_NAME_REFUND_REASON)
+  private String refundReason;
+
   public static final String SERIALIZED_NAME_REJECT_DTS = "reject_dts";
   @SerializedName(SERIALIZED_NAME_REJECT_DTS)
   private String rejectDts;
+
+  public static final String SERIALIZED_NAME_REJECT_REASON = "reject_reason";
+  @SerializedName(SERIALIZED_NAME_REJECT_REASON)
+  private String rejectReason;
 
   public static final String SERIALIZED_NAME_SALESFORCE = "salesforce";
   @SerializedName(SERIALIZED_NAME_SALESFORCE)
@@ -284,6 +300,10 @@ public class Order {
   public static final String SERIALIZED_NAME_TAXES = "taxes";
   @SerializedName(SERIALIZED_NAME_TAXES)
   private OrderTaxes taxes;
+
+  public static final String SERIALIZED_NAME_UTMS = "utms";
+  @SerializedName(SERIALIZED_NAME_UTMS)
+  private List<OrderUtm> utms = null;
 
   public Order() { 
   }
@@ -531,6 +551,37 @@ public class Order {
 
   public void setCurrentStage(CurrentStageEnum currentStage) {
     this.currentStage = currentStage;
+  }
+
+
+  public Order currentStageHistories(List<OrderCurrentStageHistory> currentStageHistories) {
+    
+    this.currentStageHistories = currentStageHistories;
+    return this;
+  }
+
+  public Order addCurrentStageHistoriesItem(OrderCurrentStageHistory currentStageHistoriesItem) {
+    if (this.currentStageHistories == null) {
+      this.currentStageHistories = new ArrayList<>();
+    }
+    this.currentStageHistories.add(currentStageHistoriesItem);
+    return this;
+  }
+
+   /**
+   * History of the changes to the current_stage field
+   * @return currentStageHistories
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "History of the changes to the current_stage field")
+
+  public List<OrderCurrentStageHistory> getCurrentStageHistories() {
+    return currentStageHistories;
+  }
+
+
+  public void setCurrentStageHistories(List<OrderCurrentStageHistory> currentStageHistories) {
+    this.currentStageHistories = currentStageHistories;
   }
 
 
@@ -987,6 +1038,29 @@ public class Order {
   }
 
 
+  public Order refundReason(String refundReason) {
+    
+    this.refundReason = refundReason;
+    return this;
+  }
+
+   /**
+   * Refund reason code.  This can only be written during a refund operation otherwise this field is read only.
+   * @return refundReason
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Refund reason code.  This can only be written during a refund operation otherwise this field is read only.")
+
+  public String getRefundReason() {
+    return refundReason;
+  }
+
+
+  public void setRefundReason(String refundReason) {
+    this.refundReason = refundReason;
+  }
+
+
   public Order rejectDts(String rejectDts) {
     
     this.rejectDts = rejectDts;
@@ -1007,6 +1081,29 @@ public class Order {
 
   public void setRejectDts(String rejectDts) {
     this.rejectDts = rejectDts;
+  }
+
+
+  public Order rejectReason(String rejectReason) {
+    
+    this.rejectReason = rejectReason;
+    return this;
+  }
+
+   /**
+   * Reject reason code.  This can only be written during a reject operation otherwise this field is read only.
+   * @return rejectReason
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Reject reason code.  This can only be written during a reject operation otherwise this field is read only.")
+
+  public String getRejectReason() {
+    return rejectReason;
+  }
+
+
+  public void setRejectReason(String rejectReason) {
+    this.rejectReason = rejectReason;
   }
 
 
@@ -1133,6 +1230,37 @@ public class Order {
   }
 
 
+  public Order utms(List<OrderUtm> utms) {
+    
+    this.utms = utms;
+    return this;
+  }
+
+  public Order addUtmsItem(OrderUtm utmsItem) {
+    if (this.utms == null) {
+      this.utms = new ArrayList<>();
+    }
+    this.utms.add(utmsItem);
+    return this;
+  }
+
+   /**
+   * UTM clicks.  The zero index is the most recent (last) UTM click
+   * @return utms
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UTM clicks.  The zero index is the most recent (last) UTM click")
+
+  public List<OrderUtm> getUtms() {
+    return utms;
+  }
+
+
+  public void setUtms(List<OrderUtm> utms) {
+    this.utms = utms;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1153,6 +1281,7 @@ public class Order {
         Objects.equals(this.creationDts, order.creationDts) &&
         Objects.equals(this.currencyCode, order.currencyCode) &&
         Objects.equals(this.currentStage, order.currentStage) &&
+        Objects.equals(this.currentStageHistories, order.currentStageHistories) &&
         Objects.equals(this.customerProfile, order.customerProfile) &&
         Objects.equals(this.digitalOrder, order.digitalOrder) &&
         Objects.equals(this.edi, order.edi) &&
@@ -1172,17 +1301,20 @@ public class Order {
         Objects.equals(this.properties, order.properties) &&
         Objects.equals(this.quote, order.quote) &&
         Objects.equals(this.refundDts, order.refundDts) &&
+        Objects.equals(this.refundReason, order.refundReason) &&
         Objects.equals(this.rejectDts, order.rejectDts) &&
+        Objects.equals(this.rejectReason, order.rejectReason) &&
         Objects.equals(this.salesforce, order.salesforce) &&
         Objects.equals(this.shipping, order.shipping) &&
         Objects.equals(this.summary, order.summary) &&
         Objects.equals(this.tags, order.tags) &&
-        Objects.equals(this.taxes, order.taxes);
+        Objects.equals(this.taxes, order.taxes) &&
+        Objects.equals(this.utms, order.utms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, rejectDts, salesforce, shipping, summary, tags, taxes);
+    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, currentStageHistories, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, refundReason, rejectDts, rejectReason, salesforce, shipping, summary, tags, taxes, utms);
   }
 
   @Override
@@ -1199,6 +1331,7 @@ public class Order {
     sb.append("    creationDts: ").append(toIndentedString(creationDts)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    currentStage: ").append(toIndentedString(currentStage)).append("\n");
+    sb.append("    currentStageHistories: ").append(toIndentedString(currentStageHistories)).append("\n");
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    digitalOrder: ").append(toIndentedString(digitalOrder)).append("\n");
     sb.append("    edi: ").append(toIndentedString(edi)).append("\n");
@@ -1218,12 +1351,15 @@ public class Order {
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quote: ").append(toIndentedString(quote)).append("\n");
     sb.append("    refundDts: ").append(toIndentedString(refundDts)).append("\n");
+    sb.append("    refundReason: ").append(toIndentedString(refundReason)).append("\n");
     sb.append("    rejectDts: ").append(toIndentedString(rejectDts)).append("\n");
+    sb.append("    rejectReason: ").append(toIndentedString(rejectReason)).append("\n");
     sb.append("    salesforce: ").append(toIndentedString(salesforce)).append("\n");
     sb.append("    shipping: ").append(toIndentedString(shipping)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
+    sb.append("    utms: ").append(toIndentedString(utms)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1256,6 +1392,7 @@ public class Order {
     openapiFields.add("creation_dts");
     openapiFields.add("currency_code");
     openapiFields.add("current_stage");
+    openapiFields.add("current_stage_histories");
     openapiFields.add("customer_profile");
     openapiFields.add("digital_order");
     openapiFields.add("edi");
@@ -1275,12 +1412,15 @@ public class Order {
     openapiFields.add("properties");
     openapiFields.add("quote");
     openapiFields.add("refund_dts");
+    openapiFields.add("refund_reason");
     openapiFields.add("reject_dts");
+    openapiFields.add("reject_reason");
     openapiFields.add("salesforce");
     openapiFields.add("shipping");
     openapiFields.add("summary");
     openapiFields.add("Tags");
     openapiFields.add("taxes");
+    openapiFields.add("utms");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1360,6 +1500,18 @@ public class Order {
       }
       if (jsonObj.get("current_stage") != null && !jsonObj.get("current_stage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `current_stage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current_stage").toString()));
+      }
+      JsonArray jsonArraycurrentStageHistories = jsonObj.getAsJsonArray("current_stage_histories");
+      if (jsonArraycurrentStageHistories != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("current_stage_histories").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `current_stage_histories` to be an array in the JSON string but got `%s`", jsonObj.get("current_stage_histories").toString()));
+        }
+
+        // validate the optional field `current_stage_histories` (array)
+        for (int i = 0; i < jsonArraycurrentStageHistories.size(); i++) {
+          OrderCurrentStageHistory.validateJsonObject(jsonArraycurrentStageHistories.get(i).getAsJsonObject());
+        };
       }
       // validate the optional field `customer_profile`
       if (jsonObj.getAsJsonObject("customer_profile") != null) {
@@ -1445,8 +1597,14 @@ public class Order {
       if (jsonObj.get("refund_dts") != null && !jsonObj.get("refund_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refund_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refund_dts").toString()));
       }
+      if (jsonObj.get("refund_reason") != null && !jsonObj.get("refund_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `refund_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refund_reason").toString()));
+      }
       if (jsonObj.get("reject_dts") != null && !jsonObj.get("reject_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reject_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reject_dts").toString()));
+      }
+      if (jsonObj.get("reject_reason") != null && !jsonObj.get("reject_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reject_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reject_reason").toString()));
       }
       // validate the optional field `salesforce`
       if (jsonObj.getAsJsonObject("salesforce") != null) {
@@ -1475,6 +1633,18 @@ public class Order {
       // validate the optional field `taxes`
       if (jsonObj.getAsJsonObject("taxes") != null) {
         OrderTaxes.validateJsonObject(jsonObj.getAsJsonObject("taxes"));
+      }
+      JsonArray jsonArrayutms = jsonObj.getAsJsonArray("utms");
+      if (jsonArrayutms != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("utms").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `utms` to be an array in the JSON string but got `%s`", jsonObj.get("utms").toString()));
+        }
+
+        // validate the optional field `utms` (array)
+        for (int i = 0; i < jsonArrayutms.size(); i++) {
+          OrderUtm.validateJsonObject(jsonArrayutms.get(i).getAsJsonObject());
+        };
       }
   }
 

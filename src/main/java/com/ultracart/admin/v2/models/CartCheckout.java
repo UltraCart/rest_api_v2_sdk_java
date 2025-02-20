@@ -47,15 +47,23 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartCheckout
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CartCheckout {
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
   private String comments;
 
+  public static final String SERIALIZED_NAME_CURRENT_STEP = "current_step";
+  @SerializedName(SERIALIZED_NAME_CURRENT_STEP)
+  private String currentStep;
+
   public static final String SERIALIZED_NAME_CUSTOM_FIELD1 = "custom_field1";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD1)
   private String customField1;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD10 = "custom_field10";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD10)
+  private String customField10;
 
   public static final String SERIALIZED_NAME_CUSTOM_FIELD2 = "custom_field2";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD2)
@@ -80,6 +88,14 @@ public class CartCheckout {
   public static final String SERIALIZED_NAME_CUSTOM_FIELD7 = "custom_field7";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD7)
   private String customField7;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD8 = "custom_field8";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD8)
+  private String customField8;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD9 = "custom_field9";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD9)
+  private String customField9;
 
   public static final String SERIALIZED_NAME_IP_ADDRESS = "ip_address";
   @SerializedName(SERIALIZED_NAME_IP_ADDRESS)
@@ -131,6 +147,29 @@ public class CartCheckout {
   }
 
 
+  public CartCheckout currentStep(String currentStep) {
+    
+    this.currentStep = currentStep;
+    return this;
+  }
+
+   /**
+   * Current step of the checkout (read only)
+   * @return currentStep
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Current step of the checkout (read only)")
+
+  public String getCurrentStep() {
+    return currentStep;
+  }
+
+
+  public void setCurrentStep(String currentStep) {
+    this.currentStep = currentStep;
+  }
+
+
   public CartCheckout customField1(String customField1) {
     
     this.customField1 = customField1;
@@ -151,6 +190,29 @@ public class CartCheckout {
 
   public void setCustomField1(String customField1) {
     this.customField1 = customField1;
+  }
+
+
+  public CartCheckout customField10(String customField10) {
+    
+    this.customField10 = customField10;
+    return this;
+  }
+
+   /**
+   * Custom field 10
+   * @return customField10
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 10")
+
+  public String getCustomField10() {
+    return customField10;
+  }
+
+
+  public void setCustomField10(String customField10) {
+    this.customField10 = customField10;
   }
 
 
@@ -289,6 +351,52 @@ public class CartCheckout {
 
   public void setCustomField7(String customField7) {
     this.customField7 = customField7;
+  }
+
+
+  public CartCheckout customField8(String customField8) {
+    
+    this.customField8 = customField8;
+    return this;
+  }
+
+   /**
+   * Custom field 8
+   * @return customField8
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 8")
+
+  public String getCustomField8() {
+    return customField8;
+  }
+
+
+  public void setCustomField8(String customField8) {
+    this.customField8 = customField8;
+  }
+
+
+  public CartCheckout customField9(String customField9) {
+    
+    this.customField9 = customField9;
+    return this;
+  }
+
+   /**
+   * Custom field 9
+   * @return customField9
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 9")
+
+  public String getCustomField9() {
+    return customField9;
+  }
+
+
+  public void setCustomField9(String customField9) {
+    this.customField9 = customField9;
   }
 
 
@@ -441,13 +549,17 @@ public class CartCheckout {
     }
     CartCheckout cartCheckout = (CartCheckout) o;
     return Objects.equals(this.comments, cartCheckout.comments) &&
+        Objects.equals(this.currentStep, cartCheckout.currentStep) &&
         Objects.equals(this.customField1, cartCheckout.customField1) &&
+        Objects.equals(this.customField10, cartCheckout.customField10) &&
         Objects.equals(this.customField2, cartCheckout.customField2) &&
         Objects.equals(this.customField3, cartCheckout.customField3) &&
         Objects.equals(this.customField4, cartCheckout.customField4) &&
         Objects.equals(this.customField5, cartCheckout.customField5) &&
         Objects.equals(this.customField6, cartCheckout.customField6) &&
         Objects.equals(this.customField7, cartCheckout.customField7) &&
+        Objects.equals(this.customField8, cartCheckout.customField8) &&
+        Objects.equals(this.customField9, cartCheckout.customField9) &&
         Objects.equals(this.ipAddress, cartCheckout.ipAddress) &&
         Objects.equals(this.returnCode, cartCheckout.returnCode) &&
         Objects.equals(this.returnUrl, cartCheckout.returnUrl) &&
@@ -458,7 +570,7 @@ public class CartCheckout {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, ipAddress, returnCode, returnUrl, screenBrandingThemeCode, storefrontHostName, userAgent);
+    return Objects.hash(comments, currentStep, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, ipAddress, returnCode, returnUrl, screenBrandingThemeCode, storefrontHostName, userAgent);
   }
 
   @Override
@@ -466,13 +578,17 @@ public class CartCheckout {
     StringBuilder sb = new StringBuilder();
     sb.append("class CartCheckout {\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    currentStep: ").append(toIndentedString(currentStep)).append("\n");
     sb.append("    customField1: ").append(toIndentedString(customField1)).append("\n");
+    sb.append("    customField10: ").append(toIndentedString(customField10)).append("\n");
     sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");
     sb.append("    customField3: ").append(toIndentedString(customField3)).append("\n");
     sb.append("    customField4: ").append(toIndentedString(customField4)).append("\n");
     sb.append("    customField5: ").append(toIndentedString(customField5)).append("\n");
     sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
+    sb.append("    customField8: ").append(toIndentedString(customField8)).append("\n");
+    sb.append("    customField9: ").append(toIndentedString(customField9)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    returnCode: ").append(toIndentedString(returnCode)).append("\n");
     sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
@@ -502,13 +618,17 @@ public class CartCheckout {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("comments");
+    openapiFields.add("current_step");
     openapiFields.add("custom_field1");
+    openapiFields.add("custom_field10");
     openapiFields.add("custom_field2");
     openapiFields.add("custom_field3");
     openapiFields.add("custom_field4");
     openapiFields.add("custom_field5");
     openapiFields.add("custom_field6");
     openapiFields.add("custom_field7");
+    openapiFields.add("custom_field8");
+    openapiFields.add("custom_field9");
     openapiFields.add("ip_address");
     openapiFields.add("return_code");
     openapiFields.add("return_url");
@@ -545,8 +665,14 @@ public class CartCheckout {
       if (jsonObj.get("comments") != null && !jsonObj.get("comments").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comments").toString()));
       }
+      if (jsonObj.get("current_step") != null && !jsonObj.get("current_step").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `current_step` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current_step").toString()));
+      }
       if (jsonObj.get("custom_field1") != null && !jsonObj.get("custom_field1").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field1").toString()));
+      }
+      if (jsonObj.get("custom_field10") != null && !jsonObj.get("custom_field10").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field10` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field10").toString()));
       }
       if (jsonObj.get("custom_field2") != null && !jsonObj.get("custom_field2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field2").toString()));
@@ -565,6 +691,12 @@ public class CartCheckout {
       }
       if (jsonObj.get("custom_field7") != null && !jsonObj.get("custom_field7").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field7` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field7").toString()));
+      }
+      if (jsonObj.get("custom_field8") != null && !jsonObj.get("custom_field8").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field8` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field8").toString()));
+      }
+      if (jsonObj.get("custom_field9") != null && !jsonObj.get("custom_field9").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field9` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field9").toString()));
       }
       if (jsonObj.get("ip_address") != null && !jsonObj.get("ip_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ip_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip_address").toString()));

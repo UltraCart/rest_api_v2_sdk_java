@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderQuery {
   public static final String SERIALIZED_NAME_CC_EMAIL = "cc_email";
   @SerializedName(SERIALIZED_NAME_CC_EMAIL)
@@ -153,6 +153,10 @@ public class OrderQuery {
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD1)
   private String customField1;
 
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD10 = "custom_field_10";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD10)
+  private String customField10;
+
   public static final String SERIALIZED_NAME_CUSTOM_FIELD2 = "custom_field_2";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD2)
   private String customField2;
@@ -176,6 +180,14 @@ public class OrderQuery {
   public static final String SERIALIZED_NAME_CUSTOM_FIELD7 = "custom_field_7";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD7)
   private String customField7;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD8 = "custom_field_8";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD8)
+  private String customField8;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD9 = "custom_field_9";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD9)
+  private String customField9;
 
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_OID = "customer_profile_oid";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_OID)
@@ -242,7 +254,13 @@ public class OrderQuery {
     
     UNKNOWN("Unknown"),
     
-    WIRE_TRANSFER("Wire Transfer");
+    WIRE_TRANSFER("Wire Transfer"),
+    
+    VENMO("Venmo"),
+    
+    APPLE_PAY("Apple Pay"),
+    
+    _GOOGLE_PAY(" Google Pay");
 
     private String value;
 
@@ -297,6 +315,57 @@ public class OrderQuery {
   public static final String SERIALIZED_NAME_PURCHASE_ORDER_NUMBER = "purchase_order_number";
   @SerializedName(SERIALIZED_NAME_PURCHASE_ORDER_NUMBER)
   private String purchaseOrderNumber;
+
+  /**
+   * Query Target
+   */
+  @JsonAdapter(QueryTargetEnum.Adapter.class)
+  public enum QueryTargetEnum {
+    ORIGIN("origin"),
+    
+    CACHE("cache");
+
+    private String value;
+
+    QueryTargetEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static QueryTargetEnum fromValue(String value) {
+      for (QueryTargetEnum b : QueryTargetEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<QueryTargetEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final QueryTargetEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public QueryTargetEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return QueryTargetEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_QUERY_TARGET = "query_target";
+  @SerializedName(SERIALIZED_NAME_QUERY_TARGET)
+  private QueryTargetEnum queryTarget;
 
   public static final String SERIALIZED_NAME_REFUND_DATE_BEGIN = "refund_date_begin";
   @SerializedName(SERIALIZED_NAME_REFUND_DATE_BEGIN)
@@ -575,6 +644,29 @@ public class OrderQuery {
   }
 
 
+  public OrderQuery customField10(String customField10) {
+    
+    this.customField10 = customField10;
+    return this;
+  }
+
+   /**
+   * Custom field 10
+   * @return customField10
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 10")
+
+  public String getCustomField10() {
+    return customField10;
+  }
+
+
+  public void setCustomField10(String customField10) {
+    this.customField10 = customField10;
+  }
+
+
   public OrderQuery customField2(String customField2) {
     
     this.customField2 = customField2;
@@ -710,6 +802,52 @@ public class OrderQuery {
 
   public void setCustomField7(String customField7) {
     this.customField7 = customField7;
+  }
+
+
+  public OrderQuery customField8(String customField8) {
+    
+    this.customField8 = customField8;
+    return this;
+  }
+
+   /**
+   * Custom field 8
+   * @return customField8
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 8")
+
+  public String getCustomField8() {
+    return customField8;
+  }
+
+
+  public void setCustomField8(String customField8) {
+    this.customField8 = customField8;
+  }
+
+
+  public OrderQuery customField9(String customField9) {
+    
+    this.customField9 = customField9;
+    return this;
+  }
+
+   /**
+   * Custom field 9
+   * @return customField9
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 9")
+
+  public String getCustomField9() {
+    return customField9;
+  }
+
+
+  public void setCustomField9(String customField9) {
+    this.customField9 = customField9;
   }
 
 
@@ -989,6 +1127,29 @@ public class OrderQuery {
   }
 
 
+  public OrderQuery queryTarget(QueryTargetEnum queryTarget) {
+    
+    this.queryTarget = queryTarget;
+    return this;
+  }
+
+   /**
+   * Query Target
+   * @return queryTarget
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Query Target")
+
+  public QueryTargetEnum getQueryTarget() {
+    return queryTarget;
+  }
+
+
+  public void setQueryTarget(QueryTargetEnum queryTarget) {
+    this.queryTarget = queryTarget;
+  }
+
+
   public OrderQuery refundDateBegin(String refundDateBegin) {
     
     this.refundDateBegin = refundDateBegin;
@@ -1262,12 +1423,15 @@ public class OrderQuery {
         Objects.equals(this.creationDateEnd, orderQuery.creationDateEnd) &&
         Objects.equals(this.currentStage, orderQuery.currentStage) &&
         Objects.equals(this.customField1, orderQuery.customField1) &&
+        Objects.equals(this.customField10, orderQuery.customField10) &&
         Objects.equals(this.customField2, orderQuery.customField2) &&
         Objects.equals(this.customField3, orderQuery.customField3) &&
         Objects.equals(this.customField4, orderQuery.customField4) &&
         Objects.equals(this.customField5, orderQuery.customField5) &&
         Objects.equals(this.customField6, orderQuery.customField6) &&
         Objects.equals(this.customField7, orderQuery.customField7) &&
+        Objects.equals(this.customField8, orderQuery.customField8) &&
+        Objects.equals(this.customField9, orderQuery.customField9) &&
         Objects.equals(this.customerProfileOid, orderQuery.customerProfileOid) &&
         Objects.equals(this.email, orderQuery.email) &&
         Objects.equals(this.firstName, orderQuery.firstName) &&
@@ -1280,6 +1444,7 @@ public class OrderQuery {
         Objects.equals(this.phone, orderQuery.phone) &&
         Objects.equals(this.postalCode, orderQuery.postalCode) &&
         Objects.equals(this.purchaseOrderNumber, orderQuery.purchaseOrderNumber) &&
+        Objects.equals(this.queryTarget, orderQuery.queryTarget) &&
         Objects.equals(this.refundDateBegin, orderQuery.refundDateBegin) &&
         Objects.equals(this.refundDateEnd, orderQuery.refundDateEnd) &&
         Objects.equals(this.rma, orderQuery.rma) &&
@@ -1295,7 +1460,7 @@ public class OrderQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
+    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, queryTarget, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
   }
 
   @Override
@@ -1312,12 +1477,15 @@ public class OrderQuery {
     sb.append("    creationDateEnd: ").append(toIndentedString(creationDateEnd)).append("\n");
     sb.append("    currentStage: ").append(toIndentedString(currentStage)).append("\n");
     sb.append("    customField1: ").append(toIndentedString(customField1)).append("\n");
+    sb.append("    customField10: ").append(toIndentedString(customField10)).append("\n");
     sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");
     sb.append("    customField3: ").append(toIndentedString(customField3)).append("\n");
     sb.append("    customField4: ").append(toIndentedString(customField4)).append("\n");
     sb.append("    customField5: ").append(toIndentedString(customField5)).append("\n");
     sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
+    sb.append("    customField8: ").append(toIndentedString(customField8)).append("\n");
+    sb.append("    customField9: ").append(toIndentedString(customField9)).append("\n");
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
@@ -1330,6 +1498,7 @@ public class OrderQuery {
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    purchaseOrderNumber: ").append(toIndentedString(purchaseOrderNumber)).append("\n");
+    sb.append("    queryTarget: ").append(toIndentedString(queryTarget)).append("\n");
     sb.append("    refundDateBegin: ").append(toIndentedString(refundDateBegin)).append("\n");
     sb.append("    refundDateEnd: ").append(toIndentedString(refundDateEnd)).append("\n");
     sb.append("    rma: ").append(toIndentedString(rma)).append("\n");
@@ -1373,12 +1542,15 @@ public class OrderQuery {
     openapiFields.add("creation_date_end");
     openapiFields.add("current_stage");
     openapiFields.add("custom_field_1");
+    openapiFields.add("custom_field_10");
     openapiFields.add("custom_field_2");
     openapiFields.add("custom_field_3");
     openapiFields.add("custom_field_4");
     openapiFields.add("custom_field_5");
     openapiFields.add("custom_field_6");
     openapiFields.add("custom_field_7");
+    openapiFields.add("custom_field_8");
+    openapiFields.add("custom_field_9");
     openapiFields.add("customer_profile_oid");
     openapiFields.add("email");
     openapiFields.add("first_name");
@@ -1391,6 +1563,7 @@ public class OrderQuery {
     openapiFields.add("phone");
     openapiFields.add("postal_code");
     openapiFields.add("purchase_order_number");
+    openapiFields.add("query_target");
     openapiFields.add("refund_date_begin");
     openapiFields.add("refund_date_end");
     openapiFields.add("rma");
@@ -1459,6 +1632,9 @@ public class OrderQuery {
       if (jsonObj.get("custom_field_1") != null && !jsonObj.get("custom_field_1").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field_1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field_1").toString()));
       }
+      if (jsonObj.get("custom_field_10") != null && !jsonObj.get("custom_field_10").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field_10` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field_10").toString()));
+      }
       if (jsonObj.get("custom_field_2") != null && !jsonObj.get("custom_field_2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field_2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field_2").toString()));
       }
@@ -1476,6 +1652,12 @@ public class OrderQuery {
       }
       if (jsonObj.get("custom_field_7") != null && !jsonObj.get("custom_field_7").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field_7` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field_7").toString()));
+      }
+      if (jsonObj.get("custom_field_8") != null && !jsonObj.get("custom_field_8").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field_8` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field_8").toString()));
+      }
+      if (jsonObj.get("custom_field_9") != null && !jsonObj.get("custom_field_9").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field_9` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field_9").toString()));
       }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
@@ -1509,6 +1691,9 @@ public class OrderQuery {
       }
       if (jsonObj.get("purchase_order_number") != null && !jsonObj.get("purchase_order_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `purchase_order_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("purchase_order_number").toString()));
+      }
+      if (jsonObj.get("query_target") != null && !jsonObj.get("query_target").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `query_target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query_target").toString()));
       }
       if (jsonObj.get("refund_date_begin") != null && !jsonObj.get("refund_date_begin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refund_date_begin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refund_date_begin").toString()));

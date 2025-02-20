@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * DistributionCenter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class DistributionCenter {
   public static final String SERIALIZED_NAME_ADDRESS1 = "address1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)
@@ -125,6 +125,66 @@ public class DistributionCenter {
   public static final String SERIALIZED_NAME_NO_SPLIT_SHIPMENT = "no_split_shipment";
   @SerializedName(SERIALIZED_NAME_NO_SPLIT_SHIPMENT)
   private Boolean noSplitShipment;
+
+  public static final String SERIALIZED_NAME_PICKUP_CUTOFF_TIME_FRIDAY = "pickup_cutoff_time_friday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_CUTOFF_TIME_FRIDAY)
+  private String pickupCutoffTimeFriday;
+
+  public static final String SERIALIZED_NAME_PICKUP_CUTOFF_TIME_MONDAY = "pickup_cutoff_time_monday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_CUTOFF_TIME_MONDAY)
+  private String pickupCutoffTimeMonday;
+
+  public static final String SERIALIZED_NAME_PICKUP_CUTOFF_TIME_SATURDAY = "pickup_cutoff_time_saturday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_CUTOFF_TIME_SATURDAY)
+  private String pickupCutoffTimeSaturday;
+
+  public static final String SERIALIZED_NAME_PICKUP_CUTOFF_TIME_SUNDAY = "pickup_cutoff_time_sunday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_CUTOFF_TIME_SUNDAY)
+  private String pickupCutoffTimeSunday;
+
+  public static final String SERIALIZED_NAME_PICKUP_CUTOFF_TIME_THURSDAY = "pickup_cutoff_time_thursday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_CUTOFF_TIME_THURSDAY)
+  private String pickupCutoffTimeThursday;
+
+  public static final String SERIALIZED_NAME_PICKUP_CUTOFF_TIME_TUESDAY = "pickup_cutoff_time_tuesday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_CUTOFF_TIME_TUESDAY)
+  private String pickupCutoffTimeTuesday;
+
+  public static final String SERIALIZED_NAME_PICKUP_CUTOFF_TIME_WEDNESDAY = "pickup_cutoff_time_wednesday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_CUTOFF_TIME_WEDNESDAY)
+  private String pickupCutoffTimeWednesday;
+
+  public static final String SERIALIZED_NAME_PICKUP_START_TIME_FRIDAY = "pickup_start_time_friday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_START_TIME_FRIDAY)
+  private String pickupStartTimeFriday;
+
+  public static final String SERIALIZED_NAME_PICKUP_START_TIME_MONDAY = "pickup_start_time_monday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_START_TIME_MONDAY)
+  private String pickupStartTimeMonday;
+
+  public static final String SERIALIZED_NAME_PICKUP_START_TIME_SATURDAY = "pickup_start_time_saturday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_START_TIME_SATURDAY)
+  private String pickupStartTimeSaturday;
+
+  public static final String SERIALIZED_NAME_PICKUP_START_TIME_SUNDAY = "pickup_start_time_sunday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_START_TIME_SUNDAY)
+  private String pickupStartTimeSunday;
+
+  public static final String SERIALIZED_NAME_PICKUP_START_TIME_THURSDAY = "pickup_start_time_thursday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_START_TIME_THURSDAY)
+  private String pickupStartTimeThursday;
+
+  public static final String SERIALIZED_NAME_PICKUP_START_TIME_TUESDAY = "pickup_start_time_tuesday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_START_TIME_TUESDAY)
+  private String pickupStartTimeTuesday;
+
+  public static final String SERIALIZED_NAME_PICKUP_START_TIME_WEDNESDAY = "pickup_start_time_wednesday";
+  @SerializedName(SERIALIZED_NAME_PICKUP_START_TIME_WEDNESDAY)
+  private String pickupStartTimeWednesday;
+
+  public static final String SERIALIZED_NAME_PICKUP_TZ = "pickup_tz";
+  @SerializedName(SERIALIZED_NAME_PICKUP_TZ)
+  private String pickupTz;
 
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
@@ -630,6 +690,351 @@ public class DistributionCenter {
   }
 
 
+  public DistributionCenter pickupCutoffTimeFriday(String pickupCutoffTimeFriday) {
+    
+    this.pickupCutoffTimeFriday = pickupCutoffTimeFriday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups will not be available on Friday
+   * @return pickupCutoffTimeFriday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups will not be available on Friday")
+
+  public String getPickupCutoffTimeFriday() {
+    return pickupCutoffTimeFriday;
+  }
+
+
+  public void setPickupCutoffTimeFriday(String pickupCutoffTimeFriday) {
+    this.pickupCutoffTimeFriday = pickupCutoffTimeFriday;
+  }
+
+
+  public DistributionCenter pickupCutoffTimeMonday(String pickupCutoffTimeMonday) {
+    
+    this.pickupCutoffTimeMonday = pickupCutoffTimeMonday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups will not be available on Monday
+   * @return pickupCutoffTimeMonday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups will not be available on Monday")
+
+  public String getPickupCutoffTimeMonday() {
+    return pickupCutoffTimeMonday;
+  }
+
+
+  public void setPickupCutoffTimeMonday(String pickupCutoffTimeMonday) {
+    this.pickupCutoffTimeMonday = pickupCutoffTimeMonday;
+  }
+
+
+  public DistributionCenter pickupCutoffTimeSaturday(String pickupCutoffTimeSaturday) {
+    
+    this.pickupCutoffTimeSaturday = pickupCutoffTimeSaturday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups will not be available on Saturday
+   * @return pickupCutoffTimeSaturday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups will not be available on Saturday")
+
+  public String getPickupCutoffTimeSaturday() {
+    return pickupCutoffTimeSaturday;
+  }
+
+
+  public void setPickupCutoffTimeSaturday(String pickupCutoffTimeSaturday) {
+    this.pickupCutoffTimeSaturday = pickupCutoffTimeSaturday;
+  }
+
+
+  public DistributionCenter pickupCutoffTimeSunday(String pickupCutoffTimeSunday) {
+    
+    this.pickupCutoffTimeSunday = pickupCutoffTimeSunday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups will not be available on Sunday
+   * @return pickupCutoffTimeSunday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups will not be available on Sunday")
+
+  public String getPickupCutoffTimeSunday() {
+    return pickupCutoffTimeSunday;
+  }
+
+
+  public void setPickupCutoffTimeSunday(String pickupCutoffTimeSunday) {
+    this.pickupCutoffTimeSunday = pickupCutoffTimeSunday;
+  }
+
+
+  public DistributionCenter pickupCutoffTimeThursday(String pickupCutoffTimeThursday) {
+    
+    this.pickupCutoffTimeThursday = pickupCutoffTimeThursday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups will not be available on Thursday
+   * @return pickupCutoffTimeThursday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups will not be available on Thursday")
+
+  public String getPickupCutoffTimeThursday() {
+    return pickupCutoffTimeThursday;
+  }
+
+
+  public void setPickupCutoffTimeThursday(String pickupCutoffTimeThursday) {
+    this.pickupCutoffTimeThursday = pickupCutoffTimeThursday;
+  }
+
+
+  public DistributionCenter pickupCutoffTimeTuesday(String pickupCutoffTimeTuesday) {
+    
+    this.pickupCutoffTimeTuesday = pickupCutoffTimeTuesday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups will not be available on Tuesday
+   * @return pickupCutoffTimeTuesday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups will not be available on Tuesday")
+
+  public String getPickupCutoffTimeTuesday() {
+    return pickupCutoffTimeTuesday;
+  }
+
+
+  public void setPickupCutoffTimeTuesday(String pickupCutoffTimeTuesday) {
+    this.pickupCutoffTimeTuesday = pickupCutoffTimeTuesday;
+  }
+
+
+  public DistributionCenter pickupCutoffTimeWednesday(String pickupCutoffTimeWednesday) {
+    
+    this.pickupCutoffTimeWednesday = pickupCutoffTimeWednesday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups will not be available on Wednesday
+   * @return pickupCutoffTimeWednesday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups will not be available on Wednesday")
+
+  public String getPickupCutoffTimeWednesday() {
+    return pickupCutoffTimeWednesday;
+  }
+
+
+  public void setPickupCutoffTimeWednesday(String pickupCutoffTimeWednesday) {
+    this.pickupCutoffTimeWednesday = pickupCutoffTimeWednesday;
+  }
+
+
+  public DistributionCenter pickupStartTimeFriday(String pickupStartTimeFriday) {
+    
+    this.pickupStartTimeFriday = pickupStartTimeFriday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups are available on Friday
+   * @return pickupStartTimeFriday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups are available on Friday")
+
+  public String getPickupStartTimeFriday() {
+    return pickupStartTimeFriday;
+  }
+
+
+  public void setPickupStartTimeFriday(String pickupStartTimeFriday) {
+    this.pickupStartTimeFriday = pickupStartTimeFriday;
+  }
+
+
+  public DistributionCenter pickupStartTimeMonday(String pickupStartTimeMonday) {
+    
+    this.pickupStartTimeMonday = pickupStartTimeMonday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups are available on Monday
+   * @return pickupStartTimeMonday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups are available on Monday")
+
+  public String getPickupStartTimeMonday() {
+    return pickupStartTimeMonday;
+  }
+
+
+  public void setPickupStartTimeMonday(String pickupStartTimeMonday) {
+    this.pickupStartTimeMonday = pickupStartTimeMonday;
+  }
+
+
+  public DistributionCenter pickupStartTimeSaturday(String pickupStartTimeSaturday) {
+    
+    this.pickupStartTimeSaturday = pickupStartTimeSaturday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups are available on Saturday
+   * @return pickupStartTimeSaturday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups are available on Saturday")
+
+  public String getPickupStartTimeSaturday() {
+    return pickupStartTimeSaturday;
+  }
+
+
+  public void setPickupStartTimeSaturday(String pickupStartTimeSaturday) {
+    this.pickupStartTimeSaturday = pickupStartTimeSaturday;
+  }
+
+
+  public DistributionCenter pickupStartTimeSunday(String pickupStartTimeSunday) {
+    
+    this.pickupStartTimeSunday = pickupStartTimeSunday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups are available on Sunday
+   * @return pickupStartTimeSunday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups are available on Sunday")
+
+  public String getPickupStartTimeSunday() {
+    return pickupStartTimeSunday;
+  }
+
+
+  public void setPickupStartTimeSunday(String pickupStartTimeSunday) {
+    this.pickupStartTimeSunday = pickupStartTimeSunday;
+  }
+
+
+  public DistributionCenter pickupStartTimeThursday(String pickupStartTimeThursday) {
+    
+    this.pickupStartTimeThursday = pickupStartTimeThursday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups are available on Thursday
+   * @return pickupStartTimeThursday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups are available on Thursday")
+
+  public String getPickupStartTimeThursday() {
+    return pickupStartTimeThursday;
+  }
+
+
+  public void setPickupStartTimeThursday(String pickupStartTimeThursday) {
+    this.pickupStartTimeThursday = pickupStartTimeThursday;
+  }
+
+
+  public DistributionCenter pickupStartTimeTuesday(String pickupStartTimeTuesday) {
+    
+    this.pickupStartTimeTuesday = pickupStartTimeTuesday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups are available on Tuesday
+   * @return pickupStartTimeTuesday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups are available on Tuesday")
+
+  public String getPickupStartTimeTuesday() {
+    return pickupStartTimeTuesday;
+  }
+
+
+  public void setPickupStartTimeTuesday(String pickupStartTimeTuesday) {
+    this.pickupStartTimeTuesday = pickupStartTimeTuesday;
+  }
+
+
+  public DistributionCenter pickupStartTimeWednesday(String pickupStartTimeWednesday) {
+    
+    this.pickupStartTimeWednesday = pickupStartTimeWednesday;
+    return this;
+  }
+
+   /**
+   * The time (EST) after which pickups are available on Wednesday
+   * @return pickupStartTimeWednesday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time (EST) after which pickups are available on Wednesday")
+
+  public String getPickupStartTimeWednesday() {
+    return pickupStartTimeWednesday;
+  }
+
+
+  public void setPickupStartTimeWednesday(String pickupStartTimeWednesday) {
+    this.pickupStartTimeWednesday = pickupStartTimeWednesday;
+  }
+
+
+  public DistributionCenter pickupTz(String pickupTz) {
+    
+    this.pickupTz = pickupTz;
+    return this;
+  }
+
+   /**
+   * The IANA timezone for all pickup times
+   * @return pickupTz
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The IANA timezone for all pickup times")
+
+  public String getPickupTz() {
+    return pickupTz;
+  }
+
+
+  public void setPickupTz(String pickupTz) {
+    this.pickupTz = pickupTz;
+  }
+
+
   public DistributionCenter postalCode(String postalCode) {
     
     this.postalCode = postalCode;
@@ -1027,6 +1432,21 @@ public class DistributionCenter {
         Objects.equals(this.name, distributionCenter.name) &&
         Objects.equals(this.noCustomerDirectShipments, distributionCenter.noCustomerDirectShipments) &&
         Objects.equals(this.noSplitShipment, distributionCenter.noSplitShipment) &&
+        Objects.equals(this.pickupCutoffTimeFriday, distributionCenter.pickupCutoffTimeFriday) &&
+        Objects.equals(this.pickupCutoffTimeMonday, distributionCenter.pickupCutoffTimeMonday) &&
+        Objects.equals(this.pickupCutoffTimeSaturday, distributionCenter.pickupCutoffTimeSaturday) &&
+        Objects.equals(this.pickupCutoffTimeSunday, distributionCenter.pickupCutoffTimeSunday) &&
+        Objects.equals(this.pickupCutoffTimeThursday, distributionCenter.pickupCutoffTimeThursday) &&
+        Objects.equals(this.pickupCutoffTimeTuesday, distributionCenter.pickupCutoffTimeTuesday) &&
+        Objects.equals(this.pickupCutoffTimeWednesday, distributionCenter.pickupCutoffTimeWednesday) &&
+        Objects.equals(this.pickupStartTimeFriday, distributionCenter.pickupStartTimeFriday) &&
+        Objects.equals(this.pickupStartTimeMonday, distributionCenter.pickupStartTimeMonday) &&
+        Objects.equals(this.pickupStartTimeSaturday, distributionCenter.pickupStartTimeSaturday) &&
+        Objects.equals(this.pickupStartTimeSunday, distributionCenter.pickupStartTimeSunday) &&
+        Objects.equals(this.pickupStartTimeThursday, distributionCenter.pickupStartTimeThursday) &&
+        Objects.equals(this.pickupStartTimeTuesday, distributionCenter.pickupStartTimeTuesday) &&
+        Objects.equals(this.pickupStartTimeWednesday, distributionCenter.pickupStartTimeWednesday) &&
+        Objects.equals(this.pickupTz, distributionCenter.pickupTz) &&
         Objects.equals(this.postalCode, distributionCenter.postalCode) &&
         Objects.equals(this.processDays, distributionCenter.processDays) &&
         Objects.equals(this.processInventoryStartTime, distributionCenter.processInventoryStartTime) &&
@@ -1047,7 +1467,7 @@ public class DistributionCenter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, code, countryCode, defaultCenter, defaultHandlesAllItems, distributionCenterOid, duns, estimateFromDistributionCenterOid, ftpPassword, holdBeforeShipmentMinutes, holdBeforeTransmission, holdAutoOrderBeforeShipmentMinutes, latitude, longitude, name, noCustomerDirectShipments, noSplitShipment, postalCode, processDays, processInventoryStartTime, processInventoryStopTime, requireAsn, sendKitInsteadOfComponents, shipmentCutoffTimeFriday, shipmentCutoffTimeMonday, shipmentCutoffTimeSaturday, shipmentCutoffTimeSunday, shipmentCutoffTimeThursday, shipmentCutoffTimeTuesday, shipmentCutoffTimeWednesday, state, transmitBlankCosts, transport);
+    return Objects.hash(address1, address2, city, code, countryCode, defaultCenter, defaultHandlesAllItems, distributionCenterOid, duns, estimateFromDistributionCenterOid, ftpPassword, holdBeforeShipmentMinutes, holdBeforeTransmission, holdAutoOrderBeforeShipmentMinutes, latitude, longitude, name, noCustomerDirectShipments, noSplitShipment, pickupCutoffTimeFriday, pickupCutoffTimeMonday, pickupCutoffTimeSaturday, pickupCutoffTimeSunday, pickupCutoffTimeThursday, pickupCutoffTimeTuesday, pickupCutoffTimeWednesday, pickupStartTimeFriday, pickupStartTimeMonday, pickupStartTimeSaturday, pickupStartTimeSunday, pickupStartTimeThursday, pickupStartTimeTuesday, pickupStartTimeWednesday, pickupTz, postalCode, processDays, processInventoryStartTime, processInventoryStopTime, requireAsn, sendKitInsteadOfComponents, shipmentCutoffTimeFriday, shipmentCutoffTimeMonday, shipmentCutoffTimeSaturday, shipmentCutoffTimeSunday, shipmentCutoffTimeThursday, shipmentCutoffTimeTuesday, shipmentCutoffTimeWednesday, state, transmitBlankCosts, transport);
   }
 
   @Override
@@ -1073,6 +1493,21 @@ public class DistributionCenter {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    noCustomerDirectShipments: ").append(toIndentedString(noCustomerDirectShipments)).append("\n");
     sb.append("    noSplitShipment: ").append(toIndentedString(noSplitShipment)).append("\n");
+    sb.append("    pickupCutoffTimeFriday: ").append(toIndentedString(pickupCutoffTimeFriday)).append("\n");
+    sb.append("    pickupCutoffTimeMonday: ").append(toIndentedString(pickupCutoffTimeMonday)).append("\n");
+    sb.append("    pickupCutoffTimeSaturday: ").append(toIndentedString(pickupCutoffTimeSaturday)).append("\n");
+    sb.append("    pickupCutoffTimeSunday: ").append(toIndentedString(pickupCutoffTimeSunday)).append("\n");
+    sb.append("    pickupCutoffTimeThursday: ").append(toIndentedString(pickupCutoffTimeThursday)).append("\n");
+    sb.append("    pickupCutoffTimeTuesday: ").append(toIndentedString(pickupCutoffTimeTuesday)).append("\n");
+    sb.append("    pickupCutoffTimeWednesday: ").append(toIndentedString(pickupCutoffTimeWednesday)).append("\n");
+    sb.append("    pickupStartTimeFriday: ").append(toIndentedString(pickupStartTimeFriday)).append("\n");
+    sb.append("    pickupStartTimeMonday: ").append(toIndentedString(pickupStartTimeMonday)).append("\n");
+    sb.append("    pickupStartTimeSaturday: ").append(toIndentedString(pickupStartTimeSaturday)).append("\n");
+    sb.append("    pickupStartTimeSunday: ").append(toIndentedString(pickupStartTimeSunday)).append("\n");
+    sb.append("    pickupStartTimeThursday: ").append(toIndentedString(pickupStartTimeThursday)).append("\n");
+    sb.append("    pickupStartTimeTuesday: ").append(toIndentedString(pickupStartTimeTuesday)).append("\n");
+    sb.append("    pickupStartTimeWednesday: ").append(toIndentedString(pickupStartTimeWednesday)).append("\n");
+    sb.append("    pickupTz: ").append(toIndentedString(pickupTz)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    processDays: ").append(toIndentedString(processDays)).append("\n");
     sb.append("    processInventoryStartTime: ").append(toIndentedString(processInventoryStartTime)).append("\n");
@@ -1130,6 +1565,21 @@ public class DistributionCenter {
     openapiFields.add("name");
     openapiFields.add("no_customer_direct_shipments");
     openapiFields.add("no_split_shipment");
+    openapiFields.add("pickup_cutoff_time_friday");
+    openapiFields.add("pickup_cutoff_time_monday");
+    openapiFields.add("pickup_cutoff_time_saturday");
+    openapiFields.add("pickup_cutoff_time_sunday");
+    openapiFields.add("pickup_cutoff_time_thursday");
+    openapiFields.add("pickup_cutoff_time_tuesday");
+    openapiFields.add("pickup_cutoff_time_wednesday");
+    openapiFields.add("pickup_start_time_friday");
+    openapiFields.add("pickup_start_time_monday");
+    openapiFields.add("pickup_start_time_saturday");
+    openapiFields.add("pickup_start_time_sunday");
+    openapiFields.add("pickup_start_time_thursday");
+    openapiFields.add("pickup_start_time_tuesday");
+    openapiFields.add("pickup_start_time_wednesday");
+    openapiFields.add("pickup_tz");
     openapiFields.add("postal_code");
     openapiFields.add("process_days");
     openapiFields.add("process_inventory_start_time");
@@ -1196,6 +1646,51 @@ public class DistributionCenter {
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (jsonObj.get("pickup_cutoff_time_friday") != null && !jsonObj.get("pickup_cutoff_time_friday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_cutoff_time_friday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_cutoff_time_friday").toString()));
+      }
+      if (jsonObj.get("pickup_cutoff_time_monday") != null && !jsonObj.get("pickup_cutoff_time_monday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_cutoff_time_monday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_cutoff_time_monday").toString()));
+      }
+      if (jsonObj.get("pickup_cutoff_time_saturday") != null && !jsonObj.get("pickup_cutoff_time_saturday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_cutoff_time_saturday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_cutoff_time_saturday").toString()));
+      }
+      if (jsonObj.get("pickup_cutoff_time_sunday") != null && !jsonObj.get("pickup_cutoff_time_sunday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_cutoff_time_sunday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_cutoff_time_sunday").toString()));
+      }
+      if (jsonObj.get("pickup_cutoff_time_thursday") != null && !jsonObj.get("pickup_cutoff_time_thursday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_cutoff_time_thursday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_cutoff_time_thursday").toString()));
+      }
+      if (jsonObj.get("pickup_cutoff_time_tuesday") != null && !jsonObj.get("pickup_cutoff_time_tuesday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_cutoff_time_tuesday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_cutoff_time_tuesday").toString()));
+      }
+      if (jsonObj.get("pickup_cutoff_time_wednesday") != null && !jsonObj.get("pickup_cutoff_time_wednesday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_cutoff_time_wednesday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_cutoff_time_wednesday").toString()));
+      }
+      if (jsonObj.get("pickup_start_time_friday") != null && !jsonObj.get("pickup_start_time_friday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_start_time_friday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_start_time_friday").toString()));
+      }
+      if (jsonObj.get("pickup_start_time_monday") != null && !jsonObj.get("pickup_start_time_monday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_start_time_monday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_start_time_monday").toString()));
+      }
+      if (jsonObj.get("pickup_start_time_saturday") != null && !jsonObj.get("pickup_start_time_saturday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_start_time_saturday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_start_time_saturday").toString()));
+      }
+      if (jsonObj.get("pickup_start_time_sunday") != null && !jsonObj.get("pickup_start_time_sunday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_start_time_sunday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_start_time_sunday").toString()));
+      }
+      if (jsonObj.get("pickup_start_time_thursday") != null && !jsonObj.get("pickup_start_time_thursday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_start_time_thursday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_start_time_thursday").toString()));
+      }
+      if (jsonObj.get("pickup_start_time_tuesday") != null && !jsonObj.get("pickup_start_time_tuesday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_start_time_tuesday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_start_time_tuesday").toString()));
+      }
+      if (jsonObj.get("pickup_start_time_wednesday") != null && !jsonObj.get("pickup_start_time_wednesday").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_start_time_wednesday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_start_time_wednesday").toString()));
+      }
+      if (jsonObj.get("pickup_tz") != null && !jsonObj.get("pickup_tz").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_tz` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_tz").toString()));
       }
       if (jsonObj.get("postal_code") != null && !jsonObj.get("postal_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal_code").toString()));

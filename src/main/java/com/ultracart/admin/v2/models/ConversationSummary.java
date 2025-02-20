@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ConversationParticipant;
+import com.ultracart.admin.v2.models.ConversationSentiment;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ConversationSummary {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -150,6 +151,10 @@ public class ConversationSummary {
   public static final String SERIALIZED_NAME_PARTICIPANTS = "participants";
   @SerializedName(SERIALIZED_NAME_PARTICIPANTS)
   private List<ConversationParticipant> participants = null;
+
+  public static final String SERIALIZED_NAME_SENTIMENT = "sentiment";
+  @SerializedName(SERIALIZED_NAME_SENTIMENT)
+  private ConversationSentiment sentiment;
 
   public static final String SERIALIZED_NAME_START_DTS = "start_dts";
   @SerializedName(SERIALIZED_NAME_START_DTS)
@@ -473,6 +478,29 @@ public class ConversationSummary {
   }
 
 
+  public ConversationSummary sentiment(ConversationSentiment sentiment) {
+    
+    this.sentiment = sentiment;
+    return this;
+  }
+
+   /**
+   * Get sentiment
+   * @return sentiment
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationSentiment getSentiment() {
+    return sentiment;
+  }
+
+
+  public void setSentiment(ConversationSentiment sentiment) {
+    this.sentiment = sentiment;
+  }
+
+
   public ConversationSummary startDts(String startDts) {
     
     this.startDts = startDts;
@@ -565,6 +593,7 @@ public class ConversationSummary {
         Objects.equals(this.merchantId, conversationSummary.merchantId) &&
         Objects.equals(this.messageCount, conversationSummary.messageCount) &&
         Objects.equals(this.participants, conversationSummary.participants) &&
+        Objects.equals(this.sentiment, conversationSummary.sentiment) &&
         Objects.equals(this.startDts, conversationSummary.startDts) &&
         Objects.equals(this.unreadMessages, conversationSummary.unreadMessages) &&
         Objects.equals(this.visible, conversationSummary.visible);
@@ -572,7 +601,7 @@ public class ConversationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, conversationArn, conversationUuid, customerFirstMessageUnrespondedToDts, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, participants, startDts, unreadMessages, visible);
+    return Objects.hash(closed, conversationArn, conversationUuid, customerFirstMessageUnrespondedToDts, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, participants, sentiment, startDts, unreadMessages, visible);
   }
 
   @Override
@@ -592,6 +621,7 @@ public class ConversationSummary {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
     sb.append("    participants: ").append(toIndentedString(participants)).append("\n");
+    sb.append("    sentiment: ").append(toIndentedString(sentiment)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
@@ -630,6 +660,7 @@ public class ConversationSummary {
     openapiFields.add("merchant_id");
     openapiFields.add("message_count");
     openapiFields.add("participants");
+    openapiFields.add("sentiment");
     openapiFields.add("start_dts");
     openapiFields.add("unread_messages");
     openapiFields.add("visible");
@@ -701,6 +732,10 @@ public class ConversationSummary {
         for (int i = 0; i < jsonArrayparticipants.size(); i++) {
           ConversationParticipant.validateJsonObject(jsonArrayparticipants.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `sentiment`
+      if (jsonObj.getAsJsonObject("sentiment") != null) {
+        ConversationSentiment.validateJsonObject(jsonObj.getAsJsonObject("sentiment"));
       }
       if (jsonObj.get("start_dts") != null && !jsonObj.get("start_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `start_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_dts").toString()));

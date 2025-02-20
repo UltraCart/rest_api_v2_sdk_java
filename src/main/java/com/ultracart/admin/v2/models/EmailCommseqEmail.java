@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseqEmail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class EmailCommseqEmail {
   public static final String SERIALIZED_NAME_DELETED = "deleted";
   @SerializedName(SERIALIZED_NAME_DELETED)
@@ -76,6 +76,38 @@ public class EmailCommseqEmail {
   public static final String SERIALIZED_NAME_EMAIL_TEMPLATE_VM_PATH = "email_template_vm_path";
   @SerializedName(SERIALIZED_NAME_EMAIL_TEMPLATE_VM_PATH)
   private String emailTemplateVmPath;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_GENERATION = "external_generation";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_GENERATION)
+  private Boolean externalGeneration;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_GENERATION_AUTHENTICATION = "external_generation_authentication";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_GENERATION_AUTHENTICATION)
+  private String externalGenerationAuthentication;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_GENERATION_BASIC_PASSWORD = "external_generation_basic_password";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_GENERATION_BASIC_PASSWORD)
+  private String externalGenerationBasicPassword;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_GENERATION_BASIC_USERNAME = "external_generation_basic_username";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_GENERATION_BASIC_USERNAME)
+  private String externalGenerationBasicUsername;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_GENERATION_HEADER_NAME = "external_generation_header_name";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_GENERATION_HEADER_NAME)
+  private String externalGenerationHeaderName;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_GENERATION_HEADER_VALUE = "external_generation_header_value";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_GENERATION_HEADER_VALUE)
+  private String externalGenerationHeaderValue;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_GENERATION_ID = "external_generation_id";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_GENERATION_ID)
+  private String externalGenerationId;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_GENERATION_URL = "external_generation_url";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_GENERATION_URL)
+  private String externalGenerationUrl;
 
   public static final String SERIALIZED_NAME_FILTER_PROFILE_EQUATION_JSON = "filter_profile_equation_json";
   @SerializedName(SERIALIZED_NAME_FILTER_PROFILE_EQUATION_JSON)
@@ -314,6 +346,190 @@ public class EmailCommseqEmail {
 
   public void setEmailTemplateVmPath(String emailTemplateVmPath) {
     this.emailTemplateVmPath = emailTemplateVmPath;
+  }
+
+
+  public EmailCommseqEmail externalGeneration(Boolean externalGeneration) {
+    
+    this.externalGeneration = externalGeneration;
+    return this;
+  }
+
+   /**
+   * Get externalGeneration
+   * @return externalGeneration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getExternalGeneration() {
+    return externalGeneration;
+  }
+
+
+  public void setExternalGeneration(Boolean externalGeneration) {
+    this.externalGeneration = externalGeneration;
+  }
+
+
+  public EmailCommseqEmail externalGenerationAuthentication(String externalGenerationAuthentication) {
+    
+    this.externalGenerationAuthentication = externalGenerationAuthentication;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationAuthentication
+   * @return externalGenerationAuthentication
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getExternalGenerationAuthentication() {
+    return externalGenerationAuthentication;
+  }
+
+
+  public void setExternalGenerationAuthentication(String externalGenerationAuthentication) {
+    this.externalGenerationAuthentication = externalGenerationAuthentication;
+  }
+
+
+  public EmailCommseqEmail externalGenerationBasicPassword(String externalGenerationBasicPassword) {
+    
+    this.externalGenerationBasicPassword = externalGenerationBasicPassword;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationBasicPassword
+   * @return externalGenerationBasicPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getExternalGenerationBasicPassword() {
+    return externalGenerationBasicPassword;
+  }
+
+
+  public void setExternalGenerationBasicPassword(String externalGenerationBasicPassword) {
+    this.externalGenerationBasicPassword = externalGenerationBasicPassword;
+  }
+
+
+  public EmailCommseqEmail externalGenerationBasicUsername(String externalGenerationBasicUsername) {
+    
+    this.externalGenerationBasicUsername = externalGenerationBasicUsername;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationBasicUsername
+   * @return externalGenerationBasicUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getExternalGenerationBasicUsername() {
+    return externalGenerationBasicUsername;
+  }
+
+
+  public void setExternalGenerationBasicUsername(String externalGenerationBasicUsername) {
+    this.externalGenerationBasicUsername = externalGenerationBasicUsername;
+  }
+
+
+  public EmailCommseqEmail externalGenerationHeaderName(String externalGenerationHeaderName) {
+    
+    this.externalGenerationHeaderName = externalGenerationHeaderName;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationHeaderName
+   * @return externalGenerationHeaderName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getExternalGenerationHeaderName() {
+    return externalGenerationHeaderName;
+  }
+
+
+  public void setExternalGenerationHeaderName(String externalGenerationHeaderName) {
+    this.externalGenerationHeaderName = externalGenerationHeaderName;
+  }
+
+
+  public EmailCommseqEmail externalGenerationHeaderValue(String externalGenerationHeaderValue) {
+    
+    this.externalGenerationHeaderValue = externalGenerationHeaderValue;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationHeaderValue
+   * @return externalGenerationHeaderValue
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getExternalGenerationHeaderValue() {
+    return externalGenerationHeaderValue;
+  }
+
+
+  public void setExternalGenerationHeaderValue(String externalGenerationHeaderValue) {
+    this.externalGenerationHeaderValue = externalGenerationHeaderValue;
+  }
+
+
+  public EmailCommseqEmail externalGenerationId(String externalGenerationId) {
+    
+    this.externalGenerationId = externalGenerationId;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationId
+   * @return externalGenerationId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getExternalGenerationId() {
+    return externalGenerationId;
+  }
+
+
+  public void setExternalGenerationId(String externalGenerationId) {
+    this.externalGenerationId = externalGenerationId;
+  }
+
+
+  public EmailCommseqEmail externalGenerationUrl(String externalGenerationUrl) {
+    
+    this.externalGenerationUrl = externalGenerationUrl;
+    return this;
+  }
+
+   /**
+   * Get externalGenerationUrl
+   * @return externalGenerationUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getExternalGenerationUrl() {
+    return externalGenerationUrl;
+  }
+
+
+  public void setExternalGenerationUrl(String externalGenerationUrl) {
+    this.externalGenerationUrl = externalGenerationUrl;
   }
 
 
@@ -771,6 +987,14 @@ public class EmailCommseqEmail {
         Objects.equals(this.emailContainerCjson, emailCommseqEmail.emailContainerCjson) &&
         Objects.equals(this.emailContainerCjsonLastModifiedDts, emailCommseqEmail.emailContainerCjsonLastModifiedDts) &&
         Objects.equals(this.emailTemplateVmPath, emailCommseqEmail.emailTemplateVmPath) &&
+        Objects.equals(this.externalGeneration, emailCommseqEmail.externalGeneration) &&
+        Objects.equals(this.externalGenerationAuthentication, emailCommseqEmail.externalGenerationAuthentication) &&
+        Objects.equals(this.externalGenerationBasicPassword, emailCommseqEmail.externalGenerationBasicPassword) &&
+        Objects.equals(this.externalGenerationBasicUsername, emailCommseqEmail.externalGenerationBasicUsername) &&
+        Objects.equals(this.externalGenerationHeaderName, emailCommseqEmail.externalGenerationHeaderName) &&
+        Objects.equals(this.externalGenerationHeaderValue, emailCommseqEmail.externalGenerationHeaderValue) &&
+        Objects.equals(this.externalGenerationId, emailCommseqEmail.externalGenerationId) &&
+        Objects.equals(this.externalGenerationUrl, emailCommseqEmail.externalGenerationUrl) &&
         Objects.equals(this.filterProfileEquationJson, emailCommseqEmail.filterProfileEquationJson) &&
         Objects.equals(this.individuallyRender, emailCommseqEmail.individuallyRender) &&
         Objects.equals(this.libraryItemOid, emailCommseqEmail.libraryItemOid) &&
@@ -794,7 +1018,7 @@ public class EmailCommseqEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
+    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, externalGeneration, externalGenerationAuthentication, externalGenerationBasicPassword, externalGenerationBasicUsername, externalGenerationHeaderName, externalGenerationHeaderValue, externalGenerationId, externalGenerationUrl, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
   }
 
   @Override
@@ -808,6 +1032,14 @@ public class EmailCommseqEmail {
     sb.append("    emailContainerCjson: ").append(toIndentedString(emailContainerCjson)).append("\n");
     sb.append("    emailContainerCjsonLastModifiedDts: ").append(toIndentedString(emailContainerCjsonLastModifiedDts)).append("\n");
     sb.append("    emailTemplateVmPath: ").append(toIndentedString(emailTemplateVmPath)).append("\n");
+    sb.append("    externalGeneration: ").append(toIndentedString(externalGeneration)).append("\n");
+    sb.append("    externalGenerationAuthentication: ").append(toIndentedString(externalGenerationAuthentication)).append("\n");
+    sb.append("    externalGenerationBasicPassword: ").append(toIndentedString(externalGenerationBasicPassword)).append("\n");
+    sb.append("    externalGenerationBasicUsername: ").append(toIndentedString(externalGenerationBasicUsername)).append("\n");
+    sb.append("    externalGenerationHeaderName: ").append(toIndentedString(externalGenerationHeaderName)).append("\n");
+    sb.append("    externalGenerationHeaderValue: ").append(toIndentedString(externalGenerationHeaderValue)).append("\n");
+    sb.append("    externalGenerationId: ").append(toIndentedString(externalGenerationId)).append("\n");
+    sb.append("    externalGenerationUrl: ").append(toIndentedString(externalGenerationUrl)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    individuallyRender: ").append(toIndentedString(individuallyRender)).append("\n");
     sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
@@ -856,6 +1088,14 @@ public class EmailCommseqEmail {
     openapiFields.add("email_container_cjson");
     openapiFields.add("email_container_cjson_last_modified_dts");
     openapiFields.add("email_template_vm_path");
+    openapiFields.add("external_generation");
+    openapiFields.add("external_generation_authentication");
+    openapiFields.add("external_generation_basic_password");
+    openapiFields.add("external_generation_basic_username");
+    openapiFields.add("external_generation_header_name");
+    openapiFields.add("external_generation_header_value");
+    openapiFields.add("external_generation_id");
+    openapiFields.add("external_generation_url");
     openapiFields.add("filter_profile_equation_json");
     openapiFields.add("individually_render");
     openapiFields.add("library_item_oid");
@@ -919,6 +1159,27 @@ public class EmailCommseqEmail {
       }
       if (jsonObj.get("email_template_vm_path") != null && !jsonObj.get("email_template_vm_path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email_template_vm_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email_template_vm_path").toString()));
+      }
+      if (jsonObj.get("external_generation_authentication") != null && !jsonObj.get("external_generation_authentication").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_generation_authentication` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_generation_authentication").toString()));
+      }
+      if (jsonObj.get("external_generation_basic_password") != null && !jsonObj.get("external_generation_basic_password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_generation_basic_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_generation_basic_password").toString()));
+      }
+      if (jsonObj.get("external_generation_basic_username") != null && !jsonObj.get("external_generation_basic_username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_generation_basic_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_generation_basic_username").toString()));
+      }
+      if (jsonObj.get("external_generation_header_name") != null && !jsonObj.get("external_generation_header_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_generation_header_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_generation_header_name").toString()));
+      }
+      if (jsonObj.get("external_generation_header_value") != null && !jsonObj.get("external_generation_header_value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_generation_header_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_generation_header_value").toString()));
+      }
+      if (jsonObj.get("external_generation_id") != null && !jsonObj.get("external_generation_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_generation_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_generation_id").toString()));
+      }
+      if (jsonObj.get("external_generation_url") != null && !jsonObj.get("external_generation_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `external_generation_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_generation_url").toString()));
       }
       if (jsonObj.get("filter_profile_equation_json") != null && !jsonObj.get("filter_profile_equation_json").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `filter_profile_equation_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter_profile_equation_json").toString()));

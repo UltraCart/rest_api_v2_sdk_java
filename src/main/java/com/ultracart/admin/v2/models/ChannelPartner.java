@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ChannelPartner {
   public static final String SERIALIZED_NAME_CHANNEL_PARTNER_OID = "channel_partner_oid";
   @SerializedName(SERIALIZED_NAME_CHANNEL_PARTNER_OID)
@@ -60,6 +60,10 @@ public class ChannelPartner {
   public static final String SERIALIZED_NAME_COMMUNICATION_METHOD = "communication_method";
   @SerializedName(SERIALIZED_NAME_COMMUNICATION_METHOD)
   private String communicationMethod;
+
+  public static final String SERIALIZED_NAME_DONT_HOLD_SHIPMENT = "dont_hold_shipment";
+  @SerializedName(SERIALIZED_NAME_DONT_HOLD_SHIPMENT)
+  private Boolean dontHoldShipment;
 
   public static final String SERIALIZED_NAME_INACTIVE = "inactive";
   @SerializedName(SERIALIZED_NAME_INACTIVE)
@@ -146,6 +150,29 @@ public class ChannelPartner {
 
   public void setCommunicationMethod(String communicationMethod) {
     this.communicationMethod = communicationMethod;
+  }
+
+
+  public ChannelPartner dontHoldShipment(Boolean dontHoldShipment) {
+    
+    this.dontHoldShipment = dontHoldShipment;
+    return this;
+  }
+
+   /**
+   * True if shipments should immediately process for this channel partner.
+   * @return dontHoldShipment
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if shipments should immediately process for this channel partner.")
+
+  public Boolean getDontHoldShipment() {
+    return dontHoldShipment;
+  }
+
+
+  public void setDontHoldShipment(Boolean dontHoldShipment) {
+    this.dontHoldShipment = dontHoldShipment;
   }
 
 
@@ -254,6 +281,7 @@ public class ChannelPartner {
     return Objects.equals(this.channelPartnerOid, channelPartner.channelPartnerOid) &&
         Objects.equals(this.code, channelPartner.code) &&
         Objects.equals(this.communicationMethod, channelPartner.communicationMethod) &&
+        Objects.equals(this.dontHoldShipment, channelPartner.dontHoldShipment) &&
         Objects.equals(this.inactive, channelPartner.inactive) &&
         Objects.equals(this.merchantId, channelPartner.merchantId) &&
         Objects.equals(this.name, channelPartner.name) &&
@@ -262,7 +290,7 @@ public class ChannelPartner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(channelPartnerOid, code, communicationMethod, inactive, merchantId, name, skipCustomerEmails);
+    return Objects.hash(channelPartnerOid, code, communicationMethod, dontHoldShipment, inactive, merchantId, name, skipCustomerEmails);
   }
 
   @Override
@@ -272,6 +300,7 @@ public class ChannelPartner {
     sb.append("    channelPartnerOid: ").append(toIndentedString(channelPartnerOid)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    communicationMethod: ").append(toIndentedString(communicationMethod)).append("\n");
+    sb.append("    dontHoldShipment: ").append(toIndentedString(dontHoldShipment)).append("\n");
     sb.append("    inactive: ").append(toIndentedString(inactive)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -301,6 +330,7 @@ public class ChannelPartner {
     openapiFields.add("channel_partner_oid");
     openapiFields.add("code");
     openapiFields.add("communication_method");
+    openapiFields.add("dont_hold_shipment");
     openapiFields.add("inactive");
     openapiFields.add("merchant_id");
     openapiFields.add("name");

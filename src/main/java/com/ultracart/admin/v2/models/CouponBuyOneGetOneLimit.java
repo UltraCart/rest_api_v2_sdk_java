@@ -49,8 +49,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponBuyOneGetOneLimit
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CouponBuyOneGetOneLimit {
+  public static final String SERIALIZED_NAME_ITEM_TAGS = "item_tags";
+  @SerializedName(SERIALIZED_NAME_ITEM_TAGS)
+  private List<String> itemTags = null;
+
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<String> items = null;
@@ -61,6 +65,37 @@ public class CouponBuyOneGetOneLimit {
 
   public CouponBuyOneGetOneLimit() { 
   }
+
+  public CouponBuyOneGetOneLimit itemTags(List<String> itemTags) {
+    
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponBuyOneGetOneLimit addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * An optional list of item tags which will receive a discount.
+   * @return itemTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An optional list of item tags which will receive a discount.")
+
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+  }
+
 
   public CouponBuyOneGetOneLimit items(List<String> items) {
     
@@ -126,19 +161,21 @@ public class CouponBuyOneGetOneLimit {
       return false;
     }
     CouponBuyOneGetOneLimit couponBuyOneGetOneLimit = (CouponBuyOneGetOneLimit) o;
-    return Objects.equals(this.items, couponBuyOneGetOneLimit.items) &&
+    return Objects.equals(this.itemTags, couponBuyOneGetOneLimit.itemTags) &&
+        Objects.equals(this.items, couponBuyOneGetOneLimit.items) &&
         Objects.equals(this.limit, couponBuyOneGetOneLimit.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, limit);
+    return Objects.hash(itemTags, items, limit);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CouponBuyOneGetOneLimit {\n");
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");
@@ -163,6 +200,7 @@ public class CouponBuyOneGetOneLimit {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("item_tags");
     openapiFields.add("items");
     openapiFields.add("limit");
 
@@ -191,6 +229,10 @@ public class CouponBuyOneGetOneLimit {
         if (!CouponBuyOneGetOneLimit.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CouponBuyOneGetOneLimit` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("item_tags") != null && !jsonObj.get("item_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `item_tags` to be an array in the JSON string but got `%s`", jsonObj.get("item_tags").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonArray()) {

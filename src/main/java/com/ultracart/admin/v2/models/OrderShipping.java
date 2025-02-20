@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderShipping {
   public static final String SERIALIZED_NAME_ADDRESS1 = "address1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)
@@ -112,6 +112,10 @@ public class OrderShipping {
   public static final String SERIALIZED_NAME_LIFT_GATE = "lift_gate";
   @SerializedName(SERIALIZED_NAME_LIFT_GATE)
   private Boolean liftGate;
+
+  public static final String SERIALIZED_NAME_PICKUP_DTS = "pickup_dts";
+  @SerializedName(SERIALIZED_NAME_PICKUP_DTS)
+  private String pickupDts;
 
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
@@ -529,6 +533,29 @@ public class OrderShipping {
   }
 
 
+  public OrderShipping pickupDts(String pickupDts) {
+    
+    this.pickupDts = pickupDts;
+    return this;
+  }
+
+   /**
+   * Date/time the order should be picked up locally.
+   * @return pickupDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date/time the order should be picked up locally.")
+
+  public String getPickupDts() {
+    return pickupDts;
+  }
+
+
+  public void setPickupDts(String pickupDts) {
+    this.pickupDts = pickupDts;
+  }
+
+
   public OrderShipping postalCode(String postalCode) {
     
     this.postalCode = postalCode;
@@ -915,6 +942,7 @@ public class OrderShipping {
         Objects.equals(this.leastCostRoute, orderShipping.leastCostRoute) &&
         Objects.equals(this.leastCostRouteShippingMethods, orderShipping.leastCostRouteShippingMethods) &&
         Objects.equals(this.liftGate, orderShipping.liftGate) &&
+        Objects.equals(this.pickupDts, orderShipping.pickupDts) &&
         Objects.equals(this.postalCode, orderShipping.postalCode) &&
         Objects.equals(this.rma, orderShipping.rma) &&
         Objects.equals(this.shipOnDate, orderShipping.shipOnDate) &&
@@ -934,7 +962,7 @@ public class OrderShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, dayPhoneE164, deliveryDate, eveningPhone, eveningPhoneE164, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumberDetails, trackingNumbers, weight);
+    return Objects.hash(address1, address2, city, company, countryCode, dayPhone, dayPhoneE164, deliveryDate, eveningPhone, eveningPhoneE164, firstName, lastName, leastCostRoute, leastCostRouteShippingMethods, liftGate, pickupDts, postalCode, rma, shipOnDate, shipToResidential, shipping3rdPartyAccountNumber, shippingDate, shippingDepartmentStatus, shippingMethod, shippingMethodAccountingCode, specialInstructions, stateRegion, title, trackingNumberDetails, trackingNumbers, weight);
   }
 
   @Override
@@ -956,6 +984,7 @@ public class OrderShipping {
     sb.append("    leastCostRoute: ").append(toIndentedString(leastCostRoute)).append("\n");
     sb.append("    leastCostRouteShippingMethods: ").append(toIndentedString(leastCostRouteShippingMethods)).append("\n");
     sb.append("    liftGate: ").append(toIndentedString(liftGate)).append("\n");
+    sb.append("    pickupDts: ").append(toIndentedString(pickupDts)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    rma: ").append(toIndentedString(rma)).append("\n");
     sb.append("    shipOnDate: ").append(toIndentedString(shipOnDate)).append("\n");
@@ -1008,6 +1037,7 @@ public class OrderShipping {
     openapiFields.add("least_cost_route");
     openapiFields.add("least_cost_route_shipping_methods");
     openapiFields.add("lift_gate");
+    openapiFields.add("pickup_dts");
     openapiFields.add("postal_code");
     openapiFields.add("rma");
     openapiFields.add("ship_on_date");
@@ -1089,6 +1119,9 @@ public class OrderShipping {
       // ensure the json data is an array
       if (jsonObj.get("least_cost_route_shipping_methods") != null && !jsonObj.get("least_cost_route_shipping_methods").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `least_cost_route_shipping_methods` to be an array in the JSON string but got `%s`", jsonObj.get("least_cost_route_shipping_methods").toString()));
+      }
+      if (jsonObj.get("pickup_dts") != null && !jsonObj.get("pickup_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pickup_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pickup_dts").toString()));
       }
       if (jsonObj.get("postal_code") != null && !jsonObj.get("postal_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal_code").toString()));

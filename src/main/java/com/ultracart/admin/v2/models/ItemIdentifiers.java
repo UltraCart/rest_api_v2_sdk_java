@@ -47,11 +47,27 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemIdentifiers
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ItemIdentifiers {
   public static final String SERIALIZED_NAME_BARCODE = "barcode";
   @SerializedName(SERIALIZED_NAME_BARCODE)
   private String barcode;
+
+  public static final String SERIALIZED_NAME_BARCODE_GTIN12 = "barcode_gtin12";
+  @SerializedName(SERIALIZED_NAME_BARCODE_GTIN12)
+  private String barcodeGtin12;
+
+  public static final String SERIALIZED_NAME_BARCODE_GTIN14 = "barcode_gtin14";
+  @SerializedName(SERIALIZED_NAME_BARCODE_GTIN14)
+  private String barcodeGtin14;
+
+  public static final String SERIALIZED_NAME_BARCODE_UPC11 = "barcode_upc11";
+  @SerializedName(SERIALIZED_NAME_BARCODE_UPC11)
+  private String barcodeUpc11;
+
+  public static final String SERIALIZED_NAME_BARCODE_UPC12 = "barcode_upc12";
+  @SerializedName(SERIALIZED_NAME_BARCODE_UPC12)
+  private String barcodeUpc12;
 
   public static final String SERIALIZED_NAME_MANUFACTURER_NAME = "manufacturer_name";
   @SerializedName(SERIALIZED_NAME_MANUFACTURER_NAME)
@@ -88,6 +104,98 @@ public class ItemIdentifiers {
 
   public void setBarcode(String barcode) {
     this.barcode = barcode;
+  }
+
+
+  public ItemIdentifiers barcodeGtin12(String barcodeGtin12) {
+    
+    this.barcodeGtin12 = barcodeGtin12;
+    return this;
+  }
+
+   /**
+   * Barcode - GTIN 12
+   * @return barcodeGtin12
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Barcode - GTIN 12")
+
+  public String getBarcodeGtin12() {
+    return barcodeGtin12;
+  }
+
+
+  public void setBarcodeGtin12(String barcodeGtin12) {
+    this.barcodeGtin12 = barcodeGtin12;
+  }
+
+
+  public ItemIdentifiers barcodeGtin14(String barcodeGtin14) {
+    
+    this.barcodeGtin14 = barcodeGtin14;
+    return this;
+  }
+
+   /**
+   * Barcode - GTIN 14
+   * @return barcodeGtin14
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Barcode - GTIN 14")
+
+  public String getBarcodeGtin14() {
+    return barcodeGtin14;
+  }
+
+
+  public void setBarcodeGtin14(String barcodeGtin14) {
+    this.barcodeGtin14 = barcodeGtin14;
+  }
+
+
+  public ItemIdentifiers barcodeUpc11(String barcodeUpc11) {
+    
+    this.barcodeUpc11 = barcodeUpc11;
+    return this;
+  }
+
+   /**
+   * Barcode - UPC 11
+   * @return barcodeUpc11
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Barcode - UPC 11")
+
+  public String getBarcodeUpc11() {
+    return barcodeUpc11;
+  }
+
+
+  public void setBarcodeUpc11(String barcodeUpc11) {
+    this.barcodeUpc11 = barcodeUpc11;
+  }
+
+
+  public ItemIdentifiers barcodeUpc12(String barcodeUpc12) {
+    
+    this.barcodeUpc12 = barcodeUpc12;
+    return this;
+  }
+
+   /**
+   * Barcode - UPC 12
+   * @return barcodeUpc12
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Barcode - UPC 12")
+
+  public String getBarcodeUpc12() {
+    return barcodeUpc12;
+  }
+
+
+  public void setBarcodeUpc12(String barcodeUpc12) {
+    this.barcodeUpc12 = barcodeUpc12;
   }
 
 
@@ -171,6 +279,10 @@ public class ItemIdentifiers {
     }
     ItemIdentifiers itemIdentifiers = (ItemIdentifiers) o;
     return Objects.equals(this.barcode, itemIdentifiers.barcode) &&
+        Objects.equals(this.barcodeGtin12, itemIdentifiers.barcodeGtin12) &&
+        Objects.equals(this.barcodeGtin14, itemIdentifiers.barcodeGtin14) &&
+        Objects.equals(this.barcodeUpc11, itemIdentifiers.barcodeUpc11) &&
+        Objects.equals(this.barcodeUpc12, itemIdentifiers.barcodeUpc12) &&
         Objects.equals(this.manufacturerName, itemIdentifiers.manufacturerName) &&
         Objects.equals(this.manufacturerSku, itemIdentifiers.manufacturerSku) &&
         Objects.equals(this.unspsc, itemIdentifiers.unspsc);
@@ -178,7 +290,7 @@ public class ItemIdentifiers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcode, manufacturerName, manufacturerSku, unspsc);
+    return Objects.hash(barcode, barcodeGtin12, barcodeGtin14, barcodeUpc11, barcodeUpc12, manufacturerName, manufacturerSku, unspsc);
   }
 
   @Override
@@ -186,6 +298,10 @@ public class ItemIdentifiers {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemIdentifiers {\n");
     sb.append("    barcode: ").append(toIndentedString(barcode)).append("\n");
+    sb.append("    barcodeGtin12: ").append(toIndentedString(barcodeGtin12)).append("\n");
+    sb.append("    barcodeGtin14: ").append(toIndentedString(barcodeGtin14)).append("\n");
+    sb.append("    barcodeUpc11: ").append(toIndentedString(barcodeUpc11)).append("\n");
+    sb.append("    barcodeUpc12: ").append(toIndentedString(barcodeUpc12)).append("\n");
     sb.append("    manufacturerName: ").append(toIndentedString(manufacturerName)).append("\n");
     sb.append("    manufacturerSku: ").append(toIndentedString(manufacturerSku)).append("\n");
     sb.append("    unspsc: ").append(toIndentedString(unspsc)).append("\n");
@@ -212,6 +328,10 @@ public class ItemIdentifiers {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("barcode");
+    openapiFields.add("barcode_gtin12");
+    openapiFields.add("barcode_gtin14");
+    openapiFields.add("barcode_upc11");
+    openapiFields.add("barcode_upc12");
     openapiFields.add("manufacturer_name");
     openapiFields.add("manufacturer_sku");
     openapiFields.add("unspsc");
@@ -244,6 +364,18 @@ public class ItemIdentifiers {
       }
       if (jsonObj.get("barcode") != null && !jsonObj.get("barcode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `barcode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode").toString()));
+      }
+      if (jsonObj.get("barcode_gtin12") != null && !jsonObj.get("barcode_gtin12").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `barcode_gtin12` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode_gtin12").toString()));
+      }
+      if (jsonObj.get("barcode_gtin14") != null && !jsonObj.get("barcode_gtin14").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `barcode_gtin14` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode_gtin14").toString()));
+      }
+      if (jsonObj.get("barcode_upc11") != null && !jsonObj.get("barcode_upc11").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `barcode_upc11` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode_upc11").toString()));
+      }
+      if (jsonObj.get("barcode_upc12") != null && !jsonObj.get("barcode_upc12").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `barcode_upc12` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode_upc12").toString()));
       }
       if (jsonObj.get("manufacturer_name") != null && !jsonObj.get("manufacturer_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `manufacturer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("manufacturer_name").toString()));

@@ -48,15 +48,31 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderSummary {
   public static final String SERIALIZED_NAME_ACTUAL_FULFILLMENT = "actual_fulfillment";
   @SerializedName(SERIALIZED_NAME_ACTUAL_FULFILLMENT)
   private Currency actualFulfillment;
 
+  public static final String SERIALIZED_NAME_ACTUAL_OTHER_COST = "actual_other_cost";
+  @SerializedName(SERIALIZED_NAME_ACTUAL_OTHER_COST)
+  private Currency actualOtherCost;
+
   public static final String SERIALIZED_NAME_ACTUAL_PAYMENT_PROCESSING = "actual_payment_processing";
   @SerializedName(SERIALIZED_NAME_ACTUAL_PAYMENT_PROCESSING)
   private Currency actualPaymentProcessing;
+
+  public static final String SERIALIZED_NAME_ACTUAL_PROFIT = "actual_profit";
+  @SerializedName(SERIALIZED_NAME_ACTUAL_PROFIT)
+  private Currency actualProfit;
+
+  public static final String SERIALIZED_NAME_ACTUAL_PROFIT_ANALYZED = "actual_profit_analyzed";
+  @SerializedName(SERIALIZED_NAME_ACTUAL_PROFIT_ANALYZED)
+  private Boolean actualProfitAnalyzed;
+
+  public static final String SERIALIZED_NAME_ACTUAL_PROFIT_REVIEW = "actual_profit_review";
+  @SerializedName(SERIALIZED_NAME_ACTUAL_PROFIT_REVIEW)
+  private Boolean actualProfitReview;
 
   public static final String SERIALIZED_NAME_ACTUAL_SHIPPING = "actual_shipping";
   @SerializedName(SERIALIZED_NAME_ACTUAL_SHIPPING)
@@ -65,6 +81,14 @@ public class OrderSummary {
   public static final String SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL = "arbitrary_shipping_handling_total";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL)
   private Currency arbitraryShippingHandlingTotal;
+
+  public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD_AMOUNT = "health_benefit_card_amount";
+  @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD_AMOUNT)
+  private Currency healthBenefitCardAmount;
+
+  public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD_REFUNDED = "health_benefit_card_refunded";
+  @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD_REFUNDED)
+  private Currency healthBenefitCardRefunded;
 
   public static final String SERIALIZED_NAME_INTERNAL_GIFT_CERTIFICATE_AMOUNT = "internal_gift_certificate_amount";
   @SerializedName(SERIALIZED_NAME_INTERNAL_GIFT_CERTIFICATE_AMOUNT)
@@ -156,6 +180,29 @@ public class OrderSummary {
   }
 
 
+  public OrderSummary actualOtherCost(Currency actualOtherCost) {
+    
+    this.actualOtherCost = actualOtherCost;
+    return this;
+  }
+
+   /**
+   * Get actualOtherCost
+   * @return actualOtherCost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getActualOtherCost() {
+    return actualOtherCost;
+  }
+
+
+  public void setActualOtherCost(Currency actualOtherCost) {
+    this.actualOtherCost = actualOtherCost;
+  }
+
+
   public OrderSummary actualPaymentProcessing(Currency actualPaymentProcessing) {
     
     this.actualPaymentProcessing = actualPaymentProcessing;
@@ -176,6 +223,75 @@ public class OrderSummary {
 
   public void setActualPaymentProcessing(Currency actualPaymentProcessing) {
     this.actualPaymentProcessing = actualPaymentProcessing;
+  }
+
+
+  public OrderSummary actualProfit(Currency actualProfit) {
+    
+    this.actualProfit = actualProfit;
+    return this;
+  }
+
+   /**
+   * Get actualProfit
+   * @return actualProfit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getActualProfit() {
+    return actualProfit;
+  }
+
+
+  public void setActualProfit(Currency actualProfit) {
+    this.actualProfit = actualProfit;
+  }
+
+
+  public OrderSummary actualProfitAnalyzed(Boolean actualProfitAnalyzed) {
+    
+    this.actualProfitAnalyzed = actualProfitAnalyzed;
+    return this;
+  }
+
+   /**
+   * Actual profit has been analyzed
+   * @return actualProfitAnalyzed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Actual profit has been analyzed")
+
+  public Boolean getActualProfitAnalyzed() {
+    return actualProfitAnalyzed;
+  }
+
+
+  public void setActualProfitAnalyzed(Boolean actualProfitAnalyzed) {
+    this.actualProfitAnalyzed = actualProfitAnalyzed;
+  }
+
+
+  public OrderSummary actualProfitReview(Boolean actualProfitReview) {
+    
+    this.actualProfitReview = actualProfitReview;
+    return this;
+  }
+
+   /**
+   * Actual profit needs review
+   * @return actualProfitReview
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Actual profit needs review")
+
+  public Boolean getActualProfitReview() {
+    return actualProfitReview;
+  }
+
+
+  public void setActualProfitReview(Boolean actualProfitReview) {
+    this.actualProfitReview = actualProfitReview;
   }
 
 
@@ -222,6 +338,52 @@ public class OrderSummary {
 
   public void setArbitraryShippingHandlingTotal(Currency arbitraryShippingHandlingTotal) {
     this.arbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+  }
+
+
+  public OrderSummary healthBenefitCardAmount(Currency healthBenefitCardAmount) {
+    
+    this.healthBenefitCardAmount = healthBenefitCardAmount;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCardAmount
+   * @return healthBenefitCardAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getHealthBenefitCardAmount() {
+    return healthBenefitCardAmount;
+  }
+
+
+  public void setHealthBenefitCardAmount(Currency healthBenefitCardAmount) {
+    this.healthBenefitCardAmount = healthBenefitCardAmount;
+  }
+
+
+  public OrderSummary healthBenefitCardRefunded(Currency healthBenefitCardRefunded) {
+    
+    this.healthBenefitCardRefunded = healthBenefitCardRefunded;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCardRefunded
+   * @return healthBenefitCardRefunded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getHealthBenefitCardRefunded() {
+    return healthBenefitCardRefunded;
+  }
+
+
+  public void setHealthBenefitCardRefunded(Currency healthBenefitCardRefunded) {
+    this.healthBenefitCardRefunded = healthBenefitCardRefunded;
   }
 
 
@@ -604,9 +766,15 @@ public class OrderSummary {
     }
     OrderSummary orderSummary = (OrderSummary) o;
     return Objects.equals(this.actualFulfillment, orderSummary.actualFulfillment) &&
+        Objects.equals(this.actualOtherCost, orderSummary.actualOtherCost) &&
         Objects.equals(this.actualPaymentProcessing, orderSummary.actualPaymentProcessing) &&
+        Objects.equals(this.actualProfit, orderSummary.actualProfit) &&
+        Objects.equals(this.actualProfitAnalyzed, orderSummary.actualProfitAnalyzed) &&
+        Objects.equals(this.actualProfitReview, orderSummary.actualProfitReview) &&
         Objects.equals(this.actualShipping, orderSummary.actualShipping) &&
         Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
+        Objects.equals(this.healthBenefitCardAmount, orderSummary.healthBenefitCardAmount) &&
+        Objects.equals(this.healthBenefitCardRefunded, orderSummary.healthBenefitCardRefunded) &&
         Objects.equals(this.internalGiftCertificateAmount, orderSummary.internalGiftCertificateAmount) &&
         Objects.equals(this.internalGiftCertificateRefunded, orderSummary.internalGiftCertificateRefunded) &&
         Objects.equals(this.otherRefunded, orderSummary.otherRefunded) &&
@@ -627,7 +795,7 @@ public class OrderSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualFulfillment, actualPaymentProcessing, actualShipping, arbitraryShippingHandlingTotal, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
+    return Objects.hash(actualFulfillment, actualOtherCost, actualPaymentProcessing, actualProfit, actualProfitAnalyzed, actualProfitReview, actualShipping, arbitraryShippingHandlingTotal, healthBenefitCardAmount, healthBenefitCardRefunded, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
   }
 
   @Override
@@ -635,9 +803,15 @@ public class OrderSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderSummary {\n");
     sb.append("    actualFulfillment: ").append(toIndentedString(actualFulfillment)).append("\n");
+    sb.append("    actualOtherCost: ").append(toIndentedString(actualOtherCost)).append("\n");
     sb.append("    actualPaymentProcessing: ").append(toIndentedString(actualPaymentProcessing)).append("\n");
+    sb.append("    actualProfit: ").append(toIndentedString(actualProfit)).append("\n");
+    sb.append("    actualProfitAnalyzed: ").append(toIndentedString(actualProfitAnalyzed)).append("\n");
+    sb.append("    actualProfitReview: ").append(toIndentedString(actualProfitReview)).append("\n");
     sb.append("    actualShipping: ").append(toIndentedString(actualShipping)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
+    sb.append("    healthBenefitCardAmount: ").append(toIndentedString(healthBenefitCardAmount)).append("\n");
+    sb.append("    healthBenefitCardRefunded: ").append(toIndentedString(healthBenefitCardRefunded)).append("\n");
     sb.append("    internalGiftCertificateAmount: ").append(toIndentedString(internalGiftCertificateAmount)).append("\n");
     sb.append("    internalGiftCertificateRefunded: ").append(toIndentedString(internalGiftCertificateRefunded)).append("\n");
     sb.append("    otherRefunded: ").append(toIndentedString(otherRefunded)).append("\n");
@@ -677,9 +851,15 @@ public class OrderSummary {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("actual_fulfillment");
+    openapiFields.add("actual_other_cost");
     openapiFields.add("actual_payment_processing");
+    openapiFields.add("actual_profit");
+    openapiFields.add("actual_profit_analyzed");
+    openapiFields.add("actual_profit_review");
     openapiFields.add("actual_shipping");
     openapiFields.add("arbitrary_shipping_handling_total");
+    openapiFields.add("health_benefit_card_amount");
+    openapiFields.add("health_benefit_card_refunded");
     openapiFields.add("internal_gift_certificate_amount");
     openapiFields.add("internal_gift_certificate_refunded");
     openapiFields.add("other_refunded");
@@ -727,9 +907,17 @@ public class OrderSummary {
       if (jsonObj.getAsJsonObject("actual_fulfillment") != null) {
         Currency.validateJsonObject(jsonObj.getAsJsonObject("actual_fulfillment"));
       }
+      // validate the optional field `actual_other_cost`
+      if (jsonObj.getAsJsonObject("actual_other_cost") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("actual_other_cost"));
+      }
       // validate the optional field `actual_payment_processing`
       if (jsonObj.getAsJsonObject("actual_payment_processing") != null) {
         Currency.validateJsonObject(jsonObj.getAsJsonObject("actual_payment_processing"));
+      }
+      // validate the optional field `actual_profit`
+      if (jsonObj.getAsJsonObject("actual_profit") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("actual_profit"));
       }
       // validate the optional field `actual_shipping`
       if (jsonObj.getAsJsonObject("actual_shipping") != null) {
@@ -738,6 +926,14 @@ public class OrderSummary {
       // validate the optional field `arbitrary_shipping_handling_total`
       if (jsonObj.getAsJsonObject("arbitrary_shipping_handling_total") != null) {
         Currency.validateJsonObject(jsonObj.getAsJsonObject("arbitrary_shipping_handling_total"));
+      }
+      // validate the optional field `health_benefit_card_amount`
+      if (jsonObj.getAsJsonObject("health_benefit_card_amount") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("health_benefit_card_amount"));
+      }
+      // validate the optional field `health_benefit_card_refunded`
+      if (jsonObj.getAsJsonObject("health_benefit_card_refunded") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("health_benefit_card_refunded"));
       }
       // validate the optional field `internal_gift_certificate_amount`
       if (jsonObj.getAsJsonObject("internal_gift_certificate_amount") != null) {

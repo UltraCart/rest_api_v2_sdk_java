@@ -19,6 +19,7 @@
 |**billingPostalCode** | **String** | Billing postal code |  [optional] |
 |**billingState** | **String** | Billing state |  [optional] |
 |**email** | **String** | Email address of this customer profile |  [optional] |
+|**emails** | **List&lt;String&gt;** | Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property. |  [optional] |
 |**lastModifiedDtsEnd** | **String** | Last modified date end |  [optional] |
 |**lastModifiedDtsStart** | **String** | Last modified date start |  [optional] |
 |**pricingTierName** | **String** | Pricing tier name |  [optional] |

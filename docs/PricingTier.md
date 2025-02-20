@@ -14,6 +14,7 @@
 |**approvalNotification** | [**PricingTierNotification**](PricingTierNotification.md) |  |  [optional] |
 |**autoApproveCod** | **Boolean** | Auto approve COD |  [optional] |
 |**autoApprovePurchaseOrder** | **Boolean** | Auto approve purchase order |  [optional] |
+|**currencyCode** | **String** | Any currency code specified on this pricing tier will force a shopping cart into that currency |  [optional] |
 |**defaultOnWholesaleSignup** | **Boolean** | Default on wholesale signup |  [optional] |
 |**defaultPercentageDiscount** | **BigDecimal** | Default percentage discount |  [optional] |
 |**defaultShippingMethodOid** | **Integer** | Default shipping method oid |  [optional] |
@@ -34,6 +35,7 @@
 |**notValidWhenCouponPresent** | **Boolean** | Not valid when coupon present |  [optional] |
 |**pricingTierOid** | **Integer** | Pricing Tier Oid |  [optional] |
 |**realtimePercentageDiscount** | **BigDecimal** | Realtime percentage discount |  [optional] |
+|**restrictToDistributionCenterOid** | **Integer** | Restrict inventory to this distribution center oid |  [optional] |
 |**signupNotification** | [**PricingTierNotification**](PricingTierNotification.md) |  |  [optional] |
 |**suppressBuysafe** | **Boolean** | Suppress buySAFE (deprecated) |  [optional] |
 |**suppressMailingList** | **Boolean** | Suppress mailing list |  [optional] |

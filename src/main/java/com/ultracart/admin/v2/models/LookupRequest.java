@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * LookupRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class LookupRequest {
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
@@ -60,6 +60,10 @@ public class LookupRequest {
   public static final String SERIALIZED_NAME_MAX_HITS = "max_hits";
   @SerializedName(SERIALIZED_NAME_MAX_HITS)
   private Integer maxHits;
+
+  public static final String SERIALIZED_NAME_STOREFRONT_HOST_NAME = "storefront_host_name";
+  @SerializedName(SERIALIZED_NAME_STOREFRONT_HOST_NAME)
+  private String storefrontHostName;
 
   public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefront_oid";
   @SerializedName(SERIALIZED_NAME_STOREFRONT_OID)
@@ -141,6 +145,29 @@ public class LookupRequest {
   }
 
 
+  public LookupRequest storefrontHostName(String storefrontHostName) {
+    
+    this.storefrontHostName = storefrontHostName;
+    return this;
+  }
+
+   /**
+   * Get storefrontHostName
+   * @return storefrontHostName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStorefrontHostName() {
+    return storefrontHostName;
+  }
+
+
+  public void setStorefrontHostName(String storefrontHostName) {
+    this.storefrontHostName = storefrontHostName;
+  }
+
+
   public LookupRequest storefrontOid(Integer storefrontOid) {
     
     this.storefrontOid = storefrontOid;
@@ -200,13 +227,14 @@ public class LookupRequest {
     return Objects.equals(this.category, lookupRequest.category) &&
         Objects.equals(this.matches, lookupRequest.matches) &&
         Objects.equals(this.maxHits, lookupRequest.maxHits) &&
+        Objects.equals(this.storefrontHostName, lookupRequest.storefrontHostName) &&
         Objects.equals(this.storefrontOid, lookupRequest.storefrontOid) &&
         Objects.equals(this.subcategory, lookupRequest.subcategory);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, matches, maxHits, storefrontOid, subcategory);
+    return Objects.hash(category, matches, maxHits, storefrontHostName, storefrontOid, subcategory);
   }
 
   @Override
@@ -216,6 +244,7 @@ public class LookupRequest {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
     sb.append("    maxHits: ").append(toIndentedString(maxHits)).append("\n");
+    sb.append("    storefrontHostName: ").append(toIndentedString(storefrontHostName)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    subcategory: ").append(toIndentedString(subcategory)).append("\n");
     sb.append("}");
@@ -243,6 +272,7 @@ public class LookupRequest {
     openapiFields.add("category");
     openapiFields.add("matches");
     openapiFields.add("max_hits");
+    openapiFields.add("storefront_host_name");
     openapiFields.add("storefront_oid");
     openapiFields.add("subcategory");
 
@@ -277,6 +307,9 @@ public class LookupRequest {
       }
       if (jsonObj.get("matches") != null && !jsonObj.get("matches").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `matches` to be a primitive type in the JSON string but got `%s`", jsonObj.get("matches").toString()));
+      }
+      if (jsonObj.get("storefront_host_name") != null && !jsonObj.get("storefront_host_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `storefront_host_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storefront_host_name").toString()));
       }
       if (jsonObj.get("subcategory") != null && !jsonObj.get("subcategory").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subcategory` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subcategory").toString()));

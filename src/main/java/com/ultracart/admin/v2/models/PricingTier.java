@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * PricingTier
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class PricingTier {
   public static final String SERIALIZED_NAME_ALLOW3RD_PARTY_BILLING = "allow_3rd_party_billing";
   @SerializedName(SERIALIZED_NAME_ALLOW3RD_PARTY_BILLING)
@@ -78,6 +78,10 @@ public class PricingTier {
   public static final String SERIALIZED_NAME_AUTO_APPROVE_PURCHASE_ORDER = "auto_approve_purchase_order";
   @SerializedName(SERIALIZED_NAME_AUTO_APPROVE_PURCHASE_ORDER)
   private Boolean autoApprovePurchaseOrder;
+
+  public static final String SERIALIZED_NAME_CURRENCY_CODE = "currency_code";
+  @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
+  private String currencyCode;
 
   public static final String SERIALIZED_NAME_DEFAULT_ON_WHOLESALE_SIGNUP = "default_on_wholesale_signup";
   @SerializedName(SERIALIZED_NAME_DEFAULT_ON_WHOLESALE_SIGNUP)
@@ -158,6 +162,10 @@ public class PricingTier {
   public static final String SERIALIZED_NAME_REALTIME_PERCENTAGE_DISCOUNT = "realtime_percentage_discount";
   @SerializedName(SERIALIZED_NAME_REALTIME_PERCENTAGE_DISCOUNT)
   private BigDecimal realtimePercentageDiscount;
+
+  public static final String SERIALIZED_NAME_RESTRICT_TO_DISTRIBUTION_CENTER_OID = "restrict_to_distribution_center_oid";
+  @SerializedName(SERIALIZED_NAME_RESTRICT_TO_DISTRIBUTION_CENTER_OID)
+  private Integer restrictToDistributionCenterOid;
 
   public static final String SERIALIZED_NAME_SIGNUP_NOTIFICATION = "signup_notification";
   @SerializedName(SERIALIZED_NAME_SIGNUP_NOTIFICATION)
@@ -340,6 +348,29 @@ public class PricingTier {
 
   public void setAutoApprovePurchaseOrder(Boolean autoApprovePurchaseOrder) {
     this.autoApprovePurchaseOrder = autoApprovePurchaseOrder;
+  }
+
+
+  public PricingTier currencyCode(String currencyCode) {
+    
+    this.currencyCode = currencyCode;
+    return this;
+  }
+
+   /**
+   * Any currency code specified on this pricing tier will force a shopping cart into that currency
+   * @return currencyCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Any currency code specified on this pricing tier will force a shopping cart into that currency")
+
+  public String getCurrencyCode() {
+    return currencyCode;
+  }
+
+
+  public void setCurrencyCode(String currencyCode) {
+    this.currencyCode = currencyCode;
   }
 
 
@@ -803,6 +834,29 @@ public class PricingTier {
   }
 
 
+  public PricingTier restrictToDistributionCenterOid(Integer restrictToDistributionCenterOid) {
+    
+    this.restrictToDistributionCenterOid = restrictToDistributionCenterOid;
+    return this;
+  }
+
+   /**
+   * Restrict inventory to this distribution center oid
+   * @return restrictToDistributionCenterOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Restrict inventory to this distribution center oid")
+
+  public Integer getRestrictToDistributionCenterOid() {
+    return restrictToDistributionCenterOid;
+  }
+
+
+  public void setRestrictToDistributionCenterOid(Integer restrictToDistributionCenterOid) {
+    this.restrictToDistributionCenterOid = restrictToDistributionCenterOid;
+  }
+
+
   public PricingTier signupNotification(PricingTierNotification signupNotification) {
     
     this.signupNotification = signupNotification;
@@ -935,6 +989,7 @@ public class PricingTier {
         Objects.equals(this.approvalNotification, pricingTier.approvalNotification) &&
         Objects.equals(this.autoApproveCod, pricingTier.autoApproveCod) &&
         Objects.equals(this.autoApprovePurchaseOrder, pricingTier.autoApprovePurchaseOrder) &&
+        Objects.equals(this.currencyCode, pricingTier.currencyCode) &&
         Objects.equals(this.defaultOnWholesaleSignup, pricingTier.defaultOnWholesaleSignup) &&
         Objects.equals(this.defaultPercentageDiscount, pricingTier.defaultPercentageDiscount) &&
         Objects.equals(this.defaultShippingMethodOid, pricingTier.defaultShippingMethodOid) &&
@@ -955,6 +1010,7 @@ public class PricingTier {
         Objects.equals(this.notValidWhenCouponPresent, pricingTier.notValidWhenCouponPresent) &&
         Objects.equals(this.pricingTierOid, pricingTier.pricingTierOid) &&
         Objects.equals(this.realtimePercentageDiscount, pricingTier.realtimePercentageDiscount) &&
+        Objects.equals(this.restrictToDistributionCenterOid, pricingTier.restrictToDistributionCenterOid) &&
         Objects.equals(this.signupNotification, pricingTier.signupNotification) &&
         Objects.equals(this.suppressBuysafe, pricingTier.suppressBuysafe) &&
         Objects.equals(this.suppressMailingList, pricingTier.suppressMailingList) &&
@@ -964,7 +1020,7 @@ public class PricingTier {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptLoyaltyRewards, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
+    return Objects.hash(allow3rdPartyBilling, allowCod, allowPurchaseOrder, allowQuoteRequest, approvalNotification, autoApproveCod, autoApprovePurchaseOrder, currencyCode, defaultOnWholesaleSignup, defaultPercentageDiscount, defaultShippingMethodOid, defaultTier, displayOnWholesaleSignup, excludeFromFreePromotion, exemptLoyaltyRewards, exemptShippingHandlingCharge, freeShipping, freeShippingMinimum, maximumItemCount, minimumItemCount, minimumSubtotal, name, noCoupons, noFreeShipping, noRealtimeCharge, notValidWhenCouponPresent, pricingTierOid, realtimePercentageDiscount, restrictToDistributionCenterOid, signupNotification, suppressBuysafe, suppressMailingList, taxExempt, trackSeparately);
   }
 
   @Override
@@ -978,6 +1034,7 @@ public class PricingTier {
     sb.append("    approvalNotification: ").append(toIndentedString(approvalNotification)).append("\n");
     sb.append("    autoApproveCod: ").append(toIndentedString(autoApproveCod)).append("\n");
     sb.append("    autoApprovePurchaseOrder: ").append(toIndentedString(autoApprovePurchaseOrder)).append("\n");
+    sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    defaultOnWholesaleSignup: ").append(toIndentedString(defaultOnWholesaleSignup)).append("\n");
     sb.append("    defaultPercentageDiscount: ").append(toIndentedString(defaultPercentageDiscount)).append("\n");
     sb.append("    defaultShippingMethodOid: ").append(toIndentedString(defaultShippingMethodOid)).append("\n");
@@ -998,6 +1055,7 @@ public class PricingTier {
     sb.append("    notValidWhenCouponPresent: ").append(toIndentedString(notValidWhenCouponPresent)).append("\n");
     sb.append("    pricingTierOid: ").append(toIndentedString(pricingTierOid)).append("\n");
     sb.append("    realtimePercentageDiscount: ").append(toIndentedString(realtimePercentageDiscount)).append("\n");
+    sb.append("    restrictToDistributionCenterOid: ").append(toIndentedString(restrictToDistributionCenterOid)).append("\n");
     sb.append("    signupNotification: ").append(toIndentedString(signupNotification)).append("\n");
     sb.append("    suppressBuysafe: ").append(toIndentedString(suppressBuysafe)).append("\n");
     sb.append("    suppressMailingList: ").append(toIndentedString(suppressMailingList)).append("\n");
@@ -1032,6 +1090,7 @@ public class PricingTier {
     openapiFields.add("approval_notification");
     openapiFields.add("auto_approve_cod");
     openapiFields.add("auto_approve_purchase_order");
+    openapiFields.add("currency_code");
     openapiFields.add("default_on_wholesale_signup");
     openapiFields.add("default_percentage_discount");
     openapiFields.add("default_shipping_method_oid");
@@ -1052,6 +1111,7 @@ public class PricingTier {
     openapiFields.add("not_valid_when_coupon_present");
     openapiFields.add("pricing_tier_oid");
     openapiFields.add("realtime_percentage_discount");
+    openapiFields.add("restrict_to_distribution_center_oid");
     openapiFields.add("signup_notification");
     openapiFields.add("suppress_buysafe");
     openapiFields.add("suppress_mailing_list");
@@ -1087,6 +1147,9 @@ public class PricingTier {
       // validate the optional field `approval_notification`
       if (jsonObj.getAsJsonObject("approval_notification") != null) {
         PricingTierNotification.validateJsonObject(jsonObj.getAsJsonObject("approval_notification"));
+      }
+      if (jsonObj.get("currency_code") != null && !jsonObj.get("currency_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency_code").toString()));
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

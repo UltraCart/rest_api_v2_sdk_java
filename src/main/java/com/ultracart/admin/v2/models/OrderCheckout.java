@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderCheckout
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderCheckout {
   public static final String SERIALIZED_NAME_BROWSER = "browser";
   @SerializedName(SERIALIZED_NAME_BROWSER)
@@ -61,6 +61,10 @@ public class OrderCheckout {
   public static final String SERIALIZED_NAME_CUSTOM_FIELD1 = "custom_field1";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD1)
   private String customField1;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD10 = "custom_field10";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD10)
+  private String customField10;
 
   public static final String SERIALIZED_NAME_CUSTOM_FIELD2 = "custom_field2";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD2)
@@ -85,6 +89,14 @@ public class OrderCheckout {
   public static final String SERIALIZED_NAME_CUSTOM_FIELD7 = "custom_field7";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD7)
   private String customField7;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD8 = "custom_field8";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD8)
+  private String customField8;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD9 = "custom_field9";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD9)
+  private String customField9;
 
   public static final String SERIALIZED_NAME_CUSTOMER_IP_ADDRESS = "customer_ip_address";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_IP_ADDRESS)
@@ -175,6 +187,29 @@ public class OrderCheckout {
 
   public void setCustomField1(String customField1) {
     this.customField1 = customField1;
+  }
+
+
+  public OrderCheckout customField10(String customField10) {
+    
+    this.customField10 = customField10;
+    return this;
+  }
+
+   /**
+   * Custom field 10
+   * @return customField10
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 10")
+
+  public String getCustomField10() {
+    return customField10;
+  }
+
+
+  public void setCustomField10(String customField10) {
+    this.customField10 = customField10;
   }
 
 
@@ -316,6 +351,52 @@ public class OrderCheckout {
   }
 
 
+  public OrderCheckout customField8(String customField8) {
+    
+    this.customField8 = customField8;
+    return this;
+  }
+
+   /**
+   * Custom field 8
+   * @return customField8
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 8")
+
+  public String getCustomField8() {
+    return customField8;
+  }
+
+
+  public void setCustomField8(String customField8) {
+    this.customField8 = customField8;
+  }
+
+
+  public OrderCheckout customField9(String customField9) {
+    
+    this.customField9 = customField9;
+    return this;
+  }
+
+   /**
+   * Custom field 9
+   * @return customField9
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field 9")
+
+  public String getCustomField9() {
+    return customField9;
+  }
+
+
+  public void setCustomField9(String customField9) {
+    this.customField9 = customField9;
+  }
+
+
   public OrderCheckout customerIpAddress(String customerIpAddress) {
     
     this.customerIpAddress = customerIpAddress;
@@ -444,12 +525,15 @@ public class OrderCheckout {
     return Objects.equals(this.browser, orderCheckout.browser) &&
         Objects.equals(this.comments, orderCheckout.comments) &&
         Objects.equals(this.customField1, orderCheckout.customField1) &&
+        Objects.equals(this.customField10, orderCheckout.customField10) &&
         Objects.equals(this.customField2, orderCheckout.customField2) &&
         Objects.equals(this.customField3, orderCheckout.customField3) &&
         Objects.equals(this.customField4, orderCheckout.customField4) &&
         Objects.equals(this.customField5, orderCheckout.customField5) &&
         Objects.equals(this.customField6, orderCheckout.customField6) &&
         Objects.equals(this.customField7, orderCheckout.customField7) &&
+        Objects.equals(this.customField8, orderCheckout.customField8) &&
+        Objects.equals(this.customField9, orderCheckout.customField9) &&
         Objects.equals(this.customerIpAddress, orderCheckout.customerIpAddress) &&
         Objects.equals(this.screenBrandingThemeCode, orderCheckout.screenBrandingThemeCode) &&
         Objects.equals(this.screenSize, orderCheckout.screenSize) &&
@@ -459,7 +543,7 @@ public class OrderCheckout {
 
   @Override
   public int hashCode() {
-    return Objects.hash(browser, comments, customField1, customField2, customField3, customField4, customField5, customField6, customField7, customerIpAddress, screenBrandingThemeCode, screenSize, storefrontHostName, upsellPathCode);
+    return Objects.hash(browser, comments, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, customerIpAddress, screenBrandingThemeCode, screenSize, storefrontHostName, upsellPathCode);
   }
 
   @Override
@@ -469,12 +553,15 @@ public class OrderCheckout {
     sb.append("    browser: ").append(toIndentedString(browser)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    customField1: ").append(toIndentedString(customField1)).append("\n");
+    sb.append("    customField10: ").append(toIndentedString(customField10)).append("\n");
     sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");
     sb.append("    customField3: ").append(toIndentedString(customField3)).append("\n");
     sb.append("    customField4: ").append(toIndentedString(customField4)).append("\n");
     sb.append("    customField5: ").append(toIndentedString(customField5)).append("\n");
     sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
+    sb.append("    customField8: ").append(toIndentedString(customField8)).append("\n");
+    sb.append("    customField9: ").append(toIndentedString(customField9)).append("\n");
     sb.append("    customerIpAddress: ").append(toIndentedString(customerIpAddress)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
     sb.append("    screenSize: ").append(toIndentedString(screenSize)).append("\n");
@@ -505,12 +592,15 @@ public class OrderCheckout {
     openapiFields.add("browser");
     openapiFields.add("comments");
     openapiFields.add("custom_field1");
+    openapiFields.add("custom_field10");
     openapiFields.add("custom_field2");
     openapiFields.add("custom_field3");
     openapiFields.add("custom_field4");
     openapiFields.add("custom_field5");
     openapiFields.add("custom_field6");
     openapiFields.add("custom_field7");
+    openapiFields.add("custom_field8");
+    openapiFields.add("custom_field9");
     openapiFields.add("customer_ip_address");
     openapiFields.add("screen_branding_theme_code");
     openapiFields.add("screen_size");
@@ -553,6 +643,9 @@ public class OrderCheckout {
       if (jsonObj.get("custom_field1") != null && !jsonObj.get("custom_field1").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field1").toString()));
       }
+      if (jsonObj.get("custom_field10") != null && !jsonObj.get("custom_field10").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field10` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field10").toString()));
+      }
       if (jsonObj.get("custom_field2") != null && !jsonObj.get("custom_field2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field2").toString()));
       }
@@ -570,6 +663,12 @@ public class OrderCheckout {
       }
       if (jsonObj.get("custom_field7") != null && !jsonObj.get("custom_field7").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_field7` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field7").toString()));
+      }
+      if (jsonObj.get("custom_field8") != null && !jsonObj.get("custom_field8").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field8` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field8").toString()));
+      }
+      if (jsonObj.get("custom_field9") != null && !jsonObj.get("custom_field9").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_field9` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_field9").toString()));
       }
       if (jsonObj.get("customer_ip_address") != null && !jsonObj.get("customer_ip_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `customer_ip_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_ip_address").toString()));

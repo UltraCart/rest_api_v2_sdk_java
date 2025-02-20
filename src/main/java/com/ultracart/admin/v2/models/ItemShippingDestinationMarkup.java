@@ -48,8 +48,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShippingDestinationMarkup
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ItemShippingDestinationMarkup {
+  public static final String SERIALIZED_NAME_ADULT_SIGNATURE_REQUIRED = "adult_signature_required";
+  @SerializedName(SERIALIZED_NAME_ADULT_SIGNATURE_REQUIRED)
+  private Boolean adultSignatureRequired;
+
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "country_code";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode;
@@ -76,6 +80,29 @@ public class ItemShippingDestinationMarkup {
 
   public ItemShippingDestinationMarkup() { 
   }
+
+  public ItemShippingDestinationMarkup adultSignatureRequired(Boolean adultSignatureRequired) {
+    
+    this.adultSignatureRequired = adultSignatureRequired;
+    return this;
+  }
+
+   /**
+   * Adult Signature Required (only updated if not-null value provided)
+   * @return adultSignatureRequired
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Adult Signature Required (only updated if not-null value provided)")
+
+  public Boolean getAdultSignatureRequired() {
+    return adultSignatureRequired;
+  }
+
+
+  public void setAdultSignatureRequired(Boolean adultSignatureRequired) {
+    this.adultSignatureRequired = adultSignatureRequired;
+  }
+
 
   public ItemShippingDestinationMarkup countryCode(String countryCode) {
     
@@ -225,7 +252,8 @@ public class ItemShippingDestinationMarkup {
       return false;
     }
     ItemShippingDestinationMarkup itemShippingDestinationMarkup = (ItemShippingDestinationMarkup) o;
-    return Objects.equals(this.countryCode, itemShippingDestinationMarkup.countryCode) &&
+    return Objects.equals(this.adultSignatureRequired, itemShippingDestinationMarkup.adultSignatureRequired) &&
+        Objects.equals(this.countryCode, itemShippingDestinationMarkup.countryCode) &&
         Objects.equals(this.flatFee, itemShippingDestinationMarkup.flatFee) &&
         Objects.equals(this.perItem, itemShippingDestinationMarkup.perItem) &&
         Objects.equals(this.postalCode, itemShippingDestinationMarkup.postalCode) &&
@@ -235,13 +263,14 @@ public class ItemShippingDestinationMarkup {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode, flatFee, perItem, postalCode, shippingMethod, state);
+    return Objects.hash(adultSignatureRequired, countryCode, flatFee, perItem, postalCode, shippingMethod, state);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemShippingDestinationMarkup {\n");
+    sb.append("    adultSignatureRequired: ").append(toIndentedString(adultSignatureRequired)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    flatFee: ").append(toIndentedString(flatFee)).append("\n");
     sb.append("    perItem: ").append(toIndentedString(perItem)).append("\n");
@@ -270,6 +299,7 @@ public class ItemShippingDestinationMarkup {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("adult_signature_required");
     openapiFields.add("country_code");
     openapiFields.add("flat_fee");
     openapiFields.add("per_item");

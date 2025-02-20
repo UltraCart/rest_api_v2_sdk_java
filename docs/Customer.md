@@ -26,6 +26,7 @@
 |**customerProfileOid** | **Integer** | Customer profile object identifier |  [optional] |
 |**dhlAccountNumber** | **String** | DHL account number |  [optional] |
 |**dhlDutyAccountNumber** | **String** | DHL duty account number |  [optional] |
+|**doNotSendMail** | **Boolean** | Do not send mail (null will not update) |  [optional] |
 |**edi** | [**CustomerEDI**](CustomerEDI.md) |  |  [optional] |
 |**email** | **String** | Email address of this customer profile |  [optional] |
 |**exemptShippingHandlingCharge** | **Boolean** | Exempt shipping handling charge |  [optional] |
@@ -47,8 +48,10 @@
 |**password** | **String** | Password (may only be set, never read) |  [optional] |
 |**pricingTiers** | [**List&lt;CustomerPricingTier&gt;**](CustomerPricingTier.md) | Pricing tiers for this customer |  [optional] |
 |**privacy** | [**CustomerPrivacy**](CustomerPrivacy.md) |  |  [optional] |
+|**properties** | [**List&lt;CustomerProperty&gt;**](CustomerProperty.md) | Properties for this customer |  [optional] |
 |**qbClass** | **String** | QuickBooks class to import this customer as |  [optional] |
 |**qbCode** | **String** | QuickBooks name to import this customer as |  [optional] |
+|**qbTaxExemptionReasonCode** | **Integer** | QuickBooks tax exemption reason code |  [optional] |
 |**quotes** | [**List&lt;Order&gt;**](Order.md) | Quotes associated with this customer profile |  [optional] |
 |**quotesSummary** | [**CustomerQuotesSummary**](CustomerQuotesSummary.md) |  |  [optional] |
 |**referralSource** | **String** | Referral Source |  [optional] |

@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**addOns** | [**List&lt;AutoOrderAddonItem&gt;**](AutoOrderAddonItem.md) | Array of addon objects instructing which items to add to auto order and how many times they should be added. |  [optional] |
 |**autoOrderCode** | **String** | Unique code assigned to this auto order |  [optional] |
 |**autoOrderOid** | **Integer** | Auto order object identifier |  [optional] |
 |**cancelAfterNextXOrders** | **Integer** | Cancel this auto order after X additional rebills |  [optional] |
@@ -23,6 +24,9 @@
 |**items** | [**List&lt;AutoOrderItem&gt;**](AutoOrderItem.md) | The items that are setup to rebill |  [optional] |
 |**logs** | [**List&lt;AutoOrderLog&gt;**](AutoOrderLog.md) | Logs associated with this auto order |  [optional] |
 |**management** | [**AutoOrderManagement**](AutoOrderManagement.md) |  |  [optional] |
+|**merchantId** | **String** | UltraCart merchant ID owning this order |  [optional] |
+|**mergedDts** | **String** | The date/time the auto order was merged into another auto order |  [optional] |
+|**mergedIntoAutoOrderOid** | **Integer** | The auto order that this auto order was merged into |  [optional] |
 |**nextAttempt** | **String** | The next time that the auto order will be attempted for processing |  [optional] |
 |**originalOrder** | [**Order**](Order.md) |  |  [optional] |
 |**originalOrderId** | **String** | The original order id that this auto order is associated with. |  [optional] |
@@ -40,6 +44,7 @@
 | ACTIVE | &quot;active&quot; |
 | CANCELED | &quot;canceled&quot; |
 | DISABLED | &quot;disabled&quot; |
+| MERGED | &quot;merged&quot; |
 
 
 

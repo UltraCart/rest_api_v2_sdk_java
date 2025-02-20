@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.AutoOrder;
+import com.ultracart.admin.v2.models.AutoOrderConsolidate;
 import com.ultracart.admin.v2.models.AutoOrderQuery;
 import com.ultracart.admin.v2.models.AutoOrderQueryBatch;
 import com.ultracart.admin.v2.models.AutoOrderResponse;
@@ -105,6 +106,325 @@ public class AutoOrderApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for consolidateAutoOrders
+     * @param autoOrderOid The auto order oid to consolidate into. (required)
+     * @param autoOrderConsolidate Auto orders to consolidate (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call consolidateAutoOrdersCall(Integer autoOrderOid, AutoOrderConsolidate autoOrderConsolidate, String expand, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = autoOrderConsolidate;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/{auto_order_oid}/consolidate"
+            .replaceAll("\\{" + "auto_order_oid" + "\\}", localVarApiClient.escapeString(autoOrderOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call consolidateAutoOrdersValidateBeforeCall(Integer autoOrderOid, AutoOrderConsolidate autoOrderConsolidate, String expand, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'autoOrderOid' is set
+        if (autoOrderOid == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderOid' when calling consolidateAutoOrders(Async)");
+        }
+        
+        // verify the required parameter 'autoOrderConsolidate' is set
+        if (autoOrderConsolidate == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderConsolidate' when calling consolidateAutoOrders(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = consolidateAutoOrdersCall(autoOrderOid, autoOrderConsolidate, expand, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Consolidates multiple auto orders
+     * Consolidates mutliple auto orders on the UltraCart account. 
+     * @param autoOrderOid The auto order oid to consolidate into. (required)
+     * @param autoOrderConsolidate Auto orders to consolidate (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return AutoOrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public AutoOrderResponse consolidateAutoOrders(Integer autoOrderOid, AutoOrderConsolidate autoOrderConsolidate, String expand) throws ApiException {
+        ApiResponse<AutoOrderResponse> localVarResp = consolidateAutoOrdersWithHttpInfo(autoOrderOid, autoOrderConsolidate, expand);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Consolidates multiple auto orders
+     * Consolidates mutliple auto orders on the UltraCart account. 
+     * @param autoOrderOid The auto order oid to consolidate into. (required)
+     * @param autoOrderConsolidate Auto orders to consolidate (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;AutoOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoOrderResponse> consolidateAutoOrdersWithHttpInfo(Integer autoOrderOid, AutoOrderConsolidate autoOrderConsolidate, String expand) throws ApiException {
+        okhttp3.Call localVarCall = consolidateAutoOrdersValidateBeforeCall(autoOrderOid, autoOrderConsolidate, expand, null);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Consolidates multiple auto orders (asynchronously)
+     * Consolidates mutliple auto orders on the UltraCart account. 
+     * @param autoOrderOid The auto order oid to consolidate into. (required)
+     * @param autoOrderConsolidate Auto orders to consolidate (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call consolidateAutoOrdersAsync(Integer autoOrderOid, AutoOrderConsolidate autoOrderConsolidate, String expand, final ApiCallback<AutoOrderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = consolidateAutoOrdersValidateBeforeCall(autoOrderOid, autoOrderConsolidate, expand, _callback);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for establishAutoOrderByReferenceOrderId
+     * @param referenceOrderId The order id to attach this auto order to (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call establishAutoOrderByReferenceOrderIdCall(String referenceOrderId, String expand, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/reference_order_id/{reference_order_id}"
+            .replaceAll("\\{" + "reference_order_id" + "\\}", localVarApiClient.escapeString(referenceOrderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call establishAutoOrderByReferenceOrderIdValidateBeforeCall(String referenceOrderId, String expand, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'referenceOrderId' is set
+        if (referenceOrderId == null) {
+            throw new ApiException("Missing the required parameter 'referenceOrderId' when calling establishAutoOrderByReferenceOrderId(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = establishAutoOrderByReferenceOrderIdCall(referenceOrderId, expand, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Establish an auto order by referencing a regular order id
+     * Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+     * @param referenceOrderId The order id to attach this auto order to (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return AutoOrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public AutoOrderResponse establishAutoOrderByReferenceOrderId(String referenceOrderId, String expand) throws ApiException {
+        ApiResponse<AutoOrderResponse> localVarResp = establishAutoOrderByReferenceOrderIdWithHttpInfo(referenceOrderId, expand);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Establish an auto order by referencing a regular order id
+     * Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+     * @param referenceOrderId The order id to attach this auto order to (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;AutoOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoOrderResponse> establishAutoOrderByReferenceOrderIdWithHttpInfo(String referenceOrderId, String expand) throws ApiException {
+        okhttp3.Call localVarCall = establishAutoOrderByReferenceOrderIdValidateBeforeCall(referenceOrderId, expand, null);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Establish an auto order by referencing a regular order id (asynchronously)
+     * Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+     * @param referenceOrderId The order id to attach this auto order to (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call establishAutoOrderByReferenceOrderIdAsync(String referenceOrderId, String expand, final ApiCallback<AutoOrderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = establishAutoOrderByReferenceOrderIdValidateBeforeCall(referenceOrderId, expand, _callback);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for getAutoOrder
      * @param autoOrderOid The auto order oid to retrieve. (required)
@@ -1227,6 +1547,7 @@ public class AutoOrderApi {
      * Build call for updateAutoOrder
      * @param autoOrderOid The auto order oid to update. (required)
      * @param autoOrder Auto order to update (required)
+     * @param validateOriginalOrder Validate original order before updating (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1242,7 +1563,7 @@ public class AutoOrderApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAutoOrderCall(Integer autoOrderOid, AutoOrder autoOrder, String expand, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAutoOrderCall(Integer autoOrderOid, AutoOrder autoOrder, String validateOriginalOrder, String expand, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1267,6 +1588,10 @@ public class AutoOrderApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (validateOriginalOrder != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("validate_original_order", validateOriginalOrder));
+        }
 
         if (expand != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
@@ -1293,7 +1618,7 @@ public class AutoOrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAutoOrderValidateBeforeCall(Integer autoOrderOid, AutoOrder autoOrder, String expand, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAutoOrderValidateBeforeCall(Integer autoOrderOid, AutoOrder autoOrder, String validateOriginalOrder, String expand, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'autoOrderOid' is set
         if (autoOrderOid == null) {
@@ -1306,7 +1631,7 @@ public class AutoOrderApi {
         }
         
 
-        okhttp3.Call localVarCall = updateAutoOrderCall(autoOrderOid, autoOrder, expand, _callback);
+        okhttp3.Call localVarCall = updateAutoOrderCall(autoOrderOid, autoOrder, validateOriginalOrder, expand, _callback);
         return localVarCall;
 
     }
@@ -1316,6 +1641,7 @@ public class AutoOrderApi {
      * Update an auto order on the UltraCart account. 
      * @param autoOrderOid The auto order oid to update. (required)
      * @param autoOrder Auto order to update (required)
+     * @param validateOriginalOrder Validate original order before updating (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return AutoOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1330,8 +1656,8 @@ public class AutoOrderApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public AutoOrderResponse updateAutoOrder(Integer autoOrderOid, AutoOrder autoOrder, String expand) throws ApiException {
-        ApiResponse<AutoOrderResponse> localVarResp = updateAutoOrderWithHttpInfo(autoOrderOid, autoOrder, expand);
+    public AutoOrderResponse updateAutoOrder(Integer autoOrderOid, AutoOrder autoOrder, String validateOriginalOrder, String expand) throws ApiException {
+        ApiResponse<AutoOrderResponse> localVarResp = updateAutoOrderWithHttpInfo(autoOrderOid, autoOrder, validateOriginalOrder, expand);
         return localVarResp.getData();
     }
 
@@ -1340,6 +1666,7 @@ public class AutoOrderApi {
      * Update an auto order on the UltraCart account. 
      * @param autoOrderOid The auto order oid to update. (required)
      * @param autoOrder Auto order to update (required)
+     * @param validateOriginalOrder Validate original order before updating (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;AutoOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1354,8 +1681,8 @@ public class AutoOrderApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<AutoOrderResponse> updateAutoOrderWithHttpInfo(Integer autoOrderOid, AutoOrder autoOrder, String expand) throws ApiException {
-        okhttp3.Call localVarCall = updateAutoOrderValidateBeforeCall(autoOrderOid, autoOrder, expand, null);
+    public ApiResponse<AutoOrderResponse> updateAutoOrderWithHttpInfo(Integer autoOrderOid, AutoOrder autoOrder, String validateOriginalOrder, String expand) throws ApiException {
+        okhttp3.Call localVarCall = updateAutoOrderValidateBeforeCall(autoOrderOid, autoOrder, validateOriginalOrder, expand, null);
         Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1365,6 +1692,7 @@ public class AutoOrderApi {
      * Update an auto order on the UltraCart account. 
      * @param autoOrderOid The auto order oid to update. (required)
      * @param autoOrder Auto order to update (required)
+     * @param validateOriginalOrder Validate original order before updating (optional)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1380,9 +1708,9 @@ public class AutoOrderApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAutoOrderAsync(Integer autoOrderOid, AutoOrder autoOrder, String expand, final ApiCallback<AutoOrderResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAutoOrderAsync(Integer autoOrderOid, AutoOrder autoOrder, String validateOriginalOrder, String expand, final ApiCallback<AutoOrderResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAutoOrderValidateBeforeCall(autoOrderOid, autoOrder, expand, _callback);
+        okhttp3.Call localVarCall = updateAutoOrderValidateBeforeCall(autoOrderOid, autoOrder, validateOriginalOrder, expand, _callback);
         Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

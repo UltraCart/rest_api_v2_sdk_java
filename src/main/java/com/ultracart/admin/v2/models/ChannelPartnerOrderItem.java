@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerOrderItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ChannelPartnerOrderItem {
   public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST = "arbitrary_unit_cost";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST)
@@ -86,9 +86,17 @@ public class ChannelPartnerOrderItem {
     
     EVERY_4_MONTHS("Every 4 Months"),
     
+    EVERY_5_MONTHS("Every 5 Months"),
+    
     EVERY_6_MONTHS("Every 6 Months"),
     
-    YEARLY("Yearly");
+    YEARLY("Yearly"),
+    
+    EVERY_4_WEEKS("Every 4 Weeks"),
+    
+    EVERY_6_WEEKS("Every 6 Weeks"),
+    
+    EVERY_8_WEEKS("Every 8 Weeks");
 
     private String value;
 

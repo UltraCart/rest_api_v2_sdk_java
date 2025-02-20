@@ -58,7 +58,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ItemShipping {
   public static final String SERIALIZED_NAME_ALLOW_BACK_ORDER = "allow_back_order";
   @SerializedName(SERIALIZED_NAME_ALLOW_BACK_ORDER)
@@ -151,6 +151,10 @@ public class ItemShipping {
   public static final String SERIALIZED_NAME_HAZMAT = "hazmat";
   @SerializedName(SERIALIZED_NAME_HAZMAT)
   private Boolean hazmat;
+
+  public static final String SERIALIZED_NAME_HOLD_FOR_TRANSMISSION = "hold_for_transmission";
+  @SerializedName(SERIALIZED_NAME_HOLD_FOR_TRANSMISSION)
+  private Boolean holdForTransmission;
 
   public static final String SERIALIZED_NAME_MADE_TO_ORDER = "made_to_order";
   @SerializedName(SERIALIZED_NAME_MADE_TO_ORDER)
@@ -816,6 +820,29 @@ public class ItemShipping {
   }
 
 
+  public ItemShipping holdForTransmission(Boolean holdForTransmission) {
+    
+    this.holdForTransmission = holdForTransmission;
+    return this;
+  }
+
+   /**
+   * Hold for transmission
+   * @return holdForTransmission
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Hold for transmission")
+
+  public Boolean getHoldForTransmission() {
+    return holdForTransmission;
+  }
+
+
+  public void setHoldForTransmission(Boolean holdForTransmission) {
+    this.holdForTransmission = holdForTransmission;
+  }
+
+
   public ItemShipping madeToOrder(Boolean madeToOrder) {
     
     this.madeToOrder = madeToOrder;
@@ -1440,6 +1467,7 @@ public class ItemShipping {
         Objects.equals(this.freeShipping, itemShipping.freeShipping) &&
         Objects.equals(this.freightClass, itemShipping.freightClass) &&
         Objects.equals(this.hazmat, itemShipping.hazmat) &&
+        Objects.equals(this.holdForTransmission, itemShipping.holdForTransmission) &&
         Objects.equals(this.madeToOrder, itemShipping.madeToOrder) &&
         Objects.equals(this.madeToOrderLeadTime, itemShipping.madeToOrderLeadTime) &&
         Objects.equals(this.maxDaysTimeInTransit, itemShipping.maxDaysTimeInTransit) &&
@@ -1469,7 +1497,7 @@ public class ItemShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
+    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, holdForTransmission, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
   }
 
   @Override
@@ -1499,6 +1527,7 @@ public class ItemShipping {
     sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");
     sb.append("    freightClass: ").append(toIndentedString(freightClass)).append("\n");
     sb.append("    hazmat: ").append(toIndentedString(hazmat)).append("\n");
+    sb.append("    holdForTransmission: ").append(toIndentedString(holdForTransmission)).append("\n");
     sb.append("    madeToOrder: ").append(toIndentedString(madeToOrder)).append("\n");
     sb.append("    madeToOrderLeadTime: ").append(toIndentedString(madeToOrderLeadTime)).append("\n");
     sb.append("    maxDaysTimeInTransit: ").append(toIndentedString(maxDaysTimeInTransit)).append("\n");
@@ -1569,6 +1598,7 @@ public class ItemShipping {
     openapiFields.add("free_shipping");
     openapiFields.add("freight_class");
     openapiFields.add("hazmat");
+    openapiFields.add("hold_for_transmission");
     openapiFields.add("made_to_order");
     openapiFields.add("made_to_order_lead_time");
     openapiFields.add("max_days_time_in_transit");

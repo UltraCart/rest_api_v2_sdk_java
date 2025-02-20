@@ -17,6 +17,7 @@
 |**creationDts** | **String** | Date/time that the order was created |  [optional] |
 |**currencyCode** | **String** | Currency code that the customer used if different than the merchant&#39;s base currency code |  [optional] |
 |**currentStage** | [**CurrentStageEnum**](#CurrentStageEnum) | Current stage that the order is in. |  [optional] |
+|**currentStageHistories** | [**List&lt;OrderCurrentStageHistory&gt;**](OrderCurrentStageHistory.md) | History of the changes to the current_stage field |  [optional] |
 |**customerProfile** | [**Customer**](Customer.md) |  |  [optional] |
 |**digitalOrder** | [**OrderDigitalOrder**](OrderDigitalOrder.md) |  |  [optional] |
 |**edi** | [**OrderEdi**](OrderEdi.md) |  |  [optional] |
@@ -36,12 +37,15 @@
 |**properties** | [**List&lt;OrderProperty&gt;**](OrderProperty.md) | Properties, available only through update, not through insert due to the nature of how properties are handled internally |  [optional] |
 |**quote** | [**OrderQuote**](OrderQuote.md) |  |  [optional] |
 |**refundDts** | **String** | If the order was refunded, the date/time that the last refund occurred |  [optional] |
+|**refundReason** | **String** | Refund reason code.  This can only be written during a refund operation otherwise this field is read only. |  [optional] |
 |**rejectDts** | **String** | If the order was rejected, the date/time that the rejection occurred |  [optional] |
+|**rejectReason** | **String** | Reject reason code.  This can only be written during a reject operation otherwise this field is read only. |  [optional] |
 |**salesforce** | [**OrderSalesforce**](OrderSalesforce.md) |  |  [optional] |
 |**shipping** | [**OrderShipping**](OrderShipping.md) |  |  [optional] |
 |**summary** | [**OrderSummary**](OrderSummary.md) |  |  [optional] |
 |**tags** | [**List&lt;OrderTag&gt;**](OrderTag.md) | tags, available only through update, not through insert due to the nature of how tags are handled internally |  [optional] |
 |**taxes** | [**OrderTaxes**](OrderTaxes.md) |  |  [optional] |
+|**utms** | [**List&lt;OrderUtm&gt;**](OrderUtm.md) | UTM clicks.  The zero index is the most recent (last) UTM click |  [optional] |
 
 
 
@@ -61,6 +65,7 @@
 | UNKNOWN | &quot;Unknown&quot; |
 | PRE_ORDERED | &quot;Pre-ordered&quot; |
 | ADVANCED_ORDER_ROUTING | &quot;Advanced Order Routing&quot; |
+| HOLD | &quot;Hold&quot; |
 
 
 

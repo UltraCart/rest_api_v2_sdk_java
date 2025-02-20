@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseqSmsSendTestRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class EmailCommseqSmsSendTestRequest {
   public static final String SERIALIZED_NAME_ESP_COMMSEQ_STEP_UUID = "esp_commseq_step_uuid";
   @SerializedName(SERIALIZED_NAME_ESP_COMMSEQ_STEP_UUID)

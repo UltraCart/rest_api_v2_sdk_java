@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CartSummary {
   public static final String SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL = "arbitrary_shipping_handling_total";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL)
@@ -65,6 +65,22 @@ public class CartSummary {
   public static final String SERIALIZED_NAME_ARBITRARY_TAXABLE_SUBTOTAL = "arbitrary_taxable_subtotal";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_TAXABLE_SUBTOTAL)
   private Currency arbitraryTaxableSubtotal;
+
+  public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD_AMOUNT = "health_benefit_card_amount";
+  @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD_AMOUNT)
+  private Currency healthBenefitCardAmount;
+
+  public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD_BALANCE = "health_benefit_card_balance";
+  @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD_BALANCE)
+  private Currency healthBenefitCardBalance;
+
+  public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD_REQUIREMENTS = "health_benefit_card_requirements";
+  @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD_REQUIREMENTS)
+  private String healthBenefitCardRequirements;
+
+  public static final String SERIALIZED_NAME_INTERNAL_GIFT_CERTIFICATE_AMOUNT = "internal_gift_certificate_amount";
+  @SerializedName(SERIALIZED_NAME_INTERNAL_GIFT_CERTIFICATE_AMOUNT)
+  private Currency internalGiftCertificateAmount;
 
   public static final String SERIALIZED_NAME_SHIPPING_HANDLING = "shipping_handling";
   @SerializedName(SERIALIZED_NAME_SHIPPING_HANDLING)
@@ -206,6 +222,98 @@ public class CartSummary {
 
   public void setArbitraryTaxableSubtotal(Currency arbitraryTaxableSubtotal) {
     this.arbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
+  }
+
+
+  public CartSummary healthBenefitCardAmount(Currency healthBenefitCardAmount) {
+    
+    this.healthBenefitCardAmount = healthBenefitCardAmount;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCardAmount
+   * @return healthBenefitCardAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getHealthBenefitCardAmount() {
+    return healthBenefitCardAmount;
+  }
+
+
+  public void setHealthBenefitCardAmount(Currency healthBenefitCardAmount) {
+    this.healthBenefitCardAmount = healthBenefitCardAmount;
+  }
+
+
+  public CartSummary healthBenefitCardBalance(Currency healthBenefitCardBalance) {
+    
+    this.healthBenefitCardBalance = healthBenefitCardBalance;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCardBalance
+   * @return healthBenefitCardBalance
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getHealthBenefitCardBalance() {
+    return healthBenefitCardBalance;
+  }
+
+
+  public void setHealthBenefitCardBalance(Currency healthBenefitCardBalance) {
+    this.healthBenefitCardBalance = healthBenefitCardBalance;
+  }
+
+
+  public CartSummary healthBenefitCardRequirements(String healthBenefitCardRequirements) {
+    
+    this.healthBenefitCardRequirements = healthBenefitCardRequirements;
+    return this;
+  }
+
+   /**
+   * Health benefit card requirements
+   * @return healthBenefitCardRequirements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Health benefit card requirements")
+
+  public String getHealthBenefitCardRequirements() {
+    return healthBenefitCardRequirements;
+  }
+
+
+  public void setHealthBenefitCardRequirements(String healthBenefitCardRequirements) {
+    this.healthBenefitCardRequirements = healthBenefitCardRequirements;
+  }
+
+
+  public CartSummary internalGiftCertificateAmount(Currency internalGiftCertificateAmount) {
+    
+    this.internalGiftCertificateAmount = internalGiftCertificateAmount;
+    return this;
+  }
+
+   /**
+   * Get internalGiftCertificateAmount
+   * @return internalGiftCertificateAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getInternalGiftCertificateAmount() {
+    return internalGiftCertificateAmount;
+  }
+
+
+  public void setInternalGiftCertificateAmount(Currency internalGiftCertificateAmount) {
+    this.internalGiftCertificateAmount = internalGiftCertificateAmount;
   }
 
 
@@ -499,6 +607,10 @@ public class CartSummary {
         Objects.equals(this.arbitraryTax, cartSummary.arbitraryTax) &&
         Objects.equals(this.arbitraryTaxRate, cartSummary.arbitraryTaxRate) &&
         Objects.equals(this.arbitraryTaxableSubtotal, cartSummary.arbitraryTaxableSubtotal) &&
+        Objects.equals(this.healthBenefitCardAmount, cartSummary.healthBenefitCardAmount) &&
+        Objects.equals(this.healthBenefitCardBalance, cartSummary.healthBenefitCardBalance) &&
+        Objects.equals(this.healthBenefitCardRequirements, cartSummary.healthBenefitCardRequirements) &&
+        Objects.equals(this.internalGiftCertificateAmount, cartSummary.internalGiftCertificateAmount) &&
         Objects.equals(this.shippingHandling, cartSummary.shippingHandling) &&
         Objects.equals(this.shippingHandlingDiscount, cartSummary.shippingHandlingDiscount) &&
         Objects.equals(this.shippingHandlingWithDiscount, cartSummary.shippingHandlingWithDiscount) &&
@@ -515,7 +627,7 @@ public class CartSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, shippingHandling, shippingHandlingDiscount, shippingHandlingWithDiscount, subtotal, subtotalDiscount, subtotalWithDiscount, surcharge, tax, taxableSubtotal, taxableSubtotalDiscount, taxableSubtotalWithDiscount, total);
+    return Objects.hash(arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, healthBenefitCardAmount, healthBenefitCardBalance, healthBenefitCardRequirements, internalGiftCertificateAmount, shippingHandling, shippingHandlingDiscount, shippingHandlingWithDiscount, subtotal, subtotalDiscount, subtotalWithDiscount, surcharge, tax, taxableSubtotal, taxableSubtotalDiscount, taxableSubtotalWithDiscount, total);
   }
 
   @Override
@@ -526,6 +638,10 @@ public class CartSummary {
     sb.append("    arbitraryTax: ").append(toIndentedString(arbitraryTax)).append("\n");
     sb.append("    arbitraryTaxRate: ").append(toIndentedString(arbitraryTaxRate)).append("\n");
     sb.append("    arbitraryTaxableSubtotal: ").append(toIndentedString(arbitraryTaxableSubtotal)).append("\n");
+    sb.append("    healthBenefitCardAmount: ").append(toIndentedString(healthBenefitCardAmount)).append("\n");
+    sb.append("    healthBenefitCardBalance: ").append(toIndentedString(healthBenefitCardBalance)).append("\n");
+    sb.append("    healthBenefitCardRequirements: ").append(toIndentedString(healthBenefitCardRequirements)).append("\n");
+    sb.append("    internalGiftCertificateAmount: ").append(toIndentedString(internalGiftCertificateAmount)).append("\n");
     sb.append("    shippingHandling: ").append(toIndentedString(shippingHandling)).append("\n");
     sb.append("    shippingHandlingDiscount: ").append(toIndentedString(shippingHandlingDiscount)).append("\n");
     sb.append("    shippingHandlingWithDiscount: ").append(toIndentedString(shippingHandlingWithDiscount)).append("\n");
@@ -564,6 +680,10 @@ public class CartSummary {
     openapiFields.add("arbitrary_tax");
     openapiFields.add("arbitrary_tax_rate");
     openapiFields.add("arbitrary_taxable_subtotal");
+    openapiFields.add("health_benefit_card_amount");
+    openapiFields.add("health_benefit_card_balance");
+    openapiFields.add("health_benefit_card_requirements");
+    openapiFields.add("internal_gift_certificate_amount");
     openapiFields.add("shipping_handling");
     openapiFields.add("shipping_handling_discount");
     openapiFields.add("shipping_handling_with_discount");
@@ -618,6 +738,21 @@ public class CartSummary {
       // validate the optional field `arbitrary_taxable_subtotal`
       if (jsonObj.getAsJsonObject("arbitrary_taxable_subtotal") != null) {
         Currency.validateJsonObject(jsonObj.getAsJsonObject("arbitrary_taxable_subtotal"));
+      }
+      // validate the optional field `health_benefit_card_amount`
+      if (jsonObj.getAsJsonObject("health_benefit_card_amount") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("health_benefit_card_amount"));
+      }
+      // validate the optional field `health_benefit_card_balance`
+      if (jsonObj.getAsJsonObject("health_benefit_card_balance") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("health_benefit_card_balance"));
+      }
+      if (jsonObj.get("health_benefit_card_requirements") != null && !jsonObj.get("health_benefit_card_requirements").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `health_benefit_card_requirements` to be a primitive type in the JSON string but got `%s`", jsonObj.get("health_benefit_card_requirements").toString()));
+      }
+      // validate the optional field `internal_gift_certificate_amount`
+      if (jsonObj.getAsJsonObject("internal_gift_certificate_amount") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("internal_gift_certificate_amount"));
       }
       // validate the optional field `shipping_handling`
       if (jsonObj.getAsJsonObject("shipping_handling") != null) {

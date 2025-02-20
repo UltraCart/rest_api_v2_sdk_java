@@ -11,6 +11,10 @@
 |**arbitraryTax** | [**Currency**](Currency.md) |  |  [optional] |
 |**arbitraryTaxRate** | [**Currency**](Currency.md) |  |  [optional] |
 |**arbitraryTaxableSubtotal** | [**Currency**](Currency.md) |  |  [optional] |
+|**healthBenefitCardAmount** | [**Currency**](Currency.md) |  |  [optional] |
+|**healthBenefitCardBalance** | [**Currency**](Currency.md) |  |  [optional] |
+|**healthBenefitCardRequirements** | **String** | Health benefit card requirements |  [optional] |
+|**internalGiftCertificateAmount** | [**Currency**](Currency.md) |  |  [optional] |
 |**shippingHandling** | [**Currency**](Currency.md) |  |  [optional] |
 |**shippingHandlingDiscount** | [**Currency**](Currency.md) |  |  [optional] |
 |**shippingHandlingWithDiscount** | [**Currency**](Currency.md) |  |  [optional] |

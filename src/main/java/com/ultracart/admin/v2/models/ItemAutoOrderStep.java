@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemAutoOrderStep
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ItemAutoOrderStep {
   public static final String SERIALIZED_NAME_ARBITRARY_SCHEDULE_DAYS = "arbitrary_schedule_days";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_SCHEDULE_DAYS)
@@ -81,6 +81,14 @@ public class ItemAutoOrderStep {
   public static final String SERIALIZED_NAME_PAUSE_UNTIL_DATE = "pause_until_date";
   @SerializedName(SERIALIZED_NAME_PAUSE_UNTIL_DATE)
   private String pauseUntilDate;
+
+  public static final String SERIALIZED_NAME_PAUSE_UNTIL_DAY_OF_MONTH = "pause_until_day_of_month";
+  @SerializedName(SERIALIZED_NAME_PAUSE_UNTIL_DAY_OF_MONTH)
+  private Integer pauseUntilDayOfMonth;
+
+  public static final String SERIALIZED_NAME_PAUSE_UNTIL_MINIMUM_DELAY_DAYS = "pause_until_minimum_delay_days";
+  @SerializedName(SERIALIZED_NAME_PAUSE_UNTIL_MINIMUM_DELAY_DAYS)
+  private Integer pauseUntilMinimumDelayDays;
 
   public static final String SERIALIZED_NAME_PRESHIPMENT_NOTICE_DAYS = "preshipment_notice_days";
   @SerializedName(SERIALIZED_NAME_PRESHIPMENT_NOTICE_DAYS)
@@ -121,7 +129,9 @@ public class ItemAutoOrderStep {
     
     LOOP("loop"),
     
-    KIT_ONLY("kit only");
+    KIT_ONLY("kit only"),
+    
+    PAUSE_UNTIL("pause until");
 
     private String value;
 
@@ -345,6 +355,52 @@ public class ItemAutoOrderStep {
   }
 
 
+  public ItemAutoOrderStep pauseUntilDayOfMonth(Integer pauseUntilDayOfMonth) {
+    
+    this.pauseUntilDayOfMonth = pauseUntilDayOfMonth;
+    return this;
+  }
+
+   /**
+   * Pause until a specific day of the month
+   * @return pauseUntilDayOfMonth
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Pause until a specific day of the month")
+
+  public Integer getPauseUntilDayOfMonth() {
+    return pauseUntilDayOfMonth;
+  }
+
+
+  public void setPauseUntilDayOfMonth(Integer pauseUntilDayOfMonth) {
+    this.pauseUntilDayOfMonth = pauseUntilDayOfMonth;
+  }
+
+
+  public ItemAutoOrderStep pauseUntilMinimumDelayDays(Integer pauseUntilMinimumDelayDays) {
+    
+    this.pauseUntilMinimumDelayDays = pauseUntilMinimumDelayDays;
+    return this;
+  }
+
+   /**
+   * Pause at least this many days between the last order and the calculated next day of month
+   * @return pauseUntilMinimumDelayDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Pause at least this many days between the last order and the calculated next day of month")
+
+  public Integer getPauseUntilMinimumDelayDays() {
+    return pauseUntilMinimumDelayDays;
+  }
+
+
+  public void setPauseUntilMinimumDelayDays(Integer pauseUntilMinimumDelayDays) {
+    this.pauseUntilMinimumDelayDays = pauseUntilMinimumDelayDays;
+  }
+
+
   public ItemAutoOrderStep preshipmentNoticeDays(Integer preshipmentNoticeDays) {
     
     this.preshipmentNoticeDays = preshipmentNoticeDays;
@@ -467,11 +523,11 @@ public class ItemAutoOrderStep {
   }
 
    /**
-   * Email list name to subscribe the customer to when the rebill occurs
+   * Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)
    * @return subscribeEmailListName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Email list name to subscribe the customer to when the rebill occurs")
+  @ApiModelProperty(value = "Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)")
 
   public String getSubscribeEmailListName() {
     return subscribeEmailListName;
@@ -490,11 +546,11 @@ public class ItemAutoOrderStep {
   }
 
    /**
-   * Email list identifier to subscribe the customer to when this rebill occurs
+   * Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)
    * @return subscribeEmailListOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Email list identifier to subscribe the customer to when this rebill occurs")
+  @ApiModelProperty(value = "Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)")
 
   public Integer getSubscribeEmailListOid() {
     return subscribeEmailListOid;
@@ -546,6 +602,8 @@ public class ItemAutoOrderStep {
         Objects.equals(this.managedBy, itemAutoOrderStep.managedBy) &&
         Objects.equals(this.pauseDays, itemAutoOrderStep.pauseDays) &&
         Objects.equals(this.pauseUntilDate, itemAutoOrderStep.pauseUntilDate) &&
+        Objects.equals(this.pauseUntilDayOfMonth, itemAutoOrderStep.pauseUntilDayOfMonth) &&
+        Objects.equals(this.pauseUntilMinimumDelayDays, itemAutoOrderStep.pauseUntilMinimumDelayDays) &&
         Objects.equals(this.preshipmentNoticeDays, itemAutoOrderStep.preshipmentNoticeDays) &&
         Objects.equals(this.recurringMerchantItemId, itemAutoOrderStep.recurringMerchantItemId) &&
         Objects.equals(this.recurringMerchantItemOid, itemAutoOrderStep.recurringMerchantItemOid) &&
@@ -558,7 +616,7 @@ public class ItemAutoOrderStep {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostSchedules, grandfatherPricing, managedBy, pauseDays, pauseUntilDate, preshipmentNoticeDays, recurringMerchantItemId, recurringMerchantItemOid, repeatCount, schedule, subscribeEmailListName, subscribeEmailListOid, type);
+    return Objects.hash(arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostSchedules, grandfatherPricing, managedBy, pauseDays, pauseUntilDate, pauseUntilDayOfMonth, pauseUntilMinimumDelayDays, preshipmentNoticeDays, recurringMerchantItemId, recurringMerchantItemOid, repeatCount, schedule, subscribeEmailListName, subscribeEmailListOid, type);
   }
 
   @Override
@@ -572,6 +630,8 @@ public class ItemAutoOrderStep {
     sb.append("    managedBy: ").append(toIndentedString(managedBy)).append("\n");
     sb.append("    pauseDays: ").append(toIndentedString(pauseDays)).append("\n");
     sb.append("    pauseUntilDate: ").append(toIndentedString(pauseUntilDate)).append("\n");
+    sb.append("    pauseUntilDayOfMonth: ").append(toIndentedString(pauseUntilDayOfMonth)).append("\n");
+    sb.append("    pauseUntilMinimumDelayDays: ").append(toIndentedString(pauseUntilMinimumDelayDays)).append("\n");
     sb.append("    preshipmentNoticeDays: ").append(toIndentedString(preshipmentNoticeDays)).append("\n");
     sb.append("    recurringMerchantItemId: ").append(toIndentedString(recurringMerchantItemId)).append("\n");
     sb.append("    recurringMerchantItemOid: ").append(toIndentedString(recurringMerchantItemOid)).append("\n");
@@ -609,6 +669,8 @@ public class ItemAutoOrderStep {
     openapiFields.add("managed_by");
     openapiFields.add("pause_days");
     openapiFields.add("pause_until_date");
+    openapiFields.add("pause_until_day_of_month");
+    openapiFields.add("pause_until_minimum_delay_days");
     openapiFields.add("preshipment_notice_days");
     openapiFields.add("recurring_merchant_item_id");
     openapiFields.add("recurring_merchant_item_oid");

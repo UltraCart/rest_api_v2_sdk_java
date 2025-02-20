@@ -57,7 +57,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderItem {
   public static final String SERIALIZED_NAME_ACCOUNTING_CODE = "accounting_code";
   @SerializedName(SERIALIZED_NAME_ACCOUNTING_CODE)
@@ -66,6 +66,10 @@ public class OrderItem {
   public static final String SERIALIZED_NAME_ACTIVATION_CODES = "activation_codes";
   @SerializedName(SERIALIZED_NAME_ACTIVATION_CODES)
   private List<String> activationCodes = null;
+
+  public static final String SERIALIZED_NAME_ACTUAL_COGS = "actual_cogs";
+  @SerializedName(SERIALIZED_NAME_ACTUAL_COGS)
+  private Currency actualCogs;
 
   public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST = "arbitrary_unit_cost";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST)
@@ -82,6 +86,22 @@ public class OrderItem {
   public static final String SERIALIZED_NAME_BARCODE = "barcode";
   @SerializedName(SERIALIZED_NAME_BARCODE)
   private String barcode;
+
+  public static final String SERIALIZED_NAME_BARCODE_GTIN12 = "barcode_gtin12";
+  @SerializedName(SERIALIZED_NAME_BARCODE_GTIN12)
+  private String barcodeGtin12;
+
+  public static final String SERIALIZED_NAME_BARCODE_GTIN14 = "barcode_gtin14";
+  @SerializedName(SERIALIZED_NAME_BARCODE_GTIN14)
+  private String barcodeGtin14;
+
+  public static final String SERIALIZED_NAME_BARCODE_UPC11 = "barcode_upc11";
+  @SerializedName(SERIALIZED_NAME_BARCODE_UPC11)
+  private String barcodeUpc11;
+
+  public static final String SERIALIZED_NAME_BARCODE_UPC12 = "barcode_upc12";
+  @SerializedName(SERIALIZED_NAME_BARCODE_UPC12)
+  private String barcodeUpc12;
 
   public static final String SERIALIZED_NAME_CHANNEL_PARTNER_ITEM_ID = "channel_partner_item_id";
   @SerializedName(SERIALIZED_NAME_CHANNEL_PARTNER_ITEM_ID)
@@ -230,6 +250,14 @@ public class OrderItem {
   public static final String SERIALIZED_NAME_QUICKBOOKS_CLASS = "quickbooks_class";
   @SerializedName(SERIALIZED_NAME_QUICKBOOKS_CLASS)
   private String quickbooksClass;
+
+  public static final String SERIALIZED_NAME_REFUND_REASON = "refund_reason";
+  @SerializedName(SERIALIZED_NAME_REFUND_REASON)
+  private String refundReason;
+
+  public static final String SERIALIZED_NAME_RETURN_REASON = "return_reason";
+  @SerializedName(SERIALIZED_NAME_RETURN_REASON)
+  private String returnReason;
 
   public static final String SERIALIZED_NAME_SHIP_SEPARATELY = "ship_separately";
   @SerializedName(SERIALIZED_NAME_SHIP_SEPARATELY)
@@ -403,6 +431,29 @@ public class OrderItem {
   }
 
 
+  public OrderItem actualCogs(Currency actualCogs) {
+    
+    this.actualCogs = actualCogs;
+    return this;
+  }
+
+   /**
+   * Get actualCogs
+   * @return actualCogs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getActualCogs() {
+    return actualCogs;
+  }
+
+
+  public void setActualCogs(Currency actualCogs) {
+    this.actualCogs = actualCogs;
+  }
+
+
   public OrderItem arbitraryUnitCost(Currency arbitraryUnitCost) {
     
     this.arbitraryUnitCost = arbitraryUnitCost;
@@ -492,6 +543,98 @@ public class OrderItem {
 
   public void setBarcode(String barcode) {
     this.barcode = barcode;
+  }
+
+
+  public OrderItem barcodeGtin12(String barcodeGtin12) {
+    
+    this.barcodeGtin12 = barcodeGtin12;
+    return this;
+  }
+
+   /**
+   * Barcode - GTIN 12
+   * @return barcodeGtin12
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Barcode - GTIN 12")
+
+  public String getBarcodeGtin12() {
+    return barcodeGtin12;
+  }
+
+
+  public void setBarcodeGtin12(String barcodeGtin12) {
+    this.barcodeGtin12 = barcodeGtin12;
+  }
+
+
+  public OrderItem barcodeGtin14(String barcodeGtin14) {
+    
+    this.barcodeGtin14 = barcodeGtin14;
+    return this;
+  }
+
+   /**
+   * Barcode - GTIN 14
+   * @return barcodeGtin14
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Barcode - GTIN 14")
+
+  public String getBarcodeGtin14() {
+    return barcodeGtin14;
+  }
+
+
+  public void setBarcodeGtin14(String barcodeGtin14) {
+    this.barcodeGtin14 = barcodeGtin14;
+  }
+
+
+  public OrderItem barcodeUpc11(String barcodeUpc11) {
+    
+    this.barcodeUpc11 = barcodeUpc11;
+    return this;
+  }
+
+   /**
+   * Barcode - UPC 11
+   * @return barcodeUpc11
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Barcode - UPC 11")
+
+  public String getBarcodeUpc11() {
+    return barcodeUpc11;
+  }
+
+
+  public void setBarcodeUpc11(String barcodeUpc11) {
+    this.barcodeUpc11 = barcodeUpc11;
+  }
+
+
+  public OrderItem barcodeUpc12(String barcodeUpc12) {
+    
+    this.barcodeUpc12 = barcodeUpc12;
+    return this;
+  }
+
+   /**
+   * Barcode - UPC 12
+   * @return barcodeUpc12
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Barcode - UPC 12")
+
+  public String getBarcodeUpc12() {
+    return barcodeUpc12;
+  }
+
+
+  public void setBarcodeUpc12(String barcodeUpc12) {
+    this.barcodeUpc12 = barcodeUpc12;
   }
 
 
@@ -1362,6 +1505,52 @@ public class OrderItem {
   }
 
 
+  public OrderItem refundReason(String refundReason) {
+    
+    this.refundReason = refundReason;
+    return this;
+  }
+
+   /**
+   * Refund reason code.  This can only be written during a refund operation otherwise this field is read only.
+   * @return refundReason
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Refund reason code.  This can only be written during a refund operation otherwise this field is read only.")
+
+  public String getRefundReason() {
+    return refundReason;
+  }
+
+
+  public void setRefundReason(String refundReason) {
+    this.refundReason = refundReason;
+  }
+
+
+  public OrderItem returnReason(String returnReason) {
+    
+    this.returnReason = returnReason;
+    return this;
+  }
+
+   /**
+   * Return reason code.  This can only be written during a refund operation otherwise this field is read only.
+   * @return returnReason
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Return reason code.  This can only be written during a refund operation otherwise this field is read only.")
+
+  public String getReturnReason() {
+    return returnReason;
+  }
+
+
+  public void setReturnReason(String returnReason) {
+    this.returnReason = returnReason;
+  }
+
+
   public OrderItem shipSeparately(Boolean shipSeparately) {
     
     this.shipSeparately = shipSeparately;
@@ -1750,10 +1939,15 @@ public class OrderItem {
     OrderItem orderItem = (OrderItem) o;
     return Objects.equals(this.accountingCode, orderItem.accountingCode) &&
         Objects.equals(this.activationCodes, orderItem.activationCodes) &&
+        Objects.equals(this.actualCogs, orderItem.actualCogs) &&
         Objects.equals(this.arbitraryUnitCost, orderItem.arbitraryUnitCost) &&
         Objects.equals(this.autoOrderLastRebillDts, orderItem.autoOrderLastRebillDts) &&
         Objects.equals(this.autoOrderSchedule, orderItem.autoOrderSchedule) &&
         Objects.equals(this.barcode, orderItem.barcode) &&
+        Objects.equals(this.barcodeGtin12, orderItem.barcodeGtin12) &&
+        Objects.equals(this.barcodeGtin14, orderItem.barcodeGtin14) &&
+        Objects.equals(this.barcodeUpc11, orderItem.barcodeUpc11) &&
+        Objects.equals(this.barcodeUpc12, orderItem.barcodeUpc12) &&
         Objects.equals(this.channelPartnerItemId, orderItem.channelPartnerItemId) &&
         Objects.equals(this.cogs, orderItem.cogs) &&
         Objects.equals(this.componentUnitValue, orderItem.componentUnitValue) &&
@@ -1791,6 +1985,8 @@ public class OrderItem {
         Objects.equals(this.quantity, orderItem.quantity) &&
         Objects.equals(this.quantityRefunded, orderItem.quantityRefunded) &&
         Objects.equals(this.quickbooksClass, orderItem.quickbooksClass) &&
+        Objects.equals(this.refundReason, orderItem.refundReason) &&
+        Objects.equals(this.returnReason, orderItem.returnReason) &&
         Objects.equals(this.shipSeparately, orderItem.shipSeparately) &&
         Objects.equals(this.shippedByUser, orderItem.shippedByUser) &&
         Objects.equals(this.shippedDts, orderItem.shippedDts) &&
@@ -1811,7 +2007,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountingCode, activationCodes, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemIndex, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, parentItemIndex, parentMerchantItemId, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
+    return Objects.hash(accountingCode, activationCodes, actualCogs, arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, barcode, barcodeGtin12, barcodeGtin14, barcodeUpc11, barcodeUpc12, channelPartnerItemId, cogs, componentUnitValue, cost, countryCodeOfOrigin, customsDescription, description, discount, discountQuantity, discountShippingWeight, distributionCenterCode, edi, excludeCoupon, freeShipping, hazmat, height, itemIndex, itemReferenceOid, kit, kitComponent, length, manufacturerSku, maxDaysTimeInTransit, merchantItemId, mixAndMatchGroupName, mixAndMatchGroupOid, noShippingDiscount, options, packedByUser, parentItemIndex, parentMerchantItemId, perishableClass, pricingTierName, properties, quantity, quantityRefunded, quickbooksClass, refundReason, returnReason, shipSeparately, shippedByUser, shippedDts, shippingStatus, specialProductType, tags, taxFree, taxProductType, taxableCost, totalCostWithDiscount, totalRefunded, transmittedToDistributionCenterDts, unitCostWithDiscount, upsell, weight, width);
   }
 
   @Override
@@ -1820,10 +2016,15 @@ public class OrderItem {
     sb.append("class OrderItem {\n");
     sb.append("    accountingCode: ").append(toIndentedString(accountingCode)).append("\n");
     sb.append("    activationCodes: ").append(toIndentedString(activationCodes)).append("\n");
+    sb.append("    actualCogs: ").append(toIndentedString(actualCogs)).append("\n");
     sb.append("    arbitraryUnitCost: ").append(toIndentedString(arbitraryUnitCost)).append("\n");
     sb.append("    autoOrderLastRebillDts: ").append(toIndentedString(autoOrderLastRebillDts)).append("\n");
     sb.append("    autoOrderSchedule: ").append(toIndentedString(autoOrderSchedule)).append("\n");
     sb.append("    barcode: ").append(toIndentedString(barcode)).append("\n");
+    sb.append("    barcodeGtin12: ").append(toIndentedString(barcodeGtin12)).append("\n");
+    sb.append("    barcodeGtin14: ").append(toIndentedString(barcodeGtin14)).append("\n");
+    sb.append("    barcodeUpc11: ").append(toIndentedString(barcodeUpc11)).append("\n");
+    sb.append("    barcodeUpc12: ").append(toIndentedString(barcodeUpc12)).append("\n");
     sb.append("    channelPartnerItemId: ").append(toIndentedString(channelPartnerItemId)).append("\n");
     sb.append("    cogs: ").append(toIndentedString(cogs)).append("\n");
     sb.append("    componentUnitValue: ").append(toIndentedString(componentUnitValue)).append("\n");
@@ -1861,6 +2062,8 @@ public class OrderItem {
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    quantityRefunded: ").append(toIndentedString(quantityRefunded)).append("\n");
     sb.append("    quickbooksClass: ").append(toIndentedString(quickbooksClass)).append("\n");
+    sb.append("    refundReason: ").append(toIndentedString(refundReason)).append("\n");
+    sb.append("    returnReason: ").append(toIndentedString(returnReason)).append("\n");
     sb.append("    shipSeparately: ").append(toIndentedString(shipSeparately)).append("\n");
     sb.append("    shippedByUser: ").append(toIndentedString(shippedByUser)).append("\n");
     sb.append("    shippedDts: ").append(toIndentedString(shippedDts)).append("\n");
@@ -1901,10 +2104,15 @@ public class OrderItem {
     openapiFields = new HashSet<String>();
     openapiFields.add("accounting_code");
     openapiFields.add("activation_codes");
+    openapiFields.add("actual_cogs");
     openapiFields.add("arbitrary_unit_cost");
     openapiFields.add("auto_order_last_rebill_dts");
     openapiFields.add("auto_order_schedule");
     openapiFields.add("barcode");
+    openapiFields.add("barcode_gtin12");
+    openapiFields.add("barcode_gtin14");
+    openapiFields.add("barcode_upc11");
+    openapiFields.add("barcode_upc12");
     openapiFields.add("channel_partner_item_id");
     openapiFields.add("cogs");
     openapiFields.add("component_unit_value");
@@ -1942,6 +2150,8 @@ public class OrderItem {
     openapiFields.add("quantity");
     openapiFields.add("quantity_refunded");
     openapiFields.add("quickbooks_class");
+    openapiFields.add("refund_reason");
+    openapiFields.add("return_reason");
     openapiFields.add("ship_separately");
     openapiFields.add("shipped_by_user");
     openapiFields.add("shipped_dts");
@@ -1992,6 +2202,10 @@ public class OrderItem {
       if (jsonObj.get("activation_codes") != null && !jsonObj.get("activation_codes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `activation_codes` to be an array in the JSON string but got `%s`", jsonObj.get("activation_codes").toString()));
       }
+      // validate the optional field `actual_cogs`
+      if (jsonObj.getAsJsonObject("actual_cogs") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("actual_cogs"));
+      }
       // validate the optional field `arbitrary_unit_cost`
       if (jsonObj.getAsJsonObject("arbitrary_unit_cost") != null) {
         Currency.validateJsonObject(jsonObj.getAsJsonObject("arbitrary_unit_cost"));
@@ -2004,6 +2218,18 @@ public class OrderItem {
       }
       if (jsonObj.get("barcode") != null && !jsonObj.get("barcode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `barcode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode").toString()));
+      }
+      if (jsonObj.get("barcode_gtin12") != null && !jsonObj.get("barcode_gtin12").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `barcode_gtin12` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode_gtin12").toString()));
+      }
+      if (jsonObj.get("barcode_gtin14") != null && !jsonObj.get("barcode_gtin14").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `barcode_gtin14` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode_gtin14").toString()));
+      }
+      if (jsonObj.get("barcode_upc11") != null && !jsonObj.get("barcode_upc11").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `barcode_upc11` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode_upc11").toString()));
+      }
+      if (jsonObj.get("barcode_upc12") != null && !jsonObj.get("barcode_upc12").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `barcode_upc12` to be a primitive type in the JSON string but got `%s`", jsonObj.get("barcode_upc12").toString()));
       }
       if (jsonObj.get("channel_partner_item_id") != null && !jsonObj.get("channel_partner_item_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `channel_partner_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("channel_partner_item_id").toString()));
@@ -2091,6 +2317,12 @@ public class OrderItem {
       }
       if (jsonObj.get("quickbooks_class") != null && !jsonObj.get("quickbooks_class").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quickbooks_class` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quickbooks_class").toString()));
+      }
+      if (jsonObj.get("refund_reason") != null && !jsonObj.get("refund_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `refund_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refund_reason").toString()));
+      }
+      if (jsonObj.get("return_reason") != null && !jsonObj.get("return_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `return_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("return_reason").toString()));
       }
       if (jsonObj.get("shipped_by_user") != null && !jsonObj.get("shipped_by_user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shipped_by_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shipped_by_user").toString()));

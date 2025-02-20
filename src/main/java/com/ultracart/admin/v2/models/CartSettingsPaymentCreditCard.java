@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,11 +50,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSettingsPaymentCreditCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CartSettingsPaymentCreditCard {
   public static final String SERIALIZED_NAME_COLLECT_CREDIT_CARD_VERIFICATION_NUMBER = "collect_credit_card_verification_number";
   @SerializedName(SERIALIZED_NAME_COLLECT_CREDIT_CARD_VERIFICATION_NUMBER)
   private Boolean collectCreditCardVerificationNumber;
+
+  public static final String SERIALIZED_NAME_COLLECT_CREDIT_CARD_VERIFICATION_NUMBER_MINIMUM = "collect_credit_card_verification_number_minimum";
+  @SerializedName(SERIALIZED_NAME_COLLECT_CREDIT_CARD_VERIFICATION_NUMBER_MINIMUM)
+  private BigDecimal collectCreditCardVerificationNumberMinimum;
 
   public static final String SERIALIZED_NAME_CREDIT_CARD_TYPES = "credit_card_types";
   @SerializedName(SERIALIZED_NAME_CREDIT_CARD_TYPES)
@@ -86,6 +91,29 @@ public class CartSettingsPaymentCreditCard {
 
   public void setCollectCreditCardVerificationNumber(Boolean collectCreditCardVerificationNumber) {
     this.collectCreditCardVerificationNumber = collectCreditCardVerificationNumber;
+  }
+
+
+  public CartSettingsPaymentCreditCard collectCreditCardVerificationNumberMinimum(BigDecimal collectCreditCardVerificationNumberMinimum) {
+    
+    this.collectCreditCardVerificationNumberMinimum = collectCreditCardVerificationNumberMinimum;
+    return this;
+  }
+
+   /**
+   * If this field is null or the total is greater than or equal to this value then collect the CVV2.
+   * @return collectCreditCardVerificationNumberMinimum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If this field is null or the total is greater than or equal to this value then collect the CVV2.")
+
+  public BigDecimal getCollectCreditCardVerificationNumberMinimum() {
+    return collectCreditCardVerificationNumberMinimum;
+  }
+
+
+  public void setCollectCreditCardVerificationNumberMinimum(BigDecimal collectCreditCardVerificationNumberMinimum) {
+    this.collectCreditCardVerificationNumberMinimum = collectCreditCardVerificationNumberMinimum;
   }
 
 
@@ -154,13 +182,14 @@ public class CartSettingsPaymentCreditCard {
     }
     CartSettingsPaymentCreditCard cartSettingsPaymentCreditCard = (CartSettingsPaymentCreditCard) o;
     return Objects.equals(this.collectCreditCardVerificationNumber, cartSettingsPaymentCreditCard.collectCreditCardVerificationNumber) &&
+        Objects.equals(this.collectCreditCardVerificationNumberMinimum, cartSettingsPaymentCreditCard.collectCreditCardVerificationNumberMinimum) &&
         Objects.equals(this.creditCardTypes, cartSettingsPaymentCreditCard.creditCardTypes) &&
         Objects.equals(this.hostedFieldsShoppingCartToken, cartSettingsPaymentCreditCard.hostedFieldsShoppingCartToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectCreditCardVerificationNumber, creditCardTypes, hostedFieldsShoppingCartToken);
+    return Objects.hash(collectCreditCardVerificationNumber, collectCreditCardVerificationNumberMinimum, creditCardTypes, hostedFieldsShoppingCartToken);
   }
 
   @Override
@@ -168,6 +197,7 @@ public class CartSettingsPaymentCreditCard {
     StringBuilder sb = new StringBuilder();
     sb.append("class CartSettingsPaymentCreditCard {\n");
     sb.append("    collectCreditCardVerificationNumber: ").append(toIndentedString(collectCreditCardVerificationNumber)).append("\n");
+    sb.append("    collectCreditCardVerificationNumberMinimum: ").append(toIndentedString(collectCreditCardVerificationNumberMinimum)).append("\n");
     sb.append("    creditCardTypes: ").append(toIndentedString(creditCardTypes)).append("\n");
     sb.append("    hostedFieldsShoppingCartToken: ").append(toIndentedString(hostedFieldsShoppingCartToken)).append("\n");
     sb.append("}");
@@ -193,6 +223,7 @@ public class CartSettingsPaymentCreditCard {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("collect_credit_card_verification_number");
+    openapiFields.add("collect_credit_card_verification_number_minimum");
     openapiFields.add("credit_card_types");
     openapiFields.add("hosted_fields_shopping_cart_token");
 

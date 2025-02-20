@@ -43,6 +43,8 @@
 |---- | -----|
 | NONE | &quot;none&quot; |
 | BASIC | &quot;basic&quot; |
+| API_USER | &quot;api user&quot; |
+| AWS_IAM | &quot;aws iam&quot; |
 
 
 

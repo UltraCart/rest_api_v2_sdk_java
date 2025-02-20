@@ -47,6 +47,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getEmailCommseqEmailStats**](StorefrontApi.md#getEmailCommseqEmailStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats |
 | [**getEmailCommseqPostcardStats**](StorefrontApi.md#getEmailCommseqPostcardStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats |
 | [**getEmailCommseqPostcardTracking**](StorefrontApi.md#getEmailCommseqPostcardTracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking |
+| [**getEmailCommseqRateLimiters**](StorefrontApi.md#getEmailCommseqRateLimiters) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters | Get email commseq rate limiters |
+| [**getEmailCommseqSmsStats**](StorefrontApi.md#getEmailCommseqSmsStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/smsStats | Get email communication sequence sms stats |
 | [**getEmailCommseqStatOverall**](StorefrontApi.md#getEmailCommseqStatOverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall |
 | [**getEmailCommseqStepStats**](StorefrontApi.md#getEmailCommseqStepStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats |
 | [**getEmailCommseqStepWaiting**](StorefrontApi.md#getEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step |
@@ -88,6 +90,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getEmailSendingDomainStatus**](StorefrontApi.md#getEmailSendingDomainStatus) | **POST** /storefront/email/sending_domains/{domain}/status | Get email sending domain status |
 | [**getEmailSendingDomains**](StorefrontApi.md#getEmailSendingDomains) | **GET** /storefront/email/sending_domains | Get email sending domains |
 | [**getEmailSettings**](StorefrontApi.md#getEmailSettings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings |
+| [**getEmailSmsOrders**](StorefrontApi.md#getEmailSmsOrders) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders | Get email sms orders |
 | [**getEmailTemplate**](StorefrontApi.md#getEmailTemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template |
 | [**getEmailTemplates**](StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates |
 | [**getEmailThirdPartyProviders**](StorefrontApi.md#getEmailThirdPartyProviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers |
@@ -130,10 +133,12 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**insertEmailPostcard**](StorefrontApi.md#insertEmailPostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard |
 | [**insertEmailSegment**](StorefrontApi.md#insertEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment |
 | [**insertScreenRecordingSegment**](StorefrontApi.md#insertScreenRecordingSegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments | Insert screen recording segment |
+| [**insertUpdatePageContentAttribute**](StorefrontApi.md#insertUpdatePageContentAttribute) | **POST** /storefront/{storefront_oid}/pages/{page_oid}/content/attributes | Upsert a page content attribute |
 | [**prepareDownloadEmailSegment**](StorefrontApi.md#prepareDownloadEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment |
 | [**publishLibraryItem**](StorefrontApi.md#publishLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/publish | Publish library item. |
 | [**purchaseLibraryItem**](StorefrontApi.md#purchaseLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/purchase | Purchase public library item, which creates a copy of the item in your personal code library |
 | [**releaseEmailCommseqStepWaiting**](StorefrontApi.md#releaseEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid} | Release email communication sequence customers waiting at the specified step |
+| [**resetEmailCommseqRateLimiters**](StorefrontApi.md#resetEmailCommseqRateLimiters) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters | Reset email commseq rate limiters (only callable by UltraCart Support) |
 | [**review**](StorefrontApi.md#review) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review | Request a review of an email |
 | [**search**](StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values |
 | [**search2**](StorefrontApi.md#search2) | **POST** /storefront/search | Searches for all matching values (using POST) |
@@ -150,6 +155,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**sequenceTest**](StorefrontApi.md#sequenceTest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test |
 | [**startEmailCampaign**](StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign |
 | [**subscribeToEmailList**](StorefrontApi.md#subscribeToEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list |
+| [**sunsetEmailSegment**](StorefrontApi.md#sunsetEmailSegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/sunset | Sunset email segment |
 | [**unfavoriteScreenRecording**](StorefrontApi.md#unfavoriteScreenRecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording |
 | [**updateEmailCampaign**](StorefrontApi.md#updateEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign |
 | [**updateEmailCampaignFolder**](StorefrontApi.md#updateEmailCampaignFolder) | **PUT** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Update email campaign folder |
@@ -2998,6 +3004,140 @@ try {
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="getEmailCommseqRateLimiters"></a>
+# **getEmailCommseqRateLimiters**
+> EmailRateLimitersResponse getEmailCommseqRateLimiters(storefrontOid, commseqUuid)
+
+Get email commseq rate limiters
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.StorefrontApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer storefrontOid = 56; // Integer | 
+String commseqUuid = "commseqUuid_example"; // String | 
+try {
+    EmailRateLimitersResponse result = apiInstance.getEmailCommseqRateLimiters(storefrontOidcommseqUuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#getEmailCommseqRateLimiters");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **commseqUuid** | **String**|  | |
+
+### Return type
+
+[**EmailRateLimitersResponse**](EmailRateLimitersResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getEmailCommseqSmsStats"></a>
+# **getEmailCommseqSmsStats**
+> EmailStatSmsSummaryResponse getEmailCommseqSmsStats(storefrontOid, commseqUuid, statsRequest)
+
+Get email communication sequence sms stats
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.StorefrontApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer storefrontOid = 56; // Integer | 
+String commseqUuid = "commseqUuid_example"; // String | 
+EmailStatSmsSummaryRequest statsRequest = new EmailStatSmsSummaryRequest(); // EmailStatSmsSummaryRequest | StatsRequest
+try {
+    EmailStatSmsSummaryResponse result = apiInstance.getEmailCommseqSmsStats(storefrontOidcommseqUuidstatsRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#getEmailCommseqSmsStats");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **commseqUuid** | **String**|  | |
+| **statsRequest** | [**EmailStatSmsSummaryRequest**](EmailStatSmsSummaryRequest.md)| StatsRequest | |
+
+### Return type
+
+[**EmailStatSmsSummaryResponse**](EmailStatSmsSummaryResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="getEmailCommseqStatOverall"></a>
 # **getEmailCommseqStatOverall**
 > EmailCommseqStatResponse getEmailCommseqStatOverall(storefrontOid, commseqUuid)
@@ -5682,6 +5822,76 @@ try {
 ### Return type
 
 [**EmailSettingsResponse**](EmailSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getEmailSmsOrders"></a>
+# **getEmailSmsOrders**
+> EmailSmsOrdersResponse getEmailSmsOrders(storefrontOid, commseqUuid, commseqStepUuid, days)
+
+Get email sms orders
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.StorefrontApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer storefrontOid = 56; // Integer | 
+String commseqUuid = "commseqUuid_example"; // String | 
+String commseqStepUuid = "commseqStepUuid_example"; // String | 
+Integer days = 56; // Integer | 
+try {
+    EmailSmsOrdersResponse result = apiInstance.getEmailSmsOrders(storefrontOidcommseqUuidcommseqStepUuiddays);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#getEmailSmsOrders");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **commseqUuid** | **String**|  | |
+| **commseqStepUuid** | **String**|  | |
+| **days** | **Integer**|  | [optional] |
+
+### Return type
+
+[**EmailSmsOrdersResponse**](EmailSmsOrdersResponse.md)
 
 ### Authorization
 
@@ -8484,6 +8694,74 @@ try {
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="insertUpdatePageContentAttribute"></a>
+# **insertUpdatePageContentAttribute**
+> insertUpdatePageContentAttribute(storefrontOid, pageOid, pageAttribute)
+
+Upsert a page content attribute
+
+Update a page content attribute, creating it new if it does not yet exist. 
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.StorefrontApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer storefrontOid = 56; // Integer | 
+Integer pageOid = 56; // Integer | The page oid to modify.
+StoreFrontPageContentAttribute pageAttribute = new StoreFrontPageContentAttribute(); // StoreFrontPageContentAttribute | Page content attribute to upsert
+try {
+    apiInstance.insertUpdatePageContentAttribute(storefrontOidpageOidpageAttribute);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#insertUpdatePageContentAttribute");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **pageOid** | **Integer**| The page oid to modify. | |
+| **pageAttribute** | [**StoreFrontPageContentAttribute**](StoreFrontPageContentAttribute.md)| Page content attribute to upsert | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="prepareDownloadEmailSegment"></a>
 # **prepareDownloadEmailSegment**
 > EmailSegmentDownloadPrepareResponse prepareDownloadEmailSegment(storefrontOid, emailSegmentUuid)
@@ -8725,6 +9003,70 @@ try {
 | **storefrontOid** | **Integer**|  | |
 | **commseqUuid** | **String**|  | |
 | **commseqStepUuid** | **String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="resetEmailCommseqRateLimiters"></a>
+# **resetEmailCommseqRateLimiters**
+> resetEmailCommseqRateLimiters(storefrontOid, commseqUuid)
+
+Reset email commseq rate limiters (only callable by UltraCart Support)
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.StorefrontApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer storefrontOid = 56; // Integer | 
+String commseqUuid = "commseqUuid_example"; // String | 
+try {
+    apiInstance.resetEmailCommseqRateLimiters(storefrontOidcommseqUuid);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#resetEmailCommseqRateLimiters");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **commseqUuid** | **String**|  | |
 
 ### Return type
 
@@ -9844,6 +10186,70 @@ try {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="sunsetEmailSegment"></a>
+# **sunsetEmailSegment**
+> sunsetEmailSegment(storefrontOid, emailSegmentUuid)
+
+Sunset email segment
+
+### Example
+```java
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+// Import classes:
+import com.ultracart.admin.v2.util.ApiClient;
+import com.ultracart.admin.v2.util.ApiException;
+import com.ultracart.admin.v2.util.Configuration;
+import com.ultracart.admin.v2.util.auth.*;
+import com.ultracart.admin.v2.StorefrontApi;
+import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
+import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+Integer storefrontOid = 56; // Integer | 
+String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
+try {
+    apiInstance.sunsetEmailSegment(storefrontOidemailSegmentUuid);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorefrontApi#sunsetEmailSegment");
+    e.printStackTrace();
+}
+```
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **emailSegmentUuid** | **String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |

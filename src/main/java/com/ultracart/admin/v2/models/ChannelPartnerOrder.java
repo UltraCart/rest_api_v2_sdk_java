@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_ADVERTISING_SOURCE = "advertisingSource";
   @SerializedName(SERIALIZED_NAME_ADVERTISING_SOURCE)
@@ -210,6 +210,140 @@ public class ChannelPartnerOrder {
   @SerializedName(SERIALIZED_NAME_DELIVERY_DATE)
   private String deliveryDate;
 
+  public static final String SERIALIZED_NAME_ECHECK_BANK_ABA_CODE = "echeck_bank_aba_code";
+  @SerializedName(SERIALIZED_NAME_ECHECK_BANK_ABA_CODE)
+  private String echeckBankAbaCode;
+
+  public static final String SERIALIZED_NAME_ECHECK_BANK_ACCOUNT_NAME = "echeck_bank_account_name";
+  @SerializedName(SERIALIZED_NAME_ECHECK_BANK_ACCOUNT_NAME)
+  private String echeckBankAccountName;
+
+  public static final String SERIALIZED_NAME_ECHECK_BANK_ACCOUNT_NUMBER = "echeck_bank_account_number";
+  @SerializedName(SERIALIZED_NAME_ECHECK_BANK_ACCOUNT_NUMBER)
+  private String echeckBankAccountNumber;
+
+  /**
+   * eCheck bank account type
+   */
+  @JsonAdapter(EcheckBankAccountTypeEnum.Adapter.class)
+  public enum EcheckBankAccountTypeEnum {
+    CHECKING("Checking"),
+    
+    SAVINGS("Savings");
+
+    private String value;
+
+    EcheckBankAccountTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EcheckBankAccountTypeEnum fromValue(String value) {
+      for (EcheckBankAccountTypeEnum b : EcheckBankAccountTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EcheckBankAccountTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EcheckBankAccountTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EcheckBankAccountTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EcheckBankAccountTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ECHECK_BANK_ACCOUNT_TYPE = "echeck_bank_account_type";
+  @SerializedName(SERIALIZED_NAME_ECHECK_BANK_ACCOUNT_TYPE)
+  private EcheckBankAccountTypeEnum echeckBankAccountType;
+
+  public static final String SERIALIZED_NAME_ECHECK_BANK_NAME = "echeck_bank_name";
+  @SerializedName(SERIALIZED_NAME_ECHECK_BANK_NAME)
+  private String echeckBankName;
+
+  /**
+   * eCheck bank owner type
+   */
+  @JsonAdapter(EcheckBankOwnerTypeEnum.Adapter.class)
+  public enum EcheckBankOwnerTypeEnum {
+    BUSINESS("Business"),
+    
+    PERSONAL("Personal");
+
+    private String value;
+
+    EcheckBankOwnerTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EcheckBankOwnerTypeEnum fromValue(String value) {
+      for (EcheckBankOwnerTypeEnum b : EcheckBankOwnerTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EcheckBankOwnerTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EcheckBankOwnerTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EcheckBankOwnerTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EcheckBankOwnerTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ECHECK_BANK_OWNER_TYPE = "echeck_bank_owner_type";
+  @SerializedName(SERIALIZED_NAME_ECHECK_BANK_OWNER_TYPE)
+  private EcheckBankOwnerTypeEnum echeckBankOwnerType;
+
+  public static final String SERIALIZED_NAME_ECHECK_CUSTOMER_TAX_ID = "echeck_customer_tax_id";
+  @SerializedName(SERIALIZED_NAME_ECHECK_CUSTOMER_TAX_ID)
+  private String echeckCustomerTaxId;
+
+  public static final String SERIALIZED_NAME_ECHECK_DRIVERS_LICENSE_DOB = "echeck_drivers_license_dob";
+  @SerializedName(SERIALIZED_NAME_ECHECK_DRIVERS_LICENSE_DOB)
+  private String echeckDriversLicenseDob;
+
+  public static final String SERIALIZED_NAME_ECHECK_DRIVERS_LICENSE_NUMBER = "echeck_drivers_license_number";
+  @SerializedName(SERIALIZED_NAME_ECHECK_DRIVERS_LICENSE_NUMBER)
+  private String echeckDriversLicenseNumber;
+
+  public static final String SERIALIZED_NAME_ECHECK_DRIVERS_LICENSE_STATE = "echeck_drivers_license_state";
+  @SerializedName(SERIALIZED_NAME_ECHECK_DRIVERS_LICENSE_STATE)
+  private String echeckDriversLicenseState;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -281,6 +415,8 @@ public class ChannelPartnerOrder {
     
     CREDIT_CARD("Credit Card"),
     
+    ECHECK("eCheck"),
+    
     LOANHERO("LoanHero"),
     
     MONEY_ORDER("Money Order"),
@@ -342,6 +478,10 @@ public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_ROTATING_TRANSACTION_GATEWAY_CODE = "rotating_transaction_gateway_code";
   @SerializedName(SERIALIZED_NAME_ROTATING_TRANSACTION_GATEWAY_CODE)
   private String rotatingTransactionGatewayCode;
+
+  public static final String SERIALIZED_NAME_SALES_REP_CODE = "sales_rep_code";
+  @SerializedName(SERIALIZED_NAME_SALES_REP_CODE)
+  private String salesRepCode;
 
   public static final String SERIALIZED_NAME_SCREEN_BRANDING_THEME_CODE = "screen_branding_theme_code";
   @SerializedName(SERIALIZED_NAME_SCREEN_BRANDING_THEME_CODE)
@@ -422,6 +562,10 @@ public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_STORE_IF_PAYMENT_DECLINES = "store_if_payment_declines";
   @SerializedName(SERIALIZED_NAME_STORE_IF_PAYMENT_DECLINES)
   private Boolean storeIfPaymentDeclines;
+
+  public static final String SERIALIZED_NAME_STOREFRONT_HOST_NAME = "storefront_host_name";
+  @SerializedName(SERIALIZED_NAME_STOREFRONT_HOST_NAME)
+  private String storefrontHostName;
 
   public static final String SERIALIZED_NAME_TAX_COUNTY = "tax_county";
   @SerializedName(SERIALIZED_NAME_TAX_COUNTY)
@@ -1347,6 +1491,236 @@ public class ChannelPartnerOrder {
   }
 
 
+  public ChannelPartnerOrder echeckBankAbaCode(String echeckBankAbaCode) {
+    
+    this.echeckBankAbaCode = echeckBankAbaCode;
+    return this;
+  }
+
+   /**
+   * eCheck bank ABA code
+   * @return echeckBankAbaCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck bank ABA code")
+
+  public String getEcheckBankAbaCode() {
+    return echeckBankAbaCode;
+  }
+
+
+  public void setEcheckBankAbaCode(String echeckBankAbaCode) {
+    this.echeckBankAbaCode = echeckBankAbaCode;
+  }
+
+
+  public ChannelPartnerOrder echeckBankAccountName(String echeckBankAccountName) {
+    
+    this.echeckBankAccountName = echeckBankAccountName;
+    return this;
+  }
+
+   /**
+   * eCheck bank account name
+   * @return echeckBankAccountName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck bank account name")
+
+  public String getEcheckBankAccountName() {
+    return echeckBankAccountName;
+  }
+
+
+  public void setEcheckBankAccountName(String echeckBankAccountName) {
+    this.echeckBankAccountName = echeckBankAccountName;
+  }
+
+
+  public ChannelPartnerOrder echeckBankAccountNumber(String echeckBankAccountNumber) {
+    
+    this.echeckBankAccountNumber = echeckBankAccountNumber;
+    return this;
+  }
+
+   /**
+   * eCheck bank account number
+   * @return echeckBankAccountNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck bank account number")
+
+  public String getEcheckBankAccountNumber() {
+    return echeckBankAccountNumber;
+  }
+
+
+  public void setEcheckBankAccountNumber(String echeckBankAccountNumber) {
+    this.echeckBankAccountNumber = echeckBankAccountNumber;
+  }
+
+
+  public ChannelPartnerOrder echeckBankAccountType(EcheckBankAccountTypeEnum echeckBankAccountType) {
+    
+    this.echeckBankAccountType = echeckBankAccountType;
+    return this;
+  }
+
+   /**
+   * eCheck bank account type
+   * @return echeckBankAccountType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck bank account type")
+
+  public EcheckBankAccountTypeEnum getEcheckBankAccountType() {
+    return echeckBankAccountType;
+  }
+
+
+  public void setEcheckBankAccountType(EcheckBankAccountTypeEnum echeckBankAccountType) {
+    this.echeckBankAccountType = echeckBankAccountType;
+  }
+
+
+  public ChannelPartnerOrder echeckBankName(String echeckBankName) {
+    
+    this.echeckBankName = echeckBankName;
+    return this;
+  }
+
+   /**
+   * eCheck bank name
+   * @return echeckBankName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck bank name")
+
+  public String getEcheckBankName() {
+    return echeckBankName;
+  }
+
+
+  public void setEcheckBankName(String echeckBankName) {
+    this.echeckBankName = echeckBankName;
+  }
+
+
+  public ChannelPartnerOrder echeckBankOwnerType(EcheckBankOwnerTypeEnum echeckBankOwnerType) {
+    
+    this.echeckBankOwnerType = echeckBankOwnerType;
+    return this;
+  }
+
+   /**
+   * eCheck bank owner type
+   * @return echeckBankOwnerType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck bank owner type")
+
+  public EcheckBankOwnerTypeEnum getEcheckBankOwnerType() {
+    return echeckBankOwnerType;
+  }
+
+
+  public void setEcheckBankOwnerType(EcheckBankOwnerTypeEnum echeckBankOwnerType) {
+    this.echeckBankOwnerType = echeckBankOwnerType;
+  }
+
+
+  public ChannelPartnerOrder echeckCustomerTaxId(String echeckCustomerTaxId) {
+    
+    this.echeckCustomerTaxId = echeckCustomerTaxId;
+    return this;
+  }
+
+   /**
+   * eCheck customer tax id
+   * @return echeckCustomerTaxId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck customer tax id")
+
+  public String getEcheckCustomerTaxId() {
+    return echeckCustomerTaxId;
+  }
+
+
+  public void setEcheckCustomerTaxId(String echeckCustomerTaxId) {
+    this.echeckCustomerTaxId = echeckCustomerTaxId;
+  }
+
+
+  public ChannelPartnerOrder echeckDriversLicenseDob(String echeckDriversLicenseDob) {
+    
+    this.echeckDriversLicenseDob = echeckDriversLicenseDob;
+    return this;
+  }
+
+   /**
+   * eCheck drivers license dob
+   * @return echeckDriversLicenseDob
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck drivers license dob")
+
+  public String getEcheckDriversLicenseDob() {
+    return echeckDriversLicenseDob;
+  }
+
+
+  public void setEcheckDriversLicenseDob(String echeckDriversLicenseDob) {
+    this.echeckDriversLicenseDob = echeckDriversLicenseDob;
+  }
+
+
+  public ChannelPartnerOrder echeckDriversLicenseNumber(String echeckDriversLicenseNumber) {
+    
+    this.echeckDriversLicenseNumber = echeckDriversLicenseNumber;
+    return this;
+  }
+
+   /**
+   * eCheck drivers license number
+   * @return echeckDriversLicenseNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck drivers license number")
+
+  public String getEcheckDriversLicenseNumber() {
+    return echeckDriversLicenseNumber;
+  }
+
+
+  public void setEcheckDriversLicenseNumber(String echeckDriversLicenseNumber) {
+    this.echeckDriversLicenseNumber = echeckDriversLicenseNumber;
+  }
+
+
+  public ChannelPartnerOrder echeckDriversLicenseState(String echeckDriversLicenseState) {
+    
+    this.echeckDriversLicenseState = echeckDriversLicenseState;
+    return this;
+  }
+
+   /**
+   * eCheck drivers license state
+   * @return echeckDriversLicenseState
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "eCheck drivers license state")
+
+  public String getEcheckDriversLicenseState() {
+    return echeckDriversLicenseState;
+  }
+
+
+  public void setEcheckDriversLicenseState(String echeckDriversLicenseState) {
+    this.echeckDriversLicenseState = echeckDriversLicenseState;
+  }
+
+
   public ChannelPartnerOrder email(String email) {
     
     this.email = email;
@@ -1751,6 +2125,29 @@ public class ChannelPartnerOrder {
 
   public void setRotatingTransactionGatewayCode(String rotatingTransactionGatewayCode) {
     this.rotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
+  }
+
+
+  public ChannelPartnerOrder salesRepCode(String salesRepCode) {
+    
+    this.salesRepCode = salesRepCode;
+    return this;
+  }
+
+   /**
+   * Sales rep code
+   * @return salesRepCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Sales rep code")
+
+  public String getSalesRepCode() {
+    return salesRepCode;
+  }
+
+
+  public void setSalesRepCode(String salesRepCode) {
+    this.salesRepCode = salesRepCode;
   }
 
 
@@ -2214,6 +2611,29 @@ public class ChannelPartnerOrder {
   }
 
 
+  public ChannelPartnerOrder storefrontHostName(String storefrontHostName) {
+    
+    this.storefrontHostName = storefrontHostName;
+    return this;
+  }
+
+   /**
+   * StoreFront host name associated with the order
+   * @return storefrontHostName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "StoreFront host name associated with the order")
+
+  public String getStorefrontHostName() {
+    return storefrontHostName;
+  }
+
+
+  public void setStorefrontHostName(String storefrontHostName) {
+    this.storefrontHostName = storefrontHostName;
+  }
+
+
   public ChannelPartnerOrder taxCounty(String taxCounty) {
     
     this.taxCounty = taxCounty;
@@ -2355,6 +2775,16 @@ public class ChannelPartnerOrder {
         Objects.equals(this.customField6, channelPartnerOrder.customField6) &&
         Objects.equals(this.customField7, channelPartnerOrder.customField7) &&
         Objects.equals(this.deliveryDate, channelPartnerOrder.deliveryDate) &&
+        Objects.equals(this.echeckBankAbaCode, channelPartnerOrder.echeckBankAbaCode) &&
+        Objects.equals(this.echeckBankAccountName, channelPartnerOrder.echeckBankAccountName) &&
+        Objects.equals(this.echeckBankAccountNumber, channelPartnerOrder.echeckBankAccountNumber) &&
+        Objects.equals(this.echeckBankAccountType, channelPartnerOrder.echeckBankAccountType) &&
+        Objects.equals(this.echeckBankName, channelPartnerOrder.echeckBankName) &&
+        Objects.equals(this.echeckBankOwnerType, channelPartnerOrder.echeckBankOwnerType) &&
+        Objects.equals(this.echeckCustomerTaxId, channelPartnerOrder.echeckCustomerTaxId) &&
+        Objects.equals(this.echeckDriversLicenseDob, channelPartnerOrder.echeckDriversLicenseDob) &&
+        Objects.equals(this.echeckDriversLicenseNumber, channelPartnerOrder.echeckDriversLicenseNumber) &&
+        Objects.equals(this.echeckDriversLicenseState, channelPartnerOrder.echeckDriversLicenseState) &&
         Objects.equals(this.email, channelPartnerOrder.email) &&
         Objects.equals(this.gift, channelPartnerOrder.gift) &&
         Objects.equals(this.giftEmail, channelPartnerOrder.giftEmail) &&
@@ -2372,6 +2802,7 @@ public class ChannelPartnerOrder {
         Objects.equals(this.paymentMethod, channelPartnerOrder.paymentMethod) &&
         Objects.equals(this.purchaseOrderNumber, channelPartnerOrder.purchaseOrderNumber) &&
         Objects.equals(this.rotatingTransactionGatewayCode, channelPartnerOrder.rotatingTransactionGatewayCode) &&
+        Objects.equals(this.salesRepCode, channelPartnerOrder.salesRepCode) &&
         Objects.equals(this.screenBrandingThemeCode, channelPartnerOrder.screenBrandingThemeCode) &&
         Objects.equals(this.shipOnDate, channelPartnerOrder.shipOnDate) &&
         Objects.equals(this.shipToResidential, channelPartnerOrder.shipToResidential) &&
@@ -2392,6 +2823,7 @@ public class ChannelPartnerOrder {
         Objects.equals(this.specialInstructions, channelPartnerOrder.specialInstructions) &&
         Objects.equals(this.storeCompleted, channelPartnerOrder.storeCompleted) &&
         Objects.equals(this.storeIfPaymentDeclines, channelPartnerOrder.storeIfPaymentDeclines) &&
+        Objects.equals(this.storefrontHostName, channelPartnerOrder.storefrontHostName) &&
         Objects.equals(this.taxCounty, channelPartnerOrder.taxCounty) &&
         Objects.equals(this.taxExempt, channelPartnerOrder.taxExempt) &&
         Objects.equals(this.transaction, channelPartnerOrder.transaction) &&
@@ -2400,7 +2832,7 @@ public class ChannelPartnerOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, taxCounty, taxExempt, transaction, treatWarningsAsErrors);
+    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors);
   }
 
   @Override
@@ -2446,6 +2878,16 @@ public class ChannelPartnerOrder {
     sb.append("    customField6: ").append(toIndentedString(customField6)).append("\n");
     sb.append("    customField7: ").append(toIndentedString(customField7)).append("\n");
     sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
+    sb.append("    echeckBankAbaCode: ").append(toIndentedString(echeckBankAbaCode)).append("\n");
+    sb.append("    echeckBankAccountName: ").append(toIndentedString(echeckBankAccountName)).append("\n");
+    sb.append("    echeckBankAccountNumber: ").append(toIndentedString(echeckBankAccountNumber)).append("\n");
+    sb.append("    echeckBankAccountType: ").append(toIndentedString(echeckBankAccountType)).append("\n");
+    sb.append("    echeckBankName: ").append(toIndentedString(echeckBankName)).append("\n");
+    sb.append("    echeckBankOwnerType: ").append(toIndentedString(echeckBankOwnerType)).append("\n");
+    sb.append("    echeckCustomerTaxId: ").append(toIndentedString(echeckCustomerTaxId)).append("\n");
+    sb.append("    echeckDriversLicenseDob: ").append(toIndentedString(echeckDriversLicenseDob)).append("\n");
+    sb.append("    echeckDriversLicenseNumber: ").append(toIndentedString(echeckDriversLicenseNumber)).append("\n");
+    sb.append("    echeckDriversLicenseState: ").append(toIndentedString(echeckDriversLicenseState)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    giftEmail: ").append(toIndentedString(giftEmail)).append("\n");
@@ -2463,6 +2905,7 @@ public class ChannelPartnerOrder {
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    purchaseOrderNumber: ").append(toIndentedString(purchaseOrderNumber)).append("\n");
     sb.append("    rotatingTransactionGatewayCode: ").append(toIndentedString(rotatingTransactionGatewayCode)).append("\n");
+    sb.append("    salesRepCode: ").append(toIndentedString(salesRepCode)).append("\n");
     sb.append("    screenBrandingThemeCode: ").append(toIndentedString(screenBrandingThemeCode)).append("\n");
     sb.append("    shipOnDate: ").append(toIndentedString(shipOnDate)).append("\n");
     sb.append("    shipToResidential: ").append(toIndentedString(shipToResidential)).append("\n");
@@ -2483,6 +2926,7 @@ public class ChannelPartnerOrder {
     sb.append("    specialInstructions: ").append(toIndentedString(specialInstructions)).append("\n");
     sb.append("    storeCompleted: ").append(toIndentedString(storeCompleted)).append("\n");
     sb.append("    storeIfPaymentDeclines: ").append(toIndentedString(storeIfPaymentDeclines)).append("\n");
+    sb.append("    storefrontHostName: ").append(toIndentedString(storefrontHostName)).append("\n");
     sb.append("    taxCounty: ").append(toIndentedString(taxCounty)).append("\n");
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
@@ -2548,6 +2992,16 @@ public class ChannelPartnerOrder {
     openapiFields.add("custom_field6");
     openapiFields.add("custom_field7");
     openapiFields.add("delivery_date");
+    openapiFields.add("echeck_bank_aba_code");
+    openapiFields.add("echeck_bank_account_name");
+    openapiFields.add("echeck_bank_account_number");
+    openapiFields.add("echeck_bank_account_type");
+    openapiFields.add("echeck_bank_name");
+    openapiFields.add("echeck_bank_owner_type");
+    openapiFields.add("echeck_customer_tax_id");
+    openapiFields.add("echeck_drivers_license_dob");
+    openapiFields.add("echeck_drivers_license_number");
+    openapiFields.add("echeck_drivers_license_state");
     openapiFields.add("email");
     openapiFields.add("gift");
     openapiFields.add("gift_email");
@@ -2565,6 +3019,7 @@ public class ChannelPartnerOrder {
     openapiFields.add("payment_method");
     openapiFields.add("purchase_order_number");
     openapiFields.add("rotating_transaction_gateway_code");
+    openapiFields.add("sales_rep_code");
     openapiFields.add("screen_branding_theme_code");
     openapiFields.add("ship_on_date");
     openapiFields.add("ship_to_residential");
@@ -2585,6 +3040,7 @@ public class ChannelPartnerOrder {
     openapiFields.add("special_instructions");
     openapiFields.add("store_completed");
     openapiFields.add("store_if_payment_declines");
+    openapiFields.add("storefront_host_name");
     openapiFields.add("tax_county");
     openapiFields.add("tax_exempt");
     openapiFields.add("transaction");
@@ -2704,6 +3160,36 @@ public class ChannelPartnerOrder {
       if (jsonObj.get("delivery_date") != null && !jsonObj.get("delivery_date").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `delivery_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delivery_date").toString()));
       }
+      if (jsonObj.get("echeck_bank_aba_code") != null && !jsonObj.get("echeck_bank_aba_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_bank_aba_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_bank_aba_code").toString()));
+      }
+      if (jsonObj.get("echeck_bank_account_name") != null && !jsonObj.get("echeck_bank_account_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_bank_account_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_bank_account_name").toString()));
+      }
+      if (jsonObj.get("echeck_bank_account_number") != null && !jsonObj.get("echeck_bank_account_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_bank_account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_bank_account_number").toString()));
+      }
+      if (jsonObj.get("echeck_bank_account_type") != null && !jsonObj.get("echeck_bank_account_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_bank_account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_bank_account_type").toString()));
+      }
+      if (jsonObj.get("echeck_bank_name") != null && !jsonObj.get("echeck_bank_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_bank_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_bank_name").toString()));
+      }
+      if (jsonObj.get("echeck_bank_owner_type") != null && !jsonObj.get("echeck_bank_owner_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_bank_owner_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_bank_owner_type").toString()));
+      }
+      if (jsonObj.get("echeck_customer_tax_id") != null && !jsonObj.get("echeck_customer_tax_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_customer_tax_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_customer_tax_id").toString()));
+      }
+      if (jsonObj.get("echeck_drivers_license_dob") != null && !jsonObj.get("echeck_drivers_license_dob").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_drivers_license_dob` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_drivers_license_dob").toString()));
+      }
+      if (jsonObj.get("echeck_drivers_license_number") != null && !jsonObj.get("echeck_drivers_license_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_drivers_license_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_drivers_license_number").toString()));
+      }
+      if (jsonObj.get("echeck_drivers_license_state") != null && !jsonObj.get("echeck_drivers_license_state").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `echeck_drivers_license_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("echeck_drivers_license_state").toString()));
+      }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
@@ -2753,6 +3239,9 @@ public class ChannelPartnerOrder {
       if (jsonObj.get("rotating_transaction_gateway_code") != null && !jsonObj.get("rotating_transaction_gateway_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rotating_transaction_gateway_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotating_transaction_gateway_code").toString()));
       }
+      if (jsonObj.get("sales_rep_code") != null && !jsonObj.get("sales_rep_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sales_rep_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sales_rep_code").toString()));
+      }
       if (jsonObj.get("screen_branding_theme_code") != null && !jsonObj.get("screen_branding_theme_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `screen_branding_theme_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screen_branding_theme_code").toString()));
       }
@@ -2800,6 +3289,9 @@ public class ChannelPartnerOrder {
       }
       if (jsonObj.get("special_instructions") != null && !jsonObj.get("special_instructions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `special_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("special_instructions").toString()));
+      }
+      if (jsonObj.get("storefront_host_name") != null && !jsonObj.get("storefront_host_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `storefront_host_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storefront_host_name").toString()));
       }
       if (jsonObj.get("tax_county") != null && !jsonObj.get("tax_county").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tax_county` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tax_county").toString()));

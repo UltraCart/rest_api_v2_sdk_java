@@ -47,14 +47,68 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * UltraCartConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class UltraCartConfig {
+  public static final String SERIALIZED_NAME_EXEMPT_FROM_COLORADO_RETAIL_DELIVERY_FEE = "exempt_from_colorado_retail_delivery_fee";
+  @SerializedName(SERIALIZED_NAME_EXEMPT_FROM_COLORADO_RETAIL_DELIVERY_FEE)
+  private Boolean exemptFromColoradoRetailDeliveryFee;
+
+  public static final String SERIALIZED_NAME_EXEMPT_FROM_MINNESOTA_RETAIL_DELIVERY_FEE = "exempt_from_minnesota_retail_delivery_fee";
+  @SerializedName(SERIALIZED_NAME_EXEMPT_FROM_MINNESOTA_RETAIL_DELIVERY_FEE)
+  private Boolean exemptFromMinnesotaRetailDeliveryFee;
+
   public static final String SERIALIZED_NAME_TAX_BILLING = "tax_billing";
   @SerializedName(SERIALIZED_NAME_TAX_BILLING)
   private Boolean taxBilling;
 
   public UltraCartConfig() { 
   }
+
+  public UltraCartConfig exemptFromColoradoRetailDeliveryFee(Boolean exemptFromColoradoRetailDeliveryFee) {
+    
+    this.exemptFromColoradoRetailDeliveryFee = exemptFromColoradoRetailDeliveryFee;
+    return this;
+  }
+
+   /**
+   * True if the Colorado Retail Delivery Fee should not be collected
+   * @return exemptFromColoradoRetailDeliveryFee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the Colorado Retail Delivery Fee should not be collected")
+
+  public Boolean getExemptFromColoradoRetailDeliveryFee() {
+    return exemptFromColoradoRetailDeliveryFee;
+  }
+
+
+  public void setExemptFromColoradoRetailDeliveryFee(Boolean exemptFromColoradoRetailDeliveryFee) {
+    this.exemptFromColoradoRetailDeliveryFee = exemptFromColoradoRetailDeliveryFee;
+  }
+
+
+  public UltraCartConfig exemptFromMinnesotaRetailDeliveryFee(Boolean exemptFromMinnesotaRetailDeliveryFee) {
+    
+    this.exemptFromMinnesotaRetailDeliveryFee = exemptFromMinnesotaRetailDeliveryFee;
+    return this;
+  }
+
+   /**
+   * True if the Minnesota Retail Delivery Fee should not be collected
+   * @return exemptFromMinnesotaRetailDeliveryFee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the Minnesota Retail Delivery Fee should not be collected")
+
+  public Boolean getExemptFromMinnesotaRetailDeliveryFee() {
+    return exemptFromMinnesotaRetailDeliveryFee;
+  }
+
+
+  public void setExemptFromMinnesotaRetailDeliveryFee(Boolean exemptFromMinnesotaRetailDeliveryFee) {
+    this.exemptFromMinnesotaRetailDeliveryFee = exemptFromMinnesotaRetailDeliveryFee;
+  }
+
 
   public UltraCartConfig taxBilling(Boolean taxBilling) {
     
@@ -89,18 +143,22 @@ public class UltraCartConfig {
       return false;
     }
     UltraCartConfig ultraCartConfig = (UltraCartConfig) o;
-    return Objects.equals(this.taxBilling, ultraCartConfig.taxBilling);
+    return Objects.equals(this.exemptFromColoradoRetailDeliveryFee, ultraCartConfig.exemptFromColoradoRetailDeliveryFee) &&
+        Objects.equals(this.exemptFromMinnesotaRetailDeliveryFee, ultraCartConfig.exemptFromMinnesotaRetailDeliveryFee) &&
+        Objects.equals(this.taxBilling, ultraCartConfig.taxBilling);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taxBilling);
+    return Objects.hash(exemptFromColoradoRetailDeliveryFee, exemptFromMinnesotaRetailDeliveryFee, taxBilling);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UltraCartConfig {\n");
+    sb.append("    exemptFromColoradoRetailDeliveryFee: ").append(toIndentedString(exemptFromColoradoRetailDeliveryFee)).append("\n");
+    sb.append("    exemptFromMinnesotaRetailDeliveryFee: ").append(toIndentedString(exemptFromMinnesotaRetailDeliveryFee)).append("\n");
     sb.append("    taxBilling: ").append(toIndentedString(taxBilling)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -124,6 +182,8 @@ public class UltraCartConfig {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("exempt_from_colorado_retail_delivery_fee");
+    openapiFields.add("exempt_from_minnesota_retail_delivery_fee");
     openapiFields.add("tax_billing");
 
     // a set of required properties/fields (JSON key names)

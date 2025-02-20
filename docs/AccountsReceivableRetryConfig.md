@@ -20,6 +20,7 @@
 |**processLinkedAccounts** | **Boolean** | If true, all linked accounts are also processed using the same rules. |  [optional] |
 |**processingPercentage** | **String** | The percentage rate charged for the service. |  [optional] |
 |**rejectAtEnd** | **Boolean** | If true, the order is rejected the day after the last configured activity day |  [optional] |
+|**transactionRejects** | [**List&lt;AccountsReceivableRetryTransactionReject&gt;**](AccountsReceivableRetryTransactionReject.md) | Array of key/value pairs that when found in the response cause the rejection of the transaction. |  [optional] |
 |**trialMode** | **Boolean** | True if the account is currently in trial mode.  Set to false to exit trial mode. |  [optional] |
 |**trialModeExpirationDts** | **String** | The date when trial mode expires.  If this date is reached without exiting trial mode, the service will de-activate. |  [optional] |
 

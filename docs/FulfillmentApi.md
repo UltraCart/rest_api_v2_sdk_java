@@ -81,7 +81,7 @@ null (empty response body)
 
 <a name="generatePackingSlip"></a>
 # **generatePackingSlip**
-> OrdersResponse generatePackingSlip(distributionCenterCode, orderId)
+> OrderPackingSlipResponse generatePackingSlip(distributionCenterCode, orderId)
 
 Generate a packing slip for this order for the given distribution center.
 
@@ -108,7 +108,7 @@ FulfillmentApi apiInstance = new FulfillmentApi(Constants.API_KEY, Constants.VER
 String distributionCenterCode = "distributionCenterCode_example"; // String | Distribution center code
 String orderId = "orderId_example"; // String | Order ID
 try {
-    OrdersResponse result = apiInstance.generatePackingSlip(distributionCenterCodeorderId);
+    OrderPackingSlipResponse result = apiInstance.generatePackingSlip(distributionCenterCodeorderId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FulfillmentApi#generatePackingSlip");
@@ -126,7 +126,7 @@ try {
 
 ### Return type
 
-[**OrdersResponse**](OrdersResponse.md)
+[**OrderPackingSlipResponse**](OrderPackingSlipResponse.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ try {
 
 Retrieve orders queued up for this distribution center.
 
-Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
 
 ### Example
 ```java

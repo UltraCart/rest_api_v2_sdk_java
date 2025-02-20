@@ -18,6 +18,7 @@
 |**statusCode** | **Integer** | HTTP status code received from the server |  [optional] |
 |**success** | **Boolean** | True if the delivery was successful |  [optional] |
 |**uri** | **String** | URI of the webhook delivered to |  [optional] |
+|**webhookOid** | **Integer** | webhook oid |  [optional] |
 
 
 

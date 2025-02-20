@@ -20,13 +20,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationPbxPhoneNumber;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
 import com.ultracart.admin.v2.models.Warning;
-import com.ultracart.admin.v2.models.WebhookSampleRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,10 +51,10 @@ import java.util.Set;
 import com.ultracart.admin.v2.util.JSON;
 
 /**
- * WebhookSampleRequestResponse
+ * ConversationPbxPhoneNumbersResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
-public class WebhookSampleRequestResponse {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
+public class ConversationPbxPhoneNumbersResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private Error error;
@@ -60,6 +62,10 @@ public class WebhookSampleRequestResponse {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private ResponseMetadata metadata;
+
+  public static final String SERIALIZED_NAME_PHONE_NUMBERS = "phone_numbers";
+  @SerializedName(SERIALIZED_NAME_PHONE_NUMBERS)
+  private List<ConversationPbxPhoneNumber> phoneNumbers = null;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -69,14 +75,10 @@ public class WebhookSampleRequestResponse {
   @SerializedName(SERIALIZED_NAME_WARNING)
   private Warning warning;
 
-  public static final String SERIALIZED_NAME_WEBHOOK_SAMPLE_REQUEST = "webhook_sample_request";
-  @SerializedName(SERIALIZED_NAME_WEBHOOK_SAMPLE_REQUEST)
-  private WebhookSampleRequest webhookSampleRequest;
-
-  public WebhookSampleRequestResponse() { 
+  public ConversationPbxPhoneNumbersResponse() { 
   }
 
-  public WebhookSampleRequestResponse error(Error error) {
+  public ConversationPbxPhoneNumbersResponse error(Error error) {
     
     this.error = error;
     return this;
@@ -99,7 +101,7 @@ public class WebhookSampleRequestResponse {
   }
 
 
-  public WebhookSampleRequestResponse metadata(ResponseMetadata metadata) {
+  public ConversationPbxPhoneNumbersResponse metadata(ResponseMetadata metadata) {
     
     this.metadata = metadata;
     return this;
@@ -122,7 +124,38 @@ public class WebhookSampleRequestResponse {
   }
 
 
-  public WebhookSampleRequestResponse success(Boolean success) {
+  public ConversationPbxPhoneNumbersResponse phoneNumbers(List<ConversationPbxPhoneNumber> phoneNumbers) {
+    
+    this.phoneNumbers = phoneNumbers;
+    return this;
+  }
+
+  public ConversationPbxPhoneNumbersResponse addPhoneNumbersItem(ConversationPbxPhoneNumber phoneNumbersItem) {
+    if (this.phoneNumbers == null) {
+      this.phoneNumbers = new ArrayList<>();
+    }
+    this.phoneNumbers.add(phoneNumbersItem);
+    return this;
+  }
+
+   /**
+   * Get phoneNumbers
+   * @return phoneNumbers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ConversationPbxPhoneNumber> getPhoneNumbers() {
+    return phoneNumbers;
+  }
+
+
+  public void setPhoneNumbers(List<ConversationPbxPhoneNumber> phoneNumbers) {
+    this.phoneNumbers = phoneNumbers;
+  }
+
+
+  public ConversationPbxPhoneNumbersResponse success(Boolean success) {
     
     this.success = success;
     return this;
@@ -145,7 +178,7 @@ public class WebhookSampleRequestResponse {
   }
 
 
-  public WebhookSampleRequestResponse warning(Warning warning) {
+  public ConversationPbxPhoneNumbersResponse warning(Warning warning) {
     
     this.warning = warning;
     return this;
@@ -168,29 +201,6 @@ public class WebhookSampleRequestResponse {
   }
 
 
-  public WebhookSampleRequestResponse webhookSampleRequest(WebhookSampleRequest webhookSampleRequest) {
-    
-    this.webhookSampleRequest = webhookSampleRequest;
-    return this;
-  }
-
-   /**
-   * Get webhookSampleRequest
-   * @return webhookSampleRequest
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public WebhookSampleRequest getWebhookSampleRequest() {
-    return webhookSampleRequest;
-  }
-
-
-  public void setWebhookSampleRequest(WebhookSampleRequest webhookSampleRequest) {
-    this.webhookSampleRequest = webhookSampleRequest;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -200,28 +210,28 @@ public class WebhookSampleRequestResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebhookSampleRequestResponse webhookSampleRequestResponse = (WebhookSampleRequestResponse) o;
-    return Objects.equals(this.error, webhookSampleRequestResponse.error) &&
-        Objects.equals(this.metadata, webhookSampleRequestResponse.metadata) &&
-        Objects.equals(this.success, webhookSampleRequestResponse.success) &&
-        Objects.equals(this.warning, webhookSampleRequestResponse.warning) &&
-        Objects.equals(this.webhookSampleRequest, webhookSampleRequestResponse.webhookSampleRequest);
+    ConversationPbxPhoneNumbersResponse conversationPbxPhoneNumbersResponse = (ConversationPbxPhoneNumbersResponse) o;
+    return Objects.equals(this.error, conversationPbxPhoneNumbersResponse.error) &&
+        Objects.equals(this.metadata, conversationPbxPhoneNumbersResponse.metadata) &&
+        Objects.equals(this.phoneNumbers, conversationPbxPhoneNumbersResponse.phoneNumbers) &&
+        Objects.equals(this.success, conversationPbxPhoneNumbersResponse.success) &&
+        Objects.equals(this.warning, conversationPbxPhoneNumbersResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, success, warning, webhookSampleRequest);
+    return Objects.hash(error, metadata, phoneNumbers, success, warning);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WebhookSampleRequestResponse {\n");
+    sb.append("class ConversationPbxPhoneNumbersResponse {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
-    sb.append("    webhookSampleRequest: ").append(toIndentedString(webhookSampleRequest)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -246,9 +256,9 @@ public class WebhookSampleRequestResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("error");
     openapiFields.add("metadata");
+    openapiFields.add("phone_numbers");
     openapiFields.add("success");
     openapiFields.add("warning");
-    openapiFields.add("webhook_sample_request");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -258,22 +268,22 @@ public class WebhookSampleRequestResponse {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WebhookSampleRequestResponse
+  * @throws IOException if the JSON Object is invalid with respect to ConversationPbxPhoneNumbersResponse
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WebhookSampleRequestResponse.openapiRequiredFields.isEmpty()) {
+        if (ConversationPbxPhoneNumbersResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebhookSampleRequestResponse is not found in the empty JSON string", WebhookSampleRequestResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ConversationPbxPhoneNumbersResponse is not found in the empty JSON string", ConversationPbxPhoneNumbersResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!WebhookSampleRequestResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebhookSampleRequestResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ConversationPbxPhoneNumbersResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationPbxPhoneNumbersResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field `error`
@@ -284,13 +294,21 @@ public class WebhookSampleRequestResponse {
       if (jsonObj.getAsJsonObject("metadata") != null) {
         ResponseMetadata.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
       }
+      JsonArray jsonArrayphoneNumbers = jsonObj.getAsJsonArray("phone_numbers");
+      if (jsonArrayphoneNumbers != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("phone_numbers").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `phone_numbers` to be an array in the JSON string but got `%s`", jsonObj.get("phone_numbers").toString()));
+        }
+
+        // validate the optional field `phone_numbers` (array)
+        for (int i = 0; i < jsonArrayphoneNumbers.size(); i++) {
+          ConversationPbxPhoneNumber.validateJsonObject(jsonArrayphoneNumbers.get(i).getAsJsonObject());
+        };
+      }
       // validate the optional field `warning`
       if (jsonObj.getAsJsonObject("warning") != null) {
         Warning.validateJsonObject(jsonObj.getAsJsonObject("warning"));
-      }
-      // validate the optional field `webhook_sample_request`
-      if (jsonObj.getAsJsonObject("webhook_sample_request") != null) {
-        WebhookSampleRequest.validateJsonObject(jsonObj.getAsJsonObject("webhook_sample_request"));
       }
   }
 
@@ -298,22 +316,22 @@ public class WebhookSampleRequestResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WebhookSampleRequestResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WebhookSampleRequestResponse' and its subtypes
+       if (!ConversationPbxPhoneNumbersResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ConversationPbxPhoneNumbersResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WebhookSampleRequestResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WebhookSampleRequestResponse.class));
+       final TypeAdapter<ConversationPbxPhoneNumbersResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ConversationPbxPhoneNumbersResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WebhookSampleRequestResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<ConversationPbxPhoneNumbersResponse>() {
            @Override
-           public void write(JsonWriter out, WebhookSampleRequestResponse value) throws IOException {
+           public void write(JsonWriter out, ConversationPbxPhoneNumbersResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public WebhookSampleRequestResponse read(JsonReader in) throws IOException {
+           public ConversationPbxPhoneNumbersResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -324,18 +342,18 @@ public class WebhookSampleRequestResponse {
   }
 
  /**
-  * Create an instance of WebhookSampleRequestResponse given an JSON string
+  * Create an instance of ConversationPbxPhoneNumbersResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WebhookSampleRequestResponse
-  * @throws IOException if the JSON string is invalid with respect to WebhookSampleRequestResponse
+  * @return An instance of ConversationPbxPhoneNumbersResponse
+  * @throws IOException if the JSON string is invalid with respect to ConversationPbxPhoneNumbersResponse
   */
-  public static WebhookSampleRequestResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WebhookSampleRequestResponse.class);
+  public static ConversationPbxPhoneNumbersResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ConversationPbxPhoneNumbersResponse.class);
   }
 
  /**
-  * Convert an instance of WebhookSampleRequestResponse to an JSON string
+  * Convert an instance of ConversationPbxPhoneNumbersResponse to an JSON string
   *
   * @return JSON string
   */

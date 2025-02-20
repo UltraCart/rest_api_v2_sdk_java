@@ -39,6 +39,9 @@ import com.ultracart.admin.v2.models.CustomerQuery;
 import com.ultracart.admin.v2.models.CustomerResponse;
 import com.ultracart.admin.v2.models.CustomerStoreCreditAddRequest;
 import com.ultracart.admin.v2.models.CustomerStoreCreditResponse;
+import com.ultracart.admin.v2.models.CustomerWishListItem;
+import com.ultracart.admin.v2.models.CustomerWishListItemResponse;
+import com.ultracart.admin.v2.models.CustomerWishListItemsResponse;
 import com.ultracart.admin.v2.models.CustomersResponse;
 import com.ultracart.admin.v2.models.DataTablesServerSideResponse;
 import com.ultracart.admin.v2.models.EmailListsResponse;
@@ -569,6 +572,163 @@ public class CustomerApi {
 
         okhttp3.Call localVarCall = deleteCustomerValidateBeforeCall(customerProfileOid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteWishListItem
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteWishListItemCall(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", localVarApiClient.escapeString(customerProfileOid.toString()))
+            .replaceAll("\\{" + "customer_wishlist_item_oid" + "\\}", localVarApiClient.escapeString(customerWishlistItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteWishListItemValidateBeforeCall(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling deleteWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'customerWishlistItemOid' is set
+        if (customerWishlistItemOid == null) {
+            throw new ApiException("Missing the required parameter 'customerWishlistItemOid' when calling deleteWishListItem(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteWishListItemCall(customerProfileOid, customerWishlistItemOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a customer wishlist item
+     * Delete a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
+     * @return CustomerWishListItem
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomerWishListItem deleteWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        ApiResponse<CustomerWishListItem> localVarResp = deleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a customer wishlist item
+     * Delete a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
+     * @return ApiResponse&lt;CustomerWishListItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomerWishListItem> deleteWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        okhttp3.Call localVarCall = deleteWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a customer wishlist item (asynchronously)
+     * Delete a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<CustomerWishListItem> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, _callback);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -1299,6 +1459,310 @@ public class CustomerApi {
 
         okhttp3.Call localVarCall = getCustomerStoreCreditValidateBeforeCall(customerProfileOid, _callback);
         Type localVarReturnType = new TypeToken<CustomerStoreCreditResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCustomerWishList
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomerWishListCall(Integer customerProfileOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", localVarApiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCustomerWishListValidateBeforeCall(Integer customerProfileOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling getCustomerWishList(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getCustomerWishListCall(customerProfileOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve wishlist items for customer
+     * Retrieve wishlist items for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @return CustomerWishListItemsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomerWishListItemsResponse getCustomerWishList(Integer customerProfileOid) throws ApiException {
+        ApiResponse<CustomerWishListItemsResponse> localVarResp = getCustomerWishListWithHttpInfo(customerProfileOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve wishlist items for customer
+     * Retrieve wishlist items for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @return ApiResponse&lt;CustomerWishListItemsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomerWishListItemsResponse> getCustomerWishListWithHttpInfo(Integer customerProfileOid) throws ApiException {
+        okhttp3.Call localVarCall = getCustomerWishListValidateBeforeCall(customerProfileOid, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItemsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve wishlist items for customer (asynchronously)
+     * Retrieve wishlist items for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomerWishListAsync(Integer customerProfileOid, final ApiCallback<CustomerWishListItemsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCustomerWishListValidateBeforeCall(customerProfileOid, _callback);
+        Type localVarReturnType = new TypeToken<CustomerWishListItemsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCustomerWishListItem
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomerWishListItemCall(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", localVarApiClient.escapeString(customerProfileOid.toString()))
+            .replaceAll("\\{" + "customer_wishlist_item_oid" + "\\}", localVarApiClient.escapeString(customerWishlistItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCustomerWishListItemValidateBeforeCall(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling getCustomerWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'customerWishlistItemOid' is set
+        if (customerWishlistItemOid == null) {
+            throw new ApiException("Missing the required parameter 'customerWishlistItemOid' when calling getCustomerWishListItem(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getCustomerWishListItemCall(customerProfileOid, customerWishlistItemOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve wishlist item for customer
+     * Retrieve wishlist item for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @return CustomerWishListItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomerWishListItemResponse getCustomerWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        ApiResponse<CustomerWishListItemResponse> localVarResp = getCustomerWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve wishlist item for customer
+     * Retrieve wishlist item for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @return ApiResponse&lt;CustomerWishListItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomerWishListItemResponse> getCustomerWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        okhttp3.Call localVarCall = getCustomerWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItemResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve wishlist item for customer (asynchronously)
+     * Retrieve wishlist item for customer. 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomerWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<CustomerWishListItemResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCustomerWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, _callback);
+        Type localVarReturnType = new TypeToken<CustomerWishListItemResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2484,6 +2948,162 @@ public class CustomerApi {
         return localVarCall;
     }
     /**
+     * Build call for insertWishListItem
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param wishlistItem Wishlist item to insert (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertWishListItemCall(Integer customerProfileOid, CustomerWishListItem wishlistItem, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = wishlistItem;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", localVarApiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertWishListItemValidateBeforeCall(Integer customerProfileOid, CustomerWishListItem wishlistItem, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling insertWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'wishlistItem' is set
+        if (wishlistItem == null) {
+            throw new ApiException("Missing the required parameter 'wishlistItem' when calling insertWishListItem(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertWishListItemCall(customerProfileOid, wishlistItem, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Insert a customer wishlist item
+     * Insert a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param wishlistItem Wishlist item to insert (required)
+     * @return CustomerWishListItem
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomerWishListItem insertWishListItem(Integer customerProfileOid, CustomerWishListItem wishlistItem) throws ApiException {
+        ApiResponse<CustomerWishListItem> localVarResp = insertWishListItemWithHttpInfo(customerProfileOid, wishlistItem);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Insert a customer wishlist item
+     * Insert a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param wishlistItem Wishlist item to insert (required)
+     * @return ApiResponse&lt;CustomerWishListItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomerWishListItem> insertWishListItemWithHttpInfo(Integer customerProfileOid, CustomerWishListItem wishlistItem) throws ApiException {
+        okhttp3.Call localVarCall = insertWishListItemValidateBeforeCall(customerProfileOid, wishlistItem, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Insert a customer wishlist item (asynchronously)
+     * Insert a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param wishlistItem Wishlist item to insert (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertWishListItemAsync(Integer customerProfileOid, CustomerWishListItem wishlistItem, final ApiCallback<CustomerWishListItem> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertWishListItemValidateBeforeCall(customerProfileOid, wishlistItem, _callback);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for mergeCustomer
      * @param customerProfileOid The customer_profile_oid to update. (required)
      * @param customer Customer to merge into this profile. (required)
@@ -3102,6 +3722,172 @@ public class CustomerApi {
 
         okhttp3.Call localVarCall = updateCustomerEmailListsValidateBeforeCall(customerProfileOid, listChanges, _callback);
         Type localVarReturnType = new TypeToken<CustomerEmailListChanges>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateWishListItem
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param wishlistItem Wishlist item to update (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateWishListItemCall(Integer customerProfileOid, Integer customerWishlistItemOid, CustomerWishListItem wishlistItem, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = wishlistItem;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", localVarApiClient.escapeString(customerProfileOid.toString()))
+            .replaceAll("\\{" + "customer_wishlist_item_oid" + "\\}", localVarApiClient.escapeString(customerWishlistItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateWishListItemValidateBeforeCall(Integer customerProfileOid, Integer customerWishlistItemOid, CustomerWishListItem wishlistItem, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling updateWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'customerWishlistItemOid' is set
+        if (customerWishlistItemOid == null) {
+            throw new ApiException("Missing the required parameter 'customerWishlistItemOid' when calling updateWishListItem(Async)");
+        }
+        
+        // verify the required parameter 'wishlistItem' is set
+        if (wishlistItem == null) {
+            throw new ApiException("Missing the required parameter 'wishlistItem' when calling updateWishListItem(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateWishListItemCall(customerProfileOid, customerWishlistItemOid, wishlistItem, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a customer wishlist item
+     * Update a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param wishlistItem Wishlist item to update (required)
+     * @return CustomerWishListItem
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomerWishListItem updateWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid, CustomerWishListItem wishlistItem) throws ApiException {
+        ApiResponse<CustomerWishListItem> localVarResp = updateWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid, wishlistItem);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a customer wishlist item
+     * Update a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param wishlistItem Wishlist item to update (required)
+     * @return ApiResponse&lt;CustomerWishListItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomerWishListItem> updateWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid, CustomerWishListItem wishlistItem) throws ApiException {
+        okhttp3.Call localVarCall = updateWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, wishlistItem, null);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a customer wishlist item (asynchronously)
+     * Update a customer wishlist item 
+     * @param customerProfileOid The customer oid for this wishlist. (required)
+     * @param customerWishlistItemOid The wishlist oid for this wishlist item. (required)
+     * @param wishlistItem Wishlist item to update (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, CustomerWishListItem wishlistItem, final ApiCallback<CustomerWishListItem> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, wishlistItem, _callback);
+        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

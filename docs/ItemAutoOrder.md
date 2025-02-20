@@ -12,7 +12,9 @@
 |**autoOrderCancelChargeMinimumBalance** | **Boolean** | If true, the cost of the cancel item will be the remaining balance of the minimum rebill or lifetime value |  [optional] |
 |**autoOrderCancelItemId** | **String** | Item id to attempt charging the customer for if they cancel |  [optional] |
 |**autoOrderCancelItemOid** | **Integer** | Item object identifier to attempt charging the customer for if they cancel |  [optional] |
+|**autoOrderCancelMinimumLifeTimeCount** | **Integer** | The minimum life time count that must be billed in order to not be charged the cancellation item. |  [optional] |
 |**autoOrderCancelMinimumLifeTimeValue** | **BigDecimal** | The minimum life time value that must be paid in order to not be charged the cancellation item. |  [optional] |
+|**autoOrderCancelMinimumRebillCount** | **Integer** | The minimum rebill count that must be billed in order to not be charged the cancellation item. |  [optional] |
 |**autoOrderCancelMinimumRebillValue** | **BigDecimal** | The minimum rebill value that must be paid in order to not be charged the cancellation item. |  [optional] |
 |**autoOrderDowngradeItems** | **List&lt;String&gt;** | List of downgrade items presented to customer service representatives |  [optional] |
 |**autoOrderPaused** | **Boolean** | True if the rebill processing of this item is paused |  [optional] |

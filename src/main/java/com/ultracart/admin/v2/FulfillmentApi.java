@@ -31,6 +31,7 @@ import com.ultracart.admin.v2.models.DistributionCentersResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.FulfillmentInventory;
 import com.ultracart.admin.v2.models.FulfillmentShipment;
+import com.ultracart.admin.v2.models.OrderPackingSlipResponse;
 import com.ultracart.admin.v2.models.OrdersResponse;
 
 import java.lang.reflect.Type;
@@ -344,7 +345,7 @@ public class FulfillmentApi {
      * The packing slip PDF that is returned is base 64 encoded 
      * @param distributionCenterCode Distribution center code (required)
      * @param orderId Order ID (required)
-     * @return OrdersResponse
+     * @return OrderPackingSlipResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -357,8 +358,8 @@ public class FulfillmentApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public OrdersResponse generatePackingSlip(String distributionCenterCode, String orderId) throws ApiException {
-        ApiResponse<OrdersResponse> localVarResp = generatePackingSlipWithHttpInfo(distributionCenterCode, orderId);
+    public OrderPackingSlipResponse generatePackingSlip(String distributionCenterCode, String orderId) throws ApiException {
+        ApiResponse<OrderPackingSlipResponse> localVarResp = generatePackingSlipWithHttpInfo(distributionCenterCode, orderId);
         return localVarResp.getData();
     }
 
@@ -367,7 +368,7 @@ public class FulfillmentApi {
      * The packing slip PDF that is returned is base 64 encoded 
      * @param distributionCenterCode Distribution center code (required)
      * @param orderId Order ID (required)
-     * @return ApiResponse&lt;OrdersResponse&gt;
+     * @return ApiResponse&lt;OrderPackingSlipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -380,9 +381,9 @@ public class FulfillmentApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<OrdersResponse> generatePackingSlipWithHttpInfo(String distributionCenterCode, String orderId) throws ApiException {
+    public ApiResponse<OrderPackingSlipResponse> generatePackingSlipWithHttpInfo(String distributionCenterCode, String orderId) throws ApiException {
         okhttp3.Call localVarCall = generatePackingSlipValidateBeforeCall(distributionCenterCode, orderId, null);
-        Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderPackingSlipResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -405,10 +406,10 @@ public class FulfillmentApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call generatePackingSlipAsync(String distributionCenterCode, String orderId, final ApiCallback<OrdersResponse> _callback) throws ApiException {
+    public okhttp3.Call generatePackingSlipAsync(String distributionCenterCode, String orderId, final ApiCallback<OrderPackingSlipResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = generatePackingSlipValidateBeforeCall(distributionCenterCode, orderId, _callback);
-        Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderPackingSlipResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -491,7 +492,7 @@ public class FulfillmentApi {
 
     /**
      * Retrieve orders queued up for this distribution center.
-     * Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+     * Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
      * @param distributionCenterCode Distribution center code (required)
      * @return OrdersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -513,7 +514,7 @@ public class FulfillmentApi {
 
     /**
      * Retrieve orders queued up for this distribution center.
-     * Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+     * Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
      * @param distributionCenterCode Distribution center code (required)
      * @return ApiResponse&lt;OrdersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -536,7 +537,7 @@ public class FulfillmentApi {
 
     /**
      * Retrieve orders queued up for this distribution center. (asynchronously)
-     * Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+     * Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
      * @param distributionCenterCode Distribution center code (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.OrderPaymentCreditCardDualVaulted;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -48,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPaymentCreditCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderPaymentCreditCard {
   public static final String SERIALIZED_NAME_CARD_AUTH_TICKET = "card_auth_ticket";
   @SerializedName(SERIALIZED_NAME_CARD_AUTH_TICKET)
@@ -148,6 +149,10 @@ public class OrderPaymentCreditCard {
   public static final String SERIALIZED_NAME_CARD_VERIFICATION_NUMBER_TOKEN = "card_verification_number_token";
   @SerializedName(SERIALIZED_NAME_CARD_VERIFICATION_NUMBER_TOKEN)
   private String cardVerificationNumberToken;
+
+  public static final String SERIALIZED_NAME_DUAL_VAULTED = "dual_vaulted";
+  @SerializedName(SERIALIZED_NAME_DUAL_VAULTED)
+  private OrderPaymentCreditCardDualVaulted dualVaulted;
 
   public OrderPaymentCreditCard() { 
   }
@@ -405,6 +410,29 @@ public class OrderPaymentCreditCard {
   }
 
 
+  public OrderPaymentCreditCard dualVaulted(OrderPaymentCreditCardDualVaulted dualVaulted) {
+    
+    this.dualVaulted = dualVaulted;
+    return this;
+  }
+
+   /**
+   * Get dualVaulted
+   * @return dualVaulted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OrderPaymentCreditCardDualVaulted getDualVaulted() {
+    return dualVaulted;
+  }
+
+
+  public void setDualVaulted(OrderPaymentCreditCardDualVaulted dualVaulted) {
+    this.dualVaulted = dualVaulted;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -425,12 +453,13 @@ public class OrderPaymentCreditCard {
         Objects.equals(this.cardNumberToken, orderPaymentCreditCard.cardNumberToken) &&
         Objects.equals(this.cardNumberTruncated, orderPaymentCreditCard.cardNumberTruncated) &&
         Objects.equals(this.cardType, orderPaymentCreditCard.cardType) &&
-        Objects.equals(this.cardVerificationNumberToken, orderPaymentCreditCard.cardVerificationNumberToken);
+        Objects.equals(this.cardVerificationNumberToken, orderPaymentCreditCard.cardVerificationNumberToken) &&
+        Objects.equals(this.dualVaulted, orderPaymentCreditCard.dualVaulted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardAuthTicket, cardAuthorizationAmount, cardAuthorizationDts, cardAuthorizationReferenceNumber, cardExpirationMonth, cardExpirationYear, cardNumber, cardNumberToken, cardNumberTruncated, cardType, cardVerificationNumberToken);
+    return Objects.hash(cardAuthTicket, cardAuthorizationAmount, cardAuthorizationDts, cardAuthorizationReferenceNumber, cardExpirationMonth, cardExpirationYear, cardNumber, cardNumberToken, cardNumberTruncated, cardType, cardVerificationNumberToken, dualVaulted);
   }
 
   @Override
@@ -448,6 +477,7 @@ public class OrderPaymentCreditCard {
     sb.append("    cardNumberTruncated: ").append(toIndentedString(cardNumberTruncated)).append("\n");
     sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    cardVerificationNumberToken: ").append(toIndentedString(cardVerificationNumberToken)).append("\n");
+    sb.append("    dualVaulted: ").append(toIndentedString(dualVaulted)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -481,6 +511,7 @@ public class OrderPaymentCreditCard {
     openapiFields.add("card_number_truncated");
     openapiFields.add("card_type");
     openapiFields.add("card_verification_number_token");
+    openapiFields.add("dual_vaulted");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -528,6 +559,10 @@ public class OrderPaymentCreditCard {
       }
       if (jsonObj.get("card_verification_number_token") != null && !jsonObj.get("card_verification_number_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `card_verification_number_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("card_verification_number_token").toString()));
+      }
+      // validate the optional field `dual_vaulted`
+      if (jsonObj.getAsJsonObject("dual_vaulted") != null) {
+        OrderPaymentCreditCardDualVaulted.validateJsonObject(jsonObj.getAsJsonObject("dual_vaulted"));
       }
   }
 

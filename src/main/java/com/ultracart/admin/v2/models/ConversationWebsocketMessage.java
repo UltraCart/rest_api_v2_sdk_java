@@ -59,8 +59,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
+  public static final String SERIALIZED_NAME_CONVERSATION_ARN = "conversation_arn";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION_ARN)
+  private String conversationArn;
+
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
   private String conversationUuid;
@@ -108,6 +112,10 @@ public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_EVENT_PARTICIPANT_UPDATE = "event_participant_update";
   @SerializedName(SERIALIZED_NAME_EVENT_PARTICIPANT_UPDATE)
   private ConversationSummary eventParticipantUpdate;
+
+  public static final String SERIALIZED_NAME_EVENT_QUEUE_NEW_MEMBER = "event_queue_new_member";
+  @SerializedName(SERIALIZED_NAME_EVENT_QUEUE_NEW_MEMBER)
+  private ConversationWebchatQueueStatusQueueEntry eventQueueNewMember;
 
   public static final String SERIALIZED_NAME_EVENT_QUEUE_POSITION = "event_queue_position";
   @SerializedName(SERIALIZED_NAME_EVENT_QUEUE_POSITION)
@@ -162,7 +170,9 @@ public class ConversationWebsocketMessage {
     
     WEBCHAT_CONTEXT("webchat context"),
     
-    ENGAGE_CUSTOMER("engage customer");
+    ENGAGE_CUSTOMER("engage customer"),
+    
+    QUEUE_NEW_MEMBER("queue new member");
 
     private String value;
 
@@ -279,6 +289,29 @@ public class ConversationWebsocketMessage {
 
   public ConversationWebsocketMessage() { 
   }
+
+  public ConversationWebsocketMessage conversationArn(String conversationArn) {
+    
+    this.conversationArn = conversationArn;
+    return this;
+  }
+
+   /**
+   * Conversation ARN
+   * @return conversationArn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Conversation ARN")
+
+  public String getConversationArn() {
+    return conversationArn;
+  }
+
+
+  public void setConversationArn(String conversationArn) {
+    this.conversationArn = conversationArn;
+  }
+
 
   public ConversationWebsocketMessage conversationUuid(String conversationUuid) {
     
@@ -556,6 +589,29 @@ public class ConversationWebsocketMessage {
   }
 
 
+  public ConversationWebsocketMessage eventQueueNewMember(ConversationWebchatQueueStatusQueueEntry eventQueueNewMember) {
+    
+    this.eventQueueNewMember = eventQueueNewMember;
+    return this;
+  }
+
+   /**
+   * Get eventQueueNewMember
+   * @return eventQueueNewMember
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationWebchatQueueStatusQueueEntry getEventQueueNewMember() {
+    return eventQueueNewMember;
+  }
+
+
+  public void setEventQueueNewMember(ConversationWebchatQueueStatusQueueEntry eventQueueNewMember) {
+    this.eventQueueNewMember = eventQueueNewMember;
+  }
+
+
   public ConversationWebsocketMessage eventQueuePosition(ConversationEventQueuePosition eventQueuePosition) {
     
     this.eventQueuePosition = eventQueuePosition;
@@ -796,7 +852,8 @@ public class ConversationWebsocketMessage {
       return false;
     }
     ConversationWebsocketMessage conversationWebsocketMessage = (ConversationWebsocketMessage) o;
-    return Objects.equals(this.conversationUuid, conversationWebsocketMessage.conversationUuid) &&
+    return Objects.equals(this.conversationArn, conversationWebsocketMessage.conversationArn) &&
+        Objects.equals(this.conversationUuid, conversationWebsocketMessage.conversationUuid) &&
         Objects.equals(this.eventAddCoupon, conversationWebsocketMessage.eventAddCoupon) &&
         Objects.equals(this.eventAddItem, conversationWebsocketMessage.eventAddItem) &&
         Objects.equals(this.eventConversationClosed, conversationWebsocketMessage.eventConversationClosed) &&
@@ -808,6 +865,7 @@ public class ConversationWebsocketMessage {
         Objects.equals(this.eventParticipantLeft, conversationWebsocketMessage.eventParticipantLeft) &&
         Objects.equals(this.eventParticipantLeftParticipant, conversationWebsocketMessage.eventParticipantLeftParticipant) &&
         Objects.equals(this.eventParticipantUpdate, conversationWebsocketMessage.eventParticipantUpdate) &&
+        Objects.equals(this.eventQueueNewMember, conversationWebsocketMessage.eventQueueNewMember) &&
         Objects.equals(this.eventQueuePosition, conversationWebsocketMessage.eventQueuePosition) &&
         Objects.equals(this.eventQueueStatusUpdate, conversationWebsocketMessage.eventQueueStatusUpdate) &&
         Objects.equals(this.eventReadMessage, conversationWebsocketMessage.eventReadMessage) &&
@@ -822,13 +880,14 @@ public class ConversationWebsocketMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventEngageCustomer, eventNewConversation, eventNewMessage, eventParticipantJoin, eventParticipantJoinParticipant, eventParticipantLeft, eventParticipantLeftParticipant, eventParticipantUpdate, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
+    return Objects.hash(conversationArn, conversationUuid, eventAddCoupon, eventAddItem, eventConversationClosed, eventEngageCustomer, eventNewConversation, eventNewMessage, eventParticipantJoin, eventParticipantJoinParticipant, eventParticipantLeft, eventParticipantLeftParticipant, eventParticipantUpdate, eventQueueNewMember, eventQueuePosition, eventQueueStatusUpdate, eventReadMessage, eventRrweb, eventType, eventTyping, eventUpdatedMessage, eventWebchatContext, message, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationWebsocketMessage {\n");
+    sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    eventAddCoupon: ").append(toIndentedString(eventAddCoupon)).append("\n");
     sb.append("    eventAddItem: ").append(toIndentedString(eventAddItem)).append("\n");
@@ -841,6 +900,7 @@ public class ConversationWebsocketMessage {
     sb.append("    eventParticipantLeft: ").append(toIndentedString(eventParticipantLeft)).append("\n");
     sb.append("    eventParticipantLeftParticipant: ").append(toIndentedString(eventParticipantLeftParticipant)).append("\n");
     sb.append("    eventParticipantUpdate: ").append(toIndentedString(eventParticipantUpdate)).append("\n");
+    sb.append("    eventQueueNewMember: ").append(toIndentedString(eventQueueNewMember)).append("\n");
     sb.append("    eventQueuePosition: ").append(toIndentedString(eventQueuePosition)).append("\n");
     sb.append("    eventQueueStatusUpdate: ").append(toIndentedString(eventQueueStatusUpdate)).append("\n");
     sb.append("    eventReadMessage: ").append(toIndentedString(eventReadMessage)).append("\n");
@@ -873,6 +933,7 @@ public class ConversationWebsocketMessage {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("conversation_arn");
     openapiFields.add("conversation_uuid");
     openapiFields.add("event_add_coupon");
     openapiFields.add("event_add_item");
@@ -885,6 +946,7 @@ public class ConversationWebsocketMessage {
     openapiFields.add("event_participant_left");
     openapiFields.add("event_participant_left_participant");
     openapiFields.add("event_participant_update");
+    openapiFields.add("event_queue_new_member");
     openapiFields.add("event_queue_position");
     openapiFields.add("event_queue_status_update");
     openapiFields.add("event_read_message");
@@ -921,6 +983,9 @@ public class ConversationWebsocketMessage {
         if (!ConversationWebsocketMessage.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationWebsocketMessage` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("conversation_arn") != null && !jsonObj.get("conversation_arn").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conversation_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_arn").toString()));
       }
       if (jsonObj.get("conversation_uuid") != null && !jsonObj.get("conversation_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_uuid").toString()));
@@ -968,6 +1033,10 @@ public class ConversationWebsocketMessage {
       // validate the optional field `event_participant_update`
       if (jsonObj.getAsJsonObject("event_participant_update") != null) {
         ConversationSummary.validateJsonObject(jsonObj.getAsJsonObject("event_participant_update"));
+      }
+      // validate the optional field `event_queue_new_member`
+      if (jsonObj.getAsJsonObject("event_queue_new_member") != null) {
+        ConversationWebchatQueueStatusQueueEntry.validateJsonObject(jsonObj.getAsJsonObject("event_queue_new_member"));
       }
       // validate the optional field `event_queue_position`
       if (jsonObj.getAsJsonObject("event_queue_position") != null) {

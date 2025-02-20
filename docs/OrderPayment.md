@@ -10,6 +10,7 @@
 |**check** | [**OrderPaymentCheck**](OrderPaymentCheck.md) |  |  [optional] |
 |**creditCard** | [**OrderPaymentCreditCard**](OrderPaymentCreditCard.md) |  |  [optional] |
 |**echeck** | [**OrderPaymentECheck**](OrderPaymentECheck.md) |  |  [optional] |
+|**healthBenefitCard** | [**OrderPaymentHealthBenefitCard**](OrderPaymentHealthBenefitCard.md) |  |  [optional] |
 |**holdForFraudReview** | **Boolean** | True if order has been held for fraud review |  [optional] |
 |**insurance** | [**OrderPaymentInsurance**](OrderPaymentInsurance.md) |  |  [optional] |
 |**paymentDts** | **String** | Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true |  [optional] |
@@ -34,6 +35,7 @@
 |---- | -----|
 | AFFIRM | &quot;Affirm&quot; |
 | AMAZON | &quot;Amazon&quot; |
+| AMAZON_PAY | &quot;Amazon Pay&quot; |
 | AMAZON_SC | &quot;Amazon SC&quot; |
 | CASH | &quot;Cash&quot; |
 | CHECK | &quot;Check&quot; |
@@ -43,6 +45,7 @@
 | ECHECK | &quot;eCheck&quot; |
 | GOOGLE_SHOPPING | &quot;Google Shopping&quot; |
 | INSURANCE | &quot;Insurance&quot; |
+| LINK | &quot;Link&quot; |
 | LOANHERO | &quot;LoanHero&quot; |
 | MONEY_ORDER | &quot;Money Order&quot; |
 | PAYPAL | &quot;PayPal&quot; |
@@ -52,6 +55,11 @@
 | WIRE_TRANSFER | &quot;Wire Transfer&quot; |
 | WALMART | &quot;Walmart&quot; |
 | SHOP_COM | &quot;Shop.com&quot; |
+| SEZZLE | &quot;Sezzle&quot; |
+| VENMO | &quot;Venmo&quot; |
+| APPLE_PAY | &quot;Apple Pay&quot; |
+| GOOGLE_PAY | &quot;Google Pay&quot; |
+| HEALTH_BENEFIT_CARD | &quot;Health Benefit Card&quot; |
 
 
 

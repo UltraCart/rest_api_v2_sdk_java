@@ -9,10 +9,15 @@
 |------------ | ------------- | ------------- | -------------|
 |**accountingCode** | **String** | QuickBooks code |  [optional] |
 |**activationCodes** | **List&lt;String&gt;** | Activation codes assigned to this item |  [optional] |
+|**actualCogs** | [**Currency**](Currency.md) |  |  [optional] |
 |**arbitraryUnitCost** | [**Currency**](Currency.md) |  |  [optional] |
 |**autoOrderLastRebillDts** | **String** | Date/time of the last rebill, used only during order insert to help project future rebills |  [optional] |
 |**autoOrderSchedule** | **String** | Auto order schedule, used only during inserts supplying the recurring schedule |  [optional] |
 |**barcode** | **String** | Barcode |  [optional] |
+|**barcodeGtin12** | **String** | Barcode - GTIN 12 |  [optional] |
+|**barcodeGtin14** | **String** | Barcode - GTIN 14 |  [optional] |
+|**barcodeUpc11** | **String** | Barcode - UPC 11 |  [optional] |
+|**barcodeUpc12** | **String** | Barcode - UPC 12 |  [optional] |
 |**channelPartnerItemId** | **String** | Channel partner item id if this order came through a channel partner and the channel partner item id was mapped to an internal item id |  [optional] |
 |**cogs** | **BigDecimal** | Cost of goods sold |  [optional] |
 |**componentUnitValue** | **BigDecimal** | Value of the kit component item |  [optional] |
@@ -50,6 +55,8 @@
 |**quantity** | **BigDecimal** | Quantity |  [optional] |
 |**quantityRefunded** | **BigDecimal** | Quantity refunded on this item (read only except refund operation) |  [optional] |
 |**quickbooksClass** | **String** | QuickBooks class |  [optional] |
+|**refundReason** | **String** | Refund reason code.  This can only be written during a refund operation otherwise this field is read only. |  [optional] |
+|**returnReason** | **String** | Return reason code.  This can only be written during a refund operation otherwise this field is read only. |  [optional] |
 |**shipSeparately** | **Boolean** | True if this item ships in a separate box |  [optional] |
 |**shippedByUser** | **String** | Shipped by user |  [optional] |
 |**shippedDts** | **String** | Date/time that this item was marked shipped |  [optional] |

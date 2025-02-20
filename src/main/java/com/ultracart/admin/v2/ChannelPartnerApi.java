@@ -37,6 +37,8 @@ import com.ultracart.admin.v2.models.ChannelPartnerShipToPreferenceResponse;
 import com.ultracart.admin.v2.models.ChannelPartnerShipToPreferencesResponse;
 import com.ultracart.admin.v2.models.ChannelPartnersResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.Order;
+import com.ultracart.admin.v2.models.OrderResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -844,6 +846,316 @@ public class ChannelPartnerApi {
         return localVarCall;
     }
     /**
+     * Build call for getChannelPartnerOrder
+     * @param orderId The order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnerOrderCall(String orderId, String expand, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/orders/{order_id}"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getChannelPartnerOrderValidateBeforeCall(String orderId, String expand, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getChannelPartnerOrder(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getChannelPartnerOrderCall(orderId, expand, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve a channel partner order
+     * Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public OrderResponse getChannelPartnerOrder(String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = getChannelPartnerOrderWithHttpInfo(orderId, expand);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve a channel partner order
+     * Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<OrderResponse> getChannelPartnerOrderWithHttpInfo(String orderId, String expand) throws ApiException {
+        okhttp3.Call localVarCall = getChannelPartnerOrderValidateBeforeCall(orderId, expand, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a channel partner order (asynchronously)
+     * Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnerOrderAsync(String orderId, String expand, final ApiCallback<OrderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getChannelPartnerOrderValidateBeforeCall(orderId, expand, _callback);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getChannelPartnerOrderByChannelPartnerOrderId
+     * @param orderId The channel partner order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnerOrderByChannelPartnerOrderIdCall(String orderId, String expand, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/orders/by_channel_partner_order_id/{order_id}"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getChannelPartnerOrderByChannelPartnerOrderIdValidateBeforeCall(String orderId, String expand, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getChannelPartnerOrderByChannelPartnerOrderId(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getChannelPartnerOrderByChannelPartnerOrderIdCall(orderId, expand, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve a channel partner order by the channel partner order id
+     * Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The channel partner order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public OrderResponse getChannelPartnerOrderByChannelPartnerOrderId(String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = getChannelPartnerOrderByChannelPartnerOrderIdWithHttpInfo(orderId, expand);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve a channel partner order by the channel partner order id
+     * Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The channel partner order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<OrderResponse> getChannelPartnerOrderByChannelPartnerOrderIdWithHttpInfo(String orderId, String expand) throws ApiException {
+        okhttp3.Call localVarCall = getChannelPartnerOrderByChannelPartnerOrderIdValidateBeforeCall(orderId, expand, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a channel partner order by the channel partner order id (asynchronously)
+     * Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+     * @param orderId The channel partner order id to retrieve. (required)
+     * @param expand The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChannelPartnerOrderByChannelPartnerOrderIdAsync(String orderId, String expand, final ApiCallback<OrderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getChannelPartnerOrderByChannelPartnerOrderIdValidateBeforeCall(orderId, expand, _callback);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getChannelPartnerShipToPreference
      * @param channelPartnerOid  (required)
      * @param channelPartnerShipToPreferenceOid  (required)
@@ -1583,6 +1895,226 @@ public class ChannelPartnerApi {
 
         okhttp3.Call localVarCall = insertChannelPartnerShipToPreferenceValidateBeforeCall(channelPartnerOid, shipToPreference, _callback);
         Type localVarReturnType = new TypeToken<ChannelPartnerShipToPreferenceResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for refundChannelPartnerOrder
+     * @param orderId The order id to refund. (required)
+     * @param order Order to refund (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param expand The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refundChannelPartnerOrderCall(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = order;
+
+        // create path and map variables
+        String localVarPath = "/channel_partner/orders/{order_id}/refund"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (rejectAfterRefund != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reject_after_refund", rejectAfterRefund));
+        }
+
+        if (skipCustomerNotification != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip_customer_notification", skipCustomerNotification));
+        }
+
+        if (autoOrderCancel != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("auto_order_cancel", autoOrderCancel));
+        }
+
+        if (manualRefund != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("manual_refund", manualRefund));
+        }
+
+        if (reverseAffiliateTransactions != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reverse_affiliate_transactions", reverseAffiliateTransactions));
+        }
+
+        if (issueStoreCredit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("issue_store_credit", issueStoreCredit));
+        }
+
+        if (autoOrderCancelReason != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("auto_order_cancel_reason", autoOrderCancelReason));
+        }
+
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call refundChannelPartnerOrderValidateBeforeCall(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling refundChannelPartnerOrder(Async)");
+        }
+        
+        // verify the required parameter 'order' is set
+        if (order == null) {
+            throw new ApiException("Missing the required parameter 'order' when calling refundChannelPartnerOrder(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = refundChannelPartnerOrderCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Refund a channel partner order
+     * Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+     * @param orderId The order id to refund. (required)
+     * @param order Order to refund (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param expand The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public OrderResponse refundChannelPartnerOrder(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = refundChannelPartnerOrderWithHttpInfo(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Refund a channel partner order
+     * Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+     * @param orderId The order id to refund. (required)
+     * @param order Order to refund (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param expand The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<OrderResponse> refundChannelPartnerOrderWithHttpInfo(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand) throws ApiException {
+        okhttp3.Call localVarCall = refundChannelPartnerOrderValidateBeforeCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Refund a channel partner order (asynchronously)
+     * Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+     * @param orderId The order id to refund. (required)
+     * @param order Order to refund (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param expand The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refundChannelPartnerOrderAsync(String orderId, Order order, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String expand, final ApiCallback<OrderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = refundChannelPartnerOrderValidateBeforeCall(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand, _callback);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

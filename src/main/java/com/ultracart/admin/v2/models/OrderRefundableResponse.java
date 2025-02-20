@@ -21,11 +21,14 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
+import com.ultracart.admin.v2.models.OrderReason;
 import com.ultracart.admin.v2.models.ResponseMetadata;
 import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,15 +53,47 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderRefundableResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class OrderRefundableResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private Error error;
 
+  public static final String SERIALIZED_NAME_ITEM_LEVEL_REFUND_REASON_REQUIRED = "item_level_refund_reason_required";
+  @SerializedName(SERIALIZED_NAME_ITEM_LEVEL_REFUND_REASON_REQUIRED)
+  private Boolean itemLevelRefundReasonRequired;
+
+  public static final String SERIALIZED_NAME_ITEM_LEVEL_REFUND_REASONS = "item_level_refund_reasons";
+  @SerializedName(SERIALIZED_NAME_ITEM_LEVEL_REFUND_REASONS)
+  private List<OrderReason> itemLevelRefundReasons = null;
+
+  public static final String SERIALIZED_NAME_ITEM_LEVEL_RETURN_REASONS = "item_level_return_reasons";
+  @SerializedName(SERIALIZED_NAME_ITEM_LEVEL_RETURN_REASONS)
+  private List<OrderReason> itemLevelReturnReasons = null;
+
+  public static final String SERIALIZED_NAME_MANUAL_BECAUSE_MULTIPLE_CHARGES = "manual_because_multiple_charges";
+  @SerializedName(SERIALIZED_NAME_MANUAL_BECAUSE_MULTIPLE_CHARGES)
+  private Boolean manualBecauseMultipleCharges;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private ResponseMetadata metadata;
+
+  public static final String SERIALIZED_NAME_ORDER_LEVEL_REFUND_REASON_REQUIRED = "order_level_refund_reason_required";
+  @SerializedName(SERIALIZED_NAME_ORDER_LEVEL_REFUND_REASON_REQUIRED)
+  private Boolean orderLevelRefundReasonRequired;
+
+  public static final String SERIALIZED_NAME_ORDER_LEVEL_REFUND_REASONS = "order_level_refund_reasons";
+  @SerializedName(SERIALIZED_NAME_ORDER_LEVEL_REFUND_REASONS)
+  private List<OrderReason> orderLevelRefundReasons = null;
+
+  public static final String SERIALIZED_NAME_ORDER_LEVEL_REJECT_REASON_REQUIRED = "order_level_reject_reason_required";
+  @SerializedName(SERIALIZED_NAME_ORDER_LEVEL_REJECT_REASON_REQUIRED)
+  private Boolean orderLevelRejectReasonRequired;
+
+  public static final String SERIALIZED_NAME_ORDER_LEVEL_REJECT_REASONS = "order_level_reject_reasons";
+  @SerializedName(SERIALIZED_NAME_ORDER_LEVEL_REJECT_REASONS)
+  private List<OrderReason> orderLevelRejectReasons = null;
 
   public static final String SERIALIZED_NAME_REFUNDABLE = "refundable";
   @SerializedName(SERIALIZED_NAME_REFUNDABLE)
@@ -98,6 +133,114 @@ public class OrderRefundableResponse {
   }
 
 
+  public OrderRefundableResponse itemLevelRefundReasonRequired(Boolean itemLevelRefundReasonRequired) {
+    
+    this.itemLevelRefundReasonRequired = itemLevelRefundReasonRequired;
+    return this;
+  }
+
+   /**
+   * True if the item level refund reason is required
+   * @return itemLevelRefundReasonRequired
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the item level refund reason is required")
+
+  public Boolean getItemLevelRefundReasonRequired() {
+    return itemLevelRefundReasonRequired;
+  }
+
+
+  public void setItemLevelRefundReasonRequired(Boolean itemLevelRefundReasonRequired) {
+    this.itemLevelRefundReasonRequired = itemLevelRefundReasonRequired;
+  }
+
+
+  public OrderRefundableResponse itemLevelRefundReasons(List<OrderReason> itemLevelRefundReasons) {
+    
+    this.itemLevelRefundReasons = itemLevelRefundReasons;
+    return this;
+  }
+
+  public OrderRefundableResponse addItemLevelRefundReasonsItem(OrderReason itemLevelRefundReasonsItem) {
+    if (this.itemLevelRefundReasons == null) {
+      this.itemLevelRefundReasons = new ArrayList<>();
+    }
+    this.itemLevelRefundReasons.add(itemLevelRefundReasonsItem);
+    return this;
+  }
+
+   /**
+   * Reason codes available at the item level.
+   * @return itemLevelRefundReasons
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Reason codes available at the item level.")
+
+  public List<OrderReason> getItemLevelRefundReasons() {
+    return itemLevelRefundReasons;
+  }
+
+
+  public void setItemLevelRefundReasons(List<OrderReason> itemLevelRefundReasons) {
+    this.itemLevelRefundReasons = itemLevelRefundReasons;
+  }
+
+
+  public OrderRefundableResponse itemLevelReturnReasons(List<OrderReason> itemLevelReturnReasons) {
+    
+    this.itemLevelReturnReasons = itemLevelReturnReasons;
+    return this;
+  }
+
+  public OrderRefundableResponse addItemLevelReturnReasonsItem(OrderReason itemLevelReturnReasonsItem) {
+    if (this.itemLevelReturnReasons == null) {
+      this.itemLevelReturnReasons = new ArrayList<>();
+    }
+    this.itemLevelReturnReasons.add(itemLevelReturnReasonsItem);
+    return this;
+  }
+
+   /**
+   * Return codes available at the item level.
+   * @return itemLevelReturnReasons
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Return codes available at the item level.")
+
+  public List<OrderReason> getItemLevelReturnReasons() {
+    return itemLevelReturnReasons;
+  }
+
+
+  public void setItemLevelReturnReasons(List<OrderReason> itemLevelReturnReasons) {
+    this.itemLevelReturnReasons = itemLevelReturnReasons;
+  }
+
+
+  public OrderRefundableResponse manualBecauseMultipleCharges(Boolean manualBecauseMultipleCharges) {
+    
+    this.manualBecauseMultipleCharges = manualBecauseMultipleCharges;
+    return this;
+  }
+
+   /**
+   * If true, this refund will have to be manually done because of additional charges with the virtual terminal were made
+   * @return manualBecauseMultipleCharges
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, this refund will have to be manually done because of additional charges with the virtual terminal were made")
+
+  public Boolean getManualBecauseMultipleCharges() {
+    return manualBecauseMultipleCharges;
+  }
+
+
+  public void setManualBecauseMultipleCharges(Boolean manualBecauseMultipleCharges) {
+    this.manualBecauseMultipleCharges = manualBecauseMultipleCharges;
+  }
+
+
   public OrderRefundableResponse metadata(ResponseMetadata metadata) {
     
     this.metadata = metadata;
@@ -118,6 +261,114 @@ public class OrderRefundableResponse {
 
   public void setMetadata(ResponseMetadata metadata) {
     this.metadata = metadata;
+  }
+
+
+  public OrderRefundableResponse orderLevelRefundReasonRequired(Boolean orderLevelRefundReasonRequired) {
+    
+    this.orderLevelRefundReasonRequired = orderLevelRefundReasonRequired;
+    return this;
+  }
+
+   /**
+   * True if the order level refund reason is required
+   * @return orderLevelRefundReasonRequired
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the order level refund reason is required")
+
+  public Boolean getOrderLevelRefundReasonRequired() {
+    return orderLevelRefundReasonRequired;
+  }
+
+
+  public void setOrderLevelRefundReasonRequired(Boolean orderLevelRefundReasonRequired) {
+    this.orderLevelRefundReasonRequired = orderLevelRefundReasonRequired;
+  }
+
+
+  public OrderRefundableResponse orderLevelRefundReasons(List<OrderReason> orderLevelRefundReasons) {
+    
+    this.orderLevelRefundReasons = orderLevelRefundReasons;
+    return this;
+  }
+
+  public OrderRefundableResponse addOrderLevelRefundReasonsItem(OrderReason orderLevelRefundReasonsItem) {
+    if (this.orderLevelRefundReasons == null) {
+      this.orderLevelRefundReasons = new ArrayList<>();
+    }
+    this.orderLevelRefundReasons.add(orderLevelRefundReasonsItem);
+    return this;
+  }
+
+   /**
+   * Reason codes available at the order level.
+   * @return orderLevelRefundReasons
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Reason codes available at the order level.")
+
+  public List<OrderReason> getOrderLevelRefundReasons() {
+    return orderLevelRefundReasons;
+  }
+
+
+  public void setOrderLevelRefundReasons(List<OrderReason> orderLevelRefundReasons) {
+    this.orderLevelRefundReasons = orderLevelRefundReasons;
+  }
+
+
+  public OrderRefundableResponse orderLevelRejectReasonRequired(Boolean orderLevelRejectReasonRequired) {
+    
+    this.orderLevelRejectReasonRequired = orderLevelRejectReasonRequired;
+    return this;
+  }
+
+   /**
+   * True if the order level reject reason is required
+   * @return orderLevelRejectReasonRequired
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the order level reject reason is required")
+
+  public Boolean getOrderLevelRejectReasonRequired() {
+    return orderLevelRejectReasonRequired;
+  }
+
+
+  public void setOrderLevelRejectReasonRequired(Boolean orderLevelRejectReasonRequired) {
+    this.orderLevelRejectReasonRequired = orderLevelRejectReasonRequired;
+  }
+
+
+  public OrderRefundableResponse orderLevelRejectReasons(List<OrderReason> orderLevelRejectReasons) {
+    
+    this.orderLevelRejectReasons = orderLevelRejectReasons;
+    return this;
+  }
+
+  public OrderRefundableResponse addOrderLevelRejectReasonsItem(OrderReason orderLevelRejectReasonsItem) {
+    if (this.orderLevelRejectReasons == null) {
+      this.orderLevelRejectReasons = new ArrayList<>();
+    }
+    this.orderLevelRejectReasons.add(orderLevelRejectReasonsItem);
+    return this;
+  }
+
+   /**
+   * Reject codes available at the order level.
+   * @return orderLevelRejectReasons
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Reject codes available at the order level.")
+
+  public List<OrderReason> getOrderLevelRejectReasons() {
+    return orderLevelRejectReasons;
+  }
+
+
+  public void setOrderLevelRejectReasons(List<OrderReason> orderLevelRejectReasons) {
+    this.orderLevelRejectReasons = orderLevelRejectReasons;
   }
 
 
@@ -201,7 +452,15 @@ public class OrderRefundableResponse {
     }
     OrderRefundableResponse orderRefundableResponse = (OrderRefundableResponse) o;
     return Objects.equals(this.error, orderRefundableResponse.error) &&
+        Objects.equals(this.itemLevelRefundReasonRequired, orderRefundableResponse.itemLevelRefundReasonRequired) &&
+        Objects.equals(this.itemLevelRefundReasons, orderRefundableResponse.itemLevelRefundReasons) &&
+        Objects.equals(this.itemLevelReturnReasons, orderRefundableResponse.itemLevelReturnReasons) &&
+        Objects.equals(this.manualBecauseMultipleCharges, orderRefundableResponse.manualBecauseMultipleCharges) &&
         Objects.equals(this.metadata, orderRefundableResponse.metadata) &&
+        Objects.equals(this.orderLevelRefundReasonRequired, orderRefundableResponse.orderLevelRefundReasonRequired) &&
+        Objects.equals(this.orderLevelRefundReasons, orderRefundableResponse.orderLevelRefundReasons) &&
+        Objects.equals(this.orderLevelRejectReasonRequired, orderRefundableResponse.orderLevelRejectReasonRequired) &&
+        Objects.equals(this.orderLevelRejectReasons, orderRefundableResponse.orderLevelRejectReasons) &&
         Objects.equals(this.refundable, orderRefundableResponse.refundable) &&
         Objects.equals(this.success, orderRefundableResponse.success) &&
         Objects.equals(this.warning, orderRefundableResponse.warning);
@@ -209,7 +468,7 @@ public class OrderRefundableResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, metadata, refundable, success, warning);
+    return Objects.hash(error, itemLevelRefundReasonRequired, itemLevelRefundReasons, itemLevelReturnReasons, manualBecauseMultipleCharges, metadata, orderLevelRefundReasonRequired, orderLevelRefundReasons, orderLevelRejectReasonRequired, orderLevelRejectReasons, refundable, success, warning);
   }
 
   @Override
@@ -217,7 +476,15 @@ public class OrderRefundableResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderRefundableResponse {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    itemLevelRefundReasonRequired: ").append(toIndentedString(itemLevelRefundReasonRequired)).append("\n");
+    sb.append("    itemLevelRefundReasons: ").append(toIndentedString(itemLevelRefundReasons)).append("\n");
+    sb.append("    itemLevelReturnReasons: ").append(toIndentedString(itemLevelReturnReasons)).append("\n");
+    sb.append("    manualBecauseMultipleCharges: ").append(toIndentedString(manualBecauseMultipleCharges)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    orderLevelRefundReasonRequired: ").append(toIndentedString(orderLevelRefundReasonRequired)).append("\n");
+    sb.append("    orderLevelRefundReasons: ").append(toIndentedString(orderLevelRefundReasons)).append("\n");
+    sb.append("    orderLevelRejectReasonRequired: ").append(toIndentedString(orderLevelRejectReasonRequired)).append("\n");
+    sb.append("    orderLevelRejectReasons: ").append(toIndentedString(orderLevelRejectReasons)).append("\n");
     sb.append("    refundable: ").append(toIndentedString(refundable)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
@@ -244,7 +511,15 @@ public class OrderRefundableResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("error");
+    openapiFields.add("item_level_refund_reason_required");
+    openapiFields.add("item_level_refund_reasons");
+    openapiFields.add("item_level_return_reasons");
+    openapiFields.add("manual_because_multiple_charges");
     openapiFields.add("metadata");
+    openapiFields.add("order_level_refund_reason_required");
+    openapiFields.add("order_level_refund_reasons");
+    openapiFields.add("order_level_reject_reason_required");
+    openapiFields.add("order_level_reject_reasons");
     openapiFields.add("refundable");
     openapiFields.add("success");
     openapiFields.add("warning");
@@ -279,9 +554,57 @@ public class OrderRefundableResponse {
       if (jsonObj.getAsJsonObject("error") != null) {
         Error.validateJsonObject(jsonObj.getAsJsonObject("error"));
       }
+      JsonArray jsonArrayitemLevelRefundReasons = jsonObj.getAsJsonArray("item_level_refund_reasons");
+      if (jsonArrayitemLevelRefundReasons != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("item_level_refund_reasons").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `item_level_refund_reasons` to be an array in the JSON string but got `%s`", jsonObj.get("item_level_refund_reasons").toString()));
+        }
+
+        // validate the optional field `item_level_refund_reasons` (array)
+        for (int i = 0; i < jsonArrayitemLevelRefundReasons.size(); i++) {
+          OrderReason.validateJsonObject(jsonArrayitemLevelRefundReasons.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArrayitemLevelReturnReasons = jsonObj.getAsJsonArray("item_level_return_reasons");
+      if (jsonArrayitemLevelReturnReasons != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("item_level_return_reasons").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `item_level_return_reasons` to be an array in the JSON string but got `%s`", jsonObj.get("item_level_return_reasons").toString()));
+        }
+
+        // validate the optional field `item_level_return_reasons` (array)
+        for (int i = 0; i < jsonArrayitemLevelReturnReasons.size(); i++) {
+          OrderReason.validateJsonObject(jsonArrayitemLevelReturnReasons.get(i).getAsJsonObject());
+        };
+      }
       // validate the optional field `metadata`
       if (jsonObj.getAsJsonObject("metadata") != null) {
         ResponseMetadata.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+      }
+      JsonArray jsonArrayorderLevelRefundReasons = jsonObj.getAsJsonArray("order_level_refund_reasons");
+      if (jsonArrayorderLevelRefundReasons != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("order_level_refund_reasons").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `order_level_refund_reasons` to be an array in the JSON string but got `%s`", jsonObj.get("order_level_refund_reasons").toString()));
+        }
+
+        // validate the optional field `order_level_refund_reasons` (array)
+        for (int i = 0; i < jsonArrayorderLevelRefundReasons.size(); i++) {
+          OrderReason.validateJsonObject(jsonArrayorderLevelRefundReasons.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArrayorderLevelRejectReasons = jsonObj.getAsJsonArray("order_level_reject_reasons");
+      if (jsonArrayorderLevelRejectReasons != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("order_level_reject_reasons").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `order_level_reject_reasons` to be an array in the JSON string but got `%s`", jsonObj.get("order_level_reject_reasons").toString()));
+        }
+
+        // validate the optional field `order_level_reject_reasons` (array)
+        for (int i = 0; i < jsonArrayorderLevelRejectReasons.size(); i++) {
+          OrderReason.validateJsonObject(jsonArrayorderLevelRejectReasons.get(i).getAsJsonObject());
+        };
       }
       // validate the optional field `warning`
       if (jsonObj.getAsJsonObject("warning") != null) {

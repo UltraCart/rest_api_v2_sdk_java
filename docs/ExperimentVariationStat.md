@@ -13,6 +13,7 @@
 |**eventCount** | **Integer** | Total event count for this variation |  [optional] |
 |**initiateCheckoutCount** | **Integer** | Total initiate checkout count for this variation |  [optional] |
 |**orderCount** | **Integer** | Total order count for this variation |  [optional] |
+|**orderIds** | **List&lt;String&gt;** | Order ID thats converted on this variation |  [optional] |
 |**orderItemCount** | **Integer** | Total order item count for this variation |  [optional] |
 |**pageViewCount** | **Integer** | Total page view count for this variation |  [optional] |
 |**revenue** | **BigDecimal** | Total revenue for this variation |  [optional] |

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * WebhookEventSubscription
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class WebhookEventSubscription {
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
@@ -68,6 +68,10 @@ public class WebhookEventSubscription {
   public static final String SERIALIZED_NAME_EVENT_NAME = "event_name";
   @SerializedName(SERIALIZED_NAME_EVENT_NAME)
   private String eventName;
+
+  public static final String SERIALIZED_NAME_EVENT_RULER = "event_ruler";
+  @SerializedName(SERIALIZED_NAME_EVENT_RULER)
+  private String eventRuler;
 
   public static final String SERIALIZED_NAME_EXPANSION = "expansion";
   @SerializedName(SERIALIZED_NAME_EXPANSION)
@@ -203,6 +207,29 @@ public class WebhookEventSubscription {
   }
 
 
+  public WebhookEventSubscription eventRuler(String eventRuler) {
+    
+    this.eventRuler = eventRuler;
+    return this;
+  }
+
+   /**
+   * Optional - Event ruler expression to filter events to.  Only events that match this Ruler expression will be transmitted to the webhook.
+   * @return eventRuler
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional - Event ruler expression to filter events to.  Only events that match this Ruler expression will be transmitted to the webhook.")
+
+  public String getEventRuler() {
+    return eventRuler;
+  }
+
+
+  public void setEventRuler(String eventRuler) {
+    this.eventRuler = eventRuler;
+  }
+
+
   public WebhookEventSubscription expansion(String expansion) {
     
     this.expansion = expansion;
@@ -310,6 +337,7 @@ public class WebhookEventSubscription {
         Objects.equals(this.discontinuedFlag, webhookEventSubscription.discontinuedFlag) &&
         Objects.equals(this.eventDescription, webhookEventSubscription.eventDescription) &&
         Objects.equals(this.eventName, webhookEventSubscription.eventName) &&
+        Objects.equals(this.eventRuler, webhookEventSubscription.eventRuler) &&
         Objects.equals(this.expansion, webhookEventSubscription.expansion) &&
         Objects.equals(this.subscribed, webhookEventSubscription.subscribed) &&
         Objects.equals(this.supportsReflow, webhookEventSubscription.supportsReflow) &&
@@ -318,7 +346,7 @@ public class WebhookEventSubscription {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, deprecatedFlag, discontinuedFlag, eventDescription, eventName, expansion, subscribed, supportsReflow, webhookEventOid);
+    return Objects.hash(comments, deprecatedFlag, discontinuedFlag, eventDescription, eventName, eventRuler, expansion, subscribed, supportsReflow, webhookEventOid);
   }
 
   @Override
@@ -330,6 +358,7 @@ public class WebhookEventSubscription {
     sb.append("    discontinuedFlag: ").append(toIndentedString(discontinuedFlag)).append("\n");
     sb.append("    eventDescription: ").append(toIndentedString(eventDescription)).append("\n");
     sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
+    sb.append("    eventRuler: ").append(toIndentedString(eventRuler)).append("\n");
     sb.append("    expansion: ").append(toIndentedString(expansion)).append("\n");
     sb.append("    subscribed: ").append(toIndentedString(subscribed)).append("\n");
     sb.append("    supportsReflow: ").append(toIndentedString(supportsReflow)).append("\n");
@@ -361,6 +390,7 @@ public class WebhookEventSubscription {
     openapiFields.add("discontinued_flag");
     openapiFields.add("event_description");
     openapiFields.add("event_name");
+    openapiFields.add("event_ruler");
     openapiFields.add("expansion");
     openapiFields.add("subscribed");
     openapiFields.add("supports_reflow");
@@ -400,6 +430,9 @@ public class WebhookEventSubscription {
       }
       if (jsonObj.get("event_name") != null && !jsonObj.get("event_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `event_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event_name").toString()));
+      }
+      if (jsonObj.get("event_ruler") != null && !jsonObj.get("event_ruler").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `event_ruler` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event_ruler").toString()));
       }
       if (jsonObj.get("expansion") != null && !jsonObj.get("expansion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expansion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expansion").toString()));

@@ -24,6 +24,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ExperimentVariationStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ExperimentVariationStat {
   public static final String SERIALIZED_NAME_ADD_TO_CART_COUNT = "add_to_cart_count";
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART_COUNT)
@@ -73,6 +75,10 @@ public class ExperimentVariationStat {
   public static final String SERIALIZED_NAME_ORDER_COUNT = "order_count";
   @SerializedName(SERIALIZED_NAME_ORDER_COUNT)
   private Integer orderCount;
+
+  public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
+  @SerializedName(SERIALIZED_NAME_ORDER_IDS)
+  private List<String> orderIds = null;
 
   public static final String SERIALIZED_NAME_ORDER_ITEM_COUNT = "order_item_count";
   @SerializedName(SERIALIZED_NAME_ORDER_ITEM_COUNT)
@@ -239,6 +245,37 @@ public class ExperimentVariationStat {
   }
 
 
+  public ExperimentVariationStat orderIds(List<String> orderIds) {
+    
+    this.orderIds = orderIds;
+    return this;
+  }
+
+  public ExperimentVariationStat addOrderIdsItem(String orderIdsItem) {
+    if (this.orderIds == null) {
+      this.orderIds = new ArrayList<>();
+    }
+    this.orderIds.add(orderIdsItem);
+    return this;
+  }
+
+   /**
+   * Order ID thats converted on this variation
+   * @return orderIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Order ID thats converted on this variation")
+
+  public List<String> getOrderIds() {
+    return orderIds;
+  }
+
+
+  public void setOrderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
+  }
+
+
   public ExperimentVariationStat orderItemCount(Integer orderItemCount) {
     
     this.orderItemCount = orderItemCount;
@@ -393,6 +430,7 @@ public class ExperimentVariationStat {
         Objects.equals(this.eventCount, experimentVariationStat.eventCount) &&
         Objects.equals(this.initiateCheckoutCount, experimentVariationStat.initiateCheckoutCount) &&
         Objects.equals(this.orderCount, experimentVariationStat.orderCount) &&
+        Objects.equals(this.orderIds, experimentVariationStat.orderIds) &&
         Objects.equals(this.orderItemCount, experimentVariationStat.orderItemCount) &&
         Objects.equals(this.pageViewCount, experimentVariationStat.pageViewCount) &&
         Objects.equals(this.revenue, experimentVariationStat.revenue) &&
@@ -403,7 +441,7 @@ public class ExperimentVariationStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addToCartCount, bounceCount, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderItemCount, pageViewCount, revenue, sessionCount, smsOptInCount, statDts);
+    return Objects.hash(addToCartCount, bounceCount, durationSecondsSum, eventCount, initiateCheckoutCount, orderCount, orderIds, orderItemCount, pageViewCount, revenue, sessionCount, smsOptInCount, statDts);
   }
 
   @Override
@@ -416,6 +454,7 @@ public class ExperimentVariationStat {
     sb.append("    eventCount: ").append(toIndentedString(eventCount)).append("\n");
     sb.append("    initiateCheckoutCount: ").append(toIndentedString(initiateCheckoutCount)).append("\n");
     sb.append("    orderCount: ").append(toIndentedString(orderCount)).append("\n");
+    sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    orderItemCount: ").append(toIndentedString(orderItemCount)).append("\n");
     sb.append("    pageViewCount: ").append(toIndentedString(pageViewCount)).append("\n");
     sb.append("    revenue: ").append(toIndentedString(revenue)).append("\n");
@@ -450,6 +489,7 @@ public class ExperimentVariationStat {
     openapiFields.add("event_count");
     openapiFields.add("initiate_checkout_count");
     openapiFields.add("order_count");
+    openapiFields.add("order_ids");
     openapiFields.add("order_item_count");
     openapiFields.add("page_view_count");
     openapiFields.add("revenue");
@@ -482,6 +522,10 @@ public class ExperimentVariationStat {
         if (!ExperimentVariationStat.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExperimentVariationStat` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("order_ids") != null && !jsonObj.get("order_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_ids` to be an array in the JSON string but got `%s`", jsonObj.get("order_ids").toString()));
       }
       if (jsonObj.get("stat_dts") != null && !jsonObj.get("stat_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `stat_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stat_dts").toString()));

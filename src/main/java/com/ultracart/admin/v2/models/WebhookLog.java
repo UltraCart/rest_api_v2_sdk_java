@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * WebhookLog
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class WebhookLog {
   public static final String SERIALIZED_NAME_DELIVERY_DTS = "delivery_dts";
   @SerializedName(SERIALIZED_NAME_DELIVERY_DTS)
@@ -95,6 +95,10 @@ public class WebhookLog {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
   private String uri;
+
+  public static final String SERIALIZED_NAME_WEBHOOK_OID = "webhook_oid";
+  @SerializedName(SERIALIZED_NAME_WEBHOOK_OID)
+  private Integer webhookOid;
 
   public WebhookLog() { 
   }
@@ -368,6 +372,29 @@ public class WebhookLog {
   }
 
 
+  public WebhookLog webhookOid(Integer webhookOid) {
+    
+    this.webhookOid = webhookOid;
+    return this;
+  }
+
+   /**
+   * webhook oid
+   * @return webhookOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "webhook oid")
+
+  public Integer getWebhookOid() {
+    return webhookOid;
+  }
+
+
+  public void setWebhookOid(Integer webhookOid) {
+    this.webhookOid = webhookOid;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -388,12 +415,13 @@ public class WebhookLog {
         Objects.equals(this.responseHeaders, webhookLog.responseHeaders) &&
         Objects.equals(this.statusCode, webhookLog.statusCode) &&
         Objects.equals(this.success, webhookLog.success) &&
-        Objects.equals(this.uri, webhookLog.uri);
+        Objects.equals(this.uri, webhookLog.uri) &&
+        Objects.equals(this.webhookOid, webhookLog.webhookOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryDts, duration, queueDelay, request, requestHeaders, requestId, response, responseHeaders, statusCode, success, uri);
+    return Objects.hash(deliveryDts, duration, queueDelay, request, requestHeaders, requestId, response, responseHeaders, statusCode, success, uri, webhookOid);
   }
 
   @Override
@@ -411,6 +439,7 @@ public class WebhookLog {
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+    sb.append("    webhookOid: ").append(toIndentedString(webhookOid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -444,6 +473,7 @@ public class WebhookLog {
     openapiFields.add("status_code");
     openapiFields.add("success");
     openapiFields.add("uri");
+    openapiFields.add("webhook_oid");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponEditorValues
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CouponEditorValues {
   public static final String SERIALIZED_NAME_AFFILIATES = "affiliates";
   @SerializedName(SERIALIZED_NAME_AFFILIATES)
@@ -72,6 +72,10 @@ public class CouponEditorValues {
   public static final String SERIALIZED_NAME_DEPRECATED_THEMES = "deprecated_themes";
   @SerializedName(SERIALIZED_NAME_DEPRECATED_THEMES)
   private List<SimpleValue> deprecatedThemes = null;
+
+  public static final String SERIALIZED_NAME_ITEM_TAGS = "item_tags";
+  @SerializedName(SERIALIZED_NAME_ITEM_TAGS)
+  private List<String> itemTags = null;
 
   public static final String SERIALIZED_NAME_MIX_AND_MATCH_NAMES = "mix_and_match_names";
   @SerializedName(SERIALIZED_NAME_MIX_AND_MATCH_NAMES)
@@ -251,6 +255,37 @@ public class CouponEditorValues {
   }
 
 
+  public CouponEditorValues itemTags(List<String> itemTags) {
+    
+    this.itemTags = itemTags;
+    return this;
+  }
+
+  public CouponEditorValues addItemTagsItem(String itemTagsItem) {
+    if (this.itemTags == null) {
+      this.itemTags = new ArrayList<>();
+    }
+    this.itemTags.add(itemTagsItem);
+    return this;
+  }
+
+   /**
+   * Item tags
+   * @return itemTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Item tags")
+
+  public List<String> getItemTags() {
+    return itemTags;
+  }
+
+
+  public void setItemTags(List<String> itemTags) {
+    this.itemTags = itemTags;
+  }
+
+
   public CouponEditorValues mixAndMatchNames(List<String> mixAndMatchNames) {
     
     this.mixAndMatchNames = mixAndMatchNames;
@@ -421,6 +456,7 @@ public class CouponEditorValues {
         Objects.equals(this.couponTypesForDisplay, couponEditorValues.couponTypesForDisplay) &&
         Objects.equals(this.currencyCodes, couponEditorValues.currencyCodes) &&
         Objects.equals(this.deprecatedThemes, couponEditorValues.deprecatedThemes) &&
+        Objects.equals(this.itemTags, couponEditorValues.itemTags) &&
         Objects.equals(this.mixAndMatchNames, couponEditorValues.mixAndMatchNames) &&
         Objects.equals(this.shippingMethods, couponEditorValues.shippingMethods) &&
         Objects.equals(this.storefronts, couponEditorValues.storefronts) &&
@@ -430,7 +466,7 @@ public class CouponEditorValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, couponTypes, couponTypesForDisplay, currencyCodes, deprecatedThemes, mixAndMatchNames, shippingMethods, storefronts, usableBy, validWithOtherCoupons);
+    return Objects.hash(affiliates, couponTypes, couponTypesForDisplay, currencyCodes, deprecatedThemes, itemTags, mixAndMatchNames, shippingMethods, storefronts, usableBy, validWithOtherCoupons);
   }
 
   @Override
@@ -442,6 +478,7 @@ public class CouponEditorValues {
     sb.append("    couponTypesForDisplay: ").append(toIndentedString(couponTypesForDisplay)).append("\n");
     sb.append("    currencyCodes: ").append(toIndentedString(currencyCodes)).append("\n");
     sb.append("    deprecatedThemes: ").append(toIndentedString(deprecatedThemes)).append("\n");
+    sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    mixAndMatchNames: ").append(toIndentedString(mixAndMatchNames)).append("\n");
     sb.append("    shippingMethods: ").append(toIndentedString(shippingMethods)).append("\n");
     sb.append("    storefronts: ").append(toIndentedString(storefronts)).append("\n");
@@ -474,6 +511,7 @@ public class CouponEditorValues {
     openapiFields.add("coupon_types_for_display");
     openapiFields.add("currency_codes");
     openapiFields.add("deprecated_themes");
+    openapiFields.add("item_tags");
     openapiFields.add("mix_and_match_names");
     openapiFields.add("shipping_methods");
     openapiFields.add("storefronts");
@@ -549,6 +587,10 @@ public class CouponEditorValues {
         for (int i = 0; i < jsonArraydeprecatedThemes.size(); i++) {
           SimpleValue.validateJsonObject(jsonArraydeprecatedThemes.get(i).getAsJsonObject());
         };
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("item_tags") != null && !jsonObj.get("item_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `item_tags` to be an array in the JSON string but got `%s`", jsonObj.get("item_tags").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("mix_and_match_names") != null && !jsonObj.get("mix_and_match_names").isJsonArray()) {

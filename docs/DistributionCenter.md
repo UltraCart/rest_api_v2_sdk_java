@@ -26,6 +26,21 @@
 |**name** | **String** | Name of this distribution center |  [optional] |
 |**noCustomerDirectShipments** | **Boolean** | True if this distribution center does not handle customer direct shipments |  [optional] |
 |**noSplitShipment** | **Boolean** | True if this distribution center is not allowed to participate in a split shipment. |  [optional] |
+|**pickupCutoffTimeFriday** | **String** | The time (EST) after which pickups will not be available on Friday |  [optional] |
+|**pickupCutoffTimeMonday** | **String** | The time (EST) after which pickups will not be available on Monday |  [optional] |
+|**pickupCutoffTimeSaturday** | **String** | The time (EST) after which pickups will not be available on Saturday |  [optional] |
+|**pickupCutoffTimeSunday** | **String** | The time (EST) after which pickups will not be available on Sunday |  [optional] |
+|**pickupCutoffTimeThursday** | **String** | The time (EST) after which pickups will not be available on Thursday |  [optional] |
+|**pickupCutoffTimeTuesday** | **String** | The time (EST) after which pickups will not be available on Tuesday |  [optional] |
+|**pickupCutoffTimeWednesday** | **String** | The time (EST) after which pickups will not be available on Wednesday |  [optional] |
+|**pickupStartTimeFriday** | **String** | The time (EST) after which pickups are available on Friday |  [optional] |
+|**pickupStartTimeMonday** | **String** | The time (EST) after which pickups are available on Monday |  [optional] |
+|**pickupStartTimeSaturday** | **String** | The time (EST) after which pickups are available on Saturday |  [optional] |
+|**pickupStartTimeSunday** | **String** | The time (EST) after which pickups are available on Sunday |  [optional] |
+|**pickupStartTimeThursday** | **String** | The time (EST) after which pickups are available on Thursday |  [optional] |
+|**pickupStartTimeTuesday** | **String** | The time (EST) after which pickups are available on Tuesday |  [optional] |
+|**pickupStartTimeWednesday** | **String** | The time (EST) after which pickups are available on Wednesday |  [optional] |
+|**pickupTz** | **String** | The IANA timezone for all pickup times |  [optional] |
 |**postalCode** | **String** | Postal code of the distribution center |  [optional] |
 |**processDays** | **Integer** | The number of processing days required before an order ships |  [optional] |
 |**processInventoryStartTime** | **String** | The time (EST) after which inventory updates will be processed |  [optional] |

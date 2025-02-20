@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationEngagement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class ConversationEngagement {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -63,6 +63,10 @@ public class ConversationEngagement {
   public static final String SERIALIZED_NAME_CUSTOMER_GREETING = "customer_greeting";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_GREETING)
   private String customerGreeting;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_INITIATED = "customer_initiated";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_INITIATED)
+  private Boolean customerInitiated;
 
   public static final String SERIALIZED_NAME_DEPARTMENT_OIDS = "department_oids";
   @SerializedName(SERIALIZED_NAME_DEPARTMENT_OIDS)
@@ -205,6 +209,29 @@ public class ConversationEngagement {
   }
 
 
+  public ConversationEngagement customerInitiated(Boolean customerInitiated) {
+    
+    this.customerInitiated = customerInitiated;
+    return this;
+  }
+
+   /**
+   * Get customerInitiated
+   * @return customerInitiated
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCustomerInitiated() {
+    return customerInitiated;
+  }
+
+
+  public void setCustomerInitiated(Boolean customerInitiated) {
+    this.customerInitiated = customerInitiated;
+  }
+
+
   public ConversationEngagement departmentOids(List<Integer> departmentOids) {
     
     this.departmentOids = departmentOids;
@@ -341,6 +368,7 @@ public class ConversationEngagement {
     return Objects.equals(this.active, conversationEngagement.active) &&
         Objects.equals(this.conversationEngagementOid, conversationEngagement.conversationEngagementOid) &&
         Objects.equals(this.customerGreeting, conversationEngagement.customerGreeting) &&
+        Objects.equals(this.customerInitiated, conversationEngagement.customerInitiated) &&
         Objects.equals(this.departmentOids, conversationEngagement.departmentOids) &&
         Objects.equals(this.engagementName, conversationEngagement.engagementName) &&
         Objects.equals(this.equation, conversationEngagement.equation) &&
@@ -350,7 +378,7 @@ public class ConversationEngagement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, conversationEngagementOid, customerGreeting, departmentOids, engagementName, equation, timeOnPage, visitorType);
+    return Objects.hash(active, conversationEngagementOid, customerGreeting, customerInitiated, departmentOids, engagementName, equation, timeOnPage, visitorType);
   }
 
   @Override
@@ -360,6 +388,7 @@ public class ConversationEngagement {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    conversationEngagementOid: ").append(toIndentedString(conversationEngagementOid)).append("\n");
     sb.append("    customerGreeting: ").append(toIndentedString(customerGreeting)).append("\n");
+    sb.append("    customerInitiated: ").append(toIndentedString(customerInitiated)).append("\n");
     sb.append("    departmentOids: ").append(toIndentedString(departmentOids)).append("\n");
     sb.append("    engagementName: ").append(toIndentedString(engagementName)).append("\n");
     sb.append("    equation: ").append(toIndentedString(equation)).append("\n");
@@ -390,6 +419,7 @@ public class ConversationEngagement {
     openapiFields.add("active");
     openapiFields.add("conversation_engagement_oid");
     openapiFields.add("customer_greeting");
+    openapiFields.add("customer_initiated");
     openapiFields.add("department_oids");
     openapiFields.add("engagement_name");
     openapiFields.add("equation");

@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.CartPaymentAffirm;
 import com.ultracart.admin.v2.models.CartPaymentAmazon;
 import com.ultracart.admin.v2.models.CartPaymentCheck;
 import com.ultracart.admin.v2.models.CartPaymentCreditCard;
+import com.ultracart.admin.v2.models.CartPaymentHealthBenefitCard;
 import com.ultracart.admin.v2.models.CartPaymentPurchaseOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -52,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartPayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:08:09.844-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
 public class CartPayment {
   public static final String SERIALIZED_NAME_AFFIRM = "affirm";
   @SerializedName(SERIALIZED_NAME_AFFIRM)
@@ -69,6 +70,10 @@ public class CartPayment {
   public static final String SERIALIZED_NAME_CREDIT_CARD = "credit_card";
   @SerializedName(SERIALIZED_NAME_CREDIT_CARD)
   private CartPaymentCreditCard creditCard;
+
+  public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD = "health_benefit_card";
+  @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD)
+  private CartPaymentHealthBenefitCard healthBenefitCard;
 
   public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
   @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
@@ -177,6 +182,29 @@ public class CartPayment {
   }
 
 
+  public CartPayment healthBenefitCard(CartPaymentHealthBenefitCard healthBenefitCard) {
+    
+    this.healthBenefitCard = healthBenefitCard;
+    return this;
+  }
+
+   /**
+   * Get healthBenefitCard
+   * @return healthBenefitCard
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CartPaymentHealthBenefitCard getHealthBenefitCard() {
+    return healthBenefitCard;
+  }
+
+
+  public void setHealthBenefitCard(CartPaymentHealthBenefitCard healthBenefitCard) {
+    this.healthBenefitCard = healthBenefitCard;
+  }
+
+
   public CartPayment paymentMethod(String paymentMethod) {
     
     this.paymentMethod = paymentMethod;
@@ -260,6 +288,7 @@ public class CartPayment {
         Objects.equals(this.amazon, cartPayment.amazon) &&
         Objects.equals(this.check, cartPayment.check) &&
         Objects.equals(this.creditCard, cartPayment.creditCard) &&
+        Objects.equals(this.healthBenefitCard, cartPayment.healthBenefitCard) &&
         Objects.equals(this.paymentMethod, cartPayment.paymentMethod) &&
         Objects.equals(this.purchaseOrder, cartPayment.purchaseOrder) &&
         Objects.equals(this.rtgCode, cartPayment.rtgCode);
@@ -267,7 +296,7 @@ public class CartPayment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affirm, amazon, check, creditCard, paymentMethod, purchaseOrder, rtgCode);
+    return Objects.hash(affirm, amazon, check, creditCard, healthBenefitCard, paymentMethod, purchaseOrder, rtgCode);
   }
 
   @Override
@@ -278,6 +307,7 @@ public class CartPayment {
     sb.append("    amazon: ").append(toIndentedString(amazon)).append("\n");
     sb.append("    check: ").append(toIndentedString(check)).append("\n");
     sb.append("    creditCard: ").append(toIndentedString(creditCard)).append("\n");
+    sb.append("    healthBenefitCard: ").append(toIndentedString(healthBenefitCard)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    purchaseOrder: ").append(toIndentedString(purchaseOrder)).append("\n");
     sb.append("    rtgCode: ").append(toIndentedString(rtgCode)).append("\n");
@@ -307,6 +337,7 @@ public class CartPayment {
     openapiFields.add("amazon");
     openapiFields.add("check");
     openapiFields.add("credit_card");
+    openapiFields.add("health_benefit_card");
     openapiFields.add("payment_method");
     openapiFields.add("purchase_order");
     openapiFields.add("rtg_code");
@@ -352,6 +383,10 @@ public class CartPayment {
       // validate the optional field `credit_card`
       if (jsonObj.getAsJsonObject("credit_card") != null) {
         CartPaymentCreditCard.validateJsonObject(jsonObj.getAsJsonObject("credit_card"));
+      }
+      // validate the optional field `health_benefit_card`
+      if (jsonObj.getAsJsonObject("health_benefit_card") != null) {
+        CartPaymentHealthBenefitCard.validateJsonObject(jsonObj.getAsJsonObject("health_benefit_card"));
       }
       if (jsonObj.get("payment_method") != null && !jsonObj.get("payment_method").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payment_method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_method").toString()));
