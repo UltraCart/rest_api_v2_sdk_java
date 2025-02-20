@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CartSettingsPaymentCreditCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T10:21:58.649-05:00")
 
 
 

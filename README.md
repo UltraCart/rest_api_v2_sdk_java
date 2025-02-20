@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-02-20T08:34:45.210-05:00
+  - Build date: 2025-02-20T10:21:58.649-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.226</version>
+  <version>3.10.228</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.226"
+compile "com.ultracart:rest-sdk:3.10.228"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.226.jar`
+* `target/rest-sdk-3.10.228.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1264,6 +1264,7 @@ Class | Method | HTTP request | Description
  - [OrderPaymentECheck](docs/OrderPaymentECheck.md)
  - [OrderPaymentHealthBenefitCard](docs/OrderPaymentHealthBenefitCard.md)
  - [OrderPaymentInsurance](docs/OrderPaymentInsurance.md)
+ - [OrderPaymentPayPal](docs/OrderPaymentPayPal.md)
  - [OrderPaymentPurchaseOrder](docs/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/OrderPaymentTransaction.md)
  - [OrderPaymentTransactionDetail](docs/OrderPaymentTransactionDetail.md)
@@ -1551,6 +1552,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.228 | 02/20/2025 | automation fix |
+| 3.10.227 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
 | 3.10.226 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
 | 3.10.225 | 02/18/2025 | small bug fixes for incorrect return types on several methods |
 | 3.10.224 | 02/06/2025 | added storefront_host_name to channel partner order object |

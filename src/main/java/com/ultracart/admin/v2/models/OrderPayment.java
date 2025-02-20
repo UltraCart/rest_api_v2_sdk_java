@@ -26,6 +26,7 @@ import com.ultracart.admin.v2.models.OrderPaymentCreditCard;
 import com.ultracart.admin.v2.models.OrderPaymentECheck;
 import com.ultracart.admin.v2.models.OrderPaymentHealthBenefitCard;
 import com.ultracart.admin.v2.models.OrderPaymentInsurance;
+import com.ultracart.admin.v2.models.OrderPaymentPayPal;
 import com.ultracart.admin.v2.models.OrderPaymentPurchaseOrder;
 import com.ultracart.admin.v2.models.OrderPaymentTransaction;
 import io.swagger.annotations.ApiModel;
@@ -38,7 +39,7 @@ import java.util.List;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T08:34:45.210-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-20T10:21:58.649-05:00")
 
 
 
@@ -231,6 +232,9 @@ public class OrderPayment {
 
   @SerializedName("payment_status")
   private PaymentStatusEnum paymentStatus = null;
+
+  @SerializedName("paypal")
+  private OrderPaymentPayPal paypal = null;
 
   @SerializedName("purchase_order")
   private OrderPaymentPurchaseOrder purchaseOrder = null;
@@ -454,6 +458,24 @@ public class OrderPayment {
     this.paymentStatus = paymentStatus;
   }
 
+  public OrderPayment paypal(OrderPaymentPayPal paypal) {
+    this.paypal = paypal;
+    return this;
+  }
+
+   /**
+   * Get paypal
+   * @return paypal
+  **/
+  @ApiModelProperty(value = "")
+  public OrderPaymentPayPal getPaypal() {
+    return paypal;
+  }
+
+  public void setPaypal(OrderPaymentPayPal paypal) {
+    this.paypal = paypal;
+  }
+
   public OrderPayment purchaseOrder(OrderPaymentPurchaseOrder purchaseOrder) {
     this.purchaseOrder = purchaseOrder;
     return this;
@@ -627,6 +649,7 @@ public class OrderPayment {
         Objects.equals(this.paymentMethodAccountingCode, orderPayment.paymentMethodAccountingCode) &&
         Objects.equals(this.paymentMethodDepositToAccount, orderPayment.paymentMethodDepositToAccount) &&
         Objects.equals(this.paymentStatus, orderPayment.paymentStatus) &&
+        Objects.equals(this.paypal, orderPayment.paypal) &&
         Objects.equals(this.purchaseOrder, orderPayment.purchaseOrder) &&
         Objects.equals(this.rotatingTransactionGatewayCode, orderPayment.rotatingTransactionGatewayCode) &&
         Objects.equals(this.surcharge, orderPayment.surcharge) &&
@@ -639,7 +662,7 @@ public class OrderPayment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(check, creditCard, echeck, healthBenefitCard, holdForFraudReview, insurance, paymentDts, paymentMethod, paymentMethodAccountingCode, paymentMethodDepositToAccount, paymentStatus, purchaseOrder, rotatingTransactionGatewayCode, surcharge, surchargeAccountingCode, surchargeTransactionFee, surchargeTransactionPercentage, testOrder, transactions);
+    return Objects.hash(check, creditCard, echeck, healthBenefitCard, holdForFraudReview, insurance, paymentDts, paymentMethod, paymentMethodAccountingCode, paymentMethodDepositToAccount, paymentStatus, paypal, purchaseOrder, rotatingTransactionGatewayCode, surcharge, surchargeAccountingCode, surchargeTransactionFee, surchargeTransactionPercentage, testOrder, transactions);
   }
 
 
@@ -659,6 +682,7 @@ public class OrderPayment {
     sb.append("    paymentMethodAccountingCode: ").append(toIndentedString(paymentMethodAccountingCode)).append("\n");
     sb.append("    paymentMethodDepositToAccount: ").append(toIndentedString(paymentMethodDepositToAccount)).append("\n");
     sb.append("    paymentStatus: ").append(toIndentedString(paymentStatus)).append("\n");
+    sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
     sb.append("    purchaseOrder: ").append(toIndentedString(purchaseOrder)).append("\n");
     sb.append("    rotatingTransactionGatewayCode: ").append(toIndentedString(rotatingTransactionGatewayCode)).append("\n");
     sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
