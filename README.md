@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-02-20T07:35:27.732-05:00[America/Indianapolis]
+  - Build date: 2025-02-20T10:38:24.317-05:00[America/Indianapolis]
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>4.0.242</version>
+  <version>4.0.245</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.0.242"
+     implementation "com.ultracart:rest-sdk:4.0.245"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-4.0.242.jar`
+* `target/rest-sdk-4.0.245.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1280,6 +1280,7 @@ Class | Method | HTTP request | Description
  - [OrderPaymentECheck](docs/OrderPaymentECheck.md)
  - [OrderPaymentHealthBenefitCard](docs/OrderPaymentHealthBenefitCard.md)
  - [OrderPaymentInsurance](docs/OrderPaymentInsurance.md)
+ - [OrderPaymentPayPal](docs/OrderPaymentPayPal.md)
  - [OrderPaymentPurchaseOrder](docs/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/OrderPaymentTransaction.md)
  - [OrderPaymentTransactionDetail](docs/OrderPaymentTransactionDetail.md)
@@ -1567,6 +1568,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.245 | 02/20/2025 | automation fix |
+| 4.0.244 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
+| 4.0.243 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
 | 4.0.242 | 02/18/2025 | small bug fixes for incorrect return types on several methods |
 | 4.0.241 | 02/06/2025 | added storefront_host_name to channel partner order object |
 | 4.0.240 | 01/09/2025 | fix for broken 4.0.39 due to incorrect query sig on getCustomers |

@@ -742,6 +742,7 @@ public class JSON {
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderPaymentECheck.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderPaymentHealthBenefitCard.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderPaymentInsurance.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderPaymentPayPal.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderPaymentPurchaseOrder.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderPaymentTransaction.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.ultracart.admin.v2.models.OrderPaymentTransactionDetail.CustomTypeAdapterFactory())

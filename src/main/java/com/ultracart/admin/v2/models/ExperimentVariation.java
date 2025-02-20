@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ExperimentVariation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T07:35:27.732-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T10:38:24.317-05:00[America/Indianapolis]")
 public class ExperimentVariation {
   public static final String SERIALIZED_NAME_ADD_TO_CART_COUNT = "add_to_cart_count";
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART_COUNT)
