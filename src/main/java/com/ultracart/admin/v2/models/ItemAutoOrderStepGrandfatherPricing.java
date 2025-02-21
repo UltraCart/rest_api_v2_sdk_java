@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemAutoOrderStepGrandfatherPricing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T10:38:24.317-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-21T12:08:57.583-05:00[America/Indianapolis]")
 public class ItemAutoOrderStepGrandfatherPricing {
   public static final String SERIALIZED_NAME_ON_OR_BEFORE_DATE = "on_or_before_date";
   @SerializedName(SERIALIZED_NAME_ON_OR_BEFORE_DATE)

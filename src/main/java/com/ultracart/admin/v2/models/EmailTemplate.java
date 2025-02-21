@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailTemplate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T10:38:24.317-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-21T12:08:57.583-05:00[America/Indianapolis]")
 public class EmailTemplate {
   public static final String SERIALIZED_NAME_CONTAINER_CJSON = "container_cjson";
   @SerializedName(SERIALIZED_NAME_CONTAINER_CJSON)

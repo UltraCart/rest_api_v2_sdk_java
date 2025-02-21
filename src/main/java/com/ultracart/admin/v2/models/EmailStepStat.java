@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailStepStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T10:38:24.317-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-21T12:08:57.583-05:00[America/Indianapolis]")
 public class EmailStepStat {
   public static final String SERIALIZED_NAME_LEFT_CLICK_COUNT = "left_click_count";
   @SerializedName(SERIALIZED_NAME_LEFT_CLICK_COUNT)
