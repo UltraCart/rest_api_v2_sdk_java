@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-02-20T10:21:58.649-05:00
+  - Build date: 2025-02-21T11:52:15.006-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.10.228</version>
+  <version>3.11.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.10.228"
+compile "com.ultracart:rest-sdk:3.11.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.10.228.jar`
+* `target/rest-sdk-3.11.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -323,6 +323,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getDigitalItem**](docs/ItemApi.md#getDigitalItem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItems**](docs/ItemApi.md#getDigitalItems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItemsByExternalId**](docs/ItemApi.md#getDigitalItemsByExternalId) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+*ItemApi* | [**getInventorySnapshot**](docs/ItemApi.md#getInventorySnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**getItem**](docs/ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/ItemApi.md#getItems) | **GET** /item/items | Retrieve items
@@ -334,7 +335,6 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**insertItem**](docs/ItemApi.md#insertItem) | **POST** /item/items | Create an item
 *ItemApi* | [**insertReview**](docs/ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 *ItemApi* | [**insertUpdateItemContentAttribute**](docs/ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
-*ItemApi* | [**restItemInventorySnapshotResponse**](docs/ItemApi.md#restItemInventorySnapshotResponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 *ItemApi* | [**updateItems**](docs/ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -1552,6 +1552,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.0 | 02/21/2025 | ItemApi.getInventorySnapshot had bad nickname causing bad sdk method name |
 | 3.10.228 | 02/20/2025 | automation fix |
 | 3.10.227 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
 | 3.10.226 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
