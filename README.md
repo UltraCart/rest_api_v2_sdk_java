@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-02-21T11:52:15.006-05:00
+  - Build date: 2025-02-28T09:16:56.926-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.0</version>
+  <version>3.11.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.0"
+compile "com.ultracart:rest-sdk:3.11.1"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.0.jar`
+* `target/rest-sdk-3.11.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrders**](docs/AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**getAutoOrdersBatch**](docs/AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 *AutoOrderApi* | [**getAutoOrdersByQuery**](docs/AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
+*AutoOrderApi* | [**pauseAutoOrder**](docs/AutoOrderApi.md#pauseAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order
 *AutoOrderApi* | [**updateAutoOrder**](docs/AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 *ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/ChannelPartnerApi.md#cancelOrderByChannelPartnerOrderId) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
@@ -1552,6 +1553,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.1 | 02/28/2025 | auto order pause method |
 | 3.11.0 | 02/21/2025 | ItemApi.getInventorySnapshot had bad nickname causing bad sdk method name |
 | 3.10.228 | 02/20/2025 | automation fix |
 | 3.10.227 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |

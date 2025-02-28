@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ItemPaymentProcessing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-21T11:52:15.006-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:16:56.926-05:00")
 
 
 
@@ -76,10 +76,10 @@ public class ItemPaymentProcessing {
   }
 
    /**
-   * True if this item should block any refund attempts
+   * True if this item should block any refund attempts, set to false otherwise, null value will not update the field
    * @return blockRefunds
   **/
-  @ApiModelProperty(value = "True if this item should block any refund attempts")
+  @ApiModelProperty(value = "True if this item should block any refund attempts, set to false otherwise, null value will not update the field")
   public Boolean isBlockRefunds() {
     return blockRefunds;
   }

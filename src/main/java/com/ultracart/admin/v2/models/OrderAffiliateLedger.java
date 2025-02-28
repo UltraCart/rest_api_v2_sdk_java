@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * OrderAffiliateLedger
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-21T11:52:15.006-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:16:56.926-05:00")
 
 
 

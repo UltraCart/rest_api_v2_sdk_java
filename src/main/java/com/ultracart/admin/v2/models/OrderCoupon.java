@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderCoupon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-21T11:52:15.006-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:16:56.926-05:00")
 
 
 
@@ -125,10 +125,10 @@ public class OrderCoupon {
   }
 
    /**
-   * True if this coupon is hidde from the customer
+   * True if this coupon is hide from the customer
    * @return hdieFromCustomer
   **/
-  @ApiModelProperty(value = "True if this coupon is hidde from the customer")
+  @ApiModelProperty(value = "True if this coupon is hide from the customer")
   public Boolean isHdieFromCustomer() {
     return hdieFromCustomer;
   }

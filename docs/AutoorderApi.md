@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**getAutoOrders**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 [**getAutoOrdersBatch**](AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 [**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
+[**pauseAutoOrder**](AutoOrderApi.md#pauseAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order
 [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
@@ -480,6 +481,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="pauseAutoOrder"></a>
+# **pauseAutoOrder**
+> AutoOrderResponse pauseAutoOrder(autoOrder, autoOrderOid, expand)
+
+Pause auto order
+
+Completely pause an auto order 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.AutoOrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+
+AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto orders to pause
+Integer autoOrderOid = 56; // Integer | The auto order oid to pause.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    AutoOrderResponse result = apiInstance.pauseAutoOrder(autoOrder, autoOrderOid, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoOrderApi#pauseAutoOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto orders to pause |
+ **autoOrderOid** | **Integer**| The auto order oid to pause. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="updateAutoOrder"></a>
