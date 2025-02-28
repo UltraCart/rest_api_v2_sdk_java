@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemPaymentProcessing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-21T12:08:57.583-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:32:40.339-05:00[America/Indianapolis]")
 public class ItemPaymentProcessing {
   public static final String SERIALIZED_NAME_BLOCK_PREPAID = "block_prepaid";
   @SerializedName(SERIALIZED_NAME_BLOCK_PREPAID)
@@ -108,11 +108,11 @@ public class ItemPaymentProcessing {
   }
 
    /**
-   * True if this item should block any refund attempts
+   * True if this item should block any refund attempts, set to false otherwise, null value will not update the field
    * @return blockRefunds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True if this item should block any refund attempts")
+  @ApiModelProperty(value = "True if this item should block any refund attempts, set to false otherwise, null value will not update the field")
 
   public Boolean getBlockRefunds() {
     return blockRefunds;

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderCoupon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-21T12:08:57.583-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:32:40.339-05:00[America/Indianapolis]")
 public class OrderCoupon {
   public static final String SERIALIZED_NAME_ACCOUNTING_CODE = "accounting_code";
   @SerializedName(SERIALIZED_NAME_ACCOUNTING_CODE)
@@ -171,11 +171,11 @@ public class OrderCoupon {
   }
 
    /**
-   * True if this coupon is hidde from the customer
+   * True if this coupon is hide from the customer
    * @return hdieFromCustomer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True if this coupon is hidde from the customer")
+  @ApiModelProperty(value = "True if this coupon is hide from the customer")
 
   public Boolean getHdieFromCustomer() {
     return hdieFromCustomer;

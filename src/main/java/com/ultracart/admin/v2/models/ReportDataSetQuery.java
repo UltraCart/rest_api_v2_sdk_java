@@ -54,7 +54,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ReportDataSetQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-21T12:08:57.583-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:32:40.339-05:00[America/Indianapolis]")
 public class ReportDataSetQuery {
   public static final String SERIALIZED_NAME_COMPARISON_RESULTS = "comparison_results";
   @SerializedName(SERIALIZED_NAME_COMPARISON_RESULTS)

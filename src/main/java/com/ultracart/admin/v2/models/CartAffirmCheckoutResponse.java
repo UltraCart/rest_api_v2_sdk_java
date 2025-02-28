@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartAffirmCheckoutResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-21T12:08:57.583-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:32:40.339-05:00[America/Indianapolis]")
 public class CartAffirmCheckoutResponse {
   public static final String SERIALIZED_NAME_CHECKOUT_JSON = "checkout_json";
   @SerializedName(SERIALIZED_NAME_CHECKOUT_JSON)

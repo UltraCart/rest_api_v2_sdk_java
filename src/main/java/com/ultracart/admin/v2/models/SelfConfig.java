@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SelfConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-21T12:08:57.583-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:32:40.339-05:00[America/Indianapolis]")
 public class SelfConfig {
   public static final String SERIALIZED_NAME_EXEMPT_FROM_COLORADO_RETAIL_DELIVERY_FEE = "exempt_from_colorado_retail_delivery_fee";
   @SerializedName(SERIALIZED_NAME_EXEMPT_FROM_COLORADO_RETAIL_DELIVERY_FEE)
