@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:32:40.339-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-05T12:08:18.099-05:00[America/Indianapolis]")
 public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_ADVERTISING_SOURCE = "advertisingSource";
   @SerializedName(SERIALIZED_NAME_ADVERTISING_SOURCE)
@@ -582,6 +582,10 @@ public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_TREAT_WARNINGS_AS_ERRORS = "treat_warnings_as_errors";
   @SerializedName(SERIALIZED_NAME_TREAT_WARNINGS_AS_ERRORS)
   private Boolean treatWarningsAsErrors;
+
+  public static final String SERIALIZED_NAME_USE_PRIOR_PAYMENT_INFORMATION_FROM_ORDER_ID = "use_prior_payment_information_from_order_id";
+  @SerializedName(SERIALIZED_NAME_USE_PRIOR_PAYMENT_INFORMATION_FROM_ORDER_ID)
+  private String usePriorPaymentInformationFromOrderId;
 
   public ChannelPartnerOrder() { 
   }
@@ -2726,6 +2730,29 @@ public class ChannelPartnerOrder {
   }
 
 
+  public ChannelPartnerOrder usePriorPaymentInformationFromOrderId(String usePriorPaymentInformationFromOrderId) {
+    
+    this.usePriorPaymentInformationFromOrderId = usePriorPaymentInformationFromOrderId;
+    return this;
+  }
+
+   /**
+   * An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.
+   * @return usePriorPaymentInformationFromOrderId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.")
+
+  public String getUsePriorPaymentInformationFromOrderId() {
+    return usePriorPaymentInformationFromOrderId;
+  }
+
+
+  public void setUsePriorPaymentInformationFromOrderId(String usePriorPaymentInformationFromOrderId) {
+    this.usePriorPaymentInformationFromOrderId = usePriorPaymentInformationFromOrderId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -2827,12 +2854,13 @@ public class ChannelPartnerOrder {
         Objects.equals(this.taxCounty, channelPartnerOrder.taxCounty) &&
         Objects.equals(this.taxExempt, channelPartnerOrder.taxExempt) &&
         Objects.equals(this.transaction, channelPartnerOrder.transaction) &&
-        Objects.equals(this.treatWarningsAsErrors, channelPartnerOrder.treatWarningsAsErrors);
+        Objects.equals(this.treatWarningsAsErrors, channelPartnerOrder.treatWarningsAsErrors) &&
+        Objects.equals(this.usePriorPaymentInformationFromOrderId, channelPartnerOrder.usePriorPaymentInformationFromOrderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors);
+    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors, usePriorPaymentInformationFromOrderId);
   }
 
   @Override
@@ -2931,6 +2959,7 @@ public class ChannelPartnerOrder {
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
     sb.append("    treatWarningsAsErrors: ").append(toIndentedString(treatWarningsAsErrors)).append("\n");
+    sb.append("    usePriorPaymentInformationFromOrderId: ").append(toIndentedString(usePriorPaymentInformationFromOrderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -3045,6 +3074,7 @@ public class ChannelPartnerOrder {
     openapiFields.add("tax_exempt");
     openapiFields.add("transaction");
     openapiFields.add("treat_warnings_as_errors");
+    openapiFields.add("use_prior_payment_information_from_order_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -3299,6 +3329,9 @@ public class ChannelPartnerOrder {
       // validate the optional field `transaction`
       if (jsonObj.getAsJsonObject("transaction") != null) {
         ChannelPartnerOrderTransaction.validateJsonObject(jsonObj.getAsJsonObject("transaction"));
+      }
+      if (jsonObj.get("use_prior_payment_information_from_order_id") != null && !jsonObj.get("use_prior_payment_information_from_order_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `use_prior_payment_information_from_order_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use_prior_payment_information_from_order_id").toString()));
       }
   }
 
