@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ChannelPartnerOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-02-28T09:16:56.926-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-05T11:52:13.347-05:00")
 
 
 
@@ -473,6 +473,9 @@ public class ChannelPartnerOrder {
 
   @SerializedName("treat_warnings_as_errors")
   private Boolean treatWarningsAsErrors = null;
+
+  @SerializedName("use_prior_payment_information_from_order_id")
+  private String usePriorPaymentInformationFromOrderId = null;
 
   public ChannelPartnerOrder advertisingSource(String advertisingSource) {
     this.advertisingSource = advertisingSource;
@@ -2154,6 +2157,24 @@ public class ChannelPartnerOrder {
     this.treatWarningsAsErrors = treatWarningsAsErrors;
   }
 
+  public ChannelPartnerOrder usePriorPaymentInformationFromOrderId(String usePriorPaymentInformationFromOrderId) {
+    this.usePriorPaymentInformationFromOrderId = usePriorPaymentInformationFromOrderId;
+    return this;
+  }
+
+   /**
+   * An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.
+   * @return usePriorPaymentInformationFromOrderId
+  **/
+  @ApiModelProperty(value = "An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.")
+  public String getUsePriorPaymentInformationFromOrderId() {
+    return usePriorPaymentInformationFromOrderId;
+  }
+
+  public void setUsePriorPaymentInformationFromOrderId(String usePriorPaymentInformationFromOrderId) {
+    this.usePriorPaymentInformationFromOrderId = usePriorPaymentInformationFromOrderId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -2255,12 +2276,13 @@ public class ChannelPartnerOrder {
         Objects.equals(this.taxCounty, channelPartnerOrder.taxCounty) &&
         Objects.equals(this.taxExempt, channelPartnerOrder.taxExempt) &&
         Objects.equals(this.transaction, channelPartnerOrder.transaction) &&
-        Objects.equals(this.treatWarningsAsErrors, channelPartnerOrder.treatWarningsAsErrors);
+        Objects.equals(this.treatWarningsAsErrors, channelPartnerOrder.treatWarningsAsErrors) &&
+        Objects.equals(this.usePriorPaymentInformationFromOrderId, channelPartnerOrder.usePriorPaymentInformationFromOrderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors);
+    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors, usePriorPaymentInformationFromOrderId);
   }
 
 
@@ -2361,6 +2383,7 @@ public class ChannelPartnerOrder {
     sb.append("    taxExempt: ").append(toIndentedString(taxExempt)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
     sb.append("    treatWarningsAsErrors: ").append(toIndentedString(treatWarningsAsErrors)).append("\n");
+    sb.append("    usePriorPaymentInformationFromOrderId: ").append(toIndentedString(usePriorPaymentInformationFromOrderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
