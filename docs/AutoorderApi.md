@@ -504,7 +504,7 @@ Completely pause an auto order
 final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
 AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
 
-AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto orders to pause
+AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto order to pause
 Integer autoOrderOid = 56; // Integer | The auto order oid to pause.
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
@@ -520,7 +520,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto orders to pause |
+ **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to pause |
  **autoOrderOid** | **Integer**| The auto order oid to pause. |
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 

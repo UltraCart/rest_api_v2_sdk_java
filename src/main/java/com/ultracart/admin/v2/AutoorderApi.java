@@ -1267,7 +1267,7 @@ public class AutoOrderApi {
     }
     /**
      * Build call for pauseAutoOrder
-     * @param autoOrder Auto orders to pause (required)
+     * @param autoOrder Auto order to pause (required)
      * @param autoOrderOid The auto order oid to pause. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param progressListener Progress listener
@@ -1341,7 +1341,7 @@ public class AutoOrderApi {
     /**
      * Pause auto order
      * Completely pause an auto order 
-     * @param autoOrder Auto orders to pause (required)
+     * @param autoOrder Auto order to pause (required)
      * @param autoOrderOid The auto order oid to pause. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return AutoOrderResponse
@@ -1355,7 +1355,7 @@ public class AutoOrderApi {
     /**
      * Pause auto order
      * Completely pause an auto order 
-     * @param autoOrder Auto orders to pause (required)
+     * @param autoOrder Auto order to pause (required)
      * @param autoOrderOid The auto order oid to pause. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;AutoOrderResponse&gt;
@@ -1370,7 +1370,7 @@ public class AutoOrderApi {
     /**
      * Pause auto order (asynchronously)
      * Completely pause an auto order 
-     * @param autoOrder Auto orders to pause (required)
+     * @param autoOrder Auto order to pause (required)
      * @param autoOrderOid The auto order oid to pause. (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param callback The callback to be executed when the API call finishes
