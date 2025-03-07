@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * ScreenRecordingUserAgent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-07T01:40:29.758-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-07T07:37:21.076-05:00")
 
 
 
