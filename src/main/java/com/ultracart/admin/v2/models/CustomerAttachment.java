@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerAttachment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-05T12:08:18.099-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-07T01:56:11.152-05:00[America/Indianapolis]")
 public class CustomerAttachment {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_ATTACHMENT_OID = "customer_profile_attachment_oid";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_ATTACHMENT_OID)

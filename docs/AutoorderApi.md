@@ -638,7 +638,7 @@ import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java
 AutoOrderApi apiInstance = new AutoOrderApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
 Integer autoOrderOid = 56; // Integer | The auto order oid to pause.
-AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto orders to pause
+AutoOrder autoOrder = new AutoOrder(); // AutoOrder | Auto order to pause
 String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
 try {
     AutoOrderResponse result = apiInstance.pauseAutoOrder(autoOrderOidautoOrderexpand);
@@ -655,7 +655,7 @@ try {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **autoOrderOid** | **Integer**| The auto order oid to pause. | |
-| **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto orders to pause | |
+| **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to pause | |
 | **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type

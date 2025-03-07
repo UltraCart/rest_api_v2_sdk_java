@@ -1546,7 +1546,7 @@ public class AutoOrderApi {
     /**
      * Build call for pauseAutoOrder
      * @param autoOrderOid The auto order oid to pause. (required)
-     * @param autoOrder Auto orders to pause (required)
+     * @param autoOrder Auto order to pause (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1635,7 +1635,7 @@ public class AutoOrderApi {
      * Pause auto order
      * Completely pause an auto order 
      * @param autoOrderOid The auto order oid to pause. (required)
-     * @param autoOrder Auto orders to pause (required)
+     * @param autoOrder Auto order to pause (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return AutoOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1659,7 +1659,7 @@ public class AutoOrderApi {
      * Pause auto order
      * Completely pause an auto order 
      * @param autoOrderOid The auto order oid to pause. (required)
-     * @param autoOrder Auto orders to pause (required)
+     * @param autoOrder Auto order to pause (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;AutoOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1684,7 +1684,7 @@ public class AutoOrderApi {
      * Pause auto order (asynchronously)
      * Completely pause an auto order 
      * @param autoOrderOid The auto order oid to pause. (required)
-     * @param autoOrder Auto orders to pause (required)
+     * @param autoOrder Auto order to pause (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
