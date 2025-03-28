@@ -87,6 +87,7 @@ WIRE_TRANSFER | &quot;Wire Transfer&quot;
 VENMO | &quot;Venmo&quot;
 APPLE_PAY | &quot;Apple Pay&quot;
 _GOOGLE_PAY | &quot; Google Pay&quot;
+PAYPAL_FASTLANE | &quot;PayPal Fastlane&quot;
 
 
 <a name="QueryTargetEnum"></a>

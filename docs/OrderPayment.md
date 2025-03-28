@@ -57,6 +57,7 @@ VENMO | &quot;Venmo&quot;
 APPLE_PAY | &quot;Apple Pay&quot;
 GOOGLE_PAY | &quot;Google Pay&quot;
 HEALTH_BENEFIT_CARD | &quot;Health Benefit Card&quot;
+PAYPAL_FASTLANE | &quot;PayPal Fastlane&quot;
 
 
 <a name="PaymentStatusEnum"></a>

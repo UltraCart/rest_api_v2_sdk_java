@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AutoOrderManagement
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-07T07:37:21.076-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-28T12:52:52.425-04:00")
 
 
 

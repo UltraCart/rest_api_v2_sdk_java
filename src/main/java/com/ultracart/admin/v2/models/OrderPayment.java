@@ -39,7 +39,7 @@ import java.util.List;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-07T07:37:21.076-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-28T12:52:52.425-04:00")
 
 
 
@@ -122,7 +122,9 @@ public class OrderPayment {
     
     GOOGLE_PAY("Google Pay"),
     
-    HEALTH_BENEFIT_CARD("Health Benefit Card");
+    HEALTH_BENEFIT_CARD("Health Benefit Card"),
+    
+    PAYPAL_FASTLANE("PayPal Fastlane");
 
     private String value;
 

@@ -131,6 +131,7 @@ PAYPAL | &quot;PayPal&quot;
 PURCHASE_ORDER | &quot;Purchase Order&quot;
 QUOTE_REQUEST | &quot;Quote Request&quot;
 WIRE_TRANSFER | &quot;Wire Transfer&quot;
+PAYPAL_FASTLANE | &quot;PayPal Fastlane&quot;
 
 
 
