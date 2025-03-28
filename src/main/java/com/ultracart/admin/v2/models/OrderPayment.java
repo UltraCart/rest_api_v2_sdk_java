@@ -59,7 +59,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-07T07:52:49.477-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-28T13:13:08.776-04:00[America/Indianapolis]")
 public class OrderPayment {
   public static final String SERIALIZED_NAME_CHECK = "check";
   @SerializedName(SERIALIZED_NAME_CHECK)
@@ -146,7 +146,9 @@ public class OrderPayment {
     
     GOOGLE_PAY("Google Pay"),
     
-    HEALTH_BENEFIT_CARD("Health Benefit Card");
+    HEALTH_BENEFIT_CARD("Health Benefit Card"),
+    
+    PAYPAL_FASTLANE("PayPal Fastlane");
 
     private String value;
 
