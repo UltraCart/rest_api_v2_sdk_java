@@ -3636,6 +3636,225 @@ public class OrderApi {
         return localVarCall;
     }
     /**
+     * Build call for refundOrderCompletely
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param refundReason Reason for refund (optional)
+     * @param rejectReason Reason for reject (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refundOrderCompletelyCall(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/refund_completely"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (rejectAfterRefund != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reject_after_refund", rejectAfterRefund));
+        }
+
+        if (skipCustomerNotification != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip_customer_notification", skipCustomerNotification));
+        }
+
+        if (autoOrderCancel != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("auto_order_cancel", autoOrderCancel));
+        }
+
+        if (manualRefund != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("manual_refund", manualRefund));
+        }
+
+        if (reverseAffiliateTransactions != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reverse_affiliate_transactions", reverseAffiliateTransactions));
+        }
+
+        if (issueStoreCredit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("issue_store_credit", issueStoreCredit));
+        }
+
+        if (autoOrderCancelReason != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("auto_order_cancel_reason", autoOrderCancelReason));
+        }
+
+        if (refundReason != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("refund_reason", refundReason));
+        }
+
+        if (rejectReason != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reject_reason", rejectReason));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call refundOrderCompletelyValidateBeforeCall(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling refundOrderCompletely(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = refundOrderCompletelyCall(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Refund an order completely
+     * Perform a refund operation on an order and then update the order if successful. 
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param refundReason Reason for refund (optional)
+     * @param rejectReason Reason for reject (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public OrderResponse refundOrderCompletely(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = refundOrderCompletelyWithHttpInfo(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Refund an order completely
+     * Perform a refund operation on an order and then update the order if successful. 
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param refundReason Reason for refund (optional)
+     * @param rejectReason Reason for reject (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<OrderResponse> refundOrderCompletelyWithHttpInfo(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason) throws ApiException {
+        okhttp3.Call localVarCall = refundOrderCompletelyValidateBeforeCall(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Refund an order completely (asynchronously)
+     * Perform a refund operation on an order and then update the order if successful. 
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param refundReason Reason for refund (optional)
+     * @param rejectReason Reason for reject (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refundOrderCompletelyAsync(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason, final ApiCallback<OrderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = refundOrderCompletelyValidateBeforeCall(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason, _callback);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for replacement
      * @param orderId The order id to generate a replacement for. (required)
      * @param replacement Replacement order details (required)

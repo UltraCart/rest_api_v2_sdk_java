@@ -118,6 +118,7 @@ docs/ChannelPartnerImportResponse.md
 docs/ChannelPartnerOrder.md
 docs/ChannelPartnerOrderItem.md
 docs/ChannelPartnerOrderItemOption.md
+docs/ChannelPartnerOrderItemProperty.md
 docs/ChannelPartnerOrderTransaction.md
 docs/ChannelPartnerOrderTransactionDetail.md
 docs/ChannelPartnerShipToPreference.md
@@ -1023,6 +1024,7 @@ src/main/java/com/ultracart/admin/v2/models/ChannelPartnerImportResponse.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrder.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderItem.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderItemOption.java
+src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderItemProperty.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderTransaction.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerOrderTransactionDetail.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerShipToPreference.java

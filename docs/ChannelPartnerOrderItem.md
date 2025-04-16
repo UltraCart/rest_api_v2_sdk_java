@@ -12,6 +12,7 @@
 |**autoOrderSchedule** | [**AutoOrderScheduleEnum**](#AutoOrderScheduleEnum) | The frequency schedule for this item if this item is part of an auto (recurring) order |  [optional] |
 |**merchantItemId** | **String** | Item ID |  [optional] |
 |**options** | [**List&lt;ChannelPartnerOrderItemOption&gt;**](ChannelPartnerOrderItemOption.md) | Item options |  [optional] |
+|**properties** | [**List&lt;ChannelPartnerOrderItemProperty&gt;**](ChannelPartnerOrderItemProperty.md) | Properties |  [optional] |
 |**quantity** | **BigDecimal** | Quantity |  [optional] |
 |**upsell** | **Boolean** | True if this item was an upsell item. |  [optional] |
 

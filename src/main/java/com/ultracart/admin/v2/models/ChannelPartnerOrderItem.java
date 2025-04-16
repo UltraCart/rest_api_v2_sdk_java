@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ChannelPartnerOrderItemOption;
+import com.ultracart.admin.v2.models.ChannelPartnerOrderItemProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -51,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerOrderItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-28T13:13:08.776-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-16T15:08:13.597-04:00[America/Indianapolis]")
 public class ChannelPartnerOrderItem {
   public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST = "arbitrary_unit_cost";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST)
@@ -147,6 +148,10 @@ public class ChannelPartnerOrderItem {
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
   private List<ChannelPartnerOrderItemOption> options = null;
+
+  public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+  @SerializedName(SERIALIZED_NAME_PROPERTIES)
+  private List<ChannelPartnerOrderItemProperty> properties = null;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
@@ -282,6 +287,37 @@ public class ChannelPartnerOrderItem {
   }
 
 
+  public ChannelPartnerOrderItem properties(List<ChannelPartnerOrderItemProperty> properties) {
+    
+    this.properties = properties;
+    return this;
+  }
+
+  public ChannelPartnerOrderItem addPropertiesItem(ChannelPartnerOrderItemProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties
+   * @return properties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Properties")
+
+  public List<ChannelPartnerOrderItemProperty> getProperties() {
+    return properties;
+  }
+
+
+  public void setProperties(List<ChannelPartnerOrderItemProperty> properties) {
+    this.properties = properties;
+  }
+
+
   public ChannelPartnerOrderItem quantity(BigDecimal quantity) {
     
     this.quantity = quantity;
@@ -343,13 +379,14 @@ public class ChannelPartnerOrderItem {
         Objects.equals(this.autoOrderSchedule, channelPartnerOrderItem.autoOrderSchedule) &&
         Objects.equals(this.merchantItemId, channelPartnerOrderItem.merchantItemId) &&
         Objects.equals(this.options, channelPartnerOrderItem.options) &&
+        Objects.equals(this.properties, channelPartnerOrderItem.properties) &&
         Objects.equals(this.quantity, channelPartnerOrderItem.quantity) &&
         Objects.equals(this.upsell, channelPartnerOrderItem.upsell);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, merchantItemId, options, quantity, upsell);
+    return Objects.hash(arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, merchantItemId, options, properties, quantity, upsell);
   }
 
   @Override
@@ -361,6 +398,7 @@ public class ChannelPartnerOrderItem {
     sb.append("    autoOrderSchedule: ").append(toIndentedString(autoOrderSchedule)).append("\n");
     sb.append("    merchantItemId: ").append(toIndentedString(merchantItemId)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    upsell: ").append(toIndentedString(upsell)).append("\n");
     sb.append("}");
@@ -390,6 +428,7 @@ public class ChannelPartnerOrderItem {
     openapiFields.add("auto_order_schedule");
     openapiFields.add("merchant_item_id");
     openapiFields.add("options");
+    openapiFields.add("properties");
     openapiFields.add("quantity");
     openapiFields.add("upsell");
 
@@ -438,6 +477,18 @@ public class ChannelPartnerOrderItem {
         // validate the optional field `options` (array)
         for (int i = 0; i < jsonArrayoptions.size(); i++) {
           ChannelPartnerOrderItemOption.validateJsonObject(jsonArrayoptions.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArrayproperties = jsonObj.getAsJsonArray("properties");
+      if (jsonArrayproperties != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("properties").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `properties` to be an array in the JSON string but got `%s`", jsonObj.get("properties").toString()));
+        }
+
+        // validate the optional field `properties` (array)
+        for (int i = 0; i < jsonArrayproperties.size(); i++) {
+          ChannelPartnerOrderItemProperty.validateJsonObject(jsonArrayproperties.get(i).getAsJsonObject());
         };
       }
   }
