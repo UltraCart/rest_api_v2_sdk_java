@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-03-28T12:52:52.425-04:00
+  - Build date: 2025-04-16T14:51:12.703-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.5</version>
+  <version>3.11.6</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.5"
+compile "com.ultracart:rest-sdk:3.11.6"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.5.jar`
+* `target/rest-sdk-3.11.6.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -364,6 +364,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**isRefundableOrder**](docs/OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 *OrderApi* | [**processPayment**](docs/OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
+*OrderApi* | [**refundOrderCompletely**](docs/OrderApi.md#refundOrderCompletely) | **PUT** /order/orders/{order_id}/refund_completely | Refund an order completely
 *OrderApi* | [**replacement**](docs/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
@@ -726,6 +727,7 @@ Class | Method | HTTP request | Description
  - [ChannelPartnerOrder](docs/ChannelPartnerOrder.md)
  - [ChannelPartnerOrderItem](docs/ChannelPartnerOrderItem.md)
  - [ChannelPartnerOrderItemOption](docs/ChannelPartnerOrderItemOption.md)
+ - [ChannelPartnerOrderItemProperty](docs/ChannelPartnerOrderItemProperty.md)
  - [ChannelPartnerOrderTransaction](docs/ChannelPartnerOrderTransaction.md)
  - [ChannelPartnerOrderTransactionDetail](docs/ChannelPartnerOrderTransactionDetail.md)
  - [ChannelPartnerShipToPreference](docs/ChannelPartnerShipToPreference.md)
@@ -1553,6 +1555,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.6 | 04/16/2025 | added channel partner order item properties |
 | 3.11.5 | 03/28/2025 | added paypal fastlane constants for payments |
 | 3.11.4 | 03/07/2025 | updated github readme.md |
 | 3.11.3 | 03/07/2025 | updated github readme.md files |

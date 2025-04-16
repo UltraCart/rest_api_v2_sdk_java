@@ -3008,6 +3008,183 @@ public class OrderApi {
         return call;
     }
     /**
+     * Build call for refundOrderCompletely
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param refundReason Reason for refund (optional)
+     * @param rejectReason Reason for reject (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call refundOrderCompletelyCall(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/refund_completely"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (rejectAfterRefund != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("reject_after_refund", rejectAfterRefund));
+        if (skipCustomerNotification != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip_customer_notification", skipCustomerNotification));
+        if (autoOrderCancel != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("auto_order_cancel", autoOrderCancel));
+        if (manualRefund != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("manual_refund", manualRefund));
+        if (reverseAffiliateTransactions != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("reverse_affiliate_transactions", reverseAffiliateTransactions));
+        if (issueStoreCredit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("issue_store_credit", issueStoreCredit));
+        if (autoOrderCancelReason != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("auto_order_cancel_reason", autoOrderCancelReason));
+        if (refundReason != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("refund_reason", refundReason));
+        if (rejectReason != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("reject_reason", rejectReason));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call refundOrderCompletelyValidateBeforeCall(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling refundOrderCompletely(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = refundOrderCompletelyCall(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Refund an order completely
+     * Perform a refund operation on an order and then update the order if successful. 
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param refundReason Reason for refund (optional)
+     * @param rejectReason Reason for reject (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse refundOrderCompletely(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason) throws ApiException {
+        ApiResponse<OrderResponse> resp = refundOrderCompletelyWithHttpInfo(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason);
+        return resp.getData();
+    }
+
+    /**
+     * Refund an order completely
+     * Perform a refund operation on an order and then update the order if successful. 
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param refundReason Reason for refund (optional)
+     * @param rejectReason Reason for reject (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> refundOrderCompletelyWithHttpInfo(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason) throws ApiException {
+        com.squareup.okhttp.Call call = refundOrderCompletelyValidateBeforeCall(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Refund an order completely (asynchronously)
+     * Perform a refund operation on an order and then update the order if successful. 
+     * @param orderId The order id to refund. (required)
+     * @param rejectAfterRefund Reject order after refund (optional, default to false)
+     * @param skipCustomerNotification Skip customer email notification (optional, default to false)
+     * @param autoOrderCancel Cancel associated auto orders (optional, default to false)
+     * @param manualRefund Consider a manual refund done externally (optional, default to false)
+     * @param reverseAffiliateTransactions Reverse affiliate transactions (optional, default to true)
+     * @param issueStoreCredit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param autoOrderCancelReason Reason for auto orders cancellation (optional)
+     * @param refundReason Reason for refund (optional)
+     * @param rejectReason Reason for reject (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call refundOrderCompletelyAsync(String orderId, Boolean rejectAfterRefund, Boolean skipCustomerNotification, Boolean autoOrderCancel, Boolean manualRefund, Boolean reverseAffiliateTransactions, Boolean issueStoreCredit, String autoOrderCancelReason, String refundReason, String rejectReason, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = refundOrderCompletelyValidateBeforeCall(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for replacement
      * @param orderId The order id to generate a replacement for. (required)
      * @param replacement Replacement order details (required)

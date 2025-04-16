@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ChannelPartnerOrderItemOption;
+import com.ultracart.admin.v2.models.ChannelPartnerOrderItemProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * ChannelPartnerOrderItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-28T12:52:52.425-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T14:51:12.703-04:00")
 
 
 
@@ -125,6 +126,9 @@ public class ChannelPartnerOrderItem {
 
   @SerializedName("options")
   private List<ChannelPartnerOrderItemOption> options = null;
+
+  @SerializedName("properties")
+  private List<ChannelPartnerOrderItemProperty> properties = null;
 
   @SerializedName("quantity")
   private BigDecimal quantity = null;
@@ -230,6 +234,32 @@ public class ChannelPartnerOrderItem {
     this.options = options;
   }
 
+  public ChannelPartnerOrderItem properties(List<ChannelPartnerOrderItemProperty> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public ChannelPartnerOrderItem addPropertiesItem(ChannelPartnerOrderItemProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<ChannelPartnerOrderItemProperty>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Properties
+   * @return properties
+  **/
+  @ApiModelProperty(value = "Properties")
+  public List<ChannelPartnerOrderItemProperty> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<ChannelPartnerOrderItemProperty> properties) {
+    this.properties = properties;
+  }
+
   public ChannelPartnerOrderItem quantity(BigDecimal quantity) {
     this.quantity = quantity;
     return this;
@@ -281,13 +311,14 @@ public class ChannelPartnerOrderItem {
         Objects.equals(this.autoOrderSchedule, channelPartnerOrderItem.autoOrderSchedule) &&
         Objects.equals(this.merchantItemId, channelPartnerOrderItem.merchantItemId) &&
         Objects.equals(this.options, channelPartnerOrderItem.options) &&
+        Objects.equals(this.properties, channelPartnerOrderItem.properties) &&
         Objects.equals(this.quantity, channelPartnerOrderItem.quantity) &&
         Objects.equals(this.upsell, channelPartnerOrderItem.upsell);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, merchantItemId, options, quantity, upsell);
+    return Objects.hash(arbitraryUnitCost, autoOrderLastRebillDts, autoOrderSchedule, merchantItemId, options, properties, quantity, upsell);
   }
 
 
@@ -301,6 +332,7 @@ public class ChannelPartnerOrderItem {
     sb.append("    autoOrderSchedule: ").append(toIndentedString(autoOrderSchedule)).append("\n");
     sb.append("    merchantItemId: ").append(toIndentedString(merchantItemId)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    upsell: ").append(toIndentedString(upsell)).append("\n");
     sb.append("}");
