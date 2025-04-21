@@ -19,7 +19,7 @@ import java.util.Arrays;
 /**
  * ConversationDepartmentSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T14:51:12.703-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-21T11:15:07.142-04:00")
 
 
 
