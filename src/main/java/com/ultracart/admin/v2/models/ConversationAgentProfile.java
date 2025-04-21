@@ -47,8 +47,24 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-16T15:08:13.597-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-21T11:31:21.848-04:00[America/Indianapolis]")
 public class ConversationAgentProfile {
+  public static final String SERIALIZED_NAME_AI = "ai";
+  @SerializedName(SERIALIZED_NAME_AI)
+  private Boolean ai;
+
+  public static final String SERIALIZED_NAME_AI_CHAT_INSTRUCTIONS = "ai_chat_instructions";
+  @SerializedName(SERIALIZED_NAME_AI_CHAT_INSTRUCTIONS)
+  private String aiChatInstructions;
+
+  public static final String SERIALIZED_NAME_AI_PERSONA = "ai_persona";
+  @SerializedName(SERIALIZED_NAME_AI_PERSONA)
+  private String aiPersona;
+
+  public static final String SERIALIZED_NAME_AI_SMS_INSTRUCTIONS = "ai_sms_instructions";
+  @SerializedName(SERIALIZED_NAME_AI_SMS_INSTRUCTIONS)
+  private String aiSmsInstructions;
+
   public static final String SERIALIZED_NAME_CHAT_LIMIT = "chat_limit";
   @SerializedName(SERIALIZED_NAME_CHAT_LIMIT)
   private Integer chatLimit;
@@ -128,6 +144,98 @@ public class ConversationAgentProfile {
 
   public ConversationAgentProfile() { 
   }
+
+  public ConversationAgentProfile ai(Boolean ai) {
+    
+    this.ai = ai;
+    return this;
+  }
+
+   /**
+   * AI powered chat bot
+   * @return ai
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AI powered chat bot")
+
+  public Boolean getAi() {
+    return ai;
+  }
+
+
+  public void setAi(Boolean ai) {
+    this.ai = ai;
+  }
+
+
+  public ConversationAgentProfile aiChatInstructions(String aiChatInstructions) {
+    
+    this.aiChatInstructions = aiChatInstructions;
+    return this;
+  }
+
+   /**
+   * Additional instructions for this AI when handle web chats
+   * @return aiChatInstructions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional instructions for this AI when handle web chats")
+
+  public String getAiChatInstructions() {
+    return aiChatInstructions;
+  }
+
+
+  public void setAiChatInstructions(String aiChatInstructions) {
+    this.aiChatInstructions = aiChatInstructions;
+  }
+
+
+  public ConversationAgentProfile aiPersona(String aiPersona) {
+    
+    this.aiPersona = aiPersona;
+    return this;
+  }
+
+   /**
+   * Persona of this AI agent
+   * @return aiPersona
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Persona of this AI agent")
+
+  public String getAiPersona() {
+    return aiPersona;
+  }
+
+
+  public void setAiPersona(String aiPersona) {
+    this.aiPersona = aiPersona;
+  }
+
+
+  public ConversationAgentProfile aiSmsInstructions(String aiSmsInstructions) {
+    
+    this.aiSmsInstructions = aiSmsInstructions;
+    return this;
+  }
+
+   /**
+   * Additional instructions for this AI when handle SMS messages
+   * @return aiSmsInstructions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional instructions for this AI when handle SMS messages")
+
+  public String getAiSmsInstructions() {
+    return aiSmsInstructions;
+  }
+
+
+  public void setAiSmsInstructions(String aiSmsInstructions) {
+    this.aiSmsInstructions = aiSmsInstructions;
+  }
+
 
   public ConversationAgentProfile chatLimit(Integer chatLimit) {
     
@@ -300,7 +408,11 @@ public class ConversationAgentProfile {
       return false;
     }
     ConversationAgentProfile conversationAgentProfile = (ConversationAgentProfile) o;
-    return Objects.equals(this.chatLimit, conversationAgentProfile.chatLimit) &&
+    return Objects.equals(this.ai, conversationAgentProfile.ai) &&
+        Objects.equals(this.aiChatInstructions, conversationAgentProfile.aiChatInstructions) &&
+        Objects.equals(this.aiPersona, conversationAgentProfile.aiPersona) &&
+        Objects.equals(this.aiSmsInstructions, conversationAgentProfile.aiSmsInstructions) &&
+        Objects.equals(this.chatLimit, conversationAgentProfile.chatLimit) &&
         Objects.equals(this.defaultLanguageIsoCode, conversationAgentProfile.defaultLanguageIsoCode) &&
         Objects.equals(this.defaultStatus, conversationAgentProfile.defaultStatus) &&
         Objects.equals(this.displayName, conversationAgentProfile.displayName) &&
@@ -311,13 +423,17 @@ public class ConversationAgentProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl);
+    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationAgentProfile {\n");
+    sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
+    sb.append("    aiChatInstructions: ").append(toIndentedString(aiChatInstructions)).append("\n");
+    sb.append("    aiPersona: ").append(toIndentedString(aiPersona)).append("\n");
+    sb.append("    aiSmsInstructions: ").append(toIndentedString(aiSmsInstructions)).append("\n");
     sb.append("    chatLimit: ").append(toIndentedString(chatLimit)).append("\n");
     sb.append("    defaultLanguageIsoCode: ").append(toIndentedString(defaultLanguageIsoCode)).append("\n");
     sb.append("    defaultStatus: ").append(toIndentedString(defaultStatus)).append("\n");
@@ -347,6 +463,10 @@ public class ConversationAgentProfile {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("ai");
+    openapiFields.add("ai_chat_instructions");
+    openapiFields.add("ai_persona");
+    openapiFields.add("ai_sms_instructions");
     openapiFields.add("chat_limit");
     openapiFields.add("default_language_iso_code");
     openapiFields.add("default_status");
@@ -380,6 +500,15 @@ public class ConversationAgentProfile {
         if (!ConversationAgentProfile.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationAgentProfile` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("ai_chat_instructions") != null && !jsonObj.get("ai_chat_instructions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_chat_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_chat_instructions").toString()));
+      }
+      if (jsonObj.get("ai_persona") != null && !jsonObj.get("ai_persona").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_persona` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_persona").toString()));
+      }
+      if (jsonObj.get("ai_sms_instructions") != null && !jsonObj.get("ai_sms_instructions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_sms_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_sms_instructions").toString()));
       }
       if (jsonObj.get("default_language_iso_code") != null && !jsonObj.get("default_language_iso_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `default_language_iso_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_language_iso_code").toString()));

@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerShipToPreference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-16T15:08:13.597-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-21T11:31:21.848-04:00[America/Indianapolis]")
 public class ChannelPartnerShipToPreference {
   public static final String SERIALIZED_NAME_ADDITIONAL_KIT_COMPONENT_ITEM_IDS = "additional_kit_component_item_ids";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_KIT_COMPONENT_ITEM_IDS)
