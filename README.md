@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-04-21T11:15:07.142-04:00
+  - Build date: 2025-04-22T12:11:36.362-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.7</version>
+  <version>3.11.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.7"
+compile "com.ultracart:rest-sdk:3.11.8"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.7.jar`
+* `target/rest-sdk-3.11.8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
 *ChannelPartnerApi* | [**estimateTaxForChannelPartnerOrder**](docs/ChannelPartnerApi.md#estimateTaxForChannelPartnerOrder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
 *ChannelPartnerApi* | [**getChannelPartnerOrder**](docs/ChannelPartnerApi.md#getChannelPartnerOrder) | **GET** /channel_partner/orders/{order_id} | Retrieve a channel partner order
 *ChannelPartnerApi* | [**getChannelPartnerOrderByChannelPartnerOrderId**](docs/ChannelPartnerApi.md#getChannelPartnerOrderByChannelPartnerOrderId) | **GET** /channel_partner/orders/by_channel_partner_order_id/{order_id} | Retrieve a channel partner order by the channel partner order id
+*ChannelPartnerApi* | [**getChannelPartnerReasonCodes**](docs/ChannelPartnerApi.md#getChannelPartnerReasonCodes) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/reason_codes | Retrieve reject and refund reason codes.
 *ChannelPartnerApi* | [**getChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#getChannelPartnerShipToPreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
 *ChannelPartnerApi* | [**getChannelPartnerShipToPreferences**](docs/ChannelPartnerApi.md#getChannelPartnerShipToPreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
 *ChannelPartnerApi* | [**getChannelPartners**](docs/ChannelPartnerApi.md#getChannelPartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
@@ -719,6 +720,7 @@ Class | Method | HTTP request | Description
  - [CartUpsellAfter](docs/CartUpsellAfter.md)
  - [CartValidationRequest](docs/CartValidationRequest.md)
  - [CartValidationResponse](docs/CartValidationResponse.md)
+ - [ChanelPartnerReasonCodesResponse](docs/ChanelPartnerReasonCodesResponse.md)
  - [ChannelPartner](docs/ChannelPartner.md)
  - [ChannelPartnerCancelResponse](docs/ChannelPartnerCancelResponse.md)
  - [ChannelPartnerEstimateShippingResponse](docs/ChannelPartnerEstimateShippingResponse.md)
@@ -1555,6 +1557,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.8 | 04/22/2025 | order property fields for created_by and created_dts |
 | 3.11.7 | 04/21/2025 | conversation agent additional fields |
 | 3.11.6 | 04/16/2025 | added channel partner order item properties |
 | 3.11.5 | 03/28/2025 | added paypal fastlane constants for payments |

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**estimateTaxForChannelPartnerOrder**](ChannelPartnerApi.md#estimateTaxForChannelPartnerOrder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
 [**getChannelPartnerOrder**](ChannelPartnerApi.md#getChannelPartnerOrder) | **GET** /channel_partner/orders/{order_id} | Retrieve a channel partner order
 [**getChannelPartnerOrderByChannelPartnerOrderId**](ChannelPartnerApi.md#getChannelPartnerOrderByChannelPartnerOrderId) | **GET** /channel_partner/orders/by_channel_partner_order_id/{order_id} | Retrieve a channel partner order by the channel partner order id
+[**getChannelPartnerReasonCodes**](ChannelPartnerApi.md#getChannelPartnerReasonCodes) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/reason_codes | Retrieve reject and refund reason codes.
 [**getChannelPartnerShipToPreference**](ChannelPartnerApi.md#getChannelPartnerShipToPreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
 [**getChannelPartnerShipToPreferences**](ChannelPartnerApi.md#getChannelPartnerShipToPreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
 [**getChannelPartners**](ChannelPartnerApi.md#getChannelPartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
@@ -365,6 +366,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getChannelPartnerReasonCodes"></a>
+# **getChannelPartnerReasonCodes**
+> ChanelPartnerReasonCodesResponse getChannelPartnerReasonCodes(channelPartnerOid)
+
+Retrieve reject and refund reason codes.
+
+Retrieve reject and refund reason codes. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ChannelPartnerApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ChannelPartnerApi apiInstance = new ChannelPartnerApi(apiKey);
+
+Integer channelPartnerOid = 56; // Integer | 
+try {
+    ChanelPartnerReasonCodesResponse result = apiInstance.getChannelPartnerReasonCodes(channelPartnerOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ChannelPartnerApi#getChannelPartnerReasonCodes");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelPartnerOid** | **Integer**|  |
+
+### Return type
+
+[**ChanelPartnerReasonCodesResponse**](ChanelPartnerReasonCodesResponse.md)
 
 ### Authorization
 

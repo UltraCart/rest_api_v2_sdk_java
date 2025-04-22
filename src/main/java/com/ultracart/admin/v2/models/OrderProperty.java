@@ -27,11 +27,17 @@ import java.io.IOException;
 /**
  * OrderProperty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-21T11:15:07.142-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-22T12:11:36.362-04:00")
 
 
 
 public class OrderProperty {
+  @SerializedName("created_by")
+  private String createdBy = null;
+
+  @SerializedName("created_dts")
+  private String createdDts = null;
+
   @SerializedName("display")
   private Boolean display = null;
 
@@ -43,6 +49,42 @@ public class OrderProperty {
 
   @SerializedName("value")
   private String value = null;
+
+  public OrderProperty createdBy(String createdBy) {
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Created by user
+   * @return createdBy
+  **/
+  @ApiModelProperty(value = "Created by user")
+  public String getCreatedBy() {
+    return createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public OrderProperty createdDts(String createdDts) {
+    this.createdDts = createdDts;
+    return this;
+  }
+
+   /**
+   * The date/time that the property was created by the user
+   * @return createdDts
+  **/
+  @ApiModelProperty(value = "The date/time that the property was created by the user")
+  public String getCreatedDts() {
+    return createdDts;
+  }
+
+  public void setCreatedDts(String createdDts) {
+    this.createdDts = createdDts;
+  }
 
   public OrderProperty display(Boolean display) {
     this.display = display;
@@ -126,7 +168,9 @@ public class OrderProperty {
       return false;
     }
     OrderProperty orderProperty = (OrderProperty) o;
-    return Objects.equals(this.display, orderProperty.display) &&
+    return Objects.equals(this.createdBy, orderProperty.createdBy) &&
+        Objects.equals(this.createdDts, orderProperty.createdDts) &&
+        Objects.equals(this.display, orderProperty.display) &&
         Objects.equals(this.expirationDts, orderProperty.expirationDts) &&
         Objects.equals(this.name, orderProperty.name) &&
         Objects.equals(this.value, orderProperty.value);
@@ -134,7 +178,7 @@ public class OrderProperty {
 
   @Override
   public int hashCode() {
-    return Objects.hash(display, expirationDts, name, value);
+    return Objects.hash(createdBy, createdDts, display, expirationDts, name, value);
   }
 
 
@@ -143,6 +187,8 @@ public class OrderProperty {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderProperty {\n");
     
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    display: ").append(toIndentedString(display)).append("\n");
     sb.append("    expirationDts: ").append(toIndentedString(expirationDts)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
