@@ -47,8 +47,16 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderProperty
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-21T11:31:21.848-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-22T12:28:02.580-04:00[America/Indianapolis]")
 public class OrderProperty {
+  public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  private String createdBy;
+
+  public static final String SERIALIZED_NAME_CREATED_DTS = "created_dts";
+  @SerializedName(SERIALIZED_NAME_CREATED_DTS)
+  private String createdDts;
+
   public static final String SERIALIZED_NAME_DISPLAY = "display";
   @SerializedName(SERIALIZED_NAME_DISPLAY)
   private Boolean display;
@@ -67,6 +75,52 @@ public class OrderProperty {
 
   public OrderProperty() { 
   }
+
+  public OrderProperty createdBy(String createdBy) {
+    
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Created by user
+   * @return createdBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Created by user")
+
+  public String getCreatedBy() {
+    return createdBy;
+  }
+
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+
+  public OrderProperty createdDts(String createdDts) {
+    
+    this.createdDts = createdDts;
+    return this;
+  }
+
+   /**
+   * The date/time that the property was created by the user
+   * @return createdDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date/time that the property was created by the user")
+
+  public String getCreatedDts() {
+    return createdDts;
+  }
+
+
+  public void setCreatedDts(String createdDts) {
+    this.createdDts = createdDts;
+  }
+
 
   public OrderProperty display(Boolean display) {
     
@@ -170,7 +224,9 @@ public class OrderProperty {
       return false;
     }
     OrderProperty orderProperty = (OrderProperty) o;
-    return Objects.equals(this.display, orderProperty.display) &&
+    return Objects.equals(this.createdBy, orderProperty.createdBy) &&
+        Objects.equals(this.createdDts, orderProperty.createdDts) &&
+        Objects.equals(this.display, orderProperty.display) &&
         Objects.equals(this.expirationDts, orderProperty.expirationDts) &&
         Objects.equals(this.name, orderProperty.name) &&
         Objects.equals(this.value, orderProperty.value);
@@ -178,13 +234,15 @@ public class OrderProperty {
 
   @Override
   public int hashCode() {
-    return Objects.hash(display, expirationDts, name, value);
+    return Objects.hash(createdBy, createdDts, display, expirationDts, name, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderProperty {\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    display: ").append(toIndentedString(display)).append("\n");
     sb.append("    expirationDts: ").append(toIndentedString(expirationDts)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -211,6 +269,8 @@ public class OrderProperty {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("created_by");
+    openapiFields.add("created_dts");
     openapiFields.add("display");
     openapiFields.add("expiration_dts");
     openapiFields.add("name");
@@ -241,6 +301,12 @@ public class OrderProperty {
         if (!OrderProperty.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OrderProperty` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));
+      }
+      if (jsonObj.get("created_dts") != null && !jsonObj.get("created_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_dts").toString()));
       }
       if (jsonObj.get("expiration_dts") != null && !jsonObj.get("expiration_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expiration_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiration_dts").toString()));
