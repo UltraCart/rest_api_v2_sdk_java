@@ -462,6 +462,14 @@ public class WebhookApi {
     /**
      * Build call for getWebhookLogSummaries
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
+     * @param requestId  (optional)
+     * @param beginDate  (optional)
+     * @param endDate  (optional)
+     * @param status  (optional)
+     * @param event  (optional)
+     * @param orderId  (optional)
+     * @param request  (optional)
+     * @param duration  (optional)
      * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -470,7 +478,7 @@ public class WebhookApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWebhookLogSummariesCall(Integer webhookOid, Integer limit, Integer offset, String since, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWebhookLogSummariesCall(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -479,6 +487,22 @@ public class WebhookApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (requestId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("requestId", requestId));
+        if (beginDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("beginDate", beginDate));
+        if (endDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+        if (status != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+        if (event != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("event", event));
+        if (orderId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("orderId", orderId));
+        if (request != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("request", request));
+        if (duration != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("duration", duration));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
         if (offset != null)
@@ -519,7 +543,7 @@ public class WebhookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWebhookLogSummariesValidateBeforeCall(Integer webhookOid, Integer limit, Integer offset, String since, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getWebhookLogSummariesValidateBeforeCall(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'webhookOid' is set
         if (webhookOid == null) {
@@ -527,7 +551,7 @@ public class WebhookApi {
         }
         
 
-        com.squareup.okhttp.Call call = getWebhookLogSummariesCall(webhookOid, limit, offset, since, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWebhookLogSummariesCall(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since, progressListener, progressRequestListener);
         return call;
 
     }
@@ -536,14 +560,22 @@ public class WebhookApi {
      * Retrieve the log summaries
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
+     * @param requestId  (optional)
+     * @param beginDate  (optional)
+     * @param endDate  (optional)
+     * @param status  (optional)
+     * @param event  (optional)
+     * @param orderId  (optional)
+     * @param request  (optional)
+     * @param duration  (optional)
      * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch log summaries that have been delivered since this date/time. (optional)
      * @return WebhookLogSummariesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WebhookLogSummariesResponse getWebhookLogSummaries(Integer webhookOid, Integer limit, Integer offset, String since) throws ApiException {
-        ApiResponse<WebhookLogSummariesResponse> resp = getWebhookLogSummariesWithHttpInfo(webhookOid, limit, offset, since);
+    public WebhookLogSummariesResponse getWebhookLogSummaries(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since) throws ApiException {
+        ApiResponse<WebhookLogSummariesResponse> resp = getWebhookLogSummariesWithHttpInfo(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since);
         return resp.getData();
     }
 
@@ -551,14 +583,22 @@ public class WebhookApi {
      * Retrieve the log summaries
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
+     * @param requestId  (optional)
+     * @param beginDate  (optional)
+     * @param endDate  (optional)
+     * @param status  (optional)
+     * @param event  (optional)
+     * @param orderId  (optional)
+     * @param request  (optional)
+     * @param duration  (optional)
      * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch log summaries that have been delivered since this date/time. (optional)
      * @return ApiResponse&lt;WebhookLogSummariesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WebhookLogSummariesResponse> getWebhookLogSummariesWithHttpInfo(Integer webhookOid, Integer limit, Integer offset, String since) throws ApiException {
-        com.squareup.okhttp.Call call = getWebhookLogSummariesValidateBeforeCall(webhookOid, limit, offset, since, null, null);
+    public ApiResponse<WebhookLogSummariesResponse> getWebhookLogSummariesWithHttpInfo(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since) throws ApiException {
+        com.squareup.okhttp.Call call = getWebhookLogSummariesValidateBeforeCall(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since, null, null);
         Type localVarReturnType = new TypeToken<WebhookLogSummariesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -567,6 +607,14 @@ public class WebhookApi {
      * Retrieve the log summaries (asynchronously)
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
+     * @param requestId  (optional)
+     * @param beginDate  (optional)
+     * @param endDate  (optional)
+     * @param status  (optional)
+     * @param event  (optional)
+     * @param orderId  (optional)
+     * @param request  (optional)
+     * @param duration  (optional)
      * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -574,7 +622,7 @@ public class WebhookApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWebhookLogSummariesAsync(Integer webhookOid, Integer limit, Integer offset, String since, final ApiCallback<WebhookLogSummariesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWebhookLogSummariesAsync(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since, final ApiCallback<WebhookLogSummariesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -595,7 +643,7 @@ public class WebhookApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWebhookLogSummariesValidateBeforeCall(webhookOid, limit, offset, since, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWebhookLogSummariesValidateBeforeCall(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WebhookLogSummariesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

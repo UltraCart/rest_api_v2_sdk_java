@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.ultracart.admin.v2.models.ConversationAgentAuthResponse;
 import com.ultracart.admin.v2.models.ConversationAgentProfile;
 import com.ultracart.admin.v2.models.ConversationAgentProfileResponse;
+import com.ultracart.admin.v2.models.ConversationAgentProfilesResponse;
 import com.ultracart.admin.v2.models.ConversationAutocompleteRequest;
 import com.ultracart.admin.v2.models.ConversationAutocompleteResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessage;
@@ -1701,6 +1702,119 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = getAgentProfileValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationAgentProfileResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getAgentProfiles
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAgentProfilesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/profiles";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAgentProfilesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getAgentProfilesCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get agent profiles
+     * Retrieve the agents profile 
+     * @return ConversationAgentProfilesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationAgentProfilesResponse getAgentProfiles() throws ApiException {
+        ApiResponse<ConversationAgentProfilesResponse> resp = getAgentProfilesWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get agent profiles
+     * Retrieve the agents profile 
+     * @return ApiResponse&lt;ConversationAgentProfilesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationAgentProfilesResponse> getAgentProfilesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getAgentProfilesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationAgentProfilesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get agent profiles (asynchronously)
+     * Retrieve the agents profile 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAgentProfilesAsync(final ApiCallback<ConversationAgentProfilesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAgentProfilesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationAgentProfilesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
