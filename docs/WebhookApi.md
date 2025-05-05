@@ -215,7 +215,7 @@ try {
 
 <a name="getWebhookLogSummaries"></a>
 # **getWebhookLogSummaries**
-> WebhookLogSummariesResponse getWebhookLogSummaries(webhookOid, limit, offset, since)
+> WebhookLogSummariesResponse getWebhookLogSummaries(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since)
 
 Retrieve the log summaries
 
@@ -240,11 +240,19 @@ import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java
 WebhookApi apiInstance = new WebhookApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
 
 Integer webhookOid = 56; // Integer | The webhook oid to retrieve log summaries for.
+String requestId = "requestId_example"; // String | 
+String beginDate = "beginDate_example"; // String | 
+String endDate = "endDate_example"; // String | 
+String status = "status_example"; // String | 
+String event = "event_example"; // String | 
+String orderId = "orderId_example"; // String | 
+String request = "request_example"; // String | 
+Integer duration = 56; // Integer | 
 Integer limit = 100; // Integer | The maximum number of records to return on this one API call.
 Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
 String since = "since_example"; // String | Fetch log summaries that have been delivered since this date/time.
 try {
-    WebhookLogSummariesResponse result = apiInstance.getWebhookLogSummaries(webhookOidlimitoffsetsince);
+    WebhookLogSummariesResponse result = apiInstance.getWebhookLogSummaries(webhookOidrequestIdbeginDateendDatestatuseventorderIdrequestdurationlimitoffsetsince);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhookApi#getWebhookLogSummaries");
@@ -258,6 +266,14 @@ try {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **webhookOid** | **Integer**| The webhook oid to retrieve log summaries for. | |
+| **requestId** | **String**|  | [optional] |
+| **beginDate** | **String**|  | [optional] |
+| **endDate** | **String**|  | [optional] |
+| **status** | **String**|  | [optional] |
+| **event** | **String**|  | [optional] |
+| **orderId** | **String**|  | [optional] |
+| **request** | **String**|  | [optional] |
+| **duration** | **Integer**|  | [optional] |
 | **limit** | **Integer**| The maximum number of records to return on this one API call. | [optional] [default to 100] |
 | **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
 | **since** | **String**| Fetch log summaries that have been delivered since this date/time. | [optional] |

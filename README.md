@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-04-22T12:28:02.580-04:00[America/Indianapolis]
+- Build date: 2025-05-05T14:18:57.754-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.8</version>
+    <version>4.1.9</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.8"
+     implementation "com.ultracart:rest-sdk:4.1.9"
   }
 ```
 
@@ -166,6 +166,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deletePbxVoicemailMailbox**](docs/ConversationApi.md#deletePbxVoicemailMailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
 *ConversationApi* | [**getAgentKeepAlive**](docs/ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentProfile**](docs/ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
+*ConversationApi* | [**getAgentProfiles**](docs/ConversationApi.md#getAgentProfiles) | **GET** /conversation/agent/profiles | Get agent profiles
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationCannedMessages**](docs/ConversationApi.md#getConversationCannedMessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
@@ -741,6 +742,7 @@ Class | Method | HTTP request | Description
  - [ConversationAgentAuthResponse](docs/ConversationAgentAuthResponse.md)
  - [ConversationAgentProfile](docs/ConversationAgentProfile.md)
  - [ConversationAgentProfileResponse](docs/ConversationAgentProfileResponse.md)
+ - [ConversationAgentProfilesResponse](docs/ConversationAgentProfilesResponse.md)
  - [ConversationAutocompleteRequest](docs/ConversationAutocompleteRequest.md)
  - [ConversationAutocompleteResponse](docs/ConversationAutocompleteResponse.md)
  - [ConversationAutocompleteValue](docs/ConversationAutocompleteValue.md)
@@ -1545,6 +1547,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.9 | 05/05/2025 | conversations - method to fetch all agent profiles for admin screens |
 | 4.1.8 | 04/22/2025 | order property fields for created_by and created_dts |
 | 4.1.7 | 04/21/2025 | conversation agent additional fields |
 | 4.1.6 | 04/16/2025 | added channel partner order item properties |

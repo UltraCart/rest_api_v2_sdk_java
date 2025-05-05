@@ -144,6 +144,7 @@ docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationAgentProfile.md
 docs/ConversationAgentProfileResponse.md
+docs/ConversationAgentProfilesResponse.md
 docs/ConversationApi.md
 docs/ConversationAutocompleteRequest.md
 docs/ConversationAutocompleteResponse.md
@@ -1049,6 +1050,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuth.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuthResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentProfile.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentProfileResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationAgentProfilesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAutocompleteRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAutocompleteResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAutocompleteValue.java
