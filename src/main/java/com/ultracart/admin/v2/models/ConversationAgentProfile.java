@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-05T14:01:41.939-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-06T15:04:13.591-04:00")
 
 
 
@@ -113,6 +113,9 @@ public class ConversationAgentProfile {
 
   @SerializedName("profile_image_url")
   private String profileImageUrl = null;
+
+  @SerializedName("user_id")
+  private Integer userId = null;
 
   public ConversationAgentProfile ai(Boolean ai) {
     this.ai = ai;
@@ -312,6 +315,24 @@ public class ConversationAgentProfile {
     this.profileImageUrl = profileImageUrl;
   }
 
+  public ConversationAgentProfile userId(Integer userId) {
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * User ID associated with the agent.  Populated by getAgentProfiles call only.
+   * @return userId
+  **/
+  @ApiModelProperty(value = "User ID associated with the agent.  Populated by getAgentProfiles call only.")
+  public Integer getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Integer userId) {
+    this.userId = userId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -332,12 +353,13 @@ public class ConversationAgentProfile {
         Objects.equals(this.displayName, conversationAgentProfile.displayName) &&
         Objects.equals(this.name, conversationAgentProfile.name) &&
         Objects.equals(this.profileImageUploadKey, conversationAgentProfile.profileImageUploadKey) &&
-        Objects.equals(this.profileImageUrl, conversationAgentProfile.profileImageUrl);
+        Objects.equals(this.profileImageUrl, conversationAgentProfile.profileImageUrl) &&
+        Objects.equals(this.userId, conversationAgentProfile.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl);
+    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId);
   }
 
 
@@ -357,6 +379,7 @@ public class ConversationAgentProfile {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    profileImageUploadKey: ").append(toIndentedString(profileImageUploadKey)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

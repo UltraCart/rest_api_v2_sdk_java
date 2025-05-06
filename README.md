@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-05-05T14:01:41.939-04:00
+  - Build date: 2025-05-06T15:04:13.591-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.9</version>
+  <version>3.11.10</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.9"
+compile "com.ultracart:rest-sdk:3.11.10"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.9.jar`
+* `target/rest-sdk-3.11.10.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1559,6 +1559,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.10 | 05/06/2025 | conversation - ConversationAgentProfile.user_id added for agent profiles call |
 | 3.11.9 | 05/05/2025 | conversations - method to fetch all agent profiles for admin screens |
 | 3.11.8 | 04/22/2025 | order property fields for created_by and created_dts |
 | 3.11.7 | 04/21/2025 | conversation agent additional fields |

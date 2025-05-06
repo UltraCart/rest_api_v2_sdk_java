@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **name** | **String** | Their actual user name for profile settings display as placeholder test |  [optional]
 **profileImageUploadKey** | **String** | An upload key used to update the profile image. |  [optional]
 **profileImageUrl** | **String** | Their current profile image URL |  [optional]
+**userId** | **Integer** | User ID associated with the agent.  Populated by getAgentProfiles call only. |  [optional]
 
 
 <a name="DefaultStatusEnum"></a>

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * LibraryItemAsset
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-05T14:01:41.939-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-06T15:04:13.591-04:00")
 
 
 
