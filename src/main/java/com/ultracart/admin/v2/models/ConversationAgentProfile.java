@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-05T14:18:57.754-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-06T15:20:48.894-04:00[America/Indianapolis]")
 public class ConversationAgentProfile {
   public static final String SERIALIZED_NAME_AI = "ai";
   @SerializedName(SERIALIZED_NAME_AI)
@@ -141,6 +141,10 @@ public class ConversationAgentProfile {
   public static final String SERIALIZED_NAME_PROFILE_IMAGE_URL = "profile_image_url";
   @SerializedName(SERIALIZED_NAME_PROFILE_IMAGE_URL)
   private String profileImageUrl;
+
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  private Integer userId;
 
   public ConversationAgentProfile() { 
   }
@@ -398,6 +402,29 @@ public class ConversationAgentProfile {
   }
 
 
+  public ConversationAgentProfile userId(Integer userId) {
+    
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * User ID associated with the agent.  Populated by getAgentProfiles call only.
+   * @return userId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "User ID associated with the agent.  Populated by getAgentProfiles call only.")
+
+  public Integer getUserId() {
+    return userId;
+  }
+
+
+  public void setUserId(Integer userId) {
+    this.userId = userId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -418,12 +445,13 @@ public class ConversationAgentProfile {
         Objects.equals(this.displayName, conversationAgentProfile.displayName) &&
         Objects.equals(this.name, conversationAgentProfile.name) &&
         Objects.equals(this.profileImageUploadKey, conversationAgentProfile.profileImageUploadKey) &&
-        Objects.equals(this.profileImageUrl, conversationAgentProfile.profileImageUrl);
+        Objects.equals(this.profileImageUrl, conversationAgentProfile.profileImageUrl) &&
+        Objects.equals(this.userId, conversationAgentProfile.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl);
+    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId);
   }
 
   @Override
@@ -441,6 +469,7 @@ public class ConversationAgentProfile {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    profileImageUploadKey: ").append(toIndentedString(profileImageUploadKey)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -474,6 +503,7 @@ public class ConversationAgentProfile {
     openapiFields.add("name");
     openapiFields.add("profile_image_upload_key");
     openapiFields.add("profile_image_url");
+    openapiFields.add("user_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
