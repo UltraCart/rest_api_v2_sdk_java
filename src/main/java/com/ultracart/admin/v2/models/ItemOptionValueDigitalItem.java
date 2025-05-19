@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemOptionValueDigitalItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-06T15:04:13.591-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-19T13:07:33.024-04:00")
 
 
 
