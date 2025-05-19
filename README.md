@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-05-19T13:07:33.024-04:00
+  - Build date: 2025-05-19T15:56:06.987-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.11</version>
+  <version>3.11.12</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.11"
+compile "com.ultracart:rest-sdk:3.11.12"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.11.jar`
+* `target/rest-sdk-3.11.12.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -218,6 +218,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxVoicemailMailbox**](docs/ConversationApi.md#getPbxVoicemailMailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 *ConversationApi* | [**getPbxVoicemailMailboxes**](docs/ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 *ConversationApi* | [**getVirtualAgentBudget**](docs/ConversationApi.md#getVirtualAgentBudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
+*ConversationApi* | [**getVirtualAgentCapabilities**](docs/ConversationApi.md#getVirtualAgentCapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 *ConversationApi* | [**insertConversationCannedMessage**](docs/ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
@@ -250,6 +251,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updatePbxTimeRange**](docs/ConversationApi.md#updatePbxTimeRange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 *ConversationApi* | [**updatePbxVoicemailMailbox**](docs/ConversationApi.md#updatePbxVoicemailMailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
 *ConversationApi* | [**updateVirtualAgentBudget**](docs/ConversationApi.md#updateVirtualAgentBudget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
+*ConversationApi* | [**updateVirtualAgentCapabilities**](docs/ConversationApi.md#updateVirtualAgentCapabilities) | **PUT** /conversation/virtualagent/capabilities | Update virtual agent capabilities
 *CouponApi* | [**deleteCoupon**](docs/CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/CouponApi.md#deleteCouponsByOid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -843,6 +845,8 @@ Class | Method | HTTP request | Description
  - [ConversationTwilioAccount](docs/ConversationTwilioAccount.md)
  - [ConversationVirtualAgentBudget](docs/ConversationVirtualAgentBudget.md)
  - [ConversationVirtualAgentBudgetResponse](docs/ConversationVirtualAgentBudgetResponse.md)
+ - [ConversationVirtualAgentCapabilities](docs/ConversationVirtualAgentCapabilities.md)
+ - [ConversationVirtualAgentCapabilitiesResponse](docs/ConversationVirtualAgentCapabilitiesResponse.md)
  - [ConversationWebchatContext](docs/ConversationWebchatContext.md)
  - [ConversationWebchatQueueStatus](docs/ConversationWebchatQueueStatus.md)
  - [ConversationWebchatQueueStatusAgent](docs/ConversationWebchatQueueStatusAgent.md)
@@ -1563,6 +1567,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.12 | 05/19/2025 | conversations - AI agent capabilities method |
 | 3.11.11 | 05/19/2025 | conversations - virtual AI budgets |
 | 3.11.10 | 05/06/2025 | conversation - ConversationAgentProfile.user_id added for agent profiles call |
 | 3.11.9 | 05/05/2025 | conversations - method to fetch all agent profiles for admin screens |

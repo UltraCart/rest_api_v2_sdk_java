@@ -86,6 +86,8 @@ import com.ultracart.admin.v2.models.ConversationStartRequest;
 import com.ultracart.admin.v2.models.ConversationStartResponse;
 import com.ultracart.admin.v2.models.ConversationVirtualAgentBudget;
 import com.ultracart.admin.v2.models.ConversationVirtualAgentBudgetResponse;
+import com.ultracart.admin.v2.models.ConversationVirtualAgentCapabilities;
+import com.ultracart.admin.v2.models.ConversationVirtualAgentCapabilitiesResponse;
 import com.ultracart.admin.v2.models.ConversationWebchatContext;
 import com.ultracart.admin.v2.models.ConversationWebchatQueueStatusUpdateRequest;
 import com.ultracart.admin.v2.models.ConversationWebchatQueueStatusesResponse;
@@ -6604,6 +6606,119 @@ public class ConversationApi {
         return call;
     }
     /**
+     * Build call for getVirtualAgentCapabilities
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getVirtualAgentCapabilitiesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/virtualagent/capabilities";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getVirtualAgentCapabilitiesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getVirtualAgentCapabilitiesCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get virtual agent capabilities
+     * Retrieve virtual agent capabilities 
+     * @return ConversationVirtualAgentCapabilitiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationVirtualAgentCapabilitiesResponse getVirtualAgentCapabilities() throws ApiException {
+        ApiResponse<ConversationVirtualAgentCapabilitiesResponse> resp = getVirtualAgentCapabilitiesWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get virtual agent capabilities
+     * Retrieve virtual agent capabilities 
+     * @return ApiResponse&lt;ConversationVirtualAgentCapabilitiesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationVirtualAgentCapabilitiesResponse> getVirtualAgentCapabilitiesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getVirtualAgentCapabilitiesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationVirtualAgentCapabilitiesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get virtual agent capabilities (asynchronously)
+     * Retrieve virtual agent capabilities 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getVirtualAgentCapabilitiesAsync(final ApiCallback<ConversationVirtualAgentCapabilitiesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getVirtualAgentCapabilitiesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationVirtualAgentCapabilitiesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for insertConversationCannedMessage
      * @param cannedMessage Canned message (required)
      * @param progressListener Progress listener
@@ -10613,6 +10728,128 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = updateVirtualAgentBudgetValidateBeforeCall(virtualAgentBudget, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationVirtualAgentBudgetResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateVirtualAgentCapabilities
+     * @param virtualAgentCapabilities Virtual Agent Capabilities (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateVirtualAgentCapabilitiesCall(ConversationVirtualAgentCapabilities virtualAgentCapabilities, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = virtualAgentCapabilities;
+
+        // create path and map variables
+        String localVarPath = "/conversation/virtualagent/capabilities";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateVirtualAgentCapabilitiesValidateBeforeCall(ConversationVirtualAgentCapabilities virtualAgentCapabilities, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'virtualAgentCapabilities' is set
+        if (virtualAgentCapabilities == null) {
+            throw new ApiException("Missing the required parameter 'virtualAgentCapabilities' when calling updateVirtualAgentCapabilities(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateVirtualAgentCapabilitiesCall(virtualAgentCapabilities, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update virtual agent capabilities
+     * Update virtual agent capabilities 
+     * @param virtualAgentCapabilities Virtual Agent Capabilities (required)
+     * @return ConversationVirtualAgentCapabilitiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationVirtualAgentCapabilitiesResponse updateVirtualAgentCapabilities(ConversationVirtualAgentCapabilities virtualAgentCapabilities) throws ApiException {
+        ApiResponse<ConversationVirtualAgentCapabilitiesResponse> resp = updateVirtualAgentCapabilitiesWithHttpInfo(virtualAgentCapabilities);
+        return resp.getData();
+    }
+
+    /**
+     * Update virtual agent capabilities
+     * Update virtual agent capabilities 
+     * @param virtualAgentCapabilities Virtual Agent Capabilities (required)
+     * @return ApiResponse&lt;ConversationVirtualAgentCapabilitiesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationVirtualAgentCapabilitiesResponse> updateVirtualAgentCapabilitiesWithHttpInfo(ConversationVirtualAgentCapabilities virtualAgentCapabilities) throws ApiException {
+        com.squareup.okhttp.Call call = updateVirtualAgentCapabilitiesValidateBeforeCall(virtualAgentCapabilities, null, null);
+        Type localVarReturnType = new TypeToken<ConversationVirtualAgentCapabilitiesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update virtual agent capabilities (asynchronously)
+     * Update virtual agent capabilities 
+     * @param virtualAgentCapabilities Virtual Agent Capabilities (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateVirtualAgentCapabilitiesAsync(ConversationVirtualAgentCapabilities virtualAgentCapabilities, final ApiCallback<ConversationVirtualAgentCapabilitiesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateVirtualAgentCapabilitiesValidateBeforeCall(virtualAgentCapabilities, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationVirtualAgentCapabilitiesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

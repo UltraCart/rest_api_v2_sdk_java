@@ -58,6 +58,7 @@ Method | HTTP request | Description
 [**getPbxVoicemailMailbox**](ConversationApi.md#getPbxVoicemailMailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 [**getPbxVoicemailMailboxes**](ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 [**getVirtualAgentBudget**](ConversationApi.md#getVirtualAgentBudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
+[**getVirtualAgentCapabilities**](ConversationApi.md#getVirtualAgentCapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 [**insertConversationCannedMessage**](ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 [**insertConversationDepartment**](ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 [**insertConversationEngagement**](ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
@@ -90,6 +91,7 @@ Method | HTTP request | Description
 [**updatePbxTimeRange**](ConversationApi.md#updatePbxTimeRange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 [**updatePbxVoicemailMailbox**](ConversationApi.md#updatePbxVoicemailMailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
 [**updateVirtualAgentBudget**](ConversationApi.md#updateVirtualAgentBudget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
+[**updateVirtualAgentCapabilities**](ConversationApi.md#updateVirtualAgentCapabilities) | **PUT** /conversation/virtualagent/capabilities | Update virtual agent capabilities
 
 
 <a name="deleteConversationCannedMessage"></a>
@@ -2718,6 +2720,52 @@ This endpoint does not need any parameter.
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getVirtualAgentCapabilities"></a>
+# **getVirtualAgentCapabilities**
+> ConversationVirtualAgentCapabilitiesResponse getVirtualAgentCapabilities()
+
+Get virtual agent capabilities
+
+Retrieve virtual agent capabilities 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+try {
+    ConversationVirtualAgentCapabilitiesResponse result = apiInstance.getVirtualAgentCapabilities();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getVirtualAgentCapabilities");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationVirtualAgentCapabilitiesResponse**](ConversationVirtualAgentCapabilitiesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="insertConversationCannedMessage"></a>
 # **insertConversationCannedMessage**
 > ConversationCannedMessageResponse insertConversationCannedMessage(cannedMessage)
@@ -4328,6 +4376,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationVirtualAgentBudgetResponse**](ConversationVirtualAgentBudgetResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="updateVirtualAgentCapabilities"></a>
+# **updateVirtualAgentCapabilities**
+> ConversationVirtualAgentCapabilitiesResponse updateVirtualAgentCapabilities(virtualAgentCapabilities)
+
+Update virtual agent capabilities
+
+Update virtual agent capabilities 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+ConversationVirtualAgentCapabilities virtualAgentCapabilities = new ConversationVirtualAgentCapabilities(); // ConversationVirtualAgentCapabilities | Virtual Agent Capabilities
+try {
+    ConversationVirtualAgentCapabilitiesResponse result = apiInstance.updateVirtualAgentCapabilities(virtualAgentCapabilities);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#updateVirtualAgentCapabilities");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **virtualAgentCapabilities** | [**ConversationVirtualAgentCapabilities**](ConversationVirtualAgentCapabilities.md)| Virtual Agent Capabilities |
+
+### Return type
+
+[**ConversationVirtualAgentCapabilitiesResponse**](ConversationVirtualAgentCapabilitiesResponse.md)
 
 ### Authorization
 
