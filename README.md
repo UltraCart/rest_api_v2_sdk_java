@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-05-06T15:20:48.894-04:00[America/Indianapolis]
+- Build date: 2025-05-19T13:26:00.852-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.10</version>
+    <version>4.1.11</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.10"
+     implementation "com.ultracart:rest-sdk:4.1.11"
   }
 ```
 
@@ -206,6 +206,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxTimeRanges**](docs/ConversationApi.md#getPbxTimeRanges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
 *ConversationApi* | [**getPbxVoicemailMailbox**](docs/ConversationApi.md#getPbxVoicemailMailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 *ConversationApi* | [**getPbxVoicemailMailboxes**](docs/ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
+*ConversationApi* | [**getVirtualAgentBudget**](docs/ConversationApi.md#getVirtualAgentBudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 *ConversationApi* | [**insertConversationCannedMessage**](docs/ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
@@ -237,6 +238,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updatePbxTimeBased**](docs/ConversationApi.md#updatePbxTimeBased) | **PUT** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Update pbx timeBased
 *ConversationApi* | [**updatePbxTimeRange**](docs/ConversationApi.md#updatePbxTimeRange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 *ConversationApi* | [**updatePbxVoicemailMailbox**](docs/ConversationApi.md#updatePbxVoicemailMailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
+*ConversationApi* | [**updateVirtualAgentBudget**](docs/ConversationApi.md#updateVirtualAgentBudget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
 *CouponApi* | [**deleteCoupon**](docs/CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/CouponApi.md#deleteCouponsByOid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -827,6 +829,8 @@ Class | Method | HTTP request | Description
  - [ConversationStartResponse](docs/ConversationStartResponse.md)
  - [ConversationSummary](docs/ConversationSummary.md)
  - [ConversationTwilioAccount](docs/ConversationTwilioAccount.md)
+ - [ConversationVirtualAgentBudget](docs/ConversationVirtualAgentBudget.md)
+ - [ConversationVirtualAgentBudgetResponse](docs/ConversationVirtualAgentBudgetResponse.md)
  - [ConversationWebchatContext](docs/ConversationWebchatContext.md)
  - [ConversationWebchatQueueStatus](docs/ConversationWebchatQueueStatus.md)
  - [ConversationWebchatQueueStatusAgent](docs/ConversationWebchatQueueStatusAgent.md)
@@ -1547,6 +1551,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.11 | 05/19/2025 | conversations - virtual AI budgets |
 | 4.1.10 | 05/06/2025 | conversation - ConversationAgentProfile.user_id added for agent profiles call |
 | 4.1.9 | 05/05/2025 | conversations - method to fetch all agent profiles for admin screens |
 | 4.1.8 | 04/22/2025 | order property fields for created_by and created_dts |
