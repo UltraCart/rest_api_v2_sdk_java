@@ -232,6 +232,8 @@ docs/ConversationSummary.md
 docs/ConversationTwilioAccount.md
 docs/ConversationVirtualAgentBudget.md
 docs/ConversationVirtualAgentBudgetResponse.md
+docs/ConversationVirtualAgentCapabilities.md
+docs/ConversationVirtualAgentCapabilitiesResponse.md
 docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
@@ -1139,6 +1141,8 @@ src/main/java/com/ultracart/admin/v2/models/ConversationSummary.java
 src/main/java/com/ultracart/admin/v2/models/ConversationTwilioAccount.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentBudget.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentBudgetResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilities.java
+src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilitiesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatContext.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatus.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusAgent.java
