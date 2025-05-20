@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **sentiment** | [**ConversationSentiment**](ConversationSentiment.md) |  |  [optional]
 **startDts** | **String** | Start of the conversation date/time |  [optional]
 **unreadMessages** | **Boolean** |  |  [optional]
+**virtualAgent** | **Boolean** | True if a virtual agent answered the conversation |  [optional]
+**virtualAgentCost** | [**BigDecimal**](BigDecimal.md) | The cost of this conversation performed by the virtual agent |  [optional]
 **visible** | **Boolean** |  |  [optional]
 
 

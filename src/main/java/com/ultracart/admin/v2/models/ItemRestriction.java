@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ItemRestriction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-19T15:56:06.987-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-20T12:34:45.188-04:00")
 
 
 
@@ -40,6 +40,9 @@ public class ItemRestriction {
 
   @SerializedName("exclude_from_free_promotion")
   private Boolean excludeFromFreePromotion = null;
+
+  @SerializedName("exclude_from_loyalty")
+  private Boolean excludeFromLoyalty = null;
 
   @SerializedName("items")
   private List<ItemRestrictionItem> items = null;
@@ -93,6 +96,24 @@ public class ItemRestriction {
 
   public void setExcludeFromFreePromotion(Boolean excludeFromFreePromotion) {
     this.excludeFromFreePromotion = excludeFromFreePromotion;
+  }
+
+  public ItemRestriction excludeFromLoyalty(Boolean excludeFromLoyalty) {
+    this.excludeFromLoyalty = excludeFromLoyalty;
+    return this;
+  }
+
+   /**
+   * Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility
+   * @return excludeFromLoyalty
+  **/
+  @ApiModelProperty(value = "Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility")
+  public Boolean isExcludeFromLoyalty() {
+    return excludeFromLoyalty;
+  }
+
+  public void setExcludeFromLoyalty(Boolean excludeFromLoyalty) {
+    this.excludeFromLoyalty = excludeFromLoyalty;
   }
 
   public ItemRestriction items(List<ItemRestrictionItem> items) {
@@ -223,6 +244,7 @@ public class ItemRestriction {
     ItemRestriction itemRestriction = (ItemRestriction) o;
     return Objects.equals(this.excludeCoupon, itemRestriction.excludeCoupon) &&
         Objects.equals(this.excludeFromFreePromotion, itemRestriction.excludeFromFreePromotion) &&
+        Objects.equals(this.excludeFromLoyalty, itemRestriction.excludeFromLoyalty) &&
         Objects.equals(this.items, itemRestriction.items) &&
         Objects.equals(this.maximumQuantity, itemRestriction.maximumQuantity) &&
         Objects.equals(this.minimumQuantity, itemRestriction.minimumQuantity) &&
@@ -233,7 +255,7 @@ public class ItemRestriction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(excludeCoupon, excludeFromFreePromotion, items, maximumQuantity, minimumQuantity, multipleQuantity, onePerCustomer, purchaseSeparately);
+    return Objects.hash(excludeCoupon, excludeFromFreePromotion, excludeFromLoyalty, items, maximumQuantity, minimumQuantity, multipleQuantity, onePerCustomer, purchaseSeparately);
   }
 
 
@@ -244,6 +266,7 @@ public class ItemRestriction {
     
     sb.append("    excludeCoupon: ").append(toIndentedString(excludeCoupon)).append("\n");
     sb.append("    excludeFromFreePromotion: ").append(toIndentedString(excludeFromFreePromotion)).append("\n");
+    sb.append("    excludeFromLoyalty: ").append(toIndentedString(excludeFromLoyalty)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    maximumQuantity: ").append(toIndentedString(maximumQuantity)).append("\n");
     sb.append("    minimumQuantity: ").append(toIndentedString(minimumQuantity)).append("\n");

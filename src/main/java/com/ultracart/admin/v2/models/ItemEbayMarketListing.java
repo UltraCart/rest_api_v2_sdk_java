@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemEbayMarketListing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-19T15:56:06.987-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-05-20T12:34:45.188-04:00")
 
 
 

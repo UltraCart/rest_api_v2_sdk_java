@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-05-19T15:56:06.987-04:00
+  - Build date: 2025-05-20T12:34:45.188-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.12</version>
+  <version>3.11.13</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.12"
+compile "com.ultracart:rest-sdk:3.11.13"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.12.jar`
+* `target/rest-sdk-3.11.13.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1567,6 +1567,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.13 | 05/20/2025 | conversation - virtual agent flag and virtual agent cost |
 | 3.11.12 | 05/19/2025 | conversations - AI agent capabilities method |
 | 3.11.11 | 05/19/2025 | conversations - virtual AI budgets |
 | 3.11.10 | 05/06/2025 | conversation - ConversationAgentProfile.user_id added for agent profiles call |
