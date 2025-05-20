@@ -26,6 +26,7 @@ import com.ultracart.admin.v2.models.ConversationSentiment;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Conversation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-19T16:11:48.926-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T12:50:59.354-04:00[America/Indianapolis]")
 public class Conversation {
   public static final String SERIALIZED_NAME_BASE_LANGUAGE_ISO_CODE = "base_language_iso_code";
   @SerializedName(SERIALIZED_NAME_BASE_LANGUAGE_ISO_CODE)
@@ -172,6 +173,14 @@ public class Conversation {
   public static final String SERIALIZED_NAME_UNREAD_MESSAGES = "unread_messages";
   @SerializedName(SERIALIZED_NAME_UNREAD_MESSAGES)
   private Boolean unreadMessages;
+
+  public static final String SERIALIZED_NAME_VIRTUAL_AGENT = "virtual_agent";
+  @SerializedName(SERIALIZED_NAME_VIRTUAL_AGENT)
+  private Boolean virtualAgent;
+
+  public static final String SERIALIZED_NAME_VIRTUAL_AGENT_COST = "virtual_agent_cost";
+  @SerializedName(SERIALIZED_NAME_VIRTUAL_AGENT_COST)
+  private BigDecimal virtualAgentCost;
 
   public static final String SERIALIZED_NAME_VISIBLE = "visible";
   @SerializedName(SERIALIZED_NAME_VISIBLE)
@@ -610,6 +619,52 @@ public class Conversation {
   }
 
 
+  public Conversation virtualAgent(Boolean virtualAgent) {
+    
+    this.virtualAgent = virtualAgent;
+    return this;
+  }
+
+   /**
+   * True if a virtual agent answered the conversation
+   * @return virtualAgent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if a virtual agent answered the conversation")
+
+  public Boolean getVirtualAgent() {
+    return virtualAgent;
+  }
+
+
+  public void setVirtualAgent(Boolean virtualAgent) {
+    this.virtualAgent = virtualAgent;
+  }
+
+
+  public Conversation virtualAgentCost(BigDecimal virtualAgentCost) {
+    
+    this.virtualAgentCost = virtualAgentCost;
+    return this;
+  }
+
+   /**
+   * The cost of this conversation performed by the virtual agent
+   * @return virtualAgentCost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The cost of this conversation performed by the virtual agent")
+
+  public BigDecimal getVirtualAgentCost() {
+    return virtualAgentCost;
+  }
+
+
+  public void setVirtualAgentCost(BigDecimal virtualAgentCost) {
+    this.virtualAgentCost = virtualAgentCost;
+  }
+
+
   public Conversation visible(Boolean visible) {
     
     this.visible = visible;
@@ -661,12 +716,14 @@ public class Conversation {
         Objects.equals(this.sentiment, conversation.sentiment) &&
         Objects.equals(this.startDts, conversation.startDts) &&
         Objects.equals(this.unreadMessages, conversation.unreadMessages) &&
+        Objects.equals(this.virtualAgent, conversation.virtualAgent) &&
+        Objects.equals(this.virtualAgentCost, conversation.virtualAgentCost) &&
         Objects.equals(this.visible, conversation.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseLanguageIsoCode, closed, conversationArn, conversationUuid, customerFirstMessageUnrespondedToDts, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, sentiment, startDts, unreadMessages, visible);
+    return Objects.hash(baseLanguageIsoCode, closed, conversationArn, conversationUuid, customerFirstMessageUnrespondedToDts, lastConversationMessageBody, lastConversationParticipantArn, lastConversationParticipantName, lastInteractiveMessageDts, lastMessageDts, medium, merchantId, messageCount, messages, participants, sentiment, startDts, unreadMessages, virtualAgent, virtualAgentCost, visible);
   }
 
   @Override
@@ -691,6 +748,8 @@ public class Conversation {
     sb.append("    sentiment: ").append(toIndentedString(sentiment)).append("\n");
     sb.append("    startDts: ").append(toIndentedString(startDts)).append("\n");
     sb.append("    unreadMessages: ").append(toIndentedString(unreadMessages)).append("\n");
+    sb.append("    virtualAgent: ").append(toIndentedString(virtualAgent)).append("\n");
+    sb.append("    virtualAgentCost: ").append(toIndentedString(virtualAgentCost)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -732,6 +791,8 @@ public class Conversation {
     openapiFields.add("sentiment");
     openapiFields.add("start_dts");
     openapiFields.add("unread_messages");
+    openapiFields.add("virtual_agent");
+    openapiFields.add("virtual_agent_cost");
     openapiFields.add("visible");
 
     // a set of required properties/fields (JSON key names)

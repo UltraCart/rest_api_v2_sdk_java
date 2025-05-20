@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemRestriction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-19T16:11:48.926-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T12:50:59.354-04:00[America/Indianapolis]")
 public class ItemRestriction {
   public static final String SERIALIZED_NAME_EXCLUDE_COUPON = "exclude_coupon";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_COUPON)
@@ -59,6 +59,10 @@ public class ItemRestriction {
   public static final String SERIALIZED_NAME_EXCLUDE_FROM_FREE_PROMOTION = "exclude_from_free_promotion";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_FREE_PROMOTION)
   private Boolean excludeFromFreePromotion;
+
+  public static final String SERIALIZED_NAME_EXCLUDE_FROM_LOYALTY = "exclude_from_loyalty";
+  @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_LOYALTY)
+  private Boolean excludeFromLoyalty;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -130,6 +134,29 @@ public class ItemRestriction {
 
   public void setExcludeFromFreePromotion(Boolean excludeFromFreePromotion) {
     this.excludeFromFreePromotion = excludeFromFreePromotion;
+  }
+
+
+  public ItemRestriction excludeFromLoyalty(Boolean excludeFromLoyalty) {
+    
+    this.excludeFromLoyalty = excludeFromLoyalty;
+    return this;
+  }
+
+   /**
+   * Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility
+   * @return excludeFromLoyalty
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility")
+
+  public Boolean getExcludeFromLoyalty() {
+    return excludeFromLoyalty;
+  }
+
+
+  public void setExcludeFromLoyalty(Boolean excludeFromLoyalty) {
+    this.excludeFromLoyalty = excludeFromLoyalty;
   }
 
 
@@ -291,6 +318,7 @@ public class ItemRestriction {
     ItemRestriction itemRestriction = (ItemRestriction) o;
     return Objects.equals(this.excludeCoupon, itemRestriction.excludeCoupon) &&
         Objects.equals(this.excludeFromFreePromotion, itemRestriction.excludeFromFreePromotion) &&
+        Objects.equals(this.excludeFromLoyalty, itemRestriction.excludeFromLoyalty) &&
         Objects.equals(this.items, itemRestriction.items) &&
         Objects.equals(this.maximumQuantity, itemRestriction.maximumQuantity) &&
         Objects.equals(this.minimumQuantity, itemRestriction.minimumQuantity) &&
@@ -301,7 +329,7 @@ public class ItemRestriction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(excludeCoupon, excludeFromFreePromotion, items, maximumQuantity, minimumQuantity, multipleQuantity, onePerCustomer, purchaseSeparately);
+    return Objects.hash(excludeCoupon, excludeFromFreePromotion, excludeFromLoyalty, items, maximumQuantity, minimumQuantity, multipleQuantity, onePerCustomer, purchaseSeparately);
   }
 
   @Override
@@ -310,6 +338,7 @@ public class ItemRestriction {
     sb.append("class ItemRestriction {\n");
     sb.append("    excludeCoupon: ").append(toIndentedString(excludeCoupon)).append("\n");
     sb.append("    excludeFromFreePromotion: ").append(toIndentedString(excludeFromFreePromotion)).append("\n");
+    sb.append("    excludeFromLoyalty: ").append(toIndentedString(excludeFromLoyalty)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    maximumQuantity: ").append(toIndentedString(maximumQuantity)).append("\n");
     sb.append("    minimumQuantity: ").append(toIndentedString(minimumQuantity)).append("\n");
@@ -340,6 +369,7 @@ public class ItemRestriction {
     openapiFields = new HashSet<String>();
     openapiFields.add("exclude_coupon");
     openapiFields.add("exclude_from_free_promotion");
+    openapiFields.add("exclude_from_loyalty");
     openapiFields.add("items");
     openapiFields.add("maximum_quantity");
     openapiFields.add("minimum_quantity");
