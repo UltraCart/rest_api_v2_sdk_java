@@ -23,31 +23,47 @@ Add a gift certificate ledger entry
 Adds a ledger entry for this gift certificate. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package gift_certificate;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.GiftCertificate;
+import com.ultracart.admin.v2.models.GiftCertificateLedgerEntry;
+import com.ultracart.admin.v2.models.GiftCertificateResponse;
+import common.Constants;
+import common.JSON;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-GiftCertificateApi apiInstance = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.math.BigDecimal;
 
-Integer giftCertificateOid = 56; // Integer | 
-GiftCertificateLedgerEntry giftCertificateLedgerEntry = new GiftCertificateLedgerEntry(); // GiftCertificateLedgerEntry | Gift certificate ledger entry
-try {
-    GiftCertificateResponse result = apiInstance.addGiftCertificateLedgerEntry(giftCertificateOidgiftCertificateLedgerEntry);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GiftCertificateApi#addGiftCertificateLedgerEntry");
-    e.printStackTrace();
+public class AddGiftCertificateLedgerEntry{
+
+  public static void execute() throws Exception {
+
+    GiftCertificateApi giftCertificateApi = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+    DateTimeFormatter fmt = ISODateTimeFormat.dateTimeNoMillis();
+
+    int giftCertificateOid = 676713;
+
+    GiftCertificateLedgerEntry ledgerEntry = new GiftCertificateLedgerEntry();
+    ledgerEntry.setAmount(new BigDecimal("-15.55")); // this is the change amount in the gift certificate.  this is not a balance.  it will be subtracted from it.
+    ledgerEntry.setDescription("Debit using Java SDK");
+    ledgerEntry.setEntryDts(fmt.print(DateTime.now()));
+    ledgerEntry.setGiftCertificateLedgerOid(0); // the system will assign an oid.  do not assign one here.
+    ledgerEntry.setGiftCertificateOid(giftCertificateOid); // this is an existing gift certificate oid.  I created it using createGiftCertificate.ts
+    ledgerEntry.setReferenceOrderId("BLAH-54321"); // if this ledger entry is related to an order, add it here, else use null.
+
+    // add ledger does not take an expansion variable.  it will return the entire object by default.
+    GiftCertificateResponse gcResponse = giftCertificateApi.addGiftCertificateLedgerEntry(giftCertificateOid, ledgerEntry);
+    GiftCertificate giftCertificate = gcResponse.getGiftCertificate();
+
+    System.out.println(JSON.toJSON(giftCertificate));
+
+  }
+
 }
 ```
 
@@ -91,30 +107,45 @@ Create a gift certificate
 Creates a gift certificate for this merchant account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package gift_certificate;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.GiftCertificate;
+import com.ultracart.admin.v2.models.GiftCertificateCreateRequest;
+import com.ultracart.admin.v2.models.GiftCertificateResponse;
+import common.Constants;
+import common.JSON;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-GiftCertificateApi apiInstance = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.math.BigDecimal;
 
-GiftCertificateCreateRequest giftCertificateCreateRequest = new GiftCertificateCreateRequest(); // GiftCertificateCreateRequest | Gift certificate create request
-try {
-    GiftCertificateResponse result = apiInstance.createGiftCertificate(giftCertificateCreateRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GiftCertificateApi#createGiftCertificate");
-    e.printStackTrace();
+public class CreateGiftCertificate {
+
+  public static void execute() throws Exception {
+
+    // Don't use verifySsl=false in production.
+    GiftCertificateApi giftCertificateApi = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+    DateTimeFormatter fmt = ISODateTimeFormat.dateTimeNoMillis();
+
+    GiftCertificateCreateRequest createRequest = new GiftCertificateCreateRequest();
+    createRequest.setAmount(new BigDecimal("150.75"));
+    createRequest.setInitialLedgerDescription("Issued instead of refund");
+    createRequest.setMerchantNote("Created via Java SDK");
+    createRequest.setEmail("perry@ultracart.com");
+    createRequest.setExpirationDts(fmt.print(DateTime.now().plusMonths(3)));
+
+    // create does not take an expansion variable.  it will return the entire object by default.
+    GiftCertificateResponse gcResponse = giftCertificateApi.createGiftCertificate(createRequest);
+    GiftCertificate giftCertificate = gcResponse.getGiftCertificate();
+
+    System.out.println(JSON.toJSON(giftCertificate));
+
+  }
+
 }
 ```
 
@@ -157,29 +188,35 @@ Delete a gift certificate
 Deletes a gift certificate for this merchant account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package gift_certificate;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.GiftCertificate;
+import com.ultracart.admin.v2.models.GiftCertificateResponse;
+import common.Constants;
+import common.JSON;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-GiftCertificateApi apiInstance = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class DeleteGiftCertificate{
 
-Integer giftCertificateOid = 56; // Integer | 
-try {
-    apiInstance.deleteGiftCertificate(giftCertificateOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GiftCertificateApi#deleteGiftCertificate");
-    e.printStackTrace();
+  public static void execute() throws Exception {
+
+    GiftCertificateApi giftCertificateApi = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+    int giftCertificateOid = 676713;
+
+    giftCertificateApi.deleteGiftCertificate(giftCertificateOid);
+
+    // if I query the gift certificate again, I will get an object back, but the deleted property will be true.
+    // by_oid does not take an expansion variable.  it will return the entire object by default.
+    GiftCertificateResponse gcResponse = giftCertificateApi.getGiftCertificateByOid(giftCertificateOid);
+    GiftCertificate giftCertificate = gcResponse.getGiftCertificate();
+
+    System.out.println(JSON.toJSON(giftCertificate));
+
+  }
+
 }
 ```
 
@@ -221,30 +258,32 @@ Retrieve gift certificate by code
 Retrieves a gift certificate from the account based on the code (the value the customer enters at checkout time). 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package gift_certificate;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.GiftCertificate;
+import com.ultracart.admin.v2.models.GiftCertificateResponse;
+import common.Constants;
+import common.JSON;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-GiftCertificateApi apiInstance = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class GetGiftCertificateByCode{
 
-String code = "code_example"; // String | 
-try {
-    GiftCertificateResponse result = apiInstance.getGiftCertificateByCode(code);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GiftCertificateApi#getGiftCertificateByCode");
-    e.printStackTrace();
+  public static void execute() throws Exception {
+
+    GiftCertificateApi giftCertificateApi = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+    String code = "93KHHXD6VH";
+
+    // by_code does not take an expansion variable.  it will return the entire object by default.
+    GiftCertificateResponse gcResponse = giftCertificateApi.getGiftCertificateByCode(code);
+    GiftCertificate giftCertificate = gcResponse.getGiftCertificate();
+
+    System.out.println(JSON.toJSON(giftCertificate));
+
+  }
+
 }
 ```
 
@@ -287,30 +326,32 @@ Retrieve gift certificate by oid
 Retrieves a gift certificate from the account based on the internal primary key. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package gift_certificate;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.GiftCertificate;
+import com.ultracart.admin.v2.models.GiftCertificateResponse;
+import common.Constants;
+import common.JSON;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-GiftCertificateApi apiInstance = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class GetGiftCertificateByOid{
 
-Integer giftCertificateOid = 56; // Integer | 
-try {
-    GiftCertificateResponse result = apiInstance.getGiftCertificateByOid(giftCertificateOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GiftCertificateApi#getGiftCertificateByOid");
-    e.printStackTrace();
+  public static void execute() throws Exception {
+
+    GiftCertificateApi giftCertificateApi = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+    int giftCertificateOid = 676713;
+
+    // by_oid does not take an expansion variable.  it will return the entire object by default.
+    GiftCertificateResponse gcResponse = giftCertificateApi.getGiftCertificateByOid(giftCertificateOid);
+    GiftCertificate giftCertificate = gcResponse.getGiftCertificate();
+
+    System.out.println(JSON.toJSON(giftCertificate));
+
+  }
+
 }
 ```
 
@@ -353,30 +394,34 @@ Retrieve gift certificate by email
 Retrieves all gift certificates from the account based on customer email. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package gift_certificate;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.GiftCertificate;
+import com.ultracart.admin.v2.models.GiftCertificatesResponse;
+import common.Constants;
+import common.JSON;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-GiftCertificateApi apiInstance = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.util.List;
 
-String email = "email_example"; // String | 
-try {
-    GiftCertificatesResponse result = apiInstance.getGiftCertificatesByEmail(email);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GiftCertificateApi#getGiftCertificatesByEmail");
-    e.printStackTrace();
+public class GetGiftCertificatesByEmail {
+
+  public static void execute() throws Exception {
+
+    GiftCertificateApi giftCertificateApi = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+    String email = "support@ultracart.com";
+
+    // by_email does not take an expansion variable.  it will return the entire object by default.
+    GiftCertificatesResponse gcResponse = giftCertificateApi.getGiftCertificatesByEmail(email);
+    List<GiftCertificate> giftCertificates = gcResponse.getGiftCertificates();
+
+    for (GiftCertificate certificate : giftCertificates) {
+      System.out.println(JSON.toJSON(certificate));
+    }
+  }
 }
 ```
 
@@ -419,35 +464,60 @@ Retrieve gift certificates by query
 Retrieves gift certificates from the account.  If no parameters are specified, all gift certificates will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package gift_certificate;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.GiftCertificate;
+import com.ultracart.admin.v2.models.GiftCertificateQuery;
+import com.ultracart.admin.v2.models.GiftCertificatesResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
+import common.JSON;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-GiftCertificateApi apiInstance = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.util.ArrayList;
+import java.util.List;
 
-GiftCertificateQuery giftCertificateQuery = new GiftCertificateQuery(); // GiftCertificateQuery | Gift certificates query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String since = "since_example"; // String | Fetch customers that have been created/modified since this date/time.
-String sort = "sort_example"; // String | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    GiftCertificatesResponse result = apiInstance.getGiftCertificatesByQuery(giftCertificateQuerylimitoffsetsincesortexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GiftCertificateApi#getGiftCertificatesByQuery");
-    e.printStackTrace();
+public class GetGiftCertificatesByQuery{
+
+  public static List<GiftCertificate> getGiftCertificateChunk(GiftCertificateApi giftCertificateApi,
+                                                                   int offset,
+                                                                   int limit) throws ApiException {
+    String expansion = "ledger";
+    GiftCertificateQuery query = new GiftCertificateQuery();  // leave this empty to retrieve all records.
+    GiftCertificatesResponse gcResponse = giftCertificateApi.getGiftCertificatesByQuery(query, limit, offset, null, null, expansion);
+    if(gcResponse != null && gcResponse.getGiftCertificates() != null){
+      return gcResponse.getGiftCertificates();
+    }
+    return new ArrayList<>();
+  }
+
+  public static void execute() throws Exception {
+
+    GiftCertificateApi giftCertificateApi = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+    ArrayList<GiftCertificate> giftCertificates = new ArrayList<>();
+    int iteration = 1;
+    int offset = 0;
+    int limit = 200;
+    boolean moreRecordsToFetch = true;
+
+    while( moreRecordsToFetch ){
+
+        System.out.println("executing iteration " + iteration);
+        List<GiftCertificate> chuckOfCertificates = getGiftCertificateChunk(giftCertificateApi, offset, limit);
+        giftCertificates.addAll(chuckOfCertificates);
+        offset = offset + limit;
+        moreRecordsToFetch = chuckOfCertificates.size() == limit;
+        iteration++;
+
+    }
+
+    for (GiftCertificate giftCertificate : giftCertificates) {
+      System.out.println(JSON.toJSON(giftCertificate));
+    }
+  }
 }
 ```
 
@@ -495,31 +565,36 @@ Update a gift certificate
 Update a gift certificate for this merchant account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package gift_certificate;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.GiftCertificateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.GiftCertificate;
+import com.ultracart.admin.v2.models.GiftCertificateResponse;
+import common.Constants;
+import common.JSON;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-GiftCertificateApi apiInstance = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class UpdateGiftCertificate{
 
-Integer giftCertificateOid = 56; // Integer | 
-GiftCertificate giftCertificate = new GiftCertificate(); // GiftCertificate | Gift certificate
-try {
-    GiftCertificateResponse result = apiInstance.updateGiftCertificate(giftCertificateOidgiftCertificate);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GiftCertificateApi#updateGiftCertificate");
-    e.printStackTrace();
+  public static void execute() throws Exception {
+
+    GiftCertificateApi giftCertificateApi = new GiftCertificateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+
+    int giftCertificateOid = 676713;
+
+    // by_oid does not take an expansion variable.  it will return the entire object by default.
+    GiftCertificateResponse gcResponse = giftCertificateApi.getGiftCertificateByOid(giftCertificateOid);
+    GiftCertificate giftCertificate = gcResponse.getGiftCertificate();
+
+    giftCertificate.setEmail("support@ultracart.com");
+    gcResponse = giftCertificateApi.updateGiftCertificate(giftCertificateOid, giftCertificate);
+    giftCertificate = gcResponse.getGiftCertificate();
+
+    System.out.println(JSON.toJSON(giftCertificate));
+
+  }
+
 }
 ```
 

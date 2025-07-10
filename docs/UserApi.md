@@ -26,30 +26,9 @@ Delete a group
 Delete a group on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer groupOid = 56; // Integer | The group_oid to delete.
-try {
-    apiInstance.deleteGroup(groupOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#deleteGroup");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -90,30 +69,9 @@ Delete a user
 Delete a user on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer userId = 56; // Integer | The user_id to delete.
-try {
-    apiInstance.deleteUser(userId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#deleteUser");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -154,30 +112,9 @@ Retrieve a group
 Retrieves a single group using the specified group id. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer groupOid = 56; // Integer | The group id to retrieve.
-try {
-    apiInstance.getGroup(groupOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getGroup");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -216,30 +153,9 @@ null (empty response body)
 Get groups
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    GroupsResponse result = apiInstance.getGroups();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getGroups");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -278,31 +194,9 @@ Retrieve a user
 Retrieves a single user using the specified user id. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer userId = 56; // Integer | The user id to retrieve.
-try {
-    UserResponse result = apiInstance.getUser(userId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getUser");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -344,31 +238,9 @@ Retrieve a user&#39;s login history
 Retrieves logins for a single user using the specified user id. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer userId = 56; // Integer | The user id to retrieve.
-try {
-    UserLoginsResponse result = apiInstance.getUserLogins(userId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getUserLogins");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -408,30 +280,9 @@ try {
 Get users
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    UsersResponse result = apiInstance.getUsers();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getUsers");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -470,31 +321,9 @@ Insert a group
 Insert a group on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Group group = new Group(); // Group | Group to insert
-try {
-    GroupResponse result = apiInstance.insertGroup(group);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#insertGroup");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -536,31 +365,9 @@ Insert a user
 Insert a user on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-User user = new User(); // User | User to insert
-try {
-    UserResponse result = apiInstance.insertUser(user);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#insertUser");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -602,32 +409,9 @@ Update a group
 Update a group on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer groupOid = 56; // Integer | The group_oid to update.
-Group group = new Group(); // Group | Group to update
-try {
-    GroupResponse result = apiInstance.updateGroup(groupOidgroup);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#updateGroup");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -670,32 +454,9 @@ Update a user
 Update a user on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.UserApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-UserApi apiInstance = new UserApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer userId = 56; // Integer | The user_id to update.
-User user = new User(); // User | User to update
-try {
-    UserResponse result = apiInstance.updateUser(userIduser);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#updateUser");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 

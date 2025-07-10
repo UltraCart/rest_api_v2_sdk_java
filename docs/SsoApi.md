@@ -19,30 +19,9 @@ Get single sign on session user
 This is the equivalent of logging out of the single sign on session 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.SsoApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-SsoApi apiInstance = new SsoApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    User result = apiInstance.getSsoSessionUser();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SsoApi#getSsoSessionUser");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -81,31 +60,9 @@ Authorize a single sign on session
 Starts the process of authorizing a single sign on session. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.SsoApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-SsoApi apiInstance = new SsoApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-SingleSignOnAuthorizeRequest authorizationRequest = new SingleSignOnAuthorizeRequest(); // SingleSignOnAuthorizeRequest | Authorization request
-try {
-    SingleSignOnAuthorizeResponse result = apiInstance.ssoAuthorize(authorizationRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SsoApi#ssoAuthorize");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -147,29 +104,9 @@ Revoke single sign on session
 This is the equivalent of logging out of the single sign on session 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.SsoApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-SsoApi apiInstance = new SsoApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    apiInstance.ssoSessionRevoke();
-} catch (ApiException e) {
-    System.err.println("Exception when calling SsoApi#ssoSessionRevoke");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -207,31 +144,9 @@ Exchange a single sign on code for a simple key token
 Called by your application after receiving the code back on the redirect URI to obtain a simple key token to make API calls with 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.SsoApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-SsoApi apiInstance = new SsoApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-SingleSignOnTokenRequest tokenRequest = new SingleSignOnTokenRequest(); // SingleSignOnTokenRequest | Token request
-try {
-    SingleSignOnTokenResponse result = apiInstance.ssoToken(tokenRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SsoApi#ssoToken");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 

@@ -191,31 +191,9 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Add to library
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-AddLibraryItemRequest addLibraryRequest = new AddLibraryItemRequest(); // AddLibraryItemRequest | New library item request
-try {
-    LibraryItemResponse result = apiInstance.addToLibrary(addLibraryRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#addToLibrary");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -255,31 +233,9 @@ try {
 Apply library item to storefront.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-ApplyLibraryItemRequest applyLibraryRequest = new ApplyLibraryItemRequest(); // ApplyLibraryItemRequest | New library item
-try {
-    ApplyLibraryItemResponse result = apiInstance.applyToStoreFront(applyLibraryRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#applyToStoreFront");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -319,32 +275,9 @@ try {
 Archive email list
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListUuid = "emailListUuid_example"; // String | 
-try {
-    EmailListArchiveResponse result = apiInstance.archiveEmailList(storefrontOidemailListUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#archiveEmailList");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -385,32 +318,9 @@ try {
 Archive email segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-try {
-    EmailSegmentArchiveResponse result = apiInstance.archiveEmailSegment(storefrontOidemailSegmentUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#archiveEmailSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -451,33 +361,9 @@ try {
 Back populate email flow
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailFlowUuid = "emailFlowUuid_example"; // String | 
-EmailFlowBackPopulateRequest backPopulateRequest = new EmailFlowBackPopulateRequest(); // EmailFlowBackPopulateRequest | The request to back populate
-try {
-    EmailFlowBackPopulateResponse result = apiInstance.backPopulateEmailFlow(storefrontOidemailFlowUuidbackPopulateRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#backPopulateEmailFlow");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -519,33 +405,9 @@ try {
 Check download of email segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-String emailSegmentRebuildUuid = "emailSegmentRebuildUuid_example"; // String | 
-try {
-    EmailSegmentDownloadPrepareResponse result = apiInstance.checkDownloadEmailSegment(storefrontOidemailSegmentUuidemailSegmentRebuildUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#checkDownloadEmailSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -587,33 +449,9 @@ try {
 Clone email campaign
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
-Integer targetStorefrontOid = 56; // Integer | 
-try {
-    EmailCampaignResponse result = apiInstance.cloneEmailCampaign(storefrontOidemailCampaignUuidtargetStorefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#cloneEmailCampaign");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -655,33 +493,9 @@ try {
 Clone email flow
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailFlowUuid = "emailFlowUuid_example"; // String | 
-Integer targetStorefrontOid = 56; // Integer | 
-try {
-    EmailFlowResponse result = apiInstance.cloneEmailFlow(storefrontOidemailFlowUuidtargetStorefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#cloneEmailFlow");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -723,31 +537,9 @@ try {
 Create email campaign
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String domain = "domain_example"; // String | 
-try {
-    EmailSendingDomainResponse result = apiInstance.createEmailSendingDomain(domain);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#createEmailSendingDomain");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -787,31 +579,9 @@ try {
 Create email sending domain for various providers
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-EmailDomain emailDomain = new EmailDomain(); // EmailDomain | EmailDomain
-try {
-    EmailSendingDomainResponse result = apiInstance.createEmailSendingDomain2(emailDomain);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#createEmailSendingDomain2");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -851,33 +621,9 @@ try {
 Create file manager directory
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer id = 56; // Integer | 
-String name = "name_example"; // String | 
-Integer parentStorefrontFsDirectoryOid = 56; // Integer | 
-try {
-    FileManagerPageResponse result = apiInstance.createFsDirectory(idnameparentStorefrontFsDirectoryOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#createFsDirectory");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -919,31 +665,9 @@ try {
 Create Twilio account
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Twilio twilio = new Twilio(); // Twilio | Twilio
-try {
-    TwilioResponse result = apiInstance.createTwilioAccount(twilio);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#createTwilioAccount");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -983,32 +707,9 @@ try {
 Delete email campaignFolder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCampaignFolderUuid = "emailCampaignFolderUuid_example"; // String | 
-try {
-    BaseResponse result = apiInstance.deleteEmailCampaignFolder(storefrontOidemailCampaignFolderUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteEmailCampaignFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1049,31 +750,9 @@ try {
 Delete communication sequence stats
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-try {
-    apiInstance.deleteEmailCommseqStat(storefrontOidcommseqUuid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteEmailCommseqStat");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1113,32 +792,9 @@ null (empty response body)
 Delete email email
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
-try {
-    BaseResponse result = apiInstance.deleteEmailEmail(storefrontOidcommseqEmailUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteEmailEmail");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1179,32 +835,9 @@ try {
 Delete email flowFolder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailFlowFolderUuid = "emailFlowFolderUuid_example"; // String | 
-try {
-    BaseResponse result = apiInstance.deleteEmailFlowFolder(storefrontOidemailFlowFolderUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteEmailFlowFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1245,33 +878,9 @@ try {
 Delete email list customer
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListUuid = "emailListUuid_example"; // String | 
-String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
-try {
-    BaseResponse result = apiInstance.deleteEmailListCustomer(storefrontOidemailListUuidemailCustomerUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteEmailListCustomer");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1313,32 +922,9 @@ try {
 Delete email ListSegmentFolder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListSegmentFolderUuid = "emailListSegmentFolderUuid_example"; // String | 
-try {
-    BaseResponse result = apiInstance.deleteEmailListSegmentFolder(storefrontOidemailListSegmentFolderUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteEmailListSegmentFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1379,32 +965,9 @@ try {
 Delete email postcard
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
-try {
-    BaseResponse result = apiInstance.deleteEmailPostcard(storefrontOidcommseqPostcardUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteEmailPostcard");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1445,31 +1008,9 @@ try {
 delete email campaign
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String domain = "domain_example"; // String | 
-try {
-    BaseResponse result = apiInstance.deleteEmailSendingDomain(domain);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteEmailSendingDomain");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1509,31 +1050,9 @@ try {
 Delete experiment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer storefrontExperimentOid = 56; // Integer | 
-try {
-    apiInstance.deleteExperiment(storefrontOidstorefrontExperimentOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteExperiment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1573,33 +1092,9 @@ null (empty response body)
 Delete file manager directory
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer id = 56; // Integer | 
-Integer parentStorefrontFsDirectoryOid = 56; // Integer | 
-Integer storefrontFsFileOid = 56; // Integer | 
-try {
-    FileManagerPageResponse result = apiInstance.deleteFsFile(idparentStorefrontFsDirectoryOidstorefrontFsFileOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteFsFile");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1643,31 +1138,9 @@ Delete screen recording heatmap
 Delete screen recording heatmap 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-ScreenRecordingHeatmapReset query = new ScreenRecordingHeatmapReset(); // ScreenRecordingHeatmapReset | Query
-try {
-    apiInstance.deleteHeatmap(storefrontOidquery);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteHeatmap");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1707,30 +1180,9 @@ null (empty response body)
 Delete library item
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer libraryItemOid = 56; // Integer | 
-try {
-    apiInstance.deleteLibraryItem(libraryItemOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteLibraryItem");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1769,30 +1221,9 @@ null (empty response body)
 Delete all published versions for a library item, including anything in review.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer libraryItemOid = 56; // Integer | 
-try {
-    apiInstance.deleteLibraryItemPublishedVersions(libraryItemOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteLibraryItemPublishedVersions");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1831,31 +1262,9 @@ null (empty response body)
 Delete screen recording segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer screenRecordingSegmentOid = 56; // Integer | 
-try {
-    apiInstance.deleteScreenRecordingSegment(storefrontOidscreenRecordingSegmentOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteScreenRecordingSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1895,31 +1304,9 @@ null (empty response body)
 delete Twilio account
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String espTwilioUuid = "espTwilioUuid_example"; // String | 
-try {
-    BaseResponse result = apiInstance.deleteTwilioAccount(espTwilioUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#deleteTwilioAccount");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -1959,31 +1346,9 @@ try {
 Duplicate library item.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer libraryItemOid = 56; // Integer | 
-try {
-    LibraryItemResponse result = apiInstance.duplicateLibraryItem(libraryItemOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#duplicateLibraryItem");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2025,31 +1390,9 @@ Update favorite flag on screen recording
 Update favorite flag on screen recording 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
-try {
-    apiInstance.favoriteScreenRecording(storefrontOidscreenRecordingUuid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#favoriteScreenRecording");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2089,32 +1432,9 @@ null (empty response body)
 Obtain lat/long for an address
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-GeocodeRequest geocodeRequest = new GeocodeRequest(); // GeocodeRequest | geocode request
-try {
-    GeocodeResponse result = apiInstance.geocodeAddress(storefrontOidgeocodeRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#geocodeAddress");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2157,31 +1477,9 @@ Get countries
 Obtain a list of all the countries 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    CountriesResponse result = apiInstance.getCountries(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getCountries");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2223,31 +1521,9 @@ Gets editor token
 Fetches a temporary authentication token for the editor 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailEditorTokenResponse result = apiInstance.getEditorToken(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEditorToken");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2287,31 +1563,9 @@ try {
 Get email communication base templates
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailBaseTemplateListResponse result = apiInstance.getEmailBaseTemplates(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailBaseTemplates");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2351,32 +1605,9 @@ try {
 Get email campaign
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
-try {
-    EmailCampaignResponse result = apiInstance.getEmailCampaign(storefrontOidemailCampaignUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCampaign");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2417,32 +1648,9 @@ try {
 Get email campaign folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCampaignFolderUuid = "emailCampaignFolderUuid_example"; // String | 
-try {
-    EmailCampaignFolderResponse result = apiInstance.getEmailCampaignFolder(storefrontOidemailCampaignFolderUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCampaignFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2483,31 +1691,9 @@ try {
 Get email campaign folders
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailCampaignFoldersResponse result = apiInstance.getEmailCampaignFolders(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCampaignFolders");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2547,32 +1733,9 @@ try {
 Get email campaign screenshots
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
-try {
-    ScreenshotsResponse result = apiInstance.getEmailCampaignScreenshots(storefrontOidemailCampaignUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCampaignScreenshots");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2613,31 +1776,9 @@ try {
 Get email campaigns
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailCampaignsResponse result = apiInstance.getEmailCampaigns(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCampaigns");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2677,32 +1818,9 @@ try {
 Get email campaigns with stats
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String statDays = "statDays_example"; // String | 
-try {
-    EmailCampaignsResponse result = apiInstance.getEmailCampaignsWithStats(storefrontOidstatDays);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCampaignsWithStats");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2743,32 +1861,9 @@ try {
 Get email commseq
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-try {
-    EmailCommseqResponse result = apiInstance.getEmailCommseq(storefrontOidcommseqUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseq");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2809,33 +1904,9 @@ try {
 Get email communication sequence emails stats
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-EmailStatSummaryRequest statsRequest = new EmailStatSummaryRequest(); // EmailStatSummaryRequest | StatsRequest
-try {
-    EmailStatSummaryResponse result = apiInstance.getEmailCommseqEmailStats(storefrontOidcommseqUuidstatsRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqEmailStats");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2877,33 +1948,9 @@ try {
 Get email communication sequence postcard stats
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-EmailStatPostcardSummaryRequest statsRequest = new EmailStatPostcardSummaryRequest(); // EmailStatPostcardSummaryRequest | StatsRequest
-try {
-    EmailStatPostcardSummaryResponse result = apiInstance.getEmailCommseqPostcardStats(storefrontOidcommseqUuidstatsRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqPostcardStats");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -2945,32 +1992,9 @@ try {
 Get email communication postcard tracking
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
-try {
-    EmailPostcardTrackingResponse result = apiInstance.getEmailCommseqPostcardTracking(storefrontOidcommseqPostcardUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqPostcardTracking");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3011,32 +2035,9 @@ try {
 Get email commseq rate limiters
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-try {
-    EmailRateLimitersResponse result = apiInstance.getEmailCommseqRateLimiters(storefrontOidcommseqUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqRateLimiters");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3077,33 +2078,9 @@ try {
 Get email communication sequence sms stats
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-EmailStatSmsSummaryRequest statsRequest = new EmailStatSmsSummaryRequest(); // EmailStatSmsSummaryRequest | StatsRequest
-try {
-    EmailStatSmsSummaryResponse result = apiInstance.getEmailCommseqSmsStats(storefrontOidcommseqUuidstatsRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqSmsStats");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3145,32 +2122,9 @@ try {
 Get communication sequence stats overall
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-try {
-    EmailCommseqStatResponse result = apiInstance.getEmailCommseqStatOverall(storefrontOidcommseqUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqStatOverall");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3211,33 +2165,9 @@ try {
 Get email communication sequence step stats
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-EmailStepStatRequest statsRequest = new EmailStepStatRequest(); // EmailStepStatRequest | StatsRequest
-try {
-    EmailStepStatResponse result = apiInstance.getEmailCommseqStepStats(storefrontOidcommseqUuidstatsRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqStepStats");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3279,33 +2209,9 @@ try {
 Get email communication sequence customers waiting at each requested step
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-EmailStepWaitingRequest waitingRequest = new EmailStepWaitingRequest(); // EmailStepWaitingRequest | WaitingRequest
-try {
-    EmailStepWaitingResponse result = apiInstance.getEmailCommseqStepWaiting(storefrontOidcommseqUuidwaitingRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqStepWaiting");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3347,32 +2253,9 @@ try {
 Get email webhook editor values
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-try {
-    EmailWebhookEditorValuesResponse result = apiInstance.getEmailCommseqWebhookEditorValues(storefrontOidcommseqUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqWebhookEditorValues");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3413,31 +2296,9 @@ try {
 Get email commseqs
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailCommseqsResponse result = apiInstance.getEmailCommseqs(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCommseqs");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3477,32 +2338,9 @@ try {
 Get customers editor URL
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
-try {
-    EmailCustomerEditorUrlResponse result = apiInstance.getEmailCustomerEditorUrl(storefrontOidemailCustomerUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCustomerEditorUrl");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3543,34 +2381,9 @@ try {
 Get email customers
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer pageNumber = 56; // Integer | 
-Integer pageSize = 56; // Integer | 
-String searchEmailPrefix = "searchEmailPrefix_example"; // String | 
-try {
-    EmailCustomersResponse result = apiInstance.getEmailCustomers(storefrontOidpageNumberpageSizesearchEmailPrefix);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailCustomers");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3613,32 +2426,9 @@ try {
 Get email dashboard activity
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer lastRecords = 56; // Integer | 
-try {
-    EmailDashboardActivityResponse result = apiInstance.getEmailDashboardActivity(storefrontOidlastRecords);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailDashboardActivity");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3679,32 +2469,9 @@ try {
 Get dashboard stats
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer days = 56; // Integer | 
-try {
-    EmailDashboardStatsResponse result = apiInstance.getEmailDashboardStats(storefrontOiddays);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailDashboardStats");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3745,33 +2512,9 @@ try {
 Get email dispatch logs
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-String commseqStepUuid = "commseqStepUuid_example"; // String | 
-try {
-    EmailCommseqStepLogsResponse result = apiInstance.getEmailDispatchLogs(storefrontOidcommseqUuidcommseqStepUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailDispatchLogs");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3813,32 +2556,9 @@ try {
 Get email email
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
-try {
-    EmailCommseqEmailResponse result = apiInstance.getEmailEmail(storefrontOidcommseqEmailUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailEmail");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3879,35 +2599,9 @@ try {
 Get email email clicks
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-String commseqStepUuid = "commseqStepUuid_example"; // String | 
-String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
-Integer days = 56; // Integer | 
-try {
-    EmailClicksResponse result = apiInstance.getEmailEmailClicks(storefrontOidcommseqUuidcommseqStepUuidcommseqEmailUuiddays);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailEmailClicks");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -3951,33 +2645,9 @@ try {
 Get email order customer editor url
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
-String orderId = "orderId_example"; // String | 
-try {
-    EmailCustomerEditorUrlResponse result = apiInstance.getEmailEmailCustomerEditorUrl(storefrontOidcommseqEmailUuidorderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailEmailCustomerEditorUrl");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4019,35 +2689,9 @@ try {
 Get email email orders
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-String commseqStepUuid = "commseqStepUuid_example"; // String | 
-String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
-Integer days = 56; // Integer | 
-try {
-    EmailOrdersResponse result = apiInstance.getEmailEmailOrders(storefrontOidcommseqUuidcommseqStepUuidcommseqEmailUuiddays);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailEmailOrders");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4091,31 +2735,9 @@ try {
 Get email emails
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailCommseqEmailsResponse result = apiInstance.getEmailEmails(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailEmails");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4155,32 +2777,9 @@ try {
 Get email emails multiple
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailCommseqEmailsRequest emailCommseqEmailsRequest = new EmailCommseqEmailsRequest(); // EmailCommseqEmailsRequest | Request of email uuids
-try {
-    EmailCommseqEmailsResponse result = apiInstance.getEmailEmailsMultiple(storefrontOidemailCommseqEmailsRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailEmailsMultiple");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4221,32 +2820,9 @@ try {
 Get email flow
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailFlowUuid = "emailFlowUuid_example"; // String | 
-try {
-    EmailFlowResponse result = apiInstance.getEmailFlow(storefrontOidemailFlowUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailFlow");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4287,32 +2863,9 @@ try {
 Get email flow folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailFlowFolderUuid = "emailFlowFolderUuid_example"; // String | 
-try {
-    EmailFlowFolderResponse result = apiInstance.getEmailFlowFolder(storefrontOidemailFlowFolderUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailFlowFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4353,31 +2906,9 @@ try {
 Get email flow folders
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailFlowFoldersResponse result = apiInstance.getEmailFlowFolders(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailFlowFolders");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4417,32 +2948,9 @@ try {
 Get email flow screenshots
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailFlowUuid = "emailFlowUuid_example"; // String | 
-try {
-    ScreenshotsResponse result = apiInstance.getEmailFlowScreenshots(storefrontOidemailFlowUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailFlowScreenshots");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4483,31 +2991,9 @@ try {
 Get email flows
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailFlowsResponse result = apiInstance.getEmailFlows(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailFlows");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4547,30 +3033,9 @@ try {
 Get email globalsettings
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    EmailGlobalSettingsResponse result = apiInstance.getEmailGlobalSettings();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailGlobalSettings");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4607,32 +3072,9 @@ This endpoint does not need any parameter.
 Get email list
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListUuid = "emailListUuid_example"; // String | 
-try {
-    EmailListResponse result = apiInstance.getEmailList(storefrontOidemailListUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailList");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4673,33 +3115,9 @@ try {
 Get email list customer editor url
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListUuid = "emailListUuid_example"; // String | 
-String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
-try {
-    EmailCustomerEditorUrlResponse result = apiInstance.getEmailListCustomerEditorUrl(storefrontOidemailListUuidemailCustomerUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailListCustomerEditorUrl");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4741,34 +3159,9 @@ try {
 Get email list customers
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListUuid = "emailListUuid_example"; // String | 
-Integer pageNumber = 56; // Integer | 
-Integer pageSize = 56; // Integer | 
-try {
-    EmailListCustomersResponse result = apiInstance.getEmailListCustomers(storefrontOidemailListUuidpageNumberpageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailListCustomers");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4811,32 +3204,9 @@ try {
 Get email campaign folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListSegmentFolderUuid = "emailListSegmentFolderUuid_example"; // String | 
-try {
-    EmailListSegmentFolderResponse result = apiInstance.getEmailListSegmentFolder(storefrontOidemailListSegmentFolderUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailListSegmentFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4877,31 +3247,9 @@ try {
 Get email campaign folders
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailListSegmentFoldersResponse result = apiInstance.getEmailListSegmentFolders(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailListSegmentFolders");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -4941,31 +3289,9 @@ try {
 Get email lists
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailListsResponse result = apiInstance.getEmailLists(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailLists");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5005,31 +3331,9 @@ try {
 Get email performance
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailPerformanceResponse result = apiInstance.getEmailPerformance(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailPerformance");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5069,31 +3373,9 @@ try {
 Get email plan
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailPlanResponse result = apiInstance.getEmailPlan(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailPlan");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5133,32 +3415,9 @@ try {
 Get email postcard
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
-try {
-    EmailCommseqPostcardResponse result = apiInstance.getEmailPostcard(storefrontOidcommseqPostcardUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailPostcard");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5199,31 +3458,9 @@ try {
 Get email postcards
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailCommseqPostcardsResponse result = apiInstance.getEmailPostcards(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailPostcards");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5263,32 +3500,9 @@ try {
 Get email postcards multiple
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailCommseqPostcardsRequest emailCommseqPostcardsRequest = new EmailCommseqPostcardsRequest(); // EmailCommseqPostcardsRequest | Request of postcard uuids
-try {
-    EmailCommseqPostcardsResponse result = apiInstance.getEmailPostcardsMultiple(storefrontOidemailCommseqPostcardsRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailPostcardsMultiple");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5329,32 +3543,9 @@ try {
 Get email segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-try {
-    EmailSegmentResponse result = apiInstance.getEmailSegment(storefrontOidemailSegmentUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5395,33 +3586,9 @@ try {
 Get email segment customers editor URL
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
-try {
-    EmailCustomerEditorUrlResponse result = apiInstance.getEmailSegmentCustomerEditorUrl(storefrontOidemailSegmentUuidemailCustomerUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSegmentCustomerEditorUrl");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5463,34 +3630,9 @@ try {
 Get email segment customers
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-Integer pageNumber = 56; // Integer | 
-Integer pageSize = 56; // Integer | 
-try {
-    EmailSegmentCustomersResponse result = apiInstance.getEmailSegmentCustomers(storefrontOidemailSegmentUuidpageNumberpageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSegmentCustomers");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5533,31 +3675,9 @@ try {
 Get email segments
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailSegmentsResponse result = apiInstance.getEmailSegments(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSegments");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5597,31 +3717,9 @@ try {
 Get email sending domain
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String domain = "domain_example"; // String | 
-try {
-    EmailSendingDomainResponse result = apiInstance.getEmailSendingDomain(domain);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSendingDomain");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5661,31 +3759,9 @@ try {
 Get email sending domain status
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String domain = "domain_example"; // String | 
-try {
-    EmailSendingDomainResponse result = apiInstance.getEmailSendingDomainStatus(domain);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSendingDomainStatus");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5725,30 +3801,9 @@ try {
 Get email sending domains
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    EmailSendingDomainsResponse result = apiInstance.getEmailSendingDomains();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSendingDomains");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5785,31 +3840,9 @@ This endpoint does not need any parameter.
 Get email settings
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailSettingsResponse result = apiInstance.getEmailSettings(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSettings");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5849,34 +3882,9 @@ try {
 Get email sms orders
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-String commseqStepUuid = "commseqStepUuid_example"; // String | 
-Integer days = 56; // Integer | 
-try {
-    EmailSmsOrdersResponse result = apiInstance.getEmailSmsOrders(storefrontOidcommseqUuidcommseqStepUuiddays);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailSmsOrders");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5919,32 +3927,9 @@ try {
 Get email template
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer emailTemplateOid = 56; // Integer | 
-try {
-    EmailTemplate result = apiInstance.getEmailTemplate(storefrontOidemailTemplateOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailTemplate");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -5985,32 +3970,9 @@ try {
 Get email templates
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String triggerType = "triggerType_example"; // String | 
-try {
-    EmailTemplatesResponse result = apiInstance.getEmailTemplates(storefrontOidtriggerType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailTemplates");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6051,31 +4013,9 @@ try {
 Get a list of third party email providers
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    EmailThirdPartyProvidersResponse result = apiInstance.getEmailThirdPartyProviders(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getEmailThirdPartyProviders");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6115,31 +4055,9 @@ try {
 Get experiments
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    ExperimentsResponse result = apiInstance.getExperiments(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getExperiments");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6179,34 +4097,9 @@ try {
 Get file manager directory
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer id = 56; // Integer | 
-String path = "path_example"; // String | 
-Integer storefrontFsDirectoryOid = 56; // Integer | 
-Integer storefrontThemeOid = 56; // Integer | 
-try {
-    FileManagerPageResponse result = apiInstance.getFsDirectory(idpathstorefrontFsDirectoryOidstorefrontThemeOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getFsDirectory");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6251,32 +4144,9 @@ Get screen recording heatmap
 Get screen recording heatmap 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-ScreenRecordingHeatmapRequest query = new ScreenRecordingHeatmapRequest(); // ScreenRecordingHeatmapRequest | Query
-try {
-    ScreenRecordingHeatmapResponse result = apiInstance.getHeatmap(storefrontOidquery);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getHeatmap");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6319,35 +4189,9 @@ Get screen recording heatmap index
 Get screen recording heatmap index 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-ScreenRecordingHeatmapIndexRequest query = new ScreenRecordingHeatmapIndexRequest(); // ScreenRecordingHeatmapIndexRequest | Query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 500)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    ScreenRecordingHeatmapIndexResponse result = apiInstance.getHeatmapIndex(storefrontOidquerylimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getHeatmapIndex");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6393,32 +4237,9 @@ Get histogram property names
 Obtain a list of property names for a given property type 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String propertyType = "propertyType_example"; // String | 
-try {
-    EmailHistogramPropertyNamesResponse result = apiInstance.getHistogramPropertyNames(storefrontOidpropertyType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getHistogramPropertyNames");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6461,34 +4282,9 @@ Get histogram property values
 Obtain a list of property values for a given property name and type 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String propertyName = "propertyName_example"; // String | 
-String propertyType = "propertyType_example"; // String | 
-Integer limit = 56; // Integer | 
-try {
-    EmailHistogramPropertyValuesResponse result = apiInstance.getHistogramPropertyValues(storefrontOidpropertyNamepropertyTypelimit);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getHistogramPropertyValues");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6531,30 +4327,9 @@ try {
 Get library values used to populate drop down boxes for filtering.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    LibraryFilterValuesResponse result = apiInstance.getLibraryFilterValues();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getLibraryFilterValues");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6591,31 +4366,9 @@ This endpoint does not need any parameter.
 Get library item.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer libraryItemOid = 56; // Integer | 
-try {
-    LibraryItemResponse result = apiInstance.getLibraryItem(libraryItemOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getLibraryItem");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6655,31 +4408,9 @@ try {
 Get all published versions for a library item.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer libraryItemOid = 56; // Integer | 
-try {
-    LibraryItemsResponse result = apiInstance.getLibraryItemPublishedVersions(libraryItemOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getLibraryItemPublishedVersions");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6721,32 +4452,9 @@ Get screen recording
 Get screen recording 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
-try {
-    ScreenRecordingResponse result = apiInstance.getScreenRecording(storefrontOidscreenRecordingUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getScreenRecording");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6789,33 +4497,9 @@ Get screen recording page view data
 Get screen recording page view data 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
-String screenRecordingPageViewUuid = "screenRecordingPageViewUuid_example"; // String | 
-try {
-    ScreenRecordingPageViewDataResponse result = apiInstance.getScreenRecordingPageViewData(storefrontOidscreenRecordingUuidscreenRecordingPageViewUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getScreenRecordingPageViewData");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6857,32 +4541,9 @@ try {
 Get screen recording segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer screenRecordingSegmentOid = 56; // Integer | 
-try {
-    ScreenRecordingSegmentResponse result = apiInstance.getScreenRecordingSegment(storefrontOidscreenRecordingSegmentOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getScreenRecordingSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6923,31 +4584,9 @@ try {
 Get screen recording segments
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    ScreenRecordingSegmentsResponse result = apiInstance.getScreenRecordingSegments(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getScreenRecordingSegments");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -6987,31 +4626,9 @@ try {
 Get screen recording settings
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    ScreenRecordingSettingsResponse result = apiInstance.getScreenRecordingSettings(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getScreenRecordingSettings");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7053,31 +4670,9 @@ Get tags used by screen recording
 Get tags used by screen recording 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    ScreenRecordingTagsResponse result = apiInstance.getScreenRecordingTags(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getScreenRecordingTags");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7119,35 +4714,9 @@ Query screen recordings
 Query screen recordings 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-ScreenRecordingQueryRequest query = new ScreenRecordingQueryRequest(); // ScreenRecordingQueryRequest | Query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 500)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    ScreenRecordingQueryResponse result = apiInstance.getScreenRecordingsByQuery(storefrontOidquerylimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getScreenRecordingsByQuery");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7193,35 +4762,9 @@ Get screen recordings by segment
 Get screen recordings by segment 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer screenRecordingSegmentOid = 56; // Integer | 
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 500)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    ScreenRecordingQueryResponse result = apiInstance.getScreenRecordingsBySegment(storefrontOidscreenRecordingSegmentOidlimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getScreenRecordingsBySegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7267,31 +4810,9 @@ Retrieve pricing tiers
 Retrieves the pricing tiers 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    PricingTiersResponse result = apiInstance.getStoreFrontPricingTiers(expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getStoreFrontPricingTiers");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7331,30 +4852,9 @@ try {
 Get storefronts (internal use only for security reasons)
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    StoreFrontsResponse result = apiInstance.getStoreFronts();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getStoreFronts");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7391,31 +4891,9 @@ This endpoint does not need any parameter.
 Get thumbnail parameters
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-ThumbnailParametersRequest thumbnailParameters = new ThumbnailParametersRequest(); // ThumbnailParametersRequest | Thumbnail Parameters
-try {
-    ThumbnailParametersResponse result = apiInstance.getThumbnailParameters(thumbnailParameters);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getThumbnailParameters");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7457,32 +4935,9 @@ Gets a transaction email object
 Fetch a transactional email 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailId = "emailId_example"; // String | 
-try {
-    TransactionEmailResponse result = apiInstance.getTransactionEmail(storefrontOidemailId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getTransactionEmail");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7525,31 +4980,9 @@ Gets a list of transaction email names
 Obtain a list of all transactional emails and return back just their names 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-try {
-    TransactionEmailListResponse result = apiInstance.getTransactionEmailList(storefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getTransactionEmailList");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7589,32 +5022,9 @@ try {
 Get transactional email screenshots
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailId = "emailId_example"; // String | 
-try {
-    ScreenshotsResponse result = apiInstance.getTransactionEmailScreenshots(storefrontOidemailId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getTransactionEmailScreenshots");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7655,31 +5065,9 @@ try {
 Get Twilio account
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String espTwilioUuid = "espTwilioUuid_example"; // String | 
-try {
-    TwilioResponse result = apiInstance.getTwilioAccount(espTwilioUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getTwilioAccount");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7719,30 +5107,9 @@ try {
 Get all Twilio accounts
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    TwiliosResponse result = apiInstance.getTwilioAccounts();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getTwilioAccounts");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7779,32 +5146,9 @@ This endpoint does not need any parameter.
 Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer id = 56; // Integer | 
-String extension = "extension_example"; // String | 
-try {
-    FileManagerUploadUrlResponse result = apiInstance.getUploadFsFileUrl(idextension);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#getUploadFsFileUrl");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7845,32 +5189,9 @@ try {
 Globally unsubscribe a customer
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailGlobalUnsubscribeRequest unsubscribe = new EmailGlobalUnsubscribeRequest(); // EmailGlobalUnsubscribeRequest | Unsubscribe
-try {
-    EmailGlobalUnsubscribeResponse result = apiInstance.globalUnsubscribe(storefrontOidunsubscribe);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#globalUnsubscribe");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7911,31 +5232,9 @@ try {
 Import a third party provider list
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailThirdPartyListImportRequest importRequest = new EmailThirdPartyListImportRequest(); // EmailThirdPartyListImportRequest | lists to import
-try {
-    apiInstance.importEmailThirdPartyProviderList(storefrontOidimportRequest);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#importEmailThirdPartyProviderList");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -7975,32 +5274,9 @@ null (empty response body)
 Insert email campaign
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailCampaign emailCampaign = new EmailCampaign(); // EmailCampaign | Email campaign
-try {
-    EmailCampaignResponse result = apiInstance.insertEmailCampaign(storefrontOidemailCampaign);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailCampaign");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8041,32 +5317,9 @@ try {
 Insert email campaign folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailCampaignFolder emailCampaignFolder = new EmailCampaignFolder(); // EmailCampaignFolder | Email campaign folder
-try {
-    EmailCampaignFolderResponse result = apiInstance.insertEmailCampaignFolder(storefrontOidemailCampaignFolder);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailCampaignFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8107,32 +5360,9 @@ try {
 Insert email commseq
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailCommseq emailCommseq = new EmailCommseq(); // EmailCommseq | Email commseq
-try {
-    EmailCommseqResponse result = apiInstance.insertEmailCommseq(storefrontOidemailCommseq);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailCommseq");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8173,32 +5403,9 @@ try {
 Insert email email
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailCommseqEmail emailCommseqEmail = new EmailCommseqEmail(); // EmailCommseqEmail | Email email
-try {
-    EmailCommseqEmailResponse result = apiInstance.insertEmailEmail(storefrontOidemailCommseqEmail);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailEmail");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8239,32 +5446,9 @@ try {
 Insert email flow
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailFlow emailFlow = new EmailFlow(); // EmailFlow | Email flow
-try {
-    EmailFlowResponse result = apiInstance.insertEmailFlow(storefrontOidemailFlow);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailFlow");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8305,32 +5489,9 @@ try {
 Insert email flow folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailFlowFolder emailFlowFolder = new EmailFlowFolder(); // EmailFlowFolder | Email flow folder
-try {
-    EmailFlowFolderResponse result = apiInstance.insertEmailFlowFolder(storefrontOidemailFlowFolder);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailFlowFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8371,32 +5532,9 @@ try {
 Insert email list
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailList emailList = new EmailList(); // EmailList | Email list
-try {
-    EmailListResponse result = apiInstance.insertEmailList(storefrontOidemailList);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailList");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8437,32 +5575,9 @@ try {
 Insert email campaign folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailListSegmentFolder emailListSegmentFolder = new EmailListSegmentFolder(); // EmailListSegmentFolder | Email campaign folder
-try {
-    EmailListSegmentFolderResponse result = apiInstance.insertEmailListSegmentFolder(storefrontOidemailListSegmentFolder);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailListSegmentFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8503,32 +5618,9 @@ try {
 Insert email postcard
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailCommseqPostcard emailCommseqPostcard = new EmailCommseqPostcard(); // EmailCommseqPostcard | Email postcard
-try {
-    EmailCommseqPostcardResponse result = apiInstance.insertEmailPostcard(storefrontOidemailCommseqPostcard);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailPostcard");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8569,32 +5661,9 @@ try {
 Insert email segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailSegment emailSegment = new EmailSegment(); // EmailSegment | Email segment
-try {
-    EmailSegmentResponse result = apiInstance.insertEmailSegment(storefrontOidemailSegment);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertEmailSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8635,32 +5704,9 @@ try {
 Insert screen recording segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-ScreenRecordingSegment segment = new ScreenRecordingSegment(); // ScreenRecordingSegment | Segment
-try {
-    ScreenRecordingSegmentResponse result = apiInstance.insertScreenRecordingSegment(storefrontOidsegment);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertScreenRecordingSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8703,32 +5749,9 @@ Upsert a page content attribute
 Update a page content attribute, creating it new if it does not yet exist. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer pageOid = 56; // Integer | The page oid to modify.
-StoreFrontPageContentAttribute pageAttribute = new StoreFrontPageContentAttribute(); // StoreFrontPageContentAttribute | Page content attribute to upsert
-try {
-    apiInstance.insertUpdatePageContentAttribute(storefrontOidpageOidpageAttribute);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#insertUpdatePageContentAttribute");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8769,32 +5792,9 @@ null (empty response body)
 Prepare download of email segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-try {
-    EmailSegmentDownloadPrepareResponse result = apiInstance.prepareDownloadEmailSegment(storefrontOidemailSegmentUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#prepareDownloadEmailSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8835,32 +5835,9 @@ try {
 Publish library item.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer libraryItemOid = 56; // Integer | 
-PublishLibraryItemRequest publishLibraryRequest = new PublishLibraryItemRequest(); // PublishLibraryItemRequest | Publish library item request
-try {
-    LibraryItemResponse result = apiInstance.publishLibraryItem(libraryItemOidpublishLibraryRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#publishLibraryItem");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8901,32 +5878,9 @@ try {
 Purchase public library item, which creates a copy of the item in your personal code library
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer libraryItemOid = 56; // Integer | 
-Integer storefrontOid = 56; // Integer | 
-try {
-    LibraryItemResponse result = apiInstance.purchaseLibraryItem(libraryItemOidstorefrontOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#purchaseLibraryItem");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -8967,32 +5921,9 @@ try {
 Release email communication sequence customers waiting at the specified step
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-String commseqStepUuid = "commseqStepUuid_example"; // String | 
-try {
-    apiInstance.releaseEmailCommseqStepWaiting(storefrontOidcommseqUuidcommseqStepUuid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#releaseEmailCommseqStepWaiting");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9033,31 +5964,9 @@ null (empty response body)
 Reset email commseq rate limiters (only callable by UltraCart Support)
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-try {
-    apiInstance.resetEmailCommseqRateLimiters(storefrontOidcommseqUuid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#resetEmailCommseqRateLimiters");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9097,33 +6006,9 @@ null (empty response body)
 Request a review of an email
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
-EmailCommseqEmailSendTestRequest emailCommseqEmailReviewRequest = new EmailCommseqEmailSendTestRequest(); // EmailCommseqEmailSendTestRequest | Email commseq email review request
-try {
-    EmailCommseqEmailSendTestResponse result = apiInstance.review(storefrontOidcommseqEmailUuidemailCommseqEmailReviewRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#review");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9165,35 +6050,9 @@ try {
 Searches for all matching values
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String category = "category_example"; // String | 
-String matches = "matches_example"; // String | 
-String storefrontOid = "storefrontOid_example"; // String | 
-Integer maxHits = 56; // Integer | 
-String subcategory = "subcategory_example"; // String | 
-try {
-    LookupResponse result = apiInstance.search(categorymatchesstorefrontOidmaxHitssubcategory);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#search");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9237,31 +6096,9 @@ try {
 Searches for all matching values (using POST)
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-LookupRequest lookupRequest = new LookupRequest(); // LookupRequest | LookupRequest
-try {
-    LookupResponse result = apiInstance.search2(lookupRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#search2");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9301,33 +6138,9 @@ try {
 Search email list customers
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListUuid = "emailListUuid_example"; // String | 
-String startsWith = "startsWith_example"; // String | 
-try {
-    EmailListCustomersResponse result = apiInstance.searchEmailListCustomers(storefrontOidemailListUuidstartsWith);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#searchEmailListCustomers");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9369,33 +6182,9 @@ try {
 Search email segment customers
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-String startsWith = "startsWith_example"; // String | 
-try {
-    EmailSegmentCustomersResponse result = apiInstance.searchEmailSegmentCustomers(storefrontOidemailSegmentUuidstartsWith);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#searchEmailSegmentCustomers");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9439,34 +6228,9 @@ Retrieve library items
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-LibraryItemQuery itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    LibraryItemsResponse result = apiInstance.searchLibraryItems(itemQuerylimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#searchLibraryItems");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9511,34 +6275,9 @@ Retrieve library items
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-LibraryItemQuery itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    LibraryItemsResponse result = apiInstance.searchPublishedItems(itemQuerylimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#searchPublishedItems");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9583,34 +6322,9 @@ Retrieve library items needing review or rejected
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-LibraryItemQuery itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    LibraryItemsResponse result = apiInstance.searchReviewItems(itemQuerylimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#searchReviewItems");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9655,34 +6369,9 @@ Retrieve library items
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-LibraryItemQuery itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    LibraryItemsResponse result = apiInstance.searchSharedItems(itemQuerylimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#searchSharedItems");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9725,33 +6414,9 @@ try {
 Send email test
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
-EmailCommseqEmailSendTestRequest emailCommseqEmailTestRequest = new EmailCommseqEmailSendTestRequest(); // EmailCommseqEmailSendTestRequest | Email commseq email test request
-try {
-    EmailCommseqEmailSendTestResponse result = apiInstance.sendEmailTest(storefrontOidcommseqEmailUuidemailCommseqEmailTestRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#sendEmailTest");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9793,33 +6458,9 @@ try {
 Send postcard test
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
-EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest = new EmailCommseqPostcardSendTestRequest(); // EmailCommseqPostcardSendTestRequest | Email commseq email test request
-try {
-    EmailCommseqPostcardSendTestResponse result = apiInstance.sendPostcardTest(storefrontOidcommseqPostcardUuidemailCommseqPostcardTestRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#sendPostcardTest");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9861,34 +6502,9 @@ try {
 Send SMS test
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-String commseqStepUuid = "commseqStepUuid_example"; // String | 
-EmailCommseqSmsSendTestRequest emailCommseqSmsTestRequest = new EmailCommseqSmsSendTestRequest(); // EmailCommseqSmsSendTestRequest | Email commseq sms test request
-try {
-    EmailCommseqSmsSendTestResponse result = apiInstance.sendSmsTest(storefrontOidcommseqUuidcommseqStepUuidemailCommseqSmsTestRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#sendSmsTest");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9931,32 +6547,9 @@ try {
 Send webhook test
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest = new EmailCommseqWebhookSendTestRequest(); // EmailCommseqWebhookSendTestRequest | Email commseq webhook test request
-try {
-    EmailCommseqWebhookSendTestResponse result = apiInstance.sendWebhookTest(storefrontOidemailCommseqWebhookTestRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#sendWebhookTest");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -9997,33 +6590,9 @@ try {
 Sequence test
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-EmailCommseqSequenceTestRequest emailCommseqSequenceTestRequest = new EmailCommseqSequenceTestRequest(); // EmailCommseqSequenceTestRequest | Commseq test request
-try {
-    EmailCommseqSequenceTestResponse result = apiInstance.sequenceTest(storefrontOidcommseqUuidemailCommseqSequenceTestRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#sequenceTest");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10065,32 +6634,9 @@ try {
 Start email campaign
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
-try {
-    BaseResponse result = apiInstance.startEmailCampaign(storefrontOidemailCampaignUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#startEmailCampaign");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10131,33 +6677,9 @@ try {
 Subscribe customers to email list
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListUuid = "emailListUuid_example"; // String | 
-List<EmailCustomer> customers = Arrays.asList(); // List<EmailCustomer> | Customers
-try {
-    EmailListSubscribeResponse result = apiInstance.subscribeToEmailList(storefrontOidemailListUuidcustomers);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#subscribeToEmailList");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10199,31 +6721,9 @@ try {
 Sunset email segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-try {
-    apiInstance.sunsetEmailSegment(storefrontOidemailSegmentUuid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#sunsetEmailSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10265,31 +6765,9 @@ Remove favorite flag on screen recording
 Remove favorite flag on screen recording 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
-try {
-    apiInstance.unfavoriteScreenRecording(storefrontOidscreenRecordingUuid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#unfavoriteScreenRecording");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10329,33 +6807,9 @@ null (empty response body)
 Update email campaign
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCampaignUuid = "emailCampaignUuid_example"; // String | 
-EmailCampaign emailCampaign = new EmailCampaign(); // EmailCampaign | Email campaign
-try {
-    EmailCampaignResponse result = apiInstance.updateEmailCampaign(storefrontOidemailCampaignUuidemailCampaign);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailCampaign");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10397,33 +6851,9 @@ try {
 Update email campaign folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCampaignFolderUuid = "emailCampaignFolderUuid_example"; // String | 
-EmailCampaignFolder emailCampaignFolder = new EmailCampaignFolder(); // EmailCampaignFolder | Email campaign folder
-try {
-    EmailCampaignFolderResponse result = apiInstance.updateEmailCampaignFolder(storefrontOidemailCampaignFolderUuidemailCampaignFolder);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailCampaignFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10465,33 +6895,9 @@ try {
 Update email commseq
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqUuid = "commseqUuid_example"; // String | 
-EmailCommseq emailCommseq = new EmailCommseq(); // EmailCommseq | Email commseq
-try {
-    EmailCommseqResponse result = apiInstance.updateEmailCommseq(storefrontOidcommseqUuidemailCommseq);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailCommseq");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10533,32 +6939,9 @@ try {
 Update email customer
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailCustomerUuid = "emailCustomerUuid_example"; // String | 
-EmailCustomer emailCustomer = new EmailCustomer(); // EmailCustomer | Email customer
-try {
-    apiInstance.updateEmailCustomer(storefrontOidemailCustomerUuidemailCustomer);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailCustomer");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10599,33 +6982,9 @@ null (empty response body)
 Update email email
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqEmailUuid = "commseqEmailUuid_example"; // String | 
-EmailCommseqEmail emailCommseqEmail = new EmailCommseqEmail(); // EmailCommseqEmail | Email commseq email
-try {
-    EmailCommseqEmailResponse result = apiInstance.updateEmailEmail(storefrontOidcommseqEmailUuidemailCommseqEmail);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailEmail");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10667,33 +7026,9 @@ try {
 Update email flow
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailFlowUuid = "emailFlowUuid_example"; // String | 
-EmailFlow emailFlow = new EmailFlow(); // EmailFlow | Email flow
-try {
-    EmailFlowResponse result = apiInstance.updateEmailFlow(storefrontOidemailFlowUuidemailFlow);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailFlow");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10735,33 +7070,9 @@ try {
 Update email flow folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailFlowFolderUuid = "emailFlowFolderUuid_example"; // String | 
-EmailFlowFolder emailFlowFolder = new EmailFlowFolder(); // EmailFlowFolder | Email flow folder
-try {
-    EmailFlowFolderResponse result = apiInstance.updateEmailFlowFolder(storefrontOidemailFlowFolderUuidemailFlowFolder);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailFlowFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10803,31 +7114,9 @@ try {
 Update email global settings
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-EmailGlobalSettings globalSettings = new EmailGlobalSettings(); // EmailGlobalSettings | global settings request
-try {
-    EmailGlobalSettingsResponse result = apiInstance.updateEmailGlobalSettings(globalSettings);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailGlobalSettings");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10867,33 +7156,9 @@ try {
 Update email list
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListUuid = "emailListUuid_example"; // String | 
-EmailList emailList = new EmailList(); // EmailList | Email list
-try {
-    EmailListResponse result = apiInstance.updateEmailList(storefrontOidemailListUuidemailList);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailList");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -10935,33 +7200,9 @@ try {
 Update email campaign folder
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailListSegmentFolderUuid = "emailListSegmentFolderUuid_example"; // String | 
-EmailListSegmentFolder emailListSegmentFolder = new EmailListSegmentFolder(); // EmailListSegmentFolder | Email campaign folder
-try {
-    EmailListSegmentFolderResponse result = apiInstance.updateEmailListSegmentFolder(storefrontOidemailListSegmentFolderUuidemailListSegmentFolder);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailListSegmentFolder");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11003,32 +7244,9 @@ try {
 Update email plan
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailPlan settings = new EmailPlan(); // EmailPlan | plan request
-try {
-    EmailPlanResponse result = apiInstance.updateEmailPlan(storefrontOidsettings);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailPlan");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11069,33 +7287,9 @@ try {
 Update email postcard
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String commseqPostcardUuid = "commseqPostcardUuid_example"; // String | 
-EmailCommseqPostcard emailCommseqPostcard = new EmailCommseqPostcard(); // EmailCommseqPostcard | Email commseq postcard
-try {
-    EmailCommseqPostcardResponse result = apiInstance.updateEmailPostcard(storefrontOidcommseqPostcardUuidemailCommseqPostcard);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailPostcard");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11137,33 +7331,9 @@ try {
 Update email segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailSegmentUuid = "emailSegmentUuid_example"; // String | 
-EmailSegment emailSegment = new EmailSegment(); // EmailSegment | Email segment
-try {
-    EmailSegmentResponse result = apiInstance.updateEmailSegment(storefrontOidemailSegmentUuidemailSegment);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11205,32 +7375,9 @@ try {
 Update email sending domain
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String domain = "domain_example"; // String | 
-EmailDomain emailDomain = new EmailDomain(); // EmailDomain | EmailDomain
-try {
-    EmailSendingDomainResponse result = apiInstance.updateEmailSendingDomain(domainemailDomain);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailSendingDomain");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11271,32 +7418,9 @@ try {
 Update email settings
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-EmailSettings settings = new EmailSettings(); // EmailSettings | settings request
-try {
-    EmailSettingsResponse result = apiInstance.updateEmailSettings(storefrontOidsettings);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateEmailSettings");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11337,33 +7461,9 @@ try {
 Update experiment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer storefrontExperimentOid = 56; // Integer | 
-Experiment experiment = new Experiment(); // Experiment | Experiment
-try {
-    ExperimentResponse result = apiInstance.updateExperiment(storefrontOidstorefrontExperimentOidexperiment);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateExperiment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11405,32 +7505,9 @@ try {
 Update library item. Note that only certain fields may be updated via this method.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer libraryItemOid = 56; // Integer | 
-LibraryItem libraryItem = new LibraryItem(); // LibraryItem | Library item
-try {
-    LibraryItemResponse result = apiInstance.updateLibraryItem(libraryItemOidlibraryItem);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateLibraryItem");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11473,32 +7550,9 @@ Update merchant notes on a screen recording
 Update merchant notes on a screen recording 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
-ScreenRecordingMerchantNotesRequest merchantNotesRequest = new ScreenRecordingMerchantNotesRequest(); // ScreenRecordingMerchantNotesRequest | Merchant Notes
-try {
-    apiInstance.updateScreenRecordingMerchantNotes(storefrontOidscreenRecordingUuidmerchantNotesRequest);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateScreenRecordingMerchantNotes");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11539,33 +7593,9 @@ null (empty response body)
 Update screen recording segment
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-Integer screenRecordingSegmentOid = 56; // Integer | 
-ScreenRecordingSegment segment = new ScreenRecordingSegment(); // ScreenRecordingSegment | Segment
-try {
-    ScreenRecordingSegmentResponse result = apiInstance.updateScreenRecordingSegment(storefrontOidscreenRecordingSegmentOidsegment);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateScreenRecordingSegment");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11607,32 +7637,9 @@ try {
 Update screen recording settings
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-ScreenRecordingSettings settings = new ScreenRecordingSettings(); // ScreenRecordingSettings | Settings
-try {
-    ScreenRecordingSettingsResponse result = apiInstance.updateScreenRecordingSettings(storefrontOidsettings);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateScreenRecordingSettings");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11675,32 +7682,9 @@ Update tags on a screen recording
 Update tags on a screen recording 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String screenRecordingUuid = "screenRecordingUuid_example"; // String | 
-ScreenRecordingTagsRequest tags = new ScreenRecordingTagsRequest(); // ScreenRecordingTagsRequest | Tags
-try {
-    apiInstance.updateScreenRecordingTags(storefrontOidscreenRecordingUuidtags);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateScreenRecordingTags");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11743,33 +7727,9 @@ Updates a transaction email object
 Updates a transactional email 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer storefrontOid = 56; // Integer | 
-String emailId = "emailId_example"; // String | 
-TransactionEmail transactionEmail = new TransactionEmail(); // TransactionEmail | TransactionEmail
-try {
-    TransactionEmailResponse result = apiInstance.updateTransactionEmail(storefrontOidemailIdtransactionEmail);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateTransactionEmail");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11811,32 +7771,9 @@ try {
 Update Twilio account
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String espTwilioUuid = "espTwilioUuid_example"; // String | 
-Twilio twilio = new Twilio(); // Twilio | Twilio
-try {
-    TwilioResponse result = apiInstance.updateTwilioAccount(espTwilioUuidtwilio);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#updateTwilioAccount");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11877,31 +7814,9 @@ try {
 This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer id = 56; // Integer | 
-FileManagerUploadRequest uploadRequest = new FileManagerUploadRequest(); // FileManagerUploadRequest | UploadRequest
-try {
-    apiInstance.uploadFsFile(iduploadRequest);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#uploadFsFile");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -11941,31 +7856,9 @@ null (empty response body)
 Validate AWS Event Ruler
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.StorefrontApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-StorefrontApi apiInstance = new StorefrontApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-RulerValidationRequest rulerValidateRequest = new RulerValidationRequest(); // RulerValidationRequest | Ruler Validate Request
-try {
-    RulerValidationResponse result = apiInstance.validateRuler(rulerValidateRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling StorefrontApi#validateRuler");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 

@@ -25,30 +25,9 @@ Delete a report
 Delete a report on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer reportOid = 56; // Integer | The report oid to delete.
-try {
-    apiInstance.deleteReport(reportOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#deleteReport");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -90,31 +69,9 @@ Dry run the report queries
 Dry run the report queries 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-ReportDryRunQueriesRequest queryRequest = new ReportDryRunQueriesRequest(); // ReportDryRunQueriesRequest | Dry run request
-try {
-    ReportDryRunQueriesResponse result = apiInstance.dryRunReportQueries(queryRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#dryRunReportQueries");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -156,30 +113,9 @@ Execute the report queries
 Execute the report queries 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-ReportExecuteQueriesRequest queryRequest = new ReportExecuteQueriesRequest(); // ReportExecuteQueriesRequest | Query request
-try {
-    apiInstance.executeReportQueries(queryRequest);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#executeReportQueries");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -220,31 +156,9 @@ Get a report
 Retrieve a report 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer reportOid = 56; // Integer | 
-try {
-    ReportResponse result = apiInstance.getReport(reportOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#getReport");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -286,31 +200,9 @@ Get a report data set
 Retrieve a report data set 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String datasetUuid = "datasetUuid_example"; // String | 
-try {
-    ReportDataSetResponse result = apiInstance.getReportDataSet(datasetUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#getReportDataSet");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -352,32 +244,9 @@ Get a report data set page
 Retrieve a report data set page 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String datasetUuid = "datasetUuid_example"; // String | 
-Integer pageNumber = 56; // Integer | 
-try {
-    ReportDataSetPageResponse result = apiInstance.getReportDataSetPage(datasetUuidpageNumber);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#getReportDataSetPage");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -420,30 +289,9 @@ Get report websocket authorization
 Retrieve a JWT to authorize a report to make a websocket connection. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    ReportAuthResponse result = apiInstance.getReportWebsocketAuthorization();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#getReportWebsocketAuthorization");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -482,30 +330,9 @@ Get list of reports available
 Retrieve a list of reports available 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    ReportsResponse result = apiInstance.getReports();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#getReports");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -544,31 +371,9 @@ Create a report
 Create a new report on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Report report = new Report(); // Report | Report to create
-try {
-    ReportResponse result = apiInstance.insertReport(report);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#insertReport");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -610,32 +415,9 @@ Update a report
 Update a report on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.DatawarehouseApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-DatawarehouseApi apiInstance = new DatawarehouseApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer reportOid = 56; // Integer | The report oid to update.
-Report report = new Report(); // Report | Report to update
-try {
-    ReportResponse result = apiInstance.updateReport(reportOidreport);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DatawarehouseApi#updateReport");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 

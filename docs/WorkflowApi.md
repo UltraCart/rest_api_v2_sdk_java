@@ -27,30 +27,9 @@ Get agent websocket authorization
 Retrieve a JWT to authorize an agent to make a websocket connection. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    WorkflowAgentAuthResponse result = apiInstance.getWorkflowAgentWebsocketAuthorization();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowAgentWebsocketAuthorization");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -89,32 +68,9 @@ Retrieve a list of groups that workflow tasks can be assigned to
 Retrieve a list of groups that workflow tasks can be assigned to 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-try {
-    WorkflowGroupsResponse result = apiInstance.getWorkflowAssignmentGroups(limitoffset);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowAssignmentGroups");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -157,32 +113,9 @@ Retrieve a list of users that workflow tasks can be assigned to
 Retrieve a list of users that workflow tasks can be assigned to 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-try {
-    WorkflowUsersResponse result = apiInstance.getWorkflowAssignmentUsers(limitoffset);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowAssignmentUsers");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -225,30 +158,9 @@ Retrieve a user object for myself
 Retrieve a user object for myself 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    WorkflowUserResponse result = apiInstance.getWorkflowMe();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowMe");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -287,31 +199,9 @@ Retrieve a workflow task
 Retrieve a workflow task 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String taskUuid = "taskUuid_example"; // String | 
-try {
-    WorkflowTaskResponse result = apiInstance.getWorkflowTask(taskUuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowTask");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -353,31 +243,9 @@ Get a presigned workflow task attachment upload URL
 Get a presigned workflow task attachment upload URL 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String extension = "extension_example"; // String | 
-try {
-    WorkflowAttachmentUploadUrlResponse result = apiInstance.getWorkflowTaskAttachmentUploadUrl(extension);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowTaskAttachmentUploadUrl");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -419,32 +287,9 @@ Retrieve a workflow task by object type and id
 Retrieve a workflow task by object type and id 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String objectType = "objectType_example"; // String | 
-String objectId = "objectId_example"; // String | 
-try {
-    WorkflowTasksResponse result = apiInstance.getWorkflowTaskByObjectType(objectTypeobjectId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowTaskByObjectType");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -487,30 +332,9 @@ Retrieve workflow task open count
 Retrieve workflow task open count 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    WorkflowTaskOpenCountResponse result = apiInstance.getWorkflowTaskOpenCount();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowTaskOpenCount");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -549,30 +373,9 @@ Get a list of existing workflow task tags
 Retrieves a unique list of all the existing workflow task tags. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    WorkflowTaskTagsResponse result = apiInstance.getWorkflowTaskTags();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowTaskTags");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -611,34 +414,9 @@ Search workflow tasks
 Retrieves a set of workflow tasks from the account based on a query object. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-WorkflowTasksRequest workflowTasksQuery = new WorkflowTasksRequest(); // WorkflowTasksRequest | Workflow tasks query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 500)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    WorkflowTasksResponse result = apiInstance.getWorkflowTasks(workflowTasksQuerylimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#getWorkflowTasks");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -683,31 +461,9 @@ Insert a workflow task
 Insert a workflow task 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-WorkflowTask workflowTask = new WorkflowTask(); // WorkflowTask | workflow task
-try {
-    WorkflowTaskResponse result = apiInstance.insertWorkflowTask(workflowTask);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#insertWorkflowTask");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -749,32 +505,9 @@ Update a workflow task
 Update a workflow task 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.WorkflowApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-WorkflowApi apiInstance = new WorkflowApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String taskUuid = "taskUuid_example"; // String | 
-WorkflowTask workflowTask = new WorkflowTask(); // WorkflowTask | Workflow task
-try {
-    WorkflowTaskResponse result = apiInstance.updateWorkflowTask(taskUuidworkflowTask);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorkflowApi#updateWorkflowTask");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 

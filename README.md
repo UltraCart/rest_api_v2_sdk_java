@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-05-20T12:50:59.354-04:00[America/Indianapolis]
+- Build date: 2025-07-10T16:39:09.029-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.13</version>
+    <version>4.1.14</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.13"
+     implementation "com.ultracart:rest-sdk:4.1.14"
   }
 ```
 
@@ -1555,6 +1555,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.14 | 07/10/2025 | automation test |
 | 4.1.13 | 05/20/2025 | conversation - virtual agent flag and virtual agent cost |
 | 4.1.12 | 05/19/2025 | conversations - AI agent capabilities method |
 | 4.1.11 | 05/19/2025 | conversations - virtual AI budgets |

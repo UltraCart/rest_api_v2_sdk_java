@@ -20,32 +20,9 @@ Retrieve an integration log
 Retrieve an integration logs from the account based identifiers 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.IntegrationLogApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-IntegrationLogApi apiInstance = new IntegrationLogApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String pk = "pk_example"; // String | 
-String sk = "sk_example"; // String | 
-try {
-    IntegrationLogResponse result = apiInstance.getIntegrationLog(pksk);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling IntegrationLogApi#getIntegrationLog");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -88,33 +65,9 @@ Retrieve an integration log file
 Retrieve an integration log file from the account based identifiers 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.IntegrationLogApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-IntegrationLogApi apiInstance = new IntegrationLogApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String pk = "pk_example"; // String | 
-String sk = "sk_example"; // String | 
-String uuid = "uuid_example"; // String | 
-try {
-    File result = apiInstance.getIntegrationLogFile(pkskuuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling IntegrationLogApi#getIntegrationLogFile");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -158,33 +111,9 @@ Retrieve an integration log file converted to PDF
 Retrieve an integration log file from the account based identifiers 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.IntegrationLogApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-IntegrationLogApi apiInstance = new IntegrationLogApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String pk = "pk_example"; // String | 
-String sk = "sk_example"; // String | 
-String uuid = "uuid_example"; // String | 
-try {
-    File result = apiInstance.getIntegrationLogFilePdf(pkskuuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling IntegrationLogApi#getIntegrationLogFilePdf");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -228,31 +157,9 @@ Retrieve integration log summaries
 Retrieves a set of integration log summaries from the account based on a query object. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.IntegrationLogApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-IntegrationLogApi apiInstance = new IntegrationLogApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-IntegrationLogSummaryQueryRequest integrationLogSummariesQuery = new IntegrationLogSummaryQueryRequest(); // IntegrationLogSummaryQueryRequest | Integration log summaries query
-try {
-    IntegrationLogSummaryQueryResponse result = apiInstance.getIntegrationLogSummariesQuery(integrationLogSummariesQuery);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling IntegrationLogApi#getIntegrationLogSummariesQuery");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 
@@ -294,34 +201,9 @@ Retrieve integration logs
 Retrieves a set of integration logs from the account based on a query object. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.IntegrationLogApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-IntegrationLogApi apiInstance = new IntegrationLogApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-IntegrationLogQueryRequest integrationLogQuery = new IntegrationLogQueryRequest(); // IntegrationLogQueryRequest | Integration log query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Default 100, Max 500)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String sort = "sort_example"; // String | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-try {
-    IntegrationLogQueryResponse result = apiInstance.getIntegrationLogsQuery(integrationLogQuerylimitoffsetsort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling IntegrationLogApi#getIntegrationLogsQuery");
-    e.printStackTrace();
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
 
 

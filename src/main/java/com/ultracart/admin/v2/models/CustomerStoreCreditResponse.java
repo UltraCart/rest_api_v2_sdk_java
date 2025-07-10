@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerStoreCreditResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T12:50:59.354-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:39:09.029-04:00[America/Indianapolis]")
 public class CustomerStoreCreditResponse {
   public static final String SERIALIZED_NAME_CUSTOMER_STORE_CREDIT = "customer_store_credit";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_STORE_CREDIT)

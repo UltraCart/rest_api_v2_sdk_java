@@ -17,33 +17,14 @@ Retrieve clicks
 Retrieves a group of clicks from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the clicks returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.AffiliateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-AffiliateApi apiInstance = new AffiliateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+package affiliate;
 
-AffiliateClickQuery clickQuery = new AffiliateClickQuery(); // AffiliateClickQuery | Click query
-Integer limit = 10000; // Integer | The maximum number of records to return on this one API call. (Maximum 10000)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  Only option is link.
-try {
-    AffiliateClicksResponse result = apiInstance.getClicksByQuery(clickQuerylimitoffsetexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AffiliateApi#getClicksByQuery");
-    e.printStackTrace();
+public class GetClicksByQuery {
+    // The Affiliate API is internal.  We do not envision a merchant needing this API.
 }
 ```
 
@@ -89,33 +70,14 @@ Retrieve ledger entries
 Retrieves a group of ledger entries from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the ledgers returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.AffiliateApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-AffiliateApi apiInstance = new AffiliateApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+package affiliate;
 
-AffiliateLedgerQuery ledgerQuery = new AffiliateLedgerQuery(); // AffiliateLedgerQuery | Ledger query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Maximum 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  Only option is link.
-try {
-    AffiliateLedgersResponse result = apiInstance.getLedgersByQuery(ledgerQuerylimitoffsetexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AffiliateApi#getLedgersByQuery");
-    e.printStackTrace();
+public class GetLedgersByQuery {
+  // The Affiliate API is internal.  We do not envision a merchant needing this API.
 }
 ```
 

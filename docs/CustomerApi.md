@@ -39,31 +39,59 @@ Adds store credit to a customer
 Adds store credit to a customer 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.BaseResponse;
+import com.ultracart.admin.v2.models.Customer;
+import com.ultracart.admin.v2.models.CustomerStoreCreditAddRequest;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.math.BigDecimal;
 
-Integer customerProfileOid = 56; // Integer | The customer oid to credit.
-CustomerStoreCreditAddRequest storeCreditRequest = new CustomerStoreCreditAddRequest(); // CustomerStoreCreditAddRequest | Store credit to add
-try {
-    BaseResponse result = apiInstance.addCustomerStoreCredit(customerProfileOidstoreCreditRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#addCustomerStoreCredit");
-    e.printStackTrace();
+public class AddCustomerStoreCredit {
+    /**
+     * Adds store credit to a customer's account.
+     *
+     * This method requires a customer profile oid. This is a unique number used by UltraCart to identify a customer.
+     * If you do not know a customer's oid, call getCustomerByEmail() to retrieve the customer and their oid.
+     *
+     * Possible Errors:
+     * Missing store credit -> "store_credit_request.amount is missing and is required."
+     * Zero or negative store credit -> "store_credit_request.amount must be a positive amount."
+     */
+    public static void execute() {
+        CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+
+        try {
+            String email = "test@ultracart.com";
+            Customer customer = customerApi.getCustomerByEmail(email, null).getCustomer();
+            int customerOid = customer.getCustomerProfileOid();
+
+            CustomerStoreCreditAddRequest storeCreditRequest = new CustomerStoreCreditAddRequest();
+            storeCreditRequest.setAmount(BigDecimal.valueOf(20.00));
+            storeCreditRequest.setDescription("Customer is super cool and I wanted to give them store credit.");
+            storeCreditRequest.setExpirationDays(365); // or leave null for no expiration
+            storeCreditRequest.setVestingDays(45); // customer has to wait 45 days to use it.
+
+            BaseResponse apiResponse = customerApi.addCustomerStoreCredit(customerOid, storeCreditRequest);
+
+            if (apiResponse.getError() != null) {
+                System.err.println(apiResponse.getError().getDeveloperMessage());
+                System.err.println(apiResponse.getError().getUserMessage());
+                System.exit(1);
+            }
+
+            System.out.println(apiResponse.getSuccess());
+
+        } catch (ApiException e) {
+            System.err.println("API Exception: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -107,31 +135,66 @@ Updates the cashback balance for a customer by updating the internal gift certif
 Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.AdjustInternalCertificateRequest;
+import com.ultracart.admin.v2.models.AdjustInternalCertificateResponse;
+import com.ultracart.admin.v2.models.Customer;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.math.BigDecimal;
 
-Integer customerProfileOid = 56; // Integer | The customer profile oid
-AdjustInternalCertificateRequest adjustInternalCertificateRequest = new AdjustInternalCertificateRequest(); // AdjustInternalCertificateRequest | adjustInternalCertificateRequest
-try {
-    AdjustInternalCertificateResponse result = apiInstance.adjustInternalCertificate(customerProfileOidadjustInternalCertificateRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#adjustInternalCertificate");
-    e.printStackTrace();
+public class AdjustInternalCertificate {
+    /**
+     * Adjusts the cashback balance of a customer. This method's name is adjustInternalCertificate, which
+     * is a poor choice of naming, but results from an underlying implementation of using an internal gift certificate
+     * to track cashback balance. Sorry for the confusion.
+     *
+     * This method requires a customer profile oid. This is a unique number used by UltraCart to identify a customer.
+     * If you do not know a customer's oid, call getCustomerByEmail() to retrieve the customer and their oid.
+     *
+     * Possible Errors:
+     * Missing adjustment amount -> "adjust_internal_certificate_request.adjustment_amount is required and was missing"
+     */
+    public static void execute() {
+        CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+
+        try {
+            String email = "test@ultracart.com";
+            Customer customer = customerApi.getCustomerByEmail(email, null).getCustomer();
+            int customerOid = customer.getCustomerProfileOid();
+
+            AdjustInternalCertificateRequest adjustRequest = new AdjustInternalCertificateRequest();
+            adjustRequest.setDescription("Adjusting customer cashback balance because they called and complained about product.");
+            adjustRequest.setExpirationDays(365); // expires in 365 days
+            adjustRequest.setVestingDays(45); // customer has to wait 45 days to use it.
+            adjustRequest.setAdjustmentAmount(new BigDecimal("59")); // add 59 to their balance.
+            adjustRequest.setOrderId("DEMO-12345"); // or leave null. this ties the adjustment to a particular order.
+            adjustRequest.setEntryDts(null); // use current time.
+
+            AdjustInternalCertificateResponse apiResponse = customerApi.adjustInternalCertificate(customerOid, adjustRequest);
+
+            if (apiResponse.getError() != null) {
+                System.err.println(apiResponse.getError().getDeveloperMessage());
+                System.err.println(apiResponse.getError().getUserMessage());
+                System.exit(1);
+            }
+
+            System.out.println("Success: " + apiResponse.getSuccess());
+            System.out.println("Adjustment Amount: " + apiResponse.getAdjustmentAmount());
+            System.out.println("Balance Amount: " + apiResponse.getBalanceAmount());
+
+            System.out.println(apiResponse);
+
+        } catch (ApiException e) {
+            System.err.println("API Exception: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -175,29 +238,23 @@ Delete a customer
 Delete a customer on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer customerProfileOid = 56; // Integer | The customer_profile_oid to delete.
-try {
-    apiInstance.deleteCustomer(customerProfileOid);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#deleteCustomer");
-    e.printStackTrace();
+public class DeleteCustomer {
+    public static void execute() {
+        try {
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+        } catch (ApiException ex) {
+            System.err.println("An Exception occurred. Please review the following error:");
+            System.err.println(ex);
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -239,31 +296,84 @@ Delete a customer wishlist item
 Delete a customer wishlist item 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.CustomerWishListItem;
+import com.ultracart.admin.v2.models.CustomerWishListItemsResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import item.ItemFunctions;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class DeleteWishListItem {
+    /**
+     * The wishlist methods allow management of a customer's wishlist.
+     * This includes:
+     *     DeleteWishListItem
+     *     GetCustomerWishList
+     *     GetCustomerWishListItem
+     *     InsertWishListItem
+     *     UpdateWishListItem
+     * These methods provide a standard CRUD interface. The example below uses all of them.
+     *
+     * You'll need merchant_item_oids to insert wishlist items. If you don't know the oids,
+     * call ItemApi.GetItemByMerchantItemId() to retrieve the item, then get item.MerchantItemOid
+     *
+     * Note: Priority of wishlist item, 3 being low priority and 5 is high priority.
+     */
+    public static void execute() {
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
 
-Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
-Integer customerWishlistItemOid = 56; // Integer | The wishlist oid for this wishlist item to delete.
-try {
-    CustomerWishListItem result = apiInstance.deleteWishListItem(customerProfileOidcustomerWishlistItemOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#deleteWishListItem");
-    e.printStackTrace();
+            // create a few items first.
+            int firstItemOid = ItemFunctions.insertSampleItemAndGetOid();
+            int secondItemOid = ItemFunctions.insertSampleItemAndGetOid();
+
+            // create a customer
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+
+            // TODO: If you don't know the customer oid, use GetCustomerByEmail() to retrieve the customer.
+
+            // add some wish list items.
+            CustomerWishListItem addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(firstItemOid);
+            addWishItem.setComments("I really want this for my birthday");
+            addWishItem.setPriority(3); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem firstCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(secondItemOid);
+            addWishItem.setComments("Christmas Idea!");
+            addWishItem.setPriority(5); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem secondCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            // retrieve one wishlist item again
+            CustomerWishListItem firstCreatedWishItemCopy = customerApi.getCustomerWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid()).getWishlistItem();
+
+            // retrieve all wishlist items
+            CustomerWishListItemsResponse allWishListItems = customerApi.getCustomerWishList(customerOid);
+
+            // update an item.
+            secondCreatedWishItem.setPriority(4);
+            CustomerWishListItem updatedSecondWishItem = customerApi.updateWishListItem(customerOid, secondCreatedWishItem.getCustomerWishlistItemOid(), secondCreatedWishItem);
+
+            // delete a wish list item
+            customerApi.deleteWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid());
+
+            // Clean up
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+            ItemFunctions.deleteSampleItemByOid(firstItemOid);
+            ItemFunctions.deleteSampleItemByOid(secondItemOid);
+        } catch (ApiException ex) {
+            System.err.println("An Exception occurred. Please review the following error:");
+            System.err.println(ex);
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -307,31 +417,42 @@ Retrieve a customer
 Retrieves a single customer using the specified customer profile oid. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.Customer;
+import com.ultracart.admin.v2.models.CustomerResponse;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class GetCustomer {
+    /**
+     * Of the two GetCustomer methods, you'll probably always use GetCustomerByEmail instead of this one.
+     * Most customer logic revolves around the email, not the customer oid. The latter is only meaningful as a primary
+     * key in the UltraCart databases. But here is an example of using GetCustomer().
+     */
+    public static void Execute() {
+        try {
+            String email = CustomerFunctions.createRandomEmail();
+            int customerOid = CustomerFunctions.insertSampleCustomer(email);
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
 
-Integer customerProfileOid = 56; // Integer | The customer oid to retrieve.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    CustomerResponse result = apiInstance.getCustomer(customerProfileOidexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomer");
-    e.printStackTrace();
+            // the _expand variable is set to return just the address fields.
+            // see CustomerFunctions for a list of expansions, or consult the source: https://www.ultracart.com/api/
+            CustomerResponse apiResponse = customerApi.getCustomer(customerOid, "billing,shipping");
+            Customer customer = apiResponse.getCustomer(); // assuming this succeeded
+
+            System.out.println(customer);
+
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+        }
+        catch (Exception ex) {
+            System.err.println("An Exception occurred. Please review the following error:");
+            System.err.println(ex); // <-- change_me: handle gracefully
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -375,31 +496,43 @@ Retrieve a customer by Email
 Retrieves a single customer using the specified customer email address. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.Customer;
+import com.ultracart.admin.v2.models.CustomerResponse;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class GetCustomerByEmail {
+    /**
+     * Of the two GetCustomer methods, you'll probably always use this one over GetCustomer.
+     * Most customer logic revolves around the email, not the customer oid. The latter is only meaningful as a primary
+     * key in the UltraCart databases. But our sample functions return back the oid, so we'll ignore that and just
+     * use the email that we create.
+     */
+    public static void Execute() {
+        try {
+            String email = CustomerFunctions.createRandomEmail();
+            int customerOid = CustomerFunctions.insertSampleCustomer(email);
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
 
-String email = "email_example"; // String | The email address of the customer to retrieve.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    CustomerResponse result = apiInstance.getCustomerByEmail(emailexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomerByEmail");
-    e.printStackTrace();
+            // the _expand variable is set to return just the address fields.
+            // see CustomerFunctions for a list of expansions, or consult the source: https://www.ultracart.com/api/
+            CustomerResponse apiResponse = customerApi.getCustomerByEmail(email, "billing,shipping");
+            Customer customer = apiResponse.getCustomer(); // assuming this succeeded
+
+            System.out.println(customer);
+
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+        }
+        catch (Exception ex) {
+            System.err.println("An Exception occurred. Please review the following error:");
+            System.err.println(ex); // <-- change_me: handle gracefully
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -443,30 +576,11 @@ Retrieve values needed for a customer profile editor
 Retrieve values needed for a customer profile editor. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    CustomerEditorValues result = apiInstance.getCustomerEditorValues();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomerEditorValues");
-    e.printStackTrace();
-}
+// This is an internal method used by our Customer management screen.  It returns back all the static data needed
+// for our dropdown lists, such as lists of state and countries.  You can call it if you like, but the data won't be
+// of much use.
 ```
 
 
@@ -505,30 +619,11 @@ Retrieve all email lists across all storefronts
 Retrieve all email lists across all storefronts 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-try {
-    EmailListsResponse result = apiInstance.getCustomerEmailLists();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomerEmailLists");
-    e.printStackTrace();
-}
+// This is an internal method used by our Email workflow engines.  It returns back all the email lists a customer
+// is currently subscribed to.  It's geared towards our UI needs, so the data returned may appear cryptic.
+//  We're not including a sample for it because we don't envision it being valuable to a merchant.
 ```
 
 
@@ -567,30 +662,65 @@ Retrieve the customer store credit accumulated through loyalty programs
 Retrieve the customer store credit accumulated through loyalty programs 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.CustomerStoreCredit;
+import com.ultracart.admin.v2.models.CustomerStoreCreditAddRequest;
+import com.ultracart.admin.v2.models.CustomerStoreCreditResponse;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.math.BigDecimal;
 
-Integer customerProfileOid = 56; // Integer | The customer oid to retrieve.
-try {
-    CustomerStoreCreditResponse result = apiInstance.getCustomerStoreCredit(customerProfileOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomerStoreCredit");
-    e.printStackTrace();
+public class GetCustomerStoreCredit {
+    /*
+        getCustomerStoreCredit returns back the store credit for a customer, which includes:
+        total - lifetime credit
+        available - currently available store credit
+        vesting - amount of store credit vesting
+        expiring - amount of store credit expiring within 30 days
+        pastLedgers - transaction history
+        futureLedgers - future transactions including expiring entries
+     */
+    public static void Execute() {
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+
+            // create a customer
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+
+            // add some store credit.
+            CustomerStoreCreditAddRequest addRequest = new CustomerStoreCreditAddRequest();
+            addRequest.setDescription("First credit add");
+            addRequest.setVestingDays(10);
+            addRequest.setExpirationDays(20); // that's not a lot of time!
+            addRequest.setAmount(BigDecimal.valueOf(20));
+            customerApi.addCustomerStoreCredit(customerOid, addRequest);
+
+            // add more store credit.
+            addRequest = new CustomerStoreCreditAddRequest();
+            addRequest.setDescription("Second credit add");
+            addRequest.setVestingDays(0); // immediately available.
+            addRequest.setExpirationDays(90);
+            addRequest.setAmount(BigDecimal.valueOf(40));
+            customerApi.addCustomerStoreCredit(customerOid, addRequest);
+
+            CustomerStoreCreditResponse apiResponse = customerApi.getCustomerStoreCredit(customerOid);
+            CustomerStoreCredit storeCredit = apiResponse.getCustomerStoreCredit();
+
+            System.out.println(storeCredit); // <-- There's a lot of information inside this object.
+
+            // clean up this sample.
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+        }
+        catch (Exception e) {
+            System.out.println("An Exception occurred. Please review the following error:");
+            System.out.println(e); // <-- change_me: handle gracefully
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -633,30 +763,84 @@ Retrieve wishlist items for customer
 Retrieve wishlist items for customer. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.CustomerWishListItem;
+import com.ultracart.admin.v2.models.CustomerWishListItemsResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import item.ItemFunctions;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class GetCustomerWishList {
+    /**
+     * The wishlist methods allow management of a customer's wishlist.
+     * This includes:
+     *     DeleteWishListItem
+     *     GetCustomerWishList
+     *     GetCustomerWishListItem
+     *     InsertWishListItem
+     *     UpdateWishListItem
+     * These methods provide a standard CRUD interface. The example below uses all of them.
+     *
+     * You'll need merchant_item_oids to insert wishlist items. If you don't know the oids,
+     * call ItemApi.GetItemByMerchantItemId() to retrieve the item, then get item.MerchantItemOid
+     *
+     * Note: Priority of wishlist item, 3 being low priority and 5 is high priority.
+     */
+    public static void execute() {
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
 
-Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
-try {
-    CustomerWishListItemsResponse result = apiInstance.getCustomerWishList(customerProfileOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomerWishList");
-    e.printStackTrace();
+            // create a few items first.
+            int firstItemOid = ItemFunctions.insertSampleItemAndGetOid();
+            int secondItemOid = ItemFunctions.insertSampleItemAndGetOid();
+
+            // create a customer
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+
+            // TODO: If you don't know the customer oid, use GetCustomerByEmail() to retrieve the customer.
+
+            // add some wish list items.
+            CustomerWishListItem addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(firstItemOid);
+            addWishItem.setComments("I really want this for my birthday");
+            addWishItem.setPriority(3); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem firstCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(secondItemOid);
+            addWishItem.setComments("Christmas Idea!");
+            addWishItem.setPriority(5); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem secondCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            // retrieve one wishlist item again
+            CustomerWishListItem firstCreatedWishItemCopy = customerApi.getCustomerWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid()).getWishlistItem();
+
+            // retrieve all wishlist items
+            CustomerWishListItemsResponse allWishListItems = customerApi.getCustomerWishList(customerOid);
+
+            // update an item.
+            secondCreatedWishItem.setPriority(4);
+            CustomerWishListItem updatedSecondWishItem = customerApi.updateWishListItem(customerOid, secondCreatedWishItem.getCustomerWishlistItemOid(), secondCreatedWishItem);
+
+            // delete a wish list item
+            customerApi.deleteWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid());
+
+            // Clean up
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+            ItemFunctions.deleteSampleItemByOid(firstItemOid);
+            ItemFunctions.deleteSampleItemByOid(secondItemOid);
+        } catch (ApiException ex) {
+            System.err.println("An Exception occurred. Please review the following error:");
+            System.err.println(ex);
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -699,31 +883,84 @@ Retrieve wishlist item for customer
 Retrieve wishlist item for customer. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.CustomerWishListItem;
+import com.ultracart.admin.v2.models.CustomerWishListItemsResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import item.ItemFunctions;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class GetCustomerWishListItem {
+    /**
+     * The wishlist methods allow management of a customer's wishlist.
+     * This includes:
+     *     DeleteWishListItem
+     *     GetCustomerWishList
+     *     GetCustomerWishListItem
+     *     InsertWishListItem
+     *     UpdateWishListItem
+     * These methods provide a standard CRUD interface. The example below uses all of them.
+     *
+     * You'll need merchant_item_oids to insert wishlist items. If you don't know the oids,
+     * call ItemApi.GetItemByMerchantItemId() to retrieve the item, then get item.MerchantItemOid
+     *
+     * Note: Priority of wishlist item, 3 being low priority and 5 is high priority.
+     */
+    public static void execute() {
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
 
-Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
-Integer customerWishlistItemOid = 56; // Integer | The wishlist oid for this wishlist item.
-try {
-    CustomerWishListItemResponse result = apiInstance.getCustomerWishListItem(customerProfileOidcustomerWishlistItemOid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomerWishListItem");
-    e.printStackTrace();
+            // create a few items first.
+            int firstItemOid = ItemFunctions.insertSampleItemAndGetOid();
+            int secondItemOid = ItemFunctions.insertSampleItemAndGetOid();
+
+            // create a customer
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+
+            // TODO: If you don't know the customer oid, use GetCustomerByEmail() to retrieve the customer.
+
+            // add some wish list items.
+            CustomerWishListItem addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(firstItemOid);
+            addWishItem.setComments("I really want this for my birthday");
+            addWishItem.setPriority(3); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem firstCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(secondItemOid);
+            addWishItem.setComments("Christmas Idea!");
+            addWishItem.setPriority(5); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem secondCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            // retrieve one wishlist item again
+            CustomerWishListItem firstCreatedWishItemCopy = customerApi.getCustomerWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid()).getWishlistItem();
+
+            // retrieve all wishlist items
+            CustomerWishListItemsResponse allWishListItems = customerApi.getCustomerWishList(customerOid);
+
+            // update an item.
+            secondCreatedWishItem.setPriority(4);
+            CustomerWishListItem updatedSecondWishItem = customerApi.updateWishListItem(customerOid, secondCreatedWishItem.getCustomerWishlistItemOid(), secondCreatedWishItem);
+
+            // delete a wish list item
+            customerApi.deleteWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid());
+
+            // Clean up
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+            ItemFunctions.deleteSampleItemByOid(firstItemOid);
+            ItemFunctions.deleteSampleItemByOid(secondItemOid);
+        } catch (ApiException ex) {
+            System.err.println("An Exception occurred. Please review the following error:");
+            System.err.println(ex);
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -767,61 +1004,109 @@ Retrieve customers
 Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.Customer;
+import com.ultracart.admin.v2.models.CustomersResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.util.ArrayList;
+import java.util.List;
 
-String email = "email_example"; // String | Email
-String qbClass = "qbClass_example"; // String | Quickbooks class
-String quickbooksCode = "quickbooksCode_example"; // String | Quickbooks code
-String lastModifiedDtsStart = "lastModifiedDtsStart_example"; // String | Last modified date start
-String lastModifiedDtsEnd = "lastModifiedDtsEnd_example"; // String | Last modified date end
-String signupDtsStart = "signupDtsStart_example"; // String | Signup date start
-String signupDtsEnd = "signupDtsEnd_example"; // String | Signup date end
-String billingFirstName = "billingFirstName_example"; // String | Billing first name
-String billingLastName = "billingLastName_example"; // String | Billing last name
-String billingCompany = "billingCompany_example"; // String | Billing company
-String billingCity = "billingCity_example"; // String | Billing city
-String billingState = "billingState_example"; // String | Billing state
-String billingPostalCode = "billingPostalCode_example"; // String | Billing postal code
-String billingCountryCode = "billingCountryCode_example"; // String | Billing country code
-String billingDayPhone = "billingDayPhone_example"; // String | Billing day phone
-String billingEveningPhone = "billingEveningPhone_example"; // String | Billing evening phone
-String shippingFirstName = "shippingFirstName_example"; // String | Shipping first name
-String shippingLastName = "shippingLastName_example"; // String | Shipping last name
-String shippingCompany = "shippingCompany_example"; // String | Shipping company
-String shippingCity = "shippingCity_example"; // String | Shipping city
-String shippingState = "shippingState_example"; // String | Shipping state
-String shippingPostalCode = "shippingPostalCode_example"; // String | Shipping postal code
-String shippingCountryCode = "shippingCountryCode_example"; // String | Shipping country code
-String shippingDayPhone = "shippingDayPhone_example"; // String | Shipping day phone
-String shippingEveningPhone = "shippingEveningPhone_example"; // String | Shipping evening phone
-Integer pricingTierOid = 56; // Integer | Pricing tier oid
-String pricingTierName = "pricingTierName_example"; // String | Pricing tier name
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String since = "since_example"; // String | Fetch customers that have been created/modified since this date/time.
-String sort = "sort_example"; // String | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    CustomersResponse result = apiInstance.getCustomers(emailqbClassquickbooksCodelastModifiedDtsStartlastModifiedDtsEndsignupDtsStartsignupDtsEndbillingFirstNamebillingLastNamebillingCompanybillingCitybillingStatebillingPostalCodebillingCountryCodebillingDayPhonebillingEveningPhoneshippingFirstNameshippingLastNameshippingCompanyshippingCityshippingStateshippingPostalCodeshippingCountryCodeshippingDayPhoneshippingEveningPhonepricingTierOidpricingTierNamelimitoffsetsincesortexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomers");
-    e.printStackTrace();
+public class GetCustomers {
+    /**
+     * This example illustrates how to retrieve customers. It uses the pagination logic necessary to query all customers.
+     * This method was the first GetCustomers and has parameters for all the search terms. It's an ogre. Using
+     * GetCustomersByQuery is much easier to use.
+     */
+    public static List<Customer> getCustomerChunk(CustomerApi customerApi, int offset, int limit) throws ApiException {
+        // The real devil in the GetCustomers calls is the expansion, making sure you return everything you need without
+        // returning everything since these objects are extremely large. The customer object can be truly large with
+        // all the order history. These are the possible expansion values.
+        /*
+            attachments     billing     cards           cc_emails       loyalty     orders_summary          pricing_tiers
+            privacy         properties  quotes_summary  reviewer        shipping    software_entitlements   tags
+            tax_codes     
+         */
+        String expand = "shipping,billing"; // just the address fields. contact us if you're unsure
+        
+        // TODO: Seriously, use GetCustomersByQuery -- it's so much better than this old method.
+        String email = null;
+        String qbClass = null;
+        String quickbooksCode = null;
+        String lastModifiedDtsStart = null;
+        String lastModifiedDtsEnd = null;
+        String signupDtsStart = null;
+        String signupDtsEnd = null;
+        String billingFirstName = null;
+        String billingLastName = null;
+        String billingCompany = null;
+        String billingCity = null;
+        String billingState = null;
+        String billingPostalCode = null;
+        String billingCountryCode = null;
+        String billingDayPhone = null;
+        String billingEveningPhone = null;
+        String shippingFirstName = null;
+        String shippingLastName = null;
+        String shippingCompany = null;
+        String shippingCity = null;
+        String shippingState = null;
+        String shippingPostalCode = null;
+        String shippingCountryCode = null;
+        String shippingDayPhone = null;
+        String shippingEveningPhone = null;
+        Integer pricingTierOid = null;
+        String pricingTierName = null;
+        String since = null;
+        String sort = null;
+        
+        CustomersResponse apiResponse = customerApi.getCustomers(
+            email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd,
+            billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode,
+            billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName,
+            shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode,
+            shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand);
+
+        if (apiResponse.getCustomers() != null) {
+            return apiResponse.getCustomers();
+        }
+        return new ArrayList<>();
+    }
+
+    public static void Execute() {
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+            List<Customer> customers = new ArrayList<>();
+
+            int iteration = 1;
+            int offset = 0;
+            int limit = 200;
+            boolean moreRecordsToFetch = true;
+
+            while (moreRecordsToFetch) {
+                System.out.println("Executing iteration " + iteration);
+
+                List<Customer> chunkOfCustomers = getCustomerChunk(customerApi, offset, limit);
+                customers.addAll(chunkOfCustomers);
+                offset = offset + limit;
+                moreRecordsToFetch = chunkOfCustomers.size() == limit;
+                iteration++;
+            }
+
+            // This will be verbose...
+            System.out.println(customers);
+        }
+        catch (Exception ex) {
+            System.err.println("Exception occurred: " + ex.getMessage());
+            System.err.println(ex);
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -895,35 +1180,117 @@ Retrieve customers by query
 Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.Customer;
+import com.ultracart.admin.v2.models.CustomerQuery;
+import com.ultracart.admin.v2.models.CustomersResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.util.ArrayList;
+import java.util.List;
 
-CustomerQuery customerQuery = new CustomerQuery(); // CustomerQuery | Customer query
-Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
-Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
-String since = "since_example"; // String | Fetch customers that have been created/modified since this date/time.
-String sort = "sort_example"; // String | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    CustomersResponse result = apiInstance.getCustomersByQuery(customerQuerylimitoffsetsincesortexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomersByQuery");
-    e.printStackTrace();
+public class GetCustomersByQuery {
+    /*
+     * This example illustrates how to retrieve customers. It uses the pagination logic necessary to query all customers.
+     */
+    public static void Execute() {
+        // pulling all records could take a long time.
+        CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+
+        List<Customer> customers = new ArrayList<>();
+
+        int iteration = 1;
+        int offset = 0;
+        int limit = 200;
+        boolean moreRecordsToFetch = true;
+
+        try {
+            while (moreRecordsToFetch) {
+                System.out.println("executing iteration " + iteration);
+
+                List<Customer> chunkOfCustomers = getCustomerChunk(customerApi, offset, limit);
+                customers.addAll(chunkOfCustomers);
+                offset = offset + limit;
+                moreRecordsToFetch = chunkOfCustomers.size() == limit;
+                iteration++;
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Exception occurred on iteration " + iteration);
+            System.out.println(e);
+            System.exit(1);
+        }
+
+        // this will be verbose...
+        for (Customer customer : customers) {
+            System.out.println(customer);
+        }
+    }
+
+    /**
+     * Retrieves a chunk of customers based on specified parameters
+     *
+     * @param customerApi The customer API client
+     * @param offset Starting position for retrieval
+     * @param limit Maximum number of records to retrieve
+     * @return List of customers
+     */
+    private static List<Customer> getCustomerChunk(CustomerApi customerApi, int offset, int limit) throws ApiException {
+        // The real devil in the getCustomers calls is the expansion, making sure you return everything you need without
+        // returning everything since these objects are extremely large. The customer object can be truly large with
+        // all the order history. These are the possible expansion values.
+        /*
+            attachments     billing     cards           cc_emails       loyalty     orders_summary          pricing_tiers
+            privacy         properties  quotes_summary  reviewer        shipping    software_entitlements   tags
+            tax_codes
+        */
+        String expand = "shipping,billing"; // just the address fields. contact us if you're unsure
+
+        // TODO: This is just showing all the possibilities. In reality, you'll just assign the filters you need.
+        CustomerQuery query = new CustomerQuery();
+        //query.setEmail(null);
+        //query.setQbClass(null);
+        //query.setQuickbooksCode(null);
+        //query.setLastModifiedDtsStart(null);
+        //query.setLastModifiedDtsEnd(null);
+        //query.setSignupDtsStart(null);
+        //query.setSignupDtsEnd(null);
+        //query.setBillingFirstName(null);
+        //query.setBillingLastName(null);
+        //query.setBillingCompany(null);
+        //query.setBillingCity(null);
+        //query.setBillingState(null);
+        //query.setBillingPostalCode(null);
+        //query.setBillingCountryCode(null);
+        //query.setBillingDayPhone(null);
+        //query.setBillingEveningPhone(null);
+        //query.setShippingFirstName(null);
+        //query.setShippingLastName(null);
+        //query.setShippingCompany(null);
+        //query.setShippingCity(null);
+        //query.setShippingState(null);
+        //query.setShippingPostalCode(null);
+        //query.setShippingCountryCode(null);
+        //query.setShippingDayPhone(null);
+        //query.setShippingEveningPhone(null);
+        //query.setPricingTierOid(null);
+        //query.setPricingTierName(null);
+
+        String since = null;
+        String sort = "email";
+
+        CustomersResponse apiResponse = customerApi.getCustomersByQuery(query, offset, limit, since, sort, expand);
+
+        if (apiResponse.getCustomers() != null) {
+            return apiResponse.getCustomers();
+        }
+        return new ArrayList<>();
+    }
 }
 ```
 
@@ -971,31 +1338,10 @@ Retrieve customers for DataTables plugin
 Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    DataTablesServerSideResponse result = apiInstance.getCustomersForDataTables(expand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getCustomersForDataTables");
-    e.printStackTrace();
-}
+// This is an internal method used by our Customer management screen.  It won't be of much use to you, so we're
+// not including a sample.  getCustomer, getCustomerByEmail, getCustomers and getCustomersByQuery are more useful
 ```
 
 
@@ -1037,30 +1383,54 @@ Create a token that can be used to verify a customer email address
 Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.EmailVerifyTokenRequest;
+import com.ultracart.admin.v2.models.EmailVerifyTokenResponse;
+import com.ultracart.admin.v2.models.EmailVerifyTokenValidateRequest;
+import com.ultracart.admin.v2.models.EmailVerifyTokenValidateResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+/*
+    GetEmailVerificationToken and ValidateEmailVerificationToken are tandem functions that allow a merchant to verify
+    a customer's email address. GetEmailVerificationToken returns back a token that the merchant can use however
+    they wish to present to a customer. Usually this will be emailed to the customer within instructions to enter
+    it back into a website. Once the customer enters the token back into a site (along with their email),
+    ValidateEmailVerificationToken will validate the token.
 
-EmailVerifyTokenRequest tokenRequest = new EmailVerifyTokenRequest(); // EmailVerifyTokenRequest | Token request
-try {
-    EmailVerifyTokenResponse result = apiInstance.getEmailVerificationToken(tokenRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getEmailVerificationToken");
-    e.printStackTrace();
+    Notice that GetEmailVerificationToken requires both the email and password.
+ */
+public class GetEmailVerificationToken {
+    public static void execute() {
+        CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+
+        String email = "test@ultracart.com";
+        String password = "squirrel";
+
+        EmailVerifyTokenRequest tokenRequest = new EmailVerifyTokenRequest();
+        tokenRequest.email(email);
+        tokenRequest.password(password);
+
+        try {
+            EmailVerifyTokenResponse tokenResponse = customerApi.getEmailVerificationToken(tokenRequest);
+            String token = tokenResponse.getToken();
+
+            // TODO - email the token to the customer, have them enter it back into another page...
+            // TODO - verify the token with the following call
+
+            EmailVerifyTokenValidateRequest verifyRequest = new EmailVerifyTokenValidateRequest();
+            verifyRequest.token(token);
+            EmailVerifyTokenValidateResponse verifyResponse = customerApi.validateEmailVerificationToken(verifyRequest);
+
+            System.out.println("Was the correct token provided? " + verifyResponse.getSuccess());
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -1103,31 +1473,53 @@ getMagicLink
 Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.CustomerMagicLinkResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
-Integer customerProfileOid = 56; // Integer | The customer_profile_oid of the customer.
-String storefrontHostName = "storefrontHostName_example"; // String | The storefront to log into.
-try {
-    CustomerMagicLinkResponse result = apiInstance.getMagicLink(customerProfileOidstorefrontHostName);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#getMagicLink");
-    e.printStackTrace();
+public class GetMagicLink {
+    public static void Execute() {
+        /*
+            getMagicLink returns back a url whereby a merchant can log into their website as the customer.
+            This may be useful to "see what the customer is seeing" and is the only method to do so since
+            the customer's passwords are encrypted.  Note: A merchant may also do this using the UltraCart
+            backend site within the Customer Management section.
+         */
+
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+
+            // create a customer
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+            String storefront = "www.website.com";  // required.  many merchants have dozens of storefronts. which one?
+
+            CustomerMagicLinkResponse apiResponse = customerApi.getMagicLink(customerOid, storefront);
+            String url = apiResponse.getUrl();
+
+            System.out.println("<html><body><script>window.location.href = " +
+                URLEncoder.encode(url, StandardCharsets.UTF_8.toString()) + ";</script></body></html>");
+
+            // clean up this sample. - don't do this or the above magic link won't work.  But you'll want to clean up this
+            // sample customer manually using the backend.
+            // CustomerFunctions.deleteSampleCustomer(customerOid);
+
+        } catch (ApiException e) {
+            System.out.println("An ApiException occurred.  Please review the following error:");
+            System.out.println(e); // <-- change_me: handle gracefully
+            System.exit(1);
+        } catch (UnsupportedEncodingException e) {
+          throw new RuntimeException(e);
+        }
+    }
 }
 ```
 
@@ -1171,31 +1563,23 @@ Insert a customer
 Insert a customer on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
 import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Customer customer = new Customer(); // Customer | Customer to insert
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    CustomerResponse result = apiInstance.insertCustomer(customerexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#insertCustomer");
-    e.printStackTrace();
+public class InsertCustomer {
+    public static void execute() {
+        try {
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+        } catch (ApiException e) {
+            System.err.println("An ApiException occurred. Please review the following error:");
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -1239,31 +1623,84 @@ Insert a customer wishlist item
 Insert a customer wishlist item 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.CustomerWishListItem;
+import com.ultracart.admin.v2.models.CustomerWishListItemsResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import item.ItemFunctions;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class InsertWishListItem {
+    /**
+     * The wishlist methods allow management of a customer's wishlist.
+     * This includes:
+     *     DeleteWishListItem
+     *     GetCustomerWishList
+     *     GetCustomerWishListItem
+     *     InsertWishListItem
+     *     UpdateWishListItem
+     * These methods provide a standard CRUD interface. The example below uses all of them.
+     *
+     * You'll need merchant_item_oids to insert wishlist items. If you don't know the oids,
+     * call ItemApi.GetItemByMerchantItemId() to retrieve the item, then get item.MerchantItemOid
+     *
+     * Note: Priority of wishlist item, 3 being low priority and 5 is high priority.
+     */
+    public static void execute() {
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
 
-Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
-CustomerWishListItem wishlistItem = new CustomerWishListItem(); // CustomerWishListItem | Wishlist item to insert
-try {
-    CustomerWishListItem result = apiInstance.insertWishListItem(customerProfileOidwishlistItem);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#insertWishListItem");
-    e.printStackTrace();
+            // create a few items first.
+            int firstItemOid = ItemFunctions.insertSampleItemAndGetOid();
+            int secondItemOid = ItemFunctions.insertSampleItemAndGetOid();
+
+            // create a customer
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+
+            // TODO: If you don't know the customer oid, use GetCustomerByEmail() to retrieve the customer.
+
+            // add some wish list items.
+            CustomerWishListItem addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(firstItemOid);
+            addWishItem.setComments("I really want this for my birthday");
+            addWishItem.setPriority(3); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem firstCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(secondItemOid);
+            addWishItem.setComments("Christmas Idea!");
+            addWishItem.setPriority(5); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem secondCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            // retrieve one wishlist item again
+            CustomerWishListItem firstCreatedWishItemCopy = customerApi.getCustomerWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid()).getWishlistItem();
+
+            // retrieve all wishlist items
+            CustomerWishListItemsResponse allWishListItems = customerApi.getCustomerWishList(customerOid);
+
+            // update an item.
+            secondCreatedWishItem.setPriority(4);
+            CustomerWishListItem updatedSecondWishItem = customerApi.updateWishListItem(customerOid, secondCreatedWishItem.getCustomerWishlistItemOid(), secondCreatedWishItem);
+
+            // delete a wish list item
+            customerApi.deleteWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid());
+
+            // Clean up
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+            ItemFunctions.deleteSampleItemByOid(firstItemOid);
+            ItemFunctions.deleteSampleItemByOid(secondItemOid);
+        } catch (ApiException ex) {
+            System.err.println("An Exception occurred. Please review the following error:");
+            System.err.println(ex);
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -1307,31 +1744,56 @@ Merge customer into this customer
 Merge customer into this customer. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.CustomerMergeRequest;
+import com.ultracart.admin.v2.util.ApiException;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+import common.Constants;
 
-Integer customerProfileOid = 56; // Integer | The customer_profile_oid to update.
-CustomerMergeRequest customer = new CustomerMergeRequest(); // CustomerMergeRequest | Customer to merge into this profile.
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    apiInstance.mergeCustomer(customerProfileOidcustomerexpand);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#mergeCustomer");
-    e.printStackTrace();
+public class MergeCustomer {
+    public static void Execute() {
+        /*
+            The merge function was requested by UltraCart merchants that sell software and manage activation keys.  Frequently,
+            customers would purchase their software using one email address, and then accidentally re-subscribe using a
+            different email address (for example, they purchased subsequent years using PayPal which was tied to their spouse's
+            email).  However it happened, the customer now how software licenses spread across multiple emails and therefore
+            multiple customer profiles.
+
+            merge combine the customer profiles, merging order history and software entitlements.  Still, it may be used to
+            combine any two customer profiles for any reason.
+
+            Success returns back a status code 204 (No Content)
+         */
+
+        try {
+            // first customer
+            int firstCustomerOid = CustomerFunctions.insertSampleCustomer();
+
+            String secondEmail = CustomerFunctions.createRandomEmail();
+            int secondCustomerOid = CustomerFunctions.insertSampleCustomer(secondEmail);
+
+            CustomerMergeRequest mergeRequest = new CustomerMergeRequest();
+            // Supply either the email or the customer oid.  Only need one.
+            mergeRequest.setEmail(secondEmail);
+            // mergeRequest.setCustomerProfileOid(customerOid);
+
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+            customerApi.mergeCustomer(firstCustomerOid, mergeRequest, null);
+
+            // clean up this sample.
+            CustomerFunctions.deleteSampleCustomer(firstCustomerOid);
+            // Notice: No need to delete the second sample.  The merge call deletes it.
+        }
+        catch (ApiException e) {
+            System.out.println("An ApiException occurred.  Please review the following error:");
+            System.out.println(e); // <-- change_me: handle gracefully
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -1373,31 +1835,12 @@ null (empty response body)
 Searches for all matching values (using POST)
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-LookupRequest lookupRequest = new LookupRequest(); // LookupRequest | LookupRequest
-try {
-    LookupResponse result = apiInstance.searchCustomerProfileValues(lookupRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#searchCustomerProfileValues");
-    e.printStackTrace();
-}
+// This is an internal method used by our Customer management screen.  It only searches customer tags and is geared
+// towards our UI needs, so it's inflexible.  We're not including a sample for it because we don't envision it
+// being valuable to a merchant.
+// getCustomersByQuery is the merchant's search method.  It is completely full-featured and easy to use.
 ```
 
 
@@ -1439,32 +1882,43 @@ Update a customer
 Update a customer on the UltraCart account. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.Customer;
+import com.ultracart.admin.v2.models.CustomerResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class UpdateCustomer {
+    public static void execute() {
+        try {
+            int customerOid = CustomerFunctions.insertSampleCustomer();
 
-Integer customerProfileOid = 56; // Integer | The customer_profile_oid to update.
-Customer customer = new Customer(); // Customer | Customer to update
-String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
-try {
-    CustomerResponse result = apiInstance.updateCustomer(customerProfileOidcustomerexpand);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#updateCustomer");
-    e.printStackTrace();
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+            // just want address fields.  see https://www.ultracart.com/api/#resource_customer.html for all expansion values
+            String expand = "billing,shipping";
+            Customer customer = customerApi.getCustomer(customerOid, expand).getCustomer();
+            
+            // TODO: do some edits to the customer.  Here we will change some billing fields.
+            customer.getBilling().get(0).address2("Apartment 101");
+
+            // notice expand is passed to update as well since it returns back an updated customer object.
+            // we use the same expansion, so we get back the same fields and can do comparisons.
+            CustomerResponse apiResponse = customerApi.updateCustomer(customerOid, customer, expand);
+
+            // verify the update
+            System.out.println(apiResponse.getCustomer());
+
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+        } catch (ApiException e) {
+            System.err.println("An ApiException occurred. Please review the following error:");
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -1509,32 +1963,11 @@ Update email list subscriptions for a customer
 Update email list subscriptions for a customer 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
-import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
-
-Integer customerProfileOid = 56; // Integer | The customer profile oid
-CustomerEmailListChanges listChanges = new CustomerEmailListChanges(); // CustomerEmailListChanges | List changes
-try {
-    CustomerEmailListChanges result = apiInstance.updateCustomerEmailLists(customerProfileOidlistChanges);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#updateCustomerEmailLists");
-    e.printStackTrace();
-}
+// This is an internal method used by our Email workflow engines.  It allows for updating the email lists a customer
+// is currently subscribed to.  It's geared towards our UI needs, so its usage may appear cryptic.
+//  We're not including a sample for it because we don't envision it being valuable to a merchant.
 ```
 
 
@@ -1577,32 +2010,84 @@ Update a customer wishlist item
 Update a customer wishlist item 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.CustomerWishListItem;
+import com.ultracart.admin.v2.models.CustomerWishListItemsResponse;
+import com.ultracart.admin.v2.util.ApiException;
+import item.ItemFunctions;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class UpdateWishListItem {
+    /**
+     * The wishlist methods allow management of a customer's wishlist.
+     * This includes:
+     *     DeleteWishListItem
+     *     GetCustomerWishList
+     *     GetCustomerWishListItem
+     *     InsertWishListItem
+     *     UpdateWishListItem
+     * These methods provide a standard CRUD interface. The example below uses all of them.
+     *
+     * You'll need merchant_item_oids to insert wishlist items. If you don't know the oids,
+     * call ItemApi.GetItemByMerchantItemId() to retrieve the item, then get item.MerchantItemOid
+     *
+     * Note: Priority of wishlist item, 3 being low priority and 5 is high priority.
+     */
+    public static void execute() {
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
 
-Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
-Integer customerWishlistItemOid = 56; // Integer | The wishlist oid for this wishlist item.
-CustomerWishListItem wishlistItem = new CustomerWishListItem(); // CustomerWishListItem | Wishlist item to update
-try {
-    CustomerWishListItem result = apiInstance.updateWishListItem(customerProfileOidcustomerWishlistItemOidwishlistItem);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#updateWishListItem");
-    e.printStackTrace();
+            // create a few items first.
+            int firstItemOid = ItemFunctions.insertSampleItemAndGetOid();
+            int secondItemOid = ItemFunctions.insertSampleItemAndGetOid();
+
+            // create a customer
+            int customerOid = CustomerFunctions.insertSampleCustomer();
+
+            // TODO: If you don't know the customer oid, use GetCustomerByEmail() to retrieve the customer.
+
+            // add some wish list items.
+            CustomerWishListItem addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(firstItemOid);
+            addWishItem.setComments("I really want this for my birthday");
+            addWishItem.setPriority(3); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem firstCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            addWishItem = new CustomerWishListItem();
+            addWishItem.setCustomerProfileOid(customerOid);
+            addWishItem.setMerchantItemOid(secondItemOid);
+            addWishItem.setComments("Christmas Idea!");
+            addWishItem.setPriority(5); // Priority of wishlist item, 3 being low priority and 5 is high priority.
+            CustomerWishListItem secondCreatedWishItem = customerApi.insertWishListItem(customerOid, addWishItem);
+
+            // retrieve one wishlist item again
+            CustomerWishListItem firstCreatedWishItemCopy = customerApi.getCustomerWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid()).getWishlistItem();
+
+            // retrieve all wishlist items
+            CustomerWishListItemsResponse allWishListItems = customerApi.getCustomerWishList(customerOid);
+
+            // update an item.
+            secondCreatedWishItem.setPriority(4);
+            CustomerWishListItem updatedSecondWishItem = customerApi.updateWishListItem(customerOid, secondCreatedWishItem.getCustomerWishlistItemOid(), secondCreatedWishItem);
+
+            // delete a wish list item
+            customerApi.deleteWishListItem(customerOid, firstCreatedWishItem.getCustomerWishlistItemOid());
+
+            // Clean up
+            CustomerFunctions.deleteSampleCustomer(customerOid);
+            ItemFunctions.deleteSampleItemByOid(firstItemOid);
+            ItemFunctions.deleteSampleItemByOid(secondItemOid);
+        } catch (ApiException ex) {
+            System.err.println("An Exception occurred. Please review the following error:");
+            System.err.println(ex);
+            System.exit(1);
+        }
+    }
 }
 ```
 
@@ -1647,30 +2132,51 @@ Validate a token that can be used to verify a customer email address
 Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
 
 ### Example
+
 ```java
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+package customer;
 
-// Import classes:
-import com.ultracart.admin.v2.util.ApiClient;
-import com.ultracart.admin.v2.util.ApiException;
-import com.ultracart.admin.v2.util.Configuration;
-import com.ultracart.admin.v2.util.auth.*;
 import com.ultracart.admin.v2.CustomerApi;
-import common.Constants; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/Constants.java
-import common.JSON; // https://github.com/UltraCart/sdk_samples/blob/master/java/src/common/JSON.java
+import com.ultracart.admin.v2.models.*;
+import com.ultracart.admin.v2.util.ApiException;
+import common.Constants;
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-CustomerApi apiInstance = new CustomerApi(Constants.API_KEY, Constants.VERIFY_SSL_FLAG, Constants.DEBUG_MODE);
+public class ValidateEmailVerificationToken {
+    public static void execute() {
+        /*
+            GetEmailVerificationToken and ValidateEmailVerificationToken are tandem functions that allow a merchant to verify
+            a customer's email address. GetEmailVerificationToken returns back a token that the merchant can use however
+            they wish to present to a customer. Usually this will be emailed to the customer within instructions to enter
+            it back into a website.  Once the customer enters the token back into a site (along with their email),
+            ValidateEmailVerificationToken will validate the token.
 
-EmailVerifyTokenValidateRequest validationRequest = new EmailVerifyTokenValidateRequest(); // EmailVerifyTokenValidateRequest | Token validation request
-try {
-    EmailVerifyTokenValidateResponse result = apiInstance.validateEmailVerificationToken(validationRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CustomerApi#validateEmailVerificationToken");
-    e.printStackTrace();
+            Notice that GetEmailVerificationToken requires both the email and password.
+         */
+        try {
+            CustomerApi customerApi = new CustomerApi(Constants.API_KEY);
+
+            String email = "test@ultracart.com";
+            String password = "squirrel";
+
+            EmailVerifyTokenRequest tokenRequest = new EmailVerifyTokenRequest();
+            tokenRequest.email(email);
+            tokenRequest.password(password);
+
+            EmailVerifyTokenResponse tokenResponse = customerApi.getEmailVerificationToken(tokenRequest);
+            String token = tokenResponse.getToken();
+
+            // TODO - email the token to the customer, have them enter it back into another page...
+            // TODO - verify the token with the following call
+
+            EmailVerifyTokenValidateRequest verifyRequest = new EmailVerifyTokenValidateRequest();
+            verifyRequest.token(token);
+            EmailVerifyTokenValidateResponse verifyResponse = customerApi.validateEmailVerificationToken(verifyRequest);
+
+            System.out.println("Was the correct token provided? " + verifyResponse.getSuccess());
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
