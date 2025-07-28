@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:24:10.804-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:03:40.534-04:00")
 
 
 
@@ -46,6 +46,63 @@ public class ConversationVirtualAgentCapabilities {
 
   @SerializedName("open_support_ticket")
   private Boolean openSupportTicket = null;
+
+  /**
+   * Channel to use to open the support ticket
+   */
+  @JsonAdapter(OpenSupportTicketChannelEnum.Adapter.class)
+  public enum OpenSupportTicketChannelEnum {
+    NONE("none"),
+    
+    EMAIL("email"),
+    
+    ULTRACART_TASK("UltraCart Task"),
+    
+    ZOHO_DESK_TICKET("Zoho Desk Ticket");
+
+    private String value;
+
+    OpenSupportTicketChannelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OpenSupportTicketChannelEnum fromValue(String text) {
+      for (OpenSupportTicketChannelEnum b : OpenSupportTicketChannelEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<OpenSupportTicketChannelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OpenSupportTicketChannelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OpenSupportTicketChannelEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OpenSupportTicketChannelEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("open_support_ticket_channel")
+  private OpenSupportTicketChannelEnum openSupportTicketChannel = null;
+
+  @SerializedName("open_support_ticket_channel_email")
+  private String openSupportTicketChannelEmail = null;
 
   @SerializedName("pause_subscription")
   private Boolean pauseSubscription = null;
@@ -149,6 +206,42 @@ public class ConversationVirtualAgentCapabilities {
     this.openSupportTicket = openSupportTicket;
   }
 
+  public ConversationVirtualAgentCapabilities openSupportTicketChannel(OpenSupportTicketChannelEnum openSupportTicketChannel) {
+    this.openSupportTicketChannel = openSupportTicketChannel;
+    return this;
+  }
+
+   /**
+   * Channel to use to open the support ticket
+   * @return openSupportTicketChannel
+  **/
+  @ApiModelProperty(value = "Channel to use to open the support ticket")
+  public OpenSupportTicketChannelEnum getOpenSupportTicketChannel() {
+    return openSupportTicketChannel;
+  }
+
+  public void setOpenSupportTicketChannel(OpenSupportTicketChannelEnum openSupportTicketChannel) {
+    this.openSupportTicketChannel = openSupportTicketChannel;
+  }
+
+  public ConversationVirtualAgentCapabilities openSupportTicketChannelEmail(String openSupportTicketChannelEmail) {
+    this.openSupportTicketChannelEmail = openSupportTicketChannelEmail;
+    return this;
+  }
+
+   /**
+   * Email to send support ticket to
+   * @return openSupportTicketChannelEmail
+  **/
+  @ApiModelProperty(value = "Email to send support ticket to")
+  public String getOpenSupportTicketChannelEmail() {
+    return openSupportTicketChannelEmail;
+  }
+
+  public void setOpenSupportTicketChannelEmail(String openSupportTicketChannelEmail) {
+    this.openSupportTicketChannelEmail = openSupportTicketChannelEmail;
+  }
+
   public ConversationVirtualAgentCapabilities pauseSubscription(Boolean pauseSubscription) {
     this.pauseSubscription = pauseSubscription;
     return this;
@@ -236,6 +329,8 @@ public class ConversationVirtualAgentCapabilities {
         Objects.equals(this.lookupOrderInformation, conversationVirtualAgentCapabilities.lookupOrderInformation) &&
         Objects.equals(this.lookupSubscriptionInformation, conversationVirtualAgentCapabilities.lookupSubscriptionInformation) &&
         Objects.equals(this.openSupportTicket, conversationVirtualAgentCapabilities.openSupportTicket) &&
+        Objects.equals(this.openSupportTicketChannel, conversationVirtualAgentCapabilities.openSupportTicketChannel) &&
+        Objects.equals(this.openSupportTicketChannelEmail, conversationVirtualAgentCapabilities.openSupportTicketChannelEmail) &&
         Objects.equals(this.pauseSubscription, conversationVirtualAgentCapabilities.pauseSubscription) &&
         Objects.equals(this.resumeSubscription, conversationVirtualAgentCapabilities.resumeSubscription) &&
         Objects.equals(this.transferChatToLiveAgent, conversationVirtualAgentCapabilities.transferChatToLiveAgent) &&
@@ -244,7 +339,7 @@ public class ConversationVirtualAgentCapabilities {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard);
+    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard);
   }
 
 
@@ -258,6 +353,8 @@ public class ConversationVirtualAgentCapabilities {
     sb.append("    lookupOrderInformation: ").append(toIndentedString(lookupOrderInformation)).append("\n");
     sb.append("    lookupSubscriptionInformation: ").append(toIndentedString(lookupSubscriptionInformation)).append("\n");
     sb.append("    openSupportTicket: ").append(toIndentedString(openSupportTicket)).append("\n");
+    sb.append("    openSupportTicketChannel: ").append(toIndentedString(openSupportTicketChannel)).append("\n");
+    sb.append("    openSupportTicketChannelEmail: ").append(toIndentedString(openSupportTicketChannelEmail)).append("\n");
     sb.append("    pauseSubscription: ").append(toIndentedString(pauseSubscription)).append("\n");
     sb.append("    resumeSubscription: ").append(toIndentedString(resumeSubscription)).append("\n");
     sb.append("    transferChatToLiveAgent: ").append(toIndentedString(transferChatToLiveAgent)).append("\n");

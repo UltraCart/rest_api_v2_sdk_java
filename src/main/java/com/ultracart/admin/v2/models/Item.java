@@ -67,7 +67,7 @@ import java.util.List;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:24:10.804-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:03:40.534-04:00")
 
 
 
@@ -813,10 +813,10 @@ public class Item {
   }
 
    /**
-   * Parent category path.  / indicates the root folder.
+   * Parent category path.  / indicates the root folder.  This is the folder structure within item management.
    * @return parentCategoryPath
   **/
-  @ApiModelProperty(value = "Parent category path.  / indicates the root folder.")
+  @ApiModelProperty(value = "Parent category path.  / indicates the root folder.  This is the folder structure within item management.")
   public String getParentCategoryPath() {
     return parentCategoryPath;
   }

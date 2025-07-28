@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CartUpsellAfter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:24:10.804-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:03:40.534-04:00")
 
 
 
@@ -40,6 +40,12 @@ public class CartUpsellAfter {
 
   @SerializedName("upsell_path_code")
   private String upsellPathCode = null;
+
+  @SerializedName("upsell_path_name")
+  private String upsellPathName = null;
+
+  @SerializedName("upsell_path_variation")
+  private String upsellPathVariation = null;
 
   public CartUpsellAfter finalizeAfterDts(String finalizeAfterDts) {
     this.finalizeAfterDts = finalizeAfterDts;
@@ -83,16 +89,52 @@ public class CartUpsellAfter {
   }
 
    /**
-   * Upsell path code
+   * Upsell path code (this is for legacy upsells only)
    * @return upsellPathCode
   **/
-  @ApiModelProperty(value = "Upsell path code")
+  @ApiModelProperty(value = "Upsell path code (this is for legacy upsells only)")
   public String getUpsellPathCode() {
     return upsellPathCode;
   }
 
   public void setUpsellPathCode(String upsellPathCode) {
     this.upsellPathCode = upsellPathCode;
+  }
+
+  public CartUpsellAfter upsellPathName(String upsellPathName) {
+    this.upsellPathName = upsellPathName;
+    return this;
+  }
+
+   /**
+   * Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.
+   * @return upsellPathName
+  **/
+  @ApiModelProperty(value = "Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.")
+  public String getUpsellPathName() {
+    return upsellPathName;
+  }
+
+  public void setUpsellPathName(String upsellPathName) {
+    this.upsellPathName = upsellPathName;
+  }
+
+  public CartUpsellAfter upsellPathVariation(String upsellPathVariation) {
+    this.upsellPathVariation = upsellPathVariation;
+    return this;
+  }
+
+   /**
+   * Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.
+   * @return upsellPathVariation
+  **/
+  @ApiModelProperty(value = "Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.")
+  public String getUpsellPathVariation() {
+    return upsellPathVariation;
+  }
+
+  public void setUpsellPathVariation(String upsellPathVariation) {
+    this.upsellPathVariation = upsellPathVariation;
   }
 
 
@@ -107,12 +149,14 @@ public class CartUpsellAfter {
     CartUpsellAfter cartUpsellAfter = (CartUpsellAfter) o;
     return Objects.equals(this.finalizeAfterDts, cartUpsellAfter.finalizeAfterDts) &&
         Objects.equals(this.finalizeAfterMinutes, cartUpsellAfter.finalizeAfterMinutes) &&
-        Objects.equals(this.upsellPathCode, cartUpsellAfter.upsellPathCode);
+        Objects.equals(this.upsellPathCode, cartUpsellAfter.upsellPathCode) &&
+        Objects.equals(this.upsellPathName, cartUpsellAfter.upsellPathName) &&
+        Objects.equals(this.upsellPathVariation, cartUpsellAfter.upsellPathVariation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(finalizeAfterDts, finalizeAfterMinutes, upsellPathCode);
+    return Objects.hash(finalizeAfterDts, finalizeAfterMinutes, upsellPathCode, upsellPathName, upsellPathVariation);
   }
 
 
@@ -124,6 +168,8 @@ public class CartUpsellAfter {
     sb.append("    finalizeAfterDts: ").append(toIndentedString(finalizeAfterDts)).append("\n");
     sb.append("    finalizeAfterMinutes: ").append(toIndentedString(finalizeAfterMinutes)).append("\n");
     sb.append("    upsellPathCode: ").append(toIndentedString(upsellPathCode)).append("\n");
+    sb.append("    upsellPathName: ").append(toIndentedString(upsellPathName)).append("\n");
+    sb.append("    upsellPathVariation: ").append(toIndentedString(upsellPathVariation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
