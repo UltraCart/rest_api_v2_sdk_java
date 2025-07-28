@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * ApplyLibraryItemResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:03:40.534-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-28T15:18:21.446-04:00")
 
 
 

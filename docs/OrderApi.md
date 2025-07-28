@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**adjustOrderTotal**](OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
-[**blockRefundOnOrder**](OrderApi.md#blockRefundOnOrder) | **POST** /order/orders/{order_id}/refund_block | Set a refund block on an order
+[**blockRefundOnOrder**](OrderApi.md#blockRefundOnOrder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 [**duplicateOrder**](OrderApi.md#duplicateOrder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
@@ -26,11 +26,10 @@ Method | HTTP request | Description
 [**isRefundableOrder**](OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**processPayment**](OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 [**refundOrder**](OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
-[**refundOrderCompletely**](OrderApi.md#refundOrderCompletely) | **PUT** /order/orders/{order_id}/refund_completely | Refund an order completely
 [**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 [**resendReceipt**](OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**resendShipmentConfirmation**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
-[**unblockRefundOnOrder**](OrderApi.md#unblockRefundOnOrder) | **POST** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
+[**unblockRefundOnOrder**](OrderApi.md#unblockRefundOnOrder) | **GET** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
 [**updateAccountsReceivableRetryConfig**](OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 [**updateOrder**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
 [**validateOrder**](OrderApi.md#validateOrder) | **POST** /order/validate | Validate
@@ -136,7 +135,7 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="cancelOrder"></a>
@@ -1242,74 +1241,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
-<a name="refundOrderCompletely"></a>
-# **refundOrderCompletely**
-> OrderResponse refundOrderCompletely(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason)
-
-Refund an order completely
-
-Perform a refund operation on an order and then update the order if successful. 
-
-### Example
-```java
-// Import classes:
-//import com.ultracart.admin.v2.swagger.ApiClient;
-//import com.ultracart.admin.v2.swagger.ApiException;
-//import com.ultracart.admin.v2.swagger.Configuration;
-//import com.ultracart.admin.v2.swagger.auth.*;
-//import com.ultracart.admin.v2.OrderApi;
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-OrderApi apiInstance = new OrderApi(apiKey);
-
-String orderId = "orderId_example"; // String | The order id to refund.
-Boolean rejectAfterRefund = false; // Boolean | Reject order after refund
-Boolean skipCustomerNotification = false; // Boolean | Skip customer email notification
-Boolean autoOrderCancel = false; // Boolean | Cancel associated auto orders
-Boolean manualRefund = false; // Boolean | Consider a manual refund done externally
-Boolean reverseAffiliateTransactions = true; // Boolean | Reverse affiliate transactions
-Boolean issueStoreCredit = false; // Boolean | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
-String autoOrderCancelReason = "autoOrderCancelReason_example"; // String | Reason for auto orders cancellation
-String refundReason = "refundReason_example"; // String | Reason for refund
-String rejectReason = "rejectReason_example"; // String | Reason for reject
-try {
-    OrderResponse result = apiInstance.refundOrderCompletely(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#refundOrderCompletely");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| The order id to refund. |
- **rejectAfterRefund** | **Boolean**| Reject order after refund | [optional] [default to false]
- **skipCustomerNotification** | **Boolean**| Skip customer email notification | [optional] [default to false]
- **autoOrderCancel** | **Boolean**| Cancel associated auto orders | [optional] [default to false]
- **manualRefund** | **Boolean**| Consider a manual refund done externally | [optional] [default to false]
- **reverseAffiliateTransactions** | **Boolean**| Reverse affiliate transactions | [optional] [default to true]
- **issueStoreCredit** | **Boolean**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
- **autoOrderCancelReason** | **String**| Reason for auto orders cancellation | [optional]
- **refundReason** | **String**| Reason for refund | [optional]
- **rejectReason** | **String**| Reason for reject | [optional]
-
-### Return type
-
-[**OrderResponse**](OrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
 <a name="replacement"></a>
 # **replacement**
 > OrderReplacementResponse replacement(orderId, replacement)
@@ -1508,7 +1439,7 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="updateAccountsReceivableRetryConfig"></a>
