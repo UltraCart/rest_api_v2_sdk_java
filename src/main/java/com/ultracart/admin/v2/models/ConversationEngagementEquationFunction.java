@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationEngagementEquationFunction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:39:09.029-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:17:18.756-04:00[America/Indianapolis]")
 public class ConversationEngagementEquationFunction {
   /**
    * Logic operation to perform on an any page url function type

@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-07-10T16:39:09.029-04:00[America/Indianapolis]
+- Build date: 2025-07-28T11:17:18.756-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.14</version>
+    <version>4.1.15</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.14"
+     implementation "com.ultracart:rest-sdk:4.1.15"
   }
 ```
 
@@ -284,15 +284,22 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**updateWishListItem**](docs/CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 *CustomerApi* | [**validateEmailVerificationToken**](docs/CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
+*DatawarehouseApi* | [**deleteCustomReport**](docs/DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 *DatawarehouseApi* | [**deleteReport**](docs/DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 *DatawarehouseApi* | [**dryRunReportQueries**](docs/DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
+*DatawarehouseApi* | [**executeCustomReport**](docs/DatawarehouseApi.md#executeCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/execute | Execute a custom report
 *DatawarehouseApi* | [**executeReportQueries**](docs/DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+*DatawarehouseApi* | [**getCustomReport**](docs/DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
+*DatawarehouseApi* | [**getCustomReportAccountConfig**](docs/DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
 *DatawarehouseApi* | [**getReport**](docs/DatawarehouseApi.md#getReport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 *DatawarehouseApi* | [**getReportDataSet**](docs/DatawarehouseApi.md#getReportDataSet) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
 *DatawarehouseApi* | [**getReportDataSetPage**](docs/DatawarehouseApi.md#getReportDataSetPage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
 *DatawarehouseApi* | [**getReportWebsocketAuthorization**](docs/DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 *DatawarehouseApi* | [**getReports**](docs/DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
+*DatawarehouseApi* | [**insertCustomReport**](docs/DatawarehouseApi.md#insertCustomReport) | **POST** /datawarehouse/custom_reports | Create a custom report
 *DatawarehouseApi* | [**insertReport**](docs/DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
+*DatawarehouseApi* | [**updateCustomReport**](docs/DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
+*DatawarehouseApi* | [**updateCustomReportAccountConfig**](docs/DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 *DatawarehouseApi* | [**updateReport**](docs/DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 *FulfillmentApi* | [**acknowledgeOrders**](docs/FulfillmentApi.md#acknowledgeOrders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
 *FulfillmentApi* | [**generatePackingSlip**](docs/FulfillmentApi.md#generatePackingSlip) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders/{order_id} | Generate a packing slip for this order for the given distribution center.
@@ -339,6 +346,7 @@ Class | Method | HTTP request | Description
 *OauthApi* | [**oauthAccessToken**](docs/OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+*OrderApi* | [**blockRefundOnOrder**](docs/OrderApi.md#blockRefundOnOrder) | **POST** /order/orders/{order_id}/refund_block | Set a refund block on an order
 *OrderApi* | [**cancelOrder**](docs/OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**duplicateOrder**](docs/OrderApi.md#duplicateOrder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
@@ -363,6 +371,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**replacement**](docs/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+*OrderApi* | [**unblockRefundOnOrder**](docs/OrderApi.md#unblockRefundOnOrder) | **POST** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
 *OrderApi* | [**validateOrder**](docs/OrderApi.md#validateOrder) | **POST** /order/validate | Validate
@@ -915,6 +924,16 @@ Class | Method | HTTP request | Description
  - [CouponsRequest](docs/CouponsRequest.md)
  - [CouponsResponse](docs/CouponsResponse.md)
  - [Currency](docs/Currency.md)
+ - [CustomReport](docs/CustomReport.md)
+ - [CustomReportAccountConfig](docs/CustomReportAccountConfig.md)
+ - [CustomReportAccountConfigResponse](docs/CustomReportAccountConfigResponse.md)
+ - [CustomReportExecutionParameter](docs/CustomReportExecutionParameter.md)
+ - [CustomReportExecutionRequest](docs/CustomReportExecutionRequest.md)
+ - [CustomReportParameter](docs/CustomReportParameter.md)
+ - [CustomReportParameterOption](docs/CustomReportParameterOption.md)
+ - [CustomReportQuery](docs/CustomReportQuery.md)
+ - [CustomReportResponse](docs/CustomReportResponse.md)
+ - [CustomReportTooltip](docs/CustomReportTooltip.md)
  - [Customer](docs/Customer.md)
  - [CustomerActivity](docs/CustomerActivity.md)
  - [CustomerAffiliate](docs/CustomerAffiliate.md)
@@ -1555,6 +1574,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.15 | 07/28/2025 | new order methods for blocking and unblocking refunds |
 | 4.1.14 | 07/10/2025 | automation test |
 | 4.1.13 | 05/20/2025 | conversation - virtual agent flag and virtual agent cost |
 | 4.1.12 | 05/19/2025 | conversations - AI agent capabilities method |

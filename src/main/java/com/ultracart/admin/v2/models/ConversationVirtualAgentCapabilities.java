@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:39:09.029-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:17:18.756-04:00[America/Indianapolis]")
 public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_CANCEL_SUBSCRIPTION = "cancel_subscription";
   @SerializedName(SERIALIZED_NAME_CANCEL_SUBSCRIPTION)
@@ -68,6 +68,65 @@ public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_OPEN_SUPPORT_TICKET = "open_support_ticket";
   @SerializedName(SERIALIZED_NAME_OPEN_SUPPORT_TICKET)
   private Boolean openSupportTicket;
+
+  /**
+   * Channel to use to open the support ticket
+   */
+  @JsonAdapter(OpenSupportTicketChannelEnum.Adapter.class)
+  public enum OpenSupportTicketChannelEnum {
+    NONE("none"),
+    
+    EMAIL("email"),
+    
+    ULTRACART_TASK("UltraCart Task"),
+    
+    ZOHO_DESK_TICKET("Zoho Desk Ticket");
+
+    private String value;
+
+    OpenSupportTicketChannelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OpenSupportTicketChannelEnum fromValue(String value) {
+      for (OpenSupportTicketChannelEnum b : OpenSupportTicketChannelEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<OpenSupportTicketChannelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OpenSupportTicketChannelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OpenSupportTicketChannelEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return OpenSupportTicketChannelEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_OPEN_SUPPORT_TICKET_CHANNEL = "open_support_ticket_channel";
+  @SerializedName(SERIALIZED_NAME_OPEN_SUPPORT_TICKET_CHANNEL)
+  private OpenSupportTicketChannelEnum openSupportTicketChannel;
+
+  public static final String SERIALIZED_NAME_OPEN_SUPPORT_TICKET_CHANNEL_EMAIL = "open_support_ticket_channel_email";
+  @SerializedName(SERIALIZED_NAME_OPEN_SUPPORT_TICKET_CHANNEL_EMAIL)
+  private String openSupportTicketChannelEmail;
 
   public static final String SERIALIZED_NAME_PAUSE_SUBSCRIPTION = "pause_subscription";
   @SerializedName(SERIALIZED_NAME_PAUSE_SUBSCRIPTION)
@@ -203,6 +262,52 @@ public class ConversationVirtualAgentCapabilities {
   }
 
 
+  public ConversationVirtualAgentCapabilities openSupportTicketChannel(OpenSupportTicketChannelEnum openSupportTicketChannel) {
+    
+    this.openSupportTicketChannel = openSupportTicketChannel;
+    return this;
+  }
+
+   /**
+   * Channel to use to open the support ticket
+   * @return openSupportTicketChannel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel to use to open the support ticket")
+
+  public OpenSupportTicketChannelEnum getOpenSupportTicketChannel() {
+    return openSupportTicketChannel;
+  }
+
+
+  public void setOpenSupportTicketChannel(OpenSupportTicketChannelEnum openSupportTicketChannel) {
+    this.openSupportTicketChannel = openSupportTicketChannel;
+  }
+
+
+  public ConversationVirtualAgentCapabilities openSupportTicketChannelEmail(String openSupportTicketChannelEmail) {
+    
+    this.openSupportTicketChannelEmail = openSupportTicketChannelEmail;
+    return this;
+  }
+
+   /**
+   * Email to send support ticket to
+   * @return openSupportTicketChannelEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Email to send support ticket to")
+
+  public String getOpenSupportTicketChannelEmail() {
+    return openSupportTicketChannelEmail;
+  }
+
+
+  public void setOpenSupportTicketChannelEmail(String openSupportTicketChannelEmail) {
+    this.openSupportTicketChannelEmail = openSupportTicketChannelEmail;
+  }
+
+
   public ConversationVirtualAgentCapabilities pauseSubscription(Boolean pauseSubscription) {
     
     this.pauseSubscription = pauseSubscription;
@@ -310,6 +415,8 @@ public class ConversationVirtualAgentCapabilities {
         Objects.equals(this.lookupOrderInformation, conversationVirtualAgentCapabilities.lookupOrderInformation) &&
         Objects.equals(this.lookupSubscriptionInformation, conversationVirtualAgentCapabilities.lookupSubscriptionInformation) &&
         Objects.equals(this.openSupportTicket, conversationVirtualAgentCapabilities.openSupportTicket) &&
+        Objects.equals(this.openSupportTicketChannel, conversationVirtualAgentCapabilities.openSupportTicketChannel) &&
+        Objects.equals(this.openSupportTicketChannelEmail, conversationVirtualAgentCapabilities.openSupportTicketChannelEmail) &&
         Objects.equals(this.pauseSubscription, conversationVirtualAgentCapabilities.pauseSubscription) &&
         Objects.equals(this.resumeSubscription, conversationVirtualAgentCapabilities.resumeSubscription) &&
         Objects.equals(this.transferChatToLiveAgent, conversationVirtualAgentCapabilities.transferChatToLiveAgent) &&
@@ -318,7 +425,7 @@ public class ConversationVirtualAgentCapabilities {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard);
+    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard);
   }
 
   @Override
@@ -330,6 +437,8 @@ public class ConversationVirtualAgentCapabilities {
     sb.append("    lookupOrderInformation: ").append(toIndentedString(lookupOrderInformation)).append("\n");
     sb.append("    lookupSubscriptionInformation: ").append(toIndentedString(lookupSubscriptionInformation)).append("\n");
     sb.append("    openSupportTicket: ").append(toIndentedString(openSupportTicket)).append("\n");
+    sb.append("    openSupportTicketChannel: ").append(toIndentedString(openSupportTicketChannel)).append("\n");
+    sb.append("    openSupportTicketChannelEmail: ").append(toIndentedString(openSupportTicketChannelEmail)).append("\n");
     sb.append("    pauseSubscription: ").append(toIndentedString(pauseSubscription)).append("\n");
     sb.append("    resumeSubscription: ").append(toIndentedString(resumeSubscription)).append("\n");
     sb.append("    transferChatToLiveAgent: ").append(toIndentedString(transferChatToLiveAgent)).append("\n");
@@ -361,6 +470,8 @@ public class ConversationVirtualAgentCapabilities {
     openapiFields.add("lookup_order_information");
     openapiFields.add("lookup_subscription_information");
     openapiFields.add("open_support_ticket");
+    openapiFields.add("open_support_ticket_channel");
+    openapiFields.add("open_support_ticket_channel_email");
     openapiFields.add("pause_subscription");
     openapiFields.add("resume_subscription");
     openapiFields.add("transfer_chat_to_live_agent");
@@ -391,6 +502,12 @@ public class ConversationVirtualAgentCapabilities {
         if (!ConversationVirtualAgentCapabilities.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationVirtualAgentCapabilities` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("open_support_ticket_channel") != null && !jsonObj.get("open_support_ticket_channel").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `open_support_ticket_channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("open_support_ticket_channel").toString()));
+      }
+      if (jsonObj.get("open_support_ticket_channel_email") != null && !jsonObj.get("open_support_ticket_channel_email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `open_support_ticket_channel_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("open_support_ticket_channel_email").toString()));
       }
   }
 

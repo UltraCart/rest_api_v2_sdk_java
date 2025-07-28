@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSegmentDownloadPrepareResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:39:09.029-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:17:18.756-04:00[America/Indianapolis]")
 public class EmailSegmentDownloadPrepareResponse {
   public static final String SERIALIZED_NAME_EMAIL_SEGMENT_REBUILD_UUID = "email_segment_rebuild_uuid";
   @SerializedName(SERIALIZED_NAME_EMAIL_SEGMENT_REBUILD_UUID)

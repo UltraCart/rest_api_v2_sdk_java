@@ -87,7 +87,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:39:09.029-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:17:18.756-04:00[America/Indianapolis]")
 public class Item {
   public static final String SERIALIZED_NAME_ACCOUNTING = "accounting";
   @SerializedName(SERIALIZED_NAME_ACCOUNTING)
@@ -1040,11 +1040,11 @@ public class Item {
   }
 
    /**
-   * Parent category path.  / indicates the root folder.
+   * Parent category path.  / indicates the root folder.  This is the folder structure within item management.
    * @return parentCategoryPath
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Parent category path.  / indicates the root folder.")
+  @ApiModelProperty(value = "Parent category path.  / indicates the root folder.  This is the folder structure within item management.")
 
   public String getParentCategoryPath() {
     return parentCategoryPath;

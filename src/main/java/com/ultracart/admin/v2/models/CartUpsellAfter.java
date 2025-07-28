@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartUpsellAfter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-10T16:39:09.029-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:17:18.756-04:00[America/Indianapolis]")
 public class CartUpsellAfter {
   public static final String SERIALIZED_NAME_FINALIZE_AFTER_DTS = "finalize_after_dts";
   @SerializedName(SERIALIZED_NAME_FINALIZE_AFTER_DTS)
@@ -60,6 +60,14 @@ public class CartUpsellAfter {
   public static final String SERIALIZED_NAME_UPSELL_PATH_CODE = "upsell_path_code";
   @SerializedName(SERIALIZED_NAME_UPSELL_PATH_CODE)
   private String upsellPathCode;
+
+  public static final String SERIALIZED_NAME_UPSELL_PATH_NAME = "upsell_path_name";
+  @SerializedName(SERIALIZED_NAME_UPSELL_PATH_NAME)
+  private String upsellPathName;
+
+  public static final String SERIALIZED_NAME_UPSELL_PATH_VARIATION = "upsell_path_variation";
+  @SerializedName(SERIALIZED_NAME_UPSELL_PATH_VARIATION)
+  private String upsellPathVariation;
 
   public CartUpsellAfter() { 
   }
@@ -117,11 +125,11 @@ public class CartUpsellAfter {
   }
 
    /**
-   * Upsell path code
+   * Upsell path code (this is for legacy upsells only)
    * @return upsellPathCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Upsell path code")
+  @ApiModelProperty(value = "Upsell path code (this is for legacy upsells only)")
 
   public String getUpsellPathCode() {
     return upsellPathCode;
@@ -130,6 +138,52 @@ public class CartUpsellAfter {
 
   public void setUpsellPathCode(String upsellPathCode) {
     this.upsellPathCode = upsellPathCode;
+  }
+
+
+  public CartUpsellAfter upsellPathName(String upsellPathName) {
+    
+    this.upsellPathName = upsellPathName;
+    return this;
+  }
+
+   /**
+   * Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.
+   * @return upsellPathName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.")
+
+  public String getUpsellPathName() {
+    return upsellPathName;
+  }
+
+
+  public void setUpsellPathName(String upsellPathName) {
+    this.upsellPathName = upsellPathName;
+  }
+
+
+  public CartUpsellAfter upsellPathVariation(String upsellPathVariation) {
+    
+    this.upsellPathVariation = upsellPathVariation;
+    return this;
+  }
+
+   /**
+   * Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.
+   * @return upsellPathVariation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.")
+
+  public String getUpsellPathVariation() {
+    return upsellPathVariation;
+  }
+
+
+  public void setUpsellPathVariation(String upsellPathVariation) {
+    this.upsellPathVariation = upsellPathVariation;
   }
 
 
@@ -145,12 +199,14 @@ public class CartUpsellAfter {
     CartUpsellAfter cartUpsellAfter = (CartUpsellAfter) o;
     return Objects.equals(this.finalizeAfterDts, cartUpsellAfter.finalizeAfterDts) &&
         Objects.equals(this.finalizeAfterMinutes, cartUpsellAfter.finalizeAfterMinutes) &&
-        Objects.equals(this.upsellPathCode, cartUpsellAfter.upsellPathCode);
+        Objects.equals(this.upsellPathCode, cartUpsellAfter.upsellPathCode) &&
+        Objects.equals(this.upsellPathName, cartUpsellAfter.upsellPathName) &&
+        Objects.equals(this.upsellPathVariation, cartUpsellAfter.upsellPathVariation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(finalizeAfterDts, finalizeAfterMinutes, upsellPathCode);
+    return Objects.hash(finalizeAfterDts, finalizeAfterMinutes, upsellPathCode, upsellPathName, upsellPathVariation);
   }
 
   @Override
@@ -160,6 +216,8 @@ public class CartUpsellAfter {
     sb.append("    finalizeAfterDts: ").append(toIndentedString(finalizeAfterDts)).append("\n");
     sb.append("    finalizeAfterMinutes: ").append(toIndentedString(finalizeAfterMinutes)).append("\n");
     sb.append("    upsellPathCode: ").append(toIndentedString(upsellPathCode)).append("\n");
+    sb.append("    upsellPathName: ").append(toIndentedString(upsellPathName)).append("\n");
+    sb.append("    upsellPathVariation: ").append(toIndentedString(upsellPathVariation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -185,6 +243,8 @@ public class CartUpsellAfter {
     openapiFields.add("finalize_after_dts");
     openapiFields.add("finalize_after_minutes");
     openapiFields.add("upsell_path_code");
+    openapiFields.add("upsell_path_name");
+    openapiFields.add("upsell_path_variation");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -217,6 +277,12 @@ public class CartUpsellAfter {
       }
       if (jsonObj.get("upsell_path_code") != null && !jsonObj.get("upsell_path_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `upsell_path_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upsell_path_code").toString()));
+      }
+      if (jsonObj.get("upsell_path_name") != null && !jsonObj.get("upsell_path_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `upsell_path_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upsell_path_name").toString()));
+      }
+      if (jsonObj.get("upsell_path_variation") != null && !jsonObj.get("upsell_path_variation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `upsell_path_variation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upsell_path_variation").toString()));
       }
   }
 
