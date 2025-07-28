@@ -554,14 +554,6 @@ public class WebhookApi {
     /**
      * Build call for getWebhookLogSummaries
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
-     * @param requestId  (optional)
-     * @param beginDate  (optional)
-     * @param endDate  (optional)
-     * @param status  (optional)
-     * @param event  (optional)
-     * @param orderId  (optional)
-     * @param request  (optional)
-     * @param duration  (optional)
      * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -579,7 +571,7 @@ public class WebhookApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhookLogSummariesCall(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebhookLogSummariesCall(Integer webhookOid, Integer limit, Integer offset, String since, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -604,38 +596,6 @@ public class WebhookApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (requestId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("requestId", requestId));
-        }
-
-        if (beginDate != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("beginDate", beginDate));
-        }
-
-        if (endDate != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endDate", endDate));
-        }
-
-        if (status != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
-        }
-
-        if (event != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("event", event));
-        }
-
-        if (orderId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orderId", orderId));
-        }
-
-        if (request != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("request", request));
-        }
-
-        if (duration != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("duration", duration));
-        }
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("_limit", limit));
@@ -670,7 +630,7 @@ public class WebhookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebhookLogSummariesValidateBeforeCall(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebhookLogSummariesValidateBeforeCall(Integer webhookOid, Integer limit, Integer offset, String since, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'webhookOid' is set
         if (webhookOid == null) {
@@ -678,7 +638,7 @@ public class WebhookApi {
         }
         
 
-        okhttp3.Call localVarCall = getWebhookLogSummariesCall(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since, _callback);
+        okhttp3.Call localVarCall = getWebhookLogSummariesCall(webhookOid, limit, offset, since, _callback);
         return localVarCall;
 
     }
@@ -687,14 +647,6 @@ public class WebhookApi {
      * Retrieve the log summaries
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
-     * @param requestId  (optional)
-     * @param beginDate  (optional)
-     * @param endDate  (optional)
-     * @param status  (optional)
-     * @param event  (optional)
-     * @param orderId  (optional)
-     * @param request  (optional)
-     * @param duration  (optional)
      * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -711,8 +663,8 @@ public class WebhookApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public WebhookLogSummariesResponse getWebhookLogSummaries(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since) throws ApiException {
-        ApiResponse<WebhookLogSummariesResponse> localVarResp = getWebhookLogSummariesWithHttpInfo(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since);
+    public WebhookLogSummariesResponse getWebhookLogSummaries(Integer webhookOid, Integer limit, Integer offset, String since) throws ApiException {
+        ApiResponse<WebhookLogSummariesResponse> localVarResp = getWebhookLogSummariesWithHttpInfo(webhookOid, limit, offset, since);
         return localVarResp.getData();
     }
 
@@ -720,14 +672,6 @@ public class WebhookApi {
      * Retrieve the log summaries
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
-     * @param requestId  (optional)
-     * @param beginDate  (optional)
-     * @param endDate  (optional)
-     * @param status  (optional)
-     * @param event  (optional)
-     * @param orderId  (optional)
-     * @param request  (optional)
-     * @param duration  (optional)
      * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -744,8 +688,8 @@ public class WebhookApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<WebhookLogSummariesResponse> getWebhookLogSummariesWithHttpInfo(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since) throws ApiException {
-        okhttp3.Call localVarCall = getWebhookLogSummariesValidateBeforeCall(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since, null);
+    public ApiResponse<WebhookLogSummariesResponse> getWebhookLogSummariesWithHttpInfo(Integer webhookOid, Integer limit, Integer offset, String since) throws ApiException {
+        okhttp3.Call localVarCall = getWebhookLogSummariesValidateBeforeCall(webhookOid, limit, offset, since, null);
         Type localVarReturnType = new TypeToken<WebhookLogSummariesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -754,14 +698,6 @@ public class WebhookApi {
      * Retrieve the log summaries (asynchronously)
      * Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
      * @param webhookOid The webhook oid to retrieve log summaries for. (required)
-     * @param requestId  (optional)
-     * @param beginDate  (optional)
-     * @param endDate  (optional)
-     * @param status  (optional)
-     * @param event  (optional)
-     * @param orderId  (optional)
-     * @param request  (optional)
-     * @param duration  (optional)
      * @param limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -779,9 +715,9 @@ public class WebhookApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhookLogSummariesAsync(Integer webhookOid, String requestId, String beginDate, String endDate, String status, String event, String orderId, String request, Integer duration, Integer limit, Integer offset, String since, final ApiCallback<WebhookLogSummariesResponse> _callback) throws ApiException {
+    public okhttp3.Call getWebhookLogSummariesAsync(Integer webhookOid, Integer limit, Integer offset, String since, final ApiCallback<WebhookLogSummariesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWebhookLogSummariesValidateBeforeCall(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since, _callback);
+        okhttp3.Call localVarCall = getWebhookLogSummariesValidateBeforeCall(webhookOid, limit, offset, since, _callback);
         Type localVarReturnType = new TypeToken<WebhookLogSummariesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

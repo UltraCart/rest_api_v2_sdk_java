@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-07-28T11:17:18.756-04:00[America/Indianapolis]
+- Build date: 2025-07-28T15:30:33.009-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.15</version>
+    <version>4.1.16</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.15"
+     implementation "com.ultracart:rest-sdk:4.1.16"
   }
 ```
 
@@ -291,6 +291,7 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**executeReportQueries**](docs/DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
 *DatawarehouseApi* | [**getCustomReport**](docs/DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 *DatawarehouseApi* | [**getCustomReportAccountConfig**](docs/DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
+*DatawarehouseApi* | [**getCustomReports**](docs/DatawarehouseApi.md#getCustomReports) | **GET** /datawarehouse/custom_reports | Get custom reports
 *DatawarehouseApi* | [**getReport**](docs/DatawarehouseApi.md#getReport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 *DatawarehouseApi* | [**getReportDataSet**](docs/DatawarehouseApi.md#getReportDataSet) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
 *DatawarehouseApi* | [**getReportDataSetPage**](docs/DatawarehouseApi.md#getReportDataSetPage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
@@ -346,7 +347,7 @@ Class | Method | HTTP request | Description
 *OauthApi* | [**oauthAccessToken**](docs/OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
-*OrderApi* | [**blockRefundOnOrder**](docs/OrderApi.md#blockRefundOnOrder) | **POST** /order/orders/{order_id}/refund_block | Set a refund block on an order
+*OrderApi* | [**blockRefundOnOrder**](docs/OrderApi.md#blockRefundOnOrder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 *OrderApi* | [**cancelOrder**](docs/OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**duplicateOrder**](docs/OrderApi.md#duplicateOrder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
@@ -367,11 +368,10 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**isRefundableOrder**](docs/OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 *OrderApi* | [**processPayment**](docs/OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
-*OrderApi* | [**refundOrderCompletely**](docs/OrderApi.md#refundOrderCompletely) | **PUT** /order/orders/{order_id}/refund_completely | Refund an order completely
 *OrderApi* | [**replacement**](docs/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
-*OrderApi* | [**unblockRefundOnOrder**](docs/OrderApi.md#unblockRefundOnOrder) | **POST** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
+*OrderApi* | [**unblockRefundOnOrder**](docs/OrderApi.md#unblockRefundOnOrder) | **GET** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
 *OrderApi* | [**validateOrder**](docs/OrderApi.md#validateOrder) | **POST** /order/validate | Validate
@@ -934,6 +934,7 @@ Class | Method | HTTP request | Description
  - [CustomReportQuery](docs/CustomReportQuery.md)
  - [CustomReportResponse](docs/CustomReportResponse.md)
  - [CustomReportTooltip](docs/CustomReportTooltip.md)
+ - [CustomReportsResponse](docs/CustomReportsResponse.md)
  - [Customer](docs/Customer.md)
  - [CustomerActivity](docs/CustomerActivity.md)
  - [CustomerAffiliate](docs/CustomerAffiliate.md)
@@ -1574,6 +1575,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.16 | 07/28/2025 | updated doc samples |
 | 4.1.15 | 07/28/2025 | new order methods for blocking and unblocking refunds |
 | 4.1.14 | 07/10/2025 | automation test |
 | 4.1.13 | 05/20/2025 | conversation - virtual agent flag and virtual agent cost |

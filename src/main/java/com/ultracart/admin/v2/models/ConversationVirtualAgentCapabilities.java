@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:17:18.756-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T15:30:33.009-04:00[America/Indianapolis]")
 public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_CANCEL_SUBSCRIPTION = "cancel_subscription";
   @SerializedName(SERIALIZED_NAME_CANCEL_SUBSCRIPTION)

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T11:17:18.756-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T15:30:33.009-04:00[America/Indianapolis]")
 public class ChannelPartner {
   public static final String SERIALIZED_NAME_CHANNEL_PARTNER_OID = "channel_partner_oid";
   @SerializedName(SERIALIZED_NAME_CHANNEL_PARTNER_OID)

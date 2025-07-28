@@ -232,7 +232,7 @@ public class GetWebhookLog {
 
 <a name="getWebhookLogSummaries"></a>
 # **getWebhookLogSummaries**
-> WebhookLogSummariesResponse getWebhookLogSummaries(webhookOid, requestId, beginDate, endDate, status, event, orderId, request, duration, limit, offset, since)
+> WebhookLogSummariesResponse getWebhookLogSummaries(webhookOid, limit, offset, since)
 
 Retrieve the log summaries
 
@@ -317,14 +317,6 @@ public class GetWebhookLogSummaries {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **webhookOid** | **Integer**| The webhook oid to retrieve log summaries for. | |
-| **requestId** | **String**|  | [optional] |
-| **beginDate** | **String**|  | [optional] |
-| **endDate** | **String**|  | [optional] |
-| **status** | **String**|  | [optional] |
-| **event** | **String**|  | [optional] |
-| **orderId** | **String**|  | [optional] |
-| **request** | **String**|  | [optional] |
-| **duration** | **Integer**|  | [optional] |
 | **limit** | **Integer**| The maximum number of records to return on this one API call. | [optional] [default to 100] |
 | **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0] |
 | **since** | **String**| Fetch log summaries that have been delivered since this date/time. | [optional] |

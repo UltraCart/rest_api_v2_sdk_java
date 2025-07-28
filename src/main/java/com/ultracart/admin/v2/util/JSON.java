@@ -407,6 +407,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomReportQuery.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomReportResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomReportTooltip.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomReportsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.Customer.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerActivity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.CustomerAffiliate.CustomTypeAdapterFactory());
