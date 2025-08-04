@@ -4,11 +4,15 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteCustomDashboard**](DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 [**deleteCustomReport**](DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 [**deleteReport**](DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 [**dryRunReportQueries**](DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
 [**executeCustomReport**](DatawarehouseApi.md#executeCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/execute | Execute a custom report
+[**executeCustomReports**](DatawarehouseApi.md#executeCustomReports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 [**executeReportQueries**](DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+[**getCustomDashboard**](DatawarehouseApi.md#getCustomDashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+[**getCustomDashboards**](DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**getCustomReport**](DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**getCustomReportAccountConfig**](DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
 [**getCustomReports**](DatawarehouseApi.md#getCustomReports) | **GET** /datawarehouse/custom_reports | Get custom reports
@@ -17,12 +21,63 @@ Method | HTTP request | Description
 [**getReportDataSetPage**](DatawarehouseApi.md#getReportDataSetPage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
 [**getReportWebsocketAuthorization**](DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 [**getReports**](DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
+[**insertCustomDashboard**](DatawarehouseApi.md#insertCustomDashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
 [**insertCustomReport**](DatawarehouseApi.md#insertCustomReport) | **POST** /datawarehouse/custom_reports | Create a custom report
 [**insertReport**](DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
+[**updateCustomDashboard**](DatawarehouseApi.md#updateCustomDashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
 [**updateCustomReport**](DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 [**updateCustomReportAccountConfig**](DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**updateReport**](DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 
+
+<a name="deleteCustomDashboard"></a>
+# **deleteCustomDashboard**
+> deleteCustomDashboard(customDashboardOid)
+
+Delete a custom dashboard
+
+Delete a custom dashboard on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+Integer customDashboardOid = 56; // Integer | The dashboard oid to delete.
+try {
+    apiInstance.deleteCustomDashboard(customDashboardOid);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#deleteCustomDashboard");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardOid** | **Integer**| The dashboard oid to delete. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="deleteCustomReport"></a>
 # **deleteCustomReport**
@@ -174,7 +229,7 @@ Name | Type | Description  | Notes
 
 <a name="executeCustomReport"></a>
 # **executeCustomReport**
-> CustomReportResponse executeCustomReport(executionRequest, customReportOid)
+> CustomReportExecutionResponse executeCustomReport(executionRequest, customReportOid)
 
 Execute a custom report
 
@@ -196,7 +251,7 @@ DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
 CustomReportExecutionRequest executionRequest = new CustomReportExecutionRequest(); // CustomReportExecutionRequest | Request to execute custom report
 Integer customReportOid = 56; // Integer | The report oid to execute.
 try {
-    CustomReportResponse result = apiInstance.executeCustomReport(executionRequest, customReportOid);
+    CustomReportExecutionResponse result = apiInstance.executeCustomReport(executionRequest, customReportOid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DatawarehouseApi#executeCustomReport");
@@ -213,7 +268,57 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomReportResponse**](CustomReportResponse.md)
+[**CustomReportExecutionResponse**](CustomReportExecutionResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="executeCustomReports"></a>
+# **executeCustomReports**
+> CustomReportsExecutionResponse executeCustomReports(executionRequest)
+
+Execute a custom reports
+
+Execute a custom reports on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+CustomReportsExecutionRequest executionRequest = new CustomReportsExecutionRequest(); // CustomReportsExecutionRequest | Request to execute custom reports
+try {
+    CustomReportsExecutionResponse result = apiInstance.executeCustomReports(executionRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#executeCustomReports");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **executionRequest** | [**CustomReportsExecutionRequest**](CustomReportsExecutionRequest.md)| Request to execute custom reports |
+
+### Return type
+
+[**CustomReportsExecutionResponse**](CustomReportsExecutionResponse.md)
 
 ### Authorization
 
@@ -263,6 +368,102 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getCustomDashboard"></a>
+# **getCustomDashboard**
+> CustomDashboardResponse getCustomDashboard(customDashboardOid)
+
+Get a custom dashboard
+
+Retrieve a custom dashboard 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+Integer customDashboardOid = 56; // Integer | 
+try {
+    CustomDashboardResponse result = apiInstance.getCustomDashboard(customDashboardOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#getCustomDashboard");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardOid** | **Integer**|  |
+
+### Return type
+
+[**CustomDashboardResponse**](CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getCustomDashboards"></a>
+# **getCustomDashboards**
+> CustomDashboardsResponse getCustomDashboards()
+
+Get custom dashboards
+
+Retrieve a custom dashboards 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+try {
+    CustomDashboardsResponse result = apiInstance.getCustomDashboards();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#getCustomDashboards");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CustomDashboardsResponse**](CustomDashboardsResponse.md)
 
 ### Authorization
 
@@ -659,6 +860,56 @@ This endpoint does not need any parameter.
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="insertCustomDashboard"></a>
+# **insertCustomDashboard**
+> CustomDashboardResponse insertCustomDashboard(dashboard)
+
+Create a custom dashboard
+
+Create a new custom dashboard on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+CustomDashboard dashboard = new CustomDashboard(); // CustomDashboard | Dashboard to create
+try {
+    CustomDashboardResponse result = apiInstance.insertCustomDashboard(dashboard);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#insertCustomDashboard");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboard** | [**CustomDashboard**](CustomDashboard.md)| Dashboard to create |
+
+### Return type
+
+[**CustomDashboardResponse**](CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
 <a name="insertCustomReport"></a>
 # **insertCustomReport**
 > CustomReportResponse insertCustomReport(report)
@@ -749,6 +1000,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ReportResponse**](ReportResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateCustomDashboard"></a>
+# **updateCustomDashboard**
+> CustomDashboardResponse updateCustomDashboard(dashboard, customDashboardOid)
+
+Update a custom dashboard
+
+Update a custom dashboard on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+CustomDashboard dashboard = new CustomDashboard(); // CustomDashboard | Dashboard to custom update
+Integer customDashboardOid = 56; // Integer | The dashboard oid to custom update.
+try {
+    CustomDashboardResponse result = apiInstance.updateCustomDashboard(dashboard, customDashboardOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#updateCustomDashboard");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboard** | [**CustomDashboard**](CustomDashboard.md)| Dashboard to custom update |
+ **customDashboardOid** | **Integer**| The dashboard oid to custom update. |
+
+### Return type
+
+[**CustomDashboardResponse**](CustomDashboardResponse.md)
 
 ### Authorization
 

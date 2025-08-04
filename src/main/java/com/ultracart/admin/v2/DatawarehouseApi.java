@@ -27,11 +27,17 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ultracart.admin.v2.models.CustomDashboard;
+import com.ultracart.admin.v2.models.CustomDashboardResponse;
+import com.ultracart.admin.v2.models.CustomDashboardsResponse;
 import com.ultracart.admin.v2.models.CustomReport;
 import com.ultracart.admin.v2.models.CustomReportAccountConfig;
 import com.ultracart.admin.v2.models.CustomReportAccountConfigResponse;
 import com.ultracart.admin.v2.models.CustomReportExecutionRequest;
+import com.ultracart.admin.v2.models.CustomReportExecutionResponse;
 import com.ultracart.admin.v2.models.CustomReportResponse;
+import com.ultracart.admin.v2.models.CustomReportsExecutionRequest;
+import com.ultracart.admin.v2.models.CustomReportsExecutionResponse;
 import com.ultracart.admin.v2.models.CustomReportsResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Report;
@@ -94,6 +100,125 @@ public class DatawarehouseApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for deleteCustomDashboard
+     * @param customDashboardOid The dashboard oid to delete. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCustomDashboardCall(Integer customDashboardOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}"
+            .replaceAll("\\{" + "custom_dashboard_oid" + "\\}", apiClient.escapeString(customDashboardOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteCustomDashboardValidateBeforeCall(Integer customDashboardOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customDashboardOid' is set
+        if (customDashboardOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardOid' when calling deleteCustomDashboard(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteCustomDashboardCall(customDashboardOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a custom dashboard
+     * Delete a custom dashboard on the UltraCart account. 
+     * @param customDashboardOid The dashboard oid to delete. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteCustomDashboard(Integer customDashboardOid) throws ApiException {
+        deleteCustomDashboardWithHttpInfo(customDashboardOid);
+    }
+
+    /**
+     * Delete a custom dashboard
+     * Delete a custom dashboard on the UltraCart account. 
+     * @param customDashboardOid The dashboard oid to delete. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteCustomDashboardWithHttpInfo(Integer customDashboardOid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteCustomDashboardValidateBeforeCall(customDashboardOid, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a custom dashboard (asynchronously)
+     * Delete a custom dashboard on the UltraCart account. 
+     * @param customDashboardOid The dashboard oid to delete. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteCustomDashboardAsync(Integer customDashboardOid, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteCustomDashboardValidateBeforeCall(customDashboardOid, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
     /**
      * Build call for deleteCustomReport
      * @param customReportOid The report oid to delete. (required)
@@ -529,11 +654,11 @@ public class DatawarehouseApi {
      * Execute a custom report on the UltraCart account. 
      * @param executionRequest Request to execute custom report (required)
      * @param customReportOid The report oid to execute. (required)
-     * @return CustomReportResponse
+     * @return CustomReportExecutionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomReportResponse executeCustomReport(CustomReportExecutionRequest executionRequest, Integer customReportOid) throws ApiException {
-        ApiResponse<CustomReportResponse> resp = executeCustomReportWithHttpInfo(executionRequest, customReportOid);
+    public CustomReportExecutionResponse executeCustomReport(CustomReportExecutionRequest executionRequest, Integer customReportOid) throws ApiException {
+        ApiResponse<CustomReportExecutionResponse> resp = executeCustomReportWithHttpInfo(executionRequest, customReportOid);
         return resp.getData();
     }
 
@@ -542,12 +667,12 @@ public class DatawarehouseApi {
      * Execute a custom report on the UltraCart account. 
      * @param executionRequest Request to execute custom report (required)
      * @param customReportOid The report oid to execute. (required)
-     * @return ApiResponse&lt;CustomReportResponse&gt;
+     * @return ApiResponse&lt;CustomReportExecutionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomReportResponse> executeCustomReportWithHttpInfo(CustomReportExecutionRequest executionRequest, Integer customReportOid) throws ApiException {
+    public ApiResponse<CustomReportExecutionResponse> executeCustomReportWithHttpInfo(CustomReportExecutionRequest executionRequest, Integer customReportOid) throws ApiException {
         com.squareup.okhttp.Call call = executeCustomReportValidateBeforeCall(executionRequest, customReportOid, null, null);
-        Type localVarReturnType = new TypeToken<CustomReportResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CustomReportExecutionResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -560,7 +685,7 @@ public class DatawarehouseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call executeCustomReportAsync(CustomReportExecutionRequest executionRequest, Integer customReportOid, final ApiCallback<CustomReportResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call executeCustomReportAsync(CustomReportExecutionRequest executionRequest, Integer customReportOid, final ApiCallback<CustomReportExecutionResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -582,7 +707,129 @@ public class DatawarehouseApi {
         }
 
         com.squareup.okhttp.Call call = executeCustomReportValidateBeforeCall(executionRequest, customReportOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CustomReportResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CustomReportExecutionResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for executeCustomReports
+     * @param executionRequest Request to execute custom reports (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call executeCustomReportsCall(CustomReportsExecutionRequest executionRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = executionRequest;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_reports/execute";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call executeCustomReportsValidateBeforeCall(CustomReportsExecutionRequest executionRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'executionRequest' is set
+        if (executionRequest == null) {
+            throw new ApiException("Missing the required parameter 'executionRequest' when calling executeCustomReports(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = executeCustomReportsCall(executionRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Execute a custom reports
+     * Execute a custom reports on the UltraCart account. 
+     * @param executionRequest Request to execute custom reports (required)
+     * @return CustomReportsExecutionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomReportsExecutionResponse executeCustomReports(CustomReportsExecutionRequest executionRequest) throws ApiException {
+        ApiResponse<CustomReportsExecutionResponse> resp = executeCustomReportsWithHttpInfo(executionRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Execute a custom reports
+     * Execute a custom reports on the UltraCart account. 
+     * @param executionRequest Request to execute custom reports (required)
+     * @return ApiResponse&lt;CustomReportsExecutionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomReportsExecutionResponse> executeCustomReportsWithHttpInfo(CustomReportsExecutionRequest executionRequest) throws ApiException {
+        com.squareup.okhttp.Call call = executeCustomReportsValidateBeforeCall(executionRequest, null, null);
+        Type localVarReturnType = new TypeToken<CustomReportsExecutionResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Execute a custom reports (asynchronously)
+     * Execute a custom reports on the UltraCart account. 
+     * @param executionRequest Request to execute custom reports (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call executeCustomReportsAsync(CustomReportsExecutionRequest executionRequest, final ApiCallback<CustomReportsExecutionResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = executeCustomReportsValidateBeforeCall(executionRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomReportsExecutionResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -702,6 +949,242 @@ public class DatawarehouseApi {
 
         com.squareup.okhttp.Call call = executeReportQueriesValidateBeforeCall(queryRequest, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for getCustomDashboard
+     * @param customDashboardOid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomDashboardCall(Integer customDashboardOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}"
+            .replaceAll("\\{" + "custom_dashboard_oid" + "\\}", apiClient.escapeString(customDashboardOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomDashboardValidateBeforeCall(Integer customDashboardOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customDashboardOid' is set
+        if (customDashboardOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardOid' when calling getCustomDashboard(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getCustomDashboardCall(customDashboardOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get a custom dashboard
+     * Retrieve a custom dashboard 
+     * @param customDashboardOid  (required)
+     * @return CustomDashboardResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomDashboardResponse getCustomDashboard(Integer customDashboardOid) throws ApiException {
+        ApiResponse<CustomDashboardResponse> resp = getCustomDashboardWithHttpInfo(customDashboardOid);
+        return resp.getData();
+    }
+
+    /**
+     * Get a custom dashboard
+     * Retrieve a custom dashboard 
+     * @param customDashboardOid  (required)
+     * @return ApiResponse&lt;CustomDashboardResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomDashboardResponse> getCustomDashboardWithHttpInfo(Integer customDashboardOid) throws ApiException {
+        com.squareup.okhttp.Call call = getCustomDashboardValidateBeforeCall(customDashboardOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get a custom dashboard (asynchronously)
+     * Retrieve a custom dashboard 
+     * @param customDashboardOid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getCustomDashboardAsync(Integer customDashboardOid, final ApiCallback<CustomDashboardResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomDashboardValidateBeforeCall(customDashboardOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getCustomDashboards
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomDashboardsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomDashboardsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getCustomDashboardsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get custom dashboards
+     * Retrieve a custom dashboards 
+     * @return CustomDashboardsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomDashboardsResponse getCustomDashboards() throws ApiException {
+        ApiResponse<CustomDashboardsResponse> resp = getCustomDashboardsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get custom dashboards
+     * Retrieve a custom dashboards 
+     * @return ApiResponse&lt;CustomDashboardsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomDashboardsResponse> getCustomDashboardsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getCustomDashboardsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<CustomDashboardsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get custom dashboards (asynchronously)
+     * Retrieve a custom dashboards 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getCustomDashboardsAsync(final ApiCallback<CustomDashboardsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomDashboardsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomDashboardsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -1659,6 +2142,128 @@ public class DatawarehouseApi {
         return call;
     }
     /**
+     * Build call for insertCustomDashboard
+     * @param dashboard Dashboard to create (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertCustomDashboardCall(CustomDashboard dashboard, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = dashboard;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertCustomDashboardValidateBeforeCall(CustomDashboard dashboard, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'dashboard' is set
+        if (dashboard == null) {
+            throw new ApiException("Missing the required parameter 'dashboard' when calling insertCustomDashboard(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertCustomDashboardCall(dashboard, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create a custom dashboard
+     * Create a new custom dashboard on the UltraCart account. 
+     * @param dashboard Dashboard to create (required)
+     * @return CustomDashboardResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomDashboardResponse insertCustomDashboard(CustomDashboard dashboard) throws ApiException {
+        ApiResponse<CustomDashboardResponse> resp = insertCustomDashboardWithHttpInfo(dashboard);
+        return resp.getData();
+    }
+
+    /**
+     * Create a custom dashboard
+     * Create a new custom dashboard on the UltraCart account. 
+     * @param dashboard Dashboard to create (required)
+     * @return ApiResponse&lt;CustomDashboardResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomDashboardResponse> insertCustomDashboardWithHttpInfo(CustomDashboard dashboard) throws ApiException {
+        com.squareup.okhttp.Call call = insertCustomDashboardValidateBeforeCall(dashboard, null, null);
+        Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a custom dashboard (asynchronously)
+     * Create a new custom dashboard on the UltraCart account. 
+     * @param dashboard Dashboard to create (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertCustomDashboardAsync(CustomDashboard dashboard, final ApiCallback<CustomDashboardResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertCustomDashboardValidateBeforeCall(dashboard, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for insertCustomReport
      * @param report Report to create (required)
      * @param progressListener Progress listener
@@ -1899,6 +2504,138 @@ public class DatawarehouseApi {
 
         com.squareup.okhttp.Call call = insertReportValidateBeforeCall(report, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ReportResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateCustomDashboard
+     * @param dashboard Dashboard to custom update (required)
+     * @param customDashboardOid The dashboard oid to custom update. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateCustomDashboardCall(CustomDashboard dashboard, Integer customDashboardOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = dashboard;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}"
+            .replaceAll("\\{" + "custom_dashboard_oid" + "\\}", apiClient.escapeString(customDashboardOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateCustomDashboardValidateBeforeCall(CustomDashboard dashboard, Integer customDashboardOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'dashboard' is set
+        if (dashboard == null) {
+            throw new ApiException("Missing the required parameter 'dashboard' when calling updateCustomDashboard(Async)");
+        }
+        
+        // verify the required parameter 'customDashboardOid' is set
+        if (customDashboardOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardOid' when calling updateCustomDashboard(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateCustomDashboardCall(dashboard, customDashboardOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update a custom dashboard
+     * Update a custom dashboard on the UltraCart account. 
+     * @param dashboard Dashboard to custom update (required)
+     * @param customDashboardOid The dashboard oid to custom update. (required)
+     * @return CustomDashboardResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomDashboardResponse updateCustomDashboard(CustomDashboard dashboard, Integer customDashboardOid) throws ApiException {
+        ApiResponse<CustomDashboardResponse> resp = updateCustomDashboardWithHttpInfo(dashboard, customDashboardOid);
+        return resp.getData();
+    }
+
+    /**
+     * Update a custom dashboard
+     * Update a custom dashboard on the UltraCart account. 
+     * @param dashboard Dashboard to custom update (required)
+     * @param customDashboardOid The dashboard oid to custom update. (required)
+     * @return ApiResponse&lt;CustomDashboardResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomDashboardResponse> updateCustomDashboardWithHttpInfo(CustomDashboard dashboard, Integer customDashboardOid) throws ApiException {
+        com.squareup.okhttp.Call call = updateCustomDashboardValidateBeforeCall(dashboard, customDashboardOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a custom dashboard (asynchronously)
+     * Update a custom dashboard on the UltraCart account. 
+     * @param dashboard Dashboard to custom update (required)
+     * @param customDashboardOid The dashboard oid to custom update. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateCustomDashboardAsync(CustomDashboard dashboard, Integer customDashboardOid, final ApiCallback<CustomDashboardResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateCustomDashboardValidateBeforeCall(dashboard, customDashboardOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

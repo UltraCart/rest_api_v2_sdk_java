@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * EmailWebhookEditorValuesResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-07-28T15:18:21.446-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T13:55:37.247-04:00")
 
 
 
@@ -45,6 +45,9 @@ public class EmailWebhookEditorValuesResponse {
 
   @SerializedName("error")
   private Error error = null;
+
+  @SerializedName("loyalty_tiers")
+  private List<String> loyaltyTiers = null;
 
   @SerializedName("metadata")
   private ResponseMetadata metadata = null;
@@ -126,6 +129,32 @@ public class EmailWebhookEditorValuesResponse {
 
   public void setError(Error error) {
     this.error = error;
+  }
+
+  public EmailWebhookEditorValuesResponse loyaltyTiers(List<String> loyaltyTiers) {
+    this.loyaltyTiers = loyaltyTiers;
+    return this;
+  }
+
+  public EmailWebhookEditorValuesResponse addLoyaltyTiersItem(String loyaltyTiersItem) {
+    if (this.loyaltyTiers == null) {
+      this.loyaltyTiers = new ArrayList<String>();
+    }
+    this.loyaltyTiers.add(loyaltyTiersItem);
+    return this;
+  }
+
+   /**
+   * Get loyaltyTiers
+   * @return loyaltyTiers
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getLoyaltyTiers() {
+    return loyaltyTiers;
+  }
+
+  public void setLoyaltyTiers(List<String> loyaltyTiers) {
+    this.loyaltyTiers = loyaltyTiers;
   }
 
   public EmailWebhookEditorValuesResponse metadata(ResponseMetadata metadata) {
@@ -213,6 +242,7 @@ public class EmailWebhookEditorValuesResponse {
     return Objects.equals(this.availableExpansions, emailWebhookEditorValuesResponse.availableExpansions) &&
         Objects.equals(this.availableTokens, emailWebhookEditorValuesResponse.availableTokens) &&
         Objects.equals(this.error, emailWebhookEditorValuesResponse.error) &&
+        Objects.equals(this.loyaltyTiers, emailWebhookEditorValuesResponse.loyaltyTiers) &&
         Objects.equals(this.metadata, emailWebhookEditorValuesResponse.metadata) &&
         Objects.equals(this.restObjectType, emailWebhookEditorValuesResponse.restObjectType) &&
         Objects.equals(this.success, emailWebhookEditorValuesResponse.success) &&
@@ -221,7 +251,7 @@ public class EmailWebhookEditorValuesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableExpansions, availableTokens, error, metadata, restObjectType, success, warning);
+    return Objects.hash(availableExpansions, availableTokens, error, loyaltyTiers, metadata, restObjectType, success, warning);
   }
 
 
@@ -233,6 +263,7 @@ public class EmailWebhookEditorValuesResponse {
     sb.append("    availableExpansions: ").append(toIndentedString(availableExpansions)).append("\n");
     sb.append("    availableTokens: ").append(toIndentedString(availableTokens)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    loyaltyTiers: ").append(toIndentedString(loyaltyTiers)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    restObjectType: ").append(toIndentedString(restObjectType)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
