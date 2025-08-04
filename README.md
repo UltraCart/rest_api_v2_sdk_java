@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-08-04T13:55:37.247-04:00
+  - Build date: 2025-08-04T14:34:21.528-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.17</version>
+  <version>3.11.18</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.17"
+compile "com.ultracart:rest-sdk:3.11.18"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.17.jar`
+* `target/rest-sdk-3.11.18.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -436,6 +436,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCampaigns**](docs/StorefrontApi.md#getEmailCampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 *StorefrontApi* | [**getEmailCampaignsWithStats**](docs/StorefrontApi.md#getEmailCampaignsWithStats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 *StorefrontApi* | [**getEmailCommseq**](docs/StorefrontApi.md#getEmailCommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
+*StorefrontApi* | [**getEmailCommseqEditorValues**](docs/StorefrontApi.md#getEmailCommseqEditorValues) | **GET** /storefront/{storefront_oid}/email/commseqs/editorValues | Get email merchant specific editor values
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/StorefrontApi.md#getEmailCommseqEmailStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqPostcardStats**](docs/StorefrontApi.md#getEmailCommseqPostcardStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 *StorefrontApi* | [**getEmailCommseqPostcardTracking**](docs/StorefrontApi.md#getEmailCommseqPostcardTracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
@@ -1044,6 +1045,7 @@ Class | Method | HTTP request | Description
  - [EmailDashboardStatsResponse](docs/EmailDashboardStatsResponse.md)
  - [EmailDomain](docs/EmailDomain.md)
  - [EmailEditorTokenResponse](docs/EmailEditorTokenResponse.md)
+ - [EmailEditorValuesResponse](docs/EmailEditorValuesResponse.md)
  - [EmailFlow](docs/EmailFlow.md)
  - [EmailFlowBackPopulateRequest](docs/EmailFlowBackPopulateRequest.md)
  - [EmailFlowBackPopulateResponse](docs/EmailFlowBackPopulateResponse.md)
@@ -1602,6 +1604,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.18 | 08/04/2025 | more internal development on loyalty step for storefront flows |
 | 3.11.17 | 08/04/2025 | small changes to internal flow app to support loyalty tier moves |
 | 3.11.16 | 07/28/2025 | updated doc samples |
 | 3.11.15 | 07/28/2025 | new order methods for blocking and unblocking refunds |
