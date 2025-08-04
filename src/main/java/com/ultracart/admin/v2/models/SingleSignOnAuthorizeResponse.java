@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SingleSignOnAuthorizeResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T15:30:33.009-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:09:35.885-04:00[America/Indianapolis]")
 public class SingleSignOnAuthorizeResponse {
   public static final String SERIALIZED_NAME_EXPIRATION_DTS = "expiration_dts";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DTS)

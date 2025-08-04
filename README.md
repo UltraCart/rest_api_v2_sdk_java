@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-07-28T15:30:33.009-04:00[America/Indianapolis]
+- Build date: 2025-08-04T14:09:35.885-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.16</version>
+    <version>4.1.17</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.16"
+     implementation "com.ultracart:rest-sdk:4.1.17"
   }
 ```
 
@@ -284,11 +284,15 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**updateWishListItem**](docs/CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 *CustomerApi* | [**validateEmailVerificationToken**](docs/CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
+*DatawarehouseApi* | [**deleteCustomDashboard**](docs/DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 *DatawarehouseApi* | [**deleteCustomReport**](docs/DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 *DatawarehouseApi* | [**deleteReport**](docs/DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 *DatawarehouseApi* | [**dryRunReportQueries**](docs/DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
 *DatawarehouseApi* | [**executeCustomReport**](docs/DatawarehouseApi.md#executeCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/execute | Execute a custom report
+*DatawarehouseApi* | [**executeCustomReports**](docs/DatawarehouseApi.md#executeCustomReports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 *DatawarehouseApi* | [**executeReportQueries**](docs/DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+*DatawarehouseApi* | [**getCustomDashboard**](docs/DatawarehouseApi.md#getCustomDashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+*DatawarehouseApi* | [**getCustomDashboards**](docs/DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 *DatawarehouseApi* | [**getCustomReport**](docs/DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 *DatawarehouseApi* | [**getCustomReportAccountConfig**](docs/DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
 *DatawarehouseApi* | [**getCustomReports**](docs/DatawarehouseApi.md#getCustomReports) | **GET** /datawarehouse/custom_reports | Get custom reports
@@ -297,8 +301,10 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**getReportDataSetPage**](docs/DatawarehouseApi.md#getReportDataSetPage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
 *DatawarehouseApi* | [**getReportWebsocketAuthorization**](docs/DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 *DatawarehouseApi* | [**getReports**](docs/DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
+*DatawarehouseApi* | [**insertCustomDashboard**](docs/DatawarehouseApi.md#insertCustomDashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
 *DatawarehouseApi* | [**insertCustomReport**](docs/DatawarehouseApi.md#insertCustomReport) | **POST** /datawarehouse/custom_reports | Create a custom report
 *DatawarehouseApi* | [**insertReport**](docs/DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
+*DatawarehouseApi* | [**updateCustomDashboard**](docs/DatawarehouseApi.md#updateCustomDashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
 *DatawarehouseApi* | [**updateCustomReport**](docs/DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 *DatawarehouseApi* | [**updateCustomReportAccountConfig**](docs/DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 *DatawarehouseApi* | [**updateReport**](docs/DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
@@ -419,6 +425,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCampaigns**](docs/StorefrontApi.md#getEmailCampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 *StorefrontApi* | [**getEmailCampaignsWithStats**](docs/StorefrontApi.md#getEmailCampaignsWithStats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 *StorefrontApi* | [**getEmailCommseq**](docs/StorefrontApi.md#getEmailCommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
+*StorefrontApi* | [**getEmailCommseqEditorValues**](docs/StorefrontApi.md#getEmailCommseqEditorValues) | **GET** /storefront/{storefront_oid}/email/commseqs/editorValues | Get email merchant specific editor values
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/StorefrontApi.md#getEmailCommseqEmailStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqPostcardStats**](docs/StorefrontApi.md#getEmailCommseqPostcardStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 *StorefrontApi* | [**getEmailCommseqPostcardTracking**](docs/StorefrontApi.md#getEmailCommseqPostcardTracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
@@ -924,16 +931,25 @@ Class | Method | HTTP request | Description
  - [CouponsRequest](docs/CouponsRequest.md)
  - [CouponsResponse](docs/CouponsResponse.md)
  - [Currency](docs/Currency.md)
+ - [CustomDashboard](docs/CustomDashboard.md)
+ - [CustomDashboardPage](docs/CustomDashboardPage.md)
+ - [CustomDashboardPageReport](docs/CustomDashboardPageReport.md)
+ - [CustomDashboardResponse](docs/CustomDashboardResponse.md)
+ - [CustomDashboardsResponse](docs/CustomDashboardsResponse.md)
  - [CustomReport](docs/CustomReport.md)
  - [CustomReportAccountConfig](docs/CustomReportAccountConfig.md)
  - [CustomReportAccountConfigResponse](docs/CustomReportAccountConfigResponse.md)
  - [CustomReportExecutionParameter](docs/CustomReportExecutionParameter.md)
  - [CustomReportExecutionRequest](docs/CustomReportExecutionRequest.md)
+ - [CustomReportExecutionResponse](docs/CustomReportExecutionResponse.md)
  - [CustomReportParameter](docs/CustomReportParameter.md)
  - [CustomReportParameterOption](docs/CustomReportParameterOption.md)
  - [CustomReportQuery](docs/CustomReportQuery.md)
  - [CustomReportResponse](docs/CustomReportResponse.md)
  - [CustomReportTooltip](docs/CustomReportTooltip.md)
+ - [CustomReportsExecutionReportData](docs/CustomReportsExecutionReportData.md)
+ - [CustomReportsExecutionRequest](docs/CustomReportsExecutionRequest.md)
+ - [CustomReportsExecutionResponse](docs/CustomReportsExecutionResponse.md)
  - [CustomReportsResponse](docs/CustomReportsResponse.md)
  - [Customer](docs/Customer.md)
  - [CustomerActivity](docs/CustomerActivity.md)
@@ -1017,6 +1033,7 @@ Class | Method | HTTP request | Description
  - [EmailDashboardStatsResponse](docs/EmailDashboardStatsResponse.md)
  - [EmailDomain](docs/EmailDomain.md)
  - [EmailEditorTokenResponse](docs/EmailEditorTokenResponse.md)
+ - [EmailEditorValuesResponse](docs/EmailEditorValuesResponse.md)
  - [EmailFlow](docs/EmailFlow.md)
  - [EmailFlowBackPopulateRequest](docs/EmailFlowBackPopulateRequest.md)
  - [EmailFlowBackPopulateResponse](docs/EmailFlowBackPopulateResponse.md)
@@ -1575,6 +1592,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.17 | 08/04/2025 | small changes to internal flow app to support loyalty tier moves |
 | 4.1.16 | 07/28/2025 | updated doc samples |
 | 4.1.15 | 07/28/2025 | new order methods for blocking and unblocking refunds |
 | 4.1.14 | 07/10/2025 | automation test |

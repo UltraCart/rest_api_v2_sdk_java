@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T15:30:33.009-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:09:35.885-04:00[America/Indianapolis]")
 public class CustomReport {
   public static final String SERIALIZED_NAME_CHART_JAVASCRIPT = "chart_javascript";
   @SerializedName(SERIALIZED_NAME_CHART_JAVASCRIPT)
