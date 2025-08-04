@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AffiliateLedger
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:09:35.885-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:46:06.786-04:00[America/Indianapolis]")
 public class AffiliateLedger {
   public static final String SERIALIZED_NAME_AFFILIATE_CLICK_OID = "affiliate_click_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_CLICK_OID)
