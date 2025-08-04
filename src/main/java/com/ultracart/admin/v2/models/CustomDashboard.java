@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CustomDashboardExecutionParameter;
 import com.ultracart.admin.v2.models.CustomDashboardPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * CustomDashboard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:34:21.528-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:21:10.809-04:00")
 
 
 
@@ -46,6 +47,9 @@ public class CustomDashboard {
 
   @SerializedName("pages")
   private List<CustomDashboardPage> pages = null;
+
+  @SerializedName("parameters")
+  private List<CustomDashboardExecutionParameter> parameters = null;
 
   public CustomDashboard dataWarehouseCustomDashboardOid(Integer dataWarehouseCustomDashboardOid) {
     this.dataWarehouseCustomDashboardOid = dataWarehouseCustomDashboardOid;
@@ -127,6 +131,32 @@ public class CustomDashboard {
     this.pages = pages;
   }
 
+  public CustomDashboard parameters(List<CustomDashboardExecutionParameter> parameters) {
+    this.parameters = parameters;
+    return this;
+  }
+
+  public CustomDashboard addParametersItem(CustomDashboardExecutionParameter parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<CustomDashboardExecutionParameter>();
+    }
+    this.parameters.add(parametersItem);
+    return this;
+  }
+
+   /**
+   * Get parameters
+   * @return parameters
+  **/
+  @ApiModelProperty(value = "")
+  public List<CustomDashboardExecutionParameter> getParameters() {
+    return parameters;
+  }
+
+  public void setParameters(List<CustomDashboardExecutionParameter> parameters) {
+    this.parameters = parameters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -140,12 +170,13 @@ public class CustomDashboard {
     return Objects.equals(this.dataWarehouseCustomDashboardOid, customDashboard.dataWarehouseCustomDashboardOid) &&
         Objects.equals(this.merchantId, customDashboard.merchantId) &&
         Objects.equals(this.name, customDashboard.name) &&
-        Objects.equals(this.pages, customDashboard.pages);
+        Objects.equals(this.pages, customDashboard.pages) &&
+        Objects.equals(this.parameters, customDashboard.parameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataWarehouseCustomDashboardOid, merchantId, name, pages);
+    return Objects.hash(dataWarehouseCustomDashboardOid, merchantId, name, pages, parameters);
   }
 
 
@@ -158,6 +189,7 @@ public class CustomDashboard {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

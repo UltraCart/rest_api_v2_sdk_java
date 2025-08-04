@@ -20,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationVirtualAgentCapabilityZohoDeskDepartment;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:34:21.528-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:21:10.809-04:00")
 
 
 
@@ -56,9 +59,9 @@ public class ConversationVirtualAgentCapabilities {
     
     EMAIL("email"),
     
-    ULTRACART_TASK("UltraCart Task"),
+    ULTRACART_TASK("ultracart_task"),
     
-    ZOHO_DESK_TICKET("Zoho Desk Ticket");
+    ZOHO_DESK_TICKET("zoho_desk_ticket");
 
     private String value;
 
@@ -104,6 +107,9 @@ public class ConversationVirtualAgentCapabilities {
   @SerializedName("open_support_ticket_channel_email")
   private String openSupportTicketChannelEmail = null;
 
+  @SerializedName("open_support_ticket_zoho_desk_department_id")
+  private String openSupportTicketZohoDeskDepartmentId = null;
+
   @SerializedName("pause_subscription")
   private Boolean pauseSubscription = null;
 
@@ -115,6 +121,12 @@ public class ConversationVirtualAgentCapabilities {
 
   @SerializedName("update_subscription_credit_card")
   private Boolean updateSubscriptionCreditCard = null;
+
+  @SerializedName("zoho_desk_available")
+  private Boolean zohoDeskAvailable = null;
+
+  @SerializedName("zoho_desk_departments")
+  private List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = null;
 
   public ConversationVirtualAgentCapabilities cancelSubscription(Boolean cancelSubscription) {
     this.cancelSubscription = cancelSubscription;
@@ -242,6 +254,24 @@ public class ConversationVirtualAgentCapabilities {
     this.openSupportTicketChannelEmail = openSupportTicketChannelEmail;
   }
 
+  public ConversationVirtualAgentCapabilities openSupportTicketZohoDeskDepartmentId(String openSupportTicketZohoDeskDepartmentId) {
+    this.openSupportTicketZohoDeskDepartmentId = openSupportTicketZohoDeskDepartmentId;
+    return this;
+  }
+
+   /**
+   * Department ID to open a Zoho Desk ticket for
+   * @return openSupportTicketZohoDeskDepartmentId
+  **/
+  @ApiModelProperty(value = "Department ID to open a Zoho Desk ticket for")
+  public String getOpenSupportTicketZohoDeskDepartmentId() {
+    return openSupportTicketZohoDeskDepartmentId;
+  }
+
+  public void setOpenSupportTicketZohoDeskDepartmentId(String openSupportTicketZohoDeskDepartmentId) {
+    this.openSupportTicketZohoDeskDepartmentId = openSupportTicketZohoDeskDepartmentId;
+  }
+
   public ConversationVirtualAgentCapabilities pauseSubscription(Boolean pauseSubscription) {
     this.pauseSubscription = pauseSubscription;
     return this;
@@ -314,6 +344,50 @@ public class ConversationVirtualAgentCapabilities {
     this.updateSubscriptionCreditCard = updateSubscriptionCreditCard;
   }
 
+  public ConversationVirtualAgentCapabilities zohoDeskAvailable(Boolean zohoDeskAvailable) {
+    this.zohoDeskAvailable = zohoDeskAvailable;
+    return this;
+  }
+
+   /**
+   * True if Zoho Desk is connected to UltraCart
+   * @return zohoDeskAvailable
+  **/
+  @ApiModelProperty(value = "True if Zoho Desk is connected to UltraCart")
+  public Boolean isZohoDeskAvailable() {
+    return zohoDeskAvailable;
+  }
+
+  public void setZohoDeskAvailable(Boolean zohoDeskAvailable) {
+    this.zohoDeskAvailable = zohoDeskAvailable;
+  }
+
+  public ConversationVirtualAgentCapabilities zohoDeskDepartments(List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments) {
+    this.zohoDeskDepartments = zohoDeskDepartments;
+    return this;
+  }
+
+  public ConversationVirtualAgentCapabilities addZohoDeskDepartmentsItem(ConversationVirtualAgentCapabilityZohoDeskDepartment zohoDeskDepartmentsItem) {
+    if (this.zohoDeskDepartments == null) {
+      this.zohoDeskDepartments = new ArrayList<ConversationVirtualAgentCapabilityZohoDeskDepartment>();
+    }
+    this.zohoDeskDepartments.add(zohoDeskDepartmentsItem);
+    return this;
+  }
+
+   /**
+   * Array of Zoho Desk Department if zoho desk is connected to UltraCart
+   * @return zohoDeskDepartments
+  **/
+  @ApiModelProperty(value = "Array of Zoho Desk Department if zoho desk is connected to UltraCart")
+  public List<ConversationVirtualAgentCapabilityZohoDeskDepartment> getZohoDeskDepartments() {
+    return zohoDeskDepartments;
+  }
+
+  public void setZohoDeskDepartments(List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments) {
+    this.zohoDeskDepartments = zohoDeskDepartments;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -331,15 +405,18 @@ public class ConversationVirtualAgentCapabilities {
         Objects.equals(this.openSupportTicket, conversationVirtualAgentCapabilities.openSupportTicket) &&
         Objects.equals(this.openSupportTicketChannel, conversationVirtualAgentCapabilities.openSupportTicketChannel) &&
         Objects.equals(this.openSupportTicketChannelEmail, conversationVirtualAgentCapabilities.openSupportTicketChannelEmail) &&
+        Objects.equals(this.openSupportTicketZohoDeskDepartmentId, conversationVirtualAgentCapabilities.openSupportTicketZohoDeskDepartmentId) &&
         Objects.equals(this.pauseSubscription, conversationVirtualAgentCapabilities.pauseSubscription) &&
         Objects.equals(this.resumeSubscription, conversationVirtualAgentCapabilities.resumeSubscription) &&
         Objects.equals(this.transferChatToLiveAgent, conversationVirtualAgentCapabilities.transferChatToLiveAgent) &&
-        Objects.equals(this.updateSubscriptionCreditCard, conversationVirtualAgentCapabilities.updateSubscriptionCreditCard);
+        Objects.equals(this.updateSubscriptionCreditCard, conversationVirtualAgentCapabilities.updateSubscriptionCreditCard) &&
+        Objects.equals(this.zohoDeskAvailable, conversationVirtualAgentCapabilities.zohoDeskAvailable) &&
+        Objects.equals(this.zohoDeskDepartments, conversationVirtualAgentCapabilities.zohoDeskDepartments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard);
+    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
   }
 
 
@@ -355,10 +432,13 @@ public class ConversationVirtualAgentCapabilities {
     sb.append("    openSupportTicket: ").append(toIndentedString(openSupportTicket)).append("\n");
     sb.append("    openSupportTicketChannel: ").append(toIndentedString(openSupportTicketChannel)).append("\n");
     sb.append("    openSupportTicketChannelEmail: ").append(toIndentedString(openSupportTicketChannelEmail)).append("\n");
+    sb.append("    openSupportTicketZohoDeskDepartmentId: ").append(toIndentedString(openSupportTicketZohoDeskDepartmentId)).append("\n");
     sb.append("    pauseSubscription: ").append(toIndentedString(pauseSubscription)).append("\n");
     sb.append("    resumeSubscription: ").append(toIndentedString(resumeSubscription)).append("\n");
     sb.append("    transferChatToLiveAgent: ").append(toIndentedString(transferChatToLiveAgent)).append("\n");
     sb.append("    updateSubscriptionCreditCard: ").append(toIndentedString(updateSubscriptionCreditCard)).append("\n");
+    sb.append("    zohoDeskAvailable: ").append(toIndentedString(zohoDeskAvailable)).append("\n");
+    sb.append("    zohoDeskDepartments: ").append(toIndentedString(zohoDeskDepartments)).append("\n");
     sb.append("}");
     return sb.toString();
   }

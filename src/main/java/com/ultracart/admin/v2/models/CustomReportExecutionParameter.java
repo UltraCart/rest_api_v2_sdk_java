@@ -27,13 +27,16 @@ import java.io.IOException;
 /**
  * CustomReportExecutionParameter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:34:21.528-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:21:10.809-04:00")
 
 
 
 public class CustomReportExecutionParameter {
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("quick_pick_key")
+  private String quickPickKey = null;
 
   @SerializedName("type")
   private String type = null;
@@ -57,6 +60,24 @@ public class CustomReportExecutionParameter {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CustomReportExecutionParameter quickPickKey(String quickPickKey) {
+    this.quickPickKey = quickPickKey;
+    return this;
+  }
+
+   /**
+   * Get quickPickKey
+   * @return quickPickKey
+  **/
+  @ApiModelProperty(value = "")
+  public String getQuickPickKey() {
+    return quickPickKey;
+  }
+
+  public void setQuickPickKey(String quickPickKey) {
+    this.quickPickKey = quickPickKey;
   }
 
   public CustomReportExecutionParameter type(String type) {
@@ -106,13 +127,14 @@ public class CustomReportExecutionParameter {
     }
     CustomReportExecutionParameter customReportExecutionParameter = (CustomReportExecutionParameter) o;
     return Objects.equals(this.name, customReportExecutionParameter.name) &&
+        Objects.equals(this.quickPickKey, customReportExecutionParameter.quickPickKey) &&
         Objects.equals(this.type, customReportExecutionParameter.type) &&
         Objects.equals(this.value, customReportExecutionParameter.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, value);
+    return Objects.hash(name, quickPickKey, type, value);
   }
 
 
@@ -122,6 +144,7 @@ public class CustomReportExecutionParameter {
     sb.append("class CustomReportExecutionParameter {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    quickPickKey: ").append(toIndentedString(quickPickKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

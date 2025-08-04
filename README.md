@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-08-04T14:34:21.528-04:00
+  - Build date: 2025-08-04T16:21:10.809-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.18</version>
+  <version>3.11.19</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.18"
+compile "com.ultracart:rest-sdk:3.11.19"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.18.jar`
+* `target/rest-sdk-3.11.19.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -863,6 +863,7 @@ Class | Method | HTTP request | Description
  - [ConversationVirtualAgentBudgetResponse](docs/ConversationVirtualAgentBudgetResponse.md)
  - [ConversationVirtualAgentCapabilities](docs/ConversationVirtualAgentCapabilities.md)
  - [ConversationVirtualAgentCapabilitiesResponse](docs/ConversationVirtualAgentCapabilitiesResponse.md)
+ - [ConversationVirtualAgentCapabilityZohoDeskDepartment](docs/ConversationVirtualAgentCapabilityZohoDeskDepartment.md)
  - [ConversationWebchatContext](docs/ConversationWebchatContext.md)
  - [ConversationWebchatQueueStatus](docs/ConversationWebchatQueueStatus.md)
  - [ConversationWebchatQueueStatusAgent](docs/ConversationWebchatQueueStatusAgent.md)
@@ -944,6 +945,7 @@ Class | Method | HTTP request | Description
  - [CouponsResponse](docs/CouponsResponse.md)
  - [Currency](docs/Currency.md)
  - [CustomDashboard](docs/CustomDashboard.md)
+ - [CustomDashboardExecutionParameter](docs/CustomDashboardExecutionParameter.md)
  - [CustomDashboardPage](docs/CustomDashboardPage.md)
  - [CustomDashboardPageReport](docs/CustomDashboardPageReport.md)
  - [CustomDashboardResponse](docs/CustomDashboardResponse.md)
@@ -1604,6 +1606,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |
 | 3.11.18 | 08/04/2025 | more internal development on loyalty step for storefront flows |
 | 3.11.17 | 08/04/2025 | small changes to internal flow app to support loyalty tier moves |
 | 3.11.16 | 07/28/2025 | updated doc samples |

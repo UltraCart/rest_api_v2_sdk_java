@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.ultracart'
-version = '3.11.18'
+version = '3.11.19'
 
 buildscript {
     repositories {
