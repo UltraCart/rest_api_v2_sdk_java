@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationVirtualAgentCapabilityZohoDeskDepartment;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:46:06.786-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
 public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_CANCEL_SUBSCRIPTION = "cancel_subscription";
   @SerializedName(SERIALIZED_NAME_CANCEL_SUBSCRIPTION)
@@ -78,9 +81,9 @@ public class ConversationVirtualAgentCapabilities {
     
     EMAIL("email"),
     
-    ULTRACART_TASK("UltraCart Task"),
+    ULTRACART_TASK("ultracart_task"),
     
-    ZOHO_DESK_TICKET("Zoho Desk Ticket");
+    ZOHO_DESK_TICKET("zoho_desk_ticket");
 
     private String value;
 
@@ -128,6 +131,10 @@ public class ConversationVirtualAgentCapabilities {
   @SerializedName(SERIALIZED_NAME_OPEN_SUPPORT_TICKET_CHANNEL_EMAIL)
   private String openSupportTicketChannelEmail;
 
+  public static final String SERIALIZED_NAME_OPEN_SUPPORT_TICKET_ZOHO_DESK_DEPARTMENT_ID = "open_support_ticket_zoho_desk_department_id";
+  @SerializedName(SERIALIZED_NAME_OPEN_SUPPORT_TICKET_ZOHO_DESK_DEPARTMENT_ID)
+  private String openSupportTicketZohoDeskDepartmentId;
+
   public static final String SERIALIZED_NAME_PAUSE_SUBSCRIPTION = "pause_subscription";
   @SerializedName(SERIALIZED_NAME_PAUSE_SUBSCRIPTION)
   private Boolean pauseSubscription;
@@ -143,6 +150,14 @@ public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_UPDATE_SUBSCRIPTION_CREDIT_CARD = "update_subscription_credit_card";
   @SerializedName(SERIALIZED_NAME_UPDATE_SUBSCRIPTION_CREDIT_CARD)
   private Boolean updateSubscriptionCreditCard;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_AVAILABLE = "zoho_desk_available";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_AVAILABLE)
+  private Boolean zohoDeskAvailable;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_DEPARTMENTS = "zoho_desk_departments";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_DEPARTMENTS)
+  private List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = null;
 
   public ConversationVirtualAgentCapabilities() { 
   }
@@ -308,6 +323,29 @@ public class ConversationVirtualAgentCapabilities {
   }
 
 
+  public ConversationVirtualAgentCapabilities openSupportTicketZohoDeskDepartmentId(String openSupportTicketZohoDeskDepartmentId) {
+    
+    this.openSupportTicketZohoDeskDepartmentId = openSupportTicketZohoDeskDepartmentId;
+    return this;
+  }
+
+   /**
+   * Department ID to open a Zoho Desk ticket for
+   * @return openSupportTicketZohoDeskDepartmentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Department ID to open a Zoho Desk ticket for")
+
+  public String getOpenSupportTicketZohoDeskDepartmentId() {
+    return openSupportTicketZohoDeskDepartmentId;
+  }
+
+
+  public void setOpenSupportTicketZohoDeskDepartmentId(String openSupportTicketZohoDeskDepartmentId) {
+    this.openSupportTicketZohoDeskDepartmentId = openSupportTicketZohoDeskDepartmentId;
+  }
+
+
   public ConversationVirtualAgentCapabilities pauseSubscription(Boolean pauseSubscription) {
     
     this.pauseSubscription = pauseSubscription;
@@ -400,6 +438,60 @@ public class ConversationVirtualAgentCapabilities {
   }
 
 
+  public ConversationVirtualAgentCapabilities zohoDeskAvailable(Boolean zohoDeskAvailable) {
+    
+    this.zohoDeskAvailable = zohoDeskAvailable;
+    return this;
+  }
+
+   /**
+   * True if Zoho Desk is connected to UltraCart
+   * @return zohoDeskAvailable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if Zoho Desk is connected to UltraCart")
+
+  public Boolean getZohoDeskAvailable() {
+    return zohoDeskAvailable;
+  }
+
+
+  public void setZohoDeskAvailable(Boolean zohoDeskAvailable) {
+    this.zohoDeskAvailable = zohoDeskAvailable;
+  }
+
+
+  public ConversationVirtualAgentCapabilities zohoDeskDepartments(List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments) {
+    
+    this.zohoDeskDepartments = zohoDeskDepartments;
+    return this;
+  }
+
+  public ConversationVirtualAgentCapabilities addZohoDeskDepartmentsItem(ConversationVirtualAgentCapabilityZohoDeskDepartment zohoDeskDepartmentsItem) {
+    if (this.zohoDeskDepartments == null) {
+      this.zohoDeskDepartments = new ArrayList<>();
+    }
+    this.zohoDeskDepartments.add(zohoDeskDepartmentsItem);
+    return this;
+  }
+
+   /**
+   * Array of Zoho Desk Department if zoho desk is connected to UltraCart
+   * @return zohoDeskDepartments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of Zoho Desk Department if zoho desk is connected to UltraCart")
+
+  public List<ConversationVirtualAgentCapabilityZohoDeskDepartment> getZohoDeskDepartments() {
+    return zohoDeskDepartments;
+  }
+
+
+  public void setZohoDeskDepartments(List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments) {
+    this.zohoDeskDepartments = zohoDeskDepartments;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -417,15 +509,18 @@ public class ConversationVirtualAgentCapabilities {
         Objects.equals(this.openSupportTicket, conversationVirtualAgentCapabilities.openSupportTicket) &&
         Objects.equals(this.openSupportTicketChannel, conversationVirtualAgentCapabilities.openSupportTicketChannel) &&
         Objects.equals(this.openSupportTicketChannelEmail, conversationVirtualAgentCapabilities.openSupportTicketChannelEmail) &&
+        Objects.equals(this.openSupportTicketZohoDeskDepartmentId, conversationVirtualAgentCapabilities.openSupportTicketZohoDeskDepartmentId) &&
         Objects.equals(this.pauseSubscription, conversationVirtualAgentCapabilities.pauseSubscription) &&
         Objects.equals(this.resumeSubscription, conversationVirtualAgentCapabilities.resumeSubscription) &&
         Objects.equals(this.transferChatToLiveAgent, conversationVirtualAgentCapabilities.transferChatToLiveAgent) &&
-        Objects.equals(this.updateSubscriptionCreditCard, conversationVirtualAgentCapabilities.updateSubscriptionCreditCard);
+        Objects.equals(this.updateSubscriptionCreditCard, conversationVirtualAgentCapabilities.updateSubscriptionCreditCard) &&
+        Objects.equals(this.zohoDeskAvailable, conversationVirtualAgentCapabilities.zohoDeskAvailable) &&
+        Objects.equals(this.zohoDeskDepartments, conversationVirtualAgentCapabilities.zohoDeskDepartments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard);
+    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
   }
 
   @Override
@@ -439,10 +534,13 @@ public class ConversationVirtualAgentCapabilities {
     sb.append("    openSupportTicket: ").append(toIndentedString(openSupportTicket)).append("\n");
     sb.append("    openSupportTicketChannel: ").append(toIndentedString(openSupportTicketChannel)).append("\n");
     sb.append("    openSupportTicketChannelEmail: ").append(toIndentedString(openSupportTicketChannelEmail)).append("\n");
+    sb.append("    openSupportTicketZohoDeskDepartmentId: ").append(toIndentedString(openSupportTicketZohoDeskDepartmentId)).append("\n");
     sb.append("    pauseSubscription: ").append(toIndentedString(pauseSubscription)).append("\n");
     sb.append("    resumeSubscription: ").append(toIndentedString(resumeSubscription)).append("\n");
     sb.append("    transferChatToLiveAgent: ").append(toIndentedString(transferChatToLiveAgent)).append("\n");
     sb.append("    updateSubscriptionCreditCard: ").append(toIndentedString(updateSubscriptionCreditCard)).append("\n");
+    sb.append("    zohoDeskAvailable: ").append(toIndentedString(zohoDeskAvailable)).append("\n");
+    sb.append("    zohoDeskDepartments: ").append(toIndentedString(zohoDeskDepartments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -472,10 +570,13 @@ public class ConversationVirtualAgentCapabilities {
     openapiFields.add("open_support_ticket");
     openapiFields.add("open_support_ticket_channel");
     openapiFields.add("open_support_ticket_channel_email");
+    openapiFields.add("open_support_ticket_zoho_desk_department_id");
     openapiFields.add("pause_subscription");
     openapiFields.add("resume_subscription");
     openapiFields.add("transfer_chat_to_live_agent");
     openapiFields.add("update_subscription_credit_card");
+    openapiFields.add("zoho_desk_available");
+    openapiFields.add("zoho_desk_departments");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -508,6 +609,21 @@ public class ConversationVirtualAgentCapabilities {
       }
       if (jsonObj.get("open_support_ticket_channel_email") != null && !jsonObj.get("open_support_ticket_channel_email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `open_support_ticket_channel_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("open_support_ticket_channel_email").toString()));
+      }
+      if (jsonObj.get("open_support_ticket_zoho_desk_department_id") != null && !jsonObj.get("open_support_ticket_zoho_desk_department_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `open_support_ticket_zoho_desk_department_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("open_support_ticket_zoho_desk_department_id").toString()));
+      }
+      JsonArray jsonArrayzohoDeskDepartments = jsonObj.getAsJsonArray("zoho_desk_departments");
+      if (jsonArrayzohoDeskDepartments != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("zoho_desk_departments").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `zoho_desk_departments` to be an array in the JSON string but got `%s`", jsonObj.get("zoho_desk_departments").toString()));
+        }
+
+        // validate the optional field `zoho_desk_departments` (array)
+        for (int i = 0; i < jsonArrayzohoDeskDepartments.size(); i++) {
+          ConversationVirtualAgentCapabilityZohoDeskDepartment.validateJsonObject(jsonArrayzohoDeskDepartments.get(i).getAsJsonObject());
+        };
       }
   }
 

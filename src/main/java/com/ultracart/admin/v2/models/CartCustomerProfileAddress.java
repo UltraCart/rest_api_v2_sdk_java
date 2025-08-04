@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartCustomerProfileAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:46:06.786-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
 public class CartCustomerProfileAddress {
   public static final String SERIALIZED_NAME_ADDRESS1 = "address1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)

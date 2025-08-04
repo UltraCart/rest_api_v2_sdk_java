@@ -47,11 +47,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomReportExecutionParameter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:46:06.786-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
 public class CustomReportExecutionParameter {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_QUICK_PICK_KEY = "quick_pick_key";
+  @SerializedName(SERIALIZED_NAME_QUICK_PICK_KEY)
+  private String quickPickKey;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -84,6 +88,29 @@ public class CustomReportExecutionParameter {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CustomReportExecutionParameter quickPickKey(String quickPickKey) {
+    
+    this.quickPickKey = quickPickKey;
+    return this;
+  }
+
+   /**
+   * Get quickPickKey
+   * @return quickPickKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getQuickPickKey() {
+    return quickPickKey;
+  }
+
+
+  public void setQuickPickKey(String quickPickKey) {
+    this.quickPickKey = quickPickKey;
   }
 
 
@@ -144,13 +171,14 @@ public class CustomReportExecutionParameter {
     }
     CustomReportExecutionParameter customReportExecutionParameter = (CustomReportExecutionParameter) o;
     return Objects.equals(this.name, customReportExecutionParameter.name) &&
+        Objects.equals(this.quickPickKey, customReportExecutionParameter.quickPickKey) &&
         Objects.equals(this.type, customReportExecutionParameter.type) &&
         Objects.equals(this.value, customReportExecutionParameter.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, value);
+    return Objects.hash(name, quickPickKey, type, value);
   }
 
   @Override
@@ -158,6 +186,7 @@ public class CustomReportExecutionParameter {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomReportExecutionParameter {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    quickPickKey: ").append(toIndentedString(quickPickKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -183,6 +212,7 @@ public class CustomReportExecutionParameter {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("quick_pick_key");
     openapiFields.add("type");
     openapiFields.add("value");
 
@@ -214,6 +244,9 @@ public class CustomReportExecutionParameter {
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (jsonObj.get("quick_pick_key") != null && !jsonObj.get("quick_pick_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `quick_pick_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quick_pick_key").toString()));
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CustomDashboardExecutionParameter;
 import com.ultracart.admin.v2.models.CustomDashboardPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomDashboard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:46:06.786-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
 public class CustomDashboard {
   public static final String SERIALIZED_NAME_DATA_WAREHOUSE_CUSTOM_DASHBOARD_OID = "data_warehouse_custom_dashboard_oid";
   @SerializedName(SERIALIZED_NAME_DATA_WAREHOUSE_CUSTOM_DASHBOARD_OID)
@@ -67,6 +68,10 @@ public class CustomDashboard {
   public static final String SERIALIZED_NAME_PAGES = "pages";
   @SerializedName(SERIALIZED_NAME_PAGES)
   private List<CustomDashboardPage> pages = null;
+
+  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+  @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  private List<CustomDashboardExecutionParameter> parameters = null;
 
   public CustomDashboard() { 
   }
@@ -171,6 +176,37 @@ public class CustomDashboard {
   }
 
 
+  public CustomDashboard parameters(List<CustomDashboardExecutionParameter> parameters) {
+    
+    this.parameters = parameters;
+    return this;
+  }
+
+  public CustomDashboard addParametersItem(CustomDashboardExecutionParameter parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<>();
+    }
+    this.parameters.add(parametersItem);
+    return this;
+  }
+
+   /**
+   * Get parameters
+   * @return parameters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<CustomDashboardExecutionParameter> getParameters() {
+    return parameters;
+  }
+
+
+  public void setParameters(List<CustomDashboardExecutionParameter> parameters) {
+    this.parameters = parameters;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -184,12 +220,13 @@ public class CustomDashboard {
     return Objects.equals(this.dataWarehouseCustomDashboardOid, customDashboard.dataWarehouseCustomDashboardOid) &&
         Objects.equals(this.merchantId, customDashboard.merchantId) &&
         Objects.equals(this.name, customDashboard.name) &&
-        Objects.equals(this.pages, customDashboard.pages);
+        Objects.equals(this.pages, customDashboard.pages) &&
+        Objects.equals(this.parameters, customDashboard.parameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataWarehouseCustomDashboardOid, merchantId, name, pages);
+    return Objects.hash(dataWarehouseCustomDashboardOid, merchantId, name, pages, parameters);
   }
 
   @Override
@@ -200,6 +237,7 @@ public class CustomDashboard {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -226,6 +264,7 @@ public class CustomDashboard {
     openapiFields.add("merchant_id");
     openapiFields.add("name");
     openapiFields.add("pages");
+    openapiFields.add("parameters");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -269,6 +308,18 @@ public class CustomDashboard {
         // validate the optional field `pages` (array)
         for (int i = 0; i < jsonArraypages.size(); i++) {
           CustomDashboardPage.validateJsonObject(jsonArraypages.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArrayparameters = jsonObj.getAsJsonArray("parameters");
+      if (jsonArrayparameters != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("parameters").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `parameters` to be an array in the JSON string but got `%s`", jsonObj.get("parameters").toString()));
+        }
+
+        // validate the optional field `parameters` (array)
+        for (int i = 0; i < jsonArrayparameters.size(); i++) {
+          CustomDashboardExecutionParameter.validateJsonObject(jsonArrayparameters.get(i).getAsJsonObject());
         };
       }
   }

@@ -13,7 +13,7 @@
 
 package com.ultracart.admin.v2.util;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T14:46:06.786-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

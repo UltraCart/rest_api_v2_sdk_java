@@ -234,6 +234,7 @@ docs/ConversationVirtualAgentBudget.md
 docs/ConversationVirtualAgentBudgetResponse.md
 docs/ConversationVirtualAgentCapabilities.md
 docs/ConversationVirtualAgentCapabilitiesResponse.md
+docs/ConversationVirtualAgentCapabilityZohoDeskDepartment.md
 docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
@@ -316,6 +317,7 @@ docs/CouponsRequest.md
 docs/CouponsResponse.md
 docs/Currency.md
 docs/CustomDashboard.md
+docs/CustomDashboardExecutionParameter.md
 docs/CustomDashboardPage.md
 docs/CustomDashboardPageReport.md
 docs/CustomDashboardResponse.md
@@ -1164,6 +1166,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentBudget.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentBudgetResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilities.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilitiesResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilityZohoDeskDepartment.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatContext.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatus.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatusAgent.java
@@ -1245,6 +1248,7 @@ src/main/java/com/ultracart/admin/v2/models/CouponsRequest.java
 src/main/java/com/ultracart/admin/v2/models/CouponsResponse.java
 src/main/java/com/ultracart/admin/v2/models/Currency.java
 src/main/java/com/ultracart/admin/v2/models/CustomDashboard.java
+src/main/java/com/ultracart/admin/v2/models/CustomDashboardExecutionParameter.java
 src/main/java/com/ultracart/admin/v2/models/CustomDashboardPage.java
 src/main/java/com/ultracart/admin/v2/models/CustomDashboardPageReport.java
 src/main/java/com/ultracart/admin/v2/models/CustomDashboardResponse.java
