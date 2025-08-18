@@ -32,11 +32,14 @@ import java.util.List;
 /**
  * CustomReport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:21:10.809-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:12:41.314-04:00")
 
 
 
 public class CustomReport {
+  @SerializedName("business_analysis_prompt")
+  private String businessAnalysisPrompt = null;
+
   @SerializedName("chart_javascript")
   private String chartJavascript = null;
 
@@ -66,6 +69,24 @@ public class CustomReport {
 
   @SerializedName("tooltips")
   private List<CustomReportTooltip> tooltips = null;
+
+  public CustomReport businessAnalysisPrompt(String businessAnalysisPrompt) {
+    this.businessAnalysisPrompt = businessAnalysisPrompt;
+    return this;
+  }
+
+   /**
+   * Get businessAnalysisPrompt
+   * @return businessAnalysisPrompt
+  **/
+  @ApiModelProperty(value = "")
+  public String getBusinessAnalysisPrompt() {
+    return businessAnalysisPrompt;
+  }
+
+  public void setBusinessAnalysisPrompt(String businessAnalysisPrompt) {
+    this.businessAnalysisPrompt = businessAnalysisPrompt;
+  }
 
   public CustomReport chartJavascript(String chartJavascript) {
     this.chartJavascript = chartJavascript;
@@ -281,7 +302,8 @@ public class CustomReport {
       return false;
     }
     CustomReport customReport = (CustomReport) o;
-    return Objects.equals(this.chartJavascript, customReport.chartJavascript) &&
+    return Objects.equals(this.businessAnalysisPrompt, customReport.businessAnalysisPrompt) &&
+        Objects.equals(this.chartJavascript, customReport.chartJavascript) &&
         Objects.equals(this.chartJavascriptUrl, customReport.chartJavascriptUrl) &&
         Objects.equals(this.dataWarehouseReportConfigOid, customReport.dataWarehouseReportConfigOid) &&
         Objects.equals(this.datasetSecurityLevel, customReport.datasetSecurityLevel) &&
@@ -295,7 +317,7 @@ public class CustomReport {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chartJavascript, chartJavascriptUrl, dataWarehouseReportConfigOid, datasetSecurityLevel, groupName, merchantId, name, parameters, queries, tooltips);
+    return Objects.hash(businessAnalysisPrompt, chartJavascript, chartJavascriptUrl, dataWarehouseReportConfigOid, datasetSecurityLevel, groupName, merchantId, name, parameters, queries, tooltips);
   }
 
 
@@ -304,6 +326,7 @@ public class CustomReport {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomReport {\n");
     
+    sb.append("    businessAnalysisPrompt: ").append(toIndentedString(businessAnalysisPrompt)).append("\n");
     sb.append("    chartJavascript: ").append(toIndentedString(chartJavascript)).append("\n");
     sb.append("    chartJavascriptUrl: ").append(toIndentedString(chartJavascriptUrl)).append("\n");
     sb.append("    dataWarehouseReportConfigOid: ").append(toIndentedString(dataWarehouseReportConfigOid)).append("\n");

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:21:10.809-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:12:41.314-04:00")
 
 
 
@@ -85,6 +85,12 @@ public class EmailCampaign {
 
   @SerializedName("prevent_sending_due_to_spam")
   private Boolean preventSendingDueToSpam = null;
+
+  @SerializedName("repeat_monthly")
+  private Boolean repeatMonthly = null;
+
+  @SerializedName("repeat_weekly")
+  private Boolean repeatWeekly = null;
 
   @SerializedName("revenue_formatted")
   private String revenueFormatted = null;
@@ -427,6 +433,42 @@ public class EmailCampaign {
     this.preventSendingDueToSpam = preventSendingDueToSpam;
   }
 
+  public EmailCampaign repeatMonthly(Boolean repeatMonthly) {
+    this.repeatMonthly = repeatMonthly;
+    return this;
+  }
+
+   /**
+   * True if the campaign should repeat on a monthly basis
+   * @return repeatMonthly
+  **/
+  @ApiModelProperty(value = "True if the campaign should repeat on a monthly basis")
+  public Boolean isRepeatMonthly() {
+    return repeatMonthly;
+  }
+
+  public void setRepeatMonthly(Boolean repeatMonthly) {
+    this.repeatMonthly = repeatMonthly;
+  }
+
+  public EmailCampaign repeatWeekly(Boolean repeatWeekly) {
+    this.repeatWeekly = repeatWeekly;
+    return this;
+  }
+
+   /**
+   * True if the campaign should repeat on a weekly basis
+   * @return repeatWeekly
+  **/
+  @ApiModelProperty(value = "True if the campaign should repeat on a weekly basis")
+  public Boolean isRepeatWeekly() {
+    return repeatWeekly;
+  }
+
+  public void setRepeatWeekly(Boolean repeatWeekly) {
+    this.repeatWeekly = repeatWeekly;
+  }
+
   public EmailCampaign revenueFormatted(String revenueFormatted) {
     this.revenueFormatted = revenueFormatted;
     return this;
@@ -616,6 +658,8 @@ public class EmailCampaign {
         Objects.equals(this.name, emailCampaign.name) &&
         Objects.equals(this.openRateFormatted, emailCampaign.openRateFormatted) &&
         Objects.equals(this.preventSendingDueToSpam, emailCampaign.preventSendingDueToSpam) &&
+        Objects.equals(this.repeatMonthly, emailCampaign.repeatMonthly) &&
+        Objects.equals(this.repeatWeekly, emailCampaign.repeatWeekly) &&
         Objects.equals(this.revenueFormatted, emailCampaign.revenueFormatted) &&
         Objects.equals(this.revenuePerCustomerFormatted, emailCampaign.revenuePerCustomerFormatted) &&
         Objects.equals(this.scheduledDts, emailCampaign.scheduledDts) &&
@@ -629,7 +673,7 @@ public class EmailCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid);
+    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, repeatMonthly, repeatWeekly, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid);
   }
 
 
@@ -655,6 +699,8 @@ public class EmailCampaign {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
     sb.append("    preventSendingDueToSpam: ").append(toIndentedString(preventSendingDueToSpam)).append("\n");
+    sb.append("    repeatMonthly: ").append(toIndentedString(repeatMonthly)).append("\n");
+    sb.append("    repeatWeekly: ").append(toIndentedString(repeatWeekly)).append("\n");
     sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
     sb.append("    revenuePerCustomerFormatted: ").append(toIndentedString(revenuePerCustomerFormatted)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");

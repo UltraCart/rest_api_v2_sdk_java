@@ -41,6 +41,8 @@ CREDIT_CARD | &quot;Credit Card&quot;
 EBAY | &quot;eBay&quot;
 ECHECK | &quot;eCheck&quot;
 GOOGLE_SHOPPING | &quot;Google Shopping&quot;
+GOLDBELLY | &quot;Goldbelly&quot;
+GOHIGHLEVEL | &quot;GoHighLevel&quot;
 INSURANCE | &quot;Insurance&quot;
 LINK | &quot;Link&quot;
 LOANHERO | &quot;LoanHero&quot;

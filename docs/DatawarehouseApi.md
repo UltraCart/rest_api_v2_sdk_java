@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteCustomDashboard**](DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
+[**deleteCustomDashboardSchedule**](DatawarehouseApi.md#deleteCustomDashboardSchedule) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Delete a custom dashboard schedule
 [**deleteCustomReport**](DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 [**deleteReport**](DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 [**dryRunReportQueries**](DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
@@ -12,6 +13,7 @@ Method | HTTP request | Description
 [**executeCustomReports**](DatawarehouseApi.md#executeCustomReports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 [**executeReportQueries**](DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
 [**getCustomDashboard**](DatawarehouseApi.md#getCustomDashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+[**getCustomDashboardSchedules**](DatawarehouseApi.md#getCustomDashboardSchedules) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules | Get custom dashboards
 [**getCustomDashboards**](DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**getCustomReport**](DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**getCustomReportAccountConfig**](DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
@@ -22,9 +24,11 @@ Method | HTTP request | Description
 [**getReportWebsocketAuthorization**](DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 [**getReports**](DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
 [**insertCustomDashboard**](DatawarehouseApi.md#insertCustomDashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
+[**insertCustomDashboardSchedule**](DatawarehouseApi.md#insertCustomDashboardSchedule) | **POST** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules | Create a custom dashboard schedule
 [**insertCustomReport**](DatawarehouseApi.md#insertCustomReport) | **POST** /datawarehouse/custom_reports | Create a custom report
 [**insertReport**](DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
 [**updateCustomDashboard**](DatawarehouseApi.md#updateCustomDashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
+[**updateCustomDashboardSchedule**](DatawarehouseApi.md#updateCustomDashboardSchedule) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Update a custom dashboard schedule
 [**updateCustomReport**](DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 [**updateCustomReportAccountConfig**](DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**updateReport**](DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
@@ -77,6 +81,57 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteCustomDashboardSchedule"></a>
+# **deleteCustomDashboardSchedule**
+> deleteCustomDashboardSchedule(customDashboardScheduleOid, customDashboardOid)
+
+Delete a custom dashboard schedule
+
+delete a custom dashboard schedule on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+Integer customDashboardScheduleOid = 56; // Integer | The dashboard schedule oid to delete.
+Integer customDashboardOid = 56; // Integer | The dashboard oid that owns the schedule.
+try {
+    apiInstance.deleteCustomDashboardSchedule(customDashboardScheduleOid, customDashboardOid);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#deleteCustomDashboardSchedule");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardScheduleOid** | **Integer**| The dashboard schedule oid to delete. |
+ **customDashboardOid** | **Integer**| The dashboard oid that owns the schedule. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="deleteCustomReport"></a>
@@ -418,6 +473,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomDashboardResponse**](CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getCustomDashboardSchedules"></a>
+# **getCustomDashboardSchedules**
+> CustomDashboardSchedulesResponse getCustomDashboardSchedules(customDashboardOid)
+
+Get custom dashboards
+
+Retrieve a custom dashboards 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+Integer customDashboardOid = 56; // Integer | 
+try {
+    CustomDashboardSchedulesResponse result = apiInstance.getCustomDashboardSchedules(customDashboardOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#getCustomDashboardSchedules");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardOid** | **Integer**|  |
+
+### Return type
+
+[**CustomDashboardSchedulesResponse**](CustomDashboardSchedulesResponse.md)
 
 ### Authorization
 
@@ -910,6 +1015,58 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+<a name="insertCustomDashboardSchedule"></a>
+# **insertCustomDashboardSchedule**
+> CustomDashboardScheduleResponse insertCustomDashboardSchedule(customDashboardOid, dashboardSchedule)
+
+Create a custom dashboard schedule
+
+Create a new custom dashboard schedule on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+Integer customDashboardOid = 56; // Integer | 
+CustomDashboardSchedule dashboardSchedule = new CustomDashboardSchedule(); // CustomDashboardSchedule | Dashboard schedule to create
+try {
+    CustomDashboardScheduleResponse result = apiInstance.insertCustomDashboardSchedule(customDashboardOid, dashboardSchedule);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#insertCustomDashboardSchedule");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardOid** | **Integer**|  |
+ **dashboardSchedule** | [**CustomDashboardSchedule**](CustomDashboardSchedule.md)| Dashboard schedule to create |
+
+### Return type
+
+[**CustomDashboardScheduleResponse**](CustomDashboardScheduleResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
 <a name="insertCustomReport"></a>
 # **insertCustomReport**
 > CustomReportResponse insertCustomReport(report)
@@ -1048,6 +1205,60 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dashboard** | [**CustomDashboard**](CustomDashboard.md)| Dashboard to custom update |
  **customDashboardOid** | **Integer**| The dashboard oid to custom update. |
+
+### Return type
+
+[**CustomDashboardResponse**](CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateCustomDashboardSchedule"></a>
+# **updateCustomDashboardSchedule**
+> CustomDashboardResponse updateCustomDashboardSchedule(dashboardSchedule, customDashboardScheduleOid, customDashboardOid)
+
+Update a custom dashboard schedule
+
+Update a custom dashboard schedule on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+CustomDashboardSchedule dashboardSchedule = new CustomDashboardSchedule(); // CustomDashboardSchedule | Dashboard schedule to update
+Integer customDashboardScheduleOid = 56; // Integer | The dashboard schedule oid to update.
+Integer customDashboardOid = 56; // Integer | The dashboard oid to update.
+try {
+    CustomDashboardResponse result = apiInstance.updateCustomDashboardSchedule(dashboardSchedule, customDashboardScheduleOid, customDashboardOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#updateCustomDashboardSchedule");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboardSchedule** | [**CustomDashboardSchedule**](CustomDashboardSchedule.md)| Dashboard schedule to update |
+ **customDashboardScheduleOid** | **Integer**| The dashboard schedule oid to update. |
+ **customDashboardOid** | **Integer**| The dashboard oid to update. |
 
 ### Return type
 
