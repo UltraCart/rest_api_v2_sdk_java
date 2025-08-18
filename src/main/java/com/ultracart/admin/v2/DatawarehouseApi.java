@@ -29,6 +29,9 @@ import java.io.IOException;
 
 import com.ultracart.admin.v2.models.CustomDashboard;
 import com.ultracart.admin.v2.models.CustomDashboardResponse;
+import com.ultracart.admin.v2.models.CustomDashboardSchedule;
+import com.ultracart.admin.v2.models.CustomDashboardScheduleResponse;
+import com.ultracart.admin.v2.models.CustomDashboardSchedulesResponse;
 import com.ultracart.admin.v2.models.CustomDashboardsResponse;
 import com.ultracart.admin.v2.models.CustomReport;
 import com.ultracart.admin.v2.models.CustomReportAccountConfig;
@@ -260,6 +263,155 @@ public class DatawarehouseApi {
     public okhttp3.Call deleteCustomDashboardAsync(Integer customDashboardOid, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCustomDashboardValidateBeforeCall(customDashboardOid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteCustomDashboardSchedule
+     * @param customDashboardScheduleOid The dashboard schedule oid to delete. (required)
+     * @param customDashboardOid The dashboard oid that owns the schedule. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteCustomDashboardScheduleCall(Integer customDashboardScheduleOid, Integer customDashboardOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}"
+            .replaceAll("\\{" + "custom_dashboard_schedule_oid" + "\\}", localVarApiClient.escapeString(customDashboardScheduleOid.toString()))
+            .replaceAll("\\{" + "custom_dashboard_oid" + "\\}", localVarApiClient.escapeString(customDashboardOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteCustomDashboardScheduleValidateBeforeCall(Integer customDashboardScheduleOid, Integer customDashboardOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customDashboardScheduleOid' is set
+        if (customDashboardScheduleOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardScheduleOid' when calling deleteCustomDashboardSchedule(Async)");
+        }
+        
+        // verify the required parameter 'customDashboardOid' is set
+        if (customDashboardOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardOid' when calling deleteCustomDashboardSchedule(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteCustomDashboardScheduleCall(customDashboardScheduleOid, customDashboardOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a custom dashboard schedule
+     * delete a custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardScheduleOid The dashboard schedule oid to delete. (required)
+     * @param customDashboardOid The dashboard oid that owns the schedule. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public void deleteCustomDashboardSchedule(Integer customDashboardScheduleOid, Integer customDashboardOid) throws ApiException {
+        deleteCustomDashboardScheduleWithHttpInfo(customDashboardScheduleOid, customDashboardOid);
+    }
+
+    /**
+     * Delete a custom dashboard schedule
+     * delete a custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardScheduleOid The dashboard schedule oid to delete. (required)
+     * @param customDashboardOid The dashboard oid that owns the schedule. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteCustomDashboardScheduleWithHttpInfo(Integer customDashboardScheduleOid, Integer customDashboardOid) throws ApiException {
+        okhttp3.Call localVarCall = deleteCustomDashboardScheduleValidateBeforeCall(customDashboardScheduleOid, customDashboardOid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete a custom dashboard schedule (asynchronously)
+     * delete a custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardScheduleOid The dashboard schedule oid to delete. (required)
+     * @param customDashboardOid The dashboard oid that owns the schedule. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteCustomDashboardScheduleAsync(Integer customDashboardScheduleOid, Integer customDashboardOid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteCustomDashboardScheduleValidateBeforeCall(customDashboardScheduleOid, customDashboardOid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -1279,6 +1431,153 @@ public class DatawarehouseApi {
 
         okhttp3.Call localVarCall = getCustomDashboardValidateBeforeCall(customDashboardOid, _callback);
         Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCustomDashboardSchedules
+     * @param customDashboardOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomDashboardSchedulesCall(Integer customDashboardOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules"
+            .replaceAll("\\{" + "custom_dashboard_oid" + "\\}", localVarApiClient.escapeString(customDashboardOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCustomDashboardSchedulesValidateBeforeCall(Integer customDashboardOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customDashboardOid' is set
+        if (customDashboardOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardOid' when calling getCustomDashboardSchedules(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getCustomDashboardSchedulesCall(customDashboardOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get custom dashboards
+     * Retrieve a custom dashboards 
+     * @param customDashboardOid  (required)
+     * @return CustomDashboardSchedulesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomDashboardSchedulesResponse getCustomDashboardSchedules(Integer customDashboardOid) throws ApiException {
+        ApiResponse<CustomDashboardSchedulesResponse> localVarResp = getCustomDashboardSchedulesWithHttpInfo(customDashboardOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get custom dashboards
+     * Retrieve a custom dashboards 
+     * @param customDashboardOid  (required)
+     * @return ApiResponse&lt;CustomDashboardSchedulesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomDashboardSchedulesResponse> getCustomDashboardSchedulesWithHttpInfo(Integer customDashboardOid) throws ApiException {
+        okhttp3.Call localVarCall = getCustomDashboardSchedulesValidateBeforeCall(customDashboardOid, null);
+        Type localVarReturnType = new TypeToken<CustomDashboardSchedulesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get custom dashboards (asynchronously)
+     * Retrieve a custom dashboards 
+     * @param customDashboardOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomDashboardSchedulesAsync(Integer customDashboardOid, final ApiCallback<CustomDashboardSchedulesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCustomDashboardSchedulesValidateBeforeCall(customDashboardOid, _callback);
+        Type localVarReturnType = new TypeToken<CustomDashboardSchedulesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2712,6 +3011,162 @@ public class DatawarehouseApi {
         return localVarCall;
     }
     /**
+     * Build call for insertCustomDashboardSchedule
+     * @param customDashboardOid  (required)
+     * @param dashboardSchedule Dashboard schedule to create (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertCustomDashboardScheduleCall(Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = dashboardSchedule;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules"
+            .replaceAll("\\{" + "custom_dashboard_oid" + "\\}", localVarApiClient.escapeString(customDashboardOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertCustomDashboardScheduleValidateBeforeCall(Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customDashboardOid' is set
+        if (customDashboardOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardOid' when calling insertCustomDashboardSchedule(Async)");
+        }
+        
+        // verify the required parameter 'dashboardSchedule' is set
+        if (dashboardSchedule == null) {
+            throw new ApiException("Missing the required parameter 'dashboardSchedule' when calling insertCustomDashboardSchedule(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertCustomDashboardScheduleCall(customDashboardOid, dashboardSchedule, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create a custom dashboard schedule
+     * Create a new custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardOid  (required)
+     * @param dashboardSchedule Dashboard schedule to create (required)
+     * @return CustomDashboardScheduleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomDashboardScheduleResponse insertCustomDashboardSchedule(Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule) throws ApiException {
+        ApiResponse<CustomDashboardScheduleResponse> localVarResp = insertCustomDashboardScheduleWithHttpInfo(customDashboardOid, dashboardSchedule);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a custom dashboard schedule
+     * Create a new custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardOid  (required)
+     * @param dashboardSchedule Dashboard schedule to create (required)
+     * @return ApiResponse&lt;CustomDashboardScheduleResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomDashboardScheduleResponse> insertCustomDashboardScheduleWithHttpInfo(Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule) throws ApiException {
+        okhttp3.Call localVarCall = insertCustomDashboardScheduleValidateBeforeCall(customDashboardOid, dashboardSchedule, null);
+        Type localVarReturnType = new TypeToken<CustomDashboardScheduleResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a custom dashboard schedule (asynchronously)
+     * Create a new custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardOid  (required)
+     * @param dashboardSchedule Dashboard schedule to create (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertCustomDashboardScheduleAsync(Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule, final ApiCallback<CustomDashboardScheduleResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertCustomDashboardScheduleValidateBeforeCall(customDashboardOid, dashboardSchedule, _callback);
+        Type localVarReturnType = new TypeToken<CustomDashboardScheduleResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for insertCustomReport
      * @param report Report to create (required)
      * @param _callback Callback for upload/download progress
@@ -3155,6 +3610,172 @@ public class DatawarehouseApi {
     public okhttp3.Call updateCustomDashboardAsync(Integer customDashboardOid, CustomDashboard dashboard, final ApiCallback<CustomDashboardResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCustomDashboardValidateBeforeCall(customDashboardOid, dashboard, _callback);
+        Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateCustomDashboardSchedule
+     * @param customDashboardScheduleOid The dashboard schedule oid to update. (required)
+     * @param customDashboardOid The dashboard oid to update. (required)
+     * @param dashboardSchedule Dashboard schedule to update (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCustomDashboardScheduleCall(Integer customDashboardScheduleOid, Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = dashboardSchedule;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}"
+            .replaceAll("\\{" + "custom_dashboard_schedule_oid" + "\\}", localVarApiClient.escapeString(customDashboardScheduleOid.toString()))
+            .replaceAll("\\{" + "custom_dashboard_oid" + "\\}", localVarApiClient.escapeString(customDashboardOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateCustomDashboardScheduleValidateBeforeCall(Integer customDashboardScheduleOid, Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customDashboardScheduleOid' is set
+        if (customDashboardScheduleOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardScheduleOid' when calling updateCustomDashboardSchedule(Async)");
+        }
+        
+        // verify the required parameter 'customDashboardOid' is set
+        if (customDashboardOid == null) {
+            throw new ApiException("Missing the required parameter 'customDashboardOid' when calling updateCustomDashboardSchedule(Async)");
+        }
+        
+        // verify the required parameter 'dashboardSchedule' is set
+        if (dashboardSchedule == null) {
+            throw new ApiException("Missing the required parameter 'dashboardSchedule' when calling updateCustomDashboardSchedule(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateCustomDashboardScheduleCall(customDashboardScheduleOid, customDashboardOid, dashboardSchedule, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a custom dashboard schedule
+     * Update a custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardScheduleOid The dashboard schedule oid to update. (required)
+     * @param customDashboardOid The dashboard oid to update. (required)
+     * @param dashboardSchedule Dashboard schedule to update (required)
+     * @return CustomDashboardResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomDashboardResponse updateCustomDashboardSchedule(Integer customDashboardScheduleOid, Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule) throws ApiException {
+        ApiResponse<CustomDashboardResponse> localVarResp = updateCustomDashboardScheduleWithHttpInfo(customDashboardScheduleOid, customDashboardOid, dashboardSchedule);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a custom dashboard schedule
+     * Update a custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardScheduleOid The dashboard schedule oid to update. (required)
+     * @param customDashboardOid The dashboard oid to update. (required)
+     * @param dashboardSchedule Dashboard schedule to update (required)
+     * @return ApiResponse&lt;CustomDashboardResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomDashboardResponse> updateCustomDashboardScheduleWithHttpInfo(Integer customDashboardScheduleOid, Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule) throws ApiException {
+        okhttp3.Call localVarCall = updateCustomDashboardScheduleValidateBeforeCall(customDashboardScheduleOid, customDashboardOid, dashboardSchedule, null);
+        Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a custom dashboard schedule (asynchronously)
+     * Update a custom dashboard schedule on the UltraCart account. 
+     * @param customDashboardScheduleOid The dashboard schedule oid to update. (required)
+     * @param customDashboardOid The dashboard oid to update. (required)
+     * @param dashboardSchedule Dashboard schedule to update (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCustomDashboardScheduleAsync(Integer customDashboardScheduleOid, Integer customDashboardOid, CustomDashboardSchedule dashboardSchedule, final ApiCallback<CustomDashboardResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateCustomDashboardScheduleValidateBeforeCall(customDashboardScheduleOid, customDashboardOid, dashboardSchedule, _callback);
         Type localVarReturnType = new TypeToken<CustomDashboardResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

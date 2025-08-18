@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**businessAnalysisPrompt** | **String** |  |  [optional] |
 |**chartJavascript** | **String** |  |  [optional] |
 |**chartJavascriptUrl** | **String** |  |  [optional] |
 |**dataWarehouseReportConfigOid** | **Integer** |  |  [optional] |

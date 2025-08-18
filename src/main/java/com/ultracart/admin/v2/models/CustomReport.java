@@ -52,8 +52,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
 public class CustomReport {
+  public static final String SERIALIZED_NAME_BUSINESS_ANALYSIS_PROMPT = "business_analysis_prompt";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_ANALYSIS_PROMPT)
+  private String businessAnalysisPrompt;
+
   public static final String SERIALIZED_NAME_CHART_JAVASCRIPT = "chart_javascript";
   @SerializedName(SERIALIZED_NAME_CHART_JAVASCRIPT)
   private String chartJavascript;
@@ -96,6 +100,29 @@ public class CustomReport {
 
   public CustomReport() { 
   }
+
+  public CustomReport businessAnalysisPrompt(String businessAnalysisPrompt) {
+    
+    this.businessAnalysisPrompt = businessAnalysisPrompt;
+    return this;
+  }
+
+   /**
+   * Get businessAnalysisPrompt
+   * @return businessAnalysisPrompt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getBusinessAnalysisPrompt() {
+    return businessAnalysisPrompt;
+  }
+
+
+  public void setBusinessAnalysisPrompt(String businessAnalysisPrompt) {
+    this.businessAnalysisPrompt = businessAnalysisPrompt;
+  }
+
 
   public CustomReport chartJavascript(String chartJavascript) {
     
@@ -361,7 +388,8 @@ public class CustomReport {
       return false;
     }
     CustomReport customReport = (CustomReport) o;
-    return Objects.equals(this.chartJavascript, customReport.chartJavascript) &&
+    return Objects.equals(this.businessAnalysisPrompt, customReport.businessAnalysisPrompt) &&
+        Objects.equals(this.chartJavascript, customReport.chartJavascript) &&
         Objects.equals(this.chartJavascriptUrl, customReport.chartJavascriptUrl) &&
         Objects.equals(this.dataWarehouseReportConfigOid, customReport.dataWarehouseReportConfigOid) &&
         Objects.equals(this.datasetSecurityLevel, customReport.datasetSecurityLevel) &&
@@ -375,13 +403,14 @@ public class CustomReport {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chartJavascript, chartJavascriptUrl, dataWarehouseReportConfigOid, datasetSecurityLevel, groupName, merchantId, name, parameters, queries, tooltips);
+    return Objects.hash(businessAnalysisPrompt, chartJavascript, chartJavascriptUrl, dataWarehouseReportConfigOid, datasetSecurityLevel, groupName, merchantId, name, parameters, queries, tooltips);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomReport {\n");
+    sb.append("    businessAnalysisPrompt: ").append(toIndentedString(businessAnalysisPrompt)).append("\n");
     sb.append("    chartJavascript: ").append(toIndentedString(chartJavascript)).append("\n");
     sb.append("    chartJavascriptUrl: ").append(toIndentedString(chartJavascriptUrl)).append("\n");
     sb.append("    dataWarehouseReportConfigOid: ").append(toIndentedString(dataWarehouseReportConfigOid)).append("\n");
@@ -414,6 +443,7 @@ public class CustomReport {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("business_analysis_prompt");
     openapiFields.add("chart_javascript");
     openapiFields.add("chart_javascript_url");
     openapiFields.add("data_warehouse_report_config_oid");
@@ -450,6 +480,9 @@ public class CustomReport {
         if (!CustomReport.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomReport` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("business_analysis_prompt") != null && !jsonObj.get("business_analysis_prompt").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `business_analysis_prompt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_analysis_prompt").toString()));
       }
       if (jsonObj.get("chart_javascript") != null && !jsonObj.get("chart_javascript").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `chart_javascript` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chart_javascript").toString()));

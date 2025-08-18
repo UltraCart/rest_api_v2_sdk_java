@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
 public class EmailCampaign {
   public static final String SERIALIZED_NAME_CLICK_RATE_FORMATTED = "click_rate_formatted";
   @SerializedName(SERIALIZED_NAME_CLICK_RATE_FORMATTED)
@@ -119,6 +119,14 @@ public class EmailCampaign {
   public static final String SERIALIZED_NAME_PREVENT_SENDING_DUE_TO_SPAM = "prevent_sending_due_to_spam";
   @SerializedName(SERIALIZED_NAME_PREVENT_SENDING_DUE_TO_SPAM)
   private Boolean preventSendingDueToSpam;
+
+  public static final String SERIALIZED_NAME_REPEAT_MONTHLY = "repeat_monthly";
+  @SerializedName(SERIALIZED_NAME_REPEAT_MONTHLY)
+  private Boolean repeatMonthly;
+
+  public static final String SERIALIZED_NAME_REPEAT_WEEKLY = "repeat_weekly";
+  @SerializedName(SERIALIZED_NAME_REPEAT_WEEKLY)
+  private Boolean repeatWeekly;
 
   public static final String SERIALIZED_NAME_REVENUE_FORMATTED = "revenue_formatted";
   @SerializedName(SERIALIZED_NAME_REVENUE_FORMATTED)
@@ -558,6 +566,52 @@ public class EmailCampaign {
   }
 
 
+  public EmailCampaign repeatMonthly(Boolean repeatMonthly) {
+    
+    this.repeatMonthly = repeatMonthly;
+    return this;
+  }
+
+   /**
+   * True if the campaign should repeat on a monthly basis
+   * @return repeatMonthly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the campaign should repeat on a monthly basis")
+
+  public Boolean getRepeatMonthly() {
+    return repeatMonthly;
+  }
+
+
+  public void setRepeatMonthly(Boolean repeatMonthly) {
+    this.repeatMonthly = repeatMonthly;
+  }
+
+
+  public EmailCampaign repeatWeekly(Boolean repeatWeekly) {
+    
+    this.repeatWeekly = repeatWeekly;
+    return this;
+  }
+
+   /**
+   * True if the campaign should repeat on a weekly basis
+   * @return repeatWeekly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the campaign should repeat on a weekly basis")
+
+  public Boolean getRepeatWeekly() {
+    return repeatWeekly;
+  }
+
+
+  public void setRepeatWeekly(Boolean repeatWeekly) {
+    this.repeatWeekly = repeatWeekly;
+  }
+
+
   public EmailCampaign revenueFormatted(String revenueFormatted) {
     
     this.revenueFormatted = revenueFormatted;
@@ -792,6 +846,8 @@ public class EmailCampaign {
         Objects.equals(this.name, emailCampaign.name) &&
         Objects.equals(this.openRateFormatted, emailCampaign.openRateFormatted) &&
         Objects.equals(this.preventSendingDueToSpam, emailCampaign.preventSendingDueToSpam) &&
+        Objects.equals(this.repeatMonthly, emailCampaign.repeatMonthly) &&
+        Objects.equals(this.repeatWeekly, emailCampaign.repeatWeekly) &&
         Objects.equals(this.revenueFormatted, emailCampaign.revenueFormatted) &&
         Objects.equals(this.revenuePerCustomerFormatted, emailCampaign.revenuePerCustomerFormatted) &&
         Objects.equals(this.scheduledDts, emailCampaign.scheduledDts) &&
@@ -805,7 +861,7 @@ public class EmailCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid);
+    return Objects.hash(clickRateFormatted, createdDts, deleted, emailCampaignUuid, emailCommunicationSequenceUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, espCampaignFolderUuid, espDomainUser, espDomainUuid, espFriendlyName, libraryItemOid, memberships, merchantId, name, openRateFormatted, preventSendingDueToSpam, repeatMonthly, repeatWeekly, revenueFormatted, revenuePerCustomerFormatted, scheduledDts, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid);
   }
 
   @Override
@@ -829,6 +885,8 @@ public class EmailCampaign {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
     sb.append("    preventSendingDueToSpam: ").append(toIndentedString(preventSendingDueToSpam)).append("\n");
+    sb.append("    repeatMonthly: ").append(toIndentedString(repeatMonthly)).append("\n");
+    sb.append("    repeatWeekly: ").append(toIndentedString(repeatWeekly)).append("\n");
     sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
     sb.append("    revenuePerCustomerFormatted: ").append(toIndentedString(revenuePerCustomerFormatted)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");
@@ -877,6 +935,8 @@ public class EmailCampaign {
     openapiFields.add("name");
     openapiFields.add("open_rate_formatted");
     openapiFields.add("prevent_sending_due_to_spam");
+    openapiFields.add("repeat_monthly");
+    openapiFields.add("repeat_weekly");
     openapiFields.add("revenue_formatted");
     openapiFields.add("revenue_per_customer_formatted");
     openapiFields.add("scheduled_dts");

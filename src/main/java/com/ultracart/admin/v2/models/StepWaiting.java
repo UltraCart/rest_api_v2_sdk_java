@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * StepWaiting
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
 public class StepWaiting {
   public static final String SERIALIZED_NAME_COMMSEQ_STEP_UUID = "commseq_step_uuid";
   @SerializedName(SERIALIZED_NAME_COMMSEQ_STEP_UUID)

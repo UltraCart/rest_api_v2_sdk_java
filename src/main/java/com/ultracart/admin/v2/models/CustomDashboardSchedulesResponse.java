@@ -20,13 +20,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ultracart.admin.v2.models.ChargebackDispute;
+import com.ultracart.admin.v2.models.CustomDashboardSchedule;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
 import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,14 +51,10 @@ import java.util.Set;
 import com.ultracart.admin.v2.util.JSON;
 
 /**
- * ChargebackDisputeResponse
+ * CustomDashboardSchedulesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
-public class ChargebackDisputeResponse {
-  public static final String SERIALIZED_NAME_CHARGEBACK = "chargeback";
-  @SerializedName(SERIALIZED_NAME_CHARGEBACK)
-  private ChargebackDispute chargeback;
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
+public class CustomDashboardSchedulesResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private Error error;
@@ -64,6 +62,10 @@ public class ChargebackDisputeResponse {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private ResponseMetadata metadata;
+
+  public static final String SERIALIZED_NAME_SCHEDULES = "schedules";
+  @SerializedName(SERIALIZED_NAME_SCHEDULES)
+  private List<CustomDashboardSchedule> schedules = null;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -73,33 +75,10 @@ public class ChargebackDisputeResponse {
   @SerializedName(SERIALIZED_NAME_WARNING)
   private Warning warning;
 
-  public ChargebackDisputeResponse() { 
+  public CustomDashboardSchedulesResponse() { 
   }
 
-  public ChargebackDisputeResponse chargeback(ChargebackDispute chargeback) {
-    
-    this.chargeback = chargeback;
-    return this;
-  }
-
-   /**
-   * Get chargeback
-   * @return chargeback
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ChargebackDispute getChargeback() {
-    return chargeback;
-  }
-
-
-  public void setChargeback(ChargebackDispute chargeback) {
-    this.chargeback = chargeback;
-  }
-
-
-  public ChargebackDisputeResponse error(Error error) {
+  public CustomDashboardSchedulesResponse error(Error error) {
     
     this.error = error;
     return this;
@@ -122,7 +101,7 @@ public class ChargebackDisputeResponse {
   }
 
 
-  public ChargebackDisputeResponse metadata(ResponseMetadata metadata) {
+  public CustomDashboardSchedulesResponse metadata(ResponseMetadata metadata) {
     
     this.metadata = metadata;
     return this;
@@ -145,7 +124,38 @@ public class ChargebackDisputeResponse {
   }
 
 
-  public ChargebackDisputeResponse success(Boolean success) {
+  public CustomDashboardSchedulesResponse schedules(List<CustomDashboardSchedule> schedules) {
+    
+    this.schedules = schedules;
+    return this;
+  }
+
+  public CustomDashboardSchedulesResponse addSchedulesItem(CustomDashboardSchedule schedulesItem) {
+    if (this.schedules == null) {
+      this.schedules = new ArrayList<>();
+    }
+    this.schedules.add(schedulesItem);
+    return this;
+  }
+
+   /**
+   * schedules
+   * @return schedules
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "schedules")
+
+  public List<CustomDashboardSchedule> getSchedules() {
+    return schedules;
+  }
+
+
+  public void setSchedules(List<CustomDashboardSchedule> schedules) {
+    this.schedules = schedules;
+  }
+
+
+  public CustomDashboardSchedulesResponse success(Boolean success) {
     
     this.success = success;
     return this;
@@ -168,7 +178,7 @@ public class ChargebackDisputeResponse {
   }
 
 
-  public ChargebackDisputeResponse warning(Warning warning) {
+  public CustomDashboardSchedulesResponse warning(Warning warning) {
     
     this.warning = warning;
     return this;
@@ -200,26 +210,26 @@ public class ChargebackDisputeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChargebackDisputeResponse chargebackDisputeResponse = (ChargebackDisputeResponse) o;
-    return Objects.equals(this.chargeback, chargebackDisputeResponse.chargeback) &&
-        Objects.equals(this.error, chargebackDisputeResponse.error) &&
-        Objects.equals(this.metadata, chargebackDisputeResponse.metadata) &&
-        Objects.equals(this.success, chargebackDisputeResponse.success) &&
-        Objects.equals(this.warning, chargebackDisputeResponse.warning);
+    CustomDashboardSchedulesResponse customDashboardSchedulesResponse = (CustomDashboardSchedulesResponse) o;
+    return Objects.equals(this.error, customDashboardSchedulesResponse.error) &&
+        Objects.equals(this.metadata, customDashboardSchedulesResponse.metadata) &&
+        Objects.equals(this.schedules, customDashboardSchedulesResponse.schedules) &&
+        Objects.equals(this.success, customDashboardSchedulesResponse.success) &&
+        Objects.equals(this.warning, customDashboardSchedulesResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeback, error, metadata, success, warning);
+    return Objects.hash(error, metadata, schedules, success, warning);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChargebackDisputeResponse {\n");
-    sb.append("    chargeback: ").append(toIndentedString(chargeback)).append("\n");
+    sb.append("class CustomDashboardSchedulesResponse {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    schedules: ").append(toIndentedString(schedules)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
@@ -244,9 +254,9 @@ public class ChargebackDisputeResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("chargeback");
     openapiFields.add("error");
     openapiFields.add("metadata");
+    openapiFields.add("schedules");
     openapiFields.add("success");
     openapiFields.add("warning");
 
@@ -258,27 +268,23 @@ public class ChargebackDisputeResponse {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ChargebackDisputeResponse
+  * @throws IOException if the JSON Object is invalid with respect to CustomDashboardSchedulesResponse
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (ChargebackDisputeResponse.openapiRequiredFields.isEmpty()) {
+        if (CustomDashboardSchedulesResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ChargebackDisputeResponse is not found in the empty JSON string", ChargebackDisputeResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomDashboardSchedulesResponse is not found in the empty JSON string", CustomDashboardSchedulesResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!ChargebackDisputeResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ChargebackDisputeResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!CustomDashboardSchedulesResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomDashboardSchedulesResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
-      }
-      // validate the optional field `chargeback`
-      if (jsonObj.getAsJsonObject("chargeback") != null) {
-        ChargebackDispute.validateJsonObject(jsonObj.getAsJsonObject("chargeback"));
       }
       // validate the optional field `error`
       if (jsonObj.getAsJsonObject("error") != null) {
@@ -287,6 +293,18 @@ public class ChargebackDisputeResponse {
       // validate the optional field `metadata`
       if (jsonObj.getAsJsonObject("metadata") != null) {
         ResponseMetadata.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+      }
+      JsonArray jsonArrayschedules = jsonObj.getAsJsonArray("schedules");
+      if (jsonArrayschedules != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("schedules").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `schedules` to be an array in the JSON string but got `%s`", jsonObj.get("schedules").toString()));
+        }
+
+        // validate the optional field `schedules` (array)
+        for (int i = 0; i < jsonArrayschedules.size(); i++) {
+          CustomDashboardSchedule.validateJsonObject(jsonArrayschedules.get(i).getAsJsonObject());
+        };
       }
       // validate the optional field `warning`
       if (jsonObj.getAsJsonObject("warning") != null) {
@@ -298,22 +316,22 @@ public class ChargebackDisputeResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ChargebackDisputeResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ChargebackDisputeResponse' and its subtypes
+       if (!CustomDashboardSchedulesResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CustomDashboardSchedulesResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ChargebackDisputeResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ChargebackDisputeResponse.class));
+       final TypeAdapter<CustomDashboardSchedulesResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CustomDashboardSchedulesResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ChargebackDisputeResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<CustomDashboardSchedulesResponse>() {
            @Override
-           public void write(JsonWriter out, ChargebackDisputeResponse value) throws IOException {
+           public void write(JsonWriter out, CustomDashboardSchedulesResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ChargebackDisputeResponse read(JsonReader in) throws IOException {
+           public CustomDashboardSchedulesResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -324,18 +342,18 @@ public class ChargebackDisputeResponse {
   }
 
  /**
-  * Create an instance of ChargebackDisputeResponse given an JSON string
+  * Create an instance of CustomDashboardSchedulesResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ChargebackDisputeResponse
-  * @throws IOException if the JSON string is invalid with respect to ChargebackDisputeResponse
+  * @return An instance of CustomDashboardSchedulesResponse
+  * @throws IOException if the JSON string is invalid with respect to CustomDashboardSchedulesResponse
   */
-  public static ChargebackDisputeResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ChargebackDisputeResponse.class);
+  public static CustomDashboardSchedulesResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CustomDashboardSchedulesResponse.class);
   }
 
  /**
-  * Convert an instance of ChargebackDisputeResponse to an JSON string
+  * Convert an instance of CustomDashboardSchedulesResponse to an JSON string
   *
   * @return JSON string
   */

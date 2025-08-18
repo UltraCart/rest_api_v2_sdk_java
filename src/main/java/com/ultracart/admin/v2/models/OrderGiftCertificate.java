@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderGiftCertificate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-04T16:33:02.540-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
 public class OrderGiftCertificate {
   public static final String SERIALIZED_NAME_GIFT_CERTIFICATE_AMOUNT = "gift_certificate_amount";
   @SerializedName(SERIALIZED_NAME_GIFT_CERTIFICATE_AMOUNT)

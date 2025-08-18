@@ -127,10 +127,6 @@ docs/ChannelPartnerShipToPreferenceResponse.md
 docs/ChannelPartnerShipToPreferencesResponse.md
 docs/ChannelPartnerShippingEstimate.md
 docs/ChannelPartnersResponse.md
-docs/ChargebackApi.md
-docs/ChargebackDispute.md
-docs/ChargebackDisputeResponse.md
-docs/ChargebackDisputesResponse.md
 docs/CheckoutAllowedCountriesResponse.md
 docs/CheckoutApi.md
 docs/CheckoutHandoffRequest.md
@@ -321,6 +317,9 @@ docs/CustomDashboardExecutionParameter.md
 docs/CustomDashboardPage.md
 docs/CustomDashboardPageReport.md
 docs/CustomDashboardResponse.md
+docs/CustomDashboardSchedule.md
+docs/CustomDashboardScheduleResponse.md
+docs/CustomDashboardSchedulesResponse.md
 docs/CustomDashboardsResponse.md
 docs/CustomReport.md
 docs/CustomReportAccountConfig.md
@@ -923,7 +922,6 @@ src/main/AndroidManifest.xml
 src/main/java/com/ultracart/admin/v2/AffiliateApi.java
 src/main/java/com/ultracart/admin/v2/AutoOrderApi.java
 src/main/java/com/ultracart/admin/v2/ChannelPartnerApi.java
-src/main/java/com/ultracart/admin/v2/ChargebackApi.java
 src/main/java/com/ultracart/admin/v2/CheckoutApi.java
 src/main/java/com/ultracart/admin/v2/ConversationApi.java
 src/main/java/com/ultracart/admin/v2/CouponApi.java
@@ -1062,9 +1060,6 @@ src/main/java/com/ultracart/admin/v2/models/ChannelPartnerShipToPreferenceRespon
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerShipToPreferencesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnerShippingEstimate.java
 src/main/java/com/ultracart/admin/v2/models/ChannelPartnersResponse.java
-src/main/java/com/ultracart/admin/v2/models/ChargebackDispute.java
-src/main/java/com/ultracart/admin/v2/models/ChargebackDisputeResponse.java
-src/main/java/com/ultracart/admin/v2/models/ChargebackDisputesResponse.java
 src/main/java/com/ultracart/admin/v2/models/CheckoutAllowedCountriesResponse.java
 src/main/java/com/ultracart/admin/v2/models/CheckoutHandoffRequest.java
 src/main/java/com/ultracart/admin/v2/models/CheckoutHandoffResponse.java
@@ -1252,6 +1247,9 @@ src/main/java/com/ultracart/admin/v2/models/CustomDashboardExecutionParameter.ja
 src/main/java/com/ultracart/admin/v2/models/CustomDashboardPage.java
 src/main/java/com/ultracart/admin/v2/models/CustomDashboardPageReport.java
 src/main/java/com/ultracart/admin/v2/models/CustomDashboardResponse.java
+src/main/java/com/ultracart/admin/v2/models/CustomDashboardSchedule.java
+src/main/java/com/ultracart/admin/v2/models/CustomDashboardScheduleResponse.java
+src/main/java/com/ultracart/admin/v2/models/CustomDashboardSchedulesResponse.java
 src/main/java/com/ultracart/admin/v2/models/CustomDashboardsResponse.java
 src/main/java/com/ultracart/admin/v2/models/CustomReport.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportAccountConfig.java

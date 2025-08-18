@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-08-04T16:33:02.540-04:00[America/Indianapolis]
+- Build date: 2025-08-18T11:26:02.311-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.19</version>
+    <version>4.1.20</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.19"
+     implementation "com.ultracart:rest-sdk:4.1.20"
   }
 ```
 
@@ -129,11 +129,6 @@ Class | Method | HTTP request | Description
 *ChannelPartnerApi* | [**insertChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#insertChannelPartnerShipToPreference) | **POST** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Insert a ship to preference record for the channel partner.
 *ChannelPartnerApi* | [**refundChannelPartnerOrder**](docs/ChannelPartnerApi.md#refundChannelPartnerOrder) | **PUT** /channel_partner/orders/{order_id}/refund | Refund a channel partner order
 *ChannelPartnerApi* | [**updateChannelPartnerShipToPreference**](docs/ChannelPartnerApi.md#updateChannelPartnerShipToPreference) | **PUT** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Update a ship to preference record for the channel partner.
-*ChargebackApi* | [**deleteChargeback**](docs/ChargebackApi.md#deleteChargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
-*ChargebackApi* | [**getChargebackDispute**](docs/ChargebackApi.md#getChargebackDispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
-*ChargebackApi* | [**getChargebackDisputes**](docs/ChargebackApi.md#getChargebackDisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
-*ChargebackApi* | [**insertChargeback**](docs/ChargebackApi.md#insertChargeback) | **POST** /chargeback/chargebacks | Insert a chargeback
-*ChargebackApi* | [**updateChargeback**](docs/ChargebackApi.md#updateChargeback) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback
 *CheckoutApi* | [**cityState**](docs/CheckoutApi.md#cityState) | **POST** /checkout/city_state | City/State for Zip
 *CheckoutApi* | [**finalizeOrder**](docs/CheckoutApi.md#finalizeOrder) | **POST** /checkout/cart/finalizeOrder | Finalize Order
 *CheckoutApi* | [**getAffirmCheckout**](docs/CheckoutApi.md#getAffirmCheckout) | **GET** /checkout/cart/{cart_id}/affirmCheckout | Get affirm checkout (by cart id)
@@ -285,6 +280,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateWishListItem**](docs/CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 *CustomerApi* | [**validateEmailVerificationToken**](docs/CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 *DatawarehouseApi* | [**deleteCustomDashboard**](docs/DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
+*DatawarehouseApi* | [**deleteCustomDashboardSchedule**](docs/DatawarehouseApi.md#deleteCustomDashboardSchedule) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Delete a custom dashboard schedule
 *DatawarehouseApi* | [**deleteCustomReport**](docs/DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 *DatawarehouseApi* | [**deleteReport**](docs/DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 *DatawarehouseApi* | [**dryRunReportQueries**](docs/DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
@@ -292,6 +288,7 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**executeCustomReports**](docs/DatawarehouseApi.md#executeCustomReports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 *DatawarehouseApi* | [**executeReportQueries**](docs/DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
 *DatawarehouseApi* | [**getCustomDashboard**](docs/DatawarehouseApi.md#getCustomDashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+*DatawarehouseApi* | [**getCustomDashboardSchedules**](docs/DatawarehouseApi.md#getCustomDashboardSchedules) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules | Get custom dashboards
 *DatawarehouseApi* | [**getCustomDashboards**](docs/DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 *DatawarehouseApi* | [**getCustomReport**](docs/DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 *DatawarehouseApi* | [**getCustomReportAccountConfig**](docs/DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
@@ -302,9 +299,11 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**getReportWebsocketAuthorization**](docs/DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 *DatawarehouseApi* | [**getReports**](docs/DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
 *DatawarehouseApi* | [**insertCustomDashboard**](docs/DatawarehouseApi.md#insertCustomDashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
+*DatawarehouseApi* | [**insertCustomDashboardSchedule**](docs/DatawarehouseApi.md#insertCustomDashboardSchedule) | **POST** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules | Create a custom dashboard schedule
 *DatawarehouseApi* | [**insertCustomReport**](docs/DatawarehouseApi.md#insertCustomReport) | **POST** /datawarehouse/custom_reports | Create a custom report
 *DatawarehouseApi* | [**insertReport**](docs/DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
 *DatawarehouseApi* | [**updateCustomDashboard**](docs/DatawarehouseApi.md#updateCustomDashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
+*DatawarehouseApi* | [**updateCustomDashboardSchedule**](docs/DatawarehouseApi.md#updateCustomDashboardSchedule) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Update a custom dashboard schedule
 *DatawarehouseApi* | [**updateCustomReport**](docs/DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 *DatawarehouseApi* | [**updateCustomReportAccountConfig**](docs/DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 *DatawarehouseApi* | [**updateReport**](docs/DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
@@ -747,9 +746,6 @@ Class | Method | HTTP request | Description
  - [ChannelPartnerShipToPreferencesResponse](docs/ChannelPartnerShipToPreferencesResponse.md)
  - [ChannelPartnerShippingEstimate](docs/ChannelPartnerShippingEstimate.md)
  - [ChannelPartnersResponse](docs/ChannelPartnersResponse.md)
- - [ChargebackDispute](docs/ChargebackDispute.md)
- - [ChargebackDisputeResponse](docs/ChargebackDisputeResponse.md)
- - [ChargebackDisputesResponse](docs/ChargebackDisputesResponse.md)
  - [CheckoutAllowedCountriesResponse](docs/CheckoutAllowedCountriesResponse.md)
  - [CheckoutHandoffRequest](docs/CheckoutHandoffRequest.md)
  - [CheckoutHandoffResponse](docs/CheckoutHandoffResponse.md)
@@ -937,6 +933,9 @@ Class | Method | HTTP request | Description
  - [CustomDashboardPage](docs/CustomDashboardPage.md)
  - [CustomDashboardPageReport](docs/CustomDashboardPageReport.md)
  - [CustomDashboardResponse](docs/CustomDashboardResponse.md)
+ - [CustomDashboardSchedule](docs/CustomDashboardSchedule.md)
+ - [CustomDashboardScheduleResponse](docs/CustomDashboardScheduleResponse.md)
+ - [CustomDashboardSchedulesResponse](docs/CustomDashboardSchedulesResponse.md)
  - [CustomDashboardsResponse](docs/CustomDashboardsResponse.md)
  - [CustomReport](docs/CustomReport.md)
  - [CustomReportAccountConfig](docs/CustomReportAccountConfig.md)
@@ -1594,6 +1593,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.20 | 08/18/2025 | storefront communiations - campaign repeat flags |
 | 4.1.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |
 | 4.1.18 | 08/04/2025 | more internal development on loyalty step for storefront flows |
 | 4.1.17 | 08/04/2025 | small changes to internal flow app to support loyalty tier moves |
