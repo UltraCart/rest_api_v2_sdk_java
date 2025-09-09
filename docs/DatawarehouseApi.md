@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**analyzeCustomReport**](DatawarehouseApi.md#analyzeCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/analysis | Analyze a custom report
 [**deleteCustomDashboard**](DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 [**deleteCustomDashboardSchedule**](DatawarehouseApi.md#deleteCustomDashboardSchedule) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Delete a custom dashboard schedule
 [**deleteCustomReport**](DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
@@ -17,6 +18,7 @@ Method | HTTP request | Description
 [**getCustomDashboards**](DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**getCustomReport**](DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**getCustomReportAccountConfig**](DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
+[**getCustomReportChartPngUploadUrl**](DatawarehouseApi.md#getCustomReportChartPngUploadUrl) | **GET** /datawarehouse/custom_reports/{custom_report_oid}/chart_png | Upload a PNG of a custom report chart
 [**getCustomReports**](DatawarehouseApi.md#getCustomReports) | **GET** /datawarehouse/custom_reports | Get custom reports
 [**getReport**](DatawarehouseApi.md#getReport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 [**getReportDataSet**](DatawarehouseApi.md#getReportDataSet) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
@@ -33,6 +35,58 @@ Method | HTTP request | Description
 [**updateCustomReportAccountConfig**](DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**updateReport**](DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 
+
+<a name="analyzeCustomReport"></a>
+# **analyzeCustomReport**
+> CustomReportAnalysisResponse analyzeCustomReport(analyzeRequest, customReportOid)
+
+Analyze a custom report
+
+Analyze a custom report on the UltraCart account. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+CustomReportAnalysisRequest analyzeRequest = new CustomReportAnalysisRequest(); // CustomReportAnalysisRequest | Request to analyze custom report
+Integer customReportOid = 56; // Integer | The report oid to analyze.
+try {
+    CustomReportAnalysisResponse result = apiInstance.analyzeCustomReport(analyzeRequest, customReportOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#analyzeCustomReport");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **analyzeRequest** | [**CustomReportAnalysisRequest**](CustomReportAnalysisRequest.md)| Request to analyze custom report |
+ **customReportOid** | **Integer**| The report oid to analyze. |
+
+### Return type
+
+[**CustomReportAnalysisResponse**](CustomReportAnalysisResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
 
 <a name="deleteCustomDashboard"></a>
 # **deleteCustomDashboard**
@@ -673,6 +727,56 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getCustomReportChartPngUploadUrl"></a>
+# **getCustomReportChartPngUploadUrl**
+> CustomReportChartPngUploadResponse getCustomReportChartPngUploadUrl(customReportOid)
+
+Upload a PNG of a custom report chart
+
+Upload a PNG of a custom report chart 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.DatawarehouseApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+DatawarehouseApi apiInstance = new DatawarehouseApi(apiKey);
+
+Integer customReportOid = 56; // Integer | The report oid to upload a chart PNG for.
+try {
+    CustomReportChartPngUploadResponse result = apiInstance.getCustomReportChartPngUploadUrl(customReportOid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DatawarehouseApi#getCustomReportChartPngUploadUrl");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customReportOid** | **Integer**| The report oid to upload a chart PNG for. |
+
+### Return type
+
+[**CustomReportChartPngUploadResponse**](CustomReportChartPngUploadResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="getCustomReports"></a>

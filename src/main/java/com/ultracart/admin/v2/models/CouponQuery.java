@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CouponQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:12:41.314-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:15:12.472-04:00")
 
 
 

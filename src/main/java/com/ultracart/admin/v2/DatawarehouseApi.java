@@ -36,6 +36,9 @@ import com.ultracart.admin.v2.models.CustomDashboardsResponse;
 import com.ultracart.admin.v2.models.CustomReport;
 import com.ultracart.admin.v2.models.CustomReportAccountConfig;
 import com.ultracart.admin.v2.models.CustomReportAccountConfigResponse;
+import com.ultracart.admin.v2.models.CustomReportAnalysisRequest;
+import com.ultracart.admin.v2.models.CustomReportAnalysisResponse;
+import com.ultracart.admin.v2.models.CustomReportChartPngUploadResponse;
 import com.ultracart.admin.v2.models.CustomReportExecutionRequest;
 import com.ultracart.admin.v2.models.CustomReportExecutionResponse;
 import com.ultracart.admin.v2.models.CustomReportResponse;
@@ -103,6 +106,138 @@ public class DatawarehouseApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for analyzeCustomReport
+     * @param analyzeRequest Request to analyze custom report (required)
+     * @param customReportOid The report oid to analyze. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call analyzeCustomReportCall(CustomReportAnalysisRequest analyzeRequest, Integer customReportOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = analyzeRequest;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_reports/{custom_report_oid}/analysis"
+            .replaceAll("\\{" + "custom_report_oid" + "\\}", apiClient.escapeString(customReportOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call analyzeCustomReportValidateBeforeCall(CustomReportAnalysisRequest analyzeRequest, Integer customReportOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'analyzeRequest' is set
+        if (analyzeRequest == null) {
+            throw new ApiException("Missing the required parameter 'analyzeRequest' when calling analyzeCustomReport(Async)");
+        }
+        
+        // verify the required parameter 'customReportOid' is set
+        if (customReportOid == null) {
+            throw new ApiException("Missing the required parameter 'customReportOid' when calling analyzeCustomReport(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = analyzeCustomReportCall(analyzeRequest, customReportOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Analyze a custom report
+     * Analyze a custom report on the UltraCart account. 
+     * @param analyzeRequest Request to analyze custom report (required)
+     * @param customReportOid The report oid to analyze. (required)
+     * @return CustomReportAnalysisResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomReportAnalysisResponse analyzeCustomReport(CustomReportAnalysisRequest analyzeRequest, Integer customReportOid) throws ApiException {
+        ApiResponse<CustomReportAnalysisResponse> resp = analyzeCustomReportWithHttpInfo(analyzeRequest, customReportOid);
+        return resp.getData();
+    }
+
+    /**
+     * Analyze a custom report
+     * Analyze a custom report on the UltraCart account. 
+     * @param analyzeRequest Request to analyze custom report (required)
+     * @param customReportOid The report oid to analyze. (required)
+     * @return ApiResponse&lt;CustomReportAnalysisResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomReportAnalysisResponse> analyzeCustomReportWithHttpInfo(CustomReportAnalysisRequest analyzeRequest, Integer customReportOid) throws ApiException {
+        com.squareup.okhttp.Call call = analyzeCustomReportValidateBeforeCall(analyzeRequest, customReportOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomReportAnalysisResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Analyze a custom report (asynchronously)
+     * Analyze a custom report on the UltraCart account. 
+     * @param analyzeRequest Request to analyze custom report (required)
+     * @param customReportOid The report oid to analyze. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call analyzeCustomReportAsync(CustomReportAnalysisRequest analyzeRequest, Integer customReportOid, final ApiCallback<CustomReportAnalysisResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = analyzeCustomReportValidateBeforeCall(analyzeRequest, customReportOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomReportAnalysisResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for deleteCustomDashboard
      * @param customDashboardOid The dashboard oid to delete. (required)
@@ -1675,6 +1810,129 @@ public class DatawarehouseApi {
 
         com.squareup.okhttp.Call call = getCustomReportAccountConfigValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CustomReportAccountConfigResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getCustomReportChartPngUploadUrl
+     * @param customReportOid The report oid to upload a chart PNG for. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCustomReportChartPngUploadUrlCall(Integer customReportOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_reports/{custom_report_oid}/chart_png"
+            .replaceAll("\\{" + "custom_report_oid" + "\\}", apiClient.escapeString(customReportOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getCustomReportChartPngUploadUrlValidateBeforeCall(Integer customReportOid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customReportOid' is set
+        if (customReportOid == null) {
+            throw new ApiException("Missing the required parameter 'customReportOid' when calling getCustomReportChartPngUploadUrl(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getCustomReportChartPngUploadUrlCall(customReportOid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Upload a PNG of a custom report chart
+     * Upload a PNG of a custom report chart 
+     * @param customReportOid The report oid to upload a chart PNG for. (required)
+     * @return CustomReportChartPngUploadResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomReportChartPngUploadResponse getCustomReportChartPngUploadUrl(Integer customReportOid) throws ApiException {
+        ApiResponse<CustomReportChartPngUploadResponse> resp = getCustomReportChartPngUploadUrlWithHttpInfo(customReportOid);
+        return resp.getData();
+    }
+
+    /**
+     * Upload a PNG of a custom report chart
+     * Upload a PNG of a custom report chart 
+     * @param customReportOid The report oid to upload a chart PNG for. (required)
+     * @return ApiResponse&lt;CustomReportChartPngUploadResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomReportChartPngUploadResponse> getCustomReportChartPngUploadUrlWithHttpInfo(Integer customReportOid) throws ApiException {
+        com.squareup.okhttp.Call call = getCustomReportChartPngUploadUrlValidateBeforeCall(customReportOid, null, null);
+        Type localVarReturnType = new TypeToken<CustomReportChartPngUploadResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Upload a PNG of a custom report chart (asynchronously)
+     * Upload a PNG of a custom report chart 
+     * @param customReportOid The report oid to upload a chart PNG for. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getCustomReportChartPngUploadUrlAsync(Integer customReportOid, final ApiCallback<CustomReportChartPngUploadResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getCustomReportChartPngUploadUrlValidateBeforeCall(customReportOid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomReportChartPngUploadResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

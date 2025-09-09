@@ -27,13 +27,13 @@ import java.io.IOException;
 /**
  * ItemTag
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:12:41.314-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:15:12.472-04:00")
 
 
 
 public class ItemTag {
   /**
-   * tag_tpe
+   * tag_type
    */
   @JsonAdapter(TagTypeEnum.Adapter.class)
   public enum TagTypeEnum {
@@ -93,10 +93,10 @@ public class ItemTag {
   }
 
    /**
-   * tag_tpe
+   * tag_type
    * @return tagType
   **/
-  @ApiModelProperty(value = "tag_tpe")
+  @ApiModelProperty(value = "tag_type")
   public TagTypeEnum getTagType() {
     return tagType;
   }

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tagType** | [**TagTypeEnum**](#TagTypeEnum) | tag_tpe |  [optional]
+**tagType** | [**TagTypeEnum**](#TagTypeEnum) | tag_type |  [optional]
 **tagValue** | **String** | tag_value |  [optional]
 
 

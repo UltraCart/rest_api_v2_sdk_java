@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-08-18T11:12:41.314-04:00
+  - Build date: 2025-09-09T15:15:12.472-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.20</version>
+  <version>3.11.21</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.20"
+compile "com.ultracart:rest-sdk:3.11.21"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.20.jar`
+* `target/rest-sdk-3.11.21.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -290,6 +290,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**updateWishListItem**](docs/CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 *CustomerApi* | [**validateEmailVerificationToken**](docs/CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
+*DatawarehouseApi* | [**analyzeCustomReport**](docs/DatawarehouseApi.md#analyzeCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/analysis | Analyze a custom report
 *DatawarehouseApi* | [**deleteCustomDashboard**](docs/DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 *DatawarehouseApi* | [**deleteCustomDashboardSchedule**](docs/DatawarehouseApi.md#deleteCustomDashboardSchedule) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Delete a custom dashboard schedule
 *DatawarehouseApi* | [**deleteCustomReport**](docs/DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
@@ -303,6 +304,7 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**getCustomDashboards**](docs/DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 *DatawarehouseApi* | [**getCustomReport**](docs/DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 *DatawarehouseApi* | [**getCustomReportAccountConfig**](docs/DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
+*DatawarehouseApi* | [**getCustomReportChartPngUploadUrl**](docs/DatawarehouseApi.md#getCustomReportChartPngUploadUrl) | **GET** /datawarehouse/custom_reports/{custom_report_oid}/chart_png | Upload a PNG of a custom report chart
 *DatawarehouseApi* | [**getCustomReports**](docs/DatawarehouseApi.md#getCustomReports) | **GET** /datawarehouse/custom_reports | Get custom reports
 *DatawarehouseApi* | [**getReport**](docs/DatawarehouseApi.md#getReport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 *DatawarehouseApi* | [**getReportDataSet**](docs/DatawarehouseApi.md#getReportDataSet) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
@@ -384,6 +386,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**isRefundableOrder**](docs/OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 *OrderApi* | [**processPayment**](docs/OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
+*OrderApi* | [**replaceOrderItemMerchantItemId**](docs/OrderApi.md#replaceOrderItemMerchantItemId) | **PUT** /order/orders/{order_id}/replace_item_id | Replaces an order item id
 *OrderApi* | [**replacement**](docs/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
@@ -952,6 +955,9 @@ Class | Method | HTTP request | Description
  - [CustomReport](docs/CustomReport.md)
  - [CustomReportAccountConfig](docs/CustomReportAccountConfig.md)
  - [CustomReportAccountConfigResponse](docs/CustomReportAccountConfigResponse.md)
+ - [CustomReportAnalysisRequest](docs/CustomReportAnalysisRequest.md)
+ - [CustomReportAnalysisResponse](docs/CustomReportAnalysisResponse.md)
+ - [CustomReportChartPngUploadResponse](docs/CustomReportChartPngUploadResponse.md)
  - [CustomReportExecutionParameter](docs/CustomReportExecutionParameter.md)
  - [CustomReportExecutionRequest](docs/CustomReportExecutionRequest.md)
  - [CustomReportExecutionResponse](docs/CustomReportExecutionResponse.md)
@@ -1358,6 +1364,7 @@ Class | Method | HTTP request | Description
  - [PublishLibraryItemRequest](docs/PublishLibraryItemRequest.md)
  - [RegisterAffiliateClickRequest](docs/RegisterAffiliateClickRequest.md)
  - [RegisterAffiliateClickResponse](docs/RegisterAffiliateClickResponse.md)
+ - [ReplaceOrderItemIdRequest](docs/ReplaceOrderItemIdRequest.md)
  - [Report](docs/Report.md)
  - [ReportAuth](docs/ReportAuth.md)
  - [ReportAuthResponse](docs/ReportAuthResponse.md)
@@ -1605,6 +1612,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
 | 3.11.20 | 08/18/2025 | storefront communiations - campaign repeat flags |
 | 3.11.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |
 | 3.11.18 | 08/04/2025 | more internal development on loyalty step for storefront flows |

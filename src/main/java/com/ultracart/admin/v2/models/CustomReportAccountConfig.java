@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * CustomReportAccountConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:12:41.314-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:15:12.472-04:00")
 
 
 
@@ -53,6 +53,9 @@ public class CustomReportAccountConfig {
 
   @SerializedName("opt_in_date")
   private String optInDate = null;
+
+  @SerializedName("read_only")
+  private Boolean readOnly = null;
 
   @SerializedName("sql_budget")
   private BigDecimal sqlBudget = null;
@@ -186,6 +189,24 @@ public class CustomReportAccountConfig {
     this.optInDate = optInDate;
   }
 
+  public CustomReportAccountConfig readOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return this;
+  }
+
+   /**
+   * Get readOnly
+   * @return readOnly
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isReadOnly() {
+    return readOnly;
+  }
+
+  public void setReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+  }
+
   public CustomReportAccountConfig sqlBudget(BigDecimal sqlBudget) {
     this.sqlBudget = sqlBudget;
     return this;
@@ -239,13 +260,14 @@ public class CustomReportAccountConfig {
         Objects.equals(this.optIn, customReportAccountConfig.optIn) &&
         Objects.equals(this.optInByUser, customReportAccountConfig.optInByUser) &&
         Objects.equals(this.optInDate, customReportAccountConfig.optInDate) &&
+        Objects.equals(this.readOnly, customReportAccountConfig.readOnly) &&
         Objects.equals(this.sqlBudget, customReportAccountConfig.sqlBudget) &&
         Objects.equals(this.sqlUsage, customReportAccountConfig.sqlUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiBudget, aiUsage, merchantId, noviceSqlComments, optIn, optInByUser, optInDate, sqlBudget, sqlUsage);
+    return Objects.hash(aiBudget, aiUsage, merchantId, noviceSqlComments, optIn, optInByUser, optInDate, readOnly, sqlBudget, sqlUsage);
   }
 
 
@@ -261,6 +283,7 @@ public class CustomReportAccountConfig {
     sb.append("    optIn: ").append(toIndentedString(optIn)).append("\n");
     sb.append("    optInByUser: ").append(toIndentedString(optInByUser)).append("\n");
     sb.append("    optInDate: ").append(toIndentedString(optInDate)).append("\n");
+    sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("    sqlBudget: ").append(toIndentedString(sqlBudget)).append("\n");
     sb.append("    sqlUsage: ").append(toIndentedString(sqlUsage)).append("\n");
     sb.append("}");

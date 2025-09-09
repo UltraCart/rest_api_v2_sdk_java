@@ -52,6 +52,7 @@ import com.ultracart.admin.v2.models.OrderTokenResponse;
 import com.ultracart.admin.v2.models.OrderValidationRequest;
 import com.ultracart.admin.v2.models.OrderValidationResponse;
 import com.ultracart.admin.v2.models.OrdersResponse;
+import com.ultracart.admin.v2.models.ReplaceOrderItemIdRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -3128,6 +3129,144 @@ public class OrderApi {
         }
 
         com.squareup.okhttp.Call call = refundOrderValidateBeforeCall(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for replaceOrderItemMerchantItemId
+     * @param replaceOrderItemIdRequest Replacement Request (required)
+     * @param orderId The order id to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceOrderItemMerchantItemIdCall(ReplaceOrderItemIdRequest replaceOrderItemIdRequest, String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = replaceOrderItemIdRequest;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/replace_item_id"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call replaceOrderItemMerchantItemIdValidateBeforeCall(ReplaceOrderItemIdRequest replaceOrderItemIdRequest, String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'replaceOrderItemIdRequest' is set
+        if (replaceOrderItemIdRequest == null) {
+            throw new ApiException("Missing the required parameter 'replaceOrderItemIdRequest' when calling replaceOrderItemMerchantItemId(Async)");
+        }
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling replaceOrderItemMerchantItemId(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = replaceOrderItemMerchantItemIdCall(replaceOrderItemIdRequest, orderId, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Replaces an order item id
+     * Replaces a single order item id with another merchant_item_id, leaving all other attributes and properties unchanged.  A custom method requested by a merchant to allow for item id updates due to shipping errors.  It is doubtful you will ever need this method.  The expansion variable affects the returned order object. 
+     * @param replaceOrderItemIdRequest Replacement Request (required)
+     * @param orderId The order id to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse replaceOrderItemMerchantItemId(ReplaceOrderItemIdRequest replaceOrderItemIdRequest, String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = replaceOrderItemMerchantItemIdWithHttpInfo(replaceOrderItemIdRequest, orderId, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Replaces an order item id
+     * Replaces a single order item id with another merchant_item_id, leaving all other attributes and properties unchanged.  A custom method requested by a merchant to allow for item id updates due to shipping errors.  It is doubtful you will ever need this method.  The expansion variable affects the returned order object. 
+     * @param replaceOrderItemIdRequest Replacement Request (required)
+     * @param orderId The order id to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> replaceOrderItemMerchantItemIdWithHttpInfo(ReplaceOrderItemIdRequest replaceOrderItemIdRequest, String orderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = replaceOrderItemMerchantItemIdValidateBeforeCall(replaceOrderItemIdRequest, orderId, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Replaces an order item id (asynchronously)
+     * Replaces a single order item id with another merchant_item_id, leaving all other attributes and properties unchanged.  A custom method requested by a merchant to allow for item id updates due to shipping errors.  It is doubtful you will ever need this method.  The expansion variable affects the returned order object. 
+     * @param replaceOrderItemIdRequest Replacement Request (required)
+     * @param orderId The order id to update. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call replaceOrderItemMerchantItemIdAsync(ReplaceOrderItemIdRequest replaceOrderItemIdRequest, String orderId, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = replaceOrderItemMerchantItemIdValidateBeforeCall(replaceOrderItemIdRequest, orderId, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
