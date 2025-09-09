@@ -36,6 +36,9 @@ import com.ultracart.admin.v2.models.CustomDashboardsResponse;
 import com.ultracart.admin.v2.models.CustomReport;
 import com.ultracart.admin.v2.models.CustomReportAccountConfig;
 import com.ultracart.admin.v2.models.CustomReportAccountConfigResponse;
+import com.ultracart.admin.v2.models.CustomReportAnalysisRequest;
+import com.ultracart.admin.v2.models.CustomReportAnalysisResponse;
+import com.ultracart.admin.v2.models.CustomReportChartPngUploadResponse;
 import com.ultracart.admin.v2.models.CustomReportExecutionRequest;
 import com.ultracart.admin.v2.models.CustomReportExecutionResponse;
 import com.ultracart.admin.v2.models.CustomReportResponse;
@@ -123,6 +126,162 @@ public class DatawarehouseApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for analyzeCustomReport
+     * @param customReportOid The report oid to analyze. (required)
+     * @param analyzeRequest Request to analyze custom report (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call analyzeCustomReportCall(Integer customReportOid, CustomReportAnalysisRequest analyzeRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = analyzeRequest;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_reports/{custom_report_oid}/analysis"
+            .replaceAll("\\{" + "custom_report_oid" + "\\}", localVarApiClient.escapeString(customReportOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call analyzeCustomReportValidateBeforeCall(Integer customReportOid, CustomReportAnalysisRequest analyzeRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customReportOid' is set
+        if (customReportOid == null) {
+            throw new ApiException("Missing the required parameter 'customReportOid' when calling analyzeCustomReport(Async)");
+        }
+        
+        // verify the required parameter 'analyzeRequest' is set
+        if (analyzeRequest == null) {
+            throw new ApiException("Missing the required parameter 'analyzeRequest' when calling analyzeCustomReport(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = analyzeCustomReportCall(customReportOid, analyzeRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Analyze a custom report
+     * Analyze a custom report on the UltraCart account. 
+     * @param customReportOid The report oid to analyze. (required)
+     * @param analyzeRequest Request to analyze custom report (required)
+     * @return CustomReportAnalysisResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomReportAnalysisResponse analyzeCustomReport(Integer customReportOid, CustomReportAnalysisRequest analyzeRequest) throws ApiException {
+        ApiResponse<CustomReportAnalysisResponse> localVarResp = analyzeCustomReportWithHttpInfo(customReportOid, analyzeRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Analyze a custom report
+     * Analyze a custom report on the UltraCart account. 
+     * @param customReportOid The report oid to analyze. (required)
+     * @param analyzeRequest Request to analyze custom report (required)
+     * @return ApiResponse&lt;CustomReportAnalysisResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomReportAnalysisResponse> analyzeCustomReportWithHttpInfo(Integer customReportOid, CustomReportAnalysisRequest analyzeRequest) throws ApiException {
+        okhttp3.Call localVarCall = analyzeCustomReportValidateBeforeCall(customReportOid, analyzeRequest, null);
+        Type localVarReturnType = new TypeToken<CustomReportAnalysisResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Analyze a custom report (asynchronously)
+     * Analyze a custom report on the UltraCart account. 
+     * @param customReportOid The report oid to analyze. (required)
+     * @param analyzeRequest Request to analyze custom report (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call analyzeCustomReportAsync(Integer customReportOid, CustomReportAnalysisRequest analyzeRequest, final ApiCallback<CustomReportAnalysisResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = analyzeCustomReportValidateBeforeCall(customReportOid, analyzeRequest, _callback);
+        Type localVarReturnType = new TypeToken<CustomReportAnalysisResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for deleteCustomDashboard
      * @param customDashboardOid The dashboard oid to delete. (required)
@@ -1999,6 +2158,153 @@ public class DatawarehouseApi {
 
         okhttp3.Call localVarCall = getCustomReportAccountConfigValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<CustomReportAccountConfigResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCustomReportChartPngUploadUrl
+     * @param customReportOid The report oid to upload a chart PNG for. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomReportChartPngUploadUrlCall(Integer customReportOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/datawarehouse/custom_reports/{custom_report_oid}/chart_png"
+            .replaceAll("\\{" + "custom_report_oid" + "\\}", localVarApiClient.escapeString(customReportOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCustomReportChartPngUploadUrlValidateBeforeCall(Integer customReportOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customReportOid' is set
+        if (customReportOid == null) {
+            throw new ApiException("Missing the required parameter 'customReportOid' when calling getCustomReportChartPngUploadUrl(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getCustomReportChartPngUploadUrlCall(customReportOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Upload a PNG of a custom report chart
+     * Upload a PNG of a custom report chart 
+     * @param customReportOid The report oid to upload a chart PNG for. (required)
+     * @return CustomReportChartPngUploadResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomReportChartPngUploadResponse getCustomReportChartPngUploadUrl(Integer customReportOid) throws ApiException {
+        ApiResponse<CustomReportChartPngUploadResponse> localVarResp = getCustomReportChartPngUploadUrlWithHttpInfo(customReportOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Upload a PNG of a custom report chart
+     * Upload a PNG of a custom report chart 
+     * @param customReportOid The report oid to upload a chart PNG for. (required)
+     * @return ApiResponse&lt;CustomReportChartPngUploadResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomReportChartPngUploadResponse> getCustomReportChartPngUploadUrlWithHttpInfo(Integer customReportOid) throws ApiException {
+        okhttp3.Call localVarCall = getCustomReportChartPngUploadUrlValidateBeforeCall(customReportOid, null);
+        Type localVarReturnType = new TypeToken<CustomReportChartPngUploadResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Upload a PNG of a custom report chart (asynchronously)
+     * Upload a PNG of a custom report chart 
+     * @param customReportOid The report oid to upload a chart PNG for. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomReportChartPngUploadUrlAsync(Integer customReportOid, final ApiCallback<CustomReportChartPngUploadResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCustomReportChartPngUploadUrlValidateBeforeCall(customReportOid, _callback);
+        Type localVarReturnType = new TypeToken<CustomReportChartPngUploadResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

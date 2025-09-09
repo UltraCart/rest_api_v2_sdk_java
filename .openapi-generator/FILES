@@ -324,6 +324,9 @@ docs/CustomDashboardsResponse.md
 docs/CustomReport.md
 docs/CustomReportAccountConfig.md
 docs/CustomReportAccountConfigResponse.md
+docs/CustomReportAnalysisRequest.md
+docs/CustomReportAnalysisResponse.md
+docs/CustomReportChartPngUploadResponse.md
 docs/CustomReportExecutionParameter.md
 docs/CustomReportExecutionRequest.md
 docs/CustomReportExecutionResponse.md
@@ -738,6 +741,7 @@ docs/Property.md
 docs/PublishLibraryItemRequest.md
 docs/RegisterAffiliateClickRequest.md
 docs/RegisterAffiliateClickResponse.md
+docs/ReplaceOrderItemIdRequest.md
 docs/Report.md
 docs/ReportAuth.md
 docs/ReportAuthResponse.md
@@ -1254,6 +1258,9 @@ src/main/java/com/ultracart/admin/v2/models/CustomDashboardsResponse.java
 src/main/java/com/ultracart/admin/v2/models/CustomReport.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportAccountConfig.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportAccountConfigResponse.java
+src/main/java/com/ultracart/admin/v2/models/CustomReportAnalysisRequest.java
+src/main/java/com/ultracart/admin/v2/models/CustomReportAnalysisResponse.java
+src/main/java/com/ultracart/admin/v2/models/CustomReportChartPngUploadResponse.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportExecutionParameter.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportExecutionRequest.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportExecutionResponse.java
@@ -1660,6 +1667,7 @@ src/main/java/com/ultracart/admin/v2/models/Property.java
 src/main/java/com/ultracart/admin/v2/models/PublishLibraryItemRequest.java
 src/main/java/com/ultracart/admin/v2/models/RegisterAffiliateClickRequest.java
 src/main/java/com/ultracart/admin/v2/models/RegisterAffiliateClickResponse.java
+src/main/java/com/ultracart/admin/v2/models/ReplaceOrderItemIdRequest.java
 src/main/java/com/ultracart/admin/v2/models/Report.java
 src/main/java/com/ultracart/admin/v2/models/ReportAuth.java
 src/main/java/com/ultracart/admin/v2/models/ReportAuthResponse.java

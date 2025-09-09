@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerCancelResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:29:19.921-04:00[America/Indianapolis]")
 public class ChannelPartnerCancelResponse {
   public static final String SERIALIZED_NAME_CANCEL_ERRORS = "cancel_errors";
   @SerializedName(SERIALIZED_NAME_CANCEL_ERRORS)

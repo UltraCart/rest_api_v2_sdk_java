@@ -47,10 +47,10 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemTag
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:29:19.921-04:00[America/Indianapolis]")
 public class ItemTag {
   /**
-   * tag_tpe
+   * tag_type
    */
   @JsonAdapter(TagTypeEnum.Adapter.class)
   public enum TagTypeEnum {
@@ -116,11 +116,11 @@ public class ItemTag {
   }
 
    /**
-   * tag_tpe
+   * tag_type
    * @return tagType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "tag_tpe")
+  @ApiModelProperty(value = "tag_type")
 
   public TagTypeEnum getTagType() {
     return tagType;

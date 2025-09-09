@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomReportAccountConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:29:19.921-04:00[America/Indianapolis]")
 public class CustomReportAccountConfig {
   public static final String SERIALIZED_NAME_AI_BUDGET = "ai_budget";
   @SerializedName(SERIALIZED_NAME_AI_BUDGET)
@@ -77,6 +77,10 @@ public class CustomReportAccountConfig {
   public static final String SERIALIZED_NAME_OPT_IN_DATE = "opt_in_date";
   @SerializedName(SERIALIZED_NAME_OPT_IN_DATE)
   private String optInDate;
+
+  public static final String SERIALIZED_NAME_READ_ONLY = "read_only";
+  @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SQL_BUDGET = "sql_budget";
   @SerializedName(SERIALIZED_NAME_SQL_BUDGET)
@@ -250,6 +254,29 @@ public class CustomReportAccountConfig {
   }
 
 
+  public CustomReportAccountConfig readOnly(Boolean readOnly) {
+    
+    this.readOnly = readOnly;
+    return this;
+  }
+
+   /**
+   * Get readOnly
+   * @return readOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getReadOnly() {
+    return readOnly;
+  }
+
+
+  public void setReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+  }
+
+
   public CustomReportAccountConfig sqlBudget(BigDecimal sqlBudget) {
     
     this.sqlBudget = sqlBudget;
@@ -313,13 +340,14 @@ public class CustomReportAccountConfig {
         Objects.equals(this.optIn, customReportAccountConfig.optIn) &&
         Objects.equals(this.optInByUser, customReportAccountConfig.optInByUser) &&
         Objects.equals(this.optInDate, customReportAccountConfig.optInDate) &&
+        Objects.equals(this.readOnly, customReportAccountConfig.readOnly) &&
         Objects.equals(this.sqlBudget, customReportAccountConfig.sqlBudget) &&
         Objects.equals(this.sqlUsage, customReportAccountConfig.sqlUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiBudget, aiUsage, merchantId, noviceSqlComments, optIn, optInByUser, optInDate, sqlBudget, sqlUsage);
+    return Objects.hash(aiBudget, aiUsage, merchantId, noviceSqlComments, optIn, optInByUser, optInDate, readOnly, sqlBudget, sqlUsage);
   }
 
   @Override
@@ -333,6 +361,7 @@ public class CustomReportAccountConfig {
     sb.append("    optIn: ").append(toIndentedString(optIn)).append("\n");
     sb.append("    optInByUser: ").append(toIndentedString(optInByUser)).append("\n");
     sb.append("    optInDate: ").append(toIndentedString(optInDate)).append("\n");
+    sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("    sqlBudget: ").append(toIndentedString(sqlBudget)).append("\n");
     sb.append("    sqlUsage: ").append(toIndentedString(sqlUsage)).append("\n");
     sb.append("}");
@@ -364,6 +393,7 @@ public class CustomReportAccountConfig {
     openapiFields.add("opt_in");
     openapiFields.add("opt_in_by_user");
     openapiFields.add("opt_in_date");
+    openapiFields.add("read_only");
     openapiFields.add("sql_budget");
     openapiFields.add("sql_usage");
 

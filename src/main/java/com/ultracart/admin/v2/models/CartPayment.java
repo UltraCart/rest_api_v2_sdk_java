@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartPayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-18T11:26:02.311-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:29:19.921-04:00[America/Indianapolis]")
 public class CartPayment {
   public static final String SERIALIZED_NAME_AFFIRM = "affirm";
   @SerializedName(SERIALIZED_NAME_AFFIRM)
