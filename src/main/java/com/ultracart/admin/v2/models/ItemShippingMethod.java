@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemShippingMethod
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:15:12.472-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:02:44.982-04:00")
 
 
 
@@ -123,6 +123,9 @@ public class ItemShippingMethod {
 
   @SerializedName("shipping_method_validity")
   private ShippingMethodValidityEnum shippingMethodValidity = null;
+
+  @SerializedName("ships_separately")
+  private Boolean shipsSeparately = null;
 
   @SerializedName("signature_required")
   private Boolean signatureRequired = null;
@@ -379,6 +382,24 @@ public class ItemShippingMethod {
     this.shippingMethodValidity = shippingMethodValidity;
   }
 
+  public ItemShippingMethod shipsSeparately(Boolean shipsSeparately) {
+    this.shipsSeparately = shipsSeparately;
+    return this;
+  }
+
+   /**
+   * Ships separately
+   * @return shipsSeparately
+  **/
+  @ApiModelProperty(value = "Ships separately")
+  public Boolean isShipsSeparately() {
+    return shipsSeparately;
+  }
+
+  public void setShipsSeparately(Boolean shipsSeparately) {
+    this.shipsSeparately = shipsSeparately;
+  }
+
   public ItemShippingMethod signatureRequired(Boolean signatureRequired) {
     this.signatureRequired = signatureRequired;
     return this;
@@ -421,12 +442,13 @@ public class ItemShippingMethod {
         Objects.equals(this.shippingMethod, itemShippingMethod.shippingMethod) &&
         Objects.equals(this.shippingMethodOid, itemShippingMethod.shippingMethodOid) &&
         Objects.equals(this.shippingMethodValidity, itemShippingMethod.shippingMethodValidity) &&
+        Objects.equals(this.shipsSeparately, itemShippingMethod.shipsSeparately) &&
         Objects.equals(this.signatureRequired, itemShippingMethod.signatureRequired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cost, eachAdditionalItemMarkup, filterToIfAvailable, firstItemMarkup, fixedShippingCost, flatFeeMarkup, freeShipping, perItemFeeMarkup, percentageMarkup, percentageOfItemMarkup, relaxRestrictionsOnUpsell, shippingMethod, shippingMethodOid, shippingMethodValidity, signatureRequired);
+    return Objects.hash(cost, eachAdditionalItemMarkup, filterToIfAvailable, firstItemMarkup, fixedShippingCost, flatFeeMarkup, freeShipping, perItemFeeMarkup, percentageMarkup, percentageOfItemMarkup, relaxRestrictionsOnUpsell, shippingMethod, shippingMethodOid, shippingMethodValidity, shipsSeparately, signatureRequired);
   }
 
 
@@ -449,6 +471,7 @@ public class ItemShippingMethod {
     sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
     sb.append("    shippingMethodOid: ").append(toIndentedString(shippingMethodOid)).append("\n");
     sb.append("    shippingMethodValidity: ").append(toIndentedString(shippingMethodValidity)).append("\n");
+    sb.append("    shipsSeparately: ").append(toIndentedString(shipsSeparately)).append("\n");
     sb.append("    signatureRequired: ").append(toIndentedString(signatureRequired)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -38,6 +38,7 @@ CASH | &quot;Cash&quot;
 CHECK | &quot;Check&quot;
 COD | &quot;COD&quot;
 CREDIT_CARD | &quot;Credit Card&quot;
+CRYPTO | &quot;Crypto&quot;
 EBAY | &quot;eBay&quot;
 ECHECK | &quot;eCheck&quot;
 GOOGLE_SHOPPING | &quot;Google Shopping&quot;

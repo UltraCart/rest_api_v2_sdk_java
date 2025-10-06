@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-09-09T15:15:12.472-04:00
+  - Build date: 2025-10-06T15:02:44.982-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.21</version>
+  <version>3.11.22</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.21"
+compile "com.ultracart:rest-sdk:3.11.22"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.21.jar`
+* `target/rest-sdk-3.11.22.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1612,6 +1612,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.22 | 10/06/2025 | added Customer.fax back into object model |
 | 3.11.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
 | 3.11.20 | 08/18/2025 | storefront communiations - campaign repeat flags |
 | 3.11.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |

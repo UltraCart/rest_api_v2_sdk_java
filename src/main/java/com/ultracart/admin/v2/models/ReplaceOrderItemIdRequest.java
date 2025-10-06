@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ReplaceOrderItemIdRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:15:12.472-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:02:44.982-04:00")
 
 
 
@@ -50,10 +50,10 @@ public class ReplaceOrderItemIdRequest {
   }
 
    /**
-   * Index of the item on the order (one based index)
+   * Index of the item on the order.  Must match order.items[].item_index
    * @return itemIndex
   **/
-  @ApiModelProperty(value = "Index of the item on the order (one based index)")
+  @ApiModelProperty(value = "Index of the item on the order.  Must match order.items[].item_index")
   public Integer getItemIndex() {
     return itemIndex;
   }

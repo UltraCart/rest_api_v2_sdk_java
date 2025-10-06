@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **shippingMethod** | **String** | Shipping method name |  [optional]
 **shippingMethodOid** | **Integer** | Shipping method object identifier |  [optional]
 **shippingMethodValidity** | [**ShippingMethodValidityEnum**](#ShippingMethodValidityEnum) | Shipping method validity |  [optional]
+**shipsSeparately** | **Boolean** | Ships separately |  [optional]
 **signatureRequired** | **Boolean** | Signature required |  [optional]
 
 

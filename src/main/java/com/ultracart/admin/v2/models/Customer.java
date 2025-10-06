@@ -48,7 +48,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:15:12.472-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:02:44.982-04:00")
 
 
 
@@ -121,6 +121,9 @@ public class Customer {
 
   @SerializedName("exempt_shipping_handling_charge")
   private Boolean exemptShippingHandlingCharge = null;
+
+  @SerializedName("fax")
+  private String fax = null;
 
   @SerializedName("fedex_account_number")
   private String fedexAccountNumber = null;
@@ -689,6 +692,24 @@ public class Customer {
 
   public void setExemptShippingHandlingCharge(Boolean exemptShippingHandlingCharge) {
     this.exemptShippingHandlingCharge = exemptShippingHandlingCharge;
+  }
+
+  public Customer fax(String fax) {
+    this.fax = fax;
+    return this;
+  }
+
+   /**
+   * Fax Number
+   * @return fax
+  **/
+  @ApiModelProperty(value = "Fax Number")
+  public String getFax() {
+    return fax;
+  }
+
+  public void setFax(String fax) {
+    this.fax = fax;
   }
 
   public Customer fedexAccountNumber(String fedexAccountNumber) {
@@ -1518,6 +1539,7 @@ public class Customer {
         Objects.equals(this.edi, customer.edi) &&
         Objects.equals(this.email, customer.email) &&
         Objects.equals(this.exemptShippingHandlingCharge, customer.exemptShippingHandlingCharge) &&
+        Objects.equals(this.fax, customer.fax) &&
         Objects.equals(this.fedexAccountNumber, customer.fedexAccountNumber) &&
         Objects.equals(this.freeShipping, customer.freeShipping) &&
         Objects.equals(this.freeShippingMinimum, customer.freeShippingMinimum) &&
@@ -1563,7 +1585,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, doNotSendMail, edi, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, properties, qbClass, qbCode, qbTaxExemptionReasonCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, doNotSendMail, edi, email, exemptShippingHandlingCharge, fax, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, properties, qbClass, qbCode, qbTaxExemptionReasonCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
 
@@ -1595,6 +1617,7 @@ public class Customer {
     sb.append("    edi: ").append(toIndentedString(edi)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    exemptShippingHandlingCharge: ").append(toIndentedString(exemptShippingHandlingCharge)).append("\n");
+    sb.append("    fax: ").append(toIndentedString(fax)).append("\n");
     sb.append("    fedexAccountNumber: ").append(toIndentedString(fedexAccountNumber)).append("\n");
     sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");
     sb.append("    freeShippingMinimum: ").append(toIndentedString(freeShippingMinimum)).append("\n");
