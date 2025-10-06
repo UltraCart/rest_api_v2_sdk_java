@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-09-09T15:29:19.921-04:00[America/Indianapolis]
+- Build date: 2025-10-06T15:19:33.697-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.21</version>
+    <version>4.1.22</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.21"
+     implementation "com.ultracart:rest-sdk:4.1.22"
   }
 ```
 
@@ -1600,6 +1600,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.22 | 10/06/2025 | added Customer.fax back into object model |
 | 4.1.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
 | 4.1.20 | 08/18/2025 | storefront communiations - campaign repeat flags |
 | 4.1.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |

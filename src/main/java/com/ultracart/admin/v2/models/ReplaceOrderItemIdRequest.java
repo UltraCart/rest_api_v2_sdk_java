@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ReplaceOrderItemIdRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:29:19.921-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:19:33.697-04:00[America/Indianapolis]")
 public class ReplaceOrderItemIdRequest {
   public static final String SERIALIZED_NAME_ITEM_INDEX = "item_index";
   @SerializedName(SERIALIZED_NAME_ITEM_INDEX)
@@ -75,11 +75,11 @@ public class ReplaceOrderItemIdRequest {
   }
 
    /**
-   * Index of the item on the order (one based index)
+   * Index of the item on the order.  Must match order.items[].item_index
    * @return itemIndex
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Index of the item on the order (one based index)")
+  @ApiModelProperty(value = "Index of the item on the order.  Must match order.items[].item_index")
 
   public Integer getItemIndex() {
     return itemIndex;

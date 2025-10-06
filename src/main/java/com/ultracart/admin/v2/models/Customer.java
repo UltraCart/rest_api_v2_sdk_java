@@ -68,7 +68,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:29:19.921-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:19:33.697-04:00[America/Indianapolis]")
 public class Customer {
   public static final String SERIALIZED_NAME_ACTIVITY = "activity";
   @SerializedName(SERIALIZED_NAME_ACTIVITY)
@@ -161,6 +161,10 @@ public class Customer {
   public static final String SERIALIZED_NAME_EXEMPT_SHIPPING_HANDLING_CHARGE = "exempt_shipping_handling_charge";
   @SerializedName(SERIALIZED_NAME_EXEMPT_SHIPPING_HANDLING_CHARGE)
   private Boolean exemptShippingHandlingCharge;
+
+  public static final String SERIALIZED_NAME_FAX = "fax";
+  @SerializedName(SERIALIZED_NAME_FAX)
+  private String fax;
 
   public static final String SERIALIZED_NAME_FEDEX_ACCOUNT_NUMBER = "fedex_account_number";
   @SerializedName(SERIALIZED_NAME_FEDEX_ACCOUNT_NUMBER)
@@ -887,6 +891,29 @@ public class Customer {
 
   public void setExemptShippingHandlingCharge(Boolean exemptShippingHandlingCharge) {
     this.exemptShippingHandlingCharge = exemptShippingHandlingCharge;
+  }
+
+
+  public Customer fax(String fax) {
+    
+    this.fax = fax;
+    return this;
+  }
+
+   /**
+   * Fax Number
+   * @return fax
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Fax Number")
+
+  public String getFax() {
+    return fax;
+  }
+
+
+  public void setFax(String fax) {
+    this.fax = fax;
   }
 
 
@@ -1922,6 +1949,7 @@ public class Customer {
         Objects.equals(this.edi, customer.edi) &&
         Objects.equals(this.email, customer.email) &&
         Objects.equals(this.exemptShippingHandlingCharge, customer.exemptShippingHandlingCharge) &&
+        Objects.equals(this.fax, customer.fax) &&
         Objects.equals(this.fedexAccountNumber, customer.fedexAccountNumber) &&
         Objects.equals(this.freeShipping, customer.freeShipping) &&
         Objects.equals(this.freeShippingMinimum, customer.freeShippingMinimum) &&
@@ -1967,7 +1995,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, doNotSendMail, edi, email, exemptShippingHandlingCharge, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, properties, qbClass, qbCode, qbTaxExemptionReasonCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, doNotSendMail, edi, email, exemptShippingHandlingCharge, fax, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, properties, qbClass, qbCode, qbTaxExemptionReasonCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
   @Override
@@ -1997,6 +2025,7 @@ public class Customer {
     sb.append("    edi: ").append(toIndentedString(edi)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    exemptShippingHandlingCharge: ").append(toIndentedString(exemptShippingHandlingCharge)).append("\n");
+    sb.append("    fax: ").append(toIndentedString(fax)).append("\n");
     sb.append("    fedexAccountNumber: ").append(toIndentedString(fedexAccountNumber)).append("\n");
     sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");
     sb.append("    freeShippingMinimum: ").append(toIndentedString(freeShippingMinimum)).append("\n");
@@ -2083,6 +2112,7 @@ public class Customer {
     openapiFields.add("edi");
     openapiFields.add("email");
     openapiFields.add("exempt_shipping_handling_charge");
+    openapiFields.add("fax");
     openapiFields.add("fedex_account_number");
     openapiFields.add("free_shipping");
     openapiFields.add("free_shipping_minimum");
@@ -2221,6 +2251,9 @@ public class Customer {
       }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if (jsonObj.get("fax") != null && !jsonObj.get("fax").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fax").toString()));
       }
       if (jsonObj.get("fedex_account_number") != null && !jsonObj.get("fedex_account_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fedex_account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fedex_account_number").toString()));

@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShippingMethod
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-09T15:29:19.921-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:19:33.697-04:00[America/Indianapolis]")
 public class ItemShippingMethod {
   public static final String SERIALIZED_NAME_COST = "cost";
   @SerializedName(SERIALIZED_NAME_COST)
@@ -154,6 +154,10 @@ public class ItemShippingMethod {
   public static final String SERIALIZED_NAME_SHIPPING_METHOD_VALIDITY = "shipping_method_validity";
   @SerializedName(SERIALIZED_NAME_SHIPPING_METHOD_VALIDITY)
   private ShippingMethodValidityEnum shippingMethodValidity;
+
+  public static final String SERIALIZED_NAME_SHIPS_SEPARATELY = "ships_separately";
+  @SerializedName(SERIALIZED_NAME_SHIPS_SEPARATELY)
+  private Boolean shipsSeparately;
 
   public static final String SERIALIZED_NAME_SIGNATURE_REQUIRED = "signature_required";
   @SerializedName(SERIALIZED_NAME_SIGNATURE_REQUIRED)
@@ -484,6 +488,29 @@ public class ItemShippingMethod {
   }
 
 
+  public ItemShippingMethod shipsSeparately(Boolean shipsSeparately) {
+    
+    this.shipsSeparately = shipsSeparately;
+    return this;
+  }
+
+   /**
+   * Ships separately
+   * @return shipsSeparately
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Ships separately")
+
+  public Boolean getShipsSeparately() {
+    return shipsSeparately;
+  }
+
+
+  public void setShipsSeparately(Boolean shipsSeparately) {
+    this.shipsSeparately = shipsSeparately;
+  }
+
+
   public ItemShippingMethod signatureRequired(Boolean signatureRequired) {
     
     this.signatureRequired = signatureRequired;
@@ -531,12 +558,13 @@ public class ItemShippingMethod {
         Objects.equals(this.shippingMethod, itemShippingMethod.shippingMethod) &&
         Objects.equals(this.shippingMethodOid, itemShippingMethod.shippingMethodOid) &&
         Objects.equals(this.shippingMethodValidity, itemShippingMethod.shippingMethodValidity) &&
+        Objects.equals(this.shipsSeparately, itemShippingMethod.shipsSeparately) &&
         Objects.equals(this.signatureRequired, itemShippingMethod.signatureRequired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cost, eachAdditionalItemMarkup, filterToIfAvailable, firstItemMarkup, fixedShippingCost, flatFeeMarkup, freeShipping, perItemFeeMarkup, percentageMarkup, percentageOfItemMarkup, relaxRestrictionsOnUpsell, shippingMethod, shippingMethodOid, shippingMethodValidity, signatureRequired);
+    return Objects.hash(cost, eachAdditionalItemMarkup, filterToIfAvailable, firstItemMarkup, fixedShippingCost, flatFeeMarkup, freeShipping, perItemFeeMarkup, percentageMarkup, percentageOfItemMarkup, relaxRestrictionsOnUpsell, shippingMethod, shippingMethodOid, shippingMethodValidity, shipsSeparately, signatureRequired);
   }
 
   @Override
@@ -557,6 +585,7 @@ public class ItemShippingMethod {
     sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
     sb.append("    shippingMethodOid: ").append(toIndentedString(shippingMethodOid)).append("\n");
     sb.append("    shippingMethodValidity: ").append(toIndentedString(shippingMethodValidity)).append("\n");
+    sb.append("    shipsSeparately: ").append(toIndentedString(shipsSeparately)).append("\n");
     sb.append("    signatureRequired: ").append(toIndentedString(signatureRequired)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -594,6 +623,7 @@ public class ItemShippingMethod {
     openapiFields.add("shipping_method");
     openapiFields.add("shipping_method_oid");
     openapiFields.add("shipping_method_validity");
+    openapiFields.add("ships_separately");
     openapiFields.add("signature_required");
 
     // a set of required properties/fields (JSON key names)
