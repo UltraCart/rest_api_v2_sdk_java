@@ -37,6 +37,7 @@ import com.ultracart.admin.v2.models.ConversationCannedMessage;
 import com.ultracart.admin.v2.models.ConversationCannedMessageResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesSearch;
+import com.ultracart.admin.v2.models.ConversationDeleteKnowledgeBaseDocumentResponse;
 import com.ultracart.admin.v2.models.ConversationDepartment;
 import com.ultracart.admin.v2.models.ConversationDepartmentMembersResponse;
 import com.ultracart.admin.v2.models.ConversationDepartmentResponse;
@@ -44,7 +45,11 @@ import com.ultracart.admin.v2.models.ConversationDepartmentsResponse;
 import com.ultracart.admin.v2.models.ConversationEngagement;
 import com.ultracart.admin.v2.models.ConversationEngagementResponse;
 import com.ultracart.admin.v2.models.ConversationEngagementsResponse;
+import com.ultracart.admin.v2.models.ConversationInsertKnowledgeBaseDocumentRequest;
+import com.ultracart.admin.v2.models.ConversationInsertKnowledgeBaseDocumentResponse;
 import com.ultracart.admin.v2.models.ConversationJoinRequest;
+import com.ultracart.admin.v2.models.ConversationKnowledgeBaseDocumentUploadUrlResponse;
+import com.ultracart.admin.v2.models.ConversationKnowledgeBaseDocumentsResponse;
 import com.ultracart.admin.v2.models.ConversationLocationsResponse;
 import com.ultracart.admin.v2.models.ConversationMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
@@ -144,6 +149,139 @@ public class ConversationApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for deleteAgentProfileKnowledgeBaseDocument
+     * @param userId  (required)
+     * @param documentUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteAgentProfileKnowledgeBaseDocumentCall(Integer userId, String documentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "document_uuid" + "\\}", apiClient.escapeString(documentUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteAgentProfileKnowledgeBaseDocumentValidateBeforeCall(Integer userId, String documentUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling deleteAgentProfileKnowledgeBaseDocument(Async)");
+        }
+        
+        // verify the required parameter 'documentUuid' is set
+        if (documentUuid == null) {
+            throw new ApiException("Missing the required parameter 'documentUuid' when calling deleteAgentProfileKnowledgeBaseDocument(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteAgentProfileKnowledgeBaseDocumentCall(userId, documentUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a knowledge base document
+     * Delete a knowledge base document 
+     * @param userId  (required)
+     * @param documentUuid  (required)
+     * @return ConversationDeleteKnowledgeBaseDocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationDeleteKnowledgeBaseDocumentResponse deleteAgentProfileKnowledgeBaseDocument(Integer userId, String documentUuid) throws ApiException {
+        ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse> resp = deleteAgentProfileKnowledgeBaseDocumentWithHttpInfo(userId, documentUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Delete a knowledge base document
+     * Delete a knowledge base document 
+     * @param userId  (required)
+     * @param documentUuid  (required)
+     * @return ApiResponse&lt;ConversationDeleteKnowledgeBaseDocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse> deleteAgentProfileKnowledgeBaseDocumentWithHttpInfo(Integer userId, String documentUuid) throws ApiException {
+        com.squareup.okhttp.Call call = deleteAgentProfileKnowledgeBaseDocumentValidateBeforeCall(userId, documentUuid, null, null);
+        Type localVarReturnType = new TypeToken<ConversationDeleteKnowledgeBaseDocumentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete a knowledge base document (asynchronously)
+     * Delete a knowledge base document 
+     * @param userId  (required)
+     * @param documentUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteAgentProfileKnowledgeBaseDocumentAsync(Integer userId, String documentUuid, final ApiCallback<ConversationDeleteKnowledgeBaseDocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteAgentProfileKnowledgeBaseDocumentValidateBeforeCall(userId, documentUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationDeleteKnowledgeBaseDocumentResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for deleteConversationCannedMessage
      * @param conversationCannedMessageOid  (required)
@@ -1710,6 +1848,129 @@ public class ConversationApi {
         return call;
     }
     /**
+     * Build call for getAgentProfileKnowledgeBase
+     * @param userId  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAgentProfileKnowledgeBaseCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAgentProfileKnowledgeBaseValidateBeforeCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling getAgentProfileKnowledgeBase(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getAgentProfileKnowledgeBaseCall(userId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the list of knowledge base documents associated with this agent profile
+     * Retrieve knowledge base documents 
+     * @param userId  (required)
+     * @return ConversationKnowledgeBaseDocumentsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationKnowledgeBaseDocumentsResponse getAgentProfileKnowledgeBase(Integer userId) throws ApiException {
+        ApiResponse<ConversationKnowledgeBaseDocumentsResponse> resp = getAgentProfileKnowledgeBaseWithHttpInfo(userId);
+        return resp.getData();
+    }
+
+    /**
+     * Get the list of knowledge base documents associated with this agent profile
+     * Retrieve knowledge base documents 
+     * @param userId  (required)
+     * @return ApiResponse&lt;ConversationKnowledgeBaseDocumentsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationKnowledgeBaseDocumentsResponse> getAgentProfileKnowledgeBaseWithHttpInfo(Integer userId) throws ApiException {
+        com.squareup.okhttp.Call call = getAgentProfileKnowledgeBaseValidateBeforeCall(userId, null, null);
+        Type localVarReturnType = new TypeToken<ConversationKnowledgeBaseDocumentsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the list of knowledge base documents associated with this agent profile (asynchronously)
+     * Retrieve knowledge base documents 
+     * @param userId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAgentProfileKnowledgeBaseAsync(Integer userId, final ApiCallback<ConversationKnowledgeBaseDocumentsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAgentProfileKnowledgeBaseValidateBeforeCall(userId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationKnowledgeBaseDocumentsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getAgentProfiles
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -2759,6 +3020,139 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = getConversationEngagementsValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationEngagementsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getConversationKnowledgeBaseDocumentUploadUrl
+     * @param userId  (required)
+     * @param extension  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getConversationKnowledgeBaseDocumentUploadUrlCall(Integer userId, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "extension" + "\\}", apiClient.escapeString(extension.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getConversationKnowledgeBaseDocumentUploadUrlValidateBeforeCall(Integer userId, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling getConversationKnowledgeBaseDocumentUploadUrl(Async)");
+        }
+        
+        // verify the required parameter 'extension' is set
+        if (extension == null) {
+            throw new ApiException("Missing the required parameter 'extension' when calling getConversationKnowledgeBaseDocumentUploadUrl(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getConversationKnowledgeBaseDocumentUploadUrlCall(userId, extension, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get a pre-signed conversation knowledge base document upload URL
+     * Get a pre-signed conversation knowledge base document upload URL 
+     * @param userId  (required)
+     * @param extension  (required)
+     * @return ConversationKnowledgeBaseDocumentUploadUrlResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationKnowledgeBaseDocumentUploadUrlResponse getConversationKnowledgeBaseDocumentUploadUrl(Integer userId, String extension) throws ApiException {
+        ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse> resp = getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo(userId, extension);
+        return resp.getData();
+    }
+
+    /**
+     * Get a pre-signed conversation knowledge base document upload URL
+     * Get a pre-signed conversation knowledge base document upload URL 
+     * @param userId  (required)
+     * @param extension  (required)
+     * @return ApiResponse&lt;ConversationKnowledgeBaseDocumentUploadUrlResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse> getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo(Integer userId, String extension) throws ApiException {
+        com.squareup.okhttp.Call call = getConversationKnowledgeBaseDocumentUploadUrlValidateBeforeCall(userId, extension, null, null);
+        Type localVarReturnType = new TypeToken<ConversationKnowledgeBaseDocumentUploadUrlResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get a pre-signed conversation knowledge base document upload URL (asynchronously)
+     * Get a pre-signed conversation knowledge base document upload URL 
+     * @param userId  (required)
+     * @param extension  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getConversationKnowledgeBaseDocumentUploadUrlAsync(Integer userId, String extension, final ApiCallback<ConversationKnowledgeBaseDocumentUploadUrlResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getConversationKnowledgeBaseDocumentUploadUrlValidateBeforeCall(userId, extension, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationKnowledgeBaseDocumentUploadUrlResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6715,6 +7109,138 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = getVirtualAgentCapabilitiesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationVirtualAgentCapabilitiesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertAgentProfileKnowledgeBaseDocument
+     * @param userId  (required)
+     * @param knowledgeBaseDocumentRequest Insert request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertAgentProfileKnowledgeBaseDocumentCall(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = knowledgeBaseDocumentRequest;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertAgentProfileKnowledgeBaseDocumentValidateBeforeCall(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling insertAgentProfileKnowledgeBaseDocument(Async)");
+        }
+        
+        // verify the required parameter 'knowledgeBaseDocumentRequest' is set
+        if (knowledgeBaseDocumentRequest == null) {
+            throw new ApiException("Missing the required parameter 'knowledgeBaseDocumentRequest' when calling insertAgentProfileKnowledgeBaseDocument(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertAgentProfileKnowledgeBaseDocumentCall(userId, knowledgeBaseDocumentRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a knowledge base document
+     * Insert a knowledge base document 
+     * @param userId  (required)
+     * @param knowledgeBaseDocumentRequest Insert request (required)
+     * @return ConversationInsertKnowledgeBaseDocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationInsertKnowledgeBaseDocumentResponse insertAgentProfileKnowledgeBaseDocument(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest) throws ApiException {
+        ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse> resp = insertAgentProfileKnowledgeBaseDocumentWithHttpInfo(userId, knowledgeBaseDocumentRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a knowledge base document
+     * Insert a knowledge base document 
+     * @param userId  (required)
+     * @param knowledgeBaseDocumentRequest Insert request (required)
+     * @return ApiResponse&lt;ConversationInsertKnowledgeBaseDocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse> insertAgentProfileKnowledgeBaseDocumentWithHttpInfo(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest) throws ApiException {
+        com.squareup.okhttp.Call call = insertAgentProfileKnowledgeBaseDocumentValidateBeforeCall(userId, knowledgeBaseDocumentRequest, null, null);
+        Type localVarReturnType = new TypeToken<ConversationInsertKnowledgeBaseDocumentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a knowledge base document (asynchronously)
+     * Insert a knowledge base document 
+     * @param userId  (required)
+     * @param knowledgeBaseDocumentRequest Insert request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertAgentProfileKnowledgeBaseDocumentAsync(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest, final ApiCallback<ConversationInsertKnowledgeBaseDocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertAgentProfileKnowledgeBaseDocumentValidateBeforeCall(userId, knowledgeBaseDocumentRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationInsertKnowledgeBaseDocumentResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

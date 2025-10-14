@@ -517,7 +517,7 @@ public class CustomerApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json; charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -562,12 +562,10 @@ public class CustomerApi {
      * Delete a customer wishlist item 
      * @param customerProfileOid The customer oid for this wishlist. (required)
      * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
-     * @return CustomerWishListItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomerWishListItem deleteWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
-        ApiResponse<CustomerWishListItem> resp = deleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
-        return resp.getData();
+    public void deleteWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        deleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
     }
 
     /**
@@ -575,13 +573,12 @@ public class CustomerApi {
      * Delete a customer wishlist item 
      * @param customerProfileOid The customer oid for this wishlist. (required)
      * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
-     * @return ApiResponse&lt;CustomerWishListItem&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomerWishListItem> deleteWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+    public ApiResponse<Void> deleteWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
         com.squareup.okhttp.Call call = deleteWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, null, null);
-        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -593,7 +590,7 @@ public class CustomerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<CustomerWishListItem> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -615,8 +612,7 @@ public class CustomerApi {
         }
 
         com.squareup.okhttp.Call call = deleteWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**

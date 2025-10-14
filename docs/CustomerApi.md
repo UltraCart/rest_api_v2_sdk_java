@@ -185,7 +185,7 @@ null (empty response body)
 
 <a name="deleteWishListItem"></a>
 # **deleteWishListItem**
-> CustomerWishListItem deleteWishListItem(customerProfileOid, customerWishlistItemOid)
+> deleteWishListItem(customerProfileOid, customerWishlistItemOid)
 
 Delete a customer wishlist item
 
@@ -207,8 +207,7 @@ CustomerApi apiInstance = new CustomerApi(apiKey);
 Integer customerProfileOid = 56; // Integer | The customer oid for this wishlist.
 Integer customerWishlistItemOid = 56; // Integer | The wishlist oid for this wishlist item to delete.
 try {
-    CustomerWishListItem result = apiInstance.deleteWishListItem(customerProfileOid, customerWishlistItemOid);
-    System.out.println(result);
+    apiInstance.deleteWishListItem(customerProfileOid, customerWishlistItemOid);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#deleteWishListItem");
     e.printStackTrace();
@@ -224,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerWishListItem**](CustomerWishListItem.md)
+null (empty response body)
 
 ### Authorization
 
@@ -232,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="getCustomer"></a>

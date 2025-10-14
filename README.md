@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-10-06T15:02:44.982-04:00
+  - Build date: 2025-10-14T11:50:44.731-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.22</version>
+  <version>3.11.23</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.22"
+compile "com.ultracart:rest-sdk:3.11.23"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.22.jar`
+* `target/rest-sdk-3.11.23.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -159,6 +159,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/CheckoutApi.md#setupBrowserKey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/CheckoutApi.md#updateCart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
+*ConversationApi* | [**deleteAgentProfileKnowledgeBaseDocument**](docs/ConversationApi.md#deleteAgentProfileKnowledgeBaseDocument) | **DELETE** /conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid} | Delete a knowledge base document
 *ConversationApi* | [**deleteConversationCannedMessage**](docs/ConversationApi.md#deleteConversationCannedMessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 *ConversationApi* | [**deleteDepartment**](docs/ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
@@ -172,6 +173,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deletePbxVoicemailMailbox**](docs/ConversationApi.md#deletePbxVoicemailMailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
 *ConversationApi* | [**getAgentKeepAlive**](docs/ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentProfile**](docs/ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
+*ConversationApi* | [**getAgentProfileKnowledgeBase**](docs/ConversationApi.md#getAgentProfileKnowledgeBase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
 *ConversationApi* | [**getAgentProfiles**](docs/ConversationApi.md#getAgentProfiles) | **GET** /conversation/agent/profiles | Get agent profiles
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
@@ -181,6 +183,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationDepartments**](docs/ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 *ConversationApi* | [**getConversationEngagement**](docs/ConversationApi.md#getConversationEngagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
+*ConversationApi* | [**getConversationKnowledgeBaseDocumentUploadUrl**](docs/ConversationApi.md#getConversationKnowledgeBaseDocumentUploadUrl) | **GET** /conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
 *ConversationApi* | [**getConversationPbxAudioUploadUrl**](docs/ConversationApi.md#getConversationPbxAudioUploadUrl) | **GET** /conversation/pbx/audio/upload_url/{extension} | Get a pre-signed conversation multimedia upload URL
@@ -214,6 +217,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxVoicemailMailboxes**](docs/ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 *ConversationApi* | [**getVirtualAgentBudget**](docs/ConversationApi.md#getVirtualAgentBudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 *ConversationApi* | [**getVirtualAgentCapabilities**](docs/ConversationApi.md#getVirtualAgentCapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
+*ConversationApi* | [**insertAgentProfileKnowledgeBaseDocument**](docs/ConversationApi.md#insertAgentProfileKnowledgeBaseDocument) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
 *ConversationApi* | [**insertConversationCannedMessage**](docs/ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
@@ -780,6 +784,7 @@ Class | Method | HTTP request | Description
  - [ConversationCannedMessageResponse](docs/ConversationCannedMessageResponse.md)
  - [ConversationCannedMessagesResponse](docs/ConversationCannedMessagesResponse.md)
  - [ConversationCannedMessagesSearch](docs/ConversationCannedMessagesSearch.md)
+ - [ConversationDeleteKnowledgeBaseDocumentResponse](docs/ConversationDeleteKnowledgeBaseDocumentResponse.md)
  - [ConversationDepartment](docs/ConversationDepartment.md)
  - [ConversationDepartmentMember](docs/ConversationDepartmentMember.md)
  - [ConversationDepartmentMembersResponse](docs/ConversationDepartmentMembersResponse.md)
@@ -799,7 +804,13 @@ Class | Method | HTTP request | Description
  - [ConversationEventReadMessage](docs/ConversationEventReadMessage.md)
  - [ConversationEventTyping](docs/ConversationEventTyping.md)
  - [ConversationEventWebchatContext](docs/ConversationEventWebchatContext.md)
+ - [ConversationInsertKnowledgeBaseDocumentRequest](docs/ConversationInsertKnowledgeBaseDocumentRequest.md)
+ - [ConversationInsertKnowledgeBaseDocumentResponse](docs/ConversationInsertKnowledgeBaseDocumentResponse.md)
  - [ConversationJoinRequest](docs/ConversationJoinRequest.md)
+ - [ConversationKnowledgeBaseDocument](docs/ConversationKnowledgeBaseDocument.md)
+ - [ConversationKnowledgeBaseDocumentUploadUrl](docs/ConversationKnowledgeBaseDocumentUploadUrl.md)
+ - [ConversationKnowledgeBaseDocumentUploadUrlResponse](docs/ConversationKnowledgeBaseDocumentUploadUrlResponse.md)
+ - [ConversationKnowledgeBaseDocumentsResponse](docs/ConversationKnowledgeBaseDocumentsResponse.md)
  - [ConversationLocationCountry](docs/ConversationLocationCountry.md)
  - [ConversationLocationStateProvince](docs/ConversationLocationStateProvince.md)
  - [ConversationLocationsResponse](docs/ConversationLocationsResponse.md)
@@ -966,6 +977,7 @@ Class | Method | HTTP request | Description
  - [CustomReportQuery](docs/CustomReportQuery.md)
  - [CustomReportResponse](docs/CustomReportResponse.md)
  - [CustomReportTooltip](docs/CustomReportTooltip.md)
+ - [CustomReportUsageBreakdown](docs/CustomReportUsageBreakdown.md)
  - [CustomReportsExecutionReportData](docs/CustomReportsExecutionReportData.md)
  - [CustomReportsExecutionRequest](docs/CustomReportsExecutionRequest.md)
  - [CustomReportsExecutionResponse](docs/CustomReportsExecutionResponse.md)
@@ -1612,6 +1624,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |
 | 3.11.22 | 10/06/2025 | added Customer.fax back into object model |
 | 3.11.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
 | 3.11.20 | 08/18/2025 | storefront communiations - campaign repeat flags |

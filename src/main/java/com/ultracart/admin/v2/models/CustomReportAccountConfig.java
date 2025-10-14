@@ -20,15 +20,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CustomReportUsageBreakdown;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CustomReportAccountConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:02:44.982-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-14T11:50:44.731-04:00")
 
 
 
@@ -38,6 +41,9 @@ public class CustomReportAccountConfig {
 
   @SerializedName("ai_usage")
   private BigDecimal aiUsage = null;
+
+  @SerializedName("ai_usage_breakdowns")
+  private List<CustomReportUsageBreakdown> aiUsageBreakdowns = null;
 
   @SerializedName("merchant_id")
   private String merchantId = null;
@@ -97,6 +103,32 @@ public class CustomReportAccountConfig {
 
   public void setAiUsage(BigDecimal aiUsage) {
     this.aiUsage = aiUsage;
+  }
+
+  public CustomReportAccountConfig aiUsageBreakdowns(List<CustomReportUsageBreakdown> aiUsageBreakdowns) {
+    this.aiUsageBreakdowns = aiUsageBreakdowns;
+    return this;
+  }
+
+  public CustomReportAccountConfig addAiUsageBreakdownsItem(CustomReportUsageBreakdown aiUsageBreakdownsItem) {
+    if (this.aiUsageBreakdowns == null) {
+      this.aiUsageBreakdowns = new ArrayList<CustomReportUsageBreakdown>();
+    }
+    this.aiUsageBreakdowns.add(aiUsageBreakdownsItem);
+    return this;
+  }
+
+   /**
+   * Get aiUsageBreakdowns
+   * @return aiUsageBreakdowns
+  **/
+  @ApiModelProperty(value = "")
+  public List<CustomReportUsageBreakdown> getAiUsageBreakdowns() {
+    return aiUsageBreakdowns;
+  }
+
+  public void setAiUsageBreakdowns(List<CustomReportUsageBreakdown> aiUsageBreakdowns) {
+    this.aiUsageBreakdowns = aiUsageBreakdowns;
   }
 
   public CustomReportAccountConfig merchantId(String merchantId) {
@@ -255,6 +287,7 @@ public class CustomReportAccountConfig {
     CustomReportAccountConfig customReportAccountConfig = (CustomReportAccountConfig) o;
     return Objects.equals(this.aiBudget, customReportAccountConfig.aiBudget) &&
         Objects.equals(this.aiUsage, customReportAccountConfig.aiUsage) &&
+        Objects.equals(this.aiUsageBreakdowns, customReportAccountConfig.aiUsageBreakdowns) &&
         Objects.equals(this.merchantId, customReportAccountConfig.merchantId) &&
         Objects.equals(this.noviceSqlComments, customReportAccountConfig.noviceSqlComments) &&
         Objects.equals(this.optIn, customReportAccountConfig.optIn) &&
@@ -267,7 +300,7 @@ public class CustomReportAccountConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiBudget, aiUsage, merchantId, noviceSqlComments, optIn, optInByUser, optInDate, readOnly, sqlBudget, sqlUsage);
+    return Objects.hash(aiBudget, aiUsage, aiUsageBreakdowns, merchantId, noviceSqlComments, optIn, optInByUser, optInDate, readOnly, sqlBudget, sqlUsage);
   }
 
 
@@ -278,6 +311,7 @@ public class CustomReportAccountConfig {
     
     sb.append("    aiBudget: ").append(toIndentedString(aiBudget)).append("\n");
     sb.append("    aiUsage: ").append(toIndentedString(aiUsage)).append("\n");
+    sb.append("    aiUsageBreakdowns: ").append(toIndentedString(aiUsageBreakdowns)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    noviceSqlComments: ").append(toIndentedString(noviceSqlComments)).append("\n");
     sb.append("    optIn: ").append(toIndentedString(optIn)).append("\n");
