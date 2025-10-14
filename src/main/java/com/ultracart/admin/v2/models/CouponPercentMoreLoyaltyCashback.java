@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponPercentMoreLoyaltyCashback
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:19:33.697-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-14T12:07:35.113-04:00[America/Indianapolis]")
 public class CouponPercentMoreLoyaltyCashback {
   public static final String SERIALIZED_NAME_PERCENT_MORE_LOYALTY_CASHBACK = "percent_more_loyalty_cashback";
   @SerializedName(SERIALIZED_NAME_PERCENT_MORE_LOYALTY_CASHBACK)

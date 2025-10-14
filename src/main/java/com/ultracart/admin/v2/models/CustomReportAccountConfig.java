@@ -20,10 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.CustomReportUsageBreakdown;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomReportAccountConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-06T15:19:33.697-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-14T12:07:35.113-04:00[America/Indianapolis]")
 public class CustomReportAccountConfig {
   public static final String SERIALIZED_NAME_AI_BUDGET = "ai_budget";
   @SerializedName(SERIALIZED_NAME_AI_BUDGET)
@@ -57,6 +60,10 @@ public class CustomReportAccountConfig {
   public static final String SERIALIZED_NAME_AI_USAGE = "ai_usage";
   @SerializedName(SERIALIZED_NAME_AI_USAGE)
   private BigDecimal aiUsage;
+
+  public static final String SERIALIZED_NAME_AI_USAGE_BREAKDOWNS = "ai_usage_breakdowns";
+  @SerializedName(SERIALIZED_NAME_AI_USAGE_BREAKDOWNS)
+  private List<CustomReportUsageBreakdown> aiUsageBreakdowns = null;
 
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
@@ -136,6 +143,37 @@ public class CustomReportAccountConfig {
 
   public void setAiUsage(BigDecimal aiUsage) {
     this.aiUsage = aiUsage;
+  }
+
+
+  public CustomReportAccountConfig aiUsageBreakdowns(List<CustomReportUsageBreakdown> aiUsageBreakdowns) {
+    
+    this.aiUsageBreakdowns = aiUsageBreakdowns;
+    return this;
+  }
+
+  public CustomReportAccountConfig addAiUsageBreakdownsItem(CustomReportUsageBreakdown aiUsageBreakdownsItem) {
+    if (this.aiUsageBreakdowns == null) {
+      this.aiUsageBreakdowns = new ArrayList<>();
+    }
+    this.aiUsageBreakdowns.add(aiUsageBreakdownsItem);
+    return this;
+  }
+
+   /**
+   * Get aiUsageBreakdowns
+   * @return aiUsageBreakdowns
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<CustomReportUsageBreakdown> getAiUsageBreakdowns() {
+    return aiUsageBreakdowns;
+  }
+
+
+  public void setAiUsageBreakdowns(List<CustomReportUsageBreakdown> aiUsageBreakdowns) {
+    this.aiUsageBreakdowns = aiUsageBreakdowns;
   }
 
 
@@ -335,6 +373,7 @@ public class CustomReportAccountConfig {
     CustomReportAccountConfig customReportAccountConfig = (CustomReportAccountConfig) o;
     return Objects.equals(this.aiBudget, customReportAccountConfig.aiBudget) &&
         Objects.equals(this.aiUsage, customReportAccountConfig.aiUsage) &&
+        Objects.equals(this.aiUsageBreakdowns, customReportAccountConfig.aiUsageBreakdowns) &&
         Objects.equals(this.merchantId, customReportAccountConfig.merchantId) &&
         Objects.equals(this.noviceSqlComments, customReportAccountConfig.noviceSqlComments) &&
         Objects.equals(this.optIn, customReportAccountConfig.optIn) &&
@@ -347,7 +386,7 @@ public class CustomReportAccountConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiBudget, aiUsage, merchantId, noviceSqlComments, optIn, optInByUser, optInDate, readOnly, sqlBudget, sqlUsage);
+    return Objects.hash(aiBudget, aiUsage, aiUsageBreakdowns, merchantId, noviceSqlComments, optIn, optInByUser, optInDate, readOnly, sqlBudget, sqlUsage);
   }
 
   @Override
@@ -356,6 +395,7 @@ public class CustomReportAccountConfig {
     sb.append("class CustomReportAccountConfig {\n");
     sb.append("    aiBudget: ").append(toIndentedString(aiBudget)).append("\n");
     sb.append("    aiUsage: ").append(toIndentedString(aiUsage)).append("\n");
+    sb.append("    aiUsageBreakdowns: ").append(toIndentedString(aiUsageBreakdowns)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    noviceSqlComments: ").append(toIndentedString(noviceSqlComments)).append("\n");
     sb.append("    optIn: ").append(toIndentedString(optIn)).append("\n");
@@ -388,6 +428,7 @@ public class CustomReportAccountConfig {
     openapiFields = new HashSet<String>();
     openapiFields.add("ai_budget");
     openapiFields.add("ai_usage");
+    openapiFields.add("ai_usage_breakdowns");
     openapiFields.add("merchant_id");
     openapiFields.add("novice_sql_comments");
     openapiFields.add("opt_in");
@@ -422,6 +463,18 @@ public class CustomReportAccountConfig {
         if (!CustomReportAccountConfig.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomReportAccountConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArrayaiUsageBreakdowns = jsonObj.getAsJsonArray("ai_usage_breakdowns");
+      if (jsonArrayaiUsageBreakdowns != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("ai_usage_breakdowns").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `ai_usage_breakdowns` to be an array in the JSON string but got `%s`", jsonObj.get("ai_usage_breakdowns").toString()));
+        }
+
+        // validate the optional field `ai_usage_breakdowns` (array)
+        for (int i = 0; i < jsonArrayaiUsageBreakdowns.size(); i++) {
+          CustomReportUsageBreakdown.validateJsonObject(jsonArrayaiUsageBreakdowns.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));

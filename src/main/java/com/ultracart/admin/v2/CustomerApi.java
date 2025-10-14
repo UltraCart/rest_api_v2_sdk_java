@@ -584,7 +584,6 @@ public class CustomerApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -663,12 +662,10 @@ public class CustomerApi {
      * Delete a customer wishlist item 
      * @param customerProfileOid The customer oid for this wishlist. (required)
      * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
-     * @return CustomerWishListItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -676,9 +673,8 @@ public class CustomerApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public CustomerWishListItem deleteWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
-        ApiResponse<CustomerWishListItem> localVarResp = deleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
-        return localVarResp.getData();
+    public void deleteWishListItem(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+        deleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
     }
 
     /**
@@ -686,12 +682,11 @@ public class CustomerApi {
      * Delete a customer wishlist item 
      * @param customerProfileOid The customer oid for this wishlist. (required)
      * @param customerWishlistItemOid The wishlist oid for this wishlist item to delete. (required)
-     * @return ApiResponse&lt;CustomerWishListItem&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -699,10 +694,9 @@ public class CustomerApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<CustomerWishListItem> deleteWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
+    public ApiResponse<Void> deleteWishListItemWithHttpInfo(Integer customerProfileOid, Integer customerWishlistItemOid) throws ApiException {
         okhttp3.Call localVarCall = deleteWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, null);
-        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
@@ -716,7 +710,6 @@ public class CustomerApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -724,11 +717,10 @@ public class CustomerApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<CustomerWishListItem> _callback) throws ApiException {
+    public okhttp3.Call deleteWishListItemAsync(Integer customerProfileOid, Integer customerWishlistItemOid, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteWishListItemValidateBeforeCall(customerProfileOid, customerWishlistItemOid, _callback);
-        Type localVarReturnType = new TypeToken<CustomerWishListItem>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

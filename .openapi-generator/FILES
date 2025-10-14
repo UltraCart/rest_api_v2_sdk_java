@@ -149,6 +149,7 @@ docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
+docs/ConversationDeleteKnowledgeBaseDocumentResponse.md
 docs/ConversationDepartment.md
 docs/ConversationDepartmentMember.md
 docs/ConversationDepartmentMembersResponse.md
@@ -167,7 +168,13 @@ docs/ConversationEventRRWeb.md
 docs/ConversationEventReadMessage.md
 docs/ConversationEventTyping.md
 docs/ConversationEventWebchatContext.md
+docs/ConversationInsertKnowledgeBaseDocumentRequest.md
+docs/ConversationInsertKnowledgeBaseDocumentResponse.md
 docs/ConversationJoinRequest.md
+docs/ConversationKnowledgeBaseDocument.md
+docs/ConversationKnowledgeBaseDocumentUploadUrl.md
+docs/ConversationKnowledgeBaseDocumentUploadUrlResponse.md
+docs/ConversationKnowledgeBaseDocumentsResponse.md
 docs/ConversationLocationCountry.md
 docs/ConversationLocationStateProvince.md
 docs/ConversationLocationsResponse.md
@@ -335,6 +342,7 @@ docs/CustomReportParameterOption.md
 docs/CustomReportQuery.md
 docs/CustomReportResponse.md
 docs/CustomReportTooltip.md
+docs/CustomReportUsageBreakdown.md
 docs/CustomReportsExecutionReportData.md
 docs/CustomReportsExecutionRequest.md
 docs/CustomReportsExecutionResponse.md
@@ -1084,6 +1092,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessageResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesSearch.java
+src/main/java/com/ultracart/admin/v2/models/ConversationDeleteKnowledgeBaseDocumentResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartment.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentMember.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentMembersResponse.java
@@ -1102,7 +1111,13 @@ src/main/java/com/ultracart/admin/v2/models/ConversationEventRRWeb.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventReadMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventTyping.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEventWebchatContext.java
+src/main/java/com/ultracart/admin/v2/models/ConversationInsertKnowledgeBaseDocumentRequest.java
+src/main/java/com/ultracart/admin/v2/models/ConversationInsertKnowledgeBaseDocumentResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationJoinRequest.java
+src/main/java/com/ultracart/admin/v2/models/ConversationKnowledgeBaseDocument.java
+src/main/java/com/ultracart/admin/v2/models/ConversationKnowledgeBaseDocumentUploadUrl.java
+src/main/java/com/ultracart/admin/v2/models/ConversationKnowledgeBaseDocumentUploadUrlResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationKnowledgeBaseDocumentsResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationLocationCountry.java
 src/main/java/com/ultracart/admin/v2/models/ConversationLocationStateProvince.java
 src/main/java/com/ultracart/admin/v2/models/ConversationLocationsResponse.java
@@ -1269,6 +1284,7 @@ src/main/java/com/ultracart/admin/v2/models/CustomReportParameterOption.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportQuery.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportResponse.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportTooltip.java
+src/main/java/com/ultracart/admin/v2/models/CustomReportUsageBreakdown.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportsExecutionReportData.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportsExecutionRequest.java
 src/main/java/com/ultracart/admin/v2/models/CustomReportsExecutionResponse.java

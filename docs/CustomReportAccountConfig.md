@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**aiBudget** | **BigDecimal** |  |  [optional] |
 |**aiUsage** | **BigDecimal** | Current AI usage creating reports |  [optional] |
+|**aiUsageBreakdowns** | [**List&lt;CustomReportUsageBreakdown&gt;**](CustomReportUsageBreakdown.md) |  |  [optional] |
 |**merchantId** | **String** | Current BigQuery SQL usage running reports |  [optional] |
 |**noviceSqlComments** | **Boolean** |  |  [optional] |
 |**optIn** | **Boolean** | True if they have opted into custom reports |  [optional] |

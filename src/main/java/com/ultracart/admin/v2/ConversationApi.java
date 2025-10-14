@@ -37,6 +37,7 @@ import com.ultracart.admin.v2.models.ConversationCannedMessage;
 import com.ultracart.admin.v2.models.ConversationCannedMessageResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationCannedMessagesSearch;
+import com.ultracart.admin.v2.models.ConversationDeleteKnowledgeBaseDocumentResponse;
 import com.ultracart.admin.v2.models.ConversationDepartment;
 import com.ultracart.admin.v2.models.ConversationDepartmentMembersResponse;
 import com.ultracart.admin.v2.models.ConversationDepartmentResponse;
@@ -44,7 +45,11 @@ import com.ultracart.admin.v2.models.ConversationDepartmentsResponse;
 import com.ultracart.admin.v2.models.ConversationEngagement;
 import com.ultracart.admin.v2.models.ConversationEngagementResponse;
 import com.ultracart.admin.v2.models.ConversationEngagementsResponse;
+import com.ultracart.admin.v2.models.ConversationInsertKnowledgeBaseDocumentRequest;
+import com.ultracart.admin.v2.models.ConversationInsertKnowledgeBaseDocumentResponse;
 import com.ultracart.admin.v2.models.ConversationJoinRequest;
+import com.ultracart.admin.v2.models.ConversationKnowledgeBaseDocumentUploadUrlResponse;
+import com.ultracart.admin.v2.models.ConversationKnowledgeBaseDocumentsResponse;
 import com.ultracart.admin.v2.models.ConversationLocationsResponse;
 import com.ultracart.admin.v2.models.ConversationMessagesResponse;
 import com.ultracart.admin.v2.models.ConversationMultimediaUploadUrlResponse;
@@ -164,6 +169,163 @@ public class ConversationApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for deleteAgentProfileKnowledgeBaseDocument
+     * @param userId  (required)
+     * @param documentUuid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAgentProfileKnowledgeBaseDocumentCall(Integer userId, String documentUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid}"
+            .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "document_uuid" + "\\}", localVarApiClient.escapeString(documentUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteAgentProfileKnowledgeBaseDocumentValidateBeforeCall(Integer userId, String documentUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling deleteAgentProfileKnowledgeBaseDocument(Async)");
+        }
+        
+        // verify the required parameter 'documentUuid' is set
+        if (documentUuid == null) {
+            throw new ApiException("Missing the required parameter 'documentUuid' when calling deleteAgentProfileKnowledgeBaseDocument(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteAgentProfileKnowledgeBaseDocumentCall(userId, documentUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a knowledge base document
+     * Delete a knowledge base document 
+     * @param userId  (required)
+     * @param documentUuid  (required)
+     * @return ConversationDeleteKnowledgeBaseDocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationDeleteKnowledgeBaseDocumentResponse deleteAgentProfileKnowledgeBaseDocument(Integer userId, String documentUuid) throws ApiException {
+        ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse> localVarResp = deleteAgentProfileKnowledgeBaseDocumentWithHttpInfo(userId, documentUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a knowledge base document
+     * Delete a knowledge base document 
+     * @param userId  (required)
+     * @param documentUuid  (required)
+     * @return ApiResponse&lt;ConversationDeleteKnowledgeBaseDocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse> deleteAgentProfileKnowledgeBaseDocumentWithHttpInfo(Integer userId, String documentUuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteAgentProfileKnowledgeBaseDocumentValidateBeforeCall(userId, documentUuid, null);
+        Type localVarReturnType = new TypeToken<ConversationDeleteKnowledgeBaseDocumentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a knowledge base document (asynchronously)
+     * Delete a knowledge base document 
+     * @param userId  (required)
+     * @param documentUuid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAgentProfileKnowledgeBaseDocumentAsync(Integer userId, String documentUuid, final ApiCallback<ConversationDeleteKnowledgeBaseDocumentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteAgentProfileKnowledgeBaseDocumentValidateBeforeCall(userId, documentUuid, _callback);
+        Type localVarReturnType = new TypeToken<ConversationDeleteKnowledgeBaseDocumentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for deleteConversationCannedMessage
      * @param conversationCannedMessageOid  (required)
@@ -2018,6 +2180,153 @@ public class ConversationApi {
         return localVarCall;
     }
     /**
+     * Build call for getAgentProfileKnowledgeBase
+     * @param userId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAgentProfileKnowledgeBaseCall(Integer userId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base"
+            .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAgentProfileKnowledgeBaseValidateBeforeCall(Integer userId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling getAgentProfileKnowledgeBase(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getAgentProfileKnowledgeBaseCall(userId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get the list of knowledge base documents associated with this agent profile
+     * Retrieve knowledge base documents 
+     * @param userId  (required)
+     * @return ConversationKnowledgeBaseDocumentsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationKnowledgeBaseDocumentsResponse getAgentProfileKnowledgeBase(Integer userId) throws ApiException {
+        ApiResponse<ConversationKnowledgeBaseDocumentsResponse> localVarResp = getAgentProfileKnowledgeBaseWithHttpInfo(userId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the list of knowledge base documents associated with this agent profile
+     * Retrieve knowledge base documents 
+     * @param userId  (required)
+     * @return ApiResponse&lt;ConversationKnowledgeBaseDocumentsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationKnowledgeBaseDocumentsResponse> getAgentProfileKnowledgeBaseWithHttpInfo(Integer userId) throws ApiException {
+        okhttp3.Call localVarCall = getAgentProfileKnowledgeBaseValidateBeforeCall(userId, null);
+        Type localVarReturnType = new TypeToken<ConversationKnowledgeBaseDocumentsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the list of knowledge base documents associated with this agent profile (asynchronously)
+     * Retrieve knowledge base documents 
+     * @param userId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAgentProfileKnowledgeBaseAsync(Integer userId, final ApiCallback<ConversationKnowledgeBaseDocumentsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAgentProfileKnowledgeBaseValidateBeforeCall(userId, _callback);
+        Type localVarReturnType = new TypeToken<ConversationKnowledgeBaseDocumentsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getAgentProfiles
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3285,6 +3594,163 @@ public class ConversationApi {
 
         okhttp3.Call localVarCall = getConversationEngagementsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<ConversationEngagementsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getConversationKnowledgeBaseDocumentUploadUrl
+     * @param userId  (required)
+     * @param extension  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getConversationKnowledgeBaseDocumentUploadUrlCall(Integer userId, String extension, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}"
+            .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "extension" + "\\}", localVarApiClient.escapeString(extension.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getConversationKnowledgeBaseDocumentUploadUrlValidateBeforeCall(Integer userId, String extension, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling getConversationKnowledgeBaseDocumentUploadUrl(Async)");
+        }
+        
+        // verify the required parameter 'extension' is set
+        if (extension == null) {
+            throw new ApiException("Missing the required parameter 'extension' when calling getConversationKnowledgeBaseDocumentUploadUrl(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getConversationKnowledgeBaseDocumentUploadUrlCall(userId, extension, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a pre-signed conversation knowledge base document upload URL
+     * Get a pre-signed conversation knowledge base document upload URL 
+     * @param userId  (required)
+     * @param extension  (required)
+     * @return ConversationKnowledgeBaseDocumentUploadUrlResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationKnowledgeBaseDocumentUploadUrlResponse getConversationKnowledgeBaseDocumentUploadUrl(Integer userId, String extension) throws ApiException {
+        ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse> localVarResp = getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo(userId, extension);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a pre-signed conversation knowledge base document upload URL
+     * Get a pre-signed conversation knowledge base document upload URL 
+     * @param userId  (required)
+     * @param extension  (required)
+     * @return ApiResponse&lt;ConversationKnowledgeBaseDocumentUploadUrlResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse> getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo(Integer userId, String extension) throws ApiException {
+        okhttp3.Call localVarCall = getConversationKnowledgeBaseDocumentUploadUrlValidateBeforeCall(userId, extension, null);
+        Type localVarReturnType = new TypeToken<ConversationKnowledgeBaseDocumentUploadUrlResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a pre-signed conversation knowledge base document upload URL (asynchronously)
+     * Get a pre-signed conversation knowledge base document upload URL 
+     * @param userId  (required)
+     * @param extension  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getConversationKnowledgeBaseDocumentUploadUrlAsync(Integer userId, String extension, final ApiCallback<ConversationKnowledgeBaseDocumentUploadUrlResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getConversationKnowledgeBaseDocumentUploadUrlValidateBeforeCall(userId, extension, _callback);
+        Type localVarReturnType = new TypeToken<ConversationKnowledgeBaseDocumentUploadUrlResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8043,6 +8509,162 @@ public class ConversationApi {
 
         okhttp3.Call localVarCall = getVirtualAgentCapabilitiesValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<ConversationVirtualAgentCapabilitiesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertAgentProfileKnowledgeBaseDocument
+     * @param userId  (required)
+     * @param knowledgeBaseDocumentRequest Insert request (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertAgentProfileKnowledgeBaseDocumentCall(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = knowledgeBaseDocumentRequest;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base"
+            .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertAgentProfileKnowledgeBaseDocumentValidateBeforeCall(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling insertAgentProfileKnowledgeBaseDocument(Async)");
+        }
+        
+        // verify the required parameter 'knowledgeBaseDocumentRequest' is set
+        if (knowledgeBaseDocumentRequest == null) {
+            throw new ApiException("Missing the required parameter 'knowledgeBaseDocumentRequest' when calling insertAgentProfileKnowledgeBaseDocument(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertAgentProfileKnowledgeBaseDocumentCall(userId, knowledgeBaseDocumentRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Insert a knowledge base document
+     * Insert a knowledge base document 
+     * @param userId  (required)
+     * @param knowledgeBaseDocumentRequest Insert request (required)
+     * @return ConversationInsertKnowledgeBaseDocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationInsertKnowledgeBaseDocumentResponse insertAgentProfileKnowledgeBaseDocument(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest) throws ApiException {
+        ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse> localVarResp = insertAgentProfileKnowledgeBaseDocumentWithHttpInfo(userId, knowledgeBaseDocumentRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Insert a knowledge base document
+     * Insert a knowledge base document 
+     * @param userId  (required)
+     * @param knowledgeBaseDocumentRequest Insert request (required)
+     * @return ApiResponse&lt;ConversationInsertKnowledgeBaseDocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse> insertAgentProfileKnowledgeBaseDocumentWithHttpInfo(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest) throws ApiException {
+        okhttp3.Call localVarCall = insertAgentProfileKnowledgeBaseDocumentValidateBeforeCall(userId, knowledgeBaseDocumentRequest, null);
+        Type localVarReturnType = new TypeToken<ConversationInsertKnowledgeBaseDocumentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Insert a knowledge base document (asynchronously)
+     * Insert a knowledge base document 
+     * @param userId  (required)
+     * @param knowledgeBaseDocumentRequest Insert request (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertAgentProfileKnowledgeBaseDocumentAsync(Integer userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest, final ApiCallback<ConversationInsertKnowledgeBaseDocumentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertAgentProfileKnowledgeBaseDocumentValidateBeforeCall(userId, knowledgeBaseDocumentRequest, _callback);
+        Type localVarReturnType = new TypeToken<ConversationInsertKnowledgeBaseDocumentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
