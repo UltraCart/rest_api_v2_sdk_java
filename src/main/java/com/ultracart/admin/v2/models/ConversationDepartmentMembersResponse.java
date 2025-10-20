@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationDepartmentMembersResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-14T12:07:35.113-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T15:59:09.011-04:00[America/Indianapolis]")
 public class ConversationDepartmentMembersResponse {
   public static final String SERIALIZED_NAME_CONVERSATION_DEPARTMENT_MEMBERS = "conversation_department_members";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_DEPARTMENT_MEMBERS)
