@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * CustomerLoyalty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-14T11:50:44.731-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-20T15:42:59.496-04:00")
 
 
 
@@ -51,6 +51,15 @@ public class CustomerLoyalty {
 
   @SerializedName("ledger_entries")
   private List<CustomerLoyaltyLedger> ledgerEntries = null;
+
+  @SerializedName("loyalty_tier_expiration_dts")
+  private String loyaltyTierExpirationDts = null;
+
+  @SerializedName("loyalty_tier_name")
+  private String loyaltyTierName = null;
+
+  @SerializedName("loyalty_tier_oid")
+  private Integer loyaltyTierOid = null;
 
   @SerializedName("pending_points")
   private Integer pendingPoints = null;
@@ -156,6 +165,60 @@ public class CustomerLoyalty {
     this.ledgerEntries = ledgerEntries;
   }
 
+  public CustomerLoyalty loyaltyTierExpirationDts(String loyaltyTierExpirationDts) {
+    this.loyaltyTierExpirationDts = loyaltyTierExpirationDts;
+    return this;
+  }
+
+   /**
+   * Loyalty tier expiration date (read only because of SDK addition)
+   * @return loyaltyTierExpirationDts
+  **/
+  @ApiModelProperty(value = "Loyalty tier expiration date (read only because of SDK addition)")
+  public String getLoyaltyTierExpirationDts() {
+    return loyaltyTierExpirationDts;
+  }
+
+  public void setLoyaltyTierExpirationDts(String loyaltyTierExpirationDts) {
+    this.loyaltyTierExpirationDts = loyaltyTierExpirationDts;
+  }
+
+  public CustomerLoyalty loyaltyTierName(String loyaltyTierName) {
+    this.loyaltyTierName = loyaltyTierName;
+    return this;
+  }
+
+   /**
+   * Loyalty tier name
+   * @return loyaltyTierName
+  **/
+  @ApiModelProperty(value = "Loyalty tier name")
+  public String getLoyaltyTierName() {
+    return loyaltyTierName;
+  }
+
+  public void setLoyaltyTierName(String loyaltyTierName) {
+    this.loyaltyTierName = loyaltyTierName;
+  }
+
+  public CustomerLoyalty loyaltyTierOid(Integer loyaltyTierOid) {
+    this.loyaltyTierOid = loyaltyTierOid;
+    return this;
+  }
+
+   /**
+   * Loyalty tier oid (set to zero to remove the tier)
+   * @return loyaltyTierOid
+  **/
+  @ApiModelProperty(value = "Loyalty tier oid (set to zero to remove the tier)")
+  public Integer getLoyaltyTierOid() {
+    return loyaltyTierOid;
+  }
+
+  public void setLoyaltyTierOid(Integer loyaltyTierOid) {
+    this.loyaltyTierOid = loyaltyTierOid;
+  }
+
   public CustomerLoyalty pendingPoints(Integer pendingPoints) {
     this.pendingPoints = pendingPoints;
     return this;
@@ -215,13 +278,16 @@ public class CustomerLoyalty {
         Objects.equals(this.internalGiftCertificateBalance, customerLoyalty.internalGiftCertificateBalance) &&
         Objects.equals(this.internalGiftCertificateOid, customerLoyalty.internalGiftCertificateOid) &&
         Objects.equals(this.ledgerEntries, customerLoyalty.ledgerEntries) &&
+        Objects.equals(this.loyaltyTierExpirationDts, customerLoyalty.loyaltyTierExpirationDts) &&
+        Objects.equals(this.loyaltyTierName, customerLoyalty.loyaltyTierName) &&
+        Objects.equals(this.loyaltyTierOid, customerLoyalty.loyaltyTierOid) &&
         Objects.equals(this.pendingPoints, customerLoyalty.pendingPoints) &&
         Objects.equals(this.redemptions, customerLoyalty.redemptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPoints, internalGiftCertificate, internalGiftCertificateBalance, internalGiftCertificateOid, ledgerEntries, pendingPoints, redemptions);
+    return Objects.hash(currentPoints, internalGiftCertificate, internalGiftCertificateBalance, internalGiftCertificateOid, ledgerEntries, loyaltyTierExpirationDts, loyaltyTierName, loyaltyTierOid, pendingPoints, redemptions);
   }
 
 
@@ -235,6 +301,9 @@ public class CustomerLoyalty {
     sb.append("    internalGiftCertificateBalance: ").append(toIndentedString(internalGiftCertificateBalance)).append("\n");
     sb.append("    internalGiftCertificateOid: ").append(toIndentedString(internalGiftCertificateOid)).append("\n");
     sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
+    sb.append("    loyaltyTierExpirationDts: ").append(toIndentedString(loyaltyTierExpirationDts)).append("\n");
+    sb.append("    loyaltyTierName: ").append(toIndentedString(loyaltyTierName)).append("\n");
+    sb.append("    loyaltyTierOid: ").append(toIndentedString(loyaltyTierOid)).append("\n");
     sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("}");

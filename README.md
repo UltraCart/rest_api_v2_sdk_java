@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-10-14T11:50:44.731-04:00
+  - Build date: 2025-10-20T15:42:59.496-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.23</version>
+  <version>3.11.24</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.23"
+compile "com.ultracart:rest-sdk:3.11.24"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.23.jar`
+* `target/rest-sdk-3.11.24.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1624,6 +1624,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.24 | 10/20/2025 | new perm flag on conversation virtual agent capabilities |
 | 3.11.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |
 | 3.11.22 | 10/06/2025 | added Customer.fax back into object model |
 | 3.11.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |

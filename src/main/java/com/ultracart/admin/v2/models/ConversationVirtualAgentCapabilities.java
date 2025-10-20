@@ -30,11 +30,14 @@ import java.util.List;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-14T11:50:44.731-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-20T15:42:59.496-04:00")
 
 
 
 public class ConversationVirtualAgentCapabilities {
+  @SerializedName("access_storefront_and_item")
+  private Boolean accessStorefrontAndItem = null;
+
   @SerializedName("cancel_subscription")
   private Boolean cancelSubscription = null;
 
@@ -127,6 +130,24 @@ public class ConversationVirtualAgentCapabilities {
 
   @SerializedName("zoho_desk_departments")
   private List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = null;
+
+  public ConversationVirtualAgentCapabilities accessStorefrontAndItem(Boolean accessStorefrontAndItem) {
+    this.accessStorefrontAndItem = accessStorefrontAndItem;
+    return this;
+  }
+
+   /**
+   * Permission flag to allow this Agent access to the storefront and item information.
+   * @return accessStorefrontAndItem
+  **/
+  @ApiModelProperty(value = "Permission flag to allow this Agent access to the storefront and item information.")
+  public Boolean isAccessStorefrontAndItem() {
+    return accessStorefrontAndItem;
+  }
+
+  public void setAccessStorefrontAndItem(Boolean accessStorefrontAndItem) {
+    this.accessStorefrontAndItem = accessStorefrontAndItem;
+  }
 
   public ConversationVirtualAgentCapabilities cancelSubscription(Boolean cancelSubscription) {
     this.cancelSubscription = cancelSubscription;
@@ -398,7 +419,8 @@ public class ConversationVirtualAgentCapabilities {
       return false;
     }
     ConversationVirtualAgentCapabilities conversationVirtualAgentCapabilities = (ConversationVirtualAgentCapabilities) o;
-    return Objects.equals(this.cancelSubscription, conversationVirtualAgentCapabilities.cancelSubscription) &&
+    return Objects.equals(this.accessStorefrontAndItem, conversationVirtualAgentCapabilities.accessStorefrontAndItem) &&
+        Objects.equals(this.cancelSubscription, conversationVirtualAgentCapabilities.cancelSubscription) &&
         Objects.equals(this.delaySubscription, conversationVirtualAgentCapabilities.delaySubscription) &&
         Objects.equals(this.lookupOrderInformation, conversationVirtualAgentCapabilities.lookupOrderInformation) &&
         Objects.equals(this.lookupSubscriptionInformation, conversationVirtualAgentCapabilities.lookupSubscriptionInformation) &&
@@ -416,7 +438,7 @@ public class ConversationVirtualAgentCapabilities {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
+    return Objects.hash(accessStorefrontAndItem, cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
   }
 
 
@@ -425,6 +447,7 @@ public class ConversationVirtualAgentCapabilities {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationVirtualAgentCapabilities {\n");
     
+    sb.append("    accessStorefrontAndItem: ").append(toIndentedString(accessStorefrontAndItem)).append("\n");
     sb.append("    cancelSubscription: ").append(toIndentedString(cancelSubscription)).append("\n");
     sb.append("    delaySubscription: ").append(toIndentedString(delaySubscription)).append("\n");
     sb.append("    lookupOrderInformation: ").append(toIndentedString(lookupOrderInformation)).append("\n");
