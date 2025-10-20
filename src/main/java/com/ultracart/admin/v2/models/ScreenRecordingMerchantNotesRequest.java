@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingMerchantNotesRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T16:39:13.797-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T17:21:52.957-04:00[America/Indianapolis]")
 public class ScreenRecordingMerchantNotesRequest {
   public static final String SERIALIZED_NAME_MERCHANT_NOTES = "merchant_notes";
   @SerializedName(SERIALIZED_NAME_MERCHANT_NOTES)

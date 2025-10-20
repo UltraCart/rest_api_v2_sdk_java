@@ -51,11 +51,11 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationKnowledgeBaseDocumentUploadUrlResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T16:39:13.797-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T17:21:52.957-04:00[America/Indianapolis]")
 public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
-  public static final String SERIALIZED_NAME_CONVERSATION_PBX_AUDIO_UPLOAD_URL = "conversation_pbx_audio_upload_url";
-  @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_AUDIO_UPLOAD_URL)
-  private ConversationKnowledgeBaseDocumentUploadUrl conversationPbxAudioUploadUrl;
+  public static final String SERIALIZED_NAME_CONVERSATION_KNOWLEDGE_BASE_DOCUMENT_UPLOAD_URL = "conversation_knowledge_base_document_upload_url";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION_KNOWLEDGE_BASE_DOCUMENT_UPLOAD_URL)
+  private ConversationKnowledgeBaseDocumentUploadUrl conversationKnowledgeBaseDocumentUploadUrl;
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
@@ -76,26 +76,26 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
   public ConversationKnowledgeBaseDocumentUploadUrlResponse() { 
   }
 
-  public ConversationKnowledgeBaseDocumentUploadUrlResponse conversationPbxAudioUploadUrl(ConversationKnowledgeBaseDocumentUploadUrl conversationPbxAudioUploadUrl) {
+  public ConversationKnowledgeBaseDocumentUploadUrlResponse conversationKnowledgeBaseDocumentUploadUrl(ConversationKnowledgeBaseDocumentUploadUrl conversationKnowledgeBaseDocumentUploadUrl) {
     
-    this.conversationPbxAudioUploadUrl = conversationPbxAudioUploadUrl;
+    this.conversationKnowledgeBaseDocumentUploadUrl = conversationKnowledgeBaseDocumentUploadUrl;
     return this;
   }
 
    /**
-   * Get conversationPbxAudioUploadUrl
-   * @return conversationPbxAudioUploadUrl
+   * Get conversationKnowledgeBaseDocumentUploadUrl
+   * @return conversationKnowledgeBaseDocumentUploadUrl
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ConversationKnowledgeBaseDocumentUploadUrl getConversationPbxAudioUploadUrl() {
-    return conversationPbxAudioUploadUrl;
+  public ConversationKnowledgeBaseDocumentUploadUrl getConversationKnowledgeBaseDocumentUploadUrl() {
+    return conversationKnowledgeBaseDocumentUploadUrl;
   }
 
 
-  public void setConversationPbxAudioUploadUrl(ConversationKnowledgeBaseDocumentUploadUrl conversationPbxAudioUploadUrl) {
-    this.conversationPbxAudioUploadUrl = conversationPbxAudioUploadUrl;
+  public void setConversationKnowledgeBaseDocumentUploadUrl(ConversationKnowledgeBaseDocumentUploadUrl conversationKnowledgeBaseDocumentUploadUrl) {
+    this.conversationKnowledgeBaseDocumentUploadUrl = conversationKnowledgeBaseDocumentUploadUrl;
   }
 
 
@@ -201,7 +201,7 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
       return false;
     }
     ConversationKnowledgeBaseDocumentUploadUrlResponse conversationKnowledgeBaseDocumentUploadUrlResponse = (ConversationKnowledgeBaseDocumentUploadUrlResponse) o;
-    return Objects.equals(this.conversationPbxAudioUploadUrl, conversationKnowledgeBaseDocumentUploadUrlResponse.conversationPbxAudioUploadUrl) &&
+    return Objects.equals(this.conversationKnowledgeBaseDocumentUploadUrl, conversationKnowledgeBaseDocumentUploadUrlResponse.conversationKnowledgeBaseDocumentUploadUrl) &&
         Objects.equals(this.error, conversationKnowledgeBaseDocumentUploadUrlResponse.error) &&
         Objects.equals(this.metadata, conversationKnowledgeBaseDocumentUploadUrlResponse.metadata) &&
         Objects.equals(this.success, conversationKnowledgeBaseDocumentUploadUrlResponse.success) &&
@@ -210,14 +210,14 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationPbxAudioUploadUrl, error, metadata, success, warning);
+    return Objects.hash(conversationKnowledgeBaseDocumentUploadUrl, error, metadata, success, warning);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationKnowledgeBaseDocumentUploadUrlResponse {\n");
-    sb.append("    conversationPbxAudioUploadUrl: ").append(toIndentedString(conversationPbxAudioUploadUrl)).append("\n");
+    sb.append("    conversationKnowledgeBaseDocumentUploadUrl: ").append(toIndentedString(conversationKnowledgeBaseDocumentUploadUrl)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
@@ -244,7 +244,7 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("conversation_pbx_audio_upload_url");
+    openapiFields.add("conversation_knowledge_base_document_upload_url");
     openapiFields.add("error");
     openapiFields.add("metadata");
     openapiFields.add("success");
@@ -276,9 +276,9 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationKnowledgeBaseDocumentUploadUrlResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // validate the optional field `conversation_pbx_audio_upload_url`
-      if (jsonObj.getAsJsonObject("conversation_pbx_audio_upload_url") != null) {
-        ConversationKnowledgeBaseDocumentUploadUrl.validateJsonObject(jsonObj.getAsJsonObject("conversation_pbx_audio_upload_url"));
+      // validate the optional field `conversation_knowledge_base_document_upload_url`
+      if (jsonObj.getAsJsonObject("conversation_knowledge_base_document_upload_url") != null) {
+        ConversationKnowledgeBaseDocumentUploadUrl.validateJsonObject(jsonObj.getAsJsonObject("conversation_knowledge_base_document_upload_url"));
       }
       // validate the optional field `error`
       if (jsonObj.getAsJsonObject("error") != null) {
