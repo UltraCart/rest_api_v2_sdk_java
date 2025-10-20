@@ -31,13 +31,13 @@ import java.io.IOException;
 /**
  * ConversationKnowledgeBaseDocumentUploadUrlResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-20T16:25:42.698-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-20T17:06:05.635-04:00")
 
 
 
 public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
-  @SerializedName("conversation_pbx_audio_upload_url")
-  private ConversationKnowledgeBaseDocumentUploadUrl conversationPbxAudioUploadUrl = null;
+  @SerializedName("conversation_knowledge_base_document_upload_url")
+  private ConversationKnowledgeBaseDocumentUploadUrl conversationKnowledgeBaseDocumentUploadUrl = null;
 
   @SerializedName("error")
   private Error error = null;
@@ -51,22 +51,22 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
   @SerializedName("warning")
   private Warning warning = null;
 
-  public ConversationKnowledgeBaseDocumentUploadUrlResponse conversationPbxAudioUploadUrl(ConversationKnowledgeBaseDocumentUploadUrl conversationPbxAudioUploadUrl) {
-    this.conversationPbxAudioUploadUrl = conversationPbxAudioUploadUrl;
+  public ConversationKnowledgeBaseDocumentUploadUrlResponse conversationKnowledgeBaseDocumentUploadUrl(ConversationKnowledgeBaseDocumentUploadUrl conversationKnowledgeBaseDocumentUploadUrl) {
+    this.conversationKnowledgeBaseDocumentUploadUrl = conversationKnowledgeBaseDocumentUploadUrl;
     return this;
   }
 
    /**
-   * Get conversationPbxAudioUploadUrl
-   * @return conversationPbxAudioUploadUrl
+   * Get conversationKnowledgeBaseDocumentUploadUrl
+   * @return conversationKnowledgeBaseDocumentUploadUrl
   **/
   @ApiModelProperty(value = "")
-  public ConversationKnowledgeBaseDocumentUploadUrl getConversationPbxAudioUploadUrl() {
-    return conversationPbxAudioUploadUrl;
+  public ConversationKnowledgeBaseDocumentUploadUrl getConversationKnowledgeBaseDocumentUploadUrl() {
+    return conversationKnowledgeBaseDocumentUploadUrl;
   }
 
-  public void setConversationPbxAudioUploadUrl(ConversationKnowledgeBaseDocumentUploadUrl conversationPbxAudioUploadUrl) {
-    this.conversationPbxAudioUploadUrl = conversationPbxAudioUploadUrl;
+  public void setConversationKnowledgeBaseDocumentUploadUrl(ConversationKnowledgeBaseDocumentUploadUrl conversationKnowledgeBaseDocumentUploadUrl) {
+    this.conversationKnowledgeBaseDocumentUploadUrl = conversationKnowledgeBaseDocumentUploadUrl;
   }
 
   public ConversationKnowledgeBaseDocumentUploadUrlResponse error(Error error) {
@@ -151,7 +151,7 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
       return false;
     }
     ConversationKnowledgeBaseDocumentUploadUrlResponse conversationKnowledgeBaseDocumentUploadUrlResponse = (ConversationKnowledgeBaseDocumentUploadUrlResponse) o;
-    return Objects.equals(this.conversationPbxAudioUploadUrl, conversationKnowledgeBaseDocumentUploadUrlResponse.conversationPbxAudioUploadUrl) &&
+    return Objects.equals(this.conversationKnowledgeBaseDocumentUploadUrl, conversationKnowledgeBaseDocumentUploadUrlResponse.conversationKnowledgeBaseDocumentUploadUrl) &&
         Objects.equals(this.error, conversationKnowledgeBaseDocumentUploadUrlResponse.error) &&
         Objects.equals(this.metadata, conversationKnowledgeBaseDocumentUploadUrlResponse.metadata) &&
         Objects.equals(this.success, conversationKnowledgeBaseDocumentUploadUrlResponse.success) &&
@@ -160,7 +160,7 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationPbxAudioUploadUrl, error, metadata, success, warning);
+    return Objects.hash(conversationKnowledgeBaseDocumentUploadUrl, error, metadata, success, warning);
   }
 
 
@@ -169,7 +169,7 @@ public class ConversationKnowledgeBaseDocumentUploadUrlResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationKnowledgeBaseDocumentUploadUrlResponse {\n");
     
-    sb.append("    conversationPbxAudioUploadUrl: ").append(toIndentedString(conversationPbxAudioUploadUrl)).append("\n");
+    sb.append("    conversationKnowledgeBaseDocumentUploadUrl: ").append(toIndentedString(conversationKnowledgeBaseDocumentUploadUrl)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
