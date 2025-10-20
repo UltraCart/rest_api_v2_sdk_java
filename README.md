@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-10-20T15:59:09.011-04:00[America/Indianapolis]
+- Build date: 2025-10-20T16:39:13.797-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.24</version>
+    <version>4.1.25</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.24"
+     implementation "com.ultracart:rest-sdk:4.1.25"
   }
 ```
 
@@ -1612,6 +1612,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.25 | 10/20/2025 | conversation api bug fix for bad url on agent profile kb upload |
 | 4.1.24 | 10/20/2025 | new perm flag on conversation virtual agent capabilities |
 | 4.1.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |
 | 4.1.22 | 10/06/2025 | added Customer.fax back into object model |

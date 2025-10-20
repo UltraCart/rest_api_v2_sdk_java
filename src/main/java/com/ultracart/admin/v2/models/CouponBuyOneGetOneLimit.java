@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponBuyOneGetOneLimit
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T15:59:09.011-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T16:39:13.797-04:00[America/Indianapolis]")
 public class CouponBuyOneGetOneLimit {
   public static final String SERIALIZED_NAME_ITEM_TAGS = "item_tags";
   @SerializedName(SERIALIZED_NAME_ITEM_TAGS)
