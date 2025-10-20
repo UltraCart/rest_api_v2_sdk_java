@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-10-20T15:42:59.496-04:00
+  - Build date: 2025-10-20T16:25:42.698-04:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.24</version>
+  <version>3.11.25</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.24"
+compile "com.ultracart:rest-sdk:3.11.25"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.24.jar`
+* `target/rest-sdk-3.11.25.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -183,7 +183,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationDepartments**](docs/ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 *ConversationApi* | [**getConversationEngagement**](docs/ConversationApi.md#getConversationEngagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
-*ConversationApi* | [**getConversationKnowledgeBaseDocumentUploadUrl**](docs/ConversationApi.md#getConversationKnowledgeBaseDocumentUploadUrl) | **GET** /conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
+*ConversationApi* | [**getConversationKnowledgeBaseDocumentUploadUrl**](docs/ConversationApi.md#getConversationKnowledgeBaseDocumentUploadUrl) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
 *ConversationApi* | [**getConversationMessages**](docs/ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
 *ConversationApi* | [**getConversationPbxAudioUploadUrl**](docs/ConversationApi.md#getConversationPbxAudioUploadUrl) | **GET** /conversation/pbx/audio/upload_url/{extension} | Get a pre-signed conversation multimedia upload URL
@@ -1624,6 +1624,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.25 | 10/20/2025 | conversation api bug fix for bad url on agent profile kb upload |
 | 3.11.24 | 10/20/2025 | new perm flag on conversation virtual agent capabilities |
 | 3.11.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |
 | 3.11.22 | 10/06/2025 | added Customer.fax back into object model |

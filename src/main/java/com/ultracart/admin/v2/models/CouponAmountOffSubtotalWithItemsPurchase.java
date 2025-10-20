@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CouponAmountOffSubtotalWithItemsPurchase
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-20T15:42:59.496-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-20T16:25:42.698-04:00")
 
 
 

@@ -3036,7 +3036,7 @@ public class ConversationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}"
+        String localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "extension" + "\\}", apiClient.escapeString(extension.toString()));
 
