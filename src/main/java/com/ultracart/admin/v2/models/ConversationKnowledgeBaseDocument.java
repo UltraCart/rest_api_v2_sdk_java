@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationKnowledgeBaseDocument
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-20T17:06:05.635-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-06T11:25:04.124-05:00")
 
 
 
@@ -52,6 +52,9 @@ public class ConversationKnowledgeBaseDocument {
 
   @SerializedName("s3_key")
   private String s3Key = null;
+
+  @SerializedName("s3_url")
+  private String s3Url = null;
 
   public ConversationKnowledgeBaseDocument chunkCount(Integer chunkCount) {
     this.chunkCount = chunkCount;
@@ -179,6 +182,24 @@ public class ConversationKnowledgeBaseDocument {
     this.s3Key = s3Key;
   }
 
+  public ConversationKnowledgeBaseDocument s3Url(String s3Url) {
+    this.s3Url = s3Url;
+    return this;
+  }
+
+   /**
+   * Get s3Url
+   * @return s3Url
+  **/
+  @ApiModelProperty(value = "")
+  public String getS3Url() {
+    return s3Url;
+  }
+
+  public void setS3Url(String s3Url) {
+    this.s3Url = s3Url;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -195,12 +216,13 @@ public class ConversationKnowledgeBaseDocument {
         Objects.equals(this.documentUuid, conversationKnowledgeBaseDocument.documentUuid) &&
         Objects.equals(this.metadata, conversationKnowledgeBaseDocument.metadata) &&
         Objects.equals(this.mimeType, conversationKnowledgeBaseDocument.mimeType) &&
-        Objects.equals(this.s3Key, conversationKnowledgeBaseDocument.s3Key);
+        Objects.equals(this.s3Key, conversationKnowledgeBaseDocument.s3Key) &&
+        Objects.equals(this.s3Url, conversationKnowledgeBaseDocument.s3Url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chunkCount, description, documentId, documentUuid, metadata, mimeType, s3Key);
+    return Objects.hash(chunkCount, description, documentId, documentUuid, metadata, mimeType, s3Key, s3Url);
   }
 
 
@@ -216,6 +238,7 @@ public class ConversationKnowledgeBaseDocument {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    s3Key: ").append(toIndentedString(s3Key)).append("\n");
+    sb.append("    s3Url: ").append(toIndentedString(s3Url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

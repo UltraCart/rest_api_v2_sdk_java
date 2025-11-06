@@ -27,13 +27,34 @@ import java.io.IOException;
 /**
  * ConversationInsertKnowledgeBaseDocumentRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-10-20T17:06:05.635-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-06T11:25:04.124-05:00")
 
 
 
 public class ConversationInsertKnowledgeBaseDocumentRequest {
+  @SerializedName("original_file_name")
+  private String originalFileName = null;
+
   @SerializedName("presigned_url")
   private String presignedUrl = null;
+
+  public ConversationInsertKnowledgeBaseDocumentRequest originalFileName(String originalFileName) {
+    this.originalFileName = originalFileName;
+    return this;
+  }
+
+   /**
+   * Get originalFileName
+   * @return originalFileName
+  **/
+  @ApiModelProperty(value = "")
+  public String getOriginalFileName() {
+    return originalFileName;
+  }
+
+  public void setOriginalFileName(String originalFileName) {
+    this.originalFileName = originalFileName;
+  }
 
   public ConversationInsertKnowledgeBaseDocumentRequest presignedUrl(String presignedUrl) {
     this.presignedUrl = presignedUrl;
@@ -63,12 +84,13 @@ public class ConversationInsertKnowledgeBaseDocumentRequest {
       return false;
     }
     ConversationInsertKnowledgeBaseDocumentRequest conversationInsertKnowledgeBaseDocumentRequest = (ConversationInsertKnowledgeBaseDocumentRequest) o;
-    return Objects.equals(this.presignedUrl, conversationInsertKnowledgeBaseDocumentRequest.presignedUrl);
+    return Objects.equals(this.originalFileName, conversationInsertKnowledgeBaseDocumentRequest.originalFileName) &&
+        Objects.equals(this.presignedUrl, conversationInsertKnowledgeBaseDocumentRequest.presignedUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(presignedUrl);
+    return Objects.hash(originalFileName, presignedUrl);
   }
 
 
@@ -77,6 +99,7 @@ public class ConversationInsertKnowledgeBaseDocumentRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationInsertKnowledgeBaseDocumentRequest {\n");
     
+    sb.append("    originalFileName: ").append(toIndentedString(originalFileName)).append("\n");
     sb.append("    presignedUrl: ").append(toIndentedString(presignedUrl)).append("\n");
     sb.append("}");
     return sb.toString();

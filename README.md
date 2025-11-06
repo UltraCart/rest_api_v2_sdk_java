@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-10-20T17:06:05.635-04:00
+  - Build date: 2025-11-06T11:25:04.124-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.26</version>
+  <version>3.11.27</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.26"
+compile "com.ultracart:rest-sdk:3.11.27"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.26.jar`
+* `target/rest-sdk-3.11.27.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1624,6 +1624,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.27 | 11/06/2025 | conversation ai knowledge base changes |
 | 3.11.26 | 10/20/2025 | conversation api bug fixes |
 | 3.11.25 | 10/20/2025 | conversation api bug fix for bad url on agent profile kb upload |
 | 3.11.24 | 10/20/2025 | new perm flag on conversation virtual agent capabilities |
