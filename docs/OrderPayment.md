@@ -65,6 +65,7 @@
 | GOOGLE_PAY | &quot;Google Pay&quot; |
 | HEALTH_BENEFIT_CARD | &quot;Health Benefit Card&quot; |
 | PAYPAL_FASTLANE | &quot;PayPal Fastlane&quot; |
+| KLARNA | &quot;Klarna&quot; |
 
 
 

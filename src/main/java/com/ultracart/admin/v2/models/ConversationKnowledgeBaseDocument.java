@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationKnowledgeBaseDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T17:21:52.957-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-06T11:40:40.313-05:00[America/Indianapolis]")
 public class ConversationKnowledgeBaseDocument {
   public static final String SERIALIZED_NAME_CHUNK_COUNT = "chunk_count";
   @SerializedName(SERIALIZED_NAME_CHUNK_COUNT)
@@ -76,6 +76,10 @@ public class ConversationKnowledgeBaseDocument {
   public static final String SERIALIZED_NAME_S3_KEY = "s3_key";
   @SerializedName(SERIALIZED_NAME_S3_KEY)
   private String s3Key;
+
+  public static final String SERIALIZED_NAME_S3_URL = "s3_url";
+  @SerializedName(SERIALIZED_NAME_S3_URL)
+  private String s3Url;
 
   public ConversationKnowledgeBaseDocument() { 
   }
@@ -241,6 +245,29 @@ public class ConversationKnowledgeBaseDocument {
   }
 
 
+  public ConversationKnowledgeBaseDocument s3Url(String s3Url) {
+    
+    this.s3Url = s3Url;
+    return this;
+  }
+
+   /**
+   * Get s3Url
+   * @return s3Url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getS3Url() {
+    return s3Url;
+  }
+
+
+  public void setS3Url(String s3Url) {
+    this.s3Url = s3Url;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -257,12 +284,13 @@ public class ConversationKnowledgeBaseDocument {
         Objects.equals(this.documentUuid, conversationKnowledgeBaseDocument.documentUuid) &&
         Objects.equals(this.metadata, conversationKnowledgeBaseDocument.metadata) &&
         Objects.equals(this.mimeType, conversationKnowledgeBaseDocument.mimeType) &&
-        Objects.equals(this.s3Key, conversationKnowledgeBaseDocument.s3Key);
+        Objects.equals(this.s3Key, conversationKnowledgeBaseDocument.s3Key) &&
+        Objects.equals(this.s3Url, conversationKnowledgeBaseDocument.s3Url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chunkCount, description, documentId, documentUuid, metadata, mimeType, s3Key);
+    return Objects.hash(chunkCount, description, documentId, documentUuid, metadata, mimeType, s3Key, s3Url);
   }
 
   @Override
@@ -276,6 +304,7 @@ public class ConversationKnowledgeBaseDocument {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    s3Key: ").append(toIndentedString(s3Key)).append("\n");
+    sb.append("    s3Url: ").append(toIndentedString(s3Url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -305,6 +334,7 @@ public class ConversationKnowledgeBaseDocument {
     openapiFields.add("metadata");
     openapiFields.add("mime_type");
     openapiFields.add("s3_key");
+    openapiFields.add("s3_url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -349,6 +379,9 @@ public class ConversationKnowledgeBaseDocument {
       }
       if (jsonObj.get("s3_key") != null && !jsonObj.get("s3_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `s3_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("s3_key").toString()));
+      }
+      if (jsonObj.get("s3_url") != null && !jsonObj.get("s3_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `s3_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("s3_url").toString()));
       }
   }
 

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * WorkflowAttachment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T17:21:52.957-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-06T11:40:40.313-05:00[America/Indianapolis]")
 public class WorkflowAttachment {
   public static final String SERIALIZED_NAME_DOWNLOAD_KEY = "download_key";
   @SerializedName(SERIALIZED_NAME_DOWNLOAD_KEY)

@@ -47,14 +47,41 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationInsertKnowledgeBaseDocumentRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-20T17:21:52.957-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-06T11:40:40.313-05:00[America/Indianapolis]")
 public class ConversationInsertKnowledgeBaseDocumentRequest {
+  public static final String SERIALIZED_NAME_ORIGINAL_FILE_NAME = "original_file_name";
+  @SerializedName(SERIALIZED_NAME_ORIGINAL_FILE_NAME)
+  private String originalFileName;
+
   public static final String SERIALIZED_NAME_PRESIGNED_URL = "presigned_url";
   @SerializedName(SERIALIZED_NAME_PRESIGNED_URL)
   private String presignedUrl;
 
   public ConversationInsertKnowledgeBaseDocumentRequest() { 
   }
+
+  public ConversationInsertKnowledgeBaseDocumentRequest originalFileName(String originalFileName) {
+    
+    this.originalFileName = originalFileName;
+    return this;
+  }
+
+   /**
+   * Get originalFileName
+   * @return originalFileName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getOriginalFileName() {
+    return originalFileName;
+  }
+
+
+  public void setOriginalFileName(String originalFileName) {
+    this.originalFileName = originalFileName;
+  }
+
 
   public ConversationInsertKnowledgeBaseDocumentRequest presignedUrl(String presignedUrl) {
     
@@ -89,18 +116,20 @@ public class ConversationInsertKnowledgeBaseDocumentRequest {
       return false;
     }
     ConversationInsertKnowledgeBaseDocumentRequest conversationInsertKnowledgeBaseDocumentRequest = (ConversationInsertKnowledgeBaseDocumentRequest) o;
-    return Objects.equals(this.presignedUrl, conversationInsertKnowledgeBaseDocumentRequest.presignedUrl);
+    return Objects.equals(this.originalFileName, conversationInsertKnowledgeBaseDocumentRequest.originalFileName) &&
+        Objects.equals(this.presignedUrl, conversationInsertKnowledgeBaseDocumentRequest.presignedUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(presignedUrl);
+    return Objects.hash(originalFileName, presignedUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationInsertKnowledgeBaseDocumentRequest {\n");
+    sb.append("    originalFileName: ").append(toIndentedString(originalFileName)).append("\n");
     sb.append("    presignedUrl: ").append(toIndentedString(presignedUrl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -124,6 +153,7 @@ public class ConversationInsertKnowledgeBaseDocumentRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("original_file_name");
     openapiFields.add("presigned_url");
 
     // a set of required properties/fields (JSON key names)
@@ -151,6 +181,9 @@ public class ConversationInsertKnowledgeBaseDocumentRequest {
         if (!ConversationInsertKnowledgeBaseDocumentRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationInsertKnowledgeBaseDocumentRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("original_file_name") != null && !jsonObj.get("original_file_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `original_file_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original_file_name").toString()));
       }
       if (jsonObj.get("presigned_url") != null && !jsonObj.get("presigned_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `presigned_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("presigned_url").toString()));

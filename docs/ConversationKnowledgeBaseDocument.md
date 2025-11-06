@@ -14,6 +14,7 @@
 |**metadata** | **String** |  |  [optional] |
 |**mimeType** | **String** |  |  [optional] |
 |**s3Key** | **String** |  |  [optional] |
+|**s3Url** | **String** |  |  [optional] |
 
 
 
