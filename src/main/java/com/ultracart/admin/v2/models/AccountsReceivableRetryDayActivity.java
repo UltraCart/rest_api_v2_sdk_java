@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AccountsReceivableRetryDayActivity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-06T11:40:40.313-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-07T09:24:42.764-05:00[America/Indianapolis]")
 public class AccountsReceivableRetryDayActivity {
   public static final String SERIALIZED_NAME_CHARGE = "charge";
   @SerializedName(SERIALIZED_NAME_CHARGE)

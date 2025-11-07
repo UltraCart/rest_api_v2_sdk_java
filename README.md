@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-11-06T11:40:40.313-05:00[America/Indianapolis]
+- Build date: 2025-11-07T09:24:42.764-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.27</version>
+    <version>4.1.28</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.27"
+     implementation "com.ultracart:rest-sdk:4.1.28"
   }
 ```
 
@@ -358,6 +358,7 @@ Class | Method | HTTP request | Description
 *OauthApi* | [**oauthAccessToken**](docs/OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+*OrderApi* | [**assignToAffiliate**](docs/OrderApi.md#assignToAffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 *OrderApi* | [**blockRefundOnOrder**](docs/OrderApi.md#blockRefundOnOrder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 *OrderApi* | [**cancelOrder**](docs/OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
@@ -1284,6 +1285,7 @@ Class | Method | HTTP request | Description
  - [Order](docs/Order.md)
  - [OrderAffiliate](docs/OrderAffiliate.md)
  - [OrderAffiliateLedger](docs/OrderAffiliateLedger.md)
+ - [OrderAssignToAffiliateRequest](docs/OrderAssignToAffiliateRequest.md)
  - [OrderAutoOrder](docs/OrderAutoOrder.md)
  - [OrderBilling](docs/OrderBilling.md)
  - [OrderBuysafe](docs/OrderBuysafe.md)
@@ -1612,6 +1614,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.28 | 11/07/2025 | OrderApi.assignToAffiliate |
 | 4.1.27 | 11/06/2025 | conversation ai knowledge base changes |
 | 4.1.26 | 10/20/2025 | conversation api bug fixes |
 | 4.1.25 | 10/20/2025 | conversation api bug fix for bad url on agent profile kb upload |

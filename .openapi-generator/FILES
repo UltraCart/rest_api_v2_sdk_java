@@ -669,6 +669,7 @@ docs/Order.md
 docs/OrderAffiliate.md
 docs/OrderAffiliateLedger.md
 docs/OrderApi.md
+docs/OrderAssignToAffiliateRequest.md
 docs/OrderAutoOrder.md
 docs/OrderBilling.md
 docs/OrderBuysafe.md
@@ -1603,6 +1604,7 @@ src/main/java/com/ultracart/admin/v2/models/OauthTokenResponse.java
 src/main/java/com/ultracart/admin/v2/models/Order.java
 src/main/java/com/ultracart/admin/v2/models/OrderAffiliate.java
 src/main/java/com/ultracart/admin/v2/models/OrderAffiliateLedger.java
+src/main/java/com/ultracart/admin/v2/models/OrderAssignToAffiliateRequest.java
 src/main/java/com/ultracart/admin/v2/models/OrderAutoOrder.java
 src/main/java/com/ultracart/admin/v2/models/OrderBilling.java
 src/main/java/com/ultracart/admin/v2/models/OrderBuysafe.java
