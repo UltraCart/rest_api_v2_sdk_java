@@ -18,6 +18,7 @@
 |**merchantId** | **String** |  |  [optional] |
 |**messageDts** | **String** | Message date/time |  [optional] |
 |**messageEpoch** | **Long** | Message epoch milliseconds |  [optional] |
+|**messageType** | **String** |  |  [optional] |
 |**translations** | [**List&lt;ConversationMessageTranslation&gt;**](ConversationMessageTranslation.md) |  |  [optional] |
 |**transportStatuses** | [**List&lt;ConversationMessageTransportStatus&gt;**](ConversationMessageTransportStatus.md) |  |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Message type |  [optional] |

@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-07T09:24:42.764-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-13T11:13:43.811-05:00[America/Indianapolis]")
 public class ConversationMessage {
   public static final String SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN = "author_conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_AUTHOR_CONVERSATION_PARTICIPANT_ARN)
@@ -96,6 +96,10 @@ public class ConversationMessage {
   public static final String SERIALIZED_NAME_MESSAGE_EPOCH = "message_epoch";
   @SerializedName(SERIALIZED_NAME_MESSAGE_EPOCH)
   private Long messageEpoch;
+
+  public static final String SERIALIZED_NAME_MESSAGE_TYPE = "message_type";
+  @SerializedName(SERIALIZED_NAME_MESSAGE_TYPE)
+  private String messageType;
 
   public static final String SERIALIZED_NAME_TRANSLATIONS = "translations";
   @SerializedName(SERIALIZED_NAME_TRANSLATIONS)
@@ -426,6 +430,29 @@ public class ConversationMessage {
   }
 
 
+  public ConversationMessage messageType(String messageType) {
+    
+    this.messageType = messageType;
+    return this;
+  }
+
+   /**
+   * Get messageType
+   * @return messageType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMessageType() {
+    return messageType;
+  }
+
+
+  public void setMessageType(String messageType) {
+    this.messageType = messageType;
+  }
+
+
   public ConversationMessage translations(List<ConversationMessageTranslation> translations) {
     
     this.translations = translations;
@@ -563,6 +590,7 @@ public class ConversationMessage {
         Objects.equals(this.merchantId, conversationMessage.merchantId) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
         Objects.equals(this.messageEpoch, conversationMessage.messageEpoch) &&
+        Objects.equals(this.messageType, conversationMessage.messageType) &&
         Objects.equals(this.translations, conversationMessage.translations) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
         Objects.equals(this.type, conversationMessage.type) &&
@@ -571,7 +599,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, delayUntilDts, languageIsoCode, mediaUrls, merchantId, messageDts, messageEpoch, translations, transportStatuses, type, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, delayUntilDts, languageIsoCode, mediaUrls, merchantId, messageDts, messageEpoch, messageType, translations, transportStatuses, type, uploadKeys);
   }
 
   @Override
@@ -589,6 +617,7 @@ public class ConversationMessage {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    messageEpoch: ").append(toIndentedString(messageEpoch)).append("\n");
+    sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
     sb.append("    translations: ").append(toIndentedString(translations)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -626,6 +655,7 @@ public class ConversationMessage {
     openapiFields.add("merchant_id");
     openapiFields.add("message_dts");
     openapiFields.add("message_epoch");
+    openapiFields.add("message_type");
     openapiFields.add("translations");
     openapiFields.add("transport_statuses");
     openapiFields.add("type");
@@ -687,6 +717,9 @@ public class ConversationMessage {
       }
       if (jsonObj.get("message_dts") != null && !jsonObj.get("message_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message_dts").toString()));
+      }
+      if (jsonObj.get("message_type") != null && !jsonObj.get("message_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message_type").toString()));
       }
       JsonArray jsonArraytranslations = jsonObj.getAsJsonArray("translations");
       if (jsonArraytranslations != null) {

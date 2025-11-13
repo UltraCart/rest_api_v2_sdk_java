@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-11-07T09:24:42.764-05:00[America/Indianapolis]
+- Build date: 2025-11-13T11:13:43.811-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.28</version>
+    <version>4.1.29</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.28"
+     implementation "com.ultracart:rest-sdk:4.1.29"
   }
 ```
 
@@ -1614,6 +1614,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.29 | 11/13/2025 | conversations - AI capabilities flag for generate coupon |
 | 4.1.28 | 11/07/2025 | OrderApi.assignToAffiliate |
 | 4.1.27 | 11/06/2025 | conversation ai knowledge base changes |
 | 4.1.26 | 10/20/2025 | conversation api bug fixes |

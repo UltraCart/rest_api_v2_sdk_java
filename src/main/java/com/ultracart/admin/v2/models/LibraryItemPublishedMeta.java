@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * LibraryItemPublishedMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-07T09:24:42.764-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-13T11:13:43.811-05:00[America/Indianapolis]")
 public class LibraryItemPublishedMeta {
   public static final String SERIALIZED_NAME_COUNT_OF_VERSIONS = "count_of_versions";
   @SerializedName(SERIALIZED_NAME_COUNT_OF_VERSIONS)

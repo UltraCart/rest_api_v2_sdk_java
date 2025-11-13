@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-07T09:24:42.764-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-13T11:13:43.811-05:00[America/Indianapolis]")
 public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_ACCESS_STOREFRONT_AND_ITEM = "access_storefront_and_item";
   @SerializedName(SERIALIZED_NAME_ACCESS_STOREFRONT_AND_ITEM)
@@ -63,6 +63,10 @@ public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_DELAY_SUBSCRIPTION = "delay_subscription";
   @SerializedName(SERIALIZED_NAME_DELAY_SUBSCRIPTION)
   private Boolean delaySubscription;
+
+  public static final String SERIALIZED_NAME_GENERATE_COUPON = "generate_coupon";
+  @SerializedName(SERIALIZED_NAME_GENERATE_COUPON)
+  private Boolean generateCoupon;
 
   public static final String SERIALIZED_NAME_LOOKUP_ORDER_INFORMATION = "lookup_order_information";
   @SerializedName(SERIALIZED_NAME_LOOKUP_ORDER_INFORMATION)
@@ -232,6 +236,29 @@ public class ConversationVirtualAgentCapabilities {
 
   public void setDelaySubscription(Boolean delaySubscription) {
     this.delaySubscription = delaySubscription;
+  }
+
+
+  public ConversationVirtualAgentCapabilities generateCoupon(Boolean generateCoupon) {
+    
+    this.generateCoupon = generateCoupon;
+    return this;
+  }
+
+   /**
+   * Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions
+   * @return generateCoupon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions")
+
+  public Boolean getGenerateCoupon() {
+    return generateCoupon;
+  }
+
+
+  public void setGenerateCoupon(Boolean generateCoupon) {
+    this.generateCoupon = generateCoupon;
   }
 
 
@@ -532,6 +559,7 @@ public class ConversationVirtualAgentCapabilities {
     return Objects.equals(this.accessStorefrontAndItem, conversationVirtualAgentCapabilities.accessStorefrontAndItem) &&
         Objects.equals(this.cancelSubscription, conversationVirtualAgentCapabilities.cancelSubscription) &&
         Objects.equals(this.delaySubscription, conversationVirtualAgentCapabilities.delaySubscription) &&
+        Objects.equals(this.generateCoupon, conversationVirtualAgentCapabilities.generateCoupon) &&
         Objects.equals(this.lookupOrderInformation, conversationVirtualAgentCapabilities.lookupOrderInformation) &&
         Objects.equals(this.lookupSubscriptionInformation, conversationVirtualAgentCapabilities.lookupSubscriptionInformation) &&
         Objects.equals(this.openSupportTicket, conversationVirtualAgentCapabilities.openSupportTicket) &&
@@ -548,7 +576,7 @@ public class ConversationVirtualAgentCapabilities {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessStorefrontAndItem, cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
+    return Objects.hash(accessStorefrontAndItem, cancelSubscription, delaySubscription, generateCoupon, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
   }
 
   @Override
@@ -558,6 +586,7 @@ public class ConversationVirtualAgentCapabilities {
     sb.append("    accessStorefrontAndItem: ").append(toIndentedString(accessStorefrontAndItem)).append("\n");
     sb.append("    cancelSubscription: ").append(toIndentedString(cancelSubscription)).append("\n");
     sb.append("    delaySubscription: ").append(toIndentedString(delaySubscription)).append("\n");
+    sb.append("    generateCoupon: ").append(toIndentedString(generateCoupon)).append("\n");
     sb.append("    lookupOrderInformation: ").append(toIndentedString(lookupOrderInformation)).append("\n");
     sb.append("    lookupSubscriptionInformation: ").append(toIndentedString(lookupSubscriptionInformation)).append("\n");
     sb.append("    openSupportTicket: ").append(toIndentedString(openSupportTicket)).append("\n");
@@ -595,6 +624,7 @@ public class ConversationVirtualAgentCapabilities {
     openapiFields.add("access_storefront_and_item");
     openapiFields.add("cancel_subscription");
     openapiFields.add("delay_subscription");
+    openapiFields.add("generate_coupon");
     openapiFields.add("lookup_order_information");
     openapiFields.add("lookup_subscription_information");
     openapiFields.add("open_support_ticket");
