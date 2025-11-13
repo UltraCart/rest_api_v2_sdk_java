@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-07T09:09:04.655-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-13T10:58:17.431-05:00")
 
 
 
@@ -43,6 +43,9 @@ public class ConversationVirtualAgentCapabilities {
 
   @SerializedName("delay_subscription")
   private Boolean delaySubscription = null;
+
+  @SerializedName("generate_coupon")
+  private Boolean generateCoupon = null;
 
   @SerializedName("lookup_order_information")
   private Boolean lookupOrderInformation = null;
@@ -183,6 +186,24 @@ public class ConversationVirtualAgentCapabilities {
 
   public void setDelaySubscription(Boolean delaySubscription) {
     this.delaySubscription = delaySubscription;
+  }
+
+  public ConversationVirtualAgentCapabilities generateCoupon(Boolean generateCoupon) {
+    this.generateCoupon = generateCoupon;
+    return this;
+  }
+
+   /**
+   * Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions
+   * @return generateCoupon
+  **/
+  @ApiModelProperty(value = "Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions")
+  public Boolean isGenerateCoupon() {
+    return generateCoupon;
+  }
+
+  public void setGenerateCoupon(Boolean generateCoupon) {
+    this.generateCoupon = generateCoupon;
   }
 
   public ConversationVirtualAgentCapabilities lookupOrderInformation(Boolean lookupOrderInformation) {
@@ -422,6 +443,7 @@ public class ConversationVirtualAgentCapabilities {
     return Objects.equals(this.accessStorefrontAndItem, conversationVirtualAgentCapabilities.accessStorefrontAndItem) &&
         Objects.equals(this.cancelSubscription, conversationVirtualAgentCapabilities.cancelSubscription) &&
         Objects.equals(this.delaySubscription, conversationVirtualAgentCapabilities.delaySubscription) &&
+        Objects.equals(this.generateCoupon, conversationVirtualAgentCapabilities.generateCoupon) &&
         Objects.equals(this.lookupOrderInformation, conversationVirtualAgentCapabilities.lookupOrderInformation) &&
         Objects.equals(this.lookupSubscriptionInformation, conversationVirtualAgentCapabilities.lookupSubscriptionInformation) &&
         Objects.equals(this.openSupportTicket, conversationVirtualAgentCapabilities.openSupportTicket) &&
@@ -438,7 +460,7 @@ public class ConversationVirtualAgentCapabilities {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessStorefrontAndItem, cancelSubscription, delaySubscription, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
+    return Objects.hash(accessStorefrontAndItem, cancelSubscription, delaySubscription, generateCoupon, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
   }
 
 
@@ -450,6 +472,7 @@ public class ConversationVirtualAgentCapabilities {
     sb.append("    accessStorefrontAndItem: ").append(toIndentedString(accessStorefrontAndItem)).append("\n");
     sb.append("    cancelSubscription: ").append(toIndentedString(cancelSubscription)).append("\n");
     sb.append("    delaySubscription: ").append(toIndentedString(delaySubscription)).append("\n");
+    sb.append("    generateCoupon: ").append(toIndentedString(generateCoupon)).append("\n");
     sb.append("    lookupOrderInformation: ").append(toIndentedString(lookupOrderInformation)).append("\n");
     sb.append("    lookupSubscriptionInformation: ").append(toIndentedString(lookupSubscriptionInformation)).append("\n");
     sb.append("    openSupportTicket: ").append(toIndentedString(openSupportTicket)).append("\n");

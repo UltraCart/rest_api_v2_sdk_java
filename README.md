@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-11-07T09:09:04.655-05:00
+  - Build date: 2025-11-13T10:58:17.431-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.28</version>
+  <version>3.11.29</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.28"
+compile "com.ultracart:rest-sdk:3.11.29"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.28.jar`
+* `target/rest-sdk-3.11.29.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1626,6 +1626,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.29 | 11/13/2025 | conversations - AI capabilities flag for generate coupon |
 | 3.11.28 | 11/07/2025 | OrderApi.assignToAffiliate |
 | 3.11.27 | 11/06/2025 | conversation ai knowledge base changes |
 | 3.11.26 | 10/20/2025 | conversation api bug fixes |

@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ConversationMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-07T09:09:04.655-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-13T10:58:17.431-05:00")
 
 
 
@@ -68,6 +68,9 @@ public class ConversationMessage {
 
   @SerializedName("message_epoch")
   private Long messageEpoch = null;
+
+  @SerializedName("message_type")
+  private String messageType = null;
 
   @SerializedName("translations")
   private List<ConversationMessageTranslation> translations = null;
@@ -336,6 +339,24 @@ public class ConversationMessage {
     this.messageEpoch = messageEpoch;
   }
 
+  public ConversationMessage messageType(String messageType) {
+    this.messageType = messageType;
+    return this;
+  }
+
+   /**
+   * Get messageType
+   * @return messageType
+  **/
+  @ApiModelProperty(value = "")
+  public String getMessageType() {
+    return messageType;
+  }
+
+  public void setMessageType(String messageType) {
+    this.messageType = messageType;
+  }
+
   public ConversationMessage translations(List<ConversationMessageTranslation> translations) {
     this.translations = translations;
     return this;
@@ -453,6 +474,7 @@ public class ConversationMessage {
         Objects.equals(this.merchantId, conversationMessage.merchantId) &&
         Objects.equals(this.messageDts, conversationMessage.messageDts) &&
         Objects.equals(this.messageEpoch, conversationMessage.messageEpoch) &&
+        Objects.equals(this.messageType, conversationMessage.messageType) &&
         Objects.equals(this.translations, conversationMessage.translations) &&
         Objects.equals(this.transportStatuses, conversationMessage.transportStatuses) &&
         Objects.equals(this.type, conversationMessage.type) &&
@@ -461,7 +483,7 @@ public class ConversationMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, delayUntilDts, languageIsoCode, mediaUrls, merchantId, messageDts, messageEpoch, translations, transportStatuses, type, uploadKeys);
+    return Objects.hash(authorConversationParticipantArn, authorConversationParticipantName, body, clientMessageId, conversationMessageUuid, delayUntilDts, languageIsoCode, mediaUrls, merchantId, messageDts, messageEpoch, messageType, translations, transportStatuses, type, uploadKeys);
   }
 
 
@@ -481,6 +503,7 @@ public class ConversationMessage {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    messageDts: ").append(toIndentedString(messageDts)).append("\n");
     sb.append("    messageEpoch: ").append(toIndentedString(messageEpoch)).append("\n");
+    sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
     sb.append("    translations: ").append(toIndentedString(translations)).append("\n");
     sb.append("    transportStatuses: ").append(toIndentedString(transportStatuses)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
