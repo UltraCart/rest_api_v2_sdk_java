@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-11-13T10:58:17.431-05:00
+  - Build date: 2025-11-19T09:17:39.022-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.29</version>
+  <version>3.11.30</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.29"
+compile "com.ultracart:rest-sdk:3.11.30"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.29.jar`
+* `target/rest-sdk-3.11.30.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -174,6 +174,8 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getAgentKeepAlive**](docs/ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentProfile**](docs/ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
 *ConversationApi* | [**getAgentProfileKnowledgeBase**](docs/ConversationApi.md#getAgentProfileKnowledgeBase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
+*ConversationApi* | [**getAgentProfileMcp**](docs/ConversationApi.md#getAgentProfileMcp) | **GET** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Get an MCP server associated with this agent
+*ConversationApi* | [**getAgentProfileMcps**](docs/ConversationApi.md#getAgentProfileMcps) | **GET** /conversation/agent/profiles/{user_id}/mcps | Get the list of MCP servers associated with this agent
 *ConversationApi* | [**getAgentProfiles**](docs/ConversationApi.md#getAgentProfiles) | **GET** /conversation/agent/profiles | Get agent profiles
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
@@ -218,6 +220,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getVirtualAgentBudget**](docs/ConversationApi.md#getVirtualAgentBudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 *ConversationApi* | [**getVirtualAgentCapabilities**](docs/ConversationApi.md#getVirtualAgentCapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 *ConversationApi* | [**insertAgentProfileKnowledgeBaseDocument**](docs/ConversationApi.md#insertAgentProfileKnowledgeBaseDocument) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
+*ConversationApi* | [**insertAgentProfileMcp**](docs/ConversationApi.md#insertAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps | Insert an agent MCP server
 *ConversationApi* | [**insertConversationCannedMessage**](docs/ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
@@ -237,6 +240,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 *ConversationApi* | [**startConversation**](docs/ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateAgentProfile**](docs/ConversationApi.md#updateAgentProfile) | **PUT** /conversation/agent/profile | Update agent profile
+*ConversationApi* | [**updateAgentProfileMcp**](docs/ConversationApi.md#updateAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
 *ConversationApi* | [**updateConversationCannedMessage**](docs/ConversationApi.md#updateConversationCannedMessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 *ConversationApi* | [**updateConversationDepartment**](docs/ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 *ConversationApi* | [**updateConversationEngagement**](docs/ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -815,6 +819,9 @@ Class | Method | HTTP request | Description
  - [ConversationLocationCountry](docs/ConversationLocationCountry.md)
  - [ConversationLocationStateProvince](docs/ConversationLocationStateProvince.md)
  - [ConversationLocationsResponse](docs/ConversationLocationsResponse.md)
+ - [ConversationMcpServer](docs/ConversationMcpServer.md)
+ - [ConversationMcpServerResponse](docs/ConversationMcpServerResponse.md)
+ - [ConversationMcpServersResponse](docs/ConversationMcpServersResponse.md)
  - [ConversationMessage](docs/ConversationMessage.md)
  - [ConversationMessageTranslation](docs/ConversationMessageTranslation.md)
  - [ConversationMessageTransportStatus](docs/ConversationMessageTransportStatus.md)
@@ -1626,6 +1633,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.30 | 11/19/2025 | conversation - AI agent MCP server configuration methods |
 | 3.11.29 | 11/13/2025 | conversations - AI capabilities flag for generate coupon |
 | 3.11.28 | 11/07/2025 | OrderApi.assignToAffiliate |
 | 3.11.27 | 11/06/2025 | conversation ai knowledge base changes |

@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * WorkflowTasksResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-13T10:58:17.431-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-19T09:17:39.022-05:00")
 
 
 
