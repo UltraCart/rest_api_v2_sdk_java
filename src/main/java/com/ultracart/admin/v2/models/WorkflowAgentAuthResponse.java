@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * WorkflowAgentAuthResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-19T09:34:21.193-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-20T10:49:20.136-05:00[America/Indianapolis]")
 public class WorkflowAgentAuthResponse {
   public static final String SERIALIZED_NAME_AGENT_AUTH = "agent_auth";
   @SerializedName(SERIALIZED_NAME_AGENT_AUTH)

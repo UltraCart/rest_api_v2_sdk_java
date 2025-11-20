@@ -180,6 +180,7 @@ docs/ConversationLocationStateProvince.md
 docs/ConversationLocationsResponse.md
 docs/ConversationMcpServer.md
 docs/ConversationMcpServerResponse.md
+docs/ConversationMcpServerToolsResponse.md
 docs/ConversationMcpServersResponse.md
 docs/ConversationMessage.md
 docs/ConversationMessageTranslation.md
@@ -1127,6 +1128,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationLocationStateProvince.ja
 src/main/java/com/ultracart/admin/v2/models/ConversationLocationsResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMcpServer.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMcpServerResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationMcpServerToolsResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMcpServersResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMessageTranslation.java
