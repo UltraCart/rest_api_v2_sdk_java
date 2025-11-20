@@ -335,7 +335,7 @@ public class ConversationApi {
         }
 
         String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -10206,6 +10206,148 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = updateAgentProfileValidateBeforeCall(profileRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationAgentProfileResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateAgentProfileMcp
+     * @param userId  (required)
+     * @param mcpServerUuid  (required)
+     * @param mcpServer MCP Server (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateAgentProfileMcpCall(Integer userId, String mcpServerUuid, ConversationMcpServer mcpServer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = mcpServer;
+
+        // create path and map variables
+        String localVarPath = "/conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "mcp_server_uuid" + "\\}", apiClient.escapeString(mcpServerUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateAgentProfileMcpValidateBeforeCall(Integer userId, String mcpServerUuid, ConversationMcpServer mcpServer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling updateAgentProfileMcp(Async)");
+        }
+        
+        // verify the required parameter 'mcpServerUuid' is set
+        if (mcpServerUuid == null) {
+            throw new ApiException("Missing the required parameter 'mcpServerUuid' when calling updateAgentProfileMcp(Async)");
+        }
+        
+        // verify the required parameter 'mcpServer' is set
+        if (mcpServer == null) {
+            throw new ApiException("Missing the required parameter 'mcpServer' when calling updateAgentProfileMcp(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateAgentProfileMcpCall(userId, mcpServerUuid, mcpServer, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update an agent MCP server
+     * Update an agent MCP server 
+     * @param userId  (required)
+     * @param mcpServerUuid  (required)
+     * @param mcpServer MCP Server (required)
+     * @return ConversationMcpServerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationMcpServerResponse updateAgentProfileMcp(Integer userId, String mcpServerUuid, ConversationMcpServer mcpServer) throws ApiException {
+        ApiResponse<ConversationMcpServerResponse> resp = updateAgentProfileMcpWithHttpInfo(userId, mcpServerUuid, mcpServer);
+        return resp.getData();
+    }
+
+    /**
+     * Update an agent MCP server
+     * Update an agent MCP server 
+     * @param userId  (required)
+     * @param mcpServerUuid  (required)
+     * @param mcpServer MCP Server (required)
+     * @return ApiResponse&lt;ConversationMcpServerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationMcpServerResponse> updateAgentProfileMcpWithHttpInfo(Integer userId, String mcpServerUuid, ConversationMcpServer mcpServer) throws ApiException {
+        com.squareup.okhttp.Call call = updateAgentProfileMcpValidateBeforeCall(userId, mcpServerUuid, mcpServer, null, null);
+        Type localVarReturnType = new TypeToken<ConversationMcpServerResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update an agent MCP server (asynchronously)
+     * Update an agent MCP server 
+     * @param userId  (required)
+     * @param mcpServerUuid  (required)
+     * @param mcpServer MCP Server (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateAgentProfileMcpAsync(Integer userId, String mcpServerUuid, ConversationMcpServer mcpServer, final ApiCallback<ConversationMcpServerResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateAgentProfileMcpValidateBeforeCall(userId, mcpServerUuid, mcpServer, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationMcpServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

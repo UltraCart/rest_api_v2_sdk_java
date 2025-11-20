@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-11-20T10:33:42.153-05:00
+  - Build date: 2025-11-20T15:37:23.406-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.31</version>
+  <version>3.11.32</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.31"
+compile "com.ultracart:rest-sdk:3.11.32"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.31.jar`
+* `target/rest-sdk-3.11.32.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -160,7 +160,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**updateCart**](docs/CheckoutApi.md#updateCart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
 *ConversationApi* | [**deleteAgentProfileKnowledgeBaseDocument**](docs/ConversationApi.md#deleteAgentProfileKnowledgeBaseDocument) | **DELETE** /conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid} | Delete a knowledge base document
-*ConversationApi* | [**deleteAgentProfileMcp**](docs/ConversationApi.md#deleteAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Delete an agent MCP server
+*ConversationApi* | [**deleteAgentProfileMcp**](docs/ConversationApi.md#deleteAgentProfileMcp) | **DELETE** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Delete an agent MCP server
 *ConversationApi* | [**deleteConversationCannedMessage**](docs/ConversationApi.md#deleteConversationCannedMessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 *ConversationApi* | [**deleteDepartment**](docs/ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
@@ -242,6 +242,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 *ConversationApi* | [**startConversation**](docs/ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateAgentProfile**](docs/ConversationApi.md#updateAgentProfile) | **PUT** /conversation/agent/profile | Update agent profile
+*ConversationApi* | [**updateAgentProfileMcp**](docs/ConversationApi.md#updateAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
 *ConversationApi* | [**updateConversationCannedMessage**](docs/ConversationApi.md#updateConversationCannedMessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 *ConversationApi* | [**updateConversationDepartment**](docs/ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 *ConversationApi* | [**updateConversationEngagement**](docs/ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -1635,6 +1636,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.32 | 11/20/2025 | conversion api bug fix on incorrect signature |
 | 3.11.31 | 11/20/2025 | conversation - AI agent mcp server tools function |
 | 3.11.30 | 11/19/2025 | conversation - AI agent MCP server configuration methods |
 | 3.11.29 | 11/13/2025 | conversations - AI capabilities flag for generate coupon |
