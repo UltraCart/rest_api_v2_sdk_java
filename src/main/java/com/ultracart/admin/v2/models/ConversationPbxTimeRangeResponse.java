@@ -31,7 +31,7 @@ import java.io.IOException;
 /**
  * ConversationPbxTimeRangeResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-19T09:17:39.022-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-20T10:33:42.153-05:00")
 
 
 
