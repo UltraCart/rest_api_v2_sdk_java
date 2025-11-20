@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderChannelPartner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-20T10:49:20.136-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-20T15:51:13.074-05:00[America/Indianapolis]")
 public class OrderChannelPartner {
   public static final String SERIALIZED_NAME_AUTO_APPROVE_PURCHASE_ORDER = "auto_approve_purchase_order";
   @SerializedName(SERIALIZED_NAME_AUTO_APPROVE_PURCHASE_ORDER)
