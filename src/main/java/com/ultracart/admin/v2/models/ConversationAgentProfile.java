@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-20T15:51:13.074-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-26T10:30:47.769-05:00[America/Indianapolis]")
 public class ConversationAgentProfile {
   public static final String SERIALIZED_NAME_AI = "ai";
   @SerializedName(SERIALIZED_NAME_AI)
@@ -64,6 +66,10 @@ public class ConversationAgentProfile {
   public static final String SERIALIZED_NAME_AI_SMS_INSTRUCTIONS = "ai_sms_instructions";
   @SerializedName(SERIALIZED_NAME_AI_SMS_INSTRUCTIONS)
   private String aiSmsInstructions;
+
+  public static final String SERIALIZED_NAME_AI_TICKET_INSTRUCTIONS = "ai_ticket_instructions";
+  @SerializedName(SERIALIZED_NAME_AI_TICKET_INSTRUCTIONS)
+  private String aiTicketInstructions;
 
   public static final String SERIALIZED_NAME_CHAT_LIMIT = "chat_limit";
   @SerializedName(SERIALIZED_NAME_CHAT_LIMIT)
@@ -145,6 +151,14 @@ public class ConversationAgentProfile {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private Integer userId;
+
+  public static final String SERIALIZED_NAME_ZOHODESK_CLASSIFICATIONS = "zohodesk_classifications";
+  @SerializedName(SERIALIZED_NAME_ZOHODESK_CLASSIFICATIONS)
+  private List<String> zohodeskClassifications = null;
+
+  public static final String SERIALIZED_NAME_ZOHODESK_DEPARTMENTS = "zohodesk_departments";
+  @SerializedName(SERIALIZED_NAME_ZOHODESK_DEPARTMENTS)
+  private List<String> zohodeskDepartments = null;
 
   public ConversationAgentProfile() { 
   }
@@ -238,6 +252,29 @@ public class ConversationAgentProfile {
 
   public void setAiSmsInstructions(String aiSmsInstructions) {
     this.aiSmsInstructions = aiSmsInstructions;
+  }
+
+
+  public ConversationAgentProfile aiTicketInstructions(String aiTicketInstructions) {
+    
+    this.aiTicketInstructions = aiTicketInstructions;
+    return this;
+  }
+
+   /**
+   * Additional instructions for this AI when handling ticket draft replies
+   * @return aiTicketInstructions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional instructions for this AI when handling ticket draft replies")
+
+  public String getAiTicketInstructions() {
+    return aiTicketInstructions;
+  }
+
+
+  public void setAiTicketInstructions(String aiTicketInstructions) {
+    this.aiTicketInstructions = aiTicketInstructions;
   }
 
 
@@ -425,6 +462,68 @@ public class ConversationAgentProfile {
   }
 
 
+  public ConversationAgentProfile zohodeskClassifications(List<String> zohodeskClassifications) {
+    
+    this.zohodeskClassifications = zohodeskClassifications;
+    return this;
+  }
+
+  public ConversationAgentProfile addZohodeskClassificationsItem(String zohodeskClassificationsItem) {
+    if (this.zohodeskClassifications == null) {
+      this.zohodeskClassifications = new ArrayList<>();
+    }
+    this.zohodeskClassifications.add(zohodeskClassificationsItem);
+    return this;
+  }
+
+   /**
+   * Restrict this agent to drafting replies only to tickets with these classifications
+   * @return zohodeskClassifications
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Restrict this agent to drafting replies only to tickets with these classifications")
+
+  public List<String> getZohodeskClassifications() {
+    return zohodeskClassifications;
+  }
+
+
+  public void setZohodeskClassifications(List<String> zohodeskClassifications) {
+    this.zohodeskClassifications = zohodeskClassifications;
+  }
+
+
+  public ConversationAgentProfile zohodeskDepartments(List<String> zohodeskDepartments) {
+    
+    this.zohodeskDepartments = zohodeskDepartments;
+    return this;
+  }
+
+  public ConversationAgentProfile addZohodeskDepartmentsItem(String zohodeskDepartmentsItem) {
+    if (this.zohodeskDepartments == null) {
+      this.zohodeskDepartments = new ArrayList<>();
+    }
+    this.zohodeskDepartments.add(zohodeskDepartmentsItem);
+    return this;
+  }
+
+   /**
+   * Restrict this agent to drafting replies only to these department ids
+   * @return zohodeskDepartments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Restrict this agent to drafting replies only to these department ids")
+
+  public List<String> getZohodeskDepartments() {
+    return zohodeskDepartments;
+  }
+
+
+  public void setZohodeskDepartments(List<String> zohodeskDepartments) {
+    this.zohodeskDepartments = zohodeskDepartments;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -439,6 +538,7 @@ public class ConversationAgentProfile {
         Objects.equals(this.aiChatInstructions, conversationAgentProfile.aiChatInstructions) &&
         Objects.equals(this.aiPersona, conversationAgentProfile.aiPersona) &&
         Objects.equals(this.aiSmsInstructions, conversationAgentProfile.aiSmsInstructions) &&
+        Objects.equals(this.aiTicketInstructions, conversationAgentProfile.aiTicketInstructions) &&
         Objects.equals(this.chatLimit, conversationAgentProfile.chatLimit) &&
         Objects.equals(this.defaultLanguageIsoCode, conversationAgentProfile.defaultLanguageIsoCode) &&
         Objects.equals(this.defaultStatus, conversationAgentProfile.defaultStatus) &&
@@ -446,12 +546,14 @@ public class ConversationAgentProfile {
         Objects.equals(this.name, conversationAgentProfile.name) &&
         Objects.equals(this.profileImageUploadKey, conversationAgentProfile.profileImageUploadKey) &&
         Objects.equals(this.profileImageUrl, conversationAgentProfile.profileImageUrl) &&
-        Objects.equals(this.userId, conversationAgentProfile.userId);
+        Objects.equals(this.userId, conversationAgentProfile.userId) &&
+        Objects.equals(this.zohodeskClassifications, conversationAgentProfile.zohodeskClassifications) &&
+        Objects.equals(this.zohodeskDepartments, conversationAgentProfile.zohodeskDepartments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId);
+    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
   }
 
   @Override
@@ -462,6 +564,7 @@ public class ConversationAgentProfile {
     sb.append("    aiChatInstructions: ").append(toIndentedString(aiChatInstructions)).append("\n");
     sb.append("    aiPersona: ").append(toIndentedString(aiPersona)).append("\n");
     sb.append("    aiSmsInstructions: ").append(toIndentedString(aiSmsInstructions)).append("\n");
+    sb.append("    aiTicketInstructions: ").append(toIndentedString(aiTicketInstructions)).append("\n");
     sb.append("    chatLimit: ").append(toIndentedString(chatLimit)).append("\n");
     sb.append("    defaultLanguageIsoCode: ").append(toIndentedString(defaultLanguageIsoCode)).append("\n");
     sb.append("    defaultStatus: ").append(toIndentedString(defaultStatus)).append("\n");
@@ -470,6 +573,8 @@ public class ConversationAgentProfile {
     sb.append("    profileImageUploadKey: ").append(toIndentedString(profileImageUploadKey)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    zohodeskClassifications: ").append(toIndentedString(zohodeskClassifications)).append("\n");
+    sb.append("    zohodeskDepartments: ").append(toIndentedString(zohodeskDepartments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -496,6 +601,7 @@ public class ConversationAgentProfile {
     openapiFields.add("ai_chat_instructions");
     openapiFields.add("ai_persona");
     openapiFields.add("ai_sms_instructions");
+    openapiFields.add("ai_ticket_instructions");
     openapiFields.add("chat_limit");
     openapiFields.add("default_language_iso_code");
     openapiFields.add("default_status");
@@ -504,6 +610,8 @@ public class ConversationAgentProfile {
     openapiFields.add("profile_image_upload_key");
     openapiFields.add("profile_image_url");
     openapiFields.add("user_id");
+    openapiFields.add("zohodesk_classifications");
+    openapiFields.add("zohodesk_departments");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -540,6 +648,9 @@ public class ConversationAgentProfile {
       if (jsonObj.get("ai_sms_instructions") != null && !jsonObj.get("ai_sms_instructions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ai_sms_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_sms_instructions").toString()));
       }
+      if (jsonObj.get("ai_ticket_instructions") != null && !jsonObj.get("ai_ticket_instructions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_ticket_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_ticket_instructions").toString()));
+      }
       if (jsonObj.get("default_language_iso_code") != null && !jsonObj.get("default_language_iso_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `default_language_iso_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_language_iso_code").toString()));
       }
@@ -557,6 +668,14 @@ public class ConversationAgentProfile {
       }
       if (jsonObj.get("profile_image_url") != null && !jsonObj.get("profile_image_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `profile_image_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profile_image_url").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("zohodesk_classifications") != null && !jsonObj.get("zohodesk_classifications").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zohodesk_classifications` to be an array in the JSON string but got `%s`", jsonObj.get("zohodesk_classifications").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("zohodesk_departments") != null && !jsonObj.get("zohodesk_departments").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zohodesk_departments` to be an array in the JSON string but got `%s`", jsonObj.get("zohodesk_departments").toString()));
       }
   }
 
