@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-11-20T15:37:23.406-05:00
+  - Build date: 2025-11-26T10:15:54.496-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.32</version>
+  <version>3.11.33</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.32"
+compile "com.ultracart:rest-sdk:3.11.33"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.32.jar`
+* `target/rest-sdk-3.11.33.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1636,6 +1636,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.33 | 11/26/2025 | conversation - AI agent profile fields |
 | 3.11.32 | 11/20/2025 | conversion api bug fix on incorrect signature |
 | 3.11.31 | 11/20/2025 | conversation - AI agent mcp server tools function |
 | 3.11.30 | 11/19/2025 | conversation - AI agent MCP server configuration methods |

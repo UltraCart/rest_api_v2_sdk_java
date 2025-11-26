@@ -23,11 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-20T15:37:23.406-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-26T10:15:54.496-05:00")
 
 
 
@@ -43,6 +45,9 @@ public class ConversationAgentProfile {
 
   @SerializedName("ai_sms_instructions")
   private String aiSmsInstructions = null;
+
+  @SerializedName("ai_ticket_instructions")
+  private String aiTicketInstructions = null;
 
   @SerializedName("chat_limit")
   private Integer chatLimit = null;
@@ -117,6 +122,12 @@ public class ConversationAgentProfile {
   @SerializedName("user_id")
   private Integer userId = null;
 
+  @SerializedName("zohodesk_classifications")
+  private List<String> zohodeskClassifications = null;
+
+  @SerializedName("zohodesk_departments")
+  private List<String> zohodeskDepartments = null;
+
   public ConversationAgentProfile ai(Boolean ai) {
     this.ai = ai;
     return this;
@@ -187,6 +198,24 @@ public class ConversationAgentProfile {
 
   public void setAiSmsInstructions(String aiSmsInstructions) {
     this.aiSmsInstructions = aiSmsInstructions;
+  }
+
+  public ConversationAgentProfile aiTicketInstructions(String aiTicketInstructions) {
+    this.aiTicketInstructions = aiTicketInstructions;
+    return this;
+  }
+
+   /**
+   * Additional instructions for this AI when handling ticket draft replies
+   * @return aiTicketInstructions
+  **/
+  @ApiModelProperty(value = "Additional instructions for this AI when handling ticket draft replies")
+  public String getAiTicketInstructions() {
+    return aiTicketInstructions;
+  }
+
+  public void setAiTicketInstructions(String aiTicketInstructions) {
+    this.aiTicketInstructions = aiTicketInstructions;
   }
 
   public ConversationAgentProfile chatLimit(Integer chatLimit) {
@@ -333,6 +362,58 @@ public class ConversationAgentProfile {
     this.userId = userId;
   }
 
+  public ConversationAgentProfile zohodeskClassifications(List<String> zohodeskClassifications) {
+    this.zohodeskClassifications = zohodeskClassifications;
+    return this;
+  }
+
+  public ConversationAgentProfile addZohodeskClassificationsItem(String zohodeskClassificationsItem) {
+    if (this.zohodeskClassifications == null) {
+      this.zohodeskClassifications = new ArrayList<String>();
+    }
+    this.zohodeskClassifications.add(zohodeskClassificationsItem);
+    return this;
+  }
+
+   /**
+   * Restrict this agent to drafting replies only to tickets with these classifications
+   * @return zohodeskClassifications
+  **/
+  @ApiModelProperty(value = "Restrict this agent to drafting replies only to tickets with these classifications")
+  public List<String> getZohodeskClassifications() {
+    return zohodeskClassifications;
+  }
+
+  public void setZohodeskClassifications(List<String> zohodeskClassifications) {
+    this.zohodeskClassifications = zohodeskClassifications;
+  }
+
+  public ConversationAgentProfile zohodeskDepartments(List<String> zohodeskDepartments) {
+    this.zohodeskDepartments = zohodeskDepartments;
+    return this;
+  }
+
+  public ConversationAgentProfile addZohodeskDepartmentsItem(String zohodeskDepartmentsItem) {
+    if (this.zohodeskDepartments == null) {
+      this.zohodeskDepartments = new ArrayList<String>();
+    }
+    this.zohodeskDepartments.add(zohodeskDepartmentsItem);
+    return this;
+  }
+
+   /**
+   * Restrict this agent to drafting replies only to these department ids
+   * @return zohodeskDepartments
+  **/
+  @ApiModelProperty(value = "Restrict this agent to drafting replies only to these department ids")
+  public List<String> getZohodeskDepartments() {
+    return zohodeskDepartments;
+  }
+
+  public void setZohodeskDepartments(List<String> zohodeskDepartments) {
+    this.zohodeskDepartments = zohodeskDepartments;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -347,6 +428,7 @@ public class ConversationAgentProfile {
         Objects.equals(this.aiChatInstructions, conversationAgentProfile.aiChatInstructions) &&
         Objects.equals(this.aiPersona, conversationAgentProfile.aiPersona) &&
         Objects.equals(this.aiSmsInstructions, conversationAgentProfile.aiSmsInstructions) &&
+        Objects.equals(this.aiTicketInstructions, conversationAgentProfile.aiTicketInstructions) &&
         Objects.equals(this.chatLimit, conversationAgentProfile.chatLimit) &&
         Objects.equals(this.defaultLanguageIsoCode, conversationAgentProfile.defaultLanguageIsoCode) &&
         Objects.equals(this.defaultStatus, conversationAgentProfile.defaultStatus) &&
@@ -354,12 +436,14 @@ public class ConversationAgentProfile {
         Objects.equals(this.name, conversationAgentProfile.name) &&
         Objects.equals(this.profileImageUploadKey, conversationAgentProfile.profileImageUploadKey) &&
         Objects.equals(this.profileImageUrl, conversationAgentProfile.profileImageUrl) &&
-        Objects.equals(this.userId, conversationAgentProfile.userId);
+        Objects.equals(this.userId, conversationAgentProfile.userId) &&
+        Objects.equals(this.zohodeskClassifications, conversationAgentProfile.zohodeskClassifications) &&
+        Objects.equals(this.zohodeskDepartments, conversationAgentProfile.zohodeskDepartments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId);
+    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
   }
 
 
@@ -372,6 +456,7 @@ public class ConversationAgentProfile {
     sb.append("    aiChatInstructions: ").append(toIndentedString(aiChatInstructions)).append("\n");
     sb.append("    aiPersona: ").append(toIndentedString(aiPersona)).append("\n");
     sb.append("    aiSmsInstructions: ").append(toIndentedString(aiSmsInstructions)).append("\n");
+    sb.append("    aiTicketInstructions: ").append(toIndentedString(aiTicketInstructions)).append("\n");
     sb.append("    chatLimit: ").append(toIndentedString(chatLimit)).append("\n");
     sb.append("    defaultLanguageIsoCode: ").append(toIndentedString(defaultLanguageIsoCode)).append("\n");
     sb.append("    defaultStatus: ").append(toIndentedString(defaultStatus)).append("\n");
@@ -380,6 +465,8 @@ public class ConversationAgentProfile {
     sb.append("    profileImageUploadKey: ").append(toIndentedString(profileImageUploadKey)).append("\n");
     sb.append("    profileImageUrl: ").append(toIndentedString(profileImageUrl)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    zohodeskClassifications: ").append(toIndentedString(zohodeskClassifications)).append("\n");
+    sb.append("    zohodeskDepartments: ").append(toIndentedString(zohodeskDepartments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
