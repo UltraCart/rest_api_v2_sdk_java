@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponFreeItemWithItemPurchaseAndFreeShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-26T10:30:47.769-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T11:02:23.412-05:00[America/Indianapolis]")
 public class CouponFreeItemWithItemPurchaseAndFreeShipping {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -66,6 +66,10 @@ public class CouponFreeItemWithItemPurchaseAndFreeShipping {
   public static final String SERIALIZED_NAME_REQUIRED_PURCHASE_ITEMS = "required_purchase_items";
   @SerializedName(SERIALIZED_NAME_REQUIRED_PURCHASE_ITEMS)
   private List<String> requiredPurchaseItems = null;
+
+  public static final String SERIALIZED_NAME_SHIPPING_METHODS = "shipping_methods";
+  @SerializedName(SERIALIZED_NAME_SHIPPING_METHODS)
+  private List<String> shippingMethods = null;
 
   public CouponFreeItemWithItemPurchaseAndFreeShipping() { 
   }
@@ -178,6 +182,37 @@ public class CouponFreeItemWithItemPurchaseAndFreeShipping {
   }
 
 
+  public CouponFreeItemWithItemPurchaseAndFreeShipping shippingMethods(List<String> shippingMethods) {
+    
+    this.shippingMethods = shippingMethods;
+    return this;
+  }
+
+  public CouponFreeItemWithItemPurchaseAndFreeShipping addShippingMethodsItem(String shippingMethodsItem) {
+    if (this.shippingMethods == null) {
+      this.shippingMethods = new ArrayList<>();
+    }
+    this.shippingMethods.add(shippingMethodsItem);
+    return this;
+  }
+
+   /**
+   * One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods
+   * @return shippingMethods
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods")
+
+  public List<String> getShippingMethods() {
+    return shippingMethods;
+  }
+
+
+  public void setShippingMethods(List<String> shippingMethods) {
+    this.shippingMethods = shippingMethods;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -191,12 +226,13 @@ public class CouponFreeItemWithItemPurchaseAndFreeShipping {
     return Objects.equals(this.items, couponFreeItemWithItemPurchaseAndFreeShipping.items) &&
         Objects.equals(this.limit, couponFreeItemWithItemPurchaseAndFreeShipping.limit) &&
         Objects.equals(this.matchRequiredPurchaseItemToFreeItem, couponFreeItemWithItemPurchaseAndFreeShipping.matchRequiredPurchaseItemToFreeItem) &&
-        Objects.equals(this.requiredPurchaseItems, couponFreeItemWithItemPurchaseAndFreeShipping.requiredPurchaseItems);
+        Objects.equals(this.requiredPurchaseItems, couponFreeItemWithItemPurchaseAndFreeShipping.requiredPurchaseItems) &&
+        Objects.equals(this.shippingMethods, couponFreeItemWithItemPurchaseAndFreeShipping.shippingMethods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, limit, matchRequiredPurchaseItemToFreeItem, requiredPurchaseItems);
+    return Objects.hash(items, limit, matchRequiredPurchaseItemToFreeItem, requiredPurchaseItems, shippingMethods);
   }
 
   @Override
@@ -207,6 +243,7 @@ public class CouponFreeItemWithItemPurchaseAndFreeShipping {
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    matchRequiredPurchaseItemToFreeItem: ").append(toIndentedString(matchRequiredPurchaseItemToFreeItem)).append("\n");
     sb.append("    requiredPurchaseItems: ").append(toIndentedString(requiredPurchaseItems)).append("\n");
+    sb.append("    shippingMethods: ").append(toIndentedString(shippingMethods)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -233,6 +270,7 @@ public class CouponFreeItemWithItemPurchaseAndFreeShipping {
     openapiFields.add("limit");
     openapiFields.add("match_required_purchase_item_to_free_item");
     openapiFields.add("required_purchase_items");
+    openapiFields.add("shipping_methods");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -267,6 +305,10 @@ public class CouponFreeItemWithItemPurchaseAndFreeShipping {
       // ensure the json data is an array
       if (jsonObj.get("required_purchase_items") != null && !jsonObj.get("required_purchase_items").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `required_purchase_items` to be an array in the JSON string but got `%s`", jsonObj.get("required_purchase_items").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("shipping_methods") != null && !jsonObj.get("shipping_methods").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `shipping_methods` to be an array in the JSON string but got `%s`", jsonObj.get("shipping_methods").toString()));
       }
   }
 

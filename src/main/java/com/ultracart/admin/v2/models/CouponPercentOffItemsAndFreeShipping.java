@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponPercentOffItemsAndFreeShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-26T10:30:47.769-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T11:02:23.412-05:00[America/Indianapolis]")
 public class CouponPercentOffItemsAndFreeShipping {
   public static final String SERIALIZED_NAME_DISCOUNT_PERCENT = "discount_percent";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_PERCENT)
@@ -71,6 +71,10 @@ public class CouponPercentOffItemsAndFreeShipping {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<String> items = null;
+
+  public static final String SERIALIZED_NAME_SHIPPING_METHODS = "shipping_methods";
+  @SerializedName(SERIALIZED_NAME_SHIPPING_METHODS)
+  private List<String> shippingMethods = null;
 
   public CouponPercentOffItemsAndFreeShipping() { 
   }
@@ -222,6 +226,37 @@ public class CouponPercentOffItemsAndFreeShipping {
   }
 
 
+  public CouponPercentOffItemsAndFreeShipping shippingMethods(List<String> shippingMethods) {
+    
+    this.shippingMethods = shippingMethods;
+    return this;
+  }
+
+  public CouponPercentOffItemsAndFreeShipping addShippingMethodsItem(String shippingMethodsItem) {
+    if (this.shippingMethods == null) {
+      this.shippingMethods = new ArrayList<>();
+    }
+    this.shippingMethods.add(shippingMethodsItem);
+    return this;
+  }
+
+   /**
+   * One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods
+   * @return shippingMethods
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods")
+
+  public List<String> getShippingMethods() {
+    return shippingMethods;
+  }
+
+
+  public void setShippingMethods(List<String> shippingMethods) {
+    this.shippingMethods = shippingMethods;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -236,12 +271,13 @@ public class CouponPercentOffItemsAndFreeShipping {
         Objects.equals(this.excludedItemTags, couponPercentOffItemsAndFreeShipping.excludedItemTags) &&
         Objects.equals(this.excludedItems, couponPercentOffItemsAndFreeShipping.excludedItems) &&
         Objects.equals(this.itemTags, couponPercentOffItemsAndFreeShipping.itemTags) &&
-        Objects.equals(this.items, couponPercentOffItemsAndFreeShipping.items);
+        Objects.equals(this.items, couponPercentOffItemsAndFreeShipping.items) &&
+        Objects.equals(this.shippingMethods, couponPercentOffItemsAndFreeShipping.shippingMethods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, excludedItemTags, excludedItems, itemTags, items);
+    return Objects.hash(discountPercent, excludedItemTags, excludedItems, itemTags, items, shippingMethods);
   }
 
   @Override
@@ -253,6 +289,7 @@ public class CouponPercentOffItemsAndFreeShipping {
     sb.append("    excludedItems: ").append(toIndentedString(excludedItems)).append("\n");
     sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    shippingMethods: ").append(toIndentedString(shippingMethods)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -280,6 +317,7 @@ public class CouponPercentOffItemsAndFreeShipping {
     openapiFields.add("excluded_items");
     openapiFields.add("item_tags");
     openapiFields.add("items");
+    openapiFields.add("shipping_methods");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -322,6 +360,10 @@ public class CouponPercentOffItemsAndFreeShipping {
       // ensure the json data is an array
       if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("shipping_methods") != null && !jsonObj.get("shipping_methods").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `shipping_methods` to be an array in the JSON string but got `%s`", jsonObj.get("shipping_methods").toString()));
       }
   }
 
