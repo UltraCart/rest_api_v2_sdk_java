@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CouponPercentOffItemsAndFreeShipping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-11-26T10:15:54.496-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-02T10:47:41.599-05:00")
 
 
 
@@ -49,6 +49,9 @@ public class CouponPercentOffItemsAndFreeShipping {
 
   @SerializedName("items")
   private List<String> items = null;
+
+  @SerializedName("shipping_methods")
+  private List<String> shippingMethods = null;
 
   public CouponPercentOffItemsAndFreeShipping discountPercent(BigDecimal discountPercent) {
     this.discountPercent = discountPercent;
@@ -172,6 +175,32 @@ public class CouponPercentOffItemsAndFreeShipping {
     this.items = items;
   }
 
+  public CouponPercentOffItemsAndFreeShipping shippingMethods(List<String> shippingMethods) {
+    this.shippingMethods = shippingMethods;
+    return this;
+  }
+
+  public CouponPercentOffItemsAndFreeShipping addShippingMethodsItem(String shippingMethodsItem) {
+    if (this.shippingMethods == null) {
+      this.shippingMethods = new ArrayList<String>();
+    }
+    this.shippingMethods.add(shippingMethodsItem);
+    return this;
+  }
+
+   /**
+   * One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods
+   * @return shippingMethods
+  **/
+  @ApiModelProperty(value = "One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods")
+  public List<String> getShippingMethods() {
+    return shippingMethods;
+  }
+
+  public void setShippingMethods(List<String> shippingMethods) {
+    this.shippingMethods = shippingMethods;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -186,12 +215,13 @@ public class CouponPercentOffItemsAndFreeShipping {
         Objects.equals(this.excludedItemTags, couponPercentOffItemsAndFreeShipping.excludedItemTags) &&
         Objects.equals(this.excludedItems, couponPercentOffItemsAndFreeShipping.excludedItems) &&
         Objects.equals(this.itemTags, couponPercentOffItemsAndFreeShipping.itemTags) &&
-        Objects.equals(this.items, couponPercentOffItemsAndFreeShipping.items);
+        Objects.equals(this.items, couponPercentOffItemsAndFreeShipping.items) &&
+        Objects.equals(this.shippingMethods, couponPercentOffItemsAndFreeShipping.shippingMethods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountPercent, excludedItemTags, excludedItems, itemTags, items);
+    return Objects.hash(discountPercent, excludedItemTags, excludedItems, itemTags, items, shippingMethods);
   }
 
 
@@ -205,6 +235,7 @@ public class CouponPercentOffItemsAndFreeShipping {
     sb.append("    excludedItems: ").append(toIndentedString(excludedItems)).append("\n");
     sb.append("    itemTags: ").append(toIndentedString(itemTags)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    shippingMethods: ").append(toIndentedString(shippingMethods)).append("\n");
     sb.append("}");
     return sb.toString();
   }
