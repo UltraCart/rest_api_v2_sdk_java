@@ -47,8 +47,20 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCommseqEmail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T11:02:23.412-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T16:16:52.819-05:00[America/Indianapolis]")
 public class EmailCommseqEmail {
+  public static final String SERIALIZED_NAME_AI_GENERATION = "ai_generation";
+  @SerializedName(SERIALIZED_NAME_AI_GENERATION)
+  private Boolean aiGeneration;
+
+  public static final String SERIALIZED_NAME_AI_GENERATION_PROMPT = "ai_generation_prompt";
+  @SerializedName(SERIALIZED_NAME_AI_GENERATION_PROMPT)
+  private String aiGenerationPrompt;
+
+  public static final String SERIALIZED_NAME_AI_GENERATION_USER_ID = "ai_generation_user_id";
+  @SerializedName(SERIALIZED_NAME_AI_GENERATION_USER_ID)
+  private Integer aiGenerationUserId;
+
   public static final String SERIALIZED_NAME_DELETED = "deleted";
   @SerializedName(SERIALIZED_NAME_DELETED)
   private Boolean deleted;
@@ -187,6 +199,75 @@ public class EmailCommseqEmail {
 
   public EmailCommseqEmail() { 
   }
+
+  public EmailCommseqEmail aiGeneration(Boolean aiGeneration) {
+    
+    this.aiGeneration = aiGeneration;
+    return this;
+  }
+
+   /**
+   * Get aiGeneration
+   * @return aiGeneration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAiGeneration() {
+    return aiGeneration;
+  }
+
+
+  public void setAiGeneration(Boolean aiGeneration) {
+    this.aiGeneration = aiGeneration;
+  }
+
+
+  public EmailCommseqEmail aiGenerationPrompt(String aiGenerationPrompt) {
+    
+    this.aiGenerationPrompt = aiGenerationPrompt;
+    return this;
+  }
+
+   /**
+   * Get aiGenerationPrompt
+   * @return aiGenerationPrompt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAiGenerationPrompt() {
+    return aiGenerationPrompt;
+  }
+
+
+  public void setAiGenerationPrompt(String aiGenerationPrompt) {
+    this.aiGenerationPrompt = aiGenerationPrompt;
+  }
+
+
+  public EmailCommseqEmail aiGenerationUserId(Integer aiGenerationUserId) {
+    
+    this.aiGenerationUserId = aiGenerationUserId;
+    return this;
+  }
+
+   /**
+   * Get aiGenerationUserId
+   * @return aiGenerationUserId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getAiGenerationUserId() {
+    return aiGenerationUserId;
+  }
+
+
+  public void setAiGenerationUserId(Integer aiGenerationUserId) {
+    this.aiGenerationUserId = aiGenerationUserId;
+  }
+
 
   public EmailCommseqEmail deleted(Boolean deleted) {
     
@@ -980,7 +1061,10 @@ public class EmailCommseqEmail {
       return false;
     }
     EmailCommseqEmail emailCommseqEmail = (EmailCommseqEmail) o;
-    return Objects.equals(this.deleted, emailCommseqEmail.deleted) &&
+    return Objects.equals(this.aiGeneration, emailCommseqEmail.aiGeneration) &&
+        Objects.equals(this.aiGenerationPrompt, emailCommseqEmail.aiGenerationPrompt) &&
+        Objects.equals(this.aiGenerationUserId, emailCommseqEmail.aiGenerationUserId) &&
+        Objects.equals(this.deleted, emailCommseqEmail.deleted) &&
         Objects.equals(this.editedByUser, emailCommseqEmail.editedByUser) &&
         Objects.equals(this.emailCommunicationSequenceEmailUuid, emailCommseqEmail.emailCommunicationSequenceEmailUuid) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailCommseqEmail.emailCommunicationSequenceUuid) &&
@@ -1018,13 +1102,16 @@ public class EmailCommseqEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, externalGeneration, externalGenerationAuthentication, externalGenerationBasicPassword, externalGenerationBasicUsername, externalGenerationHeaderName, externalGenerationHeaderValue, externalGenerationId, externalGenerationUrl, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
+    return Objects.hash(aiGeneration, aiGenerationPrompt, aiGenerationUserId, deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, externalGeneration, externalGenerationAuthentication, externalGenerationBasicPassword, externalGenerationBasicUsername, externalGenerationHeaderName, externalGenerationHeaderValue, externalGenerationId, externalGenerationUrl, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailCommseqEmail {\n");
+    sb.append("    aiGeneration: ").append(toIndentedString(aiGeneration)).append("\n");
+    sb.append("    aiGenerationPrompt: ").append(toIndentedString(aiGenerationPrompt)).append("\n");
+    sb.append("    aiGenerationUserId: ").append(toIndentedString(aiGenerationUserId)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    editedByUser: ").append(toIndentedString(editedByUser)).append("\n");
     sb.append("    emailCommunicationSequenceEmailUuid: ").append(toIndentedString(emailCommunicationSequenceEmailUuid)).append("\n");
@@ -1081,6 +1168,9 @@ public class EmailCommseqEmail {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("ai_generation");
+    openapiFields.add("ai_generation_prompt");
+    openapiFields.add("ai_generation_user_id");
     openapiFields.add("deleted");
     openapiFields.add("edited_by_user");
     openapiFields.add("email_communication_sequence_email_uuid");
@@ -1141,6 +1231,9 @@ public class EmailCommseqEmail {
         if (!EmailCommseqEmail.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EmailCommseqEmail` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("ai_generation_prompt") != null && !jsonObj.get("ai_generation_prompt").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_generation_prompt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_generation_prompt").toString()));
       }
       if (jsonObj.get("edited_by_user") != null && !jsonObj.get("edited_by_user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `edited_by_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("edited_by_user").toString()));

@@ -7,6 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**aiGeneration** | **Boolean** |  |  [optional] |
+|**aiGenerationPrompt** | **String** |  |  [optional] |
+|**aiGenerationUserId** | **Integer** |  |  [optional] |
 |**deleted** | **Boolean** | Deleted |  [optional] |
 |**editedByUser** | **String** | Edited by user |  [optional] |
 |**emailCommunicationSequenceEmailUuid** | **String** | Email communication sequence email uuid |  [optional] |

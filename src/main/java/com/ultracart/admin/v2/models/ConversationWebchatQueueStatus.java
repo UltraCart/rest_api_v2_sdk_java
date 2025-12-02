@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebchatQueueStatus
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T11:02:23.412-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T16:16:52.819-05:00[America/Indianapolis]")
 public class ConversationWebchatQueueStatus {
   public static final String SERIALIZED_NAME_AGENT_AVAILABLE_COUNT = "agent_available_count";
   @SerializedName(SERIALIZED_NAME_AGENT_AVAILABLE_COUNT)

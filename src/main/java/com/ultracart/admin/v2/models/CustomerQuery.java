@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T11:02:23.412-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T16:16:52.819-05:00[America/Indianapolis]")
 public class CustomerQuery {
   public static final String SERIALIZED_NAME_ALL_TAGS = "all_tags";
   @SerializedName(SERIALIZED_NAME_ALL_TAGS)
@@ -122,6 +122,57 @@ public class CustomerQuery {
   public static final String SERIALIZED_NAME_QB_CLASS = "qb_class";
   @SerializedName(SERIALIZED_NAME_QB_CLASS)
   private String qbClass;
+
+  /**
+   * Query Target
+   */
+  @JsonAdapter(QueryTargetEnum.Adapter.class)
+  public enum QueryTargetEnum {
+    ORIGIN("origin"),
+    
+    CACHE("cache");
+
+    private String value;
+
+    QueryTargetEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static QueryTargetEnum fromValue(String value) {
+      for (QueryTargetEnum b : QueryTargetEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<QueryTargetEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final QueryTargetEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public QueryTargetEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return QueryTargetEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_QUERY_TARGET = "query_target";
+  @SerializedName(SERIALIZED_NAME_QUERY_TARGET)
+  private QueryTargetEnum queryTarget;
 
   public static final String SERIALIZED_NAME_QUICKBOOKS_CODE = "quickbooks_code";
   @SerializedName(SERIALIZED_NAME_QUICKBOOKS_CODE)
@@ -612,6 +663,29 @@ public class CustomerQuery {
   }
 
 
+  public CustomerQuery queryTarget(QueryTargetEnum queryTarget) {
+    
+    this.queryTarget = queryTarget;
+    return this;
+  }
+
+   /**
+   * Query Target
+   * @return queryTarget
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Query Target")
+
+  public QueryTargetEnum getQueryTarget() {
+    return queryTarget;
+  }
+
+
+  public void setQueryTarget(QueryTargetEnum queryTarget) {
+    this.queryTarget = queryTarget;
+  }
+
+
   public CustomerQuery quickbooksCode(String quickbooksCode) {
     
     this.quickbooksCode = quickbooksCode;
@@ -916,6 +990,7 @@ public class CustomerQuery {
         Objects.equals(this.pricingTierName, customerQuery.pricingTierName) &&
         Objects.equals(this.pricingTierOid, customerQuery.pricingTierOid) &&
         Objects.equals(this.qbClass, customerQuery.qbClass) &&
+        Objects.equals(this.queryTarget, customerQuery.queryTarget) &&
         Objects.equals(this.quickbooksCode, customerQuery.quickbooksCode) &&
         Objects.equals(this.shippingCity, customerQuery.shippingCity) &&
         Objects.equals(this.shippingCompany, customerQuery.shippingCompany) &&
@@ -932,7 +1007,7 @@ public class CustomerQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allTags, anyTags, billingCity, billingCompany, billingCountryCode, billingDayPhone, billingEveningPhone, billingFirstName, billingLastName, billingPostalCode, billingState, email, emails, lastModifiedDtsEnd, lastModifiedDtsStart, pricingTierName, pricingTierOid, qbClass, quickbooksCode, shippingCity, shippingCompany, shippingCountryCode, shippingDayPhone, shippingEveningPhone, shippingFirstName, shippingLastName, shippingPostalCode, shippingState, signupDtsEnd, signupDtsStart);
+    return Objects.hash(allTags, anyTags, billingCity, billingCompany, billingCountryCode, billingDayPhone, billingEveningPhone, billingFirstName, billingLastName, billingPostalCode, billingState, email, emails, lastModifiedDtsEnd, lastModifiedDtsStart, pricingTierName, pricingTierOid, qbClass, queryTarget, quickbooksCode, shippingCity, shippingCompany, shippingCountryCode, shippingDayPhone, shippingEveningPhone, shippingFirstName, shippingLastName, shippingPostalCode, shippingState, signupDtsEnd, signupDtsStart);
   }
 
   @Override
@@ -957,6 +1032,7 @@ public class CustomerQuery {
     sb.append("    pricingTierName: ").append(toIndentedString(pricingTierName)).append("\n");
     sb.append("    pricingTierOid: ").append(toIndentedString(pricingTierOid)).append("\n");
     sb.append("    qbClass: ").append(toIndentedString(qbClass)).append("\n");
+    sb.append("    queryTarget: ").append(toIndentedString(queryTarget)).append("\n");
     sb.append("    quickbooksCode: ").append(toIndentedString(quickbooksCode)).append("\n");
     sb.append("    shippingCity: ").append(toIndentedString(shippingCity)).append("\n");
     sb.append("    shippingCompany: ").append(toIndentedString(shippingCompany)).append("\n");
@@ -1009,6 +1085,7 @@ public class CustomerQuery {
     openapiFields.add("pricing_tier_name");
     openapiFields.add("pricing_tier_oid");
     openapiFields.add("qb_class");
+    openapiFields.add("query_target");
     openapiFields.add("quickbooks_code");
     openapiFields.add("shipping_city");
     openapiFields.add("shipping_company");
@@ -1101,6 +1178,9 @@ public class CustomerQuery {
       }
       if (jsonObj.get("qb_class") != null && !jsonObj.get("qb_class").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `qb_class` to be a primitive type in the JSON string but got `%s`", jsonObj.get("qb_class").toString()));
+      }
+      if (jsonObj.get("query_target") != null && !jsonObj.get("query_target").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `query_target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query_target").toString()));
       }
       if (jsonObj.get("quickbooks_code") != null && !jsonObj.get("quickbooks_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quickbooks_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quickbooks_code").toString()));

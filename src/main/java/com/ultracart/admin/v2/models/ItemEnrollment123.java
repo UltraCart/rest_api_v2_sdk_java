@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemEnrollment123
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T11:02:23.412-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T16:16:52.819-05:00[America/Indianapolis]")
 public class ItemEnrollment123 {
   public static final String SERIALIZED_NAME_ENROLLMENT123_PRODUCT_CODE = "enrollment123_product_code";
   @SerializedName(SERIALIZED_NAME_ENROLLMENT123_PRODUCT_CODE)
