@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **pricingTierName** | **String** | Pricing tier name |  [optional]
 **pricingTierOid** | **Integer** | Pricing tier oid |  [optional]
 **qbClass** | **String** | QuickBooks class to import this customer as |  [optional]
+**queryTarget** | [**QueryTargetEnum**](#QueryTargetEnum) | Query Target |  [optional]
 **quickbooksCode** | **String** | QuickBooks name to import this customer as |  [optional]
 **shippingCity** | **String** | Billing city |  [optional]
 **shippingCompany** | **String** | Billing company |  [optional]
@@ -34,6 +35,14 @@ Name | Type | Description | Notes
 **shippingState** | **String** | Billing state |  [optional]
 **signupDtsEnd** | **String** | Signup date end |  [optional]
 **signupDtsStart** | **String** | Signup date start |  [optional]
+
+
+<a name="QueryTargetEnum"></a>
+## Enum: QueryTargetEnum
+Name | Value
+---- | -----
+ORIGIN | &quot;origin&quot;
+CACHE | &quot;cache&quot;
 
 
 

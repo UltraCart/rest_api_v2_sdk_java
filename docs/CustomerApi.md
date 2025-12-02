@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**insertWishListItem**](CustomerApi.md#insertWishListItem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 [**mergeCustomer**](CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 [**searchCustomerProfileValues**](CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
+[**searchCustomers**](CustomerApi.md#searchCustomers) | **GET** /customer/customers/search | Search for customers
 [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**updateCustomerEmailLists**](CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 [**updateWishListItem**](CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
@@ -1105,6 +1106,70 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="searchCustomers"></a>
+# **searchCustomers**
+> CustomersResponse searchCustomers(searchString, signupDtsStart, signupDtsEnd, limit, offset, since, sort, expand)
+
+Search for customers
+
+Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.CustomerApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+CustomerApi apiInstance = new CustomerApi(apiKey);
+
+String searchString = "searchString_example"; // String | Search
+String signupDtsStart = "signupDtsStart_example"; // String | Signup date start
+String signupDtsEnd = "signupDtsEnd_example"; // String | Signup date end
+Integer limit = 100; // Integer | The maximum number of records to return on this one API call. (Max 200)
+Integer offset = 0; // Integer | Pagination of the record set.  Offset is a zero based index.
+String since = "since_example"; // String | Fetch customers that have been created/modified since this date/time.
+String sort = "sort_example"; // String | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    CustomersResponse result = apiInstance.searchCustomers(searchString, signupDtsStart, signupDtsEnd, limit, offset, since, sort, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomerApi#searchCustomers");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchString** | **String**| Search | [optional]
+ **signupDtsStart** | **String**| Signup date start | [optional]
+ **signupDtsEnd** | **String**| Signup date end | [optional]
+ **limit** | **Integer**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
+ **offset** | **Integer**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **String**| Fetch customers that have been created/modified since this date/time. | [optional]
+ **sort** | **String**| The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**CustomersResponse**](CustomersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 

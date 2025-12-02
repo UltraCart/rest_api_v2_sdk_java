@@ -2826,6 +2826,167 @@ public class CustomerApi {
         return call;
     }
     /**
+     * Build call for searchCustomers
+     * @param searchString Search (optional)
+     * @param signupDtsStart Signup date start (optional)
+     * @param signupDtsEnd Signup date end (optional)
+     * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch customers that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call searchCustomersCall(String searchString, String signupDtsStart, String signupDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (searchString != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("search_string", searchString));
+        if (signupDtsStart != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("signup_dts_start", signupDtsStart));
+        if (signupDtsEnd != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("signup_dts_end", signupDtsEnd));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_offset", offset));
+        if (since != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_since", since));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_sort", sort));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call searchCustomersValidateBeforeCall(String searchString, String signupDtsStart, String signupDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = searchCustomersCall(searchString, signupDtsStart, signupDtsEnd, limit, offset, since, sort, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Search for customers
+     * Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+     * @param searchString Search (optional)
+     * @param signupDtsStart Signup date start (optional)
+     * @param signupDtsEnd Signup date end (optional)
+     * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch customers that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return CustomersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomersResponse searchCustomers(String searchString, String signupDtsStart, String signupDtsEnd, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
+        ApiResponse<CustomersResponse> resp = searchCustomersWithHttpInfo(searchString, signupDtsStart, signupDtsEnd, limit, offset, since, sort, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Search for customers
+     * Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+     * @param searchString Search (optional)
+     * @param signupDtsStart Signup date start (optional)
+     * @param signupDtsEnd Signup date end (optional)
+     * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch customers that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;CustomersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomersResponse> searchCustomersWithHttpInfo(String searchString, String signupDtsStart, String signupDtsEnd, Integer limit, Integer offset, String since, String sort, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = searchCustomersValidateBeforeCall(searchString, signupDtsStart, signupDtsEnd, limit, offset, since, sort, expand, null, null);
+        Type localVarReturnType = new TypeToken<CustomersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Search for customers (asynchronously)
+     * Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+     * @param searchString Search (optional)
+     * @param signupDtsStart Signup date start (optional)
+     * @param signupDtsEnd Signup date end (optional)
+     * @param limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param since Fetch customers that have been created/modified since this date/time. (optional)
+     * @param sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call searchCustomersAsync(String searchString, String signupDtsStart, String signupDtsEnd, Integer limit, Integer offset, String since, String sort, String expand, final ApiCallback<CustomersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = searchCustomersValidateBeforeCall(searchString, signupDtsStart, signupDtsEnd, limit, offset, since, sort, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CustomersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for updateCustomer
      * @param customer Customer to update (required)
      * @param customerProfileOid The customer_profile_oid to update. (required)

@@ -27,11 +27,20 @@ import java.io.IOException;
 /**
  * EmailCommseqEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-02T10:47:41.599-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-02T16:02:59.516-05:00")
 
 
 
 public class EmailCommseqEmail {
+  @SerializedName("ai_generation")
+  private Boolean aiGeneration = null;
+
+  @SerializedName("ai_generation_prompt")
+  private String aiGenerationPrompt = null;
+
+  @SerializedName("ai_generation_user_id")
+  private Integer aiGenerationUserId = null;
+
   @SerializedName("deleted")
   private Boolean deleted = null;
 
@@ -133,6 +142,60 @@ public class EmailCommseqEmail {
 
   @SerializedName("version")
   private Integer version = null;
+
+  public EmailCommseqEmail aiGeneration(Boolean aiGeneration) {
+    this.aiGeneration = aiGeneration;
+    return this;
+  }
+
+   /**
+   * Get aiGeneration
+   * @return aiGeneration
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAiGeneration() {
+    return aiGeneration;
+  }
+
+  public void setAiGeneration(Boolean aiGeneration) {
+    this.aiGeneration = aiGeneration;
+  }
+
+  public EmailCommseqEmail aiGenerationPrompt(String aiGenerationPrompt) {
+    this.aiGenerationPrompt = aiGenerationPrompt;
+    return this;
+  }
+
+   /**
+   * Get aiGenerationPrompt
+   * @return aiGenerationPrompt
+  **/
+  @ApiModelProperty(value = "")
+  public String getAiGenerationPrompt() {
+    return aiGenerationPrompt;
+  }
+
+  public void setAiGenerationPrompt(String aiGenerationPrompt) {
+    this.aiGenerationPrompt = aiGenerationPrompt;
+  }
+
+  public EmailCommseqEmail aiGenerationUserId(Integer aiGenerationUserId) {
+    this.aiGenerationUserId = aiGenerationUserId;
+    return this;
+  }
+
+   /**
+   * Get aiGenerationUserId
+   * @return aiGenerationUserId
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getAiGenerationUserId() {
+    return aiGenerationUserId;
+  }
+
+  public void setAiGenerationUserId(Integer aiGenerationUserId) {
+    this.aiGenerationUserId = aiGenerationUserId;
+  }
 
   public EmailCommseqEmail deleted(Boolean deleted) {
     this.deleted = deleted;
@@ -756,7 +819,10 @@ public class EmailCommseqEmail {
       return false;
     }
     EmailCommseqEmail emailCommseqEmail = (EmailCommseqEmail) o;
-    return Objects.equals(this.deleted, emailCommseqEmail.deleted) &&
+    return Objects.equals(this.aiGeneration, emailCommseqEmail.aiGeneration) &&
+        Objects.equals(this.aiGenerationPrompt, emailCommseqEmail.aiGenerationPrompt) &&
+        Objects.equals(this.aiGenerationUserId, emailCommseqEmail.aiGenerationUserId) &&
+        Objects.equals(this.deleted, emailCommseqEmail.deleted) &&
         Objects.equals(this.editedByUser, emailCommseqEmail.editedByUser) &&
         Objects.equals(this.emailCommunicationSequenceEmailUuid, emailCommseqEmail.emailCommunicationSequenceEmailUuid) &&
         Objects.equals(this.emailCommunicationSequenceUuid, emailCommseqEmail.emailCommunicationSequenceUuid) &&
@@ -794,7 +860,7 @@ public class EmailCommseqEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, externalGeneration, externalGenerationAuthentication, externalGenerationBasicPassword, externalGenerationBasicUsername, externalGenerationHeaderName, externalGenerationHeaderValue, externalGenerationId, externalGenerationUrl, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
+    return Objects.hash(aiGeneration, aiGenerationPrompt, aiGenerationUserId, deleted, editedByUser, emailCommunicationSequenceEmailUuid, emailCommunicationSequenceUuid, emailContainerCjson, emailContainerCjsonLastModifiedDts, emailTemplateVmPath, externalGeneration, externalGenerationAuthentication, externalGenerationBasicPassword, externalGenerationBasicUsername, externalGenerationHeaderName, externalGenerationHeaderValue, externalGenerationId, externalGenerationUrl, filterProfileEquationJson, individuallyRender, libraryItemOid, magicLink, merchantId, pendingReview, previewText, rejected, requiresReview, screenshotLargeFullUrl, screenshotLargeViewportUrl, screenshotSmallFullUrl, screenshotSmallViewportUrl, smartSending, storefrontOid, subject, suspendedForSpam, transactionalEmail, version);
   }
 
 
@@ -803,6 +869,9 @@ public class EmailCommseqEmail {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailCommseqEmail {\n");
     
+    sb.append("    aiGeneration: ").append(toIndentedString(aiGeneration)).append("\n");
+    sb.append("    aiGenerationPrompt: ").append(toIndentedString(aiGenerationPrompt)).append("\n");
+    sb.append("    aiGenerationUserId: ").append(toIndentedString(aiGenerationUserId)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    editedByUser: ").append(toIndentedString(editedByUser)).append("\n");
     sb.append("    emailCommunicationSequenceEmailUuid: ").append(toIndentedString(emailCommunicationSequenceEmailUuid)).append("\n");

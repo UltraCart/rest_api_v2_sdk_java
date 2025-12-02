@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-12-02T10:47:41.599-05:00
+  - Build date: 2025-12-02T16:02:59.516-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.34</version>
+  <version>3.11.35</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.34"
+compile "com.ultracart:rest-sdk:3.11.35"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.34.jar`
+* `target/rest-sdk-3.11.35.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -296,6 +296,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**insertWishListItem**](docs/CustomerApi.md#insertWishListItem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 *CustomerApi* | [**mergeCustomer**](docs/CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 *CustomerApi* | [**searchCustomerProfileValues**](docs/CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
+*CustomerApi* | [**searchCustomers**](docs/CustomerApi.md#searchCustomers) | **GET** /customer/customers/search | Search for customers
 *CustomerApi* | [**updateCustomer**](docs/CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**updateWishListItem**](docs/CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
@@ -1636,6 +1637,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |
 | 3.11.34 | 12/02/2025 | coupons - added optional free specific shipping method to two coupons |
 | 3.11.33 | 11/26/2025 | conversation - AI agent profile fields |
 | 3.11.32 | 11/20/2025 | conversion api bug fix on incorrect signature |
