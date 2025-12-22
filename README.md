@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-12-02T16:16:52.819-05:00[America/Indianapolis]
+- Build date: 2025-12-22T09:03:11.122-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.35</version>
+    <version>4.1.36</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.35"
+     implementation "com.ultracart:rest-sdk:4.1.36"
   }
 ```
 
@@ -1625,6 +1625,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.36 | 12/22/2025 | conversation - agent auth worker token v2 |
 | 4.1.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |
 | 4.1.34 | 12/02/2025 | coupons - added optional free specific shipping method to two coupons |
 | 4.1.33 | 11/26/2025 | conversation - AI agent profile fields |

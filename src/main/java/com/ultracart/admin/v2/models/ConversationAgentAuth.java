@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-02T16:16:52.819-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-22T09:03:11.122-05:00[America/Indianapolis]")
 public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
@@ -99,6 +99,10 @@ public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_PBX_WORKER_TOKEN = "pbx_worker_token";
   @SerializedName(SERIALIZED_NAME_PBX_WORKER_TOKEN)
   private String pbxWorkerToken;
+
+  public static final String SERIALIZED_NAME_PBX_WORKER_TOKEN_V2 = "pbx_worker_token_v2";
+  @SerializedName(SERIALIZED_NAME_PBX_WORKER_TOKEN_V2)
+  private String pbxWorkerTokenV2;
 
   public static final String SERIALIZED_NAME_TWILIO_ACCOUNTS = "twilio_accounts";
   @SerializedName(SERIALIZED_NAME_TWILIO_ACCOUNTS)
@@ -399,6 +403,29 @@ public class ConversationAgentAuth {
   }
 
 
+  public ConversationAgentAuth pbxWorkerTokenV2(String pbxWorkerTokenV2) {
+    
+    this.pbxWorkerTokenV2 = pbxWorkerTokenV2;
+    return this;
+  }
+
+   /**
+   * Get pbxWorkerTokenV2
+   * @return pbxWorkerTokenV2
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPbxWorkerTokenV2() {
+    return pbxWorkerTokenV2;
+  }
+
+
+  public void setPbxWorkerTokenV2(String pbxWorkerTokenV2) {
+    this.pbxWorkerTokenV2 = pbxWorkerTokenV2;
+  }
+
+
   public ConversationAgentAuth twilioAccounts(List<ConversationTwilioAccount> twilioAccounts) {
     
     this.twilioAccounts = twilioAccounts;
@@ -498,6 +525,7 @@ public class ConversationAgentAuth {
         Objects.equals(this.pbxVoiceIdentity, conversationAgentAuth.pbxVoiceIdentity) &&
         Objects.equals(this.pbxVoiceToken, conversationAgentAuth.pbxVoiceToken) &&
         Objects.equals(this.pbxWorkerToken, conversationAgentAuth.pbxWorkerToken) &&
+        Objects.equals(this.pbxWorkerTokenV2, conversationAgentAuth.pbxWorkerTokenV2) &&
         Objects.equals(this.twilioAccounts, conversationAgentAuth.twilioAccounts) &&
         Objects.equals(this.userId, conversationAgentAuth.userId) &&
         Objects.equals(this.websocketUrl, conversationAgentAuth.websocketUrl);
@@ -505,7 +533,7 @@ public class ConversationAgentAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, twilioAccounts, userId, websocketUrl);
+    return Objects.hash(conversationParticipantArn, conversationParticipantName, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
   }
 
   @Override
@@ -524,6 +552,7 @@ public class ConversationAgentAuth {
     sb.append("    pbxVoiceIdentity: ").append(toIndentedString(pbxVoiceIdentity)).append("\n");
     sb.append("    pbxVoiceToken: ").append(toIndentedString(pbxVoiceToken)).append("\n");
     sb.append("    pbxWorkerToken: ").append(toIndentedString(pbxWorkerToken)).append("\n");
+    sb.append("    pbxWorkerTokenV2: ").append(toIndentedString(pbxWorkerTokenV2)).append("\n");
     sb.append("    twilioAccounts: ").append(toIndentedString(twilioAccounts)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    websocketUrl: ").append(toIndentedString(websocketUrl)).append("\n");
@@ -561,6 +590,7 @@ public class ConversationAgentAuth {
     openapiFields.add("pbx_voice_identity");
     openapiFields.add("pbx_voice_token");
     openapiFields.add("pbx_worker_token");
+    openapiFields.add("pbx_worker_token_v2");
     openapiFields.add("twilio_accounts");
     openapiFields.add("user_id");
     openapiFields.add("websocket_url");
@@ -618,6 +648,9 @@ public class ConversationAgentAuth {
       }
       if (jsonObj.get("pbx_worker_token") != null && !jsonObj.get("pbx_worker_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pbx_worker_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pbx_worker_token").toString()));
+      }
+      if (jsonObj.get("pbx_worker_token_v2") != null && !jsonObj.get("pbx_worker_token_v2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pbx_worker_token_v2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pbx_worker_token_v2").toString()));
       }
       JsonArray jsonArraytwilioAccounts = jsonObj.getAsJsonArray("twilio_accounts");
       if (jsonArraytwilioAccounts != null) {
