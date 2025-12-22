@@ -31,7 +31,7 @@ import java.math.BigDecimal;
 /**
  * EmailSegmentDownloadPrepareResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-02T16:02:59.516-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-22T08:48:00.168-05:00")
 
 
 
