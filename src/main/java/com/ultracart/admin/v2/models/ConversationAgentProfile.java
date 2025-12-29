@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationVirtualAgentCapabilities;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,11 +50,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:30:24.860-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T15:14:13.267-05:00[America/Indianapolis]")
 public class ConversationAgentProfile {
   public static final String SERIALIZED_NAME_AI = "ai";
   @SerializedName(SERIALIZED_NAME_AI)
   private Boolean ai;
+
+  public static final String SERIALIZED_NAME_AI_CAPABILITIES = "ai_capabilities";
+  @SerializedName(SERIALIZED_NAME_AI_CAPABILITIES)
+  private ConversationVirtualAgentCapabilities aiCapabilities;
 
   public static final String SERIALIZED_NAME_AI_CHAT_INSTRUCTIONS = "ai_chat_instructions";
   @SerializedName(SERIALIZED_NAME_AI_CHAT_INSTRUCTIONS)
@@ -183,6 +188,29 @@ public class ConversationAgentProfile {
 
   public void setAi(Boolean ai) {
     this.ai = ai;
+  }
+
+
+  public ConversationAgentProfile aiCapabilities(ConversationVirtualAgentCapabilities aiCapabilities) {
+    
+    this.aiCapabilities = aiCapabilities;
+    return this;
+  }
+
+   /**
+   * Get aiCapabilities
+   * @return aiCapabilities
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationVirtualAgentCapabilities getAiCapabilities() {
+    return aiCapabilities;
+  }
+
+
+  public void setAiCapabilities(ConversationVirtualAgentCapabilities aiCapabilities) {
+    this.aiCapabilities = aiCapabilities;
   }
 
 
@@ -535,6 +563,7 @@ public class ConversationAgentProfile {
     }
     ConversationAgentProfile conversationAgentProfile = (ConversationAgentProfile) o;
     return Objects.equals(this.ai, conversationAgentProfile.ai) &&
+        Objects.equals(this.aiCapabilities, conversationAgentProfile.aiCapabilities) &&
         Objects.equals(this.aiChatInstructions, conversationAgentProfile.aiChatInstructions) &&
         Objects.equals(this.aiPersona, conversationAgentProfile.aiPersona) &&
         Objects.equals(this.aiSmsInstructions, conversationAgentProfile.aiSmsInstructions) &&
@@ -553,7 +582,7 @@ public class ConversationAgentProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
+    return Objects.hash(ai, aiCapabilities, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
   }
 
   @Override
@@ -561,6 +590,7 @@ public class ConversationAgentProfile {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationAgentProfile {\n");
     sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
+    sb.append("    aiCapabilities: ").append(toIndentedString(aiCapabilities)).append("\n");
     sb.append("    aiChatInstructions: ").append(toIndentedString(aiChatInstructions)).append("\n");
     sb.append("    aiPersona: ").append(toIndentedString(aiPersona)).append("\n");
     sb.append("    aiSmsInstructions: ").append(toIndentedString(aiSmsInstructions)).append("\n");
@@ -598,6 +628,7 @@ public class ConversationAgentProfile {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("ai");
+    openapiFields.add("ai_capabilities");
     openapiFields.add("ai_chat_instructions");
     openapiFields.add("ai_persona");
     openapiFields.add("ai_sms_instructions");
@@ -638,6 +669,10 @@ public class ConversationAgentProfile {
         if (!ConversationAgentProfile.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationAgentProfile` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field `ai_capabilities`
+      if (jsonObj.getAsJsonObject("ai_capabilities") != null) {
+        ConversationVirtualAgentCapabilities.validateJsonObject(jsonObj.getAsJsonObject("ai_capabilities"));
       }
       if (jsonObj.get("ai_chat_instructions") != null && !jsonObj.get("ai_chat_instructions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ai_chat_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_chat_instructions").toString()));
