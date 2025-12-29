@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-12-29T13:15:20.962-05:00
+  - Build date: 2025-12-29T15:01:03.820-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.37</version>
+  <version>3.11.38</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.37"
+compile "com.ultracart:rest-sdk:3.11.38"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.37.jar`
+* `target/rest-sdk-3.11.38.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1640,6 +1640,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.38 | 12/29/2025 | conversations - AI agent level capabilities |
 | 3.11.37 | 12/29/2025 | conversations - pbx agent AI flag |
 | 3.11.36 | 12/22/2025 | conversation - agent auth worker token v2 |
 | 3.11.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |

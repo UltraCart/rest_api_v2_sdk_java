@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationVirtualAgentCapabilities;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,13 +30,16 @@ import java.util.List;
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:15:20.962-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-29T15:01:03.820-05:00")
 
 
 
 public class ConversationAgentProfile {
   @SerializedName("ai")
   private Boolean ai = null;
+
+  @SerializedName("ai_capabilities")
+  private ConversationVirtualAgentCapabilities aiCapabilities = null;
 
   @SerializedName("ai_chat_instructions")
   private String aiChatInstructions = null;
@@ -144,6 +148,24 @@ public class ConversationAgentProfile {
 
   public void setAi(Boolean ai) {
     this.ai = ai;
+  }
+
+  public ConversationAgentProfile aiCapabilities(ConversationVirtualAgentCapabilities aiCapabilities) {
+    this.aiCapabilities = aiCapabilities;
+    return this;
+  }
+
+   /**
+   * Get aiCapabilities
+   * @return aiCapabilities
+  **/
+  @ApiModelProperty(value = "")
+  public ConversationVirtualAgentCapabilities getAiCapabilities() {
+    return aiCapabilities;
+  }
+
+  public void setAiCapabilities(ConversationVirtualAgentCapabilities aiCapabilities) {
+    this.aiCapabilities = aiCapabilities;
   }
 
   public ConversationAgentProfile aiChatInstructions(String aiChatInstructions) {
@@ -425,6 +447,7 @@ public class ConversationAgentProfile {
     }
     ConversationAgentProfile conversationAgentProfile = (ConversationAgentProfile) o;
     return Objects.equals(this.ai, conversationAgentProfile.ai) &&
+        Objects.equals(this.aiCapabilities, conversationAgentProfile.aiCapabilities) &&
         Objects.equals(this.aiChatInstructions, conversationAgentProfile.aiChatInstructions) &&
         Objects.equals(this.aiPersona, conversationAgentProfile.aiPersona) &&
         Objects.equals(this.aiSmsInstructions, conversationAgentProfile.aiSmsInstructions) &&
@@ -443,7 +466,7 @@ public class ConversationAgentProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
+    return Objects.hash(ai, aiCapabilities, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
   }
 
 
@@ -453,6 +476,7 @@ public class ConversationAgentProfile {
     sb.append("class ConversationAgentProfile {\n");
     
     sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
+    sb.append("    aiCapabilities: ").append(toIndentedString(aiCapabilities)).append("\n");
     sb.append("    aiChatInstructions: ").append(toIndentedString(aiChatInstructions)).append("\n");
     sb.append("    aiPersona: ").append(toIndentedString(aiPersona)).append("\n");
     sb.append("    aiSmsInstructions: ").append(toIndentedString(aiSmsInstructions)).append("\n");

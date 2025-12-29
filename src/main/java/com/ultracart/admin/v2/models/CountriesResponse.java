@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CountriesResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:15:20.962-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-29T15:01:03.820-05:00")
 
 
 

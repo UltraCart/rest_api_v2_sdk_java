@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ai** | **Boolean** | AI powered chat bot |  [optional]
+**aiCapabilities** | [**ConversationVirtualAgentCapabilities**](ConversationVirtualAgentCapabilities.md) |  |  [optional]
 **aiChatInstructions** | **String** | Additional instructions for this AI when handle web chats |  [optional]
 **aiPersona** | **String** | Persona of this AI agent |  [optional]
 **aiSmsInstructions** | **String** | Additional instructions for this AI when handle SMS messages |  [optional]
