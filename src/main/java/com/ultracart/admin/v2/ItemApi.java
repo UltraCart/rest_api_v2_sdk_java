@@ -39,6 +39,8 @@ import com.ultracart.admin.v2.models.ItemResponse;
 import com.ultracart.admin.v2.models.ItemReview;
 import com.ultracart.admin.v2.models.ItemReviewResponse;
 import com.ultracart.admin.v2.models.ItemReviewsResponse;
+import com.ultracart.admin.v2.models.ItemShippingDistributionCenter;
+import com.ultracart.admin.v2.models.ItemShippingDistributionCenterResponse;
 import com.ultracart.admin.v2.models.ItemsRequest;
 import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.PricingTiersResponse;
@@ -1236,6 +1238,151 @@ public class ItemApi {
 
         com.squareup.okhttp.Call call = getItemByMerchantItemIdValidateBeforeCall(merchantItemId, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getItemShippingDistributionCenterByCode
+     * @param merchantItemOid The item oid to retrieve. (required)
+     * @param distributionCenterCode  (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getItemShippingDistributionCenterByCodeCall(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()))
+            .replaceAll("\\{" + "distribution_center_code" + "\\}", apiClient.escapeString(distributionCenterCode.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+        if (placeholders != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_placeholders", placeholders));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getItemShippingDistributionCenterByCodeValidateBeforeCall(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling getItemShippingDistributionCenterByCode(Async)");
+        }
+        
+        // verify the required parameter 'distributionCenterCode' is set
+        if (distributionCenterCode == null) {
+            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling getItemShippingDistributionCenterByCode(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getItemShippingDistributionCenterByCodeCall(merchantItemOid, distributionCenterCode, expand, placeholders, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve an item shipping distribution center
+     * Retrieve an item shipping distribution center. 
+     * @param merchantItemOid The item oid to retrieve. (required)
+     * @param distributionCenterCode  (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ItemShippingDistributionCenterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ItemShippingDistributionCenterResponse getItemShippingDistributionCenterByCode(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders) throws ApiException {
+        ApiResponse<ItemShippingDistributionCenterResponse> resp = getItemShippingDistributionCenterByCodeWithHttpInfo(merchantItemOid, distributionCenterCode, expand, placeholders);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve an item shipping distribution center
+     * Retrieve an item shipping distribution center. 
+     * @param merchantItemOid The item oid to retrieve. (required)
+     * @param distributionCenterCode  (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return ApiResponse&lt;ItemShippingDistributionCenterResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ItemShippingDistributionCenterResponse> getItemShippingDistributionCenterByCodeWithHttpInfo(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders) throws ApiException {
+        com.squareup.okhttp.Call call = getItemShippingDistributionCenterByCodeValidateBeforeCall(merchantItemOid, distributionCenterCode, expand, placeholders, null, null);
+        Type localVarReturnType = new TypeToken<ItemShippingDistributionCenterResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve an item shipping distribution center (asynchronously)
+     * Retrieve an item shipping distribution center. 
+     * @param merchantItemOid The item oid to retrieve. (required)
+     * @param distributionCenterCode  (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getItemShippingDistributionCenterByCodeAsync(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders, final ApiCallback<ItemShippingDistributionCenterResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getItemShippingDistributionCenterByCodeValidateBeforeCall(merchantItemOid, distributionCenterCode, expand, placeholders, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ItemShippingDistributionCenterResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2714,6 +2861,144 @@ public class ItemApi {
         com.squareup.okhttp.Call call = updateItemValidateBeforeCall(item, merchantItemOid, expand, placeholders, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateItemShippingDistributionCenterByCode
+     * @param itemShippingDistributionCenter Item shipping distribution center (required)
+     * @param merchantItemOid The item oid to update. (required)
+     * @param distributionCenterCode  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateItemShippingDistributionCenterByCodeCall(ItemShippingDistributionCenter itemShippingDistributionCenter, Integer merchantItemOid, String distributionCenterCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = itemShippingDistributionCenter;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", apiClient.escapeString(merchantItemOid.toString()))
+            .replaceAll("\\{" + "distribution_center_code" + "\\}", apiClient.escapeString(distributionCenterCode.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateItemShippingDistributionCenterByCodeValidateBeforeCall(ItemShippingDistributionCenter itemShippingDistributionCenter, Integer merchantItemOid, String distributionCenterCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'itemShippingDistributionCenter' is set
+        if (itemShippingDistributionCenter == null) {
+            throw new ApiException("Missing the required parameter 'itemShippingDistributionCenter' when calling updateItemShippingDistributionCenterByCode(Async)");
+        }
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling updateItemShippingDistributionCenterByCode(Async)");
+        }
+        
+        // verify the required parameter 'distributionCenterCode' is set
+        if (distributionCenterCode == null) {
+            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling updateItemShippingDistributionCenterByCode(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateItemShippingDistributionCenterByCodeCall(itemShippingDistributionCenter, merchantItemOid, distributionCenterCode, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update an item shipping distribution center
+     * Update an item shipping distribution center 
+     * @param itemShippingDistributionCenter Item shipping distribution center (required)
+     * @param merchantItemOid The item oid to update. (required)
+     * @param distributionCenterCode  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void updateItemShippingDistributionCenterByCode(ItemShippingDistributionCenter itemShippingDistributionCenter, Integer merchantItemOid, String distributionCenterCode) throws ApiException {
+        updateItemShippingDistributionCenterByCodeWithHttpInfo(itemShippingDistributionCenter, merchantItemOid, distributionCenterCode);
+    }
+
+    /**
+     * Update an item shipping distribution center
+     * Update an item shipping distribution center 
+     * @param itemShippingDistributionCenter Item shipping distribution center (required)
+     * @param merchantItemOid The item oid to update. (required)
+     * @param distributionCenterCode  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> updateItemShippingDistributionCenterByCodeWithHttpInfo(ItemShippingDistributionCenter itemShippingDistributionCenter, Integer merchantItemOid, String distributionCenterCode) throws ApiException {
+        com.squareup.okhttp.Call call = updateItemShippingDistributionCenterByCodeValidateBeforeCall(itemShippingDistributionCenter, merchantItemOid, distributionCenterCode, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Update an item shipping distribution center (asynchronously)
+     * Update an item shipping distribution center 
+     * @param itemShippingDistributionCenter Item shipping distribution center (required)
+     * @param merchantItemOid The item oid to update. (required)
+     * @param distributionCenterCode  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateItemShippingDistributionCenterByCodeAsync(ItemShippingDistributionCenter itemShippingDistributionCenter, Integer merchantItemOid, String distributionCenterCode, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateItemShippingDistributionCenterByCodeValidateBeforeCall(itemShippingDistributionCenter, merchantItemOid, distributionCenterCode, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**

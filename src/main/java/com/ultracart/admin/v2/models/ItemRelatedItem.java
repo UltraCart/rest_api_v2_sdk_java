@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ItemRelatedItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-22T08:48:00.168-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:15:20.962-05:00")
 
 
 
@@ -45,7 +45,11 @@ public class ItemRelatedItem {
   public enum TypeEnum {
     SYSTEM("System"),
     
-    USERDEFINED("UserDefined");
+    USERDEFINED("UserDefined"),
+    
+    ADDON("Addon"),
+    
+    COMPLEMENTARY("Complementary");
 
     private String value;
 

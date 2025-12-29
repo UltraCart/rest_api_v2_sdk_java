@@ -27,11 +27,14 @@ import java.io.IOException;
 /**
  * ConversationPbxAgent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-22T08:48:00.168-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:15:20.962-05:00")
 
 
 
 public class ConversationPbxAgent {
+  @SerializedName("ai")
+  private Boolean ai = null;
+
   @SerializedName("cellphone")
   private String cellphone = null;
 
@@ -79,6 +82,24 @@ public class ConversationPbxAgent {
 
   @SerializedName("voicemail")
   private Boolean voicemail = null;
+
+  public ConversationPbxAgent ai(Boolean ai) {
+    this.ai = ai;
+    return this;
+  }
+
+   /**
+   * Flag to indicate if the agent is AI
+   * @return ai
+  **/
+  @ApiModelProperty(value = "Flag to indicate if the agent is AI")
+  public Boolean isAi() {
+    return ai;
+  }
+
+  public void setAi(Boolean ai) {
+    this.ai = ai;
+  }
 
   public ConversationPbxAgent cellphone(String cellphone) {
     this.cellphone = cellphone;
@@ -378,7 +399,8 @@ public class ConversationPbxAgent {
       return false;
     }
     ConversationPbxAgent conversationPbxAgent = (ConversationPbxAgent) o;
-    return Objects.equals(this.cellphone, conversationPbxAgent.cellphone) &&
+    return Objects.equals(this.ai, conversationPbxAgent.ai) &&
+        Objects.equals(this.cellphone, conversationPbxAgent.cellphone) &&
         Objects.equals(this.conversationPbxAgentUuid, conversationPbxAgent.conversationPbxAgentUuid) &&
         Objects.equals(this.extension, conversationPbxAgent.extension) &&
         Objects.equals(this.forwardCallsToCellphone, conversationPbxAgent.forwardCallsToCellphone) &&
@@ -398,7 +420,7 @@ public class ConversationPbxAgent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cellphone, conversationPbxAgentUuid, extension, forwardCallsToCellphone, fullName, login, merchantId, personalConversationPbxVoicemailMailboxUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
+    return Objects.hash(ai, cellphone, conversationPbxAgentUuid, extension, forwardCallsToCellphone, fullName, login, merchantId, personalConversationPbxVoicemailMailboxUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
   }
 
 
@@ -407,6 +429,7 @@ public class ConversationPbxAgent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxAgent {\n");
     
+    sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
     sb.append("    cellphone: ").append(toIndentedString(cellphone)).append("\n");
     sb.append("    conversationPbxAgentUuid: ").append(toIndentedString(conversationPbxAgentUuid)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");

@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**getInventorySnapshot**](ItemApi.md#getInventorySnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**getItem**](ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**getItemByMerchantItemId**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
+[**getItemShippingDistributionCenterByCode**](ItemApi.md#getItemShippingDistributionCenterByCode) | **GET** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Retrieve an item shipping distribution center
 [**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 [**getPricingTiers**](ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 [**getReview**](ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
@@ -24,6 +25,7 @@ Method | HTTP request | Description
 [**insertUpdateItemContentAttribute**](ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**updateDigitalItem**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**updateItemShippingDistributionCenterByCode**](ItemApi.md#updateItemShippingDistributionCenterByCode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 [**updateReview**](ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**uploadTemporaryMultimedia**](ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -482,6 +484,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getItemShippingDistributionCenterByCode"></a>
+# **getItemShippingDistributionCenterByCode**
+> ItemShippingDistributionCenterResponse getItemShippingDistributionCenterByCode(merchantItemOid, distributionCenterCode, expand, placeholders)
+
+Retrieve an item shipping distribution center
+
+Retrieve an item shipping distribution center. 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ItemApi apiInstance = new ItemApi(apiKey);
+
+Integer merchantItemOid = 56; // Integer | The item oid to retrieve.
+String distributionCenterCode = "distributionCenterCode_example"; // String | 
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+Boolean placeholders = true; // Boolean | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+try {
+    ItemShippingDistributionCenterResponse result = apiInstance.getItemShippingDistributionCenterByCode(merchantItemOid, distributionCenterCode, expand, placeholders);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#getItemShippingDistributionCenterByCode");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantItemOid** | **Integer**| The item oid to retrieve. |
+ **distributionCenterCode** | **String**|  |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **Boolean**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**ItemShippingDistributionCenterResponse**](ItemShippingDistributionCenterResponse.md)
 
 ### Authorization
 
@@ -1073,6 +1131,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateItemShippingDistributionCenterByCode"></a>
+# **updateItemShippingDistributionCenterByCode**
+> updateItemShippingDistributionCenterByCode(itemShippingDistributionCenter, merchantItemOid, distributionCenterCode)
+
+Update an item shipping distribution center
+
+Update an item shipping distribution center 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ItemApi apiInstance = new ItemApi(apiKey);
+
+ItemShippingDistributionCenter itemShippingDistributionCenter = new ItemShippingDistributionCenter(); // ItemShippingDistributionCenter | Item shipping distribution center
+Integer merchantItemOid = 56; // Integer | The item oid to update.
+String distributionCenterCode = "distributionCenterCode_example"; // String | 
+try {
+    apiInstance.updateItemShippingDistributionCenterByCode(itemShippingDistributionCenter, merchantItemOid, distributionCenterCode);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#updateItemShippingDistributionCenterByCode");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemShippingDistributionCenter** | [**ItemShippingDistributionCenter**](ItemShippingDistributionCenter.md)| Item shipping distribution center |
+ **merchantItemOid** | **Integer**| The item oid to update. |
+ **distributionCenterCode** | **String**|  |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
