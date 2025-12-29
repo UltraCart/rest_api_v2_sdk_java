@@ -632,6 +632,7 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
+docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -1573,6 +1574,7 @@ src/main/java/com/ultracart/admin/v2/models/ItemShippingCase.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDestinationMarkup.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDestinationRestriction.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDistributionCenter.java
+src/main/java/com/ultracart/admin/v2/models/ItemShippingDistributionCenterResponse.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingMethod.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingPackageRequirement.java
 src/main/java/com/ultracart/admin/v2/models/ItemTag.java

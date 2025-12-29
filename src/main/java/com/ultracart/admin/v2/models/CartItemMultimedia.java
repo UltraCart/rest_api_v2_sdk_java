@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartItemMultimedia
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-22T09:03:11.122-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:30:24.860-05:00[America/Indianapolis]")
 public class CartItemMultimedia {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)

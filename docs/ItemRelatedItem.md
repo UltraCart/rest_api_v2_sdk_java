@@ -19,6 +19,8 @@
 |---- | -----|
 | SYSTEM | &quot;System&quot; |
 | USERDEFINED | &quot;UserDefined&quot; |
+| ADDON | &quot;Addon&quot; |
+| COMPLEMENTARY | &quot;Complementary&quot; |
 
 
 

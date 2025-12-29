@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2025-12-22T09:03:11.122-05:00[America/Indianapolis]
+- Build date: 2025-12-29T13:30:24.860-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.36</version>
+    <version>4.1.37</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.36"
+     implementation "com.ultracart:rest-sdk:4.1.37"
   }
 ```
 
@@ -348,6 +348,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getInventorySnapshot**](docs/ItemApi.md#getInventorySnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**getItem**](docs/ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
+*ItemApi* | [**getItemShippingDistributionCenterByCode**](docs/ItemApi.md#getItemShippingDistributionCenterByCode) | **GET** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Retrieve an item shipping distribution center
 *ItemApi* | [**getItems**](docs/ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 *ItemApi* | [**getReview**](docs/ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
@@ -359,6 +360,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**insertUpdateItemContentAttribute**](docs/ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 *ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+*ItemApi* | [**updateItemShippingDistributionCenterByCode**](docs/ItemApi.md#updateItemShippingDistributionCenterByCode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 *ItemApi* | [**updateItems**](docs/ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**updateReview**](docs/ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -1257,6 +1259,7 @@ Class | Method | HTTP request | Description
  - [ItemShippingDestinationMarkup](docs/ItemShippingDestinationMarkup.md)
  - [ItemShippingDestinationRestriction](docs/ItemShippingDestinationRestriction.md)
  - [ItemShippingDistributionCenter](docs/ItemShippingDistributionCenter.md)
+ - [ItemShippingDistributionCenterResponse](docs/ItemShippingDistributionCenterResponse.md)
  - [ItemShippingMethod](docs/ItemShippingMethod.md)
  - [ItemShippingPackageRequirement](docs/ItemShippingPackageRequirement.md)
  - [ItemTag](docs/ItemTag.md)
@@ -1625,6 +1628,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.37 | 12/29/2025 | conversations - pbx agent AI flag |
 | 4.1.36 | 12/22/2025 | conversation - agent auth worker token v2 |
 | 4.1.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |
 | 4.1.34 | 12/02/2025 | coupons - added optional free specific shipping method to two coupons |

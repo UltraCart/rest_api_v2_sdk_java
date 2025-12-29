@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ScreenRecordingStoreFront
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-22T09:03:11.122-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:30:24.860-05:00[America/Indianapolis]")
 public class ScreenRecordingStoreFront {
   public static final String SERIALIZED_NAME_STOREFRONT_HOST_NAME = "storefront_host_name";
   @SerializedName(SERIALIZED_NAME_STOREFRONT_HOST_NAME)

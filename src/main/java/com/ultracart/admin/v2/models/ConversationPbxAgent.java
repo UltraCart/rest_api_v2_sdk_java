@@ -47,8 +47,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAgent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-22T09:03:11.122-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:30:24.860-05:00[America/Indianapolis]")
 public class ConversationPbxAgent {
+  public static final String SERIALIZED_NAME_AI = "ai";
+  @SerializedName(SERIALIZED_NAME_AI)
+  private Boolean ai;
+
   public static final String SERIALIZED_NAME_CELLPHONE = "cellphone";
   @SerializedName(SERIALIZED_NAME_CELLPHONE)
   private String cellphone;
@@ -115,6 +119,29 @@ public class ConversationPbxAgent {
 
   public ConversationPbxAgent() { 
   }
+
+  public ConversationPbxAgent ai(Boolean ai) {
+    
+    this.ai = ai;
+    return this;
+  }
+
+   /**
+   * Flag to indicate if the agent is AI
+   * @return ai
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Flag to indicate if the agent is AI")
+
+  public Boolean getAi() {
+    return ai;
+  }
+
+
+  public void setAi(Boolean ai) {
+    this.ai = ai;
+  }
+
 
   public ConversationPbxAgent cellphone(String cellphone) {
     
@@ -494,7 +521,8 @@ public class ConversationPbxAgent {
       return false;
     }
     ConversationPbxAgent conversationPbxAgent = (ConversationPbxAgent) o;
-    return Objects.equals(this.cellphone, conversationPbxAgent.cellphone) &&
+    return Objects.equals(this.ai, conversationPbxAgent.ai) &&
+        Objects.equals(this.cellphone, conversationPbxAgent.cellphone) &&
         Objects.equals(this.conversationPbxAgentUuid, conversationPbxAgent.conversationPbxAgentUuid) &&
         Objects.equals(this.extension, conversationPbxAgent.extension) &&
         Objects.equals(this.forwardCallsToCellphone, conversationPbxAgent.forwardCallsToCellphone) &&
@@ -514,13 +542,14 @@ public class ConversationPbxAgent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cellphone, conversationPbxAgentUuid, extension, forwardCallsToCellphone, fullName, login, merchantId, personalConversationPbxVoicemailMailboxUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
+    return Objects.hash(ai, cellphone, conversationPbxAgentUuid, extension, forwardCallsToCellphone, fullName, login, merchantId, personalConversationPbxVoicemailMailboxUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxAgent {\n");
+    sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
     sb.append("    cellphone: ").append(toIndentedString(cellphone)).append("\n");
     sb.append("    conversationPbxAgentUuid: ").append(toIndentedString(conversationPbxAgentUuid)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
@@ -559,6 +588,7 @@ public class ConversationPbxAgent {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("ai");
     openapiFields.add("cellphone");
     openapiFields.add("conversation_pbx_agent_uuid");
     openapiFields.add("extension");

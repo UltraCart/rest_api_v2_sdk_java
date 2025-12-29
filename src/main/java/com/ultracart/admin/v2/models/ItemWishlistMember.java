@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemWishlistMember
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-22T09:03:11.122-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T13:30:24.860-05:00[America/Indianapolis]")
 public class ItemWishlistMember {
   public static final String SERIALIZED_NAME_WISHLIST_MEMBER_INSTANCE_DESCRIPTION = "wishlist_member_instance_description";
   @SerializedName(SERIALIZED_NAME_WISHLIST_MEMBER_INSTANCE_DESCRIPTION)
