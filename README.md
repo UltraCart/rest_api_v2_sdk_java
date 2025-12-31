@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2025-12-29T15:01:03.820-05:00
+  - Build date: 2025-12-31T14:15:13.389-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.38</version>
+  <version>3.11.39</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.38"
+compile "com.ultracart:rest-sdk:3.11.39"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.38.jar`
+* `target/rest-sdk-3.11.39.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -371,6 +371,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**insertUpdateItemContentAttribute**](docs/ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 *ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+*ItemApi* | [**updateItemInventories**](docs/ItemApi.md#updateItemInventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
 *ItemApi* | [**updateItemShippingDistributionCenterByCode**](docs/ItemApi.md#updateItemShippingDistributionCenterByCode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 *ItemApi* | [**updateItems**](docs/ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**updateReview**](docs/ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
@@ -1240,6 +1241,8 @@ Class | Method | HTTP request | Description
  - [ItemInventorySnapshot](docs/ItemInventorySnapshot.md)
  - [ItemInventorySnapshotDistributionCenter](docs/ItemInventorySnapshotDistributionCenter.md)
  - [ItemInventorySnapshotResponse](docs/ItemInventorySnapshotResponse.md)
+ - [ItemInventoryUpdate](docs/ItemInventoryUpdate.md)
+ - [ItemInventoryUpdateRequest](docs/ItemInventoryUpdateRequest.md)
  - [ItemKitComponent](docs/ItemKitComponent.md)
  - [ItemKitDefinition](docs/ItemKitDefinition.md)
  - [ItemOption](docs/ItemOption.md)
@@ -1640,6 +1643,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.39 | 12/31/2025 | conversations AI - queue AI settings |
 | 3.11.38 | 12/29/2025 | conversations - AI agent level capabilities |
 | 3.11.37 | 12/29/2025 | conversations - pbx agent AI flag |
 | 3.11.36 | 12/22/2025 | conversation - agent auth worker token v2 |

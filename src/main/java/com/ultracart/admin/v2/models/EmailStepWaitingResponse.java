@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * EmailStepWaitingResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-29T15:01:03.820-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-31T14:15:13.389-05:00")
 
 
 

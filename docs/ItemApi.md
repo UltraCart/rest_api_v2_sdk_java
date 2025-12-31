@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**insertUpdateItemContentAttribute**](ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**updateDigitalItem**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**updateItemInventories**](ItemApi.md#updateItemInventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
 [**updateItemShippingDistributionCenterByCode**](ItemApi.md#updateItemShippingDistributionCenterByCode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 [**updateReview**](ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
@@ -1131,6 +1132,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateItemInventories"></a>
+# **updateItemInventories**
+> updateItemInventories(itemInventoryUpdateRequest)
+
+Update item inventories for a distribution center
+
+Update item inventories for a distribution center 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ItemApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ItemApi apiInstance = new ItemApi(apiKey);
+
+ItemInventoryUpdateRequest itemInventoryUpdateRequest = new ItemInventoryUpdateRequest(); // ItemInventoryUpdateRequest | Item inventory updates
+try {
+    apiInstance.updateItemInventories(itemInventoryUpdateRequest);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ItemApi#updateItemInventories");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemInventoryUpdateRequest** | [**ItemInventoryUpdateRequest**](ItemInventoryUpdateRequest.md)| Item inventory updates |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

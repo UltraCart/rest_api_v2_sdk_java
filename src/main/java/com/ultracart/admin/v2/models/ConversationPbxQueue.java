@@ -28,11 +28,66 @@ import java.io.IOException;
 /**
  * ConversationPbxQueue
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-29T15:01:03.820-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-31T14:15:13.389-05:00")
 
 
 
 public class ConversationPbxQueue {
+  /**
+   * AI Agent Priority compared to human agents
+   */
+  @JsonAdapter(AiPriorityEnum.Adapter.class)
+  public enum AiPriorityEnum {
+    NEUTRAL("neutral"),
+    
+    FIRST("first"),
+    
+    BACKUP("backup");
+
+    private String value;
+
+    AiPriorityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AiPriorityEnum fromValue(String text) {
+      for (AiPriorityEnum b : AiPriorityEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<AiPriorityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AiPriorityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AiPriorityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AiPriorityEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("ai_priority")
+  private AiPriorityEnum aiPriority = null;
+
+  @SerializedName("ai_timeout_seconds")
+  private Integer aiTimeoutSeconds = null;
+
   @SerializedName("announce_queue_position")
   private Boolean announceQueuePosition = null;
 
@@ -95,6 +150,42 @@ public class ConversationPbxQueue {
 
   @SerializedName("wrap_up_seconds")
   private Integer wrapUpSeconds = null;
+
+  public ConversationPbxQueue aiPriority(AiPriorityEnum aiPriority) {
+    this.aiPriority = aiPriority;
+    return this;
+  }
+
+   /**
+   * AI Agent Priority compared to human agents
+   * @return aiPriority
+  **/
+  @ApiModelProperty(value = "AI Agent Priority compared to human agents")
+  public AiPriorityEnum getAiPriority() {
+    return aiPriority;
+  }
+
+  public void setAiPriority(AiPriorityEnum aiPriority) {
+    this.aiPriority = aiPriority;
+  }
+
+  public ConversationPbxQueue aiTimeoutSeconds(Integer aiTimeoutSeconds) {
+    this.aiTimeoutSeconds = aiTimeoutSeconds;
+    return this;
+  }
+
+   /**
+   * AI timeout seconds
+   * @return aiTimeoutSeconds
+  **/
+  @ApiModelProperty(value = "AI timeout seconds")
+  public Integer getAiTimeoutSeconds() {
+    return aiTimeoutSeconds;
+  }
+
+  public void setAiTimeoutSeconds(Integer aiTimeoutSeconds) {
+    this.aiTimeoutSeconds = aiTimeoutSeconds;
+  }
 
   public ConversationPbxQueue announceQueuePosition(Boolean announceQueuePosition) {
     this.announceQueuePosition = announceQueuePosition;
@@ -484,7 +575,9 @@ public class ConversationPbxQueue {
       return false;
     }
     ConversationPbxQueue conversationPbxQueue = (ConversationPbxQueue) o;
-    return Objects.equals(this.announceQueuePosition, conversationPbxQueue.announceQueuePosition) &&
+    return Objects.equals(this.aiPriority, conversationPbxQueue.aiPriority) &&
+        Objects.equals(this.aiTimeoutSeconds, conversationPbxQueue.aiTimeoutSeconds) &&
+        Objects.equals(this.announceQueuePosition, conversationPbxQueue.announceQueuePosition) &&
         Objects.equals(this.conversationPbxQueueUuid, conversationPbxQueue.conversationPbxQueueUuid) &&
         Objects.equals(this.conversationVoicemailMailboxUuid, conversationPbxQueue.conversationVoicemailMailboxUuid) &&
         Objects.equals(this.holdConversationPbxAudioUuid, conversationPbxQueue.holdConversationPbxAudioUuid) &&
@@ -509,7 +602,7 @@ public class ConversationPbxQueue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(announceQueuePosition, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
+    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
   }
 
 
@@ -518,6 +611,8 @@ public class ConversationPbxQueue {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxQueue {\n");
     
+    sb.append("    aiPriority: ").append(toIndentedString(aiPriority)).append("\n");
+    sb.append("    aiTimeoutSeconds: ").append(toIndentedString(aiTimeoutSeconds)).append("\n");
     sb.append("    announceQueuePosition: ").append(toIndentedString(announceQueuePosition)).append("\n");
     sb.append("    conversationPbxQueueUuid: ").append(toIndentedString(conversationPbxQueueUuid)).append("\n");
     sb.append("    conversationVoicemailMailboxUuid: ").append(toIndentedString(conversationVoicemailMailboxUuid)).append("\n");

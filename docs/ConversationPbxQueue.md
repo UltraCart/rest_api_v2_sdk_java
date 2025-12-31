@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**aiPriority** | [**AiPriorityEnum**](#AiPriorityEnum) | AI Agent Priority compared to human agents |  [optional]
+**aiTimeoutSeconds** | **Integer** | AI timeout seconds |  [optional]
 **announceQueuePosition** | **Boolean** | If true, the customer is told their queue position upon entering the queue |  [optional]
 **conversationPbxQueueUuid** | **String** | Conversation Pbx Queue unique identifier |  [optional]
 **conversationVoicemailMailboxUuid** | **String** | The voicemail mailbox associated with this queue |  [optional]
@@ -25,6 +27,15 @@ Name | Type | Description | Notes
 **waitCriticalSeconds** | **Integer** | Wait time in seconds before critical |  [optional]
 **waitWarningSeconds** | **Integer** | Wait time in seconds before warning |  [optional]
 **wrapUpSeconds** | **Integer** | Wrap up time in seconds |  [optional]
+
+
+<a name="AiPriorityEnum"></a>
+## Enum: AiPriorityEnum
+Name | Value
+---- | -----
+NEUTRAL | &quot;neutral&quot;
+FIRST | &quot;first&quot;
+BACKUP | &quot;backup&quot;
 
 
 
