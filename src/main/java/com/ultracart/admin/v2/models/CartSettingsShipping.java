@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSettingsShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T15:14:13.267-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-31T14:30:07.526-05:00[America/Indianapolis]")
 public class CartSettingsShipping {
   public static final String SERIALIZED_NAME_DELIVER_ON_DATE = "deliver_on_date";
   @SerializedName(SERIALIZED_NAME_DELIVER_ON_DATE)

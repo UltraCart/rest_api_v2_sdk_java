@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartPaymentPurchaseOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T15:14:13.267-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-31T14:30:07.526-05:00[America/Indianapolis]")
 public class CartPaymentPurchaseOrder {
   public static final String SERIALIZED_NAME_PURCHASE_ORDER_NUMBER = "purchase_order_number";
   @SerializedName(SERIALIZED_NAME_PURCHASE_ORDER_NUMBER)

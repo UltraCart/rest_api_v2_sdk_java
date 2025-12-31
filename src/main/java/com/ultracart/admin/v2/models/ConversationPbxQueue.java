@@ -48,8 +48,65 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxQueue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-29T15:14:13.267-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-31T14:30:07.526-05:00[America/Indianapolis]")
 public class ConversationPbxQueue {
+  /**
+   * AI Agent Priority compared to human agents
+   */
+  @JsonAdapter(AiPriorityEnum.Adapter.class)
+  public enum AiPriorityEnum {
+    NEUTRAL("neutral"),
+    
+    FIRST("first"),
+    
+    BACKUP("backup");
+
+    private String value;
+
+    AiPriorityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AiPriorityEnum fromValue(String value) {
+      for (AiPriorityEnum b : AiPriorityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AiPriorityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AiPriorityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AiPriorityEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AiPriorityEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_AI_PRIORITY = "ai_priority";
+  @SerializedName(SERIALIZED_NAME_AI_PRIORITY)
+  private AiPriorityEnum aiPriority;
+
+  public static final String SERIALIZED_NAME_AI_TIMEOUT_SECONDS = "ai_timeout_seconds";
+  @SerializedName(SERIALIZED_NAME_AI_TIMEOUT_SECONDS)
+  private Integer aiTimeoutSeconds;
+
   public static final String SERIALIZED_NAME_ANNOUNCE_QUEUE_POSITION = "announce_queue_position";
   @SerializedName(SERIALIZED_NAME_ANNOUNCE_QUEUE_POSITION)
   private Boolean announceQueuePosition;
@@ -136,6 +193,52 @@ public class ConversationPbxQueue {
 
   public ConversationPbxQueue() { 
   }
+
+  public ConversationPbxQueue aiPriority(AiPriorityEnum aiPriority) {
+    
+    this.aiPriority = aiPriority;
+    return this;
+  }
+
+   /**
+   * AI Agent Priority compared to human agents
+   * @return aiPriority
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AI Agent Priority compared to human agents")
+
+  public AiPriorityEnum getAiPriority() {
+    return aiPriority;
+  }
+
+
+  public void setAiPriority(AiPriorityEnum aiPriority) {
+    this.aiPriority = aiPriority;
+  }
+
+
+  public ConversationPbxQueue aiTimeoutSeconds(Integer aiTimeoutSeconds) {
+    
+    this.aiTimeoutSeconds = aiTimeoutSeconds;
+    return this;
+  }
+
+   /**
+   * AI timeout seconds
+   * @return aiTimeoutSeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AI timeout seconds")
+
+  public Integer getAiTimeoutSeconds() {
+    return aiTimeoutSeconds;
+  }
+
+
+  public void setAiTimeoutSeconds(Integer aiTimeoutSeconds) {
+    this.aiTimeoutSeconds = aiTimeoutSeconds;
+  }
+
 
   public ConversationPbxQueue announceQueuePosition(Boolean announceQueuePosition) {
     
@@ -630,7 +733,9 @@ public class ConversationPbxQueue {
       return false;
     }
     ConversationPbxQueue conversationPbxQueue = (ConversationPbxQueue) o;
-    return Objects.equals(this.announceQueuePosition, conversationPbxQueue.announceQueuePosition) &&
+    return Objects.equals(this.aiPriority, conversationPbxQueue.aiPriority) &&
+        Objects.equals(this.aiTimeoutSeconds, conversationPbxQueue.aiTimeoutSeconds) &&
+        Objects.equals(this.announceQueuePosition, conversationPbxQueue.announceQueuePosition) &&
         Objects.equals(this.conversationPbxQueueUuid, conversationPbxQueue.conversationPbxQueueUuid) &&
         Objects.equals(this.conversationVoicemailMailboxUuid, conversationPbxQueue.conversationVoicemailMailboxUuid) &&
         Objects.equals(this.holdConversationPbxAudioUuid, conversationPbxQueue.holdConversationPbxAudioUuid) &&
@@ -655,13 +760,15 @@ public class ConversationPbxQueue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(announceQueuePosition, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
+    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxQueue {\n");
+    sb.append("    aiPriority: ").append(toIndentedString(aiPriority)).append("\n");
+    sb.append("    aiTimeoutSeconds: ").append(toIndentedString(aiTimeoutSeconds)).append("\n");
     sb.append("    announceQueuePosition: ").append(toIndentedString(announceQueuePosition)).append("\n");
     sb.append("    conversationPbxQueueUuid: ").append(toIndentedString(conversationPbxQueueUuid)).append("\n");
     sb.append("    conversationVoicemailMailboxUuid: ").append(toIndentedString(conversationVoicemailMailboxUuid)).append("\n");
@@ -705,6 +812,8 @@ public class ConversationPbxQueue {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("ai_priority");
+    openapiFields.add("ai_timeout_seconds");
     openapiFields.add("announce_queue_position");
     openapiFields.add("conversation_pbx_queue_uuid");
     openapiFields.add("conversation_voicemail_mailbox_uuid");
@@ -752,6 +861,9 @@ public class ConversationPbxQueue {
         if (!ConversationPbxQueue.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationPbxQueue` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("ai_priority") != null && !jsonObj.get("ai_priority").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_priority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_priority").toString()));
       }
       if (jsonObj.get("conversation_pbx_queue_uuid") != null && !jsonObj.get("conversation_pbx_queue_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_queue_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_queue_uuid").toString()));

@@ -601,6 +601,8 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
+docs/ItemInventoryUpdate.md
+docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -1543,6 +1545,8 @@ src/main/java/com/ultracart/admin/v2/models/ItemInternal.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshot.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshotDistributionCenter.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshotResponse.java
+src/main/java/com/ultracart/admin/v2/models/ItemInventoryUpdate.java
+src/main/java/com/ultracart/admin/v2/models/ItemInventoryUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/ItemKitComponent.java
 src/main/java/com/ultracart/admin/v2/models/ItemKitDefinition.java
 src/main/java/com/ultracart/admin/v2/models/ItemOption.java
