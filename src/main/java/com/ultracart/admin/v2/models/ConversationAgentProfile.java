@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-12-31T14:15:13.389-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-07T11:39:26.084-05:00")
 
 
 
@@ -52,6 +52,65 @@ public class ConversationAgentProfile {
 
   @SerializedName("ai_ticket_instructions")
   private String aiTicketInstructions = null;
+
+  @SerializedName("ai_voice_instructions")
+  private String aiVoiceInstructions = null;
+
+  /**
+   * Which AI voice personality to use when handling the call.
+   */
+  @JsonAdapter(AiVoicePersonalityEnum.Adapter.class)
+  public enum AiVoicePersonalityEnum {
+    ARA("Ara"),
+    
+    REX("Rex"),
+    
+    SAL("Sal"),
+    
+    EVE("Eve"),
+    
+    LEO("Leo");
+
+    private String value;
+
+    AiVoicePersonalityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AiVoicePersonalityEnum fromValue(String text) {
+      for (AiVoicePersonalityEnum b : AiVoicePersonalityEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<AiVoicePersonalityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AiVoicePersonalityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AiVoicePersonalityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AiVoicePersonalityEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("ai_voice_personality")
+  private AiVoicePersonalityEnum aiVoicePersonality = null;
 
   @SerializedName("chat_limit")
   private Integer chatLimit = null;
@@ -238,6 +297,42 @@ public class ConversationAgentProfile {
 
   public void setAiTicketInstructions(String aiTicketInstructions) {
     this.aiTicketInstructions = aiTicketInstructions;
+  }
+
+  public ConversationAgentProfile aiVoiceInstructions(String aiVoiceInstructions) {
+    this.aiVoiceInstructions = aiVoiceInstructions;
+    return this;
+  }
+
+   /**
+   * Additional voice instructions for this AI when handling voice calls
+   * @return aiVoiceInstructions
+  **/
+  @ApiModelProperty(value = "Additional voice instructions for this AI when handling voice calls")
+  public String getAiVoiceInstructions() {
+    return aiVoiceInstructions;
+  }
+
+  public void setAiVoiceInstructions(String aiVoiceInstructions) {
+    this.aiVoiceInstructions = aiVoiceInstructions;
+  }
+
+  public ConversationAgentProfile aiVoicePersonality(AiVoicePersonalityEnum aiVoicePersonality) {
+    this.aiVoicePersonality = aiVoicePersonality;
+    return this;
+  }
+
+   /**
+   * Which AI voice personality to use when handling the call.
+   * @return aiVoicePersonality
+  **/
+  @ApiModelProperty(value = "Which AI voice personality to use when handling the call.")
+  public AiVoicePersonalityEnum getAiVoicePersonality() {
+    return aiVoicePersonality;
+  }
+
+  public void setAiVoicePersonality(AiVoicePersonalityEnum aiVoicePersonality) {
+    this.aiVoicePersonality = aiVoicePersonality;
   }
 
   public ConversationAgentProfile chatLimit(Integer chatLimit) {
@@ -452,6 +547,8 @@ public class ConversationAgentProfile {
         Objects.equals(this.aiPersona, conversationAgentProfile.aiPersona) &&
         Objects.equals(this.aiSmsInstructions, conversationAgentProfile.aiSmsInstructions) &&
         Objects.equals(this.aiTicketInstructions, conversationAgentProfile.aiTicketInstructions) &&
+        Objects.equals(this.aiVoiceInstructions, conversationAgentProfile.aiVoiceInstructions) &&
+        Objects.equals(this.aiVoicePersonality, conversationAgentProfile.aiVoicePersonality) &&
         Objects.equals(this.chatLimit, conversationAgentProfile.chatLimit) &&
         Objects.equals(this.defaultLanguageIsoCode, conversationAgentProfile.defaultLanguageIsoCode) &&
         Objects.equals(this.defaultStatus, conversationAgentProfile.defaultStatus) &&
@@ -466,7 +563,7 @@ public class ConversationAgentProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, aiCapabilities, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
+    return Objects.hash(ai, aiCapabilities, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, aiVoiceInstructions, aiVoicePersonality, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
   }
 
 
@@ -481,6 +578,8 @@ public class ConversationAgentProfile {
     sb.append("    aiPersona: ").append(toIndentedString(aiPersona)).append("\n");
     sb.append("    aiSmsInstructions: ").append(toIndentedString(aiSmsInstructions)).append("\n");
     sb.append("    aiTicketInstructions: ").append(toIndentedString(aiTicketInstructions)).append("\n");
+    sb.append("    aiVoiceInstructions: ").append(toIndentedString(aiVoiceInstructions)).append("\n");
+    sb.append("    aiVoicePersonality: ").append(toIndentedString(aiVoicePersonality)).append("\n");
     sb.append("    chatLimit: ").append(toIndentedString(chatLimit)).append("\n");
     sb.append("    defaultLanguageIsoCode: ").append(toIndentedString(defaultLanguageIsoCode)).append("\n");
     sb.append("    defaultStatus: ").append(toIndentedString(defaultStatus)).append("\n");
