@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentProfile
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-31T14:30:07.526-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-07T11:55:05.427-05:00[America/Indianapolis]")
 public class ConversationAgentProfile {
   public static final String SERIALIZED_NAME_AI = "ai";
   @SerializedName(SERIALIZED_NAME_AI)
@@ -75,6 +75,67 @@ public class ConversationAgentProfile {
   public static final String SERIALIZED_NAME_AI_TICKET_INSTRUCTIONS = "ai_ticket_instructions";
   @SerializedName(SERIALIZED_NAME_AI_TICKET_INSTRUCTIONS)
   private String aiTicketInstructions;
+
+  public static final String SERIALIZED_NAME_AI_VOICE_INSTRUCTIONS = "ai_voice_instructions";
+  @SerializedName(SERIALIZED_NAME_AI_VOICE_INSTRUCTIONS)
+  private String aiVoiceInstructions;
+
+  /**
+   * Which AI voice personality to use when handling the call.
+   */
+  @JsonAdapter(AiVoicePersonalityEnum.Adapter.class)
+  public enum AiVoicePersonalityEnum {
+    ARA("Ara"),
+    
+    REX("Rex"),
+    
+    SAL("Sal"),
+    
+    EVE("Eve"),
+    
+    LEO("Leo");
+
+    private String value;
+
+    AiVoicePersonalityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AiVoicePersonalityEnum fromValue(String value) {
+      for (AiVoicePersonalityEnum b : AiVoicePersonalityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AiVoicePersonalityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AiVoicePersonalityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AiVoicePersonalityEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AiVoicePersonalityEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_AI_VOICE_PERSONALITY = "ai_voice_personality";
+  @SerializedName(SERIALIZED_NAME_AI_VOICE_PERSONALITY)
+  private AiVoicePersonalityEnum aiVoicePersonality;
 
   public static final String SERIALIZED_NAME_CHAT_LIMIT = "chat_limit";
   @SerializedName(SERIALIZED_NAME_CHAT_LIMIT)
@@ -303,6 +364,52 @@ public class ConversationAgentProfile {
 
   public void setAiTicketInstructions(String aiTicketInstructions) {
     this.aiTicketInstructions = aiTicketInstructions;
+  }
+
+
+  public ConversationAgentProfile aiVoiceInstructions(String aiVoiceInstructions) {
+    
+    this.aiVoiceInstructions = aiVoiceInstructions;
+    return this;
+  }
+
+   /**
+   * Additional voice instructions for this AI when handling voice calls
+   * @return aiVoiceInstructions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional voice instructions for this AI when handling voice calls")
+
+  public String getAiVoiceInstructions() {
+    return aiVoiceInstructions;
+  }
+
+
+  public void setAiVoiceInstructions(String aiVoiceInstructions) {
+    this.aiVoiceInstructions = aiVoiceInstructions;
+  }
+
+
+  public ConversationAgentProfile aiVoicePersonality(AiVoicePersonalityEnum aiVoicePersonality) {
+    
+    this.aiVoicePersonality = aiVoicePersonality;
+    return this;
+  }
+
+   /**
+   * Which AI voice personality to use when handling the call.
+   * @return aiVoicePersonality
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Which AI voice personality to use when handling the call.")
+
+  public AiVoicePersonalityEnum getAiVoicePersonality() {
+    return aiVoicePersonality;
+  }
+
+
+  public void setAiVoicePersonality(AiVoicePersonalityEnum aiVoicePersonality) {
+    this.aiVoicePersonality = aiVoicePersonality;
   }
 
 
@@ -568,6 +675,8 @@ public class ConversationAgentProfile {
         Objects.equals(this.aiPersona, conversationAgentProfile.aiPersona) &&
         Objects.equals(this.aiSmsInstructions, conversationAgentProfile.aiSmsInstructions) &&
         Objects.equals(this.aiTicketInstructions, conversationAgentProfile.aiTicketInstructions) &&
+        Objects.equals(this.aiVoiceInstructions, conversationAgentProfile.aiVoiceInstructions) &&
+        Objects.equals(this.aiVoicePersonality, conversationAgentProfile.aiVoicePersonality) &&
         Objects.equals(this.chatLimit, conversationAgentProfile.chatLimit) &&
         Objects.equals(this.defaultLanguageIsoCode, conversationAgentProfile.defaultLanguageIsoCode) &&
         Objects.equals(this.defaultStatus, conversationAgentProfile.defaultStatus) &&
@@ -582,7 +691,7 @@ public class ConversationAgentProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, aiCapabilities, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
+    return Objects.hash(ai, aiCapabilities, aiChatInstructions, aiPersona, aiSmsInstructions, aiTicketInstructions, aiVoiceInstructions, aiVoicePersonality, chatLimit, defaultLanguageIsoCode, defaultStatus, displayName, name, profileImageUploadKey, profileImageUrl, userId, zohodeskClassifications, zohodeskDepartments);
   }
 
   @Override
@@ -595,6 +704,8 @@ public class ConversationAgentProfile {
     sb.append("    aiPersona: ").append(toIndentedString(aiPersona)).append("\n");
     sb.append("    aiSmsInstructions: ").append(toIndentedString(aiSmsInstructions)).append("\n");
     sb.append("    aiTicketInstructions: ").append(toIndentedString(aiTicketInstructions)).append("\n");
+    sb.append("    aiVoiceInstructions: ").append(toIndentedString(aiVoiceInstructions)).append("\n");
+    sb.append("    aiVoicePersonality: ").append(toIndentedString(aiVoicePersonality)).append("\n");
     sb.append("    chatLimit: ").append(toIndentedString(chatLimit)).append("\n");
     sb.append("    defaultLanguageIsoCode: ").append(toIndentedString(defaultLanguageIsoCode)).append("\n");
     sb.append("    defaultStatus: ").append(toIndentedString(defaultStatus)).append("\n");
@@ -633,6 +744,8 @@ public class ConversationAgentProfile {
     openapiFields.add("ai_persona");
     openapiFields.add("ai_sms_instructions");
     openapiFields.add("ai_ticket_instructions");
+    openapiFields.add("ai_voice_instructions");
+    openapiFields.add("ai_voice_personality");
     openapiFields.add("chat_limit");
     openapiFields.add("default_language_iso_code");
     openapiFields.add("default_status");
@@ -685,6 +798,12 @@ public class ConversationAgentProfile {
       }
       if (jsonObj.get("ai_ticket_instructions") != null && !jsonObj.get("ai_ticket_instructions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ai_ticket_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_ticket_instructions").toString()));
+      }
+      if (jsonObj.get("ai_voice_instructions") != null && !jsonObj.get("ai_voice_instructions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_voice_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_voice_instructions").toString()));
+      }
+      if (jsonObj.get("ai_voice_personality") != null && !jsonObj.get("ai_voice_personality").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_voice_personality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_voice_personality").toString()));
       }
       if (jsonObj.get("default_language_iso_code") != null && !jsonObj.get("default_language_iso_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `default_language_iso_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_language_iso_code").toString()));
