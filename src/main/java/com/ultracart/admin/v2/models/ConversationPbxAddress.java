@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationPbxAddress
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-13T09:50:09.315-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-13T13:49:35.514-05:00")
 
 
 
@@ -61,6 +61,9 @@ public class ConversationPbxAddress {
 
   @SerializedName("street")
   private String street = null;
+
+  @SerializedName("valid")
+  private Boolean valid = null;
 
   @SerializedName("validated")
   private Boolean validated = null;
@@ -248,6 +251,24 @@ public class ConversationPbxAddress {
     this.street = street;
   }
 
+  public ConversationPbxAddress valid(Boolean valid) {
+    this.valid = valid;
+    return this;
+  }
+
+   /**
+   * Whether the address is valid (validated or verified)
+   * @return valid
+  **/
+  @ApiModelProperty(value = "Whether the address is valid (validated or verified)")
+  public Boolean isValid() {
+    return valid;
+  }
+
+  public void setValid(Boolean valid) {
+    this.valid = valid;
+  }
+
   public ConversationPbxAddress validated(Boolean validated) {
     this.validated = validated;
     return this;
@@ -304,13 +325,14 @@ public class ConversationPbxAddress {
         Objects.equals(this.postalCode, conversationPbxAddress.postalCode) &&
         Objects.equals(this.region, conversationPbxAddress.region) &&
         Objects.equals(this.street, conversationPbxAddress.street) &&
+        Objects.equals(this.valid, conversationPbxAddress.valid) &&
         Objects.equals(this.validated, conversationPbxAddress.validated) &&
         Objects.equals(this.verified, conversationPbxAddress.verified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressSid, city, conversationPbxAddressUuid, countryCode, customerName, friendlyName, merchantId, postalCode, region, street, validated, verified);
+    return Objects.hash(addressSid, city, conversationPbxAddressUuid, countryCode, customerName, friendlyName, merchantId, postalCode, region, street, valid, validated, verified);
   }
 
 
@@ -329,6 +351,7 @@ public class ConversationPbxAddress {
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
+    sb.append("    valid: ").append(toIndentedString(valid)).append("\n");
     sb.append("    validated: ").append(toIndentedString(validated)).append("\n");
     sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("}");

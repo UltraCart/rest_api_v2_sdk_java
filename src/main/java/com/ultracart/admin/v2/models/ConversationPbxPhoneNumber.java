@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationPbxPhoneNumber
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-13T09:50:09.315-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-13T13:49:35.514-05:00")
 
 
 
@@ -91,6 +91,9 @@ public class ConversationPbxPhoneNumber {
   @SerializedName("action_target")
   private String actionTarget = null;
 
+  @SerializedName("address_sid")
+  private String addressSid = null;
+
   @SerializedName("conversation_pbx_phone_number_uuid")
   private String conversationPbxPhoneNumberUuid = null;
 
@@ -137,6 +140,24 @@ public class ConversationPbxPhoneNumber {
 
   public void setActionTarget(String actionTarget) {
     this.actionTarget = actionTarget;
+  }
+
+  public ConversationPbxPhoneNumber addressSid(String addressSid) {
+    this.addressSid = addressSid;
+    return this;
+  }
+
+   /**
+   * Twilio Address SID linked to this phone number for regulatory compliance
+   * @return addressSid
+  **/
+  @ApiModelProperty(value = "Twilio Address SID linked to this phone number for regulatory compliance")
+  public String getAddressSid() {
+    return addressSid;
+  }
+
+  public void setAddressSid(String addressSid) {
+    this.addressSid = addressSid;
   }
 
   public ConversationPbxPhoneNumber conversationPbxPhoneNumberUuid(String conversationPbxPhoneNumberUuid) {
@@ -223,6 +244,7 @@ public class ConversationPbxPhoneNumber {
     ConversationPbxPhoneNumber conversationPbxPhoneNumber = (ConversationPbxPhoneNumber) o;
     return Objects.equals(this.action, conversationPbxPhoneNumber.action) &&
         Objects.equals(this.actionTarget, conversationPbxPhoneNumber.actionTarget) &&
+        Objects.equals(this.addressSid, conversationPbxPhoneNumber.addressSid) &&
         Objects.equals(this.conversationPbxPhoneNumberUuid, conversationPbxPhoneNumber.conversationPbxPhoneNumberUuid) &&
         Objects.equals(this.deletionProtected, conversationPbxPhoneNumber.deletionProtected) &&
         Objects.equals(this.merchantId, conversationPbxPhoneNumber.merchantId) &&
@@ -231,7 +253,7 @@ public class ConversationPbxPhoneNumber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, actionTarget, conversationPbxPhoneNumberUuid, deletionProtected, merchantId, phoneNumber);
+    return Objects.hash(action, actionTarget, addressSid, conversationPbxPhoneNumberUuid, deletionProtected, merchantId, phoneNumber);
   }
 
 
@@ -242,6 +264,7 @@ public class ConversationPbxPhoneNumber {
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    actionTarget: ").append(toIndentedString(actionTarget)).append("\n");
+    sb.append("    addressSid: ").append(toIndentedString(addressSid)).append("\n");
     sb.append("    conversationPbxPhoneNumberUuid: ").append(toIndentedString(conversationPbxPhoneNumberUuid)).append("\n");
     sb.append("    deletionProtected: ").append(toIndentedString(deletionProtected)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
