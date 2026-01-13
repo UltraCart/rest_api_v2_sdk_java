@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationPbxPhoneNumber
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-07T11:39:26.084-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-13T09:50:09.315-05:00")
 
 
 
@@ -94,6 +94,9 @@ public class ConversationPbxPhoneNumber {
   @SerializedName("conversation_pbx_phone_number_uuid")
   private String conversationPbxPhoneNumberUuid = null;
 
+  @SerializedName("deletion_protected")
+  private Boolean deletionProtected = null;
+
   @SerializedName("merchant_id")
   private String merchantId = null;
 
@@ -154,6 +157,24 @@ public class ConversationPbxPhoneNumber {
     this.conversationPbxPhoneNumberUuid = conversationPbxPhoneNumberUuid;
   }
 
+  public ConversationPbxPhoneNumber deletionProtected(Boolean deletionProtected) {
+    this.deletionProtected = deletionProtected;
+    return this;
+  }
+
+   /**
+   * If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.
+   * @return deletionProtected
+  **/
+  @ApiModelProperty(value = "If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.")
+  public Boolean isDeletionProtected() {
+    return deletionProtected;
+  }
+
+  public void setDeletionProtected(Boolean deletionProtected) {
+    this.deletionProtected = deletionProtected;
+  }
+
   public ConversationPbxPhoneNumber merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
@@ -203,13 +224,14 @@ public class ConversationPbxPhoneNumber {
     return Objects.equals(this.action, conversationPbxPhoneNumber.action) &&
         Objects.equals(this.actionTarget, conversationPbxPhoneNumber.actionTarget) &&
         Objects.equals(this.conversationPbxPhoneNumberUuid, conversationPbxPhoneNumber.conversationPbxPhoneNumberUuid) &&
+        Objects.equals(this.deletionProtected, conversationPbxPhoneNumber.deletionProtected) &&
         Objects.equals(this.merchantId, conversationPbxPhoneNumber.merchantId) &&
         Objects.equals(this.phoneNumber, conversationPbxPhoneNumber.phoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, actionTarget, conversationPbxPhoneNumberUuid, merchantId, phoneNumber);
+    return Objects.hash(action, actionTarget, conversationPbxPhoneNumberUuid, deletionProtected, merchantId, phoneNumber);
   }
 
 
@@ -221,6 +243,7 @@ public class ConversationPbxPhoneNumber {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    actionTarget: ").append(toIndentedString(actionTarget)).append("\n");
     sb.append("    conversationPbxPhoneNumberUuid: ").append(toIndentedString(conversationPbxPhoneNumberUuid)).append("\n");
+    sb.append("    deletionProtected: ").append(toIndentedString(deletionProtected)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("}");
