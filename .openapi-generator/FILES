@@ -189,6 +189,9 @@ docs/ConversationMessagesResponse.md
 docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
+docs/ConversationPbxAddress.md
+docs/ConversationPbxAddressResponse.md
+docs/ConversationPbxAddressesResponse.md
 docs/ConversationPbxAgent.md
 docs/ConversationPbxAgentResponse.md
 docs/ConversationPbxAgentsResponse.md
@@ -198,6 +201,8 @@ docs/ConversationPbxAudioUploadUrl.md
 docs/ConversationPbxAudioUploadUrlResponse.md
 docs/ConversationPbxAudioUsageResponse.md
 docs/ConversationPbxAudiosResponse.md
+docs/ConversationPbxAvailablePhoneNumber.md
+docs/ConversationPbxAvailablePhoneNumbersResponse.md
 docs/ConversationPbxCustomerSnapshotRequest.md
 docs/ConversationPbxCustomerSnapshotResponse.md
 docs/ConversationPbxMenu.md
@@ -205,6 +210,7 @@ docs/ConversationPbxMenuMapping.md
 docs/ConversationPbxMenuResponse.md
 docs/ConversationPbxMenusResponse.md
 docs/ConversationPbxPhoneNumber.md
+docs/ConversationPbxPhoneNumberPurchaseRequest.md
 docs/ConversationPbxPhoneNumberResponse.md
 docs/ConversationPbxPhoneNumbersResponse.md
 docs/ConversationPbxQueue.md
@@ -1140,6 +1146,9 @@ src/main/java/com/ultracart/admin/v2/models/ConversationMessagesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMultimediaUploadUrl.java
 src/main/java/com/ultracart/admin/v2/models/ConversationMultimediaUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationParticipant.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPbxAddress.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPbxAddressResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPbxAddressesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxAgent.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxAgentResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxAgentsResponse.java
@@ -1149,6 +1158,8 @@ src/main/java/com/ultracart/admin/v2/models/ConversationPbxAudioUploadUrl.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxAudioUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxAudioUsageResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxAudiosResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPbxAvailablePhoneNumber.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPbxAvailablePhoneNumbersResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxCustomerSnapshotRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxCustomerSnapshotResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxMenu.java
@@ -1156,6 +1167,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationPbxMenuMapping.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxMenuResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxMenusResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxPhoneNumber.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPbxPhoneNumberPurchaseRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxPhoneNumberResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxPhoneNumbersResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxQueue.java

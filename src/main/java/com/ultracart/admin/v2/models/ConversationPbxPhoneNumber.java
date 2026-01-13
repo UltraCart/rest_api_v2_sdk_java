@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxPhoneNumber
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-07T11:55:05.427-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T10:05:33.929-05:00[America/Indianapolis]")
 public class ConversationPbxPhoneNumber {
   /**
    * Action
@@ -113,6 +113,10 @@ public class ConversationPbxPhoneNumber {
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_PHONE_NUMBER_UUID = "conversation_pbx_phone_number_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_PHONE_NUMBER_UUID)
   private String conversationPbxPhoneNumberUuid;
+
+  public static final String SERIALIZED_NAME_DELETION_PROTECTED = "deletion_protected";
+  @SerializedName(SERIALIZED_NAME_DELETION_PROTECTED)
+  private Boolean deletionProtected;
 
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
@@ -194,6 +198,29 @@ public class ConversationPbxPhoneNumber {
   }
 
 
+  public ConversationPbxPhoneNumber deletionProtected(Boolean deletionProtected) {
+    
+    this.deletionProtected = deletionProtected;
+    return this;
+  }
+
+   /**
+   * If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.
+   * @return deletionProtected
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.")
+
+  public Boolean getDeletionProtected() {
+    return deletionProtected;
+  }
+
+
+  public void setDeletionProtected(Boolean deletionProtected) {
+    this.deletionProtected = deletionProtected;
+  }
+
+
   public ConversationPbxPhoneNumber merchantId(String merchantId) {
     
     this.merchantId = merchantId;
@@ -253,13 +280,14 @@ public class ConversationPbxPhoneNumber {
     return Objects.equals(this.action, conversationPbxPhoneNumber.action) &&
         Objects.equals(this.actionTarget, conversationPbxPhoneNumber.actionTarget) &&
         Objects.equals(this.conversationPbxPhoneNumberUuid, conversationPbxPhoneNumber.conversationPbxPhoneNumberUuid) &&
+        Objects.equals(this.deletionProtected, conversationPbxPhoneNumber.deletionProtected) &&
         Objects.equals(this.merchantId, conversationPbxPhoneNumber.merchantId) &&
         Objects.equals(this.phoneNumber, conversationPbxPhoneNumber.phoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, actionTarget, conversationPbxPhoneNumberUuid, merchantId, phoneNumber);
+    return Objects.hash(action, actionTarget, conversationPbxPhoneNumberUuid, deletionProtected, merchantId, phoneNumber);
   }
 
   @Override
@@ -269,6 +297,7 @@ public class ConversationPbxPhoneNumber {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    actionTarget: ").append(toIndentedString(actionTarget)).append("\n");
     sb.append("    conversationPbxPhoneNumberUuid: ").append(toIndentedString(conversationPbxPhoneNumberUuid)).append("\n");
+    sb.append("    deletionProtected: ").append(toIndentedString(deletionProtected)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("}");
@@ -296,6 +325,7 @@ public class ConversationPbxPhoneNumber {
     openapiFields.add("action");
     openapiFields.add("action_target");
     openapiFields.add("conversation_pbx_phone_number_uuid");
+    openapiFields.add("deletion_protected");
     openapiFields.add("merchant_id");
     openapiFields.add("phone_number");
 
