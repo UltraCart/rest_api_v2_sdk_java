@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T10:05:33.929-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T14:03:35-05:00[America/Indianapolis]")
 public class ConversationPbxAddress {
   public static final String SERIALIZED_NAME_ADDRESS_SID = "address_sid";
   @SerializedName(SERIALIZED_NAME_ADDRESS_SID)
@@ -88,6 +88,10 @@ public class ConversationPbxAddress {
   public static final String SERIALIZED_NAME_STREET = "street";
   @SerializedName(SERIALIZED_NAME_STREET)
   private String street;
+
+  public static final String SERIALIZED_NAME_VALID = "valid";
+  @SerializedName(SERIALIZED_NAME_VALID)
+  private Boolean valid;
 
   public static final String SERIALIZED_NAME_VALIDATED = "validated";
   @SerializedName(SERIALIZED_NAME_VALIDATED)
@@ -330,6 +334,29 @@ public class ConversationPbxAddress {
   }
 
 
+  public ConversationPbxAddress valid(Boolean valid) {
+    
+    this.valid = valid;
+    return this;
+  }
+
+   /**
+   * Whether the address is valid (validated or verified)
+   * @return valid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the address is valid (validated or verified)")
+
+  public Boolean getValid() {
+    return valid;
+  }
+
+
+  public void setValid(Boolean valid) {
+    this.valid = valid;
+  }
+
+
   public ConversationPbxAddress validated(Boolean validated) {
     
     this.validated = validated;
@@ -396,13 +423,14 @@ public class ConversationPbxAddress {
         Objects.equals(this.postalCode, conversationPbxAddress.postalCode) &&
         Objects.equals(this.region, conversationPbxAddress.region) &&
         Objects.equals(this.street, conversationPbxAddress.street) &&
+        Objects.equals(this.valid, conversationPbxAddress.valid) &&
         Objects.equals(this.validated, conversationPbxAddress.validated) &&
         Objects.equals(this.verified, conversationPbxAddress.verified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressSid, city, conversationPbxAddressUuid, countryCode, customerName, friendlyName, merchantId, postalCode, region, street, validated, verified);
+    return Objects.hash(addressSid, city, conversationPbxAddressUuid, countryCode, customerName, friendlyName, merchantId, postalCode, region, street, valid, validated, verified);
   }
 
   @Override
@@ -419,6 +447,7 @@ public class ConversationPbxAddress {
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
+    sb.append("    valid: ").append(toIndentedString(valid)).append("\n");
     sb.append("    validated: ").append(toIndentedString(validated)).append("\n");
     sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("}");
@@ -453,6 +482,7 @@ public class ConversationPbxAddress {
     openapiFields.add("postal_code");
     openapiFields.add("region");
     openapiFields.add("street");
+    openapiFields.add("valid");
     openapiFields.add("validated");
     openapiFields.add("verified");
 

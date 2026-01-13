@@ -12,6 +12,7 @@
 |**friendlyName** | **String** | Friendly formatted phone number |  [optional] |
 |**locality** | **String** | City/Locality |  [optional] |
 |**mms** | **Boolean** | MMS capability |  [optional] |
+|**monthlyCost** | **BigDecimal** | Monthly cost for this phone number |  [optional] |
 |**phoneNumber** | **String** | Phone number in E.164 format |  [optional] |
 |**region** | **String** | State/Province/Region |  [optional] |
 |**sms** | **Boolean** | SMS capability |  [optional] |

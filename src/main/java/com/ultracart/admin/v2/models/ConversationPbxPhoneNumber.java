@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxPhoneNumber
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T10:05:33.929-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T14:03:35-05:00[America/Indianapolis]")
 public class ConversationPbxPhoneNumber {
   /**
    * Action
@@ -109,6 +109,10 @@ public class ConversationPbxPhoneNumber {
   public static final String SERIALIZED_NAME_ACTION_TARGET = "action_target";
   @SerializedName(SERIALIZED_NAME_ACTION_TARGET)
   private String actionTarget;
+
+  public static final String SERIALIZED_NAME_ADDRESS_SID = "address_sid";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_SID)
+  private String addressSid;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_PHONE_NUMBER_UUID = "conversation_pbx_phone_number_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_PHONE_NUMBER_UUID)
@@ -172,6 +176,29 @@ public class ConversationPbxPhoneNumber {
 
   public void setActionTarget(String actionTarget) {
     this.actionTarget = actionTarget;
+  }
+
+
+  public ConversationPbxPhoneNumber addressSid(String addressSid) {
+    
+    this.addressSid = addressSid;
+    return this;
+  }
+
+   /**
+   * Twilio Address SID linked to this phone number for regulatory compliance
+   * @return addressSid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Twilio Address SID linked to this phone number for regulatory compliance")
+
+  public String getAddressSid() {
+    return addressSid;
+  }
+
+
+  public void setAddressSid(String addressSid) {
+    this.addressSid = addressSid;
   }
 
 
@@ -279,6 +306,7 @@ public class ConversationPbxPhoneNumber {
     ConversationPbxPhoneNumber conversationPbxPhoneNumber = (ConversationPbxPhoneNumber) o;
     return Objects.equals(this.action, conversationPbxPhoneNumber.action) &&
         Objects.equals(this.actionTarget, conversationPbxPhoneNumber.actionTarget) &&
+        Objects.equals(this.addressSid, conversationPbxPhoneNumber.addressSid) &&
         Objects.equals(this.conversationPbxPhoneNumberUuid, conversationPbxPhoneNumber.conversationPbxPhoneNumberUuid) &&
         Objects.equals(this.deletionProtected, conversationPbxPhoneNumber.deletionProtected) &&
         Objects.equals(this.merchantId, conversationPbxPhoneNumber.merchantId) &&
@@ -287,7 +315,7 @@ public class ConversationPbxPhoneNumber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, actionTarget, conversationPbxPhoneNumberUuid, deletionProtected, merchantId, phoneNumber);
+    return Objects.hash(action, actionTarget, addressSid, conversationPbxPhoneNumberUuid, deletionProtected, merchantId, phoneNumber);
   }
 
   @Override
@@ -296,6 +324,7 @@ public class ConversationPbxPhoneNumber {
     sb.append("class ConversationPbxPhoneNumber {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    actionTarget: ").append(toIndentedString(actionTarget)).append("\n");
+    sb.append("    addressSid: ").append(toIndentedString(addressSid)).append("\n");
     sb.append("    conversationPbxPhoneNumberUuid: ").append(toIndentedString(conversationPbxPhoneNumberUuid)).append("\n");
     sb.append("    deletionProtected: ").append(toIndentedString(deletionProtected)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
@@ -324,6 +353,7 @@ public class ConversationPbxPhoneNumber {
     openapiFields = new HashSet<String>();
     openapiFields.add("action");
     openapiFields.add("action_target");
+    openapiFields.add("address_sid");
     openapiFields.add("conversation_pbx_phone_number_uuid");
     openapiFields.add("deletion_protected");
     openapiFields.add("merchant_id");
@@ -360,6 +390,9 @@ public class ConversationPbxPhoneNumber {
       }
       if (jsonObj.get("action_target") != null && !jsonObj.get("action_target").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action_target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action_target").toString()));
+      }
+      if (jsonObj.get("address_sid") != null && !jsonObj.get("address_sid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address_sid").toString()));
       }
       if (jsonObj.get("conversation_pbx_phone_number_uuid") != null && !jsonObj.get("conversation_pbx_phone_number_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_phone_number_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_phone_number_uuid").toString()));

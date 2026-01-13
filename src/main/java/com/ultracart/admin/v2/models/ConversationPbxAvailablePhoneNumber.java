@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAvailablePhoneNumber
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T10:05:33.929-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T14:03:35-05:00[America/Indianapolis]")
 public class ConversationPbxAvailablePhoneNumber {
   /**
    * Address requirements
@@ -119,6 +120,10 @@ public class ConversationPbxAvailablePhoneNumber {
   public static final String SERIALIZED_NAME_MMS = "mms";
   @SerializedName(SERIALIZED_NAME_MMS)
   private Boolean mms;
+
+  public static final String SERIALIZED_NAME_MONTHLY_COST = "monthly_cost";
+  @SerializedName(SERIALIZED_NAME_MONTHLY_COST)
+  private BigDecimal monthlyCost;
 
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
@@ -254,6 +259,29 @@ public class ConversationPbxAvailablePhoneNumber {
   }
 
 
+  public ConversationPbxAvailablePhoneNumber monthlyCost(BigDecimal monthlyCost) {
+    
+    this.monthlyCost = monthlyCost;
+    return this;
+  }
+
+   /**
+   * Monthly cost for this phone number
+   * @return monthlyCost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Monthly cost for this phone number")
+
+  public BigDecimal getMonthlyCost() {
+    return monthlyCost;
+  }
+
+
+  public void setMonthlyCost(BigDecimal monthlyCost) {
+    this.monthlyCost = monthlyCost;
+  }
+
+
   public ConversationPbxAvailablePhoneNumber phoneNumber(String phoneNumber) {
     
     this.phoneNumber = phoneNumber;
@@ -361,6 +389,7 @@ public class ConversationPbxAvailablePhoneNumber {
         Objects.equals(this.friendlyName, conversationPbxAvailablePhoneNumber.friendlyName) &&
         Objects.equals(this.locality, conversationPbxAvailablePhoneNumber.locality) &&
         Objects.equals(this.mms, conversationPbxAvailablePhoneNumber.mms) &&
+        Objects.equals(this.monthlyCost, conversationPbxAvailablePhoneNumber.monthlyCost) &&
         Objects.equals(this.phoneNumber, conversationPbxAvailablePhoneNumber.phoneNumber) &&
         Objects.equals(this.region, conversationPbxAvailablePhoneNumber.region) &&
         Objects.equals(this.sms, conversationPbxAvailablePhoneNumber.sms) &&
@@ -369,7 +398,7 @@ public class ConversationPbxAvailablePhoneNumber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressRequirements, country, friendlyName, locality, mms, phoneNumber, region, sms, voice);
+    return Objects.hash(addressRequirements, country, friendlyName, locality, mms, monthlyCost, phoneNumber, region, sms, voice);
   }
 
   @Override
@@ -381,6 +410,7 @@ public class ConversationPbxAvailablePhoneNumber {
     sb.append("    friendlyName: ").append(toIndentedString(friendlyName)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
     sb.append("    mms: ").append(toIndentedString(mms)).append("\n");
+    sb.append("    monthlyCost: ").append(toIndentedString(monthlyCost)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
@@ -412,6 +442,7 @@ public class ConversationPbxAvailablePhoneNumber {
     openapiFields.add("friendly_name");
     openapiFields.add("locality");
     openapiFields.add("mms");
+    openapiFields.add("monthly_cost");
     openapiFields.add("phone_number");
     openapiFields.add("region");
     openapiFields.add("sms");

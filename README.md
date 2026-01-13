@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-01-13T10:05:33.929-05:00[America/Indianapolis]
+- Build date: 2026-01-13T14:03:35-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.41</version>
+    <version>4.1.42</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.41"
+     implementation "com.ultracart:rest-sdk:4.1.42"
   }
 ```
 
@@ -1646,6 +1646,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.42 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
 | 4.1.41 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
 | 4.1.40 | 01/07/2026 | convseration - AI agent profile voice settings |
 | 4.1.39 | 12/31/2025 | conversations AI - queue AI settings |
