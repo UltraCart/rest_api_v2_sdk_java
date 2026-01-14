@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2026-01-13T13:49:35.514-05:00
+  - Build date: 2026-01-14T09:46:50.536-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.42</version>
+  <version>3.11.43</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.42"
+compile "com.ultracart:rest-sdk:3.11.43"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.42.jar`
+* `target/rest-sdk-3.11.43.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1658,6 +1658,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.43 | 01/14/2026 | coupons - generate one time coupons prefix support (optional) |
 | 3.11.42 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
 | 3.11.41 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
 | 3.11.40 | 01/07/2026 | convseration - AI agent profile voice settings |

@@ -30,7 +30,7 @@ import java.io.IOException;
 /**
  * CouponCodesRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-13T13:49:35.514-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-14T09:46:50.536-05:00")
 
 
 
@@ -46,6 +46,9 @@ public class CouponCodesRequest {
 
   @SerializedName("metadata")
   private ResponseMetadata metadata = null;
+
+  @SerializedName("prefix")
+  private String prefix = null;
 
   @SerializedName("quantity")
   private Integer quantity = null;
@@ -128,6 +131,24 @@ public class CouponCodesRequest {
     this.metadata = metadata;
   }
 
+  public CouponCodesRequest prefix(String prefix) {
+    this.prefix = prefix;
+    return this;
+  }
+
+   /**
+   * Optional prefix for generated codes
+   * @return prefix
+  **/
+  @ApiModelProperty(value = "Optional prefix for generated codes")
+  public String getPrefix() {
+    return prefix;
+  }
+
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
+  }
+
   public CouponCodesRequest quantity(Integer quantity) {
     this.quantity = quantity;
     return this;
@@ -196,6 +217,7 @@ public class CouponCodesRequest {
         Objects.equals(this.expirationDts, couponCodesRequest.expirationDts) &&
         Objects.equals(this.expirationSeconds, couponCodesRequest.expirationSeconds) &&
         Objects.equals(this.metadata, couponCodesRequest.metadata) &&
+        Objects.equals(this.prefix, couponCodesRequest.prefix) &&
         Objects.equals(this.quantity, couponCodesRequest.quantity) &&
         Objects.equals(this.success, couponCodesRequest.success) &&
         Objects.equals(this.warning, couponCodesRequest.warning);
@@ -203,7 +225,7 @@ public class CouponCodesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, expirationDts, expirationSeconds, metadata, quantity, success, warning);
+    return Objects.hash(error, expirationDts, expirationSeconds, metadata, prefix, quantity, success, warning);
   }
 
 
@@ -216,6 +238,7 @@ public class CouponCodesRequest {
     sb.append("    expirationDts: ").append(toIndentedString(expirationDts)).append("\n");
     sb.append("    expirationSeconds: ").append(toIndentedString(expirationSeconds)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
