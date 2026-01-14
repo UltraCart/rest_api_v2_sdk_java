@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponCodesRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T14:03:35-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-14T10:02:11.808-05:00[America/Indianapolis]")
 public class CouponCodesRequest {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
@@ -67,6 +67,10 @@ public class CouponCodesRequest {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private ResponseMetadata metadata;
+
+  public static final String SERIALIZED_NAME_PREFIX = "prefix";
+  @SerializedName(SERIALIZED_NAME_PREFIX)
+  private String prefix;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
@@ -175,6 +179,29 @@ public class CouponCodesRequest {
   }
 
 
+  public CouponCodesRequest prefix(String prefix) {
+    
+    this.prefix = prefix;
+    return this;
+  }
+
+   /**
+   * Optional prefix for generated codes
+   * @return prefix
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional prefix for generated codes")
+
+  public String getPrefix() {
+    return prefix;
+  }
+
+
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
+  }
+
+
   public CouponCodesRequest quantity(Integer quantity) {
     
     this.quantity = quantity;
@@ -258,6 +285,7 @@ public class CouponCodesRequest {
         Objects.equals(this.expirationDts, couponCodesRequest.expirationDts) &&
         Objects.equals(this.expirationSeconds, couponCodesRequest.expirationSeconds) &&
         Objects.equals(this.metadata, couponCodesRequest.metadata) &&
+        Objects.equals(this.prefix, couponCodesRequest.prefix) &&
         Objects.equals(this.quantity, couponCodesRequest.quantity) &&
         Objects.equals(this.success, couponCodesRequest.success) &&
         Objects.equals(this.warning, couponCodesRequest.warning);
@@ -265,7 +293,7 @@ public class CouponCodesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, expirationDts, expirationSeconds, metadata, quantity, success, warning);
+    return Objects.hash(error, expirationDts, expirationSeconds, metadata, prefix, quantity, success, warning);
   }
 
   @Override
@@ -276,6 +304,7 @@ public class CouponCodesRequest {
     sb.append("    expirationDts: ").append(toIndentedString(expirationDts)).append("\n");
     sb.append("    expirationSeconds: ").append(toIndentedString(expirationSeconds)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
@@ -305,6 +334,7 @@ public class CouponCodesRequest {
     openapiFields.add("expiration_dts");
     openapiFields.add("expiration_seconds");
     openapiFields.add("metadata");
+    openapiFields.add("prefix");
     openapiFields.add("quantity");
     openapiFields.add("success");
     openapiFields.add("warning");
@@ -345,6 +375,9 @@ public class CouponCodesRequest {
       // validate the optional field `metadata`
       if (jsonObj.getAsJsonObject("metadata") != null) {
         ResponseMetadata.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+      }
+      if (jsonObj.get("prefix") != null && !jsonObj.get("prefix").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("prefix").toString()));
       }
       // validate the optional field `warning`
       if (jsonObj.getAsJsonObject("warning") != null) {
