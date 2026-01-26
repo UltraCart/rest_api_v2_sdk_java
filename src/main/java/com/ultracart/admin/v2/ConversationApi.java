@@ -71,9 +71,13 @@ import com.ultracart.admin.v2.models.ConversationPbxAudiosResponse;
 import com.ultracart.admin.v2.models.ConversationPbxAvailablePhoneNumbersResponse;
 import com.ultracart.admin.v2.models.ConversationPbxCustomerSnapshotRequest;
 import com.ultracart.admin.v2.models.ConversationPbxCustomerSnapshotResponse;
+import com.ultracart.admin.v2.models.ConversationPbxHardwarePhone;
+import com.ultracart.admin.v2.models.ConversationPbxHardwarePhoneResponse;
+import com.ultracart.admin.v2.models.ConversationPbxHardwarePhonesResponse;
 import com.ultracart.admin.v2.models.ConversationPbxMenu;
 import com.ultracart.admin.v2.models.ConversationPbxMenuResponse;
 import com.ultracart.admin.v2.models.ConversationPbxMenusResponse;
+import com.ultracart.admin.v2.models.ConversationPbxPhoneManufacturersResponse;
 import com.ultracart.admin.v2.models.ConversationPbxPhoneNumber;
 import com.ultracart.admin.v2.models.ConversationPbxPhoneNumberPurchaseRequest;
 import com.ultracart.admin.v2.models.ConversationPbxPhoneNumberResponse;
@@ -1139,6 +1143,129 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = deletePbxAudioValidateBeforeCall(conversationPbxAudioUuid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationPbxAudioResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deletePbxHardwarePhone
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deletePbxHardwarePhoneCall(String conversationPbxHardwarePhoneUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}"
+            .replaceAll("\\{" + "conversationPbxHardwarePhoneUuid" + "\\}", apiClient.escapeString(conversationPbxHardwarePhoneUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deletePbxHardwarePhoneValidateBeforeCall(String conversationPbxHardwarePhoneUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+        if (conversationPbxHardwarePhoneUuid == null) {
+            throw new ApiException("Missing the required parameter 'conversationPbxHardwarePhoneUuid' when calling deletePbxHardwarePhone(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deletePbxHardwarePhoneCall(conversationPbxHardwarePhoneUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete pbx hardware phone
+     * Delete a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @return ConversationPbxHardwarePhoneResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxHardwarePhoneResponse deletePbxHardwarePhone(String conversationPbxHardwarePhoneUuid) throws ApiException {
+        ApiResponse<ConversationPbxHardwarePhoneResponse> resp = deletePbxHardwarePhoneWithHttpInfo(conversationPbxHardwarePhoneUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Delete pbx hardware phone
+     * Delete a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @return ApiResponse&lt;ConversationPbxHardwarePhoneResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxHardwarePhoneResponse> deletePbxHardwarePhoneWithHttpInfo(String conversationPbxHardwarePhoneUuid) throws ApiException {
+        com.squareup.okhttp.Call call = deletePbxHardwarePhoneValidateBeforeCall(conversationPbxHardwarePhoneUuid, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete pbx hardware phone (asynchronously)
+     * Delete a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deletePbxHardwarePhoneAsync(String conversationPbxHardwarePhoneUuid, final ApiCallback<ConversationPbxHardwarePhoneResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deletePbxHardwarePhoneValidateBeforeCall(conversationPbxHardwarePhoneUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6220,6 +6347,355 @@ public class ConversationApi {
         return call;
     }
     /**
+     * Build call for getPbxHardwarePhone
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPbxHardwarePhoneCall(String conversationPbxHardwarePhoneUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}"
+            .replaceAll("\\{" + "conversationPbxHardwarePhoneUuid" + "\\}", apiClient.escapeString(conversationPbxHardwarePhoneUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPbxHardwarePhoneValidateBeforeCall(String conversationPbxHardwarePhoneUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+        if (conversationPbxHardwarePhoneUuid == null) {
+            throw new ApiException("Missing the required parameter 'conversationPbxHardwarePhoneUuid' when calling getPbxHardwarePhone(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getPbxHardwarePhoneCall(conversationPbxHardwarePhoneUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get pbx hardware phone
+     * Retrieve a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @return ConversationPbxHardwarePhoneResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxHardwarePhoneResponse getPbxHardwarePhone(String conversationPbxHardwarePhoneUuid) throws ApiException {
+        ApiResponse<ConversationPbxHardwarePhoneResponse> resp = getPbxHardwarePhoneWithHttpInfo(conversationPbxHardwarePhoneUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get pbx hardware phone
+     * Retrieve a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @return ApiResponse&lt;ConversationPbxHardwarePhoneResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxHardwarePhoneResponse> getPbxHardwarePhoneWithHttpInfo(String conversationPbxHardwarePhoneUuid) throws ApiException {
+        com.squareup.okhttp.Call call = getPbxHardwarePhoneValidateBeforeCall(conversationPbxHardwarePhoneUuid, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get pbx hardware phone (asynchronously)
+     * Retrieve a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPbxHardwarePhoneAsync(String conversationPbxHardwarePhoneUuid, final ApiCallback<ConversationPbxHardwarePhoneResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPbxHardwarePhoneValidateBeforeCall(conversationPbxHardwarePhoneUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getPbxHardwarePhoneManufacturers
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPbxHardwarePhoneManufacturersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/hardware_phone/manufacturers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPbxHardwarePhoneManufacturersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getPbxHardwarePhoneManufacturersCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get pbx hardware phone manufacturers
+     * Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+     * @return ConversationPbxPhoneManufacturersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxPhoneManufacturersResponse getPbxHardwarePhoneManufacturers() throws ApiException {
+        ApiResponse<ConversationPbxPhoneManufacturersResponse> resp = getPbxHardwarePhoneManufacturersWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get pbx hardware phone manufacturers
+     * Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+     * @return ApiResponse&lt;ConversationPbxPhoneManufacturersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxPhoneManufacturersResponse> getPbxHardwarePhoneManufacturersWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getPbxHardwarePhoneManufacturersValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxPhoneManufacturersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get pbx hardware phone manufacturers (asynchronously)
+     * Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPbxHardwarePhoneManufacturersAsync(final ApiCallback<ConversationPbxPhoneManufacturersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPbxHardwarePhoneManufacturersValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxPhoneManufacturersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getPbxHardwarePhones
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPbxHardwarePhonesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/hardware_phone";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPbxHardwarePhonesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getPbxHardwarePhonesCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get pbx hardware phones
+     * Retrieve pbx hardware phones 
+     * @return ConversationPbxHardwarePhonesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxHardwarePhonesResponse getPbxHardwarePhones() throws ApiException {
+        ApiResponse<ConversationPbxHardwarePhonesResponse> resp = getPbxHardwarePhonesWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get pbx hardware phones
+     * Retrieve pbx hardware phones 
+     * @return ApiResponse&lt;ConversationPbxHardwarePhonesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxHardwarePhonesResponse> getPbxHardwarePhonesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getPbxHardwarePhonesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhonesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get pbx hardware phones (asynchronously)
+     * Retrieve pbx hardware phones 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPbxHardwarePhonesAsync(final ApiCallback<ConversationPbxHardwarePhonesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPbxHardwarePhonesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhonesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getPbxMenu
      * @param conversationPbxMenuUuid  (required)
      * @param progressListener Progress listener
@@ -8992,6 +9468,128 @@ public class ConversationApi {
         return call;
     }
     /**
+     * Build call for insertPbxHardwarePhone
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertPbxHardwarePhoneCall(ConversationPbxHardwarePhone pbxHardwarePhone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = pbxHardwarePhone;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/hardware_phone";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertPbxHardwarePhoneValidateBeforeCall(ConversationPbxHardwarePhone pbxHardwarePhone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'pbxHardwarePhone' is set
+        if (pbxHardwarePhone == null) {
+            throw new ApiException("Missing the required parameter 'pbxHardwarePhone' when calling insertPbxHardwarePhone(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertPbxHardwarePhoneCall(pbxHardwarePhone, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert pbx hardware phone
+     * Insert a pbx hardware phone 
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @return ConversationPbxHardwarePhoneResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxHardwarePhoneResponse insertPbxHardwarePhone(ConversationPbxHardwarePhone pbxHardwarePhone) throws ApiException {
+        ApiResponse<ConversationPbxHardwarePhoneResponse> resp = insertPbxHardwarePhoneWithHttpInfo(pbxHardwarePhone);
+        return resp.getData();
+    }
+
+    /**
+     * Insert pbx hardware phone
+     * Insert a pbx hardware phone 
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @return ApiResponse&lt;ConversationPbxHardwarePhoneResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxHardwarePhoneResponse> insertPbxHardwarePhoneWithHttpInfo(ConversationPbxHardwarePhone pbxHardwarePhone) throws ApiException {
+        com.squareup.okhttp.Call call = insertPbxHardwarePhoneValidateBeforeCall(pbxHardwarePhone, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert pbx hardware phone (asynchronously)
+     * Insert a pbx hardware phone 
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertPbxHardwarePhoneAsync(ConversationPbxHardwarePhone pbxHardwarePhone, final ApiCallback<ConversationPbxHardwarePhoneResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertPbxHardwarePhoneValidateBeforeCall(pbxHardwarePhone, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for insertPbxMenu
      * @param pbxMenu Pbx Menu (required)
      * @param progressListener Progress listener
@@ -10452,6 +11050,138 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = purchasePbxPhoneNumberValidateBeforeCall(phoneNumberPurchaseRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationPbxPhoneNumberResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for regeneratePasswordForPbxHardwarePhone
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call regeneratePasswordForPbxHardwarePhoneCall(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = pbxHardwarePhone;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}/regenerate_password"
+            .replaceAll("\\{" + "conversationPbxHardwarePhoneUuid" + "\\}", apiClient.escapeString(conversationPbxHardwarePhoneUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call regeneratePasswordForPbxHardwarePhoneValidateBeforeCall(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+        if (conversationPbxHardwarePhoneUuid == null) {
+            throw new ApiException("Missing the required parameter 'conversationPbxHardwarePhoneUuid' when calling regeneratePasswordForPbxHardwarePhone(Async)");
+        }
+        
+        // verify the required parameter 'pbxHardwarePhone' is set
+        if (pbxHardwarePhone == null) {
+            throw new ApiException("Missing the required parameter 'pbxHardwarePhone' when calling regeneratePasswordForPbxHardwarePhone(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = regeneratePasswordForPbxHardwarePhoneCall(conversationPbxHardwarePhoneUuid, pbxHardwarePhone, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update pbx hardware phone
+     * Update a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @return ConversationPbxHardwarePhoneResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxHardwarePhoneResponse regeneratePasswordForPbxHardwarePhone(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone) throws ApiException {
+        ApiResponse<ConversationPbxHardwarePhoneResponse> resp = regeneratePasswordForPbxHardwarePhoneWithHttpInfo(conversationPbxHardwarePhoneUuid, pbxHardwarePhone);
+        return resp.getData();
+    }
+
+    /**
+     * Update pbx hardware phone
+     * Update a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @return ApiResponse&lt;ConversationPbxHardwarePhoneResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxHardwarePhoneResponse> regeneratePasswordForPbxHardwarePhoneWithHttpInfo(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone) throws ApiException {
+        com.squareup.okhttp.Call call = regeneratePasswordForPbxHardwarePhoneValidateBeforeCall(conversationPbxHardwarePhoneUuid, pbxHardwarePhone, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update pbx hardware phone (asynchronously)
+     * Update a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call regeneratePasswordForPbxHardwarePhoneAsync(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone, final ApiCallback<ConversationPbxHardwarePhoneResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = regeneratePasswordForPbxHardwarePhoneValidateBeforeCall(conversationPbxHardwarePhoneUuid, pbxHardwarePhone, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -12278,6 +13008,138 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = updatePbxAudioValidateBeforeCall(conversationPbxAudioUuid, pbxAudio, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationPbxAudioResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updatePbxHardwarePhone
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updatePbxHardwarePhoneCall(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = pbxHardwarePhone;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}"
+            .replaceAll("\\{" + "conversationPbxHardwarePhoneUuid" + "\\}", apiClient.escapeString(conversationPbxHardwarePhoneUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updatePbxHardwarePhoneValidateBeforeCall(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+        if (conversationPbxHardwarePhoneUuid == null) {
+            throw new ApiException("Missing the required parameter 'conversationPbxHardwarePhoneUuid' when calling updatePbxHardwarePhone(Async)");
+        }
+        
+        // verify the required parameter 'pbxHardwarePhone' is set
+        if (pbxHardwarePhone == null) {
+            throw new ApiException("Missing the required parameter 'pbxHardwarePhone' when calling updatePbxHardwarePhone(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updatePbxHardwarePhoneCall(conversationPbxHardwarePhoneUuid, pbxHardwarePhone, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update pbx hardware phone
+     * Update a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @return ConversationPbxHardwarePhoneResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxHardwarePhoneResponse updatePbxHardwarePhone(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone) throws ApiException {
+        ApiResponse<ConversationPbxHardwarePhoneResponse> resp = updatePbxHardwarePhoneWithHttpInfo(conversationPbxHardwarePhoneUuid, pbxHardwarePhone);
+        return resp.getData();
+    }
+
+    /**
+     * Update pbx hardware phone
+     * Update a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @return ApiResponse&lt;ConversationPbxHardwarePhoneResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxHardwarePhoneResponse> updatePbxHardwarePhoneWithHttpInfo(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone) throws ApiException {
+        com.squareup.okhttp.Call call = updatePbxHardwarePhoneValidateBeforeCall(conversationPbxHardwarePhoneUuid, pbxHardwarePhone, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update pbx hardware phone (asynchronously)
+     * Update a pbx hardware phone 
+     * @param conversationPbxHardwarePhoneUuid  (required)
+     * @param pbxHardwarePhone Pbx Hardware Phone (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updatePbxHardwarePhoneAsync(String conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone, final ApiCallback<ConversationPbxHardwarePhoneResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updatePbxHardwarePhoneValidateBeforeCall(conversationPbxHardwarePhoneUuid, pbxHardwarePhone, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxHardwarePhoneResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
