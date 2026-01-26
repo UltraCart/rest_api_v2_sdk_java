@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-01-26T11:53:45.366-05:00[America/Indianapolis]
+- Build date: 2026-01-26T12:35:12.655-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.46</version>
+    <version>4.1.47</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.46"
+     implementation "com.ultracart:rest-sdk:4.1.47"
   }
 ```
 
@@ -1647,6 +1647,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.47 | 01/26/2026 | conversation - agent auth object chat admin/user properties |
 | 4.1.46 | 01/26/2026 | cart - expose utm array for use in abandon webhook only |
 | 4.1.45 | 01/26/2026 | added multimedia file size to ItemContentMultimedia object |
 | 4.1.44 | 01/26/2026 | conversations - ConversationDepartmentMember expose a flag for if the agent is AI |
