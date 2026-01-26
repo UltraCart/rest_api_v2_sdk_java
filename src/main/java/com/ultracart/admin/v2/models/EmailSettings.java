@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-14T10:02:11.808-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T10:06:44.169-05:00[America/Indianapolis]")
 public class EmailSettings {
   public static final String SERIALIZED_NAME_EMAILS_PER_DAY = "emails_per_day";
   @SerializedName(SERIALIZED_NAME_EMAILS_PER_DAY)

@@ -47,8 +47,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationDepartmentMember
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-14T10:02:11.808-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T10:06:44.169-05:00[America/Indianapolis]")
 public class ConversationDepartmentMember {
+  public static final String SERIALIZED_NAME_AI = "ai";
+  @SerializedName(SERIALIZED_NAME_AI)
+  private Boolean ai;
+
   public static final String SERIALIZED_NAME_MEMBER = "member";
   @SerializedName(SERIALIZED_NAME_MEMBER)
   private Boolean member;
@@ -63,6 +67,29 @@ public class ConversationDepartmentMember {
 
   public ConversationDepartmentMember() { 
   }
+
+  public ConversationDepartmentMember ai(Boolean ai) {
+    
+    this.ai = ai;
+    return this;
+  }
+
+   /**
+   * Get ai
+   * @return ai
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAi() {
+    return ai;
+  }
+
+
+  public void setAi(Boolean ai) {
+    this.ai = ai;
+  }
+
 
   public ConversationDepartmentMember member(Boolean member) {
     
@@ -143,20 +170,22 @@ public class ConversationDepartmentMember {
       return false;
     }
     ConversationDepartmentMember conversationDepartmentMember = (ConversationDepartmentMember) o;
-    return Objects.equals(this.member, conversationDepartmentMember.member) &&
+    return Objects.equals(this.ai, conversationDepartmentMember.ai) &&
+        Objects.equals(this.member, conversationDepartmentMember.member) &&
         Objects.equals(this.name, conversationDepartmentMember.name) &&
         Objects.equals(this.userId, conversationDepartmentMember.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(member, name, userId);
+    return Objects.hash(ai, member, name, userId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationDepartmentMember {\n");
+    sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
     sb.append("    member: ").append(toIndentedString(member)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
@@ -182,6 +211,7 @@ public class ConversationDepartmentMember {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("ai");
     openapiFields.add("member");
     openapiFields.add("name");
     openapiFields.add("user_id");
