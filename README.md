@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2026-01-26T10:36:45.386-05:00
+  - Build date: 2026-01-26T11:37:20.853-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.45</version>
+  <version>3.11.46</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.45"
+compile "com.ultracart:rest-sdk:3.11.46"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.45.jar`
+* `target/rest-sdk-3.11.46.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -765,6 +765,7 @@ Class | Method | HTTP request | Description
  - [CartSummary](docs/CartSummary.md)
  - [CartTaxes](docs/CartTaxes.md)
  - [CartUpsellAfter](docs/CartUpsellAfter.md)
+ - [CartUtm](docs/CartUtm.md)
  - [CartValidationRequest](docs/CartValidationRequest.md)
  - [CartValidationResponse](docs/CartValidationResponse.md)
  - [ChanelPartnerReasonCodesResponse](docs/ChanelPartnerReasonCodesResponse.md)
@@ -1658,6 +1659,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.46 | 01/26/2026 | cart - expose utm array for use in abandon webhook only |
 | 3.11.45 | 01/26/2026 | added multimedia file size to ItemContentMultimedia object |
 | 3.11.44 | 01/26/2026 | conversations - ConversationDepartmentMember expose a flag for if the agent is AI |
 | 3.11.43 | 01/14/2026 | coupons - generate one time coupons prefix support (optional) |

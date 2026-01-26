@@ -38,6 +38,7 @@ import com.ultracart.admin.v2.models.CartShipping;
 import com.ultracart.admin.v2.models.CartSummary;
 import com.ultracart.admin.v2.models.CartTaxes;
 import com.ultracart.admin.v2.models.CartUpsellAfter;
+import com.ultracart.admin.v2.models.CartUtm;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -48,7 +49,7 @@ import java.util.List;
 /**
  * Cart
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-26T10:36:45.386-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-26T11:37:20.853-05:00")
 
 
 
@@ -130,6 +131,9 @@ public class Cart {
 
   @SerializedName("upsell_after")
   private CartUpsellAfter upsellAfter = null;
+
+  @SerializedName("utms")
+  private List<CartUtm> utms = null;
 
   public Cart affiliate(CartAffiliate affiliate) {
     this.affiliate = affiliate;
@@ -623,6 +627,32 @@ public class Cart {
     this.upsellAfter = upsellAfter;
   }
 
+  public Cart utms(List<CartUtm> utms) {
+    this.utms = utms;
+    return this;
+  }
+
+  public Cart addUtmsItem(CartUtm utmsItem) {
+    if (this.utms == null) {
+      this.utms = new ArrayList<CartUtm>();
+    }
+    this.utms.add(utmsItem);
+    return this;
+  }
+
+   /**
+   * UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.
+   * @return utms
+  **/
+  @ApiModelProperty(value = "UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.")
+  public List<CartUtm> getUtms() {
+    return utms;
+  }
+
+  public void setUtms(List<CartUtm> utms) {
+    this.utms = utms;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -658,12 +688,13 @@ public class Cart {
         Objects.equals(this.shipping, cart.shipping) &&
         Objects.equals(this.summary, cart.summary) &&
         Objects.equals(this.taxes, cart.taxes) &&
-        Objects.equals(this.upsellAfter, cart.upsellAfter);
+        Objects.equals(this.upsellAfter, cart.upsellAfter) &&
+        Objects.equals(this.utms, cart.utms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliate, affiliateNetworkPixelOid, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, properties, settings, shipping, summary, taxes, upsellAfter);
+    return Objects.hash(affiliate, affiliateNetworkPixelOid, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, properties, settings, shipping, summary, taxes, upsellAfter, utms);
   }
 
 
@@ -698,6 +729,7 @@ public class Cart {
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
     sb.append("    upsellAfter: ").append(toIndentedString(upsellAfter)).append("\n");
+    sb.append("    utms: ").append(toIndentedString(utms)).append("\n");
     sb.append("}");
     return sb.toString();
   }
