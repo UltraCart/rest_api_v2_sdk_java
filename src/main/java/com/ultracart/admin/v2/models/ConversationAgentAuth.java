@@ -50,8 +50,16 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T10:50:21.572-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T11:53:45.366-05:00[America/Indianapolis]")
 public class ConversationAgentAuth {
+  public static final String SERIALIZED_NAME_CHAT_ADMIN = "chat_admin";
+  @SerializedName(SERIALIZED_NAME_CHAT_ADMIN)
+  private Boolean chatAdmin;
+
+  public static final String SERIALIZED_NAME_CHAT_USER = "chat_user";
+  @SerializedName(SERIALIZED_NAME_CHAT_USER)
+  private Boolean chatUser;
+
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN = "conversation_participant_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_ARN)
   private String conversationParticipantArn;
@@ -118,6 +126,52 @@ public class ConversationAgentAuth {
 
   public ConversationAgentAuth() { 
   }
+
+  public ConversationAgentAuth chatAdmin(Boolean chatAdmin) {
+    
+    this.chatAdmin = chatAdmin;
+    return this;
+  }
+
+   /**
+   * Get chatAdmin
+   * @return chatAdmin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getChatAdmin() {
+    return chatAdmin;
+  }
+
+
+  public void setChatAdmin(Boolean chatAdmin) {
+    this.chatAdmin = chatAdmin;
+  }
+
+
+  public ConversationAgentAuth chatUser(Boolean chatUser) {
+    
+    this.chatUser = chatUser;
+    return this;
+  }
+
+   /**
+   * Get chatUser
+   * @return chatUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getChatUser() {
+    return chatUser;
+  }
+
+
+  public void setChatUser(Boolean chatUser) {
+    this.chatUser = chatUser;
+  }
+
 
   public ConversationAgentAuth conversationParticipantArn(String conversationParticipantArn) {
     
@@ -513,7 +567,9 @@ public class ConversationAgentAuth {
       return false;
     }
     ConversationAgentAuth conversationAgentAuth = (ConversationAgentAuth) o;
-    return Objects.equals(this.conversationParticipantArn, conversationAgentAuth.conversationParticipantArn) &&
+    return Objects.equals(this.chatAdmin, conversationAgentAuth.chatAdmin) &&
+        Objects.equals(this.chatUser, conversationAgentAuth.chatUser) &&
+        Objects.equals(this.conversationParticipantArn, conversationAgentAuth.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationAgentAuth.conversationParticipantName) &&
         Objects.equals(this.groupIds, conversationAgentAuth.groupIds) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
@@ -533,13 +589,15 @@ public class ConversationAgentAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
+    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationAgentAuth {\n");
+    sb.append("    chatAdmin: ").append(toIndentedString(chatAdmin)).append("\n");
+    sb.append("    chatUser: ").append(toIndentedString(chatUser)).append("\n");
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
@@ -578,6 +636,8 @@ public class ConversationAgentAuth {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("chat_admin");
+    openapiFields.add("chat_user");
     openapiFields.add("conversation_participant_arn");
     openapiFields.add("conversation_participant_name");
     openapiFields.add("group_ids");

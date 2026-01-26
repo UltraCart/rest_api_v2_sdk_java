@@ -38,6 +38,7 @@ import com.ultracart.admin.v2.models.CartShipping;
 import com.ultracart.admin.v2.models.CartSummary;
 import com.ultracart.admin.v2.models.CartTaxes;
 import com.ultracart.admin.v2.models.CartUpsellAfter;
+import com.ultracart.admin.v2.models.CartUtm;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -68,7 +69,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Cart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T10:50:21.572-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T11:53:45.366-05:00[America/Indianapolis]")
 public class Cart {
   public static final String SERIALIZED_NAME_AFFILIATE = "affiliate";
   @SerializedName(SERIALIZED_NAME_AFFILIATE)
@@ -173,6 +174,10 @@ public class Cart {
   public static final String SERIALIZED_NAME_UPSELL_AFTER = "upsell_after";
   @SerializedName(SERIALIZED_NAME_UPSELL_AFTER)
   private CartUpsellAfter upsellAfter;
+
+  public static final String SERIALIZED_NAME_UTMS = "utms";
+  @SerializedName(SERIALIZED_NAME_UTMS)
+  private List<CartUtm> utms = null;
 
   public Cart() { 
   }
@@ -799,6 +804,37 @@ public class Cart {
   }
 
 
+  public Cart utms(List<CartUtm> utms) {
+    
+    this.utms = utms;
+    return this;
+  }
+
+  public Cart addUtmsItem(CartUtm utmsItem) {
+    if (this.utms == null) {
+      this.utms = new ArrayList<>();
+    }
+    this.utms.add(utmsItem);
+    return this;
+  }
+
+   /**
+   * UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.
+   * @return utms
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.")
+
+  public List<CartUtm> getUtms() {
+    return utms;
+  }
+
+
+  public void setUtms(List<CartUtm> utms) {
+    this.utms = utms;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -834,12 +870,13 @@ public class Cart {
         Objects.equals(this.shipping, cart.shipping) &&
         Objects.equals(this.summary, cart.summary) &&
         Objects.equals(this.taxes, cart.taxes) &&
-        Objects.equals(this.upsellAfter, cart.upsellAfter);
+        Objects.equals(this.upsellAfter, cart.upsellAfter) &&
+        Objects.equals(this.utms, cart.utms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliate, affiliateNetworkPixelOid, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, properties, settings, shipping, summary, taxes, upsellAfter);
+    return Objects.hash(affiliate, affiliateNetworkPixelOid, baseCurrencyCode, billing, buysafe, cartId, checkout, coupons, currencyCode, currencyConversion, customerProfile, exchangeRate, gift, giftCertificate, items, languageIsoCode, loggedIn, marketing, merchantId, payment, properties, settings, shipping, summary, taxes, upsellAfter, utms);
   }
 
   @Override
@@ -872,6 +909,7 @@ public class Cart {
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
     sb.append("    upsellAfter: ").append(toIndentedString(upsellAfter)).append("\n");
+    sb.append("    utms: ").append(toIndentedString(utms)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -920,6 +958,7 @@ public class Cart {
     openapiFields.add("summary");
     openapiFields.add("taxes");
     openapiFields.add("upsell_after");
+    openapiFields.add("utms");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1057,6 +1096,18 @@ public class Cart {
       // validate the optional field `upsell_after`
       if (jsonObj.getAsJsonObject("upsell_after") != null) {
         CartUpsellAfter.validateJsonObject(jsonObj.getAsJsonObject("upsell_after"));
+      }
+      JsonArray jsonArrayutms = jsonObj.getAsJsonArray("utms");
+      if (jsonArrayutms != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("utms").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `utms` to be an array in the JSON string but got `%s`", jsonObj.get("utms").toString()));
+        }
+
+        // validate the optional field `utms` (array)
+        for (int i = 0; i < jsonArrayutms.size(); i++) {
+          CartUtm.validateJsonObject(jsonArrayutms.get(i).getAsJsonObject());
+        };
       }
   }
 

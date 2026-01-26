@@ -107,6 +107,7 @@ docs/CartShipping.md
 docs/CartSummary.md
 docs/CartTaxes.md
 docs/CartUpsellAfter.md
+docs/CartUtm.md
 docs/CartValidationRequest.md
 docs/CartValidationResponse.md
 docs/ChanelPartnerReasonCodesResponse.md
@@ -1067,6 +1068,7 @@ src/main/java/com/ultracart/admin/v2/models/CartShipping.java
 src/main/java/com/ultracart/admin/v2/models/CartSummary.java
 src/main/java/com/ultracart/admin/v2/models/CartTaxes.java
 src/main/java/com/ultracart/admin/v2/models/CartUpsellAfter.java
+src/main/java/com/ultracart/admin/v2/models/CartUtm.java
 src/main/java/com/ultracart/admin/v2/models/CartValidationRequest.java
 src/main/java/com/ultracart/admin/v2/models/CartValidationResponse.java
 src/main/java/com/ultracart/admin/v2/models/ChanelPartnerReasonCodesResponse.java
