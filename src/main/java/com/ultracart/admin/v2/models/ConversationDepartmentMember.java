@@ -27,11 +27,14 @@ import java.io.IOException;
 /**
  * ConversationDepartmentMember
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-14T09:46:50.536-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-26T09:51:13.618-05:00")
 
 
 
 public class ConversationDepartmentMember {
+  @SerializedName("ai")
+  private Boolean ai = null;
+
   @SerializedName("member")
   private Boolean member = null;
 
@@ -40,6 +43,24 @@ public class ConversationDepartmentMember {
 
   @SerializedName("user_id")
   private Integer userId = null;
+
+  public ConversationDepartmentMember ai(Boolean ai) {
+    this.ai = ai;
+    return this;
+  }
+
+   /**
+   * Get ai
+   * @return ai
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAi() {
+    return ai;
+  }
+
+  public void setAi(Boolean ai) {
+    this.ai = ai;
+  }
 
   public ConversationDepartmentMember member(Boolean member) {
     this.member = member;
@@ -105,14 +126,15 @@ public class ConversationDepartmentMember {
       return false;
     }
     ConversationDepartmentMember conversationDepartmentMember = (ConversationDepartmentMember) o;
-    return Objects.equals(this.member, conversationDepartmentMember.member) &&
+    return Objects.equals(this.ai, conversationDepartmentMember.ai) &&
+        Objects.equals(this.member, conversationDepartmentMember.member) &&
         Objects.equals(this.name, conversationDepartmentMember.name) &&
         Objects.equals(this.userId, conversationDepartmentMember.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(member, name, userId);
+    return Objects.hash(ai, member, name, userId);
   }
 
 
@@ -121,6 +143,7 @@ public class ConversationDepartmentMember {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationDepartmentMember {\n");
     
+    sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
     sb.append("    member: ").append(toIndentedString(member)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
