@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderUtm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T15:29:21.782-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T17:35:46.361-05:00[America/Indianapolis]")
 public class OrderUtm {
   public static final String SERIALIZED_NAME_ATTRIBUTION_FIRST_CLICK_SUBTOTAL = "attribution_first_click_subtotal";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTION_FIRST_CLICK_SUBTOTAL)

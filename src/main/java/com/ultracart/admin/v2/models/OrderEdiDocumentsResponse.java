@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderEdiDocumentsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T15:29:21.782-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T17:35:46.361-05:00[America/Indianapolis]")
 public class OrderEdiDocumentsResponse {
   public static final String SERIALIZED_NAME_EDI_DOCUMENTS = "ediDocuments";
   @SerializedName(SERIALIZED_NAME_EDI_DOCUMENTS)
