@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ItemContentMultimedia
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-26T09:51:13.618-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-26T10:36:45.386-05:00")
 
 
 
@@ -64,6 +64,9 @@ public class ItemContentMultimedia {
 
   @SerializedName("placeholder")
   private Boolean placeholder = null;
+
+  @SerializedName("size")
+  private Integer size = null;
 
   @SerializedName("temp_multimedia_oid")
   private Integer tempMultimediaOid = null;
@@ -313,6 +316,24 @@ public class ItemContentMultimedia {
     this.placeholder = placeholder;
   }
 
+  public ItemContentMultimedia size(Integer size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Size of the file in bytes if known
+   * @return size
+  **/
+  @ApiModelProperty(value = "Size of the file in bytes if known")
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
   public ItemContentMultimedia tempMultimediaOid(Integer tempMultimediaOid) {
     this.tempMultimediaOid = tempMultimediaOid;
     return this;
@@ -431,6 +452,7 @@ public class ItemContentMultimedia {
         Objects.equals(this.merchantItemMultimediaOid, itemContentMultimedia.merchantItemMultimediaOid) &&
         Objects.equals(this.orphan, itemContentMultimedia.orphan) &&
         Objects.equals(this.placeholder, itemContentMultimedia.placeholder) &&
+        Objects.equals(this.size, itemContentMultimedia.size) &&
         Objects.equals(this.tempMultimediaOid, itemContentMultimedia.tempMultimediaOid) &&
         Objects.equals(this.thumbnails, itemContentMultimedia.thumbnails) &&
         Objects.equals(this.type, itemContentMultimedia.type) &&
@@ -440,7 +462,7 @@ public class ItemContentMultimedia {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudUrl, cloudUrlExpiration, code, description, excludeFromGallery, fileName, height, merchantItemMultimediaOid, orphan, placeholder, tempMultimediaOid, thumbnails, type, url, width);
+    return Objects.hash(cloudUrl, cloudUrlExpiration, code, description, excludeFromGallery, fileName, height, merchantItemMultimediaOid, orphan, placeholder, size, tempMultimediaOid, thumbnails, type, url, width);
   }
 
 
@@ -459,6 +481,7 @@ public class ItemContentMultimedia {
     sb.append("    merchantItemMultimediaOid: ").append(toIndentedString(merchantItemMultimediaOid)).append("\n");
     sb.append("    orphan: ").append(toIndentedString(orphan)).append("\n");
     sb.append("    placeholder: ").append(toIndentedString(placeholder)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    tempMultimediaOid: ").append(toIndentedString(tempMultimediaOid)).append("\n");
     sb.append("    thumbnails: ").append(toIndentedString(thumbnails)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
