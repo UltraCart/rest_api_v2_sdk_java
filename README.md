@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2026-01-26T11:37:20.853-05:00
+  - Build date: 2026-01-26T12:21:21.178-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.46</version>
+  <version>3.11.47</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.46"
+compile "com.ultracart:rest-sdk:3.11.47"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.46.jar`
+* `target/rest-sdk-3.11.47.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1659,6 +1659,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.47 | 01/26/2026 | conversation - agent auth object chat admin/user properties |
 | 3.11.46 | 01/26/2026 | cart - expose utm array for use in abandon webhook only |
 | 3.11.45 | 01/26/2026 | added multimedia file size to ItemContentMultimedia object |
 | 3.11.44 | 01/26/2026 | conversations - ConversationDepartmentMember expose a flag for if the agent is AI |

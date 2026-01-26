@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**chatAdmin** | **Boolean** |  |  [optional]
+**chatUser** | **Boolean** |  |  [optional]
 **conversationParticipantArn** | **String** |  |  [optional]
 **conversationParticipantName** | **String** |  |  [optional]
 **groupIds** | **List&lt;Integer&gt;** | UltraCart Groups this user belongs to |  [optional]

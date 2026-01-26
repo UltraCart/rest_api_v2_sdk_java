@@ -30,11 +30,17 @@ import java.util.List;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-26T11:37:20.853-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-26T12:21:21.178-05:00")
 
 
 
 public class ConversationAgentAuth {
+  @SerializedName("chat_admin")
+  private Boolean chatAdmin = null;
+
+  @SerializedName("chat_user")
+  private Boolean chatUser = null;
+
   @SerializedName("conversation_participant_arn")
   private String conversationParticipantArn = null;
 
@@ -82,6 +88,42 @@ public class ConversationAgentAuth {
 
   @SerializedName("websocket_url")
   private String websocketUrl = null;
+
+  public ConversationAgentAuth chatAdmin(Boolean chatAdmin) {
+    this.chatAdmin = chatAdmin;
+    return this;
+  }
+
+   /**
+   * Get chatAdmin
+   * @return chatAdmin
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isChatAdmin() {
+    return chatAdmin;
+  }
+
+  public void setChatAdmin(Boolean chatAdmin) {
+    this.chatAdmin = chatAdmin;
+  }
+
+  public ConversationAgentAuth chatUser(Boolean chatUser) {
+    this.chatUser = chatUser;
+    return this;
+  }
+
+   /**
+   * Get chatUser
+   * @return chatUser
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isChatUser() {
+    return chatUser;
+  }
+
+  public void setChatUser(Boolean chatUser) {
+    this.chatUser = chatUser;
+  }
 
   public ConversationAgentAuth conversationParticipantArn(String conversationParticipantArn) {
     this.conversationParticipantArn = conversationParticipantArn;
@@ -397,7 +439,9 @@ public class ConversationAgentAuth {
       return false;
     }
     ConversationAgentAuth conversationAgentAuth = (ConversationAgentAuth) o;
-    return Objects.equals(this.conversationParticipantArn, conversationAgentAuth.conversationParticipantArn) &&
+    return Objects.equals(this.chatAdmin, conversationAgentAuth.chatAdmin) &&
+        Objects.equals(this.chatUser, conversationAgentAuth.chatUser) &&
+        Objects.equals(this.conversationParticipantArn, conversationAgentAuth.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationAgentAuth.conversationParticipantName) &&
         Objects.equals(this.groupIds, conversationAgentAuth.groupIds) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
@@ -417,7 +461,7 @@ public class ConversationAgentAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationParticipantArn, conversationParticipantName, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
+    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
   }
 
 
@@ -426,6 +470,8 @@ public class ConversationAgentAuth {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationAgentAuth {\n");
     
+    sb.append("    chatAdmin: ").append(toIndentedString(chatAdmin)).append("\n");
+    sb.append("    chatUser: ").append(toIndentedString(chatUser)).append("\n");
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
