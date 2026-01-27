@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ItemKitComponent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-26T17:19:48.672-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-27T10:30:13.286-05:00")
 
 
 
