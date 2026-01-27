@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,11 +49,64 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAgent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T17:35:46.361-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T10:43:43.819-05:00[America/Indianapolis]")
 public class ConversationPbxAgent {
   public static final String SERIALIZED_NAME_AI = "ai";
   @SerializedName(SERIALIZED_NAME_AI)
   private Boolean ai;
+
+  /**
+   * The call routing preference
+   */
+  @JsonAdapter(CallRoutingPreferenceEnum.Adapter.class)
+  public enum CallRoutingPreferenceEnum {
+    SOFTPHONE("softphone"),
+    
+    HARDWARE_PHONE("hardware_phone"),
+    
+    CELLPHONE("cellphone");
+
+    private String value;
+
+    CallRoutingPreferenceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CallRoutingPreferenceEnum fromValue(String value) {
+      for (CallRoutingPreferenceEnum b : CallRoutingPreferenceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<CallRoutingPreferenceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CallRoutingPreferenceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CallRoutingPreferenceEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return CallRoutingPreferenceEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_CALL_ROUTING_PREFERENCE = "call_routing_preference";
+  @SerializedName(SERIALIZED_NAME_CALL_ROUTING_PREFERENCE)
+  private CallRoutingPreferenceEnum callRoutingPreference;
 
   public static final String SERIALIZED_NAME_CELLPHONE = "cellphone";
   @SerializedName(SERIALIZED_NAME_CELLPHONE)
@@ -65,13 +120,13 @@ public class ConversationPbxAgent {
   @SerializedName(SERIALIZED_NAME_EXTENSION)
   private Integer extension;
 
-  public static final String SERIALIZED_NAME_FORWARD_CALLS_TO_CELLPHONE = "forward_calls_to_cellphone";
-  @SerializedName(SERIALIZED_NAME_FORWARD_CALLS_TO_CELLPHONE)
-  private Boolean forwardCallsToCellphone;
-
   public static final String SERIALIZED_NAME_FULL_NAME = "full_name";
   @SerializedName(SERIALIZED_NAME_FULL_NAME)
   private String fullName;
+
+  public static final String SERIALIZED_NAME_HARDWARE_PHONE_UUIDS = "hardware_phone_uuids";
+  @SerializedName(SERIALIZED_NAME_HARDWARE_PHONE_UUIDS)
+  private List<String> hardwarePhoneUuids = null;
 
   public static final String SERIALIZED_NAME_LOGIN = "login";
   @SerializedName(SERIALIZED_NAME_LOGIN)
@@ -84,6 +139,10 @@ public class ConversationPbxAgent {
   public static final String SERIALIZED_NAME_PERSONAL_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID = "personal_conversation_pbx_voicemail_mailbox_uuid";
   @SerializedName(SERIALIZED_NAME_PERSONAL_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID)
   private String personalConversationPbxVoicemailMailboxUuid;
+
+  public static final String SERIALIZED_NAME_PREFERRED_HARDWARE_PHONE_UUID = "preferred_hardware_phone_uuid";
+  @SerializedName(SERIALIZED_NAME_PREFERRED_HARDWARE_PHONE_UUID)
+  private String preferredHardwarePhoneUuid;
 
   public static final String SERIALIZED_NAME_RECORD_OUTGOING_AUTOMATICALLY = "record_outgoing_automatically";
   @SerializedName(SERIALIZED_NAME_RECORD_OUTGOING_AUTOMATICALLY)
@@ -140,6 +199,29 @@ public class ConversationPbxAgent {
 
   public void setAi(Boolean ai) {
     this.ai = ai;
+  }
+
+
+  public ConversationPbxAgent callRoutingPreference(CallRoutingPreferenceEnum callRoutingPreference) {
+    
+    this.callRoutingPreference = callRoutingPreference;
+    return this;
+  }
+
+   /**
+   * The call routing preference
+   * @return callRoutingPreference
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The call routing preference")
+
+  public CallRoutingPreferenceEnum getCallRoutingPreference() {
+    return callRoutingPreference;
+  }
+
+
+  public void setCallRoutingPreference(CallRoutingPreferenceEnum callRoutingPreference) {
+    this.callRoutingPreference = callRoutingPreference;
   }
 
 
@@ -212,29 +294,6 @@ public class ConversationPbxAgent {
   }
 
 
-  public ConversationPbxAgent forwardCallsToCellphone(Boolean forwardCallsToCellphone) {
-    
-    this.forwardCallsToCellphone = forwardCallsToCellphone;
-    return this;
-  }
-
-   /**
-   * True if calls to this agent should be forwarded to their cellphone
-   * @return forwardCallsToCellphone
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "True if calls to this agent should be forwarded to their cellphone")
-
-  public Boolean getForwardCallsToCellphone() {
-    return forwardCallsToCellphone;
-  }
-
-
-  public void setForwardCallsToCellphone(Boolean forwardCallsToCellphone) {
-    this.forwardCallsToCellphone = forwardCallsToCellphone;
-  }
-
-
   public ConversationPbxAgent fullName(String fullName) {
     
     this.fullName = fullName;
@@ -255,6 +314,37 @@ public class ConversationPbxAgent {
 
   public void setFullName(String fullName) {
     this.fullName = fullName;
+  }
+
+
+  public ConversationPbxAgent hardwarePhoneUuids(List<String> hardwarePhoneUuids) {
+    
+    this.hardwarePhoneUuids = hardwarePhoneUuids;
+    return this;
+  }
+
+  public ConversationPbxAgent addHardwarePhoneUuidsItem(String hardwarePhoneUuidsItem) {
+    if (this.hardwarePhoneUuids == null) {
+      this.hardwarePhoneUuids = new ArrayList<>();
+    }
+    this.hardwarePhoneUuids.add(hardwarePhoneUuidsItem);
+    return this;
+  }
+
+   /**
+   * Array of hardware phones UUIDs associated with this agent
+   * @return hardwarePhoneUuids
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of hardware phones UUIDs associated with this agent")
+
+  public List<String> getHardwarePhoneUuids() {
+    return hardwarePhoneUuids;
+  }
+
+
+  public void setHardwarePhoneUuids(List<String> hardwarePhoneUuids) {
+    this.hardwarePhoneUuids = hardwarePhoneUuids;
   }
 
 
@@ -324,6 +414,29 @@ public class ConversationPbxAgent {
 
   public void setPersonalConversationPbxVoicemailMailboxUuid(String personalConversationPbxVoicemailMailboxUuid) {
     this.personalConversationPbxVoicemailMailboxUuid = personalConversationPbxVoicemailMailboxUuid;
+  }
+
+
+  public ConversationPbxAgent preferredHardwarePhoneUuid(String preferredHardwarePhoneUuid) {
+    
+    this.preferredHardwarePhoneUuid = preferredHardwarePhoneUuid;
+    return this;
+  }
+
+   /**
+   * The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone
+   * @return preferredHardwarePhoneUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone")
+
+  public String getPreferredHardwarePhoneUuid() {
+    return preferredHardwarePhoneUuid;
+  }
+
+
+  public void setPreferredHardwarePhoneUuid(String preferredHardwarePhoneUuid) {
+    this.preferredHardwarePhoneUuid = preferredHardwarePhoneUuid;
   }
 
 
@@ -522,14 +635,16 @@ public class ConversationPbxAgent {
     }
     ConversationPbxAgent conversationPbxAgent = (ConversationPbxAgent) o;
     return Objects.equals(this.ai, conversationPbxAgent.ai) &&
+        Objects.equals(this.callRoutingPreference, conversationPbxAgent.callRoutingPreference) &&
         Objects.equals(this.cellphone, conversationPbxAgent.cellphone) &&
         Objects.equals(this.conversationPbxAgentUuid, conversationPbxAgent.conversationPbxAgentUuid) &&
         Objects.equals(this.extension, conversationPbxAgent.extension) &&
-        Objects.equals(this.forwardCallsToCellphone, conversationPbxAgent.forwardCallsToCellphone) &&
         Objects.equals(this.fullName, conversationPbxAgent.fullName) &&
+        Objects.equals(this.hardwarePhoneUuids, conversationPbxAgent.hardwarePhoneUuids) &&
         Objects.equals(this.login, conversationPbxAgent.login) &&
         Objects.equals(this.merchantId, conversationPbxAgent.merchantId) &&
         Objects.equals(this.personalConversationPbxVoicemailMailboxUuid, conversationPbxAgent.personalConversationPbxVoicemailMailboxUuid) &&
+        Objects.equals(this.preferredHardwarePhoneUuid, conversationPbxAgent.preferredHardwarePhoneUuid) &&
         Objects.equals(this.recordOutgoingAutomatically, conversationPbxAgent.recordOutgoingAutomatically) &&
         Objects.equals(this.sharedConversationPbxVoicemailMailboxUuid, conversationPbxAgent.sharedConversationPbxVoicemailMailboxUuid) &&
         Objects.equals(this.twilioTaskrouterWorkerId, conversationPbxAgent.twilioTaskrouterWorkerId) &&
@@ -542,7 +657,7 @@ public class ConversationPbxAgent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, cellphone, conversationPbxAgentUuid, extension, forwardCallsToCellphone, fullName, login, merchantId, personalConversationPbxVoicemailMailboxUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
+    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
   }
 
   @Override
@@ -550,14 +665,16 @@ public class ConversationPbxAgent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxAgent {\n");
     sb.append("    ai: ").append(toIndentedString(ai)).append("\n");
+    sb.append("    callRoutingPreference: ").append(toIndentedString(callRoutingPreference)).append("\n");
     sb.append("    cellphone: ").append(toIndentedString(cellphone)).append("\n");
     sb.append("    conversationPbxAgentUuid: ").append(toIndentedString(conversationPbxAgentUuid)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
-    sb.append("    forwardCallsToCellphone: ").append(toIndentedString(forwardCallsToCellphone)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
+    sb.append("    hardwarePhoneUuids: ").append(toIndentedString(hardwarePhoneUuids)).append("\n");
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    personalConversationPbxVoicemailMailboxUuid: ").append(toIndentedString(personalConversationPbxVoicemailMailboxUuid)).append("\n");
+    sb.append("    preferredHardwarePhoneUuid: ").append(toIndentedString(preferredHardwarePhoneUuid)).append("\n");
     sb.append("    recordOutgoingAutomatically: ").append(toIndentedString(recordOutgoingAutomatically)).append("\n");
     sb.append("    sharedConversationPbxVoicemailMailboxUuid: ").append(toIndentedString(sharedConversationPbxVoicemailMailboxUuid)).append("\n");
     sb.append("    twilioTaskrouterWorkerId: ").append(toIndentedString(twilioTaskrouterWorkerId)).append("\n");
@@ -589,14 +706,16 @@ public class ConversationPbxAgent {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("ai");
+    openapiFields.add("call_routing_preference");
     openapiFields.add("cellphone");
     openapiFields.add("conversation_pbx_agent_uuid");
     openapiFields.add("extension");
-    openapiFields.add("forward_calls_to_cellphone");
     openapiFields.add("full_name");
+    openapiFields.add("hardware_phone_uuids");
     openapiFields.add("login");
     openapiFields.add("merchant_id");
     openapiFields.add("personal_conversation_pbx_voicemail_mailbox_uuid");
+    openapiFields.add("preferred_hardware_phone_uuid");
     openapiFields.add("record_outgoing_automatically");
     openapiFields.add("shared_conversation_pbx_voicemail_mailbox_uuid");
     openapiFields.add("twilio_taskrouter_worker_id");
@@ -632,6 +751,9 @@ public class ConversationPbxAgent {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationPbxAgent` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      if (jsonObj.get("call_routing_preference") != null && !jsonObj.get("call_routing_preference").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `call_routing_preference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("call_routing_preference").toString()));
+      }
       if (jsonObj.get("cellphone") != null && !jsonObj.get("cellphone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cellphone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cellphone").toString()));
       }
@@ -641,6 +763,10 @@ public class ConversationPbxAgent {
       if (jsonObj.get("full_name") != null && !jsonObj.get("full_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `full_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("full_name").toString()));
       }
+      // ensure the json data is an array
+      if (jsonObj.get("hardware_phone_uuids") != null && !jsonObj.get("hardware_phone_uuids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hardware_phone_uuids` to be an array in the JSON string but got `%s`", jsonObj.get("hardware_phone_uuids").toString()));
+      }
       if (jsonObj.get("login") != null && !jsonObj.get("login").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `login` to be a primitive type in the JSON string but got `%s`", jsonObj.get("login").toString()));
       }
@@ -649,6 +775,9 @@ public class ConversationPbxAgent {
       }
       if (jsonObj.get("personal_conversation_pbx_voicemail_mailbox_uuid") != null && !jsonObj.get("personal_conversation_pbx_voicemail_mailbox_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `personal_conversation_pbx_voicemail_mailbox_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("personal_conversation_pbx_voicemail_mailbox_uuid").toString()));
+      }
+      if (jsonObj.get("preferred_hardware_phone_uuid") != null && !jsonObj.get("preferred_hardware_phone_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `preferred_hardware_phone_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preferred_hardware_phone_uuid").toString()));
       }
       if (jsonObj.get("shared_conversation_pbx_voicemail_mailbox_uuid") != null && !jsonObj.get("shared_conversation_pbx_voicemail_mailbox_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shared_conversation_pbx_voicemail_mailbox_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shared_conversation_pbx_voicemail_mailbox_uuid").toString()));

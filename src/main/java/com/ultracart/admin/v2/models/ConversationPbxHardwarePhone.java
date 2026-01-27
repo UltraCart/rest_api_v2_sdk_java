@@ -47,8 +47,16 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxHardwarePhone
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T17:35:46.361-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T10:43:43.819-05:00[America/Indianapolis]")
 public class ConversationPbxHardwarePhone {
+  public static final String SERIALIZED_NAME_ADMIN_USERNAME = "admin_username";
+  @SerializedName(SERIALIZED_NAME_ADMIN_USERNAME)
+  private String adminUsername;
+
+  public static final String SERIALIZED_NAME_CONVERSATION_PBX_AGENT_UUID = "conversation_pbx_agent_uuid";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_AGENT_UUID)
+  private String conversationPbxAgentUuid;
+
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_HARDWARE_PHONE_UUID = "conversation_pbx_hardware_phone_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_HARDWARE_PHONE_UUID)
   private String conversationPbxHardwarePhoneUuid;
@@ -89,6 +97,10 @@ public class ConversationPbxHardwarePhone {
   @SerializedName(SERIALIZED_NAME_SIP_DOMAIN)
   private String sipDomain;
 
+  public static final String SERIALIZED_NAME_SIP_EDGE_LOCATION = "sip_edge_location";
+  @SerializedName(SERIALIZED_NAME_SIP_EDGE_LOCATION)
+  private String sipEdgeLocation;
+
   public static final String SERIALIZED_NAME_SIP_PASSWORD = "sip_password";
   @SerializedName(SERIALIZED_NAME_SIP_PASSWORD)
   private String sipPassword;
@@ -97,12 +109,62 @@ public class ConversationPbxHardwarePhone {
   @SerializedName(SERIALIZED_NAME_SIP_USERNAME)
   private String sipUsername;
 
+  public static final String SERIALIZED_NAME_TWILIO_CREDENTIAL_SID = "twilio_credential_sid";
+  @SerializedName(SERIALIZED_NAME_TWILIO_CREDENTIAL_SID)
+  private String twilioCredentialSid;
+
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private Object updatedAt;
 
   public ConversationPbxHardwarePhone() { 
   }
+
+  public ConversationPbxHardwarePhone adminUsername(String adminUsername) {
+    
+    this.adminUsername = adminUsername;
+    return this;
+  }
+
+   /**
+   * Admin Username
+   * @return adminUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Admin Username")
+
+  public String getAdminUsername() {
+    return adminUsername;
+  }
+
+
+  public void setAdminUsername(String adminUsername) {
+    this.adminUsername = adminUsername;
+  }
+
+
+  public ConversationPbxHardwarePhone conversationPbxAgentUuid(String conversationPbxAgentUuid) {
+    
+    this.conversationPbxAgentUuid = conversationPbxAgentUuid;
+    return this;
+  }
+
+   /**
+   * Associated Agent UUID
+   * @return conversationPbxAgentUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Associated Agent UUID")
+
+  public String getConversationPbxAgentUuid() {
+    return conversationPbxAgentUuid;
+  }
+
+
+  public void setConversationPbxAgentUuid(String conversationPbxAgentUuid) {
+    this.conversationPbxAgentUuid = conversationPbxAgentUuid;
+  }
+
 
   public ConversationPbxHardwarePhone conversationPbxHardwarePhoneUuid(String conversationPbxHardwarePhoneUuid) {
     
@@ -334,6 +396,29 @@ public class ConversationPbxHardwarePhone {
   }
 
 
+  public ConversationPbxHardwarePhone sipEdgeLocation(String sipEdgeLocation) {
+    
+    this.sipEdgeLocation = sipEdgeLocation;
+    return this;
+  }
+
+   /**
+   * SIP Edge Location
+   * @return sipEdgeLocation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SIP Edge Location")
+
+  public String getSipEdgeLocation() {
+    return sipEdgeLocation;
+  }
+
+
+  public void setSipEdgeLocation(String sipEdgeLocation) {
+    this.sipEdgeLocation = sipEdgeLocation;
+  }
+
+
   public ConversationPbxHardwarePhone sipPassword(String sipPassword) {
     
     this.sipPassword = sipPassword;
@@ -341,11 +426,11 @@ public class ConversationPbxHardwarePhone {
   }
 
    /**
-   * SIP Password
+   * SIP Password (only on create or regenerate password requests)
    * @return sipPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SIP Password")
+  @ApiModelProperty(value = "SIP Password (only on create or regenerate password requests)")
 
   public String getSipPassword() {
     return sipPassword;
@@ -377,6 +462,29 @@ public class ConversationPbxHardwarePhone {
 
   public void setSipUsername(String sipUsername) {
     this.sipUsername = sipUsername;
+  }
+
+
+  public ConversationPbxHardwarePhone twilioCredentialSid(String twilioCredentialSid) {
+    
+    this.twilioCredentialSid = twilioCredentialSid;
+    return this;
+  }
+
+   /**
+   * Twilio Credential SID
+   * @return twilioCredentialSid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Twilio Credential SID")
+
+  public String getTwilioCredentialSid() {
+    return twilioCredentialSid;
+  }
+
+
+  public void setTwilioCredentialSid(String twilioCredentialSid) {
+    this.twilioCredentialSid = twilioCredentialSid;
   }
 
 
@@ -413,7 +521,9 @@ public class ConversationPbxHardwarePhone {
       return false;
     }
     ConversationPbxHardwarePhone conversationPbxHardwarePhone = (ConversationPbxHardwarePhone) o;
-    return Objects.equals(this.conversationPbxHardwarePhoneUuid, conversationPbxHardwarePhone.conversationPbxHardwarePhoneUuid) &&
+    return Objects.equals(this.adminUsername, conversationPbxHardwarePhone.adminUsername) &&
+        Objects.equals(this.conversationPbxAgentUuid, conversationPbxHardwarePhone.conversationPbxAgentUuid) &&
+        Objects.equals(this.conversationPbxHardwarePhoneUuid, conversationPbxHardwarePhone.conversationPbxHardwarePhoneUuid) &&
         Objects.equals(this.createdAt, conversationPbxHardwarePhone.createdAt) &&
         Objects.equals(this.description, conversationPbxHardwarePhone.description) &&
         Objects.equals(this.macAddress, conversationPbxHardwarePhone.macAddress) &&
@@ -423,20 +533,24 @@ public class ConversationPbxHardwarePhone {
         Objects.equals(this.name, conversationPbxHardwarePhone.name) &&
         Objects.equals(this.provisioningUrl, conversationPbxHardwarePhone.provisioningUrl) &&
         Objects.equals(this.sipDomain, conversationPbxHardwarePhone.sipDomain) &&
+        Objects.equals(this.sipEdgeLocation, conversationPbxHardwarePhone.sipEdgeLocation) &&
         Objects.equals(this.sipPassword, conversationPbxHardwarePhone.sipPassword) &&
         Objects.equals(this.sipUsername, conversationPbxHardwarePhone.sipUsername) &&
+        Objects.equals(this.twilioCredentialSid, conversationPbxHardwarePhone.twilioCredentialSid) &&
         Objects.equals(this.updatedAt, conversationPbxHardwarePhone.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationPbxHardwarePhoneUuid, createdAt, description, macAddress, manufacturer, merchantId, model, name, provisioningUrl, sipDomain, sipPassword, sipUsername, updatedAt);
+    return Objects.hash(adminUsername, conversationPbxAgentUuid, conversationPbxHardwarePhoneUuid, createdAt, description, macAddress, manufacturer, merchantId, model, name, provisioningUrl, sipDomain, sipEdgeLocation, sipPassword, sipUsername, twilioCredentialSid, updatedAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxHardwarePhone {\n");
+    sb.append("    adminUsername: ").append(toIndentedString(adminUsername)).append("\n");
+    sb.append("    conversationPbxAgentUuid: ").append(toIndentedString(conversationPbxAgentUuid)).append("\n");
     sb.append("    conversationPbxHardwarePhoneUuid: ").append(toIndentedString(conversationPbxHardwarePhoneUuid)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -447,8 +561,10 @@ public class ConversationPbxHardwarePhone {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    provisioningUrl: ").append(toIndentedString(provisioningUrl)).append("\n");
     sb.append("    sipDomain: ").append(toIndentedString(sipDomain)).append("\n");
+    sb.append("    sipEdgeLocation: ").append(toIndentedString(sipEdgeLocation)).append("\n");
     sb.append("    sipPassword: ").append(toIndentedString(sipPassword)).append("\n");
     sb.append("    sipUsername: ").append(toIndentedString(sipUsername)).append("\n");
+    sb.append("    twilioCredentialSid: ").append(toIndentedString(twilioCredentialSid)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -472,6 +588,8 @@ public class ConversationPbxHardwarePhone {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("admin_username");
+    openapiFields.add("conversation_pbx_agent_uuid");
     openapiFields.add("conversation_pbx_hardware_phone_uuid");
     openapiFields.add("created_at");
     openapiFields.add("description");
@@ -482,8 +600,10 @@ public class ConversationPbxHardwarePhone {
     openapiFields.add("name");
     openapiFields.add("provisioning_url");
     openapiFields.add("sip_domain");
+    openapiFields.add("sip_edge_location");
     openapiFields.add("sip_password");
     openapiFields.add("sip_username");
+    openapiFields.add("twilio_credential_sid");
     openapiFields.add("updated_at");
 
     // a set of required properties/fields (JSON key names)
@@ -512,6 +632,12 @@ public class ConversationPbxHardwarePhone {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationPbxHardwarePhone` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      if (jsonObj.get("admin_username") != null && !jsonObj.get("admin_username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `admin_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin_username").toString()));
+      }
+      if (jsonObj.get("conversation_pbx_agent_uuid") != null && !jsonObj.get("conversation_pbx_agent_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_agent_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_agent_uuid").toString()));
+      }
       if (jsonObj.get("conversation_pbx_hardware_phone_uuid") != null && !jsonObj.get("conversation_pbx_hardware_phone_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_hardware_phone_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_hardware_phone_uuid").toString()));
       }
@@ -539,11 +665,17 @@ public class ConversationPbxHardwarePhone {
       if (jsonObj.get("sip_domain") != null && !jsonObj.get("sip_domain").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sip_domain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sip_domain").toString()));
       }
+      if (jsonObj.get("sip_edge_location") != null && !jsonObj.get("sip_edge_location").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sip_edge_location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sip_edge_location").toString()));
+      }
       if (jsonObj.get("sip_password") != null && !jsonObj.get("sip_password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sip_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sip_password").toString()));
       }
       if (jsonObj.get("sip_username") != null && !jsonObj.get("sip_username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sip_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sip_username").toString()));
+      }
+      if (jsonObj.get("twilio_credential_sid") != null && !jsonObj.get("twilio_credential_sid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `twilio_credential_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("twilio_credential_sid").toString()));
       }
   }
 

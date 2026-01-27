@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderItemOption
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-26T17:35:46.361-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T10:43:43.819-05:00[America/Indianapolis]")
 public class OrderItemOption {
   /**
    * How the additional dimensions are applied to the item.
