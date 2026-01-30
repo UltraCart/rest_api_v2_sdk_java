@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ConversationPbxQueue
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-27T10:30:13.286-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-30T09:44:38.169-05:00")
 
 
 
@@ -90,6 +90,9 @@ public class ConversationPbxQueue {
 
   @SerializedName("announce_queue_position")
   private Boolean announceQueuePosition = null;
+
+  @SerializedName("automatic_coach_agent_uuid")
+  private String automaticCoachAgentUuid = null;
 
   @SerializedName("conversation_pbx_queue_uuid")
   private String conversationPbxQueueUuid = null;
@@ -203,6 +206,24 @@ public class ConversationPbxQueue {
 
   public void setAnnounceQueuePosition(Boolean announceQueuePosition) {
     this.announceQueuePosition = announceQueuePosition;
+  }
+
+  public ConversationPbxQueue automaticCoachAgentUuid(String automaticCoachAgentUuid) {
+    this.automaticCoachAgentUuid = automaticCoachAgentUuid;
+    return this;
+  }
+
+   /**
+   * AI Agent UUID to automatically engage to provide coaching
+   * @return automaticCoachAgentUuid
+  **/
+  @ApiModelProperty(value = "AI Agent UUID to automatically engage to provide coaching")
+  public String getAutomaticCoachAgentUuid() {
+    return automaticCoachAgentUuid;
+  }
+
+  public void setAutomaticCoachAgentUuid(String automaticCoachAgentUuid) {
+    this.automaticCoachAgentUuid = automaticCoachAgentUuid;
   }
 
   public ConversationPbxQueue conversationPbxQueueUuid(String conversationPbxQueueUuid) {
@@ -578,6 +599,7 @@ public class ConversationPbxQueue {
     return Objects.equals(this.aiPriority, conversationPbxQueue.aiPriority) &&
         Objects.equals(this.aiTimeoutSeconds, conversationPbxQueue.aiTimeoutSeconds) &&
         Objects.equals(this.announceQueuePosition, conversationPbxQueue.announceQueuePosition) &&
+        Objects.equals(this.automaticCoachAgentUuid, conversationPbxQueue.automaticCoachAgentUuid) &&
         Objects.equals(this.conversationPbxQueueUuid, conversationPbxQueue.conversationPbxQueueUuid) &&
         Objects.equals(this.conversationVoicemailMailboxUuid, conversationPbxQueue.conversationVoicemailMailboxUuid) &&
         Objects.equals(this.holdConversationPbxAudioUuid, conversationPbxQueue.holdConversationPbxAudioUuid) &&
@@ -602,7 +624,7 @@ public class ConversationPbxQueue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
+    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, automaticCoachAgentUuid, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
   }
 
 
@@ -614,6 +636,7 @@ public class ConversationPbxQueue {
     sb.append("    aiPriority: ").append(toIndentedString(aiPriority)).append("\n");
     sb.append("    aiTimeoutSeconds: ").append(toIndentedString(aiTimeoutSeconds)).append("\n");
     sb.append("    announceQueuePosition: ").append(toIndentedString(announceQueuePosition)).append("\n");
+    sb.append("    automaticCoachAgentUuid: ").append(toIndentedString(automaticCoachAgentUuid)).append("\n");
     sb.append("    conversationPbxQueueUuid: ").append(toIndentedString(conversationPbxQueueUuid)).append("\n");
     sb.append("    conversationVoicemailMailboxUuid: ").append(toIndentedString(conversationVoicemailMailboxUuid)).append("\n");
     sb.append("    holdConversationPbxAudioUuid: ").append(toIndentedString(holdConversationPbxAudioUuid)).append("\n");

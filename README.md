@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2026-01-27T10:30:13.286-05:00
+  - Build date: 2026-01-30T09:44:38.169-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.50</version>
+  <version>3.11.51</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.50"
+compile "com.ultracart:rest-sdk:3.11.51"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.50.jar`
+* `target/rest-sdk-3.11.51.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1672,6 +1672,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.51 | 01/30/2026 | conversations queue setting for automatic AI coaching |
 | 3.11.50 | 01/27/2026 | conversations - refinements to support hardware phones |
 | 3.11.49 | 01/26/2026 | no changes - testing changes to build automation |
 | 3.11.48 | 01/26/2026 | conversation - hardware phone methods and objects |
