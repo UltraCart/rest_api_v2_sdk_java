@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemOption
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T10:43:43.819-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-30T09:58:37.549-05:00[America/Indianapolis]")
 public class ItemOption {
   public static final String SERIALIZED_NAME_COST_IF_SPECIFIED = "cost_if_specified";
   @SerializedName(SERIALIZED_NAME_COST_IF_SPECIFIED)

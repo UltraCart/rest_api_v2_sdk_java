@@ -10,6 +10,7 @@
 |**aiPriority** | [**AiPriorityEnum**](#AiPriorityEnum) | AI Agent Priority compared to human agents |  [optional] |
 |**aiTimeoutSeconds** | **Integer** | AI timeout seconds |  [optional] |
 |**announceQueuePosition** | **Boolean** | If true, the customer is told their queue position upon entering the queue |  [optional] |
+|**automaticCoachAgentUuid** | **String** | AI Agent UUID to automatically engage to provide coaching |  [optional] |
 |**conversationPbxQueueUuid** | **String** | Conversation Pbx Queue unique identifier |  [optional] |
 |**conversationVoicemailMailboxUuid** | **String** | The voicemail mailbox associated with this queue |  [optional] |
 |**holdConversationPbxAudioUuid** | **String** | The audio to play while holding in a queue |  [optional] |

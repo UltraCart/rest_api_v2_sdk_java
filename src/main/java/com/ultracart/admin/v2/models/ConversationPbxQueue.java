@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxQueue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T10:43:43.819-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-30T09:58:37.549-05:00[America/Indianapolis]")
 public class ConversationPbxQueue {
   /**
    * AI Agent Priority compared to human agents
@@ -110,6 +110,10 @@ public class ConversationPbxQueue {
   public static final String SERIALIZED_NAME_ANNOUNCE_QUEUE_POSITION = "announce_queue_position";
   @SerializedName(SERIALIZED_NAME_ANNOUNCE_QUEUE_POSITION)
   private Boolean announceQueuePosition;
+
+  public static final String SERIALIZED_NAME_AUTOMATIC_COACH_AGENT_UUID = "automatic_coach_agent_uuid";
+  @SerializedName(SERIALIZED_NAME_AUTOMATIC_COACH_AGENT_UUID)
+  private String automaticCoachAgentUuid;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_QUEUE_UUID = "conversation_pbx_queue_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_QUEUE_UUID)
@@ -260,6 +264,29 @@ public class ConversationPbxQueue {
 
   public void setAnnounceQueuePosition(Boolean announceQueuePosition) {
     this.announceQueuePosition = announceQueuePosition;
+  }
+
+
+  public ConversationPbxQueue automaticCoachAgentUuid(String automaticCoachAgentUuid) {
+    
+    this.automaticCoachAgentUuid = automaticCoachAgentUuid;
+    return this;
+  }
+
+   /**
+   * AI Agent UUID to automatically engage to provide coaching
+   * @return automaticCoachAgentUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AI Agent UUID to automatically engage to provide coaching")
+
+  public String getAutomaticCoachAgentUuid() {
+    return automaticCoachAgentUuid;
+  }
+
+
+  public void setAutomaticCoachAgentUuid(String automaticCoachAgentUuid) {
+    this.automaticCoachAgentUuid = automaticCoachAgentUuid;
   }
 
 
@@ -736,6 +763,7 @@ public class ConversationPbxQueue {
     return Objects.equals(this.aiPriority, conversationPbxQueue.aiPriority) &&
         Objects.equals(this.aiTimeoutSeconds, conversationPbxQueue.aiTimeoutSeconds) &&
         Objects.equals(this.announceQueuePosition, conversationPbxQueue.announceQueuePosition) &&
+        Objects.equals(this.automaticCoachAgentUuid, conversationPbxQueue.automaticCoachAgentUuid) &&
         Objects.equals(this.conversationPbxQueueUuid, conversationPbxQueue.conversationPbxQueueUuid) &&
         Objects.equals(this.conversationVoicemailMailboxUuid, conversationPbxQueue.conversationVoicemailMailboxUuid) &&
         Objects.equals(this.holdConversationPbxAudioUuid, conversationPbxQueue.holdConversationPbxAudioUuid) &&
@@ -760,7 +788,7 @@ public class ConversationPbxQueue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
+    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, automaticCoachAgentUuid, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
   }
 
   @Override
@@ -770,6 +798,7 @@ public class ConversationPbxQueue {
     sb.append("    aiPriority: ").append(toIndentedString(aiPriority)).append("\n");
     sb.append("    aiTimeoutSeconds: ").append(toIndentedString(aiTimeoutSeconds)).append("\n");
     sb.append("    announceQueuePosition: ").append(toIndentedString(announceQueuePosition)).append("\n");
+    sb.append("    automaticCoachAgentUuid: ").append(toIndentedString(automaticCoachAgentUuid)).append("\n");
     sb.append("    conversationPbxQueueUuid: ").append(toIndentedString(conversationPbxQueueUuid)).append("\n");
     sb.append("    conversationVoicemailMailboxUuid: ").append(toIndentedString(conversationVoicemailMailboxUuid)).append("\n");
     sb.append("    holdConversationPbxAudioUuid: ").append(toIndentedString(holdConversationPbxAudioUuid)).append("\n");
@@ -815,6 +844,7 @@ public class ConversationPbxQueue {
     openapiFields.add("ai_priority");
     openapiFields.add("ai_timeout_seconds");
     openapiFields.add("announce_queue_position");
+    openapiFields.add("automatic_coach_agent_uuid");
     openapiFields.add("conversation_pbx_queue_uuid");
     openapiFields.add("conversation_voicemail_mailbox_uuid");
     openapiFields.add("hold_conversation_pbx_audio_uuid");
@@ -864,6 +894,9 @@ public class ConversationPbxQueue {
       }
       if (jsonObj.get("ai_priority") != null && !jsonObj.get("ai_priority").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ai_priority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_priority").toString()));
+      }
+      if (jsonObj.get("automatic_coach_agent_uuid") != null && !jsonObj.get("automatic_coach_agent_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `automatic_coach_agent_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("automatic_coach_agent_uuid").toString()));
       }
       if (jsonObj.get("conversation_pbx_queue_uuid") != null && !jsonObj.get("conversation_pbx_queue_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_queue_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_queue_uuid").toString()));
