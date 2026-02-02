@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCustomerSnapshotRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T10:46:19.597-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T12:22:43.526-05:00[America/Indianapolis]")
 public class ConversationPbxCustomerSnapshotRequest {
   public static final String SERIALIZED_NAME_AUTO_ORDER_EXPAND = "auto_order_expand";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_EXPAND)

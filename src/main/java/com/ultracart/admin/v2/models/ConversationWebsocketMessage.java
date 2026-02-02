@@ -59,7 +59,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationWebsocketMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T10:46:19.597-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T12:22:43.526-05:00[America/Indianapolis]")
 public class ConversationWebsocketMessage {
   public static final String SERIALIZED_NAME_CONVERSATION_ARN = "conversation_arn";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_ARN)
