@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-02-02T12:22:43.526-05:00[America/Indianapolis]
+- Build date: 2026-02-02T13:31:12.803-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.55</version>
+    <version>4.1.56</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.55"
+     implementation "com.ultracart:rest-sdk:4.1.56"
   }
 ```
 
@@ -1681,6 +1681,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.56 | 02/02/2026 | conversations - add default phone number to the agent auth |
 | 4.1.55 | 02/02/2026 | conversations - add enumerated values for say voice on queue and agent |
 | 4.1.54 | 02/02/2026 | build error fix |
 | 4.1.53 | 02/02/2026 | conversations default pricing phone number settings |

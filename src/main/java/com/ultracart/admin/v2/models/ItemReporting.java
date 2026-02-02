@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemReporting
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T12:22:43.526-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:31:12.803-05:00[America/Indianapolis]")
 public class ItemReporting {
   public static final String SERIALIZED_NAME_REPORT_AS_UPSELL = "report_as_upsell";
   @SerializedName(SERIALIZED_NAME_REPORT_AS_UPSELL)

@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T12:22:43.526-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:31:12.803-05:00[America/Indianapolis]")
 public class CustomReport {
   public static final String SERIALIZED_NAME_BUSINESS_ANALYSIS_PROMPT = "business_analysis_prompt";
   @SerializedName(SERIALIZED_NAME_BUSINESS_ANALYSIS_PROMPT)
