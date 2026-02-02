@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OrderTrackingNumberDetail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-02T12:08:56.102-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:17:39.164-05:00")
 
 
 
@@ -37,6 +37,36 @@ public class OrderTrackingNumberDetail {
 
   @SerializedName("event_dts")
   private String eventDts = null;
+
+  @SerializedName("event_local_date")
+  private String eventLocalDate = null;
+
+  @SerializedName("event_local_time")
+  private String eventLocalTime = null;
+
+  @SerializedName("event_timezone_id")
+  private String eventTimezoneId = null;
+
+  @SerializedName("state")
+  private String state = null;
+
+  @SerializedName("subtag")
+  private String subtag = null;
+
+  @SerializedName("subtag_message")
+  private String subtagMessage = null;
+
+  @SerializedName("tag")
+  private String tag = null;
+
+  @SerializedName("tag_description")
+  private String tagDescription = null;
+
+  @SerializedName("tag_icon")
+  private String tagIcon = null;
+
+  @SerializedName("zip")
+  private String zip = null;
 
   public OrderTrackingNumberDetail city(String city) {
     this.city = city;
@@ -74,6 +104,186 @@ public class OrderTrackingNumberDetail {
     this.eventDts = eventDts;
   }
 
+  public OrderTrackingNumberDetail eventLocalDate(String eventLocalDate) {
+    this.eventLocalDate = eventLocalDate;
+    return this;
+  }
+
+   /**
+   * Get eventLocalDate
+   * @return eventLocalDate
+  **/
+  @ApiModelProperty(value = "")
+  public String getEventLocalDate() {
+    return eventLocalDate;
+  }
+
+  public void setEventLocalDate(String eventLocalDate) {
+    this.eventLocalDate = eventLocalDate;
+  }
+
+  public OrderTrackingNumberDetail eventLocalTime(String eventLocalTime) {
+    this.eventLocalTime = eventLocalTime;
+    return this;
+  }
+
+   /**
+   * Get eventLocalTime
+   * @return eventLocalTime
+  **/
+  @ApiModelProperty(value = "")
+  public String getEventLocalTime() {
+    return eventLocalTime;
+  }
+
+  public void setEventLocalTime(String eventLocalTime) {
+    this.eventLocalTime = eventLocalTime;
+  }
+
+  public OrderTrackingNumberDetail eventTimezoneId(String eventTimezoneId) {
+    this.eventTimezoneId = eventTimezoneId;
+    return this;
+  }
+
+   /**
+   * Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.
+   * @return eventTimezoneId
+  **/
+  @ApiModelProperty(value = "Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.")
+  public String getEventTimezoneId() {
+    return eventTimezoneId;
+  }
+
+  public void setEventTimezoneId(String eventTimezoneId) {
+    this.eventTimezoneId = eventTimezoneId;
+  }
+
+  public OrderTrackingNumberDetail state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(value = "")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public OrderTrackingNumberDetail subtag(String subtag) {
+    this.subtag = subtag;
+    return this;
+  }
+
+   /**
+   * Get subtag
+   * @return subtag
+  **/
+  @ApiModelProperty(value = "")
+  public String getSubtag() {
+    return subtag;
+  }
+
+  public void setSubtag(String subtag) {
+    this.subtag = subtag;
+  }
+
+  public OrderTrackingNumberDetail subtagMessage(String subtagMessage) {
+    this.subtagMessage = subtagMessage;
+    return this;
+  }
+
+   /**
+   * Get subtagMessage
+   * @return subtagMessage
+  **/
+  @ApiModelProperty(value = "")
+  public String getSubtagMessage() {
+    return subtagMessage;
+  }
+
+  public void setSubtagMessage(String subtagMessage) {
+    this.subtagMessage = subtagMessage;
+  }
+
+  public OrderTrackingNumberDetail tag(String tag) {
+    this.tag = tag;
+    return this;
+  }
+
+   /**
+   * Get tag
+   * @return tag
+  **/
+  @ApiModelProperty(value = "")
+  public String getTag() {
+    return tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
+
+  public OrderTrackingNumberDetail tagDescription(String tagDescription) {
+    this.tagDescription = tagDescription;
+    return this;
+  }
+
+   /**
+   * Get tagDescription
+   * @return tagDescription
+  **/
+  @ApiModelProperty(value = "")
+  public String getTagDescription() {
+    return tagDescription;
+  }
+
+  public void setTagDescription(String tagDescription) {
+    this.tagDescription = tagDescription;
+  }
+
+  public OrderTrackingNumberDetail tagIcon(String tagIcon) {
+    this.tagIcon = tagIcon;
+    return this;
+  }
+
+   /**
+   * Get tagIcon
+   * @return tagIcon
+  **/
+  @ApiModelProperty(value = "")
+  public String getTagIcon() {
+    return tagIcon;
+  }
+
+  public void setTagIcon(String tagIcon) {
+    this.tagIcon = tagIcon;
+  }
+
+  public OrderTrackingNumberDetail zip(String zip) {
+    this.zip = zip;
+    return this;
+  }
+
+   /**
+   * Get zip
+   * @return zip
+  **/
+  @ApiModelProperty(value = "")
+  public String getZip() {
+    return zip;
+  }
+
+  public void setZip(String zip) {
+    this.zip = zip;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +295,22 @@ public class OrderTrackingNumberDetail {
     }
     OrderTrackingNumberDetail orderTrackingNumberDetail = (OrderTrackingNumberDetail) o;
     return Objects.equals(this.city, orderTrackingNumberDetail.city) &&
-        Objects.equals(this.eventDts, orderTrackingNumberDetail.eventDts);
+        Objects.equals(this.eventDts, orderTrackingNumberDetail.eventDts) &&
+        Objects.equals(this.eventLocalDate, orderTrackingNumberDetail.eventLocalDate) &&
+        Objects.equals(this.eventLocalTime, orderTrackingNumberDetail.eventLocalTime) &&
+        Objects.equals(this.eventTimezoneId, orderTrackingNumberDetail.eventTimezoneId) &&
+        Objects.equals(this.state, orderTrackingNumberDetail.state) &&
+        Objects.equals(this.subtag, orderTrackingNumberDetail.subtag) &&
+        Objects.equals(this.subtagMessage, orderTrackingNumberDetail.subtagMessage) &&
+        Objects.equals(this.tag, orderTrackingNumberDetail.tag) &&
+        Objects.equals(this.tagDescription, orderTrackingNumberDetail.tagDescription) &&
+        Objects.equals(this.tagIcon, orderTrackingNumberDetail.tagIcon) &&
+        Objects.equals(this.zip, orderTrackingNumberDetail.zip);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, eventDts);
+    return Objects.hash(city, eventDts, eventLocalDate, eventLocalTime, eventTimezoneId, state, subtag, subtagMessage, tag, tagDescription, tagIcon, zip);
   }
 
 
@@ -101,6 +321,16 @@ public class OrderTrackingNumberDetail {
     
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    eventDts: ").append(toIndentedString(eventDts)).append("\n");
+    sb.append("    eventLocalDate: ").append(toIndentedString(eventLocalDate)).append("\n");
+    sb.append("    eventLocalTime: ").append(toIndentedString(eventLocalTime)).append("\n");
+    sb.append("    eventTimezoneId: ").append(toIndentedString(eventTimezoneId)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    subtag: ").append(toIndentedString(subtag)).append("\n");
+    sb.append("    subtagMessage: ").append(toIndentedString(subtagMessage)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    tagDescription: ").append(toIndentedString(tagDescription)).append("\n");
+    sb.append("    tagIcon: ").append(toIndentedString(tagIcon)).append("\n");
+    sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
     sb.append("}");
     return sb.toString();
   }
