@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConversationInsertKnowledgeBaseDocumentRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-02T10:35:09.447-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-02T12:08:56.102-05:00")
 
 
 

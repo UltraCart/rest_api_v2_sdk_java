@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2026-02-02T10:35:09.447-05:00
+  - Build date: 2026-02-02T12:08:56.102-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.54</version>
+  <version>3.11.55</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.54"
+compile "com.ultracart:rest-sdk:3.11.55"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.54.jar`
+* `target/rest-sdk-3.11.55.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1428,190 +1428,7 @@ Class | Method | HTTP request | Description
  - [OrderTaxes](docs/OrderTaxes.md)
  - [OrderTokenResponse](docs/OrderTokenResponse.md)
  - [OrderTrackingNumberDetail](docs/OrderTrackingNumberDetail.md)
- - [OrderTrackingNumberDetails](docs/OrderTrackingNumberDetails.md)
- - [OrderTransactionalMerchantNote](docs/OrderTransactionalMerchantNote.md)
- - [OrderUtm](docs/OrderUtm.md)
- - [OrderValidationRequest](docs/OrderValidationRequest.md)
- - [OrderValidationResponse](docs/OrderValidationResponse.md)
  - [OrdersResponse](docs/OrdersResponse.md)
- - [Permission](docs/Permission.md)
- - [PointOfSaleLocation](docs/PointOfSaleLocation.md)
- - [PointOfSaleReader](docs/PointOfSaleReader.md)
- - [PointOfSaleRegister](docs/PointOfSaleRegister.md)
- - [PricingTier](docs/PricingTier.md)
- - [PricingTierNotification](docs/PricingTierNotification.md)
- - [PricingTiersResponse](docs/PricingTiersResponse.md)
- - [Property](docs/Property.md)
- - [PublishLibraryItemRequest](docs/PublishLibraryItemRequest.md)
- - [RegisterAffiliateClickRequest](docs/RegisterAffiliateClickRequest.md)
- - [RegisterAffiliateClickResponse](docs/RegisterAffiliateClickResponse.md)
- - [ReplaceOrderItemIdRequest](docs/ReplaceOrderItemIdRequest.md)
- - [Report](docs/Report.md)
- - [ReportAuth](docs/ReportAuth.md)
- - [ReportAuthResponse](docs/ReportAuthResponse.md)
- - [ReportDataSet](docs/ReportDataSet.md)
- - [ReportDataSetColumn](docs/ReportDataSetColumn.md)
- - [ReportDataSetPage](docs/ReportDataSetPage.md)
- - [ReportDataSetPageResponse](docs/ReportDataSetPageResponse.md)
- - [ReportDataSetQuery](docs/ReportDataSetQuery.md)
- - [ReportDataSetQueryOrderByColumn](docs/ReportDataSetQueryOrderByColumn.md)
- - [ReportDataSetResponse](docs/ReportDataSetResponse.md)
- - [ReportDataSetRow](docs/ReportDataSetRow.md)
- - [ReportDataSetSchema](docs/ReportDataSetSchema.md)
- - [ReportDataSource](docs/ReportDataSource.md)
- - [ReportDataSourceSchema](docs/ReportDataSourceSchema.md)
- - [ReportDryRunQueriesRequest](docs/ReportDryRunQueriesRequest.md)
- - [ReportDryRunQueriesResponse](docs/ReportDryRunQueriesResponse.md)
- - [ReportDryRunQueryResult](docs/ReportDryRunQueryResult.md)
- - [ReportExecuteQueriesRequest](docs/ReportExecuteQueriesRequest.md)
- - [ReportFilter](docs/ReportFilter.md)
- - [ReportFilterConnection](docs/ReportFilterConnection.md)
- - [ReportPage](docs/ReportPage.md)
- - [ReportPageFilter](docs/ReportPageFilter.md)
- - [ReportPageVisualization](docs/ReportPageVisualization.md)
- - [ReportPageVisualizationDimension](docs/ReportPageVisualizationDimension.md)
- - [ReportPageVisualizationMetric](docs/ReportPageVisualizationMetric.md)
- - [ReportResponse](docs/ReportResponse.md)
- - [ReportWebsocketEvent](docs/ReportWebsocketEvent.md)
- - [ReportsResponse](docs/ReportsResponse.md)
- - [ResponseMetadata](docs/ResponseMetadata.md)
- - [ResultSet](docs/ResultSet.md)
- - [RulerValidationRequest](docs/RulerValidationRequest.md)
- - [RulerValidationResponse](docs/RulerValidationResponse.md)
- - [ScreenRecording](docs/ScreenRecording.md)
- - [ScreenRecordingAdPlatform](docs/ScreenRecordingAdPlatform.md)
- - [ScreenRecordingFilter](docs/ScreenRecordingFilter.md)
- - [ScreenRecordingFilterGeoDistance](docs/ScreenRecordingFilterGeoDistance.md)
- - [ScreenRecordingFilterIpSearch](docs/ScreenRecordingFilterIpSearch.md)
- - [ScreenRecordingFilterPageView](docs/ScreenRecordingFilterPageView.md)
- - [ScreenRecordingFilterPageViewEvent](docs/ScreenRecordingFilterPageViewEvent.md)
- - [ScreenRecordingFilterPageViewEventParam](docs/ScreenRecordingFilterPageViewEventParam.md)
- - [ScreenRecordingFilterPageViewParam](docs/ScreenRecordingFilterPageViewParam.md)
- - [ScreenRecordingFilterPageViewReferrerParam](docs/ScreenRecordingFilterPageViewReferrerParam.md)
- - [ScreenRecordingFilterRangeBigDecimal](docs/ScreenRecordingFilterRangeBigDecimal.md)
- - [ScreenRecordingFilterRangeDate](docs/ScreenRecordingFilterRangeDate.md)
- - [ScreenRecordingFilterRangeInteger](docs/ScreenRecordingFilterRangeInteger.md)
- - [ScreenRecordingFilterStringSearch](docs/ScreenRecordingFilterStringSearch.md)
- - [ScreenRecordingFilterValues](docs/ScreenRecordingFilterValues.md)
- - [ScreenRecordingFilterValuesEvent](docs/ScreenRecordingFilterValuesEvent.md)
- - [ScreenRecordingFilterValuesEventParams](docs/ScreenRecordingFilterValuesEventParams.md)
- - [ScreenRecordingFilterValuesPageParam](docs/ScreenRecordingFilterValuesPageParam.md)
- - [ScreenRecordingFilterValuesPageView](docs/ScreenRecordingFilterValuesPageView.md)
- - [ScreenRecordingHeatmap](docs/ScreenRecordingHeatmap.md)
- - [ScreenRecordingHeatmapIndexRequest](docs/ScreenRecordingHeatmapIndexRequest.md)
- - [ScreenRecordingHeatmapIndexResponse](docs/ScreenRecordingHeatmapIndexResponse.md)
- - [ScreenRecordingHeatmapRequest](docs/ScreenRecordingHeatmapRequest.md)
- - [ScreenRecordingHeatmapReset](docs/ScreenRecordingHeatmapReset.md)
- - [ScreenRecordingHeatmapResponse](docs/ScreenRecordingHeatmapResponse.md)
- - [ScreenRecordingHeatmapUrl](docs/ScreenRecordingHeatmapUrl.md)
- - [ScreenRecordingMerchantNotesRequest](docs/ScreenRecordingMerchantNotesRequest.md)
- - [ScreenRecordingMultifield](docs/ScreenRecordingMultifield.md)
- - [ScreenRecordingPageView](docs/ScreenRecordingPageView.md)
- - [ScreenRecordingPageViewDataResponse](docs/ScreenRecordingPageViewDataResponse.md)
- - [ScreenRecordingPageViewEvent](docs/ScreenRecordingPageViewEvent.md)
- - [ScreenRecordingPageViewEventParameter](docs/ScreenRecordingPageViewEventParameter.md)
- - [ScreenRecordingPageViewParameter](docs/ScreenRecordingPageViewParameter.md)
- - [ScreenRecordingQueryRequest](docs/ScreenRecordingQueryRequest.md)
- - [ScreenRecordingQueryResponse](docs/ScreenRecordingQueryResponse.md)
- - [ScreenRecordingResponse](docs/ScreenRecordingResponse.md)
- - [ScreenRecordingSegment](docs/ScreenRecordingSegment.md)
- - [ScreenRecordingSegmentResponse](docs/ScreenRecordingSegmentResponse.md)
- - [ScreenRecordingSegmentsResponse](docs/ScreenRecordingSegmentsResponse.md)
- - [ScreenRecordingSettings](docs/ScreenRecordingSettings.md)
- - [ScreenRecordingSettingsResponse](docs/ScreenRecordingSettingsResponse.md)
- - [ScreenRecordingStoreFront](docs/ScreenRecordingStoreFront.md)
- - [ScreenRecordingTagsRequest](docs/ScreenRecordingTagsRequest.md)
- - [ScreenRecordingTagsResponse](docs/ScreenRecordingTagsResponse.md)
- - [ScreenRecordingUserAgent](docs/ScreenRecordingUserAgent.md)
- - [ScreenRecordingUserAgentDevice](docs/ScreenRecordingUserAgentDevice.md)
- - [ScreenRecordingUserAgentOS](docs/ScreenRecordingUserAgentOS.md)
- - [ScreenRecordingUserProperty](docs/ScreenRecordingUserProperty.md)
- - [ScreenshotsResponse](docs/ScreenshotsResponse.md)
- - [SelfConfig](docs/SelfConfig.md)
- - [SimpleValue](docs/SimpleValue.md)
- - [SingleSignOnAuthorizeRequest](docs/SingleSignOnAuthorizeRequest.md)
- - [SingleSignOnAuthorizeResponse](docs/SingleSignOnAuthorizeResponse.md)
- - [SingleSignOnTokenRequest](docs/SingleSignOnTokenRequest.md)
- - [SingleSignOnTokenResponse](docs/SingleSignOnTokenResponse.md)
- - [SovosConfig](docs/SovosConfig.md)
- - [StateProvince](docs/StateProvince.md)
- - [StepWaiting](docs/StepWaiting.md)
- - [StoreFront](docs/StoreFront.md)
- - [StoreFrontPageContentAttribute](docs/StoreFrontPageContentAttribute.md)
- - [StoreFrontsResponse](docs/StoreFrontsResponse.md)
- - [TaxCity](docs/TaxCity.md)
- - [TaxCountry](docs/TaxCountry.md)
- - [TaxCountryCode](docs/TaxCountryCode.md)
- - [TaxCounty](docs/TaxCounty.md)
- - [TaxJarConfig](docs/TaxJarConfig.md)
- - [TaxPostalCode](docs/TaxPostalCode.md)
- - [TaxProviderActivateResult](docs/TaxProviderActivateResult.md)
- - [TaxProviderAvalara](docs/TaxProviderAvalara.md)
- - [TaxProviderAvalaraCompaniesResult](docs/TaxProviderAvalaraCompaniesResult.md)
- - [TaxProviderAvalaraCompany](docs/TaxProviderAvalaraCompany.md)
- - [TaxProviderSelf](docs/TaxProviderSelf.md)
- - [TaxProviderSelfCountriesResponse](docs/TaxProviderSelfCountriesResponse.md)
- - [TaxProviderSelfRegionsResponse](docs/TaxProviderSelfRegionsResponse.md)
- - [TaxProviderSovos](docs/TaxProviderSovos.md)
- - [TaxProviderTaxJar](docs/TaxProviderTaxJar.md)
- - [TaxProviderTestResult](docs/TaxProviderTestResult.md)
- - [TaxProviderUltraCart](docs/TaxProviderUltraCart.md)
- - [TaxProviderUltraCartState](docs/TaxProviderUltraCartState.md)
- - [TaxProvidersResponse](docs/TaxProvidersResponse.md)
- - [TaxState](docs/TaxState.md)
- - [TaxStateCode](docs/TaxStateCode.md)
- - [TempMultimedia](docs/TempMultimedia.md)
- - [TempMultimediaResponse](docs/TempMultimediaResponse.md)
- - [ThumbnailParametersRequest](docs/ThumbnailParametersRequest.md)
- - [ThumbnailParametersResponse](docs/ThumbnailParametersResponse.md)
- - [TransactionEmail](docs/TransactionEmail.md)
- - [TransactionEmailListResponse](docs/TransactionEmailListResponse.md)
- - [TransactionEmailOption](docs/TransactionEmailOption.md)
- - [TransactionEmailResponse](docs/TransactionEmailResponse.md)
- - [Twilio](docs/Twilio.md)
- - [TwilioResponse](docs/TwilioResponse.md)
- - [TwiliosResponse](docs/TwiliosResponse.md)
- - [UltraCartConfig](docs/UltraCartConfig.md)
- - [UploadCouponCodesRequest](docs/UploadCouponCodesRequest.md)
- - [UploadCouponCodesResponse](docs/UploadCouponCodesResponse.md)
- - [User](docs/User.md)
- - [UserGroupMembership](docs/UserGroupMembership.md)
- - [UserLogin](docs/UserLogin.md)
- - [UserLoginsResponse](docs/UserLoginsResponse.md)
- - [UserResponse](docs/UserResponse.md)
- - [UsersResponse](docs/UsersResponse.md)
- - [VerificationRecord](docs/VerificationRecord.md)
- - [Warning](docs/Warning.md)
- - [Webhook](docs/Webhook.md)
- - [WebhookEventCategory](docs/WebhookEventCategory.md)
- - [WebhookEventSubscription](docs/WebhookEventSubscription.md)
- - [WebhookLog](docs/WebhookLog.md)
- - [WebhookLogResponse](docs/WebhookLogResponse.md)
- - [WebhookLogSummariesResponse](docs/WebhookLogSummariesResponse.md)
- - [WebhookLogSummary](docs/WebhookLogSummary.md)
- - [WebhookReflow](docs/WebhookReflow.md)
- - [WebhookReflowResponse](docs/WebhookReflowResponse.md)
- - [WebhookResponse](docs/WebhookResponse.md)
- - [WebhooksResponse](docs/WebhooksResponse.md)
- - [Weight](docs/Weight.md)
- - [WorkflowAgentAuth](docs/WorkflowAgentAuth.md)
- - [WorkflowAgentAuthResponse](docs/WorkflowAgentAuthResponse.md)
- - [WorkflowAttachment](docs/WorkflowAttachment.md)
- - [WorkflowAttachmentUploadUrl](docs/WorkflowAttachmentUploadUrl.md)
- - [WorkflowAttachmentUploadUrlResponse](docs/WorkflowAttachmentUploadUrlResponse.md)
- - [WorkflowGroup](docs/WorkflowGroup.md)
- - [WorkflowGroupsResponse](docs/WorkflowGroupsResponse.md)
- - [WorkflowNote](docs/WorkflowNote.md)
- - [WorkflowTask](docs/WorkflowTask.md)
- - [WorkflowTaskHistory](docs/WorkflowTaskHistory.md)
- - [WorkflowTaskOpenCountResponse](docs/WorkflowTaskOpenCountResponse.md)
- - [WorkflowTaskResponse](docs/WorkflowTaskResponse.md)
- - [WorkflowTaskTagsResponse](docs/WorkflowTaskTagsResponse.md)
- - [WorkflowTasksRequest](docs/WorkflowTasksRequest.md)
- - [WorkflowTasksResponse](docs/WorkflowTasksResponse.md)
- - [WorkflowUser](docs/WorkflowUser.md)
- - [WorkflowUserResponse](docs/WorkflowUserResponse.md)
- - [WorkflowUsersResponse](docs/WorkflowUsersResponse.md)
 
 
 ## Documentation for Authorization
@@ -1693,6 +1510,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.55 | 02/02/2026 | conversations - add enumerated values for say voice on queue and agent |
 | 3.11.54 | 02/02/2026 | build error fix |
 | 3.11.53 | 02/02/2026 | conversations default pricing phone number settings |
 | 3.11.52 | 01/31/2026 | conversation - pbx call log objects |
