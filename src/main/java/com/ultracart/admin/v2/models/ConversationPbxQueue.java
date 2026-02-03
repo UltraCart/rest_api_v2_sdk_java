@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxQueue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:31:12.803-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:36:58.010-05:00[America/Indianapolis]")
 public class ConversationPbxQueue {
   /**
    * AI Agent Priority compared to human agents
@@ -151,9 +151,56 @@ public class ConversationPbxQueue {
   @SerializedName(SERIALIZED_NAME_NO_AGENT_AVAILABLE_SAY)
   private String noAgentAvailableSay;
 
+  /**
+   * The type of voice used to say text when no agent is available
+   */
+  @JsonAdapter(NoAgentAvailableSayVoiceEnum.Adapter.class)
+  public enum NoAgentAvailableSayVoiceEnum {
+    MAN("man"),
+    
+    WOMAN("woman");
+
+    private String value;
+
+    NoAgentAvailableSayVoiceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static NoAgentAvailableSayVoiceEnum fromValue(String value) {
+      for (NoAgentAvailableSayVoiceEnum b : NoAgentAvailableSayVoiceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<NoAgentAvailableSayVoiceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NoAgentAvailableSayVoiceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public NoAgentAvailableSayVoiceEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return NoAgentAvailableSayVoiceEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_NO_AGENT_AVAILABLE_SAY_VOICE = "no_agent_available_say_voice";
   @SerializedName(SERIALIZED_NAME_NO_AGENT_AVAILABLE_SAY_VOICE)
-  private String noAgentAvailableSayVoice;
+  private NoAgentAvailableSayVoiceEnum noAgentAvailableSayVoice;
 
   public static final String SERIALIZED_NAME_PLAY_AUDIO_UUID = "play_audio_uuid";
   @SerializedName(SERIALIZED_NAME_PLAY_AUDIO_UUID)
@@ -167,9 +214,56 @@ public class ConversationPbxQueue {
   @SerializedName(SERIALIZED_NAME_SAY)
   private String say;
 
+  /**
+   * The type of voice to use when say text is spoken
+   */
+  @JsonAdapter(SayVoiceEnum.Adapter.class)
+  public enum SayVoiceEnum {
+    MAN("man"),
+    
+    WOMAN("woman");
+
+    private String value;
+
+    SayVoiceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SayVoiceEnum fromValue(String value) {
+      for (SayVoiceEnum b : SayVoiceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SayVoiceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SayVoiceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SayVoiceEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SayVoiceEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_SAY_VOICE = "say_voice";
   @SerializedName(SERIALIZED_NAME_SAY_VOICE)
-  private String sayVoice;
+  private SayVoiceEnum sayVoice;
 
   public static final String SERIALIZED_NAME_TWILIO_TASKROUTER_WORKFLOW_SID = "twilio_taskrouter_workflow_sid";
   @SerializedName(SERIALIZED_NAME_TWILIO_TASKROUTER_WORKFLOW_SID)
@@ -497,7 +591,7 @@ public class ConversationPbxQueue {
   }
 
 
-  public ConversationPbxQueue noAgentAvailableSayVoice(String noAgentAvailableSayVoice) {
+  public ConversationPbxQueue noAgentAvailableSayVoice(NoAgentAvailableSayVoiceEnum noAgentAvailableSayVoice) {
     
     this.noAgentAvailableSayVoice = noAgentAvailableSayVoice;
     return this;
@@ -510,12 +604,12 @@ public class ConversationPbxQueue {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The type of voice used to say text when no agent is available")
 
-  public String getNoAgentAvailableSayVoice() {
+  public NoAgentAvailableSayVoiceEnum getNoAgentAvailableSayVoice() {
     return noAgentAvailableSayVoice;
   }
 
 
-  public void setNoAgentAvailableSayVoice(String noAgentAvailableSayVoice) {
+  public void setNoAgentAvailableSayVoice(NoAgentAvailableSayVoiceEnum noAgentAvailableSayVoice) {
     this.noAgentAvailableSayVoice = noAgentAvailableSayVoice;
   }
 
@@ -589,7 +683,7 @@ public class ConversationPbxQueue {
   }
 
 
-  public ConversationPbxQueue sayVoice(String sayVoice) {
+  public ConversationPbxQueue sayVoice(SayVoiceEnum sayVoice) {
     
     this.sayVoice = sayVoice;
     return this;
@@ -602,12 +696,12 @@ public class ConversationPbxQueue {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The type of voice to use when say text is spoken")
 
-  public String getSayVoice() {
+  public SayVoiceEnum getSayVoice() {
     return sayVoice;
   }
 
 
-  public void setSayVoice(String sayVoice) {
+  public void setSayVoice(SayVoiceEnum sayVoice) {
     this.sayVoice = sayVoice;
   }
 

@@ -20,11 +20,11 @@
 |**name** | **String** | Name of queue |  [optional] |
 |**noAgentAvailablePlayAudioUuid** | **String** | When no agent is available after the max_hold_seconds, say this |  [optional] |
 |**noAgentAvailableSay** | **String** | When no agent is available after the max_hold_seconds, say this |  [optional] |
-|**noAgentAvailableSayVoice** | **String** | The type of voice used to say text when no agent is available |  [optional] |
+|**noAgentAvailableSayVoice** | [**NoAgentAvailableSayVoiceEnum**](#NoAgentAvailableSayVoiceEnum) | The type of voice used to say text when no agent is available |  [optional] |
 |**playAudioUuid** | **String** | Audio played when customer enters a queue |  [optional] |
 |**recordCall** | **Boolean** | If true, any calls in this queue are recorded |  [optional] |
 |**say** | **String** | Say text when a customer enters queue |  [optional] |
-|**sayVoice** | **String** | The type of voice to use when say text is spoken |  [optional] |
+|**sayVoice** | [**SayVoiceEnum**](#SayVoiceEnum) | The type of voice to use when say text is spoken |  [optional] |
 |**twilioTaskrouterWorkflowSid** | **String** | Twilio taskrouter workflow sid |  [optional] |
 |**twilioWorkspaceQueueSid** | **String** | Twilio workspace queue sid |  [optional] |
 |**voicemail** | **Boolean** | If true, this queue has a voicemail associated with it |  [optional] |
@@ -41,6 +41,24 @@
 | NEUTRAL | &quot;neutral&quot; |
 | FIRST | &quot;first&quot; |
 | BACKUP | &quot;backup&quot; |
+
+
+
+## Enum: NoAgentAvailableSayVoiceEnum
+
+| Name | Value |
+|---- | -----|
+| MAN | &quot;man&quot; |
+| WOMAN | &quot;woman&quot; |
+
+
+
+## Enum: SayVoiceEnum
+
+| Name | Value |
+|---- | -----|
+| MAN | &quot;man&quot; |
+| WOMAN | &quot;woman&quot; |
 
 
 

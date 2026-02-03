@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:31:12.803-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:36:58.010-05:00[America/Indianapolis]")
 public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_CHAT_ADMIN = "chat_admin";
   @SerializedName(SERIALIZED_NAME_CHAT_ADMIN)
@@ -67,6 +67,10 @@ public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_NAME = "conversation_participant_name";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_NAME)
   private String conversationParticipantName;
+
+  public static final String SERIALIZED_NAME_DEFAULT_PHONE_NUMBER = "default_phone_number";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PHONE_NUMBER)
+  private String defaultPhoneNumber;
 
   public static final String SERIALIZED_NAME_GROUP_IDS = "group_ids";
   @SerializedName(SERIALIZED_NAME_GROUP_IDS)
@@ -216,6 +220,29 @@ public class ConversationAgentAuth {
 
   public void setConversationParticipantName(String conversationParticipantName) {
     this.conversationParticipantName = conversationParticipantName;
+  }
+
+
+  public ConversationAgentAuth defaultPhoneNumber(String defaultPhoneNumber) {
+    
+    this.defaultPhoneNumber = defaultPhoneNumber;
+    return this;
+  }
+
+   /**
+   * The default phone number this agent should use when making an outbound call.
+   * @return defaultPhoneNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The default phone number this agent should use when making an outbound call.")
+
+  public String getDefaultPhoneNumber() {
+    return defaultPhoneNumber;
+  }
+
+
+  public void setDefaultPhoneNumber(String defaultPhoneNumber) {
+    this.defaultPhoneNumber = defaultPhoneNumber;
   }
 
 
@@ -571,6 +598,7 @@ public class ConversationAgentAuth {
         Objects.equals(this.chatUser, conversationAgentAuth.chatUser) &&
         Objects.equals(this.conversationParticipantArn, conversationAgentAuth.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationAgentAuth.conversationParticipantName) &&
+        Objects.equals(this.defaultPhoneNumber, conversationAgentAuth.defaultPhoneNumber) &&
         Objects.equals(this.groupIds, conversationAgentAuth.groupIds) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
         Objects.equals(this.merchantId, conversationAgentAuth.merchantId) &&
@@ -589,7 +617,7 @@ public class ConversationAgentAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
+    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, defaultPhoneNumber, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
   }
 
   @Override
@@ -600,6 +628,7 @@ public class ConversationAgentAuth {
     sb.append("    chatUser: ").append(toIndentedString(chatUser)).append("\n");
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
+    sb.append("    defaultPhoneNumber: ").append(toIndentedString(defaultPhoneNumber)).append("\n");
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
@@ -640,6 +669,7 @@ public class ConversationAgentAuth {
     openapiFields.add("chat_user");
     openapiFields.add("conversation_participant_arn");
     openapiFields.add("conversation_participant_name");
+    openapiFields.add("default_phone_number");
     openapiFields.add("group_ids");
     openapiFields.add("jwt");
     openapiFields.add("merchant_id");
@@ -686,6 +716,9 @@ public class ConversationAgentAuth {
       }
       if (jsonObj.get("conversation_participant_name") != null && !jsonObj.get("conversation_participant_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_participant_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_participant_name").toString()));
+      }
+      if (jsonObj.get("default_phone_number") != null && !jsonObj.get("default_phone_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_phone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_phone_number").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("group_ids") != null && !jsonObj.get("group_ids").isJsonArray()) {

@@ -49,11 +49,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Twilio
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:31:12.803-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:36:58.010-05:00[America/Indianapolis]")
 public class Twilio {
   public static final String SERIALIZED_NAME_ACCOUNT_SID = "account_sid";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_SID)
   private String accountSid;
+
+  public static final String SERIALIZED_NAME_AI_TWIML_APP_SID = "ai_twiml_app_sid";
+  @SerializedName(SERIALIZED_NAME_AI_TWIML_APP_SID)
+  private String aiTwimlAppSid;
 
   public static final String SERIALIZED_NAME_API_KEY_ID = "api_key_id";
   @SerializedName(SERIALIZED_NAME_API_KEY_ID)
@@ -110,6 +114,29 @@ public class Twilio {
 
   public void setAccountSid(String accountSid) {
     this.accountSid = accountSid;
+  }
+
+
+  public Twilio aiTwimlAppSid(String aiTwimlAppSid) {
+    
+    this.aiTwimlAppSid = aiTwimlAppSid;
+    return this;
+  }
+
+   /**
+   * Get aiTwimlAppSid
+   * @return aiTwimlAppSid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAiTwimlAppSid() {
+    return aiTwimlAppSid;
+  }
+
+
+  public void setAiTwimlAppSid(String aiTwimlAppSid) {
+    this.aiTwimlAppSid = aiTwimlAppSid;
   }
 
 
@@ -316,6 +343,7 @@ public class Twilio {
     }
     Twilio twilio = (Twilio) o;
     return Objects.equals(this.accountSid, twilio.accountSid) &&
+        Objects.equals(this.aiTwimlAppSid, twilio.aiTwimlAppSid) &&
         Objects.equals(this.apiKeyId, twilio.apiKeyId) &&
         Objects.equals(this.apiKeyName, twilio.apiKeyName) &&
         Objects.equals(this.authToken, twilio.authToken) &&
@@ -328,7 +356,7 @@ public class Twilio {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountSid, apiKeyId, apiKeyName, authToken, espTwilioUuid, inboundTwimlAppSid, outboundTwimlAppSid, phoneNumbers, twilioWorkspaceSid);
+    return Objects.hash(accountSid, aiTwimlAppSid, apiKeyId, apiKeyName, authToken, espTwilioUuid, inboundTwimlAppSid, outboundTwimlAppSid, phoneNumbers, twilioWorkspaceSid);
   }
 
   @Override
@@ -336,6 +364,7 @@ public class Twilio {
     StringBuilder sb = new StringBuilder();
     sb.append("class Twilio {\n");
     sb.append("    accountSid: ").append(toIndentedString(accountSid)).append("\n");
+    sb.append("    aiTwimlAppSid: ").append(toIndentedString(aiTwimlAppSid)).append("\n");
     sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
     sb.append("    apiKeyName: ").append(toIndentedString(apiKeyName)).append("\n");
     sb.append("    authToken: ").append(toIndentedString(authToken)).append("\n");
@@ -367,6 +396,7 @@ public class Twilio {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("account_sid");
+    openapiFields.add("ai_twiml_app_sid");
     openapiFields.add("api_key_id");
     openapiFields.add("api_key_name");
     openapiFields.add("auth_token");
@@ -404,6 +434,9 @@ public class Twilio {
       }
       if (jsonObj.get("account_sid") != null && !jsonObj.get("account_sid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `account_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_sid").toString()));
+      }
+      if (jsonObj.get("ai_twiml_app_sid") != null && !jsonObj.get("ai_twiml_app_sid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_twiml_app_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_twiml_app_sid").toString()));
       }
       if (jsonObj.get("api_key_id") != null && !jsonObj.get("api_key_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `api_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key_id").toString()));

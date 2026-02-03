@@ -11,6 +11,7 @@
 |**chatUser** | **Boolean** |  |  [optional] |
 |**conversationParticipantArn** | **String** |  |  [optional] |
 |**conversationParticipantName** | **String** |  |  [optional] |
+|**defaultPhoneNumber** | **String** | The default phone number this agent should use when making an outbound call. |  [optional] |
 |**groupIds** | **List&lt;Integer&gt;** | UltraCart Groups this user belongs to |  [optional] |
 |**jwt** | **String** |  |  [optional] |
 |**merchantId** | **String** |  |  [optional] |

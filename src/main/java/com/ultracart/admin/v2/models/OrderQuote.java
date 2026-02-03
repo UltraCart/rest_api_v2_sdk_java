@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderQuote
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:31:12.803-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:36:58.010-05:00[America/Indianapolis]")
 public class OrderQuote {
   public static final String SERIALIZED_NAME_QUOTE_EXPIRATION_DTS = "quote_expiration_dts";
   @SerializedName(SERIALIZED_NAME_QUOTE_EXPIRATION_DTS)

@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAgent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:31:12.803-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:36:58.010-05:00[America/Indianapolis]")
 public class ConversationPbxAgent {
   public static final String SERIALIZED_NAME_AI = "ai";
   @SerializedName(SERIALIZED_NAME_AI)
@@ -116,6 +116,10 @@ public class ConversationPbxAgent {
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_AGENT_UUID)
   private String conversationPbxAgentUuid;
 
+  public static final String SERIALIZED_NAME_COS_UUID = "cos_uuid";
+  @SerializedName(SERIALIZED_NAME_COS_UUID)
+  private String cosUuid;
+
   public static final String SERIALIZED_NAME_DEFAULT_PHONE_NUMBER_UUID = "default_phone_number_uuid";
   @SerializedName(SERIALIZED_NAME_DEFAULT_PHONE_NUMBER_UUID)
   private String defaultPhoneNumberUuid;
@@ -168,9 +172,56 @@ public class ConversationPbxAgent {
   @SerializedName(SERIALIZED_NAME_UNAVAILABLE_SAY)
   private String unavailableSay;
 
+  /**
+   * Unavailable say voice
+   */
+  @JsonAdapter(UnavailableSayVoiceEnum.Adapter.class)
+  public enum UnavailableSayVoiceEnum {
+    MAN("man"),
+    
+    WOMAN("woman");
+
+    private String value;
+
+    UnavailableSayVoiceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UnavailableSayVoiceEnum fromValue(String value) {
+      for (UnavailableSayVoiceEnum b : UnavailableSayVoiceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<UnavailableSayVoiceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UnavailableSayVoiceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UnavailableSayVoiceEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return UnavailableSayVoiceEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_UNAVAILABLE_SAY_VOICE = "unavailable_say_voice";
   @SerializedName(SERIALIZED_NAME_UNAVAILABLE_SAY_VOICE)
-  private String unavailableSayVoice;
+  private UnavailableSayVoiceEnum unavailableSayVoice;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -272,6 +323,29 @@ public class ConversationPbxAgent {
 
   public void setConversationPbxAgentUuid(String conversationPbxAgentUuid) {
     this.conversationPbxAgentUuid = conversationPbxAgentUuid;
+  }
+
+
+  public ConversationPbxAgent cosUuid(String cosUuid) {
+    
+    this.cosUuid = cosUuid;
+    return this;
+  }
+
+   /**
+   * Class of Service UUID. If null, the merchant default CoS applies.
+   * @return cosUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Class of Service UUID. If null, the merchant default CoS applies.")
+
+  public String getCosUuid() {
+    return cosUuid;
+  }
+
+
+  public void setCosUuid(String cosUuid) {
+    this.cosUuid = cosUuid;
   }
 
 
@@ -582,7 +656,7 @@ public class ConversationPbxAgent {
   }
 
 
-  public ConversationPbxAgent unavailableSayVoice(String unavailableSayVoice) {
+  public ConversationPbxAgent unavailableSayVoice(UnavailableSayVoiceEnum unavailableSayVoice) {
     
     this.unavailableSayVoice = unavailableSayVoice;
     return this;
@@ -595,12 +669,12 @@ public class ConversationPbxAgent {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Unavailable say voice")
 
-  public String getUnavailableSayVoice() {
+  public UnavailableSayVoiceEnum getUnavailableSayVoice() {
     return unavailableSayVoice;
   }
 
 
-  public void setUnavailableSayVoice(String unavailableSayVoice) {
+  public void setUnavailableSayVoice(UnavailableSayVoiceEnum unavailableSayVoice) {
     this.unavailableSayVoice = unavailableSayVoice;
   }
 
@@ -665,6 +739,7 @@ public class ConversationPbxAgent {
         Objects.equals(this.callRoutingPreference, conversationPbxAgent.callRoutingPreference) &&
         Objects.equals(this.cellphone, conversationPbxAgent.cellphone) &&
         Objects.equals(this.conversationPbxAgentUuid, conversationPbxAgent.conversationPbxAgentUuid) &&
+        Objects.equals(this.cosUuid, conversationPbxAgent.cosUuid) &&
         Objects.equals(this.defaultPhoneNumberUuid, conversationPbxAgent.defaultPhoneNumberUuid) &&
         Objects.equals(this.extension, conversationPbxAgent.extension) &&
         Objects.equals(this.fullName, conversationPbxAgent.fullName) &&
@@ -685,7 +760,7 @@ public class ConversationPbxAgent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, defaultPhoneNumberUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
+    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, cosUuid, defaultPhoneNumberUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
   }
 
   @Override
@@ -696,6 +771,7 @@ public class ConversationPbxAgent {
     sb.append("    callRoutingPreference: ").append(toIndentedString(callRoutingPreference)).append("\n");
     sb.append("    cellphone: ").append(toIndentedString(cellphone)).append("\n");
     sb.append("    conversationPbxAgentUuid: ").append(toIndentedString(conversationPbxAgentUuid)).append("\n");
+    sb.append("    cosUuid: ").append(toIndentedString(cosUuid)).append("\n");
     sb.append("    defaultPhoneNumberUuid: ").append(toIndentedString(defaultPhoneNumberUuid)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
@@ -738,6 +814,7 @@ public class ConversationPbxAgent {
     openapiFields.add("call_routing_preference");
     openapiFields.add("cellphone");
     openapiFields.add("conversation_pbx_agent_uuid");
+    openapiFields.add("cos_uuid");
     openapiFields.add("default_phone_number_uuid");
     openapiFields.add("extension");
     openapiFields.add("full_name");
@@ -789,6 +866,9 @@ public class ConversationPbxAgent {
       }
       if (jsonObj.get("conversation_pbx_agent_uuid") != null && !jsonObj.get("conversation_pbx_agent_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_agent_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_agent_uuid").toString()));
+      }
+      if (jsonObj.get("cos_uuid") != null && !jsonObj.get("cos_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cos_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cos_uuid").toString()));
       }
       if (jsonObj.get("default_phone_number_uuid") != null && !jsonObj.get("default_phone_number_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `default_phone_number_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_phone_number_uuid").toString()));

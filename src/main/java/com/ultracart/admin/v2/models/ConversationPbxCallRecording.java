@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCallRecording
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:31:12.803-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:36:58.010-05:00[America/Indianapolis]")
 public class ConversationPbxCallRecording {
   public static final String SERIALIZED_NAME_CHANNELS = "channels";
   @SerializedName(SERIALIZED_NAME_CHANNELS)
@@ -61,6 +61,10 @@ public class ConversationPbxCallRecording {
   public static final String SERIALIZED_NAME_IS_PRIMARY = "is_primary";
   @SerializedName(SERIALIZED_NAME_IS_PRIMARY)
   private Boolean isPrimary;
+
+  public static final String SERIALIZED_NAME_RECORDING_S3_KEY = "recording_s3_key";
+  @SerializedName(SERIALIZED_NAME_RECORDING_S3_KEY)
+  private String recordingS3Key;
 
   public static final String SERIALIZED_NAME_RECORDING_SID = "recording_sid";
   @SerializedName(SERIALIZED_NAME_RECORDING_SID)
@@ -147,6 +151,29 @@ public class ConversationPbxCallRecording {
 
   public void setIsPrimary(Boolean isPrimary) {
     this.isPrimary = isPrimary;
+  }
+
+
+  public ConversationPbxCallRecording recordingS3Key(String recordingS3Key) {
+    
+    this.recordingS3Key = recordingS3Key;
+    return this;
+  }
+
+   /**
+   * S3 key for the recording audio file
+   * @return recordingS3Key
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "S3 key for the recording audio file")
+
+  public String getRecordingS3Key() {
+    return recordingS3Key;
+  }
+
+
+  public void setRecordingS3Key(String recordingS3Key) {
+    this.recordingS3Key = recordingS3Key;
   }
 
 
@@ -255,6 +282,7 @@ public class ConversationPbxCallRecording {
     return Objects.equals(this.channels, conversationPbxCallRecording.channels) &&
         Objects.equals(this.durationSeconds, conversationPbxCallRecording.durationSeconds) &&
         Objects.equals(this.isPrimary, conversationPbxCallRecording.isPrimary) &&
+        Objects.equals(this.recordingS3Key, conversationPbxCallRecording.recordingS3Key) &&
         Objects.equals(this.recordingSid, conversationPbxCallRecording.recordingSid) &&
         Objects.equals(this.recordingUrl, conversationPbxCallRecording.recordingUrl) &&
         Objects.equals(this.status, conversationPbxCallRecording.status) &&
@@ -263,7 +291,7 @@ public class ConversationPbxCallRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(channels, durationSeconds, isPrimary, recordingSid, recordingUrl, status, transcript);
+    return Objects.hash(channels, durationSeconds, isPrimary, recordingS3Key, recordingSid, recordingUrl, status, transcript);
   }
 
   @Override
@@ -273,6 +301,7 @@ public class ConversationPbxCallRecording {
     sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("    durationSeconds: ").append(toIndentedString(durationSeconds)).append("\n");
     sb.append("    isPrimary: ").append(toIndentedString(isPrimary)).append("\n");
+    sb.append("    recordingS3Key: ").append(toIndentedString(recordingS3Key)).append("\n");
     sb.append("    recordingSid: ").append(toIndentedString(recordingSid)).append("\n");
     sb.append("    recordingUrl: ").append(toIndentedString(recordingUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -302,6 +331,7 @@ public class ConversationPbxCallRecording {
     openapiFields.add("channels");
     openapiFields.add("duration_seconds");
     openapiFields.add("is_primary");
+    openapiFields.add("recording_s3_key");
     openapiFields.add("recording_sid");
     openapiFields.add("recording_url");
     openapiFields.add("status");
@@ -332,6 +362,9 @@ public class ConversationPbxCallRecording {
         if (!ConversationPbxCallRecording.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationPbxCallRecording` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("recording_s3_key") != null && !jsonObj.get("recording_s3_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recording_s3_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recording_s3_key").toString()));
       }
       if (jsonObj.get("recording_sid") != null && !jsonObj.get("recording_sid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recording_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recording_sid").toString()));
